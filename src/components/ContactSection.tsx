@@ -15,7 +15,7 @@ const ContactSection = () => {
           <div className="text-center p-10 md:p-16 rounded-3xl bg-gradient-card border border-border">
             <span className="text-primary text-sm font-medium uppercase tracking-wider">Let's Talk</span>
             <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
-              Get a Free Support Audit
+              Start With a Free Workflow Audit
             </h2>
             <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
               Book a 30-minute call. We'll walk through your current workflows, identify the biggest time sinks, and discuss what's worth automating first.
@@ -27,7 +27,7 @@ const ContactSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
                 <Calendar className="w-5 h-5" />
-                Book a Support Setup Review
+                Book a Free Workflow Audit
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
