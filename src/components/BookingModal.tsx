@@ -102,7 +102,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md bg-background border-border">
         <DialogHeader>
-          <DialogTitle className="font-display text-xl">Book a Free Workflow Audit</DialogTitle>
+          <DialogTitle className="font-display text-xl">Book a Support Setup Review</DialogTitle>
           <DialogDescription>Leave your details and I'll reach out to schedule a 30-minute call. No commitment, no pitch.</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
