@@ -212,6 +212,33 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     setIsSubmitting(true);
 
+    // If Zoom or Google Meet is selected, redirect to Calendly
+    if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
+      const calendlyUrl = `https://calendly.com/romanzakharenko-r/free-30-minute-support-automation-review`;
+      // Pre-fill Calendly with user data if possible
+      const params = new URLSearchParams();
+      if (fullName) params.append("name", fullName);
+      if (email) params.append("email", email);
+      if (companyName) params.append("a1", companyName); // Custom field for company
+      
+      const finalUrl = calendlyUrl + (params.toString() ? `?${params.toString()}` : '');
+      window.open(finalUrl, '_blank');
+      
+      // Reset form and close modal
+      setFullName("");
+      setEmail("");
+      setCompanyName("");
+      setMeetingMethod("zoom");
+      setPhone("");
+      setTelegram("");
+      setErrors({});
+      setTouched({});
+      setIsSubmitting(false);
+      onOpenChange(false);
+      return;
+    }
+
+    // For other meeting methods (Phone, WhatsApp, Telegram), show success message
     setTimeout(() => {
       toast({
         title: "Request sent! I'll be in touch within 24 hours.",

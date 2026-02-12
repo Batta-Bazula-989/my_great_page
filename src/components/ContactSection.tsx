@@ -1,13 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, ArrowUpRight, Calendar, Send } from "lucide-react";
+import BookingModal from "@/components/BookingModal";
 
 const ContactSection = () => {
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById("booking");
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
     <section id="contact" className="py-24 relative">
@@ -28,9 +25,9 @@ const ContactSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <Button variant="hero" size="xl" onClick={scrollToBooking}>
+              <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
                 <Calendar className="w-5 h-5" />
-                Book Free Support Automation Review
+                Book a Free Workflow Audit
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
@@ -58,6 +55,8 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
