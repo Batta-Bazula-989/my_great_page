@@ -49,6 +49,7 @@ const schema = z.object({
     }, "Company Name must be between 2 and 100 characters"),
   meetingMethod: z.string().optional(),
   phone: z.string().trim().optional(),
+  telegram: z.string().trim().optional(),
 });
 
 const phoneSchema = z.object({
@@ -59,6 +60,22 @@ const phoneSchema = z.object({
     .regex(/^[\d\s()+.-]{7,20}$/, "Please enter a valid phone number"),
 });
 
+const telegramSchema = z.object({
+  telegram: z.string().trim()
+    .min(1, "Telegram link or username is required")
+    .refine((val) => {
+      // Normalize the input: remove protocol, t.me/, and @ prefix
+      let normalized = val.trim();
+      normalized = normalized.replace(/^https?:\/\//, '');
+      normalized = normalized.replace(/^t\.me\//, '');
+      normalized = normalized.replace(/^@/, '');
+      
+      // Telegram usernames are 5-32 characters, alphanumeric and underscores only
+      const telegramPattern = /^[a-zA-Z0-9_]{5,32}$/;
+      return telegramPattern.test(normalized);
+    }, "Please enter a valid Telegram link (e.g., https://t.me/username) or username (e.g., @username)"),
+});
+
 const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const { toast } = useToast();
   const [fullName, setFullName] = useState("");
@@ -66,22 +83,26 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const [companyName, setCompanyName] = useState("");
   const [meetingMethod, setMeetingMethod] = useState("zoom");
   const [phone, setPhone] = useState("");
+  const [telegram, setTelegram] = useState("");
   const [errors, setErrors] = useState<{ 
     fullName?: string; 
     email?: string; 
     companyName?: string;
     meetingMethod?: string;
     phone?: string;
+    telegram?: string;
   }>({});
   const [touched, setTouched] = useState<{
     fullName?: boolean;
     email?: boolean;
     companyName?: boolean;
     phone?: boolean;
+    telegram?: boolean;
   }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const needsPhone = meetingMethod === "phone" || meetingMethod === "whatsapp" || meetingMethod === "telegram";
+  const needsPhone = meetingMethod === "phone" || meetingMethod === "whatsapp";
+  const needsTelegram = meetingMethod === "telegram";
 
   // Validate individual field
   const validateField = (fieldName: keyof typeof errors, value: string) => {
@@ -116,6 +137,11 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       if (!result.success) {
         return result.error.errors[0]?.message || "";
       }
+    } else if (fieldName === "telegram" && needsTelegram) {
+      const result = telegramSchema.safeParse({ telegram: value });
+      if (!result.success) {
+        return result.error.errors[0]?.message || "";
+      }
     }
     return "";
   };
@@ -127,6 +153,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     else if (fieldName === "email") value = email;
     else if (fieldName === "companyName") value = companyName;
     else if (fieldName === "phone") value = phone;
+    else if (fieldName === "telegram") value = telegram;
 
     const error = validateField(fieldName, value);
     setErrors(prev => ({ ...prev, [fieldName]: error || undefined }));
@@ -135,7 +162,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
-    setTouched({ fullName: true, email: true, companyName: true, phone: true });
+    setTouched({ fullName: true, email: true, companyName: true, phone: true, telegram: true });
 
     // Validate main form
     const result = schema.safeParse({ 
@@ -144,6 +171,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       companyName, 
       meetingMethod,
       phone: needsPhone ? phone : undefined,
+      telegram: needsTelegram ? telegram : undefined,
     });
 
     if (!result.success) {
@@ -169,6 +197,19 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       }
     }
 
+    // Validate telegram if needed
+    if (needsTelegram) {
+      const telegramResult = telegramSchema.safeParse({ telegram });
+      if (!telegramResult.success) {
+        telegramResult.error.errors.forEach((err) => {
+          if (err.path[0] === "telegram") {
+            setErrors(prev => ({ ...prev, telegram: err.message }));
+          }
+        });
+        return;
+      }
+    }
+
     setIsSubmitting(true);
 
     setTimeout(() => {
@@ -180,6 +221,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       setCompanyName("");
       setMeetingMethod("zoom");
       setPhone("");
+      setTelegram("");
       setErrors({});
       setTouched({});
       setIsSubmitting(false);
@@ -189,12 +231,21 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
   const handleMeetingMethodChange = (value: string) => {
     setMeetingMethod(value);
-    // Clear phone field and errors when switching away from phone/whatsapp/telegram
-    if (value !== "phone" && value !== "whatsapp" && value !== "telegram") {
+    // Clear phone field and errors when switching away from phone/whatsapp
+    if (value !== "phone" && value !== "whatsapp") {
       setPhone("");
       setErrors(prev => {
         const newErrors = { ...prev };
         delete newErrors.phone;
+        return newErrors;
+      });
+    }
+    // Clear telegram field and errors when switching away from telegram
+    if (value !== "telegram") {
+      setTelegram("");
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.telegram;
         return newErrors;
       });
     }
@@ -332,6 +383,33 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
               />
               {errors.phone && (
                 <p className="text-sm text-destructive">{errors.phone}</p>
+              )}
+            </div>
+          )}
+
+          {needsTelegram && (
+            <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
+              <Label htmlFor="telegram">
+                Telegram Link or Username<span className="text-destructive ml-1">*</span>
+              </Label>
+              <Input
+                id="telegram"
+                type="text"
+                value={telegram}
+                onChange={(e) => {
+                  setTelegram(e.target.value);
+                  if (touched.telegram) {
+                    const error = validateField("telegram", e.target.value);
+                    setErrors(prev => ({ ...prev, telegram: error || undefined }));
+                  }
+                }}
+                onBlur={() => handleBlur("telegram")}
+                placeholder="https://t.me/username or @username"
+                maxLength={100}
+                className={errors.telegram ? "border-destructive" : ""}
+              />
+              {errors.telegram && (
+                <p className="text-sm text-destructive">{errors.telegram}</p>
               )}
             </div>
           )}
