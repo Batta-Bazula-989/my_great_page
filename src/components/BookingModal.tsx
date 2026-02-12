@@ -260,7 +260,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             Leave your details and I'll reach out to schedule a 30-minute call. No commitment, no pitch.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-4 mt-4" autoComplete="off">
           <div className="space-y-2">
             <Label htmlFor="fullName">
               Full Name<span className="text-destructive ml-1">*</span>
@@ -330,6 +330,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
               onBlur={() => handleBlur("companyName")}
               placeholder="Acme Inc."
               maxLength={100}
+              autoComplete="off"
               className={errors.companyName ? "border-destructive" : ""}
             />
             {errors.companyName && (
