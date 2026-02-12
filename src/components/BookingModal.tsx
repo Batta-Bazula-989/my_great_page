@@ -443,12 +443,31 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           )}
 
           <Button
-            type="submit"
+            type={meetingMethod === "zoom" || meetingMethod === "google-meet" ? "button" : "submit"}
             variant="hero"
             className="w-full mt-6"
             disabled={isSubmitting}
+            onClick={(e) => {
+              if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
+                e.preventDefault();
+                // Redirect to Calendly immediately for Zoom/Google Meet
+                const calendlyUrl = `https://calendly.com/romanzakharenko-r/free-30-minute-support-automation-review`;
+                const params = new URLSearchParams();
+                if (fullName.trim()) params.append("name", fullName.trim());
+                if (email.trim()) params.append("email", email.trim());
+                if (companyName.trim()) params.append("a1", companyName.trim());
+                
+                const finalUrl = calendlyUrl + (params.toString() ? `?${params.toString()}` : '');
+                window.open(finalUrl, '_blank');
+                onOpenChange(false);
+              }
+            }}
           >
-            {isSubmitting ? "Sending..." : "Book Free Support Review"}
+            {meetingMethod === "zoom" || meetingMethod === "google-meet" 
+              ? "Continue to Calendar" 
+              : isSubmitting 
+              ? "Sending..." 
+              : "Book Free Support Review"}
           </Button>
         </form>
       </DialogContent>
