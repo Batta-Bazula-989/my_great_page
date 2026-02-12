@@ -35,11 +35,11 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <span className="text-primary text-sm font-medium uppercase tracking-wider">
             FAQ
           </span>

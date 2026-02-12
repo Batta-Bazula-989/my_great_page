@@ -43,7 +43,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button variant="hero" size="sm" asChild>
-              <a href="#contact">Get a Free Support Audit</a>
+              <a href="#contact">Get a Workflow Audit</a>
             </Button>
           </div>
 
@@ -71,7 +71,7 @@ const Navbar = () => {
                 </a>
               ))}
               <Button variant="hero" size="sm" asChild>
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Support Audit</a>
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Workflow Audit</a>
               </Button>
             </div>
           </div>

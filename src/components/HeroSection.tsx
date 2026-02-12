@@ -36,7 +36,7 @@ const HeroSection = () => {
 
             <div className="flex justify-center lg:justify-start animate-fade-up-delay-2">
               <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
-                Optimize My Support Operations
+                Get a Free Workflow Audit
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
