@@ -214,7 +214,8 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     // If Zoom or Google Meet is selected, redirect to Calendly
     if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
-      const calendlyUrl = `https://calendly.com/romanzakharenko-r/free-30-minute-support-automation-review`;
+      // Update the event type slug below to match your actual Calendly event type
+      const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
       // Pre-fill Calendly with user data if possible
       const params = new URLSearchParams();
       if (fullName) params.append("name", fullName);
@@ -451,7 +452,8 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
               if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
                 e.preventDefault();
                 // Redirect to Calendly immediately for Zoom/Google Meet
-                const calendlyUrl = `https://calendly.com/romanzakharenko-r/free-30-minute-support-automation-review`;
+                // Update the event type slug below to match your actual Calendly event type
+                const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
                 const params = new URLSearchParams();
                 if (fullName.trim()) params.append("name", fullName.trim());
                 if (email.trim()) params.append("email", email.trim());
