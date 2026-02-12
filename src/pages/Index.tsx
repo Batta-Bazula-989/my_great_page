@@ -6,6 +6,7 @@ import WhoForSection from "@/components/WhoForSection";
 import WhyMeSection from "@/components/WhyMeSection";
 import OutcomeSection from "@/components/OutcomeSection";
 import FAQSection from "@/components/FAQSection";
+import CalendlyBooking from "@/components/CalendlyBooking";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <WhyMeSection />
       <OutcomeSection />
       <FAQSection />
+      <CalendlyBooking />
       <ContactSection />
       <Footer />
     </main>

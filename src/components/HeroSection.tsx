@@ -1,11 +1,14 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import profileImage from "@/assets/profile.jpeg";
-import BookingModal from "@/components/BookingModal";
 
 const HeroSection = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const scrollToBooking = () => {
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
@@ -35,8 +38,8 @@ const HeroSection = () => {
             </p>
 
             <div className="flex justify-center lg:justify-start animate-fade-up-delay-2">
-              <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
-                Get a Free Workflow Audit
+              <Button variant="hero" size="xl" onClick={scrollToBooking}>
+                Book Free Support Automation Review
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
@@ -69,8 +72,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
