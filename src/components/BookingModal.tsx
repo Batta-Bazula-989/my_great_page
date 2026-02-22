@@ -52,12 +52,33 @@ const schema = z.object({
   telegram: z.string().trim().optional(),
 });
 
+// Allowed country calling codes: EU, USA, Canada, Australia, Armenia, Georgia, Turkey, UAE, UK, Switzerland, Norway, Iceland, Russia, Japan, South Korea, NZ, Israel, Singapore, and other major economies
+const ALLOWED_PHONE_COUNTRY_CODES = [
+  "1",     // USA, Canada
+  "7",     // Russia, Kazakhstan
+  "30", "31", "32", "33", "34", "36", "39", "40", "41", "43", "44", "45", "46", "47", "48", "49", // EU + UK, CH, NO
+  "61", "64", "65", "81", "82", "90", "91", // Australia, NZ, Singapore, Japan, South Korea, Turkey, India
+  "351", "352", "353", "354", "355", "356", "357", "358", "359", "370", "371", "372", "373", "374", "375", "376", "377", "378", "380", "381", "382", "385", "386", "387", "389", // EU + Armenia, Georgia (995), Iceland, etc.
+  "420", "421", "423", // Czech, Slovakia, Liechtenstein
+  "852", "971", "972", "995", // Hong Kong, UAE, Israel, Georgia
+].sort((a, b) => b.length - a.length); // longest first for matching
+
+function phoneHasAllowedCountryCode(phone: string): boolean {
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length < 7) return false;
+  for (const code of ALLOWED_PHONE_COUNTRY_CODES) {
+    if (digits === code || digits.startsWith(code)) return true;
+  }
+  return false;
+}
+
 const phoneSchema = z.object({
   phone: z.string().trim()
     .min(1, "Phone number is required")
     .min(7, "Phone number must be at least 7 digits")
     .max(20, "Phone number must be less than 20 characters")
-    .regex(/^[\d\s()+.-]{7,20}$/, "Please enter a valid phone number"),
+    .regex(/^[\d\s()+.-]{7,20}$/, "Please enter a valid phone number (digits, spaces, + - . ( ) only)")
+    .refine(phoneHasAllowedCountryCode, "Use a phone number from an allowed country (EU, USA, Canada, Australia, Armenia, Georgia, Turkey, UAE, UK, and other supported countries)"),
 });
 
 const telegramSchema = z.object({
