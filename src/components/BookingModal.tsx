@@ -55,7 +55,6 @@ const schema = z.object({
 // Country code dropdown: code + label for select
 const PHONE_COUNTRY_OPTIONS: { code: string; label: string }[] = [
   { code: "1", label: "United States / Canada +1" },
-  { code: "7", label: "Russia +7" },
   { code: "30", label: "Greece +30" },
   { code: "31", label: "Netherlands +31" },
   { code: "32", label: "Belgium +32" },
@@ -93,7 +92,6 @@ const PHONE_COUNTRY_OPTIONS: { code: string; label: string }[] = [
   { code: "372", label: "Estonia +372" },
   { code: "373", label: "Moldova +373" },
   { code: "374", label: "Armenia +374" },
-  { code: "375", label: "Belarus +375" },
   { code: "376", label: "Andorra +376" },
   { code: "377", label: "Monaco +377" },
   { code: "378", label: "San Marino +378" },
