@@ -212,6 +212,21 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     setIsSubmitting(true);
 
+    // Send booking details to Telegram (fire-and-forget)
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/booking`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: fullName.trim(),
+        email: email.trim(),
+        companyName: companyName.trim() || undefined,
+        meetingMethod,
+        phone: needsPhone ? phone.trim() : undefined,
+        telegram: needsTelegram ? telegram.trim() : undefined,
+      }),
+    }).catch(() => {});
+
     // If Zoom or Google Meet is selected, redirect to Calendly
     if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
       // Update the event type slug below to match your actual Calendly event type
@@ -444,26 +459,10 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           )}
 
           <Button
-            type={meetingMethod === "zoom" || meetingMethod === "google-meet" ? "button" : "submit"}
+            type="submit"
             variant="hero"
             className="w-full mt-6"
             disabled={isSubmitting}
-            onClick={(e) => {
-              if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
-                e.preventDefault();
-                // Redirect to Calendly immediately for Zoom/Google Meet
-                // Update the event type slug below to match your actual Calendly event type
-                const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
-                const params = new URLSearchParams();
-                if (fullName.trim()) params.append("name", fullName.trim());
-                if (email.trim()) params.append("email", email.trim());
-                if (companyName.trim()) params.append("a1", companyName.trim());
-                
-                const finalUrl = calendlyUrl + (params.toString() ? `?${params.toString()}` : '');
-                window.open(finalUrl, '_blank');
-                onOpenChange(false);
-              }
-            }}
           >
             {meetingMethod === "zoom" || meetingMethod === "google-meet" 
               ? "Continue to Calendar" 
