@@ -212,7 +212,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     setIsSubmitting(true);
 
-    // Send booking details to Telegram (fire-and-forget)
+    // Send booking details to Telegram
     const apiBase = import.meta.env.VITE_API_URL || "";
     fetch(`${apiBase}/api/booking`, {
       method: "POST",
@@ -225,7 +225,20 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
         phone: needsPhone ? phone.trim() : undefined,
         telegram: needsTelegram ? telegram.trim() : undefined,
       }),
-    }).catch(() => {});
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((data) => { throw new Error(data?.error || res.statusText); }).catch(() => { throw new Error(res.statusText); });
+        }
+      })
+      .catch((err) => {
+        console.error("Booking notify failed:", err);
+        toast({
+          variant: "destructive",
+          title: "Could not send to Telegram",
+          description: err?.message || "Booking server not reachable. Is it running?",
+        });
+      });
 
     // If Zoom or Google Meet is selected, redirect to Calendly
     if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
