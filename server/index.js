@@ -58,14 +58,5 @@ app.post("/api/booking", async (req, res) => {
   }
 });
 
-// Serve static files from dist directory
-const distPath = path.join(__dirname, "..", "dist");
-app.use(express.static(distPath));
-
-// Serve index.html for all other routes (SPA fallback)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
-});
-
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
