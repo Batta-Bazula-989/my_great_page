@@ -212,8 +212,9 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     setIsSubmitting(true);
 
-    // Send booking details to Telegram
-    fetch("/api/booking", {
+    // Send booking details to Telegram (use VITE_API_URL if API is on another host, e.g. separate Railway service)
+    const apiBase = (import.meta as unknown as { env?: { VITE_API_URL?: string } }).env?.VITE_API_URL ?? "";
+    fetch(`${apiBase}/api/booking`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

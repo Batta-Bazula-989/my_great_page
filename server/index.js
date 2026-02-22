@@ -14,7 +14,18 @@ app.use(express.json());
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
+// Log at startup so Railway logs show config status immediately
+if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+  console.warn(
+    "⚠️ Telegram not configured: set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in Railway Variables. " +
+    "Book a Free Support Review leads will not be sent until then."
+  );
+} else {
+  console.log("✓ Telegram bot configured; booking leads will be sent.");
+}
+
 app.post("/api/booking", async (req, res) => {
+  console.log("Booking request received:", req.body?.email || "(no email)");
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.error("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID");
     return res.status(500).json({ ok: false, error: "Server not configured" });
@@ -41,16 +52,17 @@ app.post("/api/booking", async (req, res) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
+          chat_id: String(TELEGRAM_CHAT_ID).trim(),
           text,
         }),
       }
     );
     const data = await r.json();
     if (!data.ok) {
-      console.error("Telegram API error:", data);
+      console.error("Telegram API error:", JSON.stringify(data));
       return res.status(502).json({ ok: false, error: data.description || "Telegram error" });
     }
+    console.log("Telegram message sent successfully for:", email);
     return res.json({ ok: true });
   } catch (err) {
     console.error("Booking notify error:", err);
