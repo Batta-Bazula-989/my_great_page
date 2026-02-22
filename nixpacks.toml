@@ -1,0 +1,4 @@
+# Use `bun install` so the lockfile can be updated when package.json has new deps.
+# Remove this override after you run `bun install` locally and commit bun.lock.
+[phases.install]
+cmds = ["bun install"]
