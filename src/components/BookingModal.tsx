@@ -159,7 +159,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setErrors(prev => ({ ...prev, [fieldName]: error || undefined }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
     setTouched({ fullName: true, email: true, companyName: true, phone: true, telegram: true });
@@ -212,77 +212,60 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
     setIsSubmitting(true);
 
-    // Send booking details to Telegram (use VITE_API_URL if API is on another host, e.g. separate Railway service)
     const apiBase = (import.meta as unknown as { env?: { VITE_API_URL?: string } }).env?.VITE_API_URL ?? "";
-    fetch(`${apiBase}/api/booking`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        fullName: fullName.trim(),
-        email: email.trim(),
-        companyName: companyName.trim() || undefined,
-        meetingMethod,
-        phone: needsPhone ? phone.trim() : undefined,
-        telegram: needsTelegram ? telegram.trim() : undefined,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          return res.json().then((data) => { throw new Error(data?.error || res.statusText); }).catch(() => { throw new Error(res.statusText); });
-        }
-      })
-      .catch((err) => {
-        console.error("Booking notify failed:", err);
-        toast({
-          variant: "destructive",
-          title: "Could not send to Telegram",
-          description: err?.message || "Booking server not reachable. Is it running?",
-        });
+    let bookingSent: boolean;
+    try {
+      const res = await fetch(`${apiBase}/api/booking`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          email: email.trim(),
+          companyName: companyName.trim() || undefined,
+          meetingMethod,
+          phone: needsPhone ? phone.trim() : undefined,
+          telegram: needsTelegram ? telegram.trim() : undefined,
+        }),
       });
-
-    // If Zoom or Google Meet is selected, redirect to Calendly
-    if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
-      // Update the event type slug below to match your actual Calendly event type
-      const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
-      // Pre-fill Calendly with user data if possible
-      const params = new URLSearchParams();
-      if (fullName) params.append("name", fullName);
-      if (email) params.append("email", email);
-      if (companyName) params.append("a1", companyName); // Custom field for company
-      
-      const finalUrl = calendlyUrl + (params.toString() ? `?${params.toString()}` : '');
-      window.open(finalUrl, '_blank');
-      
-      // Reset form and close modal
-      setFullName("");
-      setEmail("");
-      setCompanyName("");
-      setMeetingMethod("zoom");
-      setPhone("");
-      setTelegram("");
-      setErrors({});
-      setTouched({});
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error((data as { error?: string })?.error || res.statusText);
+      }
+      bookingSent = true;
+    } catch (err) {
+      console.error("Booking notify failed:", err);
+      toast({
+        variant: "destructive",
+        title: "Could not send request",
+        description: err instanceof Error ? err.message : "Server not reachable. Check that the app is running with the Node server (npm start).",
+      });
       setIsSubmitting(false);
-      onOpenChange(false);
       return;
     }
 
-    // For other meeting methods (Phone, WhatsApp, Telegram), show success message
-    setTimeout(() => {
-      toast({
-        title: "Request sent! I'll be in touch within 24 hours.",
-      });
-      setFullName("");
-      setEmail("");
-      setCompanyName("");
-      setMeetingMethod("zoom");
-      setPhone("");
-      setTelegram("");
-      setErrors({});
-      setTouched({});
-      setIsSubmitting(false);
-      onOpenChange(false);
-    }, 1000);
+    if (!bookingSent) return;
+
+    if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
+      const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
+      const params = new URLSearchParams();
+      if (fullName) params.append("name", fullName);
+      if (email) params.append("email", email);
+      if (companyName) params.append("a1", companyName);
+      window.open(calendlyUrl + (params.toString() ? `?${params.toString()}` : ""), "_blank");
+    } else {
+      toast({ title: "Request sent! I'll be in touch within 24 hours." });
+    }
+
+    setFullName("");
+    setEmail("");
+    setCompanyName("");
+    setMeetingMethod("zoom");
+    setPhone("");
+    setTelegram("");
+    setErrors({});
+    setTouched({});
+    setIsSubmitting(false);
+    onOpenChange(false);
   };
 
   const handleMeetingMethodChange = (value: string) => {

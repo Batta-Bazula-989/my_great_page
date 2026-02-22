@@ -24,6 +24,13 @@ if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
   console.log("✓ Telegram bot configured; booking leads will be sent.");
 }
 
+app.get("/api/health", (_req, res) => {
+  res.json({
+    ok: true,
+    telegram: !!(TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID),
+  });
+});
+
 app.post("/api/booking", async (req, res) => {
   console.log("Booking request received:", req.body?.email || "(no email)");
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
