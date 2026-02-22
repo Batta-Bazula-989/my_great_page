@@ -52,33 +52,75 @@ const schema = z.object({
   telegram: z.string().trim().optional(),
 });
 
-// Allowed country calling codes: EU, USA, Canada, Australia, Armenia, Georgia, Turkey, UAE, UK, Switzerland, Norway, Iceland, Russia, Japan, South Korea, NZ, Israel, Singapore, and other major economies
-const ALLOWED_PHONE_COUNTRY_CODES = [
-  "1",     // USA, Canada
-  "7",     // Russia, Kazakhstan
-  "30", "31", "32", "33", "34", "36", "39", "40", "41", "43", "44", "45", "46", "47", "48", "49", // EU + UK, CH, NO
-  "61", "64", "65", "81", "82", "90", "91", // Australia, NZ, Singapore, Japan, South Korea, Turkey, India
-  "351", "352", "353", "354", "355", "356", "357", "358", "359", "370", "371", "372", "373", "374", "375", "376", "377", "378", "380", "381", "382", "385", "386", "387", "389", // EU + Armenia, Georgia (995), Iceland, etc.
-  "420", "421", "423", // Czech, Slovakia, Liechtenstein
-  "852", "971", "972", "995", // Hong Kong, UAE, Israel, Georgia
-].sort((a, b) => b.length - a.length); // longest first for matching
-
-function phoneHasAllowedCountryCode(phone: string): boolean {
-  const digits = phone.replace(/\D/g, "");
-  if (digits.length < 7) return false;
-  for (const code of ALLOWED_PHONE_COUNTRY_CODES) {
-    if (digits === code || digits.startsWith(code)) return true;
-  }
-  return false;
-}
+// Country code dropdown: code + label for select
+const PHONE_COUNTRY_OPTIONS: { code: string; label: string }[] = [
+  { code: "1", label: "United States / Canada +1" },
+  { code: "7", label: "Russia +7" },
+  { code: "30", label: "Greece +30" },
+  { code: "31", label: "Netherlands +31" },
+  { code: "32", label: "Belgium +32" },
+  { code: "33", label: "France +33" },
+  { code: "34", label: "Spain +34" },
+  { code: "36", label: "Hungary +36" },
+  { code: "39", label: "Italy +39" },
+  { code: "40", label: "Romania +40" },
+  { code: "41", label: "Switzerland +41" },
+  { code: "43", label: "Austria +43" },
+  { code: "44", label: "United Kingdom +44" },
+  { code: "45", label: "Denmark +45" },
+  { code: "46", label: "Sweden +46" },
+  { code: "47", label: "Norway +47" },
+  { code: "48", label: "Poland +48" },
+  { code: "49", label: "Germany +49" },
+  { code: "61", label: "Australia +61" },
+  { code: "64", label: "New Zealand +64" },
+  { code: "65", label: "Singapore +65" },
+  { code: "81", label: "Japan +81" },
+  { code: "82", label: "South Korea +82" },
+  { code: "90", label: "Turkey +90" },
+  { code: "91", label: "India +91" },
+  { code: "351", label: "Portugal +351" },
+  { code: "352", label: "Luxembourg +352" },
+  { code: "353", label: "Ireland +353" },
+  { code: "354", label: "Iceland +354" },
+  { code: "355", label: "Albania +355" },
+  { code: "356", label: "Malta +356" },
+  { code: "357", label: "Cyprus +357" },
+  { code: "358", label: "Finland +358" },
+  { code: "359", label: "Bulgaria +359" },
+  { code: "370", label: "Lithuania +370" },
+  { code: "371", label: "Latvia +371" },
+  { code: "372", label: "Estonia +372" },
+  { code: "373", label: "Moldova +373" },
+  { code: "374", label: "Armenia +374" },
+  { code: "375", label: "Belarus +375" },
+  { code: "376", label: "Andorra +376" },
+  { code: "377", label: "Monaco +377" },
+  { code: "378", label: "San Marino +378" },
+  { code: "380", label: "Ukraine +380" },
+  { code: "381", label: "Serbia +381" },
+  { code: "382", label: "Montenegro +382" },
+  { code: "385", label: "Croatia +385" },
+  { code: "386", label: "Slovenia +386" },
+  { code: "387", label: "Bosnia and Herzegovina +387" },
+  { code: "389", label: "North Macedonia +389" },
+  { code: "420", label: "Czech Republic +420" },
+  { code: "421", label: "Slovakia +421" },
+  { code: "423", label: "Liechtenstein +423" },
+  { code: "852", label: "Hong Kong +852" },
+  { code: "971", label: "UAE (Dubai) +971" },
+  { code: "972", label: "Israel +972" },
+  { code: "995", label: "Georgia +995" },
+].sort((a, b) => a.label.localeCompare(b.label));
 
 const phoneSchema = z.object({
   phone: z.string().trim()
     .min(1, "Phone number is required")
-    .min(7, "Phone number must be at least 7 digits")
-    .max(20, "Phone number must be less than 20 characters")
-    .regex(/^[\d\s()+.-]{7,20}$/, "Please enter a valid phone number (digits, spaces, + - . ( ) only)")
-    .refine(phoneHasAllowedCountryCode, "Use a phone number from an allowed country (EU, USA, Canada, Australia, Armenia, Georgia, Turkey, UAE, UK, and other supported countries)"),
+    .regex(/^[\d\s().-]*$/, "Use only digits, spaces, dots, dashes, parentheses")
+    .refine((val) => {
+      const digits = val.replace(/\D/g, "");
+      return digits.length >= 6 && digits.length <= 15;
+    }, "Phone number must be 6–15 digits"),
 });
 
 const telegramSchema = z.object({
@@ -103,6 +145,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [meetingMethod, setMeetingMethod] = useState("zoom");
+  const [phoneCountryCode, setPhoneCountryCode] = useState("1");
   const [phone, setPhone] = useState("");
   const [telegram, setTelegram] = useState("");
   const [errors, setErrors] = useState<{ 
@@ -191,7 +234,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       email, 
       companyName, 
       meetingMethod,
-      phone: needsPhone ? phone : undefined,
+      phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
       telegram: needsTelegram ? telegram : undefined,
     });
 
@@ -205,7 +248,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       return;
     }
 
-    // Validate phone if needed
+    // Validate phone if needed (national number only; country from dropdown)
     if (needsPhone) {
       const phoneResult = phoneSchema.safeParse({ phone });
       if (!phoneResult.success) {
@@ -244,7 +287,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           email: email.trim(),
           companyName: companyName.trim() || undefined,
           meetingMethod,
-          phone: needsPhone ? phone.trim() : undefined,
+          phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
           telegram: needsTelegram ? telegram.trim() : undefined,
         }),
       });
@@ -283,6 +326,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setEmail("");
     setCompanyName("");
     setMeetingMethod("zoom");
+    setPhoneCountryCode("1");
     setPhone("");
     setTelegram("");
     setErrors({});
@@ -295,6 +339,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setMeetingMethod(value);
     // Clear phone field and errors when switching away from phone/whatsapp
     if (value !== "phone" && value !== "whatsapp") {
+      setPhoneCountryCode("1");
       setPhone("");
       setErrors(prev => {
         const newErrors = { ...prev };
@@ -427,23 +472,37 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
               <Label htmlFor="phone">
                 Phone Number<span className="text-destructive ml-1">*</span>
               </Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={phone}
-                onChange={(e) => {
-                  const cleaned = e.target.value.replace(/[^0-9\s()+.-]/g, "");
-                  setPhone(cleaned);
-                  if (touched.phone) {
-                    const error = validateField("phone", cleaned);
-                    setErrors(prev => ({ ...prev, phone: error || undefined }));
-                  }
-                }}
-                onBlur={() => handleBlur("phone")}
-                placeholder="+1 234 567 8900"
-                maxLength={20}
-                className={errors.phone ? "border-destructive" : ""}
-              />
+              <div className="flex gap-2">
+                <Select value={phoneCountryCode} onValueChange={setPhoneCountryCode}>
+                  <SelectTrigger className="w-[180px] shrink-0" id="phone-country">
+                    <SelectValue placeholder="Country" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border-border z-50 max-h-[280px]">
+                    {PHONE_COUNTRY_OPTIONS.map((opt) => (
+                      <SelectItem key={opt.code} value={opt.code}>
+                        {opt.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Input
+                  id="phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => {
+                    const cleaned = e.target.value.replace(/[^0-9\s().-]/g, "");
+                    setPhone(cleaned);
+                    if (touched.phone) {
+                      const error = validateField("phone", cleaned);
+                      setErrors(prev => ({ ...prev, phone: error || undefined }));
+                    }
+                  }}
+                  onBlur={() => handleBlur("phone")}
+                  placeholder="123 456 7890"
+                  maxLength={15}
+                  className={`flex-1 min-w-0 ${errors.phone ? "border-destructive" : ""}`}
+                />
+              </div>
               {errors.phone && (
                 <p className="text-sm text-destructive">{errors.phone}</p>
               )}
