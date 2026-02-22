@@ -45,8 +45,8 @@ const schema = z.object({
     .optional()
     .refine((val) => {
       if (!val || val.length === 0) return true;
-      return val.length >= 2 && val.length <= 100;
-    }, "Company Name must be between 2 and 100 characters"),
+      return val.length >= 2 && val.length <= 50;
+    }, "Company Name must be between 2 and 50 characters"),
   meetingMethod: z.string().optional(),
   phone: z.string().trim().optional(),
   telegram: z.string().trim().optional(),
@@ -127,7 +127,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     } else if (fieldName === "companyName" && value.trim()) {
       const result = z.string().trim()
         .min(2, "Company Name must be at least 2 characters")
-        .max(100, "Company Name must be less than 100 characters")
+        .max(50, "Company Name must be less than 50 characters")
         .safeParse(value);
       if (!result.success) {
         return result.error.errors[0]?.message || "";
@@ -229,15 +229,17 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        throw new Error((data as { error?: string })?.error || res.statusText);
+        const msg = (data as { error?: string })?.error || res.statusText;
+        throw new Error(`${msg} (${res.status})`);
       }
       bookingSent = true;
     } catch (err) {
       console.error("Booking notify failed:", err);
+      const message = err instanceof Error ? err.message : "Network error or server not reachable.";
       toast({
         variant: "destructive",
         title: "Could not send request",
-        description: err instanceof Error ? err.message : "Server not reachable. Check that the app is running with the Node server (npm start).",
+        description: message,
       });
       setIsSubmitting(false);
       return;
