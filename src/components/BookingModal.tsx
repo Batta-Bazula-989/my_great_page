@@ -213,8 +213,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setIsSubmitting(true);
 
     // Send booking details to Telegram
-    const apiBase = import.meta.env.VITE_API_URL || "";
-    fetch(`${apiBase}/api/booking`, {
+    fetch("/api/booking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
