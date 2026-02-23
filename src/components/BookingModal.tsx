@@ -569,7 +569,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
                 }}
                 onBlur={() => handleBlur("telegram")}
                 placeholder="https://t.me/username or @username"
-                maxLength={100}
+                maxLength={50}
                 className={errors.telegram ? "border-destructive" : ""}
               />
               {errors.telegram && (
