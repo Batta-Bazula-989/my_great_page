@@ -16,6 +16,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -52,64 +66,64 @@ const schema = z.object({
   telegram: z.string().trim().optional(),
 });
 
-// Country code dropdown: code + label for select
-const PHONE_COUNTRY_OPTIONS: { code: string; label: string }[] = [
-  { code: "1", label: "United States / Canada +1" },
-  { code: "30", label: "Greece +30" },
-  { code: "31", label: "Netherlands +31" },
-  { code: "32", label: "Belgium +32" },
-  { code: "33", label: "France +33" },
-  { code: "34", label: "Spain +34" },
-  { code: "36", label: "Hungary +36" },
-  { code: "39", label: "Italy +39" },
-  { code: "40", label: "Romania +40" },
-  { code: "41", label: "Switzerland +41" },
-  { code: "43", label: "Austria +43" },
-  { code: "44", label: "United Kingdom +44" },
-  { code: "45", label: "Denmark +45" },
-  { code: "46", label: "Sweden +46" },
-  { code: "47", label: "Norway +47" },
-  { code: "48", label: "Poland +48" },
-  { code: "49", label: "Germany +49" },
-  { code: "61", label: "Australia +61" },
-  { code: "64", label: "New Zealand +64" },
-  { code: "65", label: "Singapore +65" },
-  { code: "81", label: "Japan +81" },
-  { code: "82", label: "South Korea +82" },
-  { code: "90", label: "Turkey +90" },
-  { code: "91", label: "India +91" },
-  { code: "351", label: "Portugal +351" },
-  { code: "352", label: "Luxembourg +352" },
-  { code: "353", label: "Ireland +353" },
-  { code: "354", label: "Iceland +354" },
-  { code: "355", label: "Albania +355" },
-  { code: "356", label: "Malta +356" },
-  { code: "357", label: "Cyprus +357" },
-  { code: "358", label: "Finland +358" },
-  { code: "359", label: "Bulgaria +359" },
-  { code: "370", label: "Lithuania +370" },
-  { code: "371", label: "Latvia +371" },
-  { code: "372", label: "Estonia +372" },
-  { code: "373", label: "Moldova +373" },
-  { code: "374", label: "Armenia +374" },
-  { code: "376", label: "Andorra +376" },
-  { code: "377", label: "Monaco +377" },
-  { code: "378", label: "San Marino +378" },
-  { code: "380", label: "Ukraine +380" },
-  { code: "381", label: "Serbia +381" },
-  { code: "382", label: "Montenegro +382" },
-  { code: "385", label: "Croatia +385" },
-  { code: "386", label: "Slovenia +386" },
-  { code: "387", label: "Bosnia and Herzegovina +387" },
-  { code: "389", label: "North Macedonia +389" },
-  { code: "420", label: "Czech Republic +420" },
-  { code: "421", label: "Slovakia +421" },
-  { code: "423", label: "Liechtenstein +423" },
-  { code: "852", label: "Hong Kong +852" },
-  { code: "971", label: "UAE (Dubai) +971" },
-  { code: "972", label: "Israel +972" },
-  { code: "995", label: "Georgia +995" },
-].sort((a, b) => a.label.localeCompare(b.label));
+// Country code dropdown: flag + code display, name/code for search
+const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
+  { code: "1", flag: "🇺🇸", name: "United States Canada" },
+  { code: "30", flag: "🇬🇷", name: "Greece" },
+  { code: "31", flag: "🇳🇱", name: "Netherlands" },
+  { code: "32", flag: "🇧🇪", name: "Belgium" },
+  { code: "33", flag: "🇫🇷", name: "France" },
+  { code: "34", flag: "🇪🇸", name: "Spain" },
+  { code: "36", flag: "🇭🇺", name: "Hungary" },
+  { code: "39", flag: "🇮🇹", name: "Italy" },
+  { code: "40", flag: "🇷🇴", name: "Romania" },
+  { code: "41", flag: "🇨🇭", name: "Switzerland" },
+  { code: "43", flag: "🇦🇹", name: "Austria" },
+  { code: "44", flag: "🇬🇧", name: "United Kingdom" },
+  { code: "45", flag: "🇩🇰", name: "Denmark" },
+  { code: "46", flag: "🇸🇪", name: "Sweden" },
+  { code: "47", flag: "🇳🇴", name: "Norway" },
+  { code: "48", flag: "🇵🇱", name: "Poland" },
+  { code: "49", flag: "🇩🇪", name: "Germany" },
+  { code: "61", flag: "🇦🇺", name: "Australia" },
+  { code: "64", flag: "🇳🇿", name: "New Zealand" },
+  { code: "65", flag: "🇸🇬", name: "Singapore" },
+  { code: "81", flag: "🇯🇵", name: "Japan" },
+  { code: "82", flag: "🇰🇷", name: "South Korea" },
+  { code: "90", flag: "🇹🇷", name: "Turkey" },
+  { code: "91", flag: "🇮🇳", name: "India" },
+  { code: "351", flag: "🇵🇹", name: "Portugal" },
+  { code: "352", flag: "🇱🇺", name: "Luxembourg" },
+  { code: "353", flag: "🇮🇪", name: "Ireland" },
+  { code: "354", flag: "🇮🇸", name: "Iceland" },
+  { code: "355", flag: "🇦🇱", name: "Albania" },
+  { code: "356", flag: "🇲🇹", name: "Malta" },
+  { code: "357", flag: "🇨🇾", name: "Cyprus" },
+  { code: "358", flag: "🇫🇮", name: "Finland" },
+  { code: "359", flag: "🇧🇬", name: "Bulgaria" },
+  { code: "370", flag: "🇱🇹", name: "Lithuania" },
+  { code: "371", flag: "🇱🇻", name: "Latvia" },
+  { code: "372", flag: "🇪🇪", name: "Estonia" },
+  { code: "373", flag: "🇲🇩", name: "Moldova" },
+  { code: "374", flag: "🇦🇲", name: "Armenia" },
+  { code: "376", flag: "🇦🇩", name: "Andorra" },
+  { code: "377", flag: "🇲🇨", name: "Monaco" },
+  { code: "378", flag: "🇸🇲", name: "San Marino" },
+  { code: "380", flag: "🇺🇦", name: "Ukraine" },
+  { code: "381", flag: "🇷🇸", name: "Serbia" },
+  { code: "382", flag: "🇲🇪", name: "Montenegro" },
+  { code: "385", flag: "🇭🇷", name: "Croatia" },
+  { code: "386", flag: "🇸🇮", name: "Slovenia" },
+  { code: "387", flag: "🇧🇦", name: "Bosnia Herzegovina" },
+  { code: "389", flag: "🇲🇰", name: "North Macedonia" },
+  { code: "420", flag: "🇨🇿", name: "Czech Republic" },
+  { code: "421", flag: "🇸🇰", name: "Slovakia" },
+  { code: "423", flag: "🇱🇮", name: "Liechtenstein" },
+  { code: "852", flag: "🇭🇰", name: "Hong Kong" },
+  { code: "971", flag: "🇦🇪", name: "UAE Dubai" },
+  { code: "972", flag: "🇮🇱", name: "Israel" },
+  { code: "995", flag: "🇬🇪", name: "Georgia" },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 const phoneSchema = z.object({
   phone: z.string().trim()
@@ -144,6 +158,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const [companyName, setCompanyName] = useState("");
   const [meetingMethod, setMeetingMethod] = useState("zoom");
   const [phoneCountryCode, setPhoneCountryCode] = useState("1");
+  const [phoneCountryOpen, setPhoneCountryOpen] = useState(false);
   const [phone, setPhone] = useState("");
   const [telegram, setTelegram] = useState("");
   const [errors, setErrors] = useState<{ 
@@ -471,18 +486,47 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
                 Phone Number<span className="text-destructive ml-1">*</span>
               </Label>
               <div className="flex gap-2">
-                <Select value={phoneCountryCode} onValueChange={setPhoneCountryCode}>
-                  <SelectTrigger className="w-[180px] shrink-0" id="phone-country">
-                    <SelectValue placeholder="Country" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-background border-border z-50 max-h-[280px]">
-                    {PHONE_COUNTRY_OPTIONS.map((opt) => (
-                      <SelectItem key={opt.code} value={opt.code}>
-                        {opt.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Popover open={phoneCountryOpen} onOpenChange={setPhoneCountryOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={phoneCountryOpen}
+                      className="w-[100px] shrink-0 justify-between font-normal"
+                      id="phone-country"
+                    >
+                      {(() => {
+                        const opt = PHONE_COUNTRY_OPTIONS.find((o) => o.code === phoneCountryCode);
+                        return opt ? `${opt.flag} +${opt.code}` : "+1";
+                      })()}
+                      <ChevronDown className="ml-1 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[260px] p-0" align="start">
+                    <Command>
+                      <CommandInput placeholder="Search country or code..." />
+                      <CommandList>
+                        <CommandEmpty>No country found.</CommandEmpty>
+                        <CommandGroup>
+                          {PHONE_COUNTRY_OPTIONS.map((opt) => (
+                            <CommandItem
+                              key={opt.code}
+                              value={`${opt.name} +${opt.code} ${opt.code}`}
+                              onSelect={() => {
+                                setPhoneCountryCode(opt.code);
+                                setPhoneCountryOpen(false);
+                              }}
+                            >
+                              <span className="mr-2">{opt.flag}</span>
+                              <span>+{opt.code}</span>
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
                 <Input
                   id="phone"
                   type="tel"
