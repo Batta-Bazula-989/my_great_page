@@ -60,11 +60,6 @@ const HeroSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
-
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-6 py-3 bg-gradient-card rounded-lg border border-border shadow-card">
-                <p className="font-display font-semibold text-center">Roman Zakharenko</p>
-                <p className="text-xs text-primary text-center">Support Operations & Automation</p>
-              </div>
             </div>
           </div>
         </div>
