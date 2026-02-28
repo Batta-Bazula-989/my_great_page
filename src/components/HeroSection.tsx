@@ -1,11 +1,7 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import BookingModal from "@/components/BookingModal";
+import { motion } from "framer-motion";
+import AutomationFlowDemo from "@/components/AutomationFlowDemo";
 
 const HeroSection = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow animate-pulse-glow" />
@@ -20,36 +16,39 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="container relative z-10 px-4 py-20">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-8 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight animate-fade-up">
+      <div className="container relative z-10 px-4 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto space-y-10 md:space-y-14">
+          <div className="text-center space-y-4">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               Your support team shouldn't spend half its day
               <br />
               <span className="text-gradient">on manual tasks.</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto animate-fade-up-delay-1">
-              Years of hands-on support work showed me exactly where teams lose hours to routing, reporting, and manual follow-ups. I use that experience to automate the busywork so agents can focus on customers, not tickets.
-            </p>
-
-            <div className="flex justify-center animate-fade-up-delay-2">
-              <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
-                Get a Free Workflow Audit
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </div>
-
-            <p className="text-sm text-muted-foreground/70 animate-fade-up-delay-3">
-              30-minute call. No pitch deck.
-              <br />
-              We review your support setup and pinpoint where automation will actually help.
-            </p>
+            <motion.p
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Click through a real example of how support automation works in practice.
+            </motion.p>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <AutomationFlowDemo />
+          </motion.div>
         </div>
       </div>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
