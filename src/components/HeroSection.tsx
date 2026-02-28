@@ -55,7 +55,7 @@ const HeroSection = () => {
               <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-glow animate-float">
                 <img
                   src={profileImage}
-                  alt="Roman Zakharenko — Support Operations & Automation"
+                  alt="Roman Zakharenko"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
