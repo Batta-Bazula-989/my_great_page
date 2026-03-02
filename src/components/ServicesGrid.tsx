@@ -3,31 +3,31 @@ import { BarChart3, Bot, Route, Bell, Wrench } from "lucide-react";
 const SERVICES = [
   {
     title: "Reporting automation",
-    desc: "Replace manual exports with live dashboards and scheduled reports. Keep support, product, and leadership aligned on the same numbers.",
+    desc: "Automated SLA metrics, weekly and monthly reports, and bottleneck visibility — delivered to the right people without manual exports.",
     icon: BarChart3,
     outcomes: ["Fewer manual exports", "Clear view of SLAs and backlog"],
   },
   {
     title: "Support chat & voice bots",
-    desc: "Bots that deflect simple questions, capture the right context, and hand off cleanly to humans when needed — in chat or on the phone.",
+    desc: "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
     icon: Bot,
     outcomes: ["Shorter queues", "More time for complex issues"],
   },
   {
     title: "Ticket routing & categorization",
-    desc: "AI‑assisted tagging and routing rules so tickets land in the right queue with the right priority and owner.",
+    desc: "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
     icon: Route,
     outcomes: ["Faster first response", "Less time spent triaging"],
   },
   {
     title: "Monitoring & alerting",
-    desc: "SLA timers, backlog thresholds, and health checks that alert you in Slack before something becomes a fire.",
+    desc: "Real-time detection of SLA breaches, queue spikes, and process failures — with alerts before problems escalate.",
     icon: Bell,
     outcomes: ["Fewer missed SLAs", "No surprises on Monday morning"],
   },
   {
-    title: "Custom automation solutions",
-    desc: "Workflows tailored to your stack — tying together tools like Zendesk, Intercom, Jira, Salesforce, Slack, and your own APIs.",
+    title: "Custom support automations",
+    desc: "Glue between tools that don't integrate out of the box — Zendesk, Intercom, Jira, Salesforce, Slack, and your own APIs wired together to fit your workflow.",
     icon: Wrench,
     outcomes: ["Less copy‑paste", "One process instead of five workarounds"],
   },
