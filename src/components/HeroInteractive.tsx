@@ -299,12 +299,11 @@ const HeroInteractive = () => {
       <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-start">
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
-            Turn messy support workflows into{" "}
-            <span className="text-gradient">reliable automations</span>
+            Automate your{" "}
+            <span className="text-gradient">support ops</span>
           </h1>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl">
-            In 30 seconds, see what we could automate for your team — and what
-            that changes for response times, SLAs, and reporting.
+            Replace manual support busywork with reliable, production-ready automation.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
