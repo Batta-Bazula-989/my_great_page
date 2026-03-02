@@ -41,7 +41,6 @@ const SERVICES = [
     icon: Wrench,
     mode: "chat" as const,
   },
-  },
 ] as const;
 
 type ServiceId = (typeof SERVICES)[number]["id"];
