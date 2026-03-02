@@ -1,17 +1,17 @@
 import { Check, X } from "lucide-react";
 
 const goodFit = [
-  "Support teams on Zendesk, Freshdesk, or Jira drowning in manual work",
-  "Operations leads who need reporting and SLA tracking that actually works",
-  "Companies using multiple tools that don't sync properly",
-  "Teams that want automation built on their existing stack — not a new platform",
+  "Support teams on tools like Zendesk, Freshdesk, or Jira with too much manual work",
+  "Ops and support leaders who need clear reporting and reliable SLA tracking",
+  "Companies juggling multiple tools that don't talk to each other cleanly",
+  "Teams that want better automation on top of their current stack, not a brand new platform",
 ];
 
 const notFit = [
-  "You need a full-time hire to manage ongoing support ops",
-  "You're looking for a chatbot or AI agent to replace your team",
-  "You want to overhaul your entire tech stack from scratch",
-  "You need someone to handle live tickets or manage your queue",
+  "You need a full-time hire to run and manage day-to-day support ops",
+  "You want a one-click chatbot or ‘AI agent’ to handle everything",
+  "You're trying to rip out and replace your entire support stack at once",
+  "You’re looking for “AI to replace your support team” instead of automation that makes your team faster and smarter. (I build systems that support people. I don’t sell magical layoffs in a box.)",
 ];
 
 const WhoForSection = () => {
@@ -28,7 +28,7 @@ const WhoForSection = () => {
             Who This Is For — and Who It's Not
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            I'd rather be upfront about fit than waste your time.
+            Clear expectations up front mean better results for both of us.
           </p>
         </div>
 
