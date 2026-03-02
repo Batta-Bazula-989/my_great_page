@@ -298,9 +298,6 @@ const HeroInteractive = () => {
     <div className="space-y-8">
       <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-start">
         <div className="space-y-4">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary font-medium">
-            Design your first automation
-          </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
             Turn messy support workflows into{" "}
             <span className="text-gradient">reliable automations</span>
