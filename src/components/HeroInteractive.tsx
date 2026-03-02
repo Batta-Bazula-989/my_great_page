@@ -81,13 +81,6 @@ const ChatPanel = () => {
           You keep your existing stack. The main changes are fewer manual
           exports, faster responses, and much more predictable SLAs.
         </p>
-        <Button
-          size="sm"
-          variant="outline"
-          className="w-full justify-center mt-1 text-xs"
-        >
-          Book a free audit
-        </Button>
       </div>
     </div>
   );
@@ -371,13 +364,6 @@ const HeroInteractive = () => {
                     : "Answer three quick questions — see outcomes"}
                 </span>
               </div>
-              <Button
-                variant="outline"
-                size="xs"
-                className="h-7 px-2 text-[11px]"
-              >
-                Book a free audit
-              </Button>
             </div>
 
             <div className="rounded-2xl border border-border/70 bg-background/60 p-3 md:p-4">
