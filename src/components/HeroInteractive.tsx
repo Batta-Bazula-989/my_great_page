@@ -352,15 +352,9 @@ const HeroInteractive = () => {
           transition={{ duration: 0.3 }}
           className="relative"
         >
-          <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
+          <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
 
-          <div className="relative rounded-3xl border border-border bg-secondary/40 backdrop-blur-xl p-4 md:p-5 shadow-lg">
-            <div className="mb-3 flex items-center justify-between gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              </div>
-            </div>
-
+          <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-3 md:p-4 shadow-lg">
             <div className="rounded-2xl border border-border/70 bg-background/60 p-3 md:p-4">
               <AnimatePresence mode="wait">
                 {isChatMode ? (
