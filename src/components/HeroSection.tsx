@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import AutomationFlowDemo from "@/components/AutomationFlowDemo";
+import HeroInteractive from "@/components/HeroInteractive";
 
 const HeroSection = () => {
   return (
@@ -17,37 +17,13 @@ const HeroSection = () => {
       />
 
       <div className="container relative z-10 px-4 py-12 md:py-20">
-        <div className="max-w-4xl mx-auto space-y-10 md:space-y-14">
-          <div className="text-center space-y-4">
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Your support team shouldn't spend half its day
-              <br />
-              <span className="text-gradient">on manual tasks.</span>
-            </motion.h1>
-
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Click through a real example of how support automation works in practice.
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <AutomationFlowDemo />
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <HeroInteractive />
+        </motion.div>
       </div>
     </section>
   );

@@ -2,24 +2,24 @@ import { AlertTriangle } from "lucide-react";
 
 const problems = [
   {
-    pain: "Tickets sit in queue because routing rules are manual or broken",
-    result: "Longer response times, missed SLAs, frustrated customers.",
+    pain: "Reporting lives in spreadsheets and ad-hoc exports",
+    result: "Leads and managers don't trust the numbers. Weekly updates steal hours from actual support work.",
   },
   {
-    pain: "Daily and weekly reports are built by hand in spreadsheets",
-    result: "Hours lost every week that could go toward actual support work.",
+    pain: "Tickets bounce between teams before reaching the right owner",
+    result: "Slow first responses, duplicated work, and customers repeating themselves.",
   },
   {
-    pain: "SLA tracking is a guess — no alerts until it's too late",
-    result: "Breaches go unnoticed. Escalations happen after the damage is done.",
+    pain: "SLA tracking is reactive — you find out after something is late",
+    result: "Breaches are discovered in hindsight or via angry emails, not proactive alerts.",
   },
   {
-    pain: "Support tools don't talk to each other",
-    result: "Agents copy-paste between Zendesk, Jira, CRM, Slack. Data lives in silos.",
+    pain: "There is no reliable monitoring or alerting around support health",
+    result: "Backlogs grow quietly, overnight queues spike, and nobody notices until Monday.",
   },
   {
-    pain: "The team spends more time on admin than on customers",
-    result: "Morale drops. Hiring more people doesn't fix a broken process.",
+    pain: "Support tools are disconnected and held together with copy-paste",
+    result: "Agents jump between Zendesk, Jira, CRM, and Slack to get a full picture of a single ticket.",
   },
 ];
 
