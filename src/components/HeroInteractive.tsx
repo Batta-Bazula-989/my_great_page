@@ -349,17 +349,7 @@ const HeroInteractive = () => {
             })}
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-2 text-xs text-muted-foreground">
-            <span className="rounded-full border border-border px-3 py-1">
-              No new platform — built on your tools
-            </span>
-            <span className="rounded-full border border-border px-3 py-1">
-              Uses Zendesk, Intercom, Jira, Slack, APIs, n8n
-            </span>
-            <span className="rounded-full border border-border px-3 py-1">
-              Typical setup: 2–6 weeks
-            </span>
-          </div>
+          <div className="flex flex-wrap gap-3 pt-2 text-xs text-muted-foreground" />
         </div>
 
         <motion.div
