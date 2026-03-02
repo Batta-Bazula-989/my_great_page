@@ -358,11 +358,6 @@ const HeroInteractive = () => {
             <div className="mb-3 flex items-center justify-between gap-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>
-                  {isChatMode
-                    ? "Describe your workflow — see a sample plan"
-                    : "Answer three quick questions — see outcomes"}
-                </span>
               </div>
             </div>
 
