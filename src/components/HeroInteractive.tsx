@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Workflow, PieChart, Bell, Wrench } from "lucide-react";
+import { MessageCircle, Workflow, PieChart, Bell, Wrench, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const SERVICES = [
   {
@@ -48,39 +49,90 @@ type ServiceId = (typeof SERVICES)[number]["id"];
 type ToolOption = "zendesk" | "intercom" | "email" | "whatsapp" | "other";
 type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts";
 
-const ChatPanel = () => {
-  const [value, setValue] = useState("");
+const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
+  reporting: {
+    intro: "Describe your reporting process. I’ll outline how I’d automate it.",
+    placeholder: "Describe your reporting process…",
+    aiResponse:
+      "I’d set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
+  },
+  custom: {
+    intro: "Describe what you’re trying to connect or automate. I’ll outline how I’d build it.",
+    placeholder: "Describe your process or the tools you need connected…",
+    aiResponse:
+      "I’d map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
+  },
+};
+
+const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
+  const config = CHAT_CONFIG[serviceId];
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
+
+  const handleSend = (text?: string) => {
+    const content = (text ?? input).trim();
+    if (!content) return;
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", text: content },
+      { role: "ai", text: config.aiResponse },
+    ]);
+    setInput("");
+  };
 
   return (
-    <div className="space-y-3">
-      <p className="text-xs text-muted-foreground">
-        Describe where your team is losing time today. I’ll outline a concrete
-        automation approach — steps, tools, and what it changes week to week.
-      </p>
-      <Textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Example: We export Zendesk data every week into spreadsheets to report on SLAs and backlog…"
-        className="min-h-[96px] text-xs resize-none bg-background/80"
-      />
-      <Button size="sm" className="w-full justify-center gap-2">
-        Get a sample automation plan
-      </Button>
+    <div className="flex flex-col gap-3">
+      <ScrollArea className="h-[160px] px-0.5">
+        <div className="space-y-2.5">
+          {messages.length === 0 && (
+            <p className="text-[11px] text-muted-foreground">
+              {config.intro}
+            </p>
+          )}
+          <AnimatePresence initial={false}>
+            {messages.map((m, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[88%] rounded-2xl px-3 py-2 text-[11px] leading-relaxed ${
+                    m.role === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary/60 text-muted-foreground"
+                  }`}
+                >
+                  {m.text}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </ScrollArea>
 
-      <div className="rounded-xl border border-border/70 bg-secondary/40 p-3 space-y-2">
-        <p className="text-xs font-semibold text-foreground/90">
-          What a typical plan looks like
-        </p>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          We connect your support tools (Zendesk, Intercom, email inboxes) into
-          a simple workflow using n8n and APIs. Tickets, tags, and SLA data flow
-          into a single place, reports send themselves, and Slack alerts fire
-          before something is late.
-        </p>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          You keep your existing stack. The main changes are fewer manual
-          exports, faster responses, and much more predictable SLAs.
-        </p>
+      <div className="flex items-center gap-2 border-t border-border/70 pt-2">
+        <Input
+          placeholder={config.placeholder}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSend();
+            }
+          }}
+          className="h-8 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+        />
+        <Button
+          size="icon"
+          variant="outline"
+          className="h-8 w-8 shrink-0"
+          onClick={() => handleSend()}
+        >
+          <ArrowUpRight className="h-4 w-4" />
+        </Button>
       </div>
     </div>
   );
@@ -361,7 +413,7 @@ const HeroInteractive = () => {
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <ChatPanel />
+                    <ChatPanel serviceId={activeService.id as "reporting" | "custom"} />
                   </motion.div>
                 ) : (
                   <motion.div
