@@ -137,9 +137,11 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
 const GuidedFlowPanel = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [tool, setTool] = useState<ToolOption | null>(null);
+  const [otherTool, setOtherTool] = useState("");
   const [pain, setPain] = useState<PainOption | null>(null);
 
-  const canNextFromStep1 = !!tool;
+  const canNextFromStep1 =
+    !!tool && (tool !== "other" || otherTool.trim().length > 0);
   const canNextFromStep2 = !!pain;
 
   const toolLabel =
@@ -151,6 +153,8 @@ const GuidedFlowPanel = () => {
       ? "Freshdesk"
       : tool === "slack"
       ? "Slack"
+      : tool === "other"
+      ? otherTool.trim() || "your current tools"
       : "your current tools";
 
   const painLabel =
@@ -202,7 +206,12 @@ const GuidedFlowPanel = () => {
                 <button
                   key={opt.id}
                   type="button"
-                  onClick={() => setTool(opt.id)}
+                  onClick={() => {
+                    setTool(opt.id);
+                    if (opt.id !== "other") {
+                      setOtherTool("");
+                    }
+                  }}
                   className={cn(
                     "rounded-full border px-3 py-1.5 text-[11px] transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
@@ -213,6 +222,23 @@ const GuidedFlowPanel = () => {
                 </button>
               ))}
             </div>
+            <AnimatePresence>
+              {tool === "other" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, y: -4 }}
+                  animate={{ opacity: 1, height: "auto", y: 0 }}
+                  exit={{ opacity: 0, height: 0, y: -4 }}
+                >
+                  <Input
+                    autoFocus
+                    placeholder="What tools are you using today?"
+                    value={otherTool}
+                    onChange={(e) => setOtherTool(e.target.value)}
+                    className="mt-2 h-8 text-[11px] bg-background/60"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
             <Button
               size="sm"
               className="w-full justify-center mt-1"
