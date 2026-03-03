@@ -8,15 +8,9 @@ const SolutionSection = () => {
 
       <div className="container px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
-            What I Automate for Support Teams
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
             Practical support automation built on your existing tools.
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            No platform swaps, no fluff.
-          </p>
         </div>
 
         <ServicesGrid />

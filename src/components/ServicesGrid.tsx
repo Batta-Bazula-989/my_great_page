@@ -5,31 +5,31 @@ const SERVICES = [
     title: "Reporting",
     desc: "Automated SLA metrics, weekly and monthly reports, and bottleneck visibility — delivered to the right people without manual exports.",
     icon: BarChart3,
-    outcomes: ["Fewer manual exports", "Clear view of SLAs and backlog"],
+    outcomes: [],
   },
   {
     title: "Support chat & voice bots",
     desc: "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
     icon: Bot,
-    outcomes: ["Shorter queues", "More time for complex issues"],
+    outcomes: [],
   },
   {
     title: "Ticket routing & categorization",
     desc: "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
     icon: Route,
-    outcomes: ["Faster first response", "Less time spent triaging"],
+    outcomes: [],
   },
   {
     title: "Monitoring & alerting",
     desc: "Real-time detection of SLA breaches, queue spikes, and process failures — with alerts before problems escalate.",
     icon: Bell,
-    outcomes: ["Fewer missed SLAs", "No surprises on Monday morning"],
+    outcomes: [],
   },
   {
     title: "Custom support automations",
     desc: "Glue between tools that don't integrate out of the box — Zendesk, Intercom, Jira, Salesforce, Slack, and your own APIs wired together to fit your workflow.",
     icon: Wrench,
-    outcomes: ["Less copy‑paste", "One process instead of five workarounds"],
+    outcomes: [],
   },
 ];
 
