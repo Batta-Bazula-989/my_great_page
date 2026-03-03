@@ -50,13 +50,13 @@ type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other
 
 const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
   reporting: {
-    intro: "Describe your reporting process. I’ll outline how I’d automate it.",
+    intro: "Describe your current reporting process.",
     placeholder: "Describe your reporting process…",
     aiResponse:
       "I’d set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
   },
   custom: {
-    intro: "Describe what you’re trying to connect or automate. I’ll outline how I’d build it.",
+    intro: "Describe what you’re trying to achieve.",
     placeholder: "Describe your process or the tools you need connected…",
     aiResponse:
       "I’d map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
