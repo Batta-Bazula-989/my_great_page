@@ -45,7 +45,7 @@ const SERVICES = [
 
 type ServiceId = (typeof SERVICES)[number]["id"];
 
-type ToolOption = "zendesk" | "intercom" | "email" | "whatsapp" | "other";
+type ToolOption = "jira" | "zendesk" | "freshdesk" | "slack" | "other";
 type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts";
 
 const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
@@ -143,14 +143,14 @@ const GuidedFlowPanel = () => {
   const canNextFromStep2 = !!pain;
 
   const toolLabel =
-    tool === "zendesk"
+    tool === "jira"
+      ? "Jira"
+      : tool === "zendesk"
       ? "Zendesk"
-      : tool === "intercom"
-      ? "Intercom"
-      : tool === "email"
-      ? "Email inbox"
-      : tool === "whatsapp"
-      ? "WhatsApp"
+      : tool === "freshdesk"
+      ? "Freshdesk"
+      : tool === "slack"
+      ? "Slack"
       : "your current tools";
 
   const painLabel =
@@ -193,10 +193,10 @@ const GuidedFlowPanel = () => {
             </p>
             <div className="flex flex-wrap gap-2">
               {([
+                { id: "jira", label: "Jira" },
                 { id: "zendesk", label: "Zendesk" },
-                { id: "intercom", label: "Intercom" },
-                { id: "email", label: "Email inbox" },
-                { id: "whatsapp", label: "WhatsApp" },
+                { id: "freshdesk", label: "Freshdesk" },
+                { id: "slack", label: "Slack" },
                 { id: "other", label: "Other" },
               ] as { id: ToolOption; label: string }[]).map((opt) => (
                 <button
