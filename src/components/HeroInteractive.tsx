@@ -4,7 +4,6 @@ import { MessageCircle, Workflow, PieChart, Bell, Wrench, ArrowUpRight } from "l
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const SERVICES = [
   {
@@ -37,7 +36,7 @@ const SERVICES = [
   },
   {
     id: "custom",
-    label: "Custom automation solution",
+    label: "Custom solution",
     description: "Glue together your tools with the workflows you need.",
     icon: Wrench,
     mode: "chat" as const,
@@ -82,13 +81,10 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
 
   return (
     <div className="flex flex-col gap-3">
-      <ScrollArea className="h-[160px] px-0.5">
-        <div className="space-y-2.5">
-          {messages.length === 0 && (
-            <p className="text-[11px] text-muted-foreground">
-              {config.intro}
-            </p>
-          )}
+      {messages.length === 0 ? (
+        <p className="text-[11px] text-muted-foreground">{config.intro}</p>
+      ) : (
+        <div className="overflow-y-auto max-h-[180px] space-y-2.5">
           <AnimatePresence initial={false}>
             {messages.map((m, i) => (
               <motion.div
@@ -110,9 +106,9 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
             ))}
           </AnimatePresence>
         </div>
-      </ScrollArea>
+      )}
 
-      <div className="flex items-center gap-2 border-t border-border/70 pt-2">
+      <div className="flex items-center gap-2 rounded-xl border border-border bg-background/60 px-3 py-2">
         <Input
           placeholder={config.placeholder}
           value={input}
@@ -123,15 +119,15 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
               handleSend();
             }
           }}
-          className="h-8 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="h-7 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
         <Button
           size="icon"
           variant="outline"
-          className="h-8 w-8 shrink-0"
+          className="h-7 w-7 shrink-0"
           onClick={() => handleSend()}
         >
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-3.5 w-3.5" />
         </Button>
       </div>
     </div>
