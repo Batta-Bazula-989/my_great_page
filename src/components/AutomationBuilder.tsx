@@ -185,7 +185,10 @@ const AutomationBuilder = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/generate-plan", {
+      const apiBase =
+        (import.meta as unknown as { env?: { VITE_API_URL?: string } }).env?.VITE_API_URL ??
+        "";
+      const res = await fetch(`${apiBase}/api/generate-plan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -478,7 +481,7 @@ const AutomationBuilder = () => {
                   </>
                 ) : (
                   <>
-                    Generate my plan
+                    Generate my automation plan
                     <ArrowRight className="w-3.5 h-3.5" />
                   </>
                 )}
