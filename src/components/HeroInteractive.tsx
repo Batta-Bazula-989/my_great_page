@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 const SERVICES = [
   {
     id: "reporting",
-    label: "Reporting automation",
+    label: "Reporting",
     description: "Dashboards and scheduled reports instead of manual exports.",
     icon: PieChart,
     mode: "chat" as const,

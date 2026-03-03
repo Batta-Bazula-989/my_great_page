@@ -43,7 +43,7 @@ interface FormState {
 const SERVICES: ServiceConfig[] = [
   {
     id: "reporting",
-    label: "Reporting automation",
+    label: "Reporting",
     icon: BarChart3,
     toolQuestion: "What system are you reporting from?",
     tools: ["Zendesk", "Jira", "Freshdesk", "Slack", "Other"],

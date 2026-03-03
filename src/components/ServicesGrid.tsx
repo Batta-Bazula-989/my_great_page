@@ -2,7 +2,7 @@ import { BarChart3, Bot, Route, Bell, Wrench } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Reporting automation",
+    title: "Reporting",
     desc: "Automated SLA metrics, weekly and monthly reports, and bottleneck visibility — delivered to the right people without manual exports.",
     icon: BarChart3,
     outcomes: ["Fewer manual exports", "Clear view of SLAs and backlog"],
