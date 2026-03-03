@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import Anthropic from "@anthropic-ai/sdk";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, ".env") });
@@ -74,6 +75,52 @@ app.post("/api/booking", async (req, res) => {
   } catch (err) {
     console.error("Booking notify error:", err);
     return res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+app.post("/api/generate-plan", async (req, res) => {
+  const { service, tool, main_issue, additional_notes } = req.body || {};
+
+  if (!service || !tool || !main_issue) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    console.error("ANTHROPIC_API_KEY not set");
+    return res.status(500).json({ error: "AI service not configured" });
+  }
+
+  const client = new Anthropic({ apiKey });
+
+  const systemPrompt = `You are a support operations automation specialist with deep expertise in helpdesk tools, workflow automation, and operational efficiency.
+
+Your role: Given structured input about a company's support setup, produce a concise, practical automation plan.
+
+Rules:
+- Stay strictly within the domain of support operations automation (routing, reporting, bots, monitoring, integrations).
+- Do not give generic AI or software development advice.
+- Be direct and specific — no marketing language, no padding, no bullet points, no headers.
+- Write plain prose only, 6–8 sentences maximum.
+- Cover: brief acknowledgment of the issue, specific automation steps, tools or integrations involved, and the expected operational impact.`;
+
+  const userMessage = `Service needed: ${service}
+Tool / system: ${tool}
+Main issue: ${main_issue}${additional_notes ? `\nAdditional context: ${additional_notes}` : ""}`;
+
+  try {
+    const message = await client.messages.create({
+      model: "claude-sonnet-4-6",
+      max_tokens: 400,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userMessage }],
+    });
+
+    const summary = message.content[0]?.type === "text" ? message.content[0].text : "";
+    return res.json({ summary });
+  } catch (err) {
+    console.error("Anthropic API error:", err);
+    return res.status(502).json({ error: "AI request failed" });
   }
 });
 
