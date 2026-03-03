@@ -46,7 +46,7 @@ const SERVICES = [
 type ServiceId = (typeof SERVICES)[number]["id"];
 
 type ToolOption = "jira" | "zendesk" | "freshdesk" | "slack" | "other";
-type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts";
+type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other";
 
 const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
   reporting: {
@@ -139,10 +139,12 @@ const GuidedFlowPanel = () => {
   const [tool, setTool] = useState<ToolOption | null>(null);
   const [otherTool, setOtherTool] = useState("");
   const [pain, setPain] = useState<PainOption | null>(null);
+  const [otherPain, setOtherPain] = useState("");
 
   const canNextFromStep1 =
     !!tool && (tool !== "other" || otherTool.trim().length > 0);
-  const canNextFromStep2 = !!pain;
+  const canNextFromStep2 =
+    !!pain && (pain !== "other" || otherPain.trim().length > 0);
 
   const toolLabel =
     tool === "jira"
@@ -166,6 +168,8 @@ const GuidedFlowPanel = () => {
       ? "slow first responses"
       : pain === "missed_alerts"
       ? "missed alerts"
+      : pain === "other"
+      ? otherPain.trim() || "support work being slower than it should be"
       : "support work being slower than it should be";
 
   return (
@@ -271,11 +275,17 @@ const GuidedFlowPanel = () => {
                   id: "missed_alerts",
                   label: "We find out about issues too late",
                 },
+                { id: "other", label: "Other" },
               ] as { id: PainOption; label: string }[]).map((opt) => (
                 <button
                   key={opt.id}
                   type="button"
-                  onClick={() => setPain(opt.id)}
+                  onClick={() => {
+                    setPain(opt.id);
+                    if (opt.id !== "other") {
+                      setOtherPain("");
+                    }
+                  }}
                   className={cn(
                     "rounded-xl border px-3 py-2 text-[11px] text-left transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
@@ -286,6 +296,23 @@ const GuidedFlowPanel = () => {
                 </button>
               ))}
             </div>
+            <AnimatePresence>
+              {pain === "other" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, y: -4 }}
+                  animate={{ opacity: 1, height: "auto", y: 0 }}
+                  exit={{ opacity: 0, height: 0, y: -4 }}
+                >
+                  <Input
+                    autoFocus
+                    placeholder="Describe the main pain…"
+                    value={otherPain}
+                    onChange={(e) => setOtherPain(e.target.value)}
+                    className="mt-2 h-8 text-[11px] bg-background/60"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
             <div className="flex gap-2">
               <Button
                 size="sm"
