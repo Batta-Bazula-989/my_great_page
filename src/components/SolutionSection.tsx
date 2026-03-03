@@ -1,5 +1,4 @@
 import ServicesGrid from "@/components/ServicesGrid";
-import AutomationBuilder from "@/components/AutomationBuilder";
 
 const SolutionSection = () => {
   return (
@@ -20,13 +19,7 @@ const SolutionSection = () => {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2.2fr)] items-start">
-          <ServicesGrid />
-
-          <div className="rounded-2xl border border-border bg-secondary/40 backdrop-blur-sm p-4 md:p-5">
-            <AutomationBuilder />
-          </div>
-        </div>
+        <ServicesGrid />
       </div>
     </section>
   );

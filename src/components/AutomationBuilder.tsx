@@ -284,9 +284,6 @@ const AutomationBuilder = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-xs font-medium text-foreground/80">
-              {STEP_LABELS[0]} — What do you need automated?
-            </p>
             <div className="space-y-2">
               {SERVICES.map((s) => {
                 const Icon = s.icon;
