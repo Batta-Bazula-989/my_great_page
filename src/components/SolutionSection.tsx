@@ -24,18 +24,6 @@ const SolutionSection = () => {
           <ServicesGrid />
 
           <div className="rounded-2xl border border-border bg-secondary/40 backdrop-blur-sm p-4 md:p-5">
-            <div className="mb-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
-                Interactive demo
-              </p>
-              <h3 className="text-base font-semibold text-foreground mt-1">
-                Build a quick automation outline
-              </h3>
-              <p className="text-xs text-muted-foreground mt-1.5">
-                Answer a few focused questions and get a tailored support automation outline in seconds.
-              </p>
-            </div>
-
             <AutomationBuilder />
           </div>
         </div>
