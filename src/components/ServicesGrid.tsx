@@ -26,8 +26,8 @@ const SERVICES = [
     outcomes: [],
   },
   {
-    title: "Custom support automations",
-    desc: "Glue between tools that don't integrate out of the box — Zendesk, Intercom, Jira, Salesforce, Slack, and your own APIs wired together to fit your workflow.",
+    title: "Custom solution",
+    desc: "Have a specific automation need or idea that doesn't exist anywhere? I build custom solutions tailored to your exact situation — whether it's a unique way to handle tickets, connect tools, or automate something completely specific to your team.",
     icon: Wrench,
     outcomes: [],
   },
