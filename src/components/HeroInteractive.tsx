@@ -9,7 +9,7 @@ const SERVICES = [
   {
     id: "reporting",
     label: "Reporting",
-    description: "Dashboards and scheduled reports instead of manual exports.",
+    description: "Automate your team's current reports — metrics, summaries, tracking — and deliver them to the right people on schedule. No more pulling data and formatting updates.",
     icon: PieChart,
     mode: "chat" as const,
   },
