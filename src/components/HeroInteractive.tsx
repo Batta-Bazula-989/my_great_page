@@ -37,7 +37,7 @@ const SERVICES = [
   {
     id: "custom",
     label: "Custom solution",
-    description: "Glue together your tools with the workflows you need.",
+    description: "Have a specific automation need or idea that doesn't exist anywhere?",
     icon: Wrench,
     mode: "chat" as const,
   },
