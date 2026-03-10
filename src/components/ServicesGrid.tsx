@@ -3,7 +3,7 @@ import { BarChart3, Bot, Route, Bell, Wrench } from "lucide-react";
 const SERVICES = [
   {
     title: "Reporting",
-    desc: "Automated SLA metrics, weekly and monthly reports, and bottleneck visibility — delivered to the right people without manual exports.",
+    desc: "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
     icon: BarChart3,
     outcomes: [],
   },
