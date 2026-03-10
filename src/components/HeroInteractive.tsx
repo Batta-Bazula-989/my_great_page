@@ -57,7 +57,7 @@ const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: 
   },
   custom: {
     intro: "Describe what you’re trying to achieve.",
-    placeholder: "Describe your process or the tools you need connected…",
+    placeholder: "Describe what you're trying to achieve…",
     aiResponse:
       "I’d map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
   },
