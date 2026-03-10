@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Workflow, PieChart, Bell, Wrench, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -67,13 +67,61 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const config = CHAT_CONFIG[serviceId];
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Auto-focus input when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [serviceId]);
+
+  const isValidInput = (text: string): boolean => {
+    const trimmed = text.trim();
+    
+    // Check if empty
+    if (!trimmed) return false;
+    
+    // Check character limit
+    if (trimmed.length > 200) return false;
+    
+    // Check for commands (starting with / or !)
+    if (trimmed.startsWith('/') || trimmed.startsWith('!')) return false;
+    
+    // Check for code patterns (basic detection)
+    const codePatterns = [
+      /```[\s\S]*```/,  // Code blocks
+      /`[^`]+`/,        // Inline code
+      /^\s*function\s+/i,
+      /^\s*const\s+\w+\s*=/,
+      /^\s*let\s+\w+\s*=/,
+      /^\s*var\s+\w+\s*=/,
+      /^\s*class\s+\w+/i,
+      /^\s*import\s+/i,
+      /^\s*export\s+/i,
+      /^\s*<\w+.*>/,    // HTML/JSX tags
+      /^\s*{\s*".*":/,  // JSON objects
+    ];
+    
+    return !codePatterns.some(pattern => pattern.test(trimmed));
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow typing but limit to 200 characters
+    if (value.length <= 200) {
+      setInput(value);
+    }
+  };
 
   const handleSend = (text?: string) => {
-    const content = (text ?? input).trim();
-    if (!content) return;
+    const content = text ?? input;
+    if (!isValidInput(content)) return;
+    
     setMessages((prev) => [
       ...prev,
-      { role: "user", text: content },
+      { role: "user", text: content.trim() },
       { role: "ai", text: config.aiResponse },
     ]);
     setInput("");
@@ -109,27 +157,45 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       )}
 
       <div className="flex items-center gap-2 rounded-xl border border-border bg-background/60 px-3 py-2">
-        <Input
-          placeholder={config.placeholder}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              handleSend();
-            }
-          }}
-          className="h-7 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
+        <div className="flex-1 relative">
+          <Input
+            ref={inputRef}
+            placeholder={config.placeholder}
+            value={input}
+            onChange={handleInputChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
+            className="h-7 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 pr-8"
+          />
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground/50">
+            {input.length}/200
+          </div>
+        </div>
         <Button
           size="icon"
           variant="outline"
-          className="h-7 w-7 shrink-0"
+          className={cn(
+            "h-7 w-7 shrink-0 transition-colors",
+            !isValidInput(input) && "opacity-50 cursor-not-allowed"
+          )}
           onClick={() => handleSend()}
+          disabled={!isValidInput(input)}
         >
           <ArrowUpRight className="h-3.5 w-3.5" />
         </Button>
       </div>
+      {input.length > 0 && !isValidInput(input) && (
+        <div className="text-[10px] text-red-500/80 mt-1">
+          {input.trim().length === 0 ? "Message cannot be empty" :
+           input.length > 200 ? "Message too long (max 200 characters)" :
+           input.trim().startsWith('/') || input.trim().startsWith('!') ? "Commands are not allowed" :
+           "Code snippets are not allowed"}
+        </div>
+      )}
     </div>
   );
 };
