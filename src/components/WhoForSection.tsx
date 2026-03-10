@@ -16,7 +16,7 @@ const notFit = [
 
 const WhoForSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="fit" className="py-24 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">

@@ -25,7 +25,7 @@ const items = [
 
 const WhyMeSection = () => {
   return (
-    <section className="py-24 bg-gradient-hero relative overflow-hidden">
+    <section id="why-me" className="py-24 bg-gradient-hero relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="container px-4 relative z-10">
