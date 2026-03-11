@@ -1,4 +1,4 @@
-import ServicesGrid from "@/components/ServicesGrid";
+import ServicesCarousel from "@/components/ServicesCarousel";
 
 const SolutionSection = () => {
   return (
@@ -13,7 +13,7 @@ const SolutionSection = () => {
           </h2>
         </div>
 
-        <ServicesGrid />
+        <ServicesCarousel />
       </div>
     </section>
   );
