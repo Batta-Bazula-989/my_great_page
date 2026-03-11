@@ -17,7 +17,7 @@ const ContactSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
             </h2>
             <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
-              Book a 30-minute call. We'll walk through your current workflows, identify the biggest time sinks, and discuss what's worth automating first.
+              Book a 30-minute call. We'll look at what's slowing you down and figure out what to automate first.
             </p>
             <p className="text-muted-foreground/70 mb-10 text-sm max-w-md mx-auto">
               No pitch. No pressure. If it's not a fit, I'll tell you.
