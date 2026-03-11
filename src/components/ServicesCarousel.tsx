@@ -36,10 +36,7 @@ const ServicesCarousel = () => {
   const next = useCallback(() => setCurrent((p) => (p + 1) % total), [total]);
   const prev = useCallback(() => setCurrent((p) => (p - 1 + total) % total), [total]);
 
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [next]);
+  // Removed auto-play - cards only move when user clicks arrows or dots
 
   // Calculate position for each card relative to current
   const getPosition = (index: number) => {

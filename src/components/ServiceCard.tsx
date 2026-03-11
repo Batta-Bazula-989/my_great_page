@@ -8,9 +8,9 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
   return (
-    <div className="p-8 rounded-2xl bg-secondary/20 border border-primary/20 backdrop-blur-sm relative overflow-hidden">
+    <div className="p-8 rounded-2xl bg-secondary border border-primary/20 relative overflow-hidden">
       {/* Subtle cyan glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl" />
       
       {/* Content */}
       <div className="relative z-10 text-center">
