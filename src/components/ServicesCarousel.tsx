@@ -1,183 +1,123 @@
-import React, { useState, useEffect } from "react";
-import { BarChart3, Bot, Route, Wrench, ChevronLeft, ChevronRight } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { useState, useEffect, useCallback } from "react";
+import { BarChart3, Bot, GitBranch, Wrench, ChevronLeft, ChevronRight } from "lucide-react";
+import ServiceCard from "./ServiceCard";
 
-const SERVICES = [
+const services = [
   {
-    title: "Reporting",
-    desc: "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
     icon: BarChart3,
-    outcomes: [],
+    title: "Reporting",
+    description:
+      "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
   },
   {
-    title: "Support chat & voice bots",
-    desc: "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
     icon: Bot,
-    outcomes: [],
+    title: "Support chat & voice bots",
+    description:
+      "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
   },
   {
+    icon: GitBranch,
     title: "Ticket routing & categorization",
-    desc: "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
-    icon: Route,
-    outcomes: [],
+    description:
+      "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
   },
   {
-    title: "Custom solution",
-    desc: "Have a specific automation need or idea that doesn't exist anywhere? I build custom solutions tailored to your exact situation — whether it's a unique way to handle tickets, connect tools, or automate something completely specific to your team.",
     icon: Wrench,
-    outcomes: [],
+    title: "Custom solution",
+    description:
+      "Have a specific automation need or idea that doesn't exist anywhere? I build custom solutions tailored to your exact situation — whether it's a unique way to handle tickets, connect tools, or automate something completely specific to your team.",
   },
 ];
 
 const ServicesCarousel = () => {
-  const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const total = services.length;
+
+  const next = useCallback(() => setCurrent((p) => (p + 1) % total), [total]);
+  const prev = useCallback(() => setCurrent((p) => (p - 1 + total) % total), [total]);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
-  const scrollPrev = () => {
-    api?.scrollPrev();
-  };
-
-  const scrollNext = () => {
-    api?.scrollNext();
-  };
-
-  const scrollTo = (index: number) => {
-    api?.scrollTo(index);
+  // Calculate position for each card relative to current
+  const getPosition = (index: number) => {
+    let diff = index - current;
+    // Wrap around for circular effect
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+    return diff;
   };
 
   return (
-    <div className="relative max-w-7xl mx-auto">
-      <Carousel
-        setApi={setApi}
-        className="w-full"
-        opts={{
-          align: "center",
-          loop: true,
-          containScroll: "trimSnaps",
-        }}
-      >
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {SERVICES.map((service, index) => {
-            const Icon = service.icon;
-            const isCenter = index === current;
-            
+    <section className="w-full py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-16 leading-tight text-center">
+          Practical support automation<br />built on your existing tools.
+        </h2>
+
+        <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
+          {services.map((service, i) => {
+            const pos = getPosition(i);
+            const isActive = pos === 0;
+            const isVisible = Math.abs(pos) <= 2;
+
+            if (!isVisible) return null;
+
+            const translateX = pos * 55;
+            const scale = isActive ? 1 : 0.85 - Math.abs(pos) * 0.05;
+            const opacity = isActive ? 1 : Math.max(0, 0.5 - (Math.abs(pos) - 1) * 0.3);
+            const zIndex = 20 - Math.abs(pos) * 10;
+            const blur = isActive ? 0 : Math.abs(pos) * 2;
+
             return (
-              <CarouselItem key={service.title} className="pl-2 md:pl-4 basis-4/5 md:basis-3/5 lg:basis-1/2">
-                <div className="flex justify-center px-2">
-                  <div 
-                    className={cn(
-                      "w-full p-6 md:p-8 rounded-2xl bg-secondary/20 border backdrop-blur-sm relative overflow-hidden transition-all duration-300",
-                      isCenter 
-                        ? "border-primary/30 scale-105 bg-secondary/30 max-w-2xl" 
-                        : "border-primary/10 scale-95 opacity-60 max-w-lg"
-                    )}
-                  >
-                    {/* Enhanced glow effect for center card */}
-                    <div 
-                      className={cn(
-                        "absolute inset-0 bg-gradient-to-r rounded-2xl transition-opacity duration-300",
-                        isCenter 
-                          ? "from-primary/10 via-transparent to-primary/10 opacity-100" 
-                          : "from-primary/5 via-transparent to-primary/5 opacity-50"
-                      )} 
-                    />
-                    
-                    {/* Content */}
-                    <div className="relative z-10 text-center">
-                      {/* Icon container */}
-                      <div 
-                        className={cn(
-                          "rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 md:mb-6 mx-auto transition-all duration-300",
-                          isCenter ? "w-16 h-16" : "w-12 h-12"
-                        )}
-                      >
-                        <Icon className={cn("text-primary", isCenter ? "w-8 h-8" : "w-6 h-6")} />
-                      </div>
-                      
-                      {/* Title */}
-                      <h3 
-                        className={cn(
-                          "font-bold font-display mb-3 md:mb-4 text-white transition-all duration-300",
-                          isCenter ? "text-xl md:text-2xl" : "text-lg md:text-xl"
-                        )}
-                      >
-                        {service.title}
-                      </h3>
-                      
-                      {/* Description - only show full description for center card */}
-                      <p 
-                        className={cn(
-                          "text-muted-foreground leading-relaxed mx-auto transition-all duration-300",
-                          isCenter 
-                            ? "text-sm md:text-base max-w-xl opacity-100" 
-                            : "text-xs md:text-sm max-w-xs opacity-80 line-clamp-3"
-                        )}
-                      >
-                        {service.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
+              <div
+                key={i}
+                className="absolute w-[340px] md:w-[480px]"
+                style={{
+                  transform: `translateX(${translateX}%) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                  filter: `blur(${blur}px)`,
+                  transition: "all 0.7s cubic-bezier(0.32, 0.72, 0, 1)",
+                  willChange: "transform, opacity, filter",
+                }}
+              >
+                <ServiceCard {...service} />
+              </div>
             );
           })}
-        </CarouselContent>
 
-        {/* Navigation Arrows */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/80 border-primary/20 hover:bg-secondary hover:border-primary/40 transition-all duration-200 z-10"
-          onClick={scrollPrev}
-        >
-          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-          <span className="sr-only">Previous slide</span>
-        </Button>
-
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/80 border-primary/20 hover:bg-secondary hover:border-primary/40 transition-all duration-200 z-10"
-          onClick={scrollNext}
-        >
-          <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-          <span className="sr-only">Next slide</span>
-        </Button>
-      </Carousel>
-
-      {/* Dot Indicators */}
-      <div className="flex justify-center space-x-2 mt-6 md:mt-8">
-        {Array.from({ length: count }).map((_, index) => (
           <button
-            key={index}
-            className={cn(
-              "w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200",
-              current === index
-                ? "bg-primary scale-110"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-            )}
-            onClick={() => scrollTo(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+            onClick={prev}
+            className="absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors duration-200"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors duration-200"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-3 mt-8">
+          {services.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className="h-2.5 rounded-full transition-all duration-500 ease-out"
+              style={{
+                width: i === current ? "2rem" : "0.625rem",
+                backgroundColor: i === current ? "hsl(var(--primary))" : "hsl(var(--muted-foreground) / 0.3)",
+              }}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
