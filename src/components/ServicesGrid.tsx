@@ -9,7 +9,7 @@ const SERVICES = [
   },
   {
     title: "Support chat & voice bots",
-    desc: "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
+    desc: "Bots that manage first contact in chat and phone. They handle straightforward requests, gather information, and hand off complex issues to your team cleanly.",
     icon: Bot,
     outcomes: [],
   },
