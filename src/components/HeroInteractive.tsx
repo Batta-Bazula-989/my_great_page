@@ -23,7 +23,7 @@ const SERVICES = [
   {
     id: "routing",
     label: "Ticket routing & categorization",
-    description: "AI-assisted triage so tickets land in the right queue.",
+    description: "Automatically route tickets to the right team and person based on what they're about. Tags, priority, and assignment handled from the start.",
     icon: Workflow,
     mode: "flow" as const,
   },
