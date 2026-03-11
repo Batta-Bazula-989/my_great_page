@@ -1,4 +1,4 @@
-import { BarChart3, Bot, Route, Bell, Wrench } from "lucide-react";
+import { BarChart3, Bot, Route, Wrench } from "lucide-react";
 
 const SERVICES = [
   {
@@ -17,12 +17,6 @@ const SERVICES = [
     title: "Ticket routing & categorization",
     desc: "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
     icon: Route,
-    outcomes: [],
-  },
-  {
-    title: "Monitoring & alerting",
-    desc: "Real-time detection of SLA breaches, queue spikes, and process failures — with alerts before problems escalate.",
-    icon: Bell,
     outcomes: [],
   },
   {
