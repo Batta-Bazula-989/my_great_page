@@ -28,13 +28,6 @@ const SERVICES = [
     mode: "flow" as const,
   },
   {
-    id: "monitoring",
-    label: "Monitoring & alerting",
-    description: "SLA timers and alerts before something slips.",
-    icon: Bell,
-    mode: "flow" as const,
-  },
-  {
     id: "custom",
     label: "Custom solution",
     description: "Have a specific automation need or idea that doesn't exist anywhere?",
