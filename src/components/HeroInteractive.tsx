@@ -16,7 +16,7 @@ const SERVICES = [
   {
     id: "bots",
     label: "Support chat & voice bots",
-    description: "Frontline bots that handle FAQs and route complex issues.",
+    description: "Bots that handle incoming chat and phone requests. They answer common questions, collect what's needed, and route complex issues to your team with context.",
     icon: MessageCircle,
     mode: "flow" as const,
   },
