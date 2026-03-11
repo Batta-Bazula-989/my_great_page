@@ -9,7 +9,7 @@ const SERVICES = [
   {
     id: "reporting",
     label: "Reporting",
-    description: "Dashboards and scheduled reports instead of manual exports.",
+    description: "Turn manual reporting into automated delivery. Your current reports get generated and sent to the right people on schedule. No more pulling data and formatting updates.",
     icon: PieChart,
     mode: "chat" as const,
   },
@@ -50,7 +50,7 @@ type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other
 
 const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
   reporting: {
-    intro: "Describe your current reporting process.",
+    intro: "",
     placeholder: "Describe your reporting process…",
     aiResponse:
       "I’d set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
