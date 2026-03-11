@@ -67,7 +67,7 @@ const ServicesCarousel = () => {
 
             const translateX = pos * 55;
             const scale = isActive ? 1 : 0.85 - Math.abs(pos) * 0.05;
-            const opacity = isActive ? 1 : Math.max(0, 0.5 - (Math.abs(pos) - 1) * 0.3);
+            const opacity = 1; // Keep all cards fully opaque
             const zIndex = 20 - Math.abs(pos) * 10;
             const blur = isActive ? 0 : Math.abs(pos) * 2;
 
