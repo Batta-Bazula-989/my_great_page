@@ -44,13 +44,10 @@ const WhyMeSection = () => {
             return (
               <div
                 key={index}
-                className="group p-6 rounded-xl bg-secondary/30 border transition-all duration-300 hover:bg-secondary/40 hover:-translate-y-1 card-hover-glow"
+                className="group p-6 rounded-xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
                 style={{
-                  borderColor: 'hsl(var(--border))',
-                  borderTopColor: 'rgb(43, 48, 59)',
-                  borderRightColor: 'rgb(43, 48, 59)',
-                  borderBottomColor: 'rgb(43, 48, 59)',
-                  borderLeftColor: 'rgb(43, 48, 59)',
+                  backgroundColor: 'rgb(43, 48, 59)',
+                  borderColor: 'rgb(43, 48, 59)',
                 }}
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
