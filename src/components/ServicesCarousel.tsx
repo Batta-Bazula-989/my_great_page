@@ -51,7 +51,7 @@ const ServicesCarousel = () => {
     <section className="w-full py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-16 leading-tight text-center">
-          Practical support automation<br />built on your existing tools.
+          Automate your support operations
         </h2>
 
         <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
