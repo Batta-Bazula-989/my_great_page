@@ -131,6 +131,10 @@
     animation: fade-up 0.8s ease-out 0.3s forwards;
     opacity: 0;
   }
+
+  .card-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(43, 48, 59, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
 }
 
 @keyframes float {
