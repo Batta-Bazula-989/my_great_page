@@ -46,13 +46,13 @@ const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: 
     intro: "",
     placeholder: "Describe your reporting process…",
     aiResponse:
-      "I’d set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
+      "I'd set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
   },
   custom: {
-    intro: "Describe what you’re trying to achieve.",
+    intro: "",
     placeholder: "Describe what you're trying to achieve…",
     aiResponse:
-      "I’d map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
+      "I'd map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
   },
 };
 
@@ -77,7 +77,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
     if (!trimmed) return false;
     
     // Check character limit
-    if (trimmed.length > 200) return false;
+    if (trimmed.length < 30 || trimmed.length > 300) return false;
     
     // Check for commands (starting with / or !)
     if (trimmed.startsWith('/') || trimmed.startsWith('!')) return false;
@@ -102,8 +102,8 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Allow typing but limit to 200 characters
-    if (value.length <= 200) {
+    // Allow typing but limit to 300 characters
+    if (value.length <= 300) {
       setInput(value);
     }
   };
@@ -165,7 +165,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
             className="h-7 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 pr-8"
           />
           <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground/50">
-            {input.length}/200
+            {input.length}/300
           </div>
         </div>
         <Button
@@ -184,7 +184,8 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       {input.length > 0 && !isValidInput(input) && (
         <div className="text-[10px] text-red-500/80 mt-1">
           {input.trim().length === 0 ? "Message cannot be empty" :
-           input.length > 200 ? "Message too long (max 200 characters)" :
+           input.length > 300 ? "Message too long (max 300 characters)" :
+           input.trim().length < 30 ? "Message too short (min 30 characters)" :
            input.trim().startsWith('/') || input.trim().startsWith('!') ? "Commands are not allowed" :
            "Code snippets are not allowed"}
         </div>
@@ -544,4 +545,3 @@ const HeroInteractive = () => {
 };
 
 export default HeroInteractive;
-
