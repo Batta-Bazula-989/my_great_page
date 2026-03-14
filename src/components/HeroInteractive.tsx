@@ -61,6 +61,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const sessionId = useRef<string>(crypto.randomUUID());
 
   // Auto-focus input when component mounts
   useEffect(() => {
@@ -119,6 +120,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        sessionId: sessionId.current,
         message: content.trim(),
         service: serviceId === "reporting" ? "reporting" : "custom solution",
       }),
