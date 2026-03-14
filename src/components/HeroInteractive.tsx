@@ -107,24 +107,27 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
     }
   };
 
-  const handleSend = (text?: string) => {
+  const handleSend = async (text?: string) => {
     const content = text ?? input;
     if (!isValidInput(content)) return;
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", text: content.trim() },
-      { role: "ai", text: config.aiResponse },
-    ]);
     setInput("");
-    fetch("https://stash-312.app.n8n.cloud/webhook-test/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        sessionId: sessionId.current,
-        message: content.trim(),
-        service: serviceId === "reporting" ? "reporting" : "custom solution",
-      }),
-    }).catch(() => {});
+    setMessages((prev) => [...prev, { role: "user", text: content.trim() }]);
+    try {
+      const res = await fetch("https://stash-312.app.n8n.cloud/webhook-test/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sessionId: sessionId.current,
+          message: content.trim(),
+          service: serviceId === "reporting" ? "reporting" : "custom solution",
+        }),
+      });
+      const data = await res.json();
+      const reply = data?.output ?? data?.message ?? data?.text ?? config.aiResponse;
+      setMessages((prev) => [...prev, { role: "ai", text: reply }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "ai", text: config.aiResponse }]);
+    }
   };
 
   return (
