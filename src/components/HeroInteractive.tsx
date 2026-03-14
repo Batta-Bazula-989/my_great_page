@@ -158,7 +158,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
               }
             }}
             rows={1}
-            className="w-full resize-none bg-transparent text-xs placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-0.5"
+            className="w-full resize-none bg-transparent text-xs placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-1"
             style={{ minHeight: "28px", maxHeight: "120px", overflowY: "auto" }}
           />
           <div className="absolute right-1 bottom-0.5 text-[10px] text-muted-foreground/50">

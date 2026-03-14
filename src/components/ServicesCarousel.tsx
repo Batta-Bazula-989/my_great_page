@@ -48,7 +48,7 @@ const ServicesCarousel = () => {
   };
 
   return (
-    <section className="w-full py-16 md:py-24">
+    <section className="w-full py-[3.2rem] md:py-[4.8rem]">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-16 leading-tight text-center">
           Automate your support operations
