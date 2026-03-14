@@ -33,7 +33,10 @@ const WhoForSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="p-8 rounded-2xl bg-gradient-card border border-primary/30">
+          <div
+            className="p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
+            style={{ backgroundColor: 'rgb(43, 48, 59)', borderColor: 'rgb(43, 48, 59)' }}
+          >
             <h3 className="text-xl font-bold font-display mb-6 text-gradient">Good Fit</h3>
             <div className="space-y-4">
               {goodFit.map((item, i) => (
@@ -45,7 +48,10 @@ const WhoForSection = () => {
             </div>
           </div>
 
-          <div className="p-8 rounded-2xl bg-secondary/20 border border-border">
+          <div
+            className="p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
+            style={{ backgroundColor: 'rgb(43, 48, 59)', borderColor: 'rgb(43, 48, 59)' }}
+          >
             <h3 className="text-xl font-bold font-display mb-6 text-muted-foreground">Not the Right Fit</h3>
             <div className="space-y-4">
               {notFit.map((item, i) => (
