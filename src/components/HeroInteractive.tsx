@@ -126,7 +126,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       const reply = data?.output ?? data?.message ?? data?.text ?? config.aiResponse;
       setMessages((prev) => [...prev, { role: "ai", text: reply }]);
     } catch {
-      setMessages((prev) => [...prev, { role: "ai", text: config.aiResponse }]);
+      setMessages((prev) => [...prev, { role: "ai", text: "Something went wrong. Please try again." }]);
     }
   };
 
