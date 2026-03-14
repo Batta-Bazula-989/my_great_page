@@ -60,7 +60,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const config = CHAT_CONFIG[serviceId];
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   // Auto-focus input when component mounts
   useEffect(() => {
@@ -70,22 +70,22 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
     return () => clearTimeout(timer);
   }, [serviceId]);
 
+  // Auto-resize textarea
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [input]);
+
   const isValidInput = (text: string): boolean => {
     const trimmed = text.trim();
-    
-    // Check if empty
     if (!trimmed) return false;
-    
-    // Check character limit
     if (trimmed.length < 30 || trimmed.length > 300) return false;
-    
-    // Check for commands (starting with / or !)
     if (trimmed.startsWith('/') || trimmed.startsWith('!')) return false;
-    
-    // Check for code patterns (basic detection)
     const codePatterns = [
-      /```[\s\S]*```/,  // Code blocks
-      /`[^`]+`/,        // Inline code
+      /```[\s\S]*```/,
+      /`[^`]+`/,
       /^\s*function\s+/i,
       /^\s*const\s+\w+\s*=/,
       /^\s*let\s+\w+\s*=/,
@@ -93,16 +93,14 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       /^\s*class\s+\w+/i,
       /^\s*import\s+/i,
       /^\s*export\s+/i,
-      /^\s*<\w+.*>/,    // HTML/JSX tags
-      /^\s*{\s*".*":/,  // JSON objects
+      /^\s*<\w+.*>/,
+      /^\s*{\s*".*":/,
     ];
-    
     return !codePatterns.some(pattern => pattern.test(trimmed));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
-    // Allow typing but limit to 300 characters
     if (value.length <= 300) {
       setInput(value);
     }
@@ -111,7 +109,6 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const handleSend = (text?: string) => {
     const content = text ?? input;
     if (!isValidInput(content)) return;
-    
     setMessages((prev) => [
       ...prev,
       { role: "user", text: content.trim() },
@@ -122,9 +119,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
 
   return (
     <div className="flex flex-col gap-3">
-      {messages.length === 0 ? (
-        <p className="text-[11px] text-muted-foreground">{config.intro}</p>
-      ) : (
+      {messages.length > 0 && (
         <div className="overflow-y-auto max-h-[180px] space-y-2.5">
           <AnimatePresence initial={false}>
             {messages.map((m, i) => (
@@ -149,9 +144,9 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
         </div>
       )}
 
-      <div className="flex items-center gap-2 rounded-xl border border-border bg-background/60 px-3 py-2">
+      <div className="flex items-end gap-2 rounded-xl border border-border bg-background/60 px-3 py-2">
         <div className="flex-1 relative">
-          <Input
+          <textarea
             ref={inputRef}
             placeholder={config.placeholder}
             value={input}
@@ -162,9 +157,11 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
                 handleSend();
               }
             }}
-            className="h-7 border-0 bg-transparent text-xs placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 pr-8"
+            rows={1}
+            className="w-full resize-none bg-transparent text-xs placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-0.5"
+            style={{ minHeight: "28px", maxHeight: "120px", overflowY: "auto" }}
           />
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground/50">
+          <div className="absolute right-1 bottom-0.5 text-[10px] text-muted-foreground/50">
             {input.length}/300
           </div>
         </div>
@@ -172,7 +169,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
           size="icon"
           variant="outline"
           className={cn(
-            "h-7 w-7 shrink-0 transition-colors",
+            "h-7 w-7 shrink-0 transition-colors mb-0.5",
             !isValidInput(input) && "opacity-50 cursor-not-allowed"
           )}
           onClick={() => handleSend()}
