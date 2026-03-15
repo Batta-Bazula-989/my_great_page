@@ -113,7 +113,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: content.trim() }]);
     try {
-      const res = await fetch("https://stash-312.app.n8n.cloud/webhook-test/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
+      const res = await fetch("https://stash-312.app.n8n.cloud/webhook/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
