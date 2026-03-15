@@ -143,10 +143,10 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[88%] rounded-2xl px-3 py-2 text-[11px] leading-relaxed ${
+                  className={`max-w-[88%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                     m.role === "user"
                       ? "bg-primary text-primary-foreground"
-                      : "bg-secondary/60 text-muted-foreground"
+                      : "bg-secondary/60 text-foreground"
                   }`}
                 >
                   {m.text}
@@ -171,7 +171,7 @@ const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
               }
             }}
             rows={1}
-            className="w-full resize-none bg-transparent text-xs placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-1"
+            className="w-full resize-none bg-transparent text-sm placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-1"
             style={{ minHeight: "28px", maxHeight: "120px", overflowY: "auto" }}
           />
           <div className="absolute right-1 bottom-0.5 text-[10px] text-muted-foreground/50">
