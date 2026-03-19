@@ -7,10 +7,10 @@ import { Input } from "@/components/ui/input";
 
 const SERVICES = [
   {
-    id: "reporting",
-    label: "Reporting",
-    description: "Turn manual reporting into automated delivery. Your current reports get generated and sent to the right people on schedule.",
-    icon: PieChart,
+    id: "custom",
+    label: "Custom solution",
+    description: "Have a specific automation need or idea that doesn't exist anywhere?",
+    icon: Wrench,
     mode: "chat" as const,
   },
   {
@@ -21,18 +21,18 @@ const SERVICES = [
     mode: "flow" as const,
   },
   {
+    id: "reporting",
+    label: "Reporting",
+    description: "Turn manual reporting into automated delivery. Your current reports get generated and sent to the right people on schedule.",
+    icon: PieChart,
+    mode: "chat" as const,
+  },
+  {
     id: "routing",
     label: "Ticket routing & categorization",
     description: "Automatically route tickets to the right team and person based on what they're about. Tags, priority, and assignment handled from the start.",
     icon: Workflow,
     mode: "flow" as const,
-  },
-  {
-    id: "custom",
-    label: "Custom solution",
-    description: "Have a specific automation need or idea that doesn't exist anywhere?",
-    icon: Wrench,
-    mode: "chat" as const,
   },
 ] as const;
 
@@ -218,10 +218,10 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-sm font-medium text-foreground/90">
+            <p className="text-base font-medium text-foreground/90">
               Step 1 — What tools do you use for support today?
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {([
                 { id: "jira", label: "Jira" },
                 { id: "zendesk", label: "Zendesk" },
@@ -239,7 +239,7 @@ const GuidedFlowPanel = () => {
                     }
                   }}
                   className={cn(
-                    "rounded-full border px-3.5 py-2 text-sm transition-colors",
+                    "rounded-full border px-4 py-2 text-base transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
                     tool === opt.id && "border-primary bg-primary/10"
                   )}
@@ -260,14 +260,13 @@ const GuidedFlowPanel = () => {
                     placeholder="What tools are you using today?"
                     value={otherTool}
                     onChange={(e) => setOtherTool(e.target.value)}
-                    className="mt-2 h-9 text-sm bg-background/60"
+                    className="mt-2 h-10 text-base bg-background/60"
                   />
                 </motion.div>
               )}
             </AnimatePresence>
             <Button
-              size="sm"
-              className="w-full justify-center mt-1 text-sm"
+              className="w-full justify-center mt-1 text-base h-10"
               disabled={!canNextFromStep1}
               onClick={() => canNextFromStep1 && setStep(2)}
             >
@@ -285,7 +284,7 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-sm font-medium text-foreground/90">
+            <p className="text-base font-medium text-foreground/90">
               Step 2 — What is the main pain right now?
             </p>
             <div className="grid grid-cols-1 gap-2">
@@ -309,7 +308,7 @@ const GuidedFlowPanel = () => {
                     }
                   }}
                   className={cn(
-                    "rounded-xl border px-3.5 py-2.5 text-sm text-left transition-colors",
+                    "rounded-xl border px-4 py-3 text-base text-left transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
                     pain === opt.id && "border-primary bg-primary/10"
                   )}
@@ -330,23 +329,21 @@ const GuidedFlowPanel = () => {
                     placeholder="Describe the main pain…"
                     value={otherPain}
                     onChange={(e) => setOtherPain(e.target.value)}
-                    className="mt-2 h-9 text-sm bg-background/60"
+                    className="mt-2 h-10 text-base bg-background/60"
                   />
                 </motion.div>
               )}
             </AnimatePresence>
             <div className="flex gap-2">
               <Button
-                size="sm"
                 variant="outline"
-                className="flex-1 justify-center text-sm"
+                className="flex-1 justify-center text-base h-10"
                 onClick={() => setStep(1)}
               >
                 Back
               </Button>
               <Button
-                size="sm"
-                className="flex-1 justify-center text-sm"
+                className="flex-1 justify-center text-base h-10"
                 disabled={!canNextFromStep2}
                 onClick={() => canNextFromStep2 && setStep(3)}
               >
@@ -365,14 +362,14 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-sm font-medium text-foreground/90">
+            <p className="text-base font-medium text-foreground/90">
               Step 3 — What changes with automation
             </p>
-            <div className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-3.5">
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-4">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 For {toolLabel}, we typically:
               </p>
-              <ul className="list-disc pl-4 space-y-1 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc pl-4 space-y-1 text-base text-muted-foreground leading-relaxed">
                 <li>
                   Use n8n and native APIs/webhooks to route tickets
                   automatically, based on queue, language, and intent.
@@ -386,21 +383,20 @@ const GuidedFlowPanel = () => {
                   times, and breaches without exporting data.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+              <p className="text-base text-muted-foreground leading-relaxed pt-1">
                 Result: fewer manual handoffs, faster replies, and far fewer
                 surprises around SLAs.
               </p>
             </div>
             <div className="flex gap-2">
               <Button
-                size="sm"
                 variant="outline"
-                className="flex-1 justify-center text-sm"
+                className="flex-1 justify-center text-base h-10"
                 onClick={() => setStep(1)}
               >
                 Start over
               </Button>
-              <Button size="sm" className="flex-1 justify-center text-sm">
+              <Button className="flex-1 justify-center text-base h-10">
                 See how this would work for your team
               </Button>
             </div>
@@ -412,7 +408,7 @@ const GuidedFlowPanel = () => {
 };
 
 const HeroInteractive = () => {
-  const [selected, setSelected] = useState<ServiceId>("reporting");
+  const [selected, setSelected] = useState<ServiceId>("custom");
 
   const activeService = SERVICES.find((s) => s.id === selected)!;
   const isChatMode = activeService.mode === "chat";
@@ -429,7 +425,7 @@ const HeroInteractive = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 md:gap-8 md:grid-cols-[340px_1fr] lg:grid-cols-[380px_1fr] items-start">
+      <div className="grid gap-6 md:gap-8 md:grid-cols-[360px_1fr] lg:grid-cols-[420px_1fr] items-start">
         <div className="flex flex-col gap-2">
           {SERVICES.map((service) => {
             const Icon = service.icon;
@@ -449,10 +445,10 @@ const HeroInteractive = () => {
                   <Icon className="h-5 w-5" />
                 </span>
                 <span>
-                  <span className="block text-lg font-semibold">
+                  <span className="block text-xl font-semibold">
                     {service.label}
                   </span>
-                  <span className="mt-0.5 block text-base text-muted-foreground leading-relaxed">
+                  <span className="mt-1 block text-[17px] text-muted-foreground leading-relaxed">
                     {service.description}
                   </span>
                 </span>
