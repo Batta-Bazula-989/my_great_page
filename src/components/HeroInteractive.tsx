@@ -419,12 +419,12 @@ const HeroInteractive = () => {
 
   return (
     <div className="space-y-6 md:space-y-8">
-      <div>
+      <div className="text-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
           Automate your{" "}
           <span className="text-gradient">support ops</span>
         </h1>
-        <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3">
+        <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3 mx-auto">
           Replace manual support busywork with reliable, production-ready automation.
         </p>
       </div>
@@ -449,10 +449,10 @@ const HeroInteractive = () => {
                   <Icon className="h-4 w-4" />
                 </span>
                 <span>
-                  <span className="block text-sm font-semibold">
+                  <span className="block text-base font-semibold">
                     {service.label}
                   </span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground leading-relaxed">
+                  <span className="mt-0.5 block text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </span>
                 </span>
