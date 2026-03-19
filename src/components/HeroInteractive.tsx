@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Workflow, PieChart, Bell, Wrench, ArrowUpRight } from "lucide-react";
+import { MessageCircle, Workflow, PieChart, Wrench, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,165 +41,117 @@ type ServiceId = (typeof SERVICES)[number]["id"];
 type ToolOption = "jira" | "zendesk" | "freshdesk" | "slack" | "other";
 type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other";
 
-const CHAT_CONFIG: Record<"reporting" | "custom", { intro: string; placeholder: string; aiResponse: string }> = {
-  reporting: {
-    intro: "",
-    placeholder: "Describe your reporting process…",
-    aiResponse:
-      "I'd set up automatic extraction from your source on a schedule, centralize it, and generate reports that deliver themselves. Alerts fire before anything slips — no manual exports needed.",
-  },
-  custom: {
-    intro: "",
-    placeholder: "Describe what you're trying to achieve…",
-    aiResponse:
-      "I'd map the trigger, identify which system owns each step, and wire your tools together with direct API calls or webhooks — no copy-paste, no manual handoffs. You get a clean, documented workflow your team actually owns.",
-  },
-};
-
-const ChatPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
-  const config = CHAT_CONFIG[serviceId];
+const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
+  const service = SERVICES.find((s) => s.id === serviceId)!;
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
+  const [submitted, setSubmitted] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const sessionId = useRef<string>(crypto.randomUUID());
 
-  // Auto-focus input when component mounts
   useEffect(() => {
-    const timer = setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
+    setInput("");
+    setSubmitted(false);
+    sessionId.current = crypto.randomUUID();
+    const timer = setTimeout(() => inputRef.current?.focus(), 100);
     return () => clearTimeout(timer);
   }, [serviceId]);
 
-  // Auto-resize textarea
-  useEffect(() => {
-    const el = inputRef.current;
-    if (!el) return;
-    el.style.height = "auto";
-    el.style.height = `${el.scrollHeight}px`;
-  }, [input]);
-
   const isValidInput = (text: string): boolean => {
     const trimmed = text.trim();
-    if (!trimmed) return false;
-    if (trimmed.length < 30 || trimmed.length > 300) return false;
+    if (!trimmed || trimmed.length < 30 || trimmed.length > 300) return false;
     if (trimmed.startsWith('/') || trimmed.startsWith('!')) return false;
     const codePatterns = [
-      /```[\s\S]*```/,
-      /`[^`]+`/,
-      /^\s*function\s+/i,
-      /^\s*const\s+\w+\s*=/,
-      /^\s*let\s+\w+\s*=/,
-      /^\s*var\s+\w+\s*=/,
-      /^\s*class\s+\w+/i,
-      /^\s*import\s+/i,
-      /^\s*export\s+/i,
-      /^\s*<\w+.*>/,
-      /^\s*{\s*".*":/,
+      /```[\s\S]*```/, /`[^`]+`/, /^\s*function\s+/i, /^\s*const\s+\w+\s*=/,
+      /^\s*let\s+\w+\s*=/, /^\s*var\s+\w+\s*=/, /^\s*class\s+\w+/i,
+      /^\s*import\s+/i, /^\s*export\s+/i, /^\s*<\w+.*>/, /^\s*{\s*".*":/,
     ];
-    return !codePatterns.some(pattern => pattern.test(trimmed));
+    return !codePatterns.some((p) => p.test(trimmed));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
-    if (value.length <= 300) {
-      setInput(value);
-    }
-  };
-
-  const handleSend = async (text?: string) => {
-    const content = text ?? input;
-    if (!isValidInput(content)) return;
-    setInput("");
-    setMessages((prev) => [...prev, { role: "user", text: content.trim() }]);
+  const handleSend = async () => {
+    if (!isValidInput(input)) return;
+    const message = input.trim();
+    setSubmitted(true);
     try {
-      const res = await fetch("https://stash-312.app.n8n.cloud/webhook/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
+      await fetch("https://stash-312.app.n8n.cloud/webhook/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sessionId: sessionId.current,
-          message: content.trim(),
-          service: serviceId === "reporting" ? "reporting" : "custom solution",
-        }),
+        body: JSON.stringify({ sessionId: sessionId.current, message, service: service.label }),
       });
-      const data = await res.json();
-      const reply = data?.output ?? data?.message ?? data?.text ?? config.aiResponse;
-      setMessages((prev) => [...prev, { role: "ai", text: reply }]);
     } catch {
-      setMessages((prev) => [...prev, { role: "ai", text: "Something went wrong. Please try again." }]);
+      // silently fail – user already sees confirmation
     }
   };
 
-  return (
-    <div className="flex flex-col gap-3">
-      {messages.length > 0 && (
-        <div className="overflow-y-auto max-h-[180px] space-y-2.5">
-          <AnimatePresence initial={false}>
-            {messages.map((m, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-              >
-                <div
-                  className={`max-w-[88%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
-                    m.role === "user"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary/60 text-foreground"
-                  }`}
-                >
-                  {m.text}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col items-center justify-center py-12 text-center"
+      >
+        <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+          <ArrowUpRight className="h-5 w-5 text-primary" />
         </div>
-      )}
+        <p className="text-lg font-semibold text-foreground mb-1">Request sent</p>
+        <p className="text-sm text-muted-foreground">I'll get back to you shortly.</p>
+      </motion.div>
+    );
+  }
 
-      <div className="flex items-end gap-2 rounded-xl border border-border bg-background/60 px-3 py-2">
-        <div className="flex-1 relative">
-          <textarea
-            ref={inputRef}
-            placeholder={config.placeholder}
-            value={input}
-            onChange={handleInputChange}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleSend();
-              }
-            }}
-            rows={1}
-            className="w-full resize-none bg-transparent text-sm placeholder:text-muted-foreground/60 focus:outline-none leading-relaxed pr-10 py-1"
-            style={{ minHeight: "28px", maxHeight: "120px", overflowY: "auto" }}
-          />
-          <div className="absolute right-1 bottom-0.5 text-[10px] text-muted-foreground/50">
-            {input.length}/300
-          </div>
-        </div>
-        <Button
-          size="icon"
-          variant="outline"
-          className={cn(
-            "h-7 w-7 shrink-0 transition-colors mb-0.5",
-            !isValidInput(input) && "opacity-50 cursor-not-allowed"
-          )}
-          onClick={() => handleSend()}
-          disabled={!isValidInput(input)}
-        >
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </Button>
+  return (
+    <div className="flex flex-col h-full">
+      <div className="mb-6">
+        <span className="text-xs font-bold tracking-widest uppercase text-primary">
+          {service.label}
+        </span>
+        <h2 className="text-xl md:text-2xl font-bold font-display text-foreground mt-2">
+          Describe what you're trying to achieve
+        </h2>
+        <p className="text-sm text-muted-foreground mt-1">
+          Be as specific as possible — the more detail, the better we can help.
+        </p>
       </div>
-      {input.length > 0 && !isValidInput(input) && (
-        <div className="text-[10px] text-red-500/80 mt-1">
-          {input.trim().length === 0 ? "Message cannot be empty" :
-           input.length > 300 ? "Message too long (max 300 characters)" :
-           input.trim().length < 30 ? "Message too short (min 30 characters)" :
-           input.trim().startsWith('/') || input.trim().startsWith('!') ? "Commands are not allowed" :
-           "Code snippets are not allowed"}
+
+      <textarea
+        ref={inputRef}
+        placeholder="Type your message here..."
+        value={input}
+        onChange={(e) => e.target.value.length <= 300 && setInput(e.target.value)}
+        onKeyDown={(e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+            e.preventDefault();
+            handleSend();
+          }
+        }}
+        className="flex-1 min-h-[120px] w-full resize-none rounded-xl bg-transparent text-sm placeholder:text-muted-foreground/50 focus:outline-none leading-relaxed py-1"
+      />
+
+      <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
+        <div className="flex items-center gap-3 text-xs text-muted-foreground/60">
+          <span>{input.length}/300</span>
+          <span>
+            Press{" "}
+            <kbd className="px-1.5 py-0.5 rounded bg-secondary/80 border border-border/60 text-[10px] font-mono">
+              ⌘ Enter
+            </kbd>{" "}
+            to send
+          </span>
         </div>
-      )}
+        <button
+          type="button"
+          onClick={handleSend}
+          disabled={!isValidInput(input)}
+          className={cn(
+            "flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all",
+            "hover:shadow-glow hover:scale-105",
+            !isValidInput(input) && "opacity-40 cursor-not-allowed hover:shadow-none hover:scale-100"
+          )}
+        >
+          Submit Request
+          <ArrowUpRight className="h-4 w-4" />
+        </button>
+      </div>
     </div>
   );
 };
@@ -460,96 +412,91 @@ const GuidedFlowPanel = () => {
 };
 
 const HeroInteractive = () => {
-  const [selected, setSelected] = useState<ServiceId>("routing");
+  const [selected, setSelected] = useState<ServiceId>("reporting");
 
   const activeService = SERVICES.find((s) => s.id === selected)!;
-  const isChatMode = activeService.id === "reporting" || activeService.id === "custom";
+  const isChatMode = activeService.mode === "chat";
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-start">
-        <div className="space-y-4">
+    <div className="grid gap-6 md:gap-8 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
+      <div className="space-y-5">
+        <div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
             Automate your{" "}
             <span className="text-gradient">support ops</span>
           </h1>
-          <p className="text-muted-foreground text-base md:text-lg max-w-xl">
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3">
             Replace manual support busywork with reliable, production-ready automation.
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-            {SERVICES.map((service) => {
-              const Icon = service.icon;
-              const isActive = service.id === selected;
-              return (
-                <button
-                  key={service.id}
-                  type="button"
-                  onClick={() => setSelected(service.id)}
-                  className={cn(
-                    "group flex items-start gap-3 rounded-2xl border px-4 py-3.5 text-left transition-all",
-                    "bg-secondary/40 border-border/80 hover:border-primary/60 hover:bg-primary/5",
-                    isActive &&
-                      "border-primary/70 bg-primary/10 shadow-[0_0_0_1px_rgba(59,130,246,0.4)]"
-                  )}
-                >
-                  <span className="mt-1.5 flex h-8 w-8 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold">
-                      {service.label}
-                    </span>
-                    <span className="mt-0.5 block text-xs text-muted-foreground">
-                      {service.description}
-                    </span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-wrap gap-3 pt-2 text-xs text-muted-foreground" />
         </div>
 
-        <motion.div
-          key={activeService.id}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="relative"
-        >
-          <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
-
-          <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-3 md:p-4 shadow-lg">
-            <div className="rounded-2xl border border-border/70 bg-background/60 p-3 md:p-4">
-              <AnimatePresence mode="wait">
-                {isChatMode ? (
-                  <motion.div
-                    key="chat"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChatPanel serviceId={activeService.id as "reporting" | "custom"} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="guided"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <GuidedFlowPanel />
-                  </motion.div>
+        <div className="flex flex-col gap-2">
+          {SERVICES.map((service) => {
+            const Icon = service.icon;
+            const isActive = service.id === selected;
+            return (
+              <button
+                key={service.id}
+                type="button"
+                onClick={() => setSelected(service.id)}
+                className={cn(
+                  "group flex items-start gap-3 rounded-2xl border-l-[3px] px-4 py-3.5 text-left transition-all",
+                  "bg-transparent border-transparent hover:bg-primary/5",
+                  isActive && "border-l-primary bg-primary/10"
                 )}
-              </AnimatePresence>
-            </div>
-          </div>
-        </motion.div>
+              >
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <span>
+                  <span className="block text-sm font-semibold">
+                    {service.label}
+                  </span>
+                  <span className="mt-0.5 block text-xs text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
+
+      <motion.div
+        key={activeService.id}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="relative"
+      >
+        <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
+
+        <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-5 md:p-6 shadow-lg">
+          <AnimatePresence mode="wait">
+            {isChatMode ? (
+              <motion.div
+                key="chat"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <RequestPanel serviceId={activeService.id as "reporting" | "custom"} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="guided"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <GuidedFlowPanel />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
     </div>
   );
 };
