@@ -218,7 +218,7 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-xs font-medium text-foreground/90">
+            <p className="text-sm font-medium text-foreground/90">
               Step 1 — What tools do you use for support today?
             </p>
             <div className="flex flex-wrap gap-2">
@@ -239,7 +239,7 @@ const GuidedFlowPanel = () => {
                     }
                   }}
                   className={cn(
-                    "rounded-full border px-3 py-1.5 text-[11px] transition-colors",
+                    "rounded-full border px-3.5 py-2 text-sm transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
                     tool === opt.id && "border-primary bg-primary/10"
                   )}
@@ -260,14 +260,14 @@ const GuidedFlowPanel = () => {
                     placeholder="What tools are you using today?"
                     value={otherTool}
                     onChange={(e) => setOtherTool(e.target.value)}
-                    className="mt-2 h-8 text-[11px] bg-background/60"
+                    className="mt-2 h-9 text-sm bg-background/60"
                   />
                 </motion.div>
               )}
             </AnimatePresence>
             <Button
               size="sm"
-              className="w-full justify-center mt-1"
+              className="w-full justify-center mt-1 text-sm"
               disabled={!canNextFromStep1}
               onClick={() => canNextFromStep1 && setStep(2)}
             >
@@ -285,7 +285,7 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-xs font-medium text-foreground/90">
+            <p className="text-sm font-medium text-foreground/90">
               Step 2 — What is the main pain right now?
             </p>
             <div className="grid grid-cols-1 gap-2">
@@ -309,7 +309,7 @@ const GuidedFlowPanel = () => {
                     }
                   }}
                   className={cn(
-                    "rounded-xl border px-3 py-2 text-[11px] text-left transition-colors",
+                    "rounded-xl border px-3.5 py-2.5 text-sm text-left transition-colors",
                     "bg-secondary/40 border-border/80 hover:border-primary/60",
                     pain === opt.id && "border-primary bg-primary/10"
                   )}
@@ -330,7 +330,7 @@ const GuidedFlowPanel = () => {
                     placeholder="Describe the main pain…"
                     value={otherPain}
                     onChange={(e) => setOtherPain(e.target.value)}
-                    className="mt-2 h-8 text-[11px] bg-background/60"
+                    className="mt-2 h-9 text-sm bg-background/60"
                   />
                 </motion.div>
               )}
@@ -339,14 +339,14 @@ const GuidedFlowPanel = () => {
               <Button
                 size="sm"
                 variant="outline"
-                className="flex-1 justify-center"
+                className="flex-1 justify-center text-sm"
                 onClick={() => setStep(1)}
               >
                 Back
               </Button>
               <Button
                 size="sm"
-                className="flex-1 justify-center"
+                className="flex-1 justify-center text-sm"
                 disabled={!canNextFromStep2}
                 onClick={() => canNextFromStep2 && setStep(3)}
               >
@@ -365,14 +365,14 @@ const GuidedFlowPanel = () => {
             transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <p className="text-xs font-medium text-foreground/90">
+            <p className="text-sm font-medium text-foreground/90">
               Step 3 — What changes with automation
             </p>
-            <div className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-3">
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
+            <div className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-3.5">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 For {toolLabel}, we typically:
               </p>
-              <ul className="list-disc pl-4 space-y-1 text-[11px] text-muted-foreground leading-relaxed">
+              <ul className="list-disc pl-4 space-y-1 text-sm text-muted-foreground leading-relaxed">
                 <li>
                   Use n8n and native APIs/webhooks to route tickets
                   automatically, based on queue, language, and intent.
@@ -386,7 +386,7 @@ const GuidedFlowPanel = () => {
                   times, and breaches without exporting data.
                 </li>
               </ul>
-              <p className="text-[11px] text-muted-foreground leading-relaxed pt-1">
+              <p className="text-sm text-muted-foreground leading-relaxed pt-1">
                 Result: fewer manual handoffs, faster replies, and far fewer
                 surprises around SLAs.
               </p>
@@ -395,12 +395,12 @@ const GuidedFlowPanel = () => {
               <Button
                 size="sm"
                 variant="outline"
-                className="flex-1 justify-center"
+                className="flex-1 justify-center text-sm"
                 onClick={() => setStep(1)}
               >
                 Start over
               </Button>
-              <Button size="sm" className="flex-1 justify-center">
+              <Button size="sm" className="flex-1 justify-center text-sm">
                 See how this would work for your team
               </Button>
             </div>
