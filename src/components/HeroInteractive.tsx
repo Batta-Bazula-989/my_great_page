@@ -418,18 +418,18 @@ const HeroInteractive = () => {
   const isChatMode = activeService.mode === "chat";
 
   return (
-    <div className="grid gap-6 md:gap-8 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
-      <div className="space-y-5">
-        <div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
-            Automate your{" "}
-            <span className="text-gradient">support ops</span>
-          </h1>
-          <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3">
-            Replace manual support busywork with reliable, production-ready automation.
-          </p>
-        </div>
+    <div className="space-y-6 md:space-y-8">
+      <div>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
+          Automate your{" "}
+          <span className="text-gradient">support ops</span>
+        </h1>
+        <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3">
+          Replace manual support busywork with reliable, production-ready automation.
+        </p>
+      </div>
 
+      <div className="grid gap-6 md:gap-8 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
         <div className="flex flex-col gap-2">
           {SERVICES.map((service) => {
             const Icon = service.icon;
@@ -460,43 +460,43 @@ const HeroInteractive = () => {
             );
           })}
         </div>
+
+        <motion.div
+          key={activeService.id}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="relative"
+        >
+          <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
+
+          <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-5 md:p-6 shadow-lg">
+            <AnimatePresence mode="wait">
+              {isChatMode ? (
+                <motion.div
+                  key="chat"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <RequestPanel serviceId={activeService.id as "reporting" | "custom"} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="guided"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <GuidedFlowPanel />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
       </div>
-
-      <motion.div
-        key={activeService.id}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="relative"
-      >
-        <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
-
-        <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-5 md:p-6 shadow-lg">
-          <AnimatePresence mode="wait">
-            {isChatMode ? (
-              <motion.div
-                key="chat"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <RequestPanel serviceId={activeService.id as "reporting" | "custom"} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="guided"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <GuidedFlowPanel />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </motion.div>
     </div>
   );
 };
