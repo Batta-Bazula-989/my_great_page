@@ -4,8 +4,16 @@ import HeroInteractive from "@/components/HeroInteractive";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glow animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow"
+        animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.05, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glow"
+        animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.05, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
 
       <div
         className="absolute inset-0 opacity-5"
@@ -17,13 +25,7 @@ const HeroSection = () => {
       />
 
       <div className="container relative z-10 px-4 py-12 md:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <HeroInteractive />
-        </motion.div>
+        <HeroInteractive />
       </div>
     </section>
   );

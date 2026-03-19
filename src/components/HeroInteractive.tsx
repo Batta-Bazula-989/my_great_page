@@ -41,6 +41,9 @@ type ServiceId = (typeof SERVICES)[number]["id"];
 type ToolOption = "jira" | "zendesk" | "freshdesk" | "slack" | "other";
 type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other";
 
+const spring = { type: "spring" as const, stiffness: 400, damping: 30 };
+const smoothSpring = { type: "spring" as const, stiffness: 300, damping: 28 };
+
 const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const service = SERVICES.find((s) => s.id === serviceId)!;
   const [input, setInput] = useState("");
@@ -86,15 +89,35 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   if (submitted) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ ...smoothSpring, stiffness: 200 }}
         className="flex flex-col items-center justify-center py-12 text-center"
       >
-        <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ ...spring, delay: 0.1 }}
+          className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4"
+        >
           <ArrowUpRight className="h-5 w-5 text-primary" />
-        </div>
-        <p className="text-lg font-semibold text-foreground mb-1">Request sent</p>
-        <p className="text-sm text-muted-foreground">I'll get back to you shortly.</p>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
+          className="text-lg font-semibold text-foreground mb-1"
+        >
+          Request sent
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
+          className="text-sm text-muted-foreground"
+        >
+          I'll get back to you shortly.
+        </motion.p>
       </motion.div>
     );
   }
@@ -102,9 +125,15 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   return (
     <div className="flex flex-col h-full">
       <div className="mb-6">
-        <span className="text-sm font-bold tracking-widest uppercase text-primary">
+        <motion.span
+          key={serviceId + "-label"}
+          initial={{ opacity: 0, x: -8 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-sm font-bold tracking-widest uppercase text-primary inline-block"
+        >
           {service.label}
-        </span>
+        </motion.span>
         <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mt-2">
           Describe what you're trying to achieve
         </h2>
@@ -138,19 +167,22 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
             to send
           </span>
         </div>
-        <button
+        <motion.button
           type="button"
           onClick={handleSend}
           disabled={!isValidInput(input)}
+          whileHover={isValidInput(input) ? { scale: 1.05 } : {}}
+          whileTap={isValidInput(input) ? { scale: 0.97 } : {}}
+          transition={spring}
           className={cn(
-            "flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all",
-            "hover:shadow-glow hover:scale-105",
-            !isValidInput(input) && "opacity-40 cursor-not-allowed hover:shadow-none hover:scale-100"
+            "flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-shadow",
+            "hover:shadow-glow",
+            !isValidInput(input) && "opacity-40 cursor-not-allowed"
           )}
         >
           Submit Request
           <ArrowUpRight className="h-4 w-4" />
-        </button>
+        </motion.button>
       </div>
     </div>
   );
@@ -196,15 +228,16 @@ const GuidedFlowPanel = () => {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+      <div className="flex items-center gap-2">
         {[1, 2, 3].map((s) => (
-          <div
-            key={s}
-            className={cn(
-              "flex-1 h-1.5 rounded-full bg-muted",
-              step >= s && "bg-primary"
-            )}
-          />
+          <div key={s} className="flex-1 h-1.5 rounded-full bg-muted overflow-hidden">
+            <motion.div
+              className="h-full rounded-full bg-primary"
+              initial={{ width: 0 }}
+              animate={{ width: step >= s ? "100%" : "0%" }}
+              transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+            />
+          </div>
         ))}
       </div>
 
@@ -212,10 +245,10 @@ const GuidedFlowPanel = () => {
         {step === 1 && (
           <motion.div
             key="step1"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
             className="space-y-3"
           >
             <p className="text-base font-medium text-foreground/90">
@@ -228,10 +261,15 @@ const GuidedFlowPanel = () => {
                 { id: "freshdesk", label: "Freshdesk" },
                 { id: "slack", label: "Slack" },
                 { id: "other", label: "Other" },
-              ] as { id: ToolOption; label: string }[]).map((opt) => (
-                <button
+              ] as { id: ToolOption; label: string }[]).map((opt, i) => (
+                <motion.button
                   key={opt.id}
                   type="button"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.25 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => {
                     setTool(opt.id);
                     if (opt.id !== "other") {
@@ -245,15 +283,16 @@ const GuidedFlowPanel = () => {
                   )}
                 >
                   {opt.label}
-                </button>
+                </motion.button>
               ))}
             </div>
             <AnimatePresence>
               {tool === "other" && (
                 <motion.div
-                  initial={{ opacity: 0, height: 0, y: -4 }}
-                  animate={{ opacity: 1, height: "auto", y: 0 }}
-                  exit={{ opacity: 0, height: 0, y: -4 }}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Input
                     autoFocus
@@ -278,10 +317,10 @@ const GuidedFlowPanel = () => {
         {step === 2 && (
           <motion.div
             key="step2"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
             className="space-y-3"
           >
             <p className="text-base font-medium text-foreground/90">
@@ -297,10 +336,15 @@ const GuidedFlowPanel = () => {
                   label: "We find out about issues too late",
                 },
                 { id: "other", label: "Other" },
-              ] as { id: PainOption; label: string }[]).map((opt) => (
-                <button
+              ] as { id: PainOption; label: string }[]).map((opt, i) => (
+                <motion.button
                   key={opt.id}
                   type="button"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.25 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     setPain(opt.id);
                     if (opt.id !== "other") {
@@ -314,15 +358,16 @@ const GuidedFlowPanel = () => {
                   )}
                 >
                   {opt.label}
-                </button>
+                </motion.button>
               ))}
             </div>
             <AnimatePresence>
               {pain === "other" && (
                 <motion.div
-                  initial={{ opacity: 0, height: 0, y: -4 }}
-                  animate={{ opacity: 1, height: "auto", y: 0 }}
-                  exit={{ opacity: 0, height: 0, y: -4 }}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Input
                     autoFocus
@@ -356,16 +401,21 @@ const GuidedFlowPanel = () => {
         {step === 3 && (
           <motion.div
             key="step3"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
             className="space-y-3"
           >
             <p className="text-base font-medium text-foreground/90">
               Step 3 — What changes with automation
             </p>
-            <div className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.35 }}
+              className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-4"
+            >
               <p className="text-base text-muted-foreground leading-relaxed">
                 For {toolLabel}, we typically:
               </p>
@@ -387,7 +437,7 @@ const GuidedFlowPanel = () => {
                 Result: fewer manual handoffs, faster replies, and far fewer
                 surprises around SLAs.
               </p>
-            </div>
+            </motion.div>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -407,6 +457,18 @@ const GuidedFlowPanel = () => {
   );
 };
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
 const HeroInteractive = () => {
   const [selected, setSelected] = useState<ServiceId>("custom");
 
@@ -414,8 +476,13 @@ const HeroInteractive = () => {
   const isChatMode = activeService.mode === "chat";
 
   return (
-    <div className="space-y-6 md:space-y-8">
-      <div className="text-center">
+    <motion.div
+      className="space-y-6 md:space-y-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="text-center" variants={itemVariants}>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
           Automate your{" "}
           <span className="text-gradient">support ops</span>
@@ -423,27 +490,35 @@ const HeroInteractive = () => {
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3 mx-auto">
           Replace manual support busywork with reliable, production-ready automation.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid gap-6 md:gap-8 md:grid-cols-[360px_1fr] lg:grid-cols-[420px_1fr] items-start">
-        <div className="flex flex-col gap-2">
-          {SERVICES.map((service) => {
+        <motion.div className="flex flex-col gap-2" variants={containerVariants}>
+          {SERVICES.map((service, index) => {
             const Icon = service.icon;
             const isActive = service.id === selected;
             return (
-              <button
+              <motion.button
                 key={service.id}
                 type="button"
                 onClick={() => setSelected(service.id)}
+                variants={itemVariants}
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+                transition={smoothSpring}
                 className={cn(
-                  "group flex items-start gap-3.5 rounded-2xl border-l-[3px] px-5 py-4 text-left transition-all",
+                  "group relative flex items-start gap-3.5 rounded-2xl border-l-[3px] px-5 py-4 text-left transition-colors duration-200",
                   "bg-transparent border-transparent hover:bg-primary/5",
                   isActive && "border-l-primary bg-primary/10"
                 )}
               >
-                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20">
+                <motion.span
+                  className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20"
+                  animate={isActive ? { rotate: [0, -6, 6, 0] } : {}}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
                   <Icon className="h-5 w-5" />
-                </span>
+                </motion.span>
                 <span>
                   <span className="block text-xl font-semibold">
                     {service.label}
@@ -452,39 +527,38 @@ const HeroInteractive = () => {
                     {service.description}
                   </span>
                 </span>
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
 
-        <motion.div
-          key={activeService.id}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="relative"
-        >
-          <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20 blur-2xl" />
+        <motion.div variants={itemVariants} className="relative">
+          <motion.div
+            className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/10 via-primary/0 to-primary/20"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            style={{ filter: "blur(24px)" }}
+          />
 
-          <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-5 md:p-6 shadow-lg">
+          <div className="relative rounded-2xl border border-border bg-secondary/40 backdrop-blur-xl p-5 md:p-6 shadow-lg overflow-hidden">
             <AnimatePresence mode="wait">
               {isChatMode ? (
                 <motion.div
-                  key="chat"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.2 }}
+                  key={activeService.id + "-chat"}
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
                 >
                   <RequestPanel serviceId={activeService.id as "reporting" | "custom"} />
                 </motion.div>
               ) : (
                 <motion.div
-                  key="guided"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.2 }}
+                  key={activeService.id + "-guided"}
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
                 >
                   <GuidedFlowPanel />
                 </motion.div>
@@ -493,7 +567,7 @@ const HeroInteractive = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
