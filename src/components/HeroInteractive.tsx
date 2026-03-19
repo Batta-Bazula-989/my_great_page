@@ -102,13 +102,13 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   return (
     <div className="flex flex-col h-full">
       <div className="mb-6">
-        <span className="text-xs font-bold tracking-widest uppercase text-primary">
+        <span className="text-sm font-bold tracking-widest uppercase text-primary">
           {service.label}
         </span>
-        <h2 className="text-xl md:text-2xl font-bold font-display text-foreground mt-2">
+        <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mt-2">
           Describe what you're trying to achieve
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">
+        <p className="text-base text-muted-foreground mt-1">
           Be as specific as possible — the more detail, the better we can help.
         </p>
       </div>
@@ -124,11 +124,11 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
             handleSend();
           }
         }}
-        className="flex-1 min-h-[120px] w-full resize-none rounded-xl bg-transparent text-sm placeholder:text-muted-foreground/50 focus:outline-none leading-relaxed py-1"
+        className="flex-1 min-h-[120px] w-full resize-none rounded-xl bg-transparent text-base placeholder:text-muted-foreground/50 focus:outline-none leading-relaxed py-1"
       />
 
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
-        <div className="flex items-center gap-3 text-xs text-muted-foreground/60">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground/60">
           <span>{input.length}/300</span>
           <span>
             Press{" "}
@@ -429,7 +429,7 @@ const HeroInteractive = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 md:gap-8 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] items-start">
+      <div className="grid gap-6 md:gap-8 md:grid-cols-[340px_1fr] lg:grid-cols-[380px_1fr] items-start">
         <div className="flex flex-col gap-2">
           {SERVICES.map((service) => {
             const Icon = service.icon;
@@ -440,19 +440,19 @@ const HeroInteractive = () => {
                 type="button"
                 onClick={() => setSelected(service.id)}
                 className={cn(
-                  "group flex items-start gap-3 rounded-2xl border-l-[3px] px-4 py-3.5 text-left transition-all",
+                  "group flex items-start gap-3.5 rounded-2xl border-l-[3px] px-5 py-4 text-left transition-all",
                   "bg-transparent border-transparent hover:bg-primary/5",
                   isActive && "border-l-primary bg-primary/10"
                 )}
               >
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20">
-                  <Icon className="h-4 w-4" />
+                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20">
+                  <Icon className="h-5 w-5" />
                 </span>
                 <span>
-                  <span className="block text-base font-semibold">
+                  <span className="block text-lg font-semibold">
                     {service.label}
                   </span>
-                  <span className="mt-0.5 block text-sm text-muted-foreground leading-relaxed">
+                  <span className="mt-0.5 block text-base text-muted-foreground leading-relaxed">
                     {service.description}
                   </span>
                 </span>
