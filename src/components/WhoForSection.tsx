@@ -11,7 +11,7 @@ const notFit = [
   "You need a full-time hire to run and manage day-to-day support ops",
   "You want a one-click chatbot or ‘AI agent’ to handle everything",
   "You're trying to rip out and replace your entire support stack at once",
-  "You’re looking for “AI to replace your support team” instead of automation that makes your team faster and smarter. (I build systems that support people. I don’t sell magical layoffs in a box.)",
+  “You’re looking for “AI to replace your support team””,
 ];
 
 const WhoForSection = () => {

@@ -7,17 +7,17 @@ import { Input } from "@/components/ui/input";
 
 const SERVICES = [
   {
-    id: "custom",
-    label: "Custom solution",
-    description: "Have a specific automation need or idea that doesn't exist anywhere?",
-    icon: Wrench,
-    mode: "chat" as const,
-  },
-  {
     id: "bots",
     label: "Support chat & voice bots",
     description: "Bots that handle incoming chat and phone requests. They answer common questions, collect what's needed, and route complex issues to your team with context.",
     icon: MessageCircle,
+    mode: "flow" as const,
+  },
+  {
+    id: "routing",
+    label: "Ticket routing & categorization",
+    description: "Automatically route tickets to the right team and person based on what they're about. Tags, priority, and assignment handled from the start.",
+    icon: Workflow,
     mode: "flow" as const,
   },
   {
@@ -28,11 +28,11 @@ const SERVICES = [
     mode: "chat" as const,
   },
   {
-    id: "routing",
-    label: "Ticket routing & categorization",
-    description: "Automatically route tickets to the right team and person based on what they're about. Tags, priority, and assignment handled from the start.",
-    icon: Workflow,
-    mode: "flow" as const,
+    id: "custom",
+    label: "Custom solution",
+    description: "Have a specific automation need or idea that doesn't exist anywhere?",
+    icon: Wrench,
+    mode: "chat" as const,
   },
 ] as const;
 
@@ -470,7 +470,7 @@ const itemVariants = {
 };
 
 const HeroInteractive = () => {
-  const [selected, setSelected] = useState<ServiceId>("custom");
+  const [selected, setSelected] = useState<ServiceId>("bots");
 
   const activeService = SERVICES.find((s) => s.id === selected)!;
   const isChatMode = activeService.mode === "chat";

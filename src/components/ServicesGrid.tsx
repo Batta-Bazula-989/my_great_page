@@ -2,12 +2,6 @@ import { BarChart3, Bot, Route, Wrench } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Reporting",
-    desc: "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
-    icon: BarChart3,
-    outcomes: [],
-  },
-  {
     title: "Support chat & voice bots",
     desc: "Bots that manage first contact in chat and phone. They handle straightforward requests, gather information, and hand off complex issues to your team cleanly.",
     icon: Bot,
@@ -17,6 +11,12 @@ const SERVICES = [
     title: "Ticket routing & categorization",
     desc: "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
     icon: Route,
+    outcomes: [],
+  },
+  {
+    title: "Reporting",
+    desc: "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
+    icon: BarChart3,
     outcomes: [],
   },
   {

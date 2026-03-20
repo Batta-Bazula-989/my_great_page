@@ -4,12 +4,6 @@ import ServiceCard from "./ServiceCard";
 
 const services = [
   {
-    icon: BarChart3,
-    title: "Reporting",
-    description:
-      "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
-  },
-  {
     icon: Bot,
     title: "Support chat & voice bots",
     description:
@@ -20,6 +14,12 @@ const services = [
     title: "Ticket routing & categorization",
     description:
       "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting",
+    description:
+      "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
   },
   {
     icon: Wrench,
