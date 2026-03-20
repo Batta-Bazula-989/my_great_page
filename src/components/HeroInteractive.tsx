@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Workflow, PieChart, Wrench, ArrowUpRight } from "lucide-react";
+import { MessageCircle, Workflow, PieChart, Wrench, ArrowUpRight, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -194,6 +194,9 @@ const GuidedFlowPanel = () => {
   const [otherTool, setOtherTool] = useState("");
   const [pain, setPain] = useState<PainOption | null>(null);
   const [otherPain, setOtherPain] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [aiResponse, setAiResponse] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const canNextFromStep1 =
     !!tool && (tool !== "other" || otherTool.trim().length > 0);
@@ -210,21 +213,63 @@ const GuidedFlowPanel = () => {
       : tool === "slack"
       ? "Slack"
       : tool === "other"
-      ? otherTool.trim() || "your current tools"
-      : "your current tools";
+      ? otherTool.trim() || "Other"
+      : "";
 
   const painLabel =
     pain === "routing"
-      ? "tickets bouncing between queues"
+      ? "Routing is slow or manual"
       : pain === "slas"
-      ? "SLAs being hard to track"
+      ? "We miss or guess SLAs"
       : pain === "slow_replies"
-      ? "slow first responses"
+      ? "First replies are slow"
       : pain === "missed_alerts"
-      ? "missed alerts"
+      ? "We find out about issues too late"
       : pain === "other"
-      ? otherPain.trim() || "support work being slower than it should be"
-      : "support work being slower than it should be";
+      ? otherPain.trim() || "Other"
+      : "";
+
+  const handleSubmit = async () => {
+    if (!canNextFromStep2) return;
+    setStep(3);
+    setLoading(true);
+    setError(null);
+    setAiResponse(null);
+    try {
+      const res = await fetch(
+        "https://stash-312.app.n8n.cloud/webhook/cdbd6281-a45c-479d-80d8-1c8ab8795935",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            tool: toolLabel,
+            pain: painLabel,
+          }),
+        }
+      );
+      if (!res.ok) throw new Error("Request failed");
+      const data = await res.json();
+      const output =
+        typeof data === "string"
+          ? data
+          : data.output ?? data.response ?? data.message ?? data.text ?? data.summary ?? JSON.stringify(data);
+      setAiResponse(output);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setStep(1);
+    setTool(null);
+    setOtherTool("");
+    setPain(null);
+    setOtherPain("");
+    setAiResponse(null);
+    setError(null);
+  };
 
   return (
     <div className="space-y-4">
@@ -390,7 +435,7 @@ const GuidedFlowPanel = () => {
               <Button
                 className="flex-1 justify-center text-base h-10"
                 disabled={!canNextFromStep2}
-                onClick={() => canNextFromStep2 && setStep(3)}
+                onClick={handleSubmit}
               >
                 See automation outcome
               </Button>
@@ -408,46 +453,48 @@ const GuidedFlowPanel = () => {
             className="space-y-3"
           >
             <p className="text-base font-medium text-foreground/90">
-              Step 3 — What changes with automation
+              Your automation outcome
             </p>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.35 }}
-              className="space-y-2 rounded-xl border border-border/70 bg-secondary/40 p-4"
-            >
-              <p className="text-base text-muted-foreground leading-relaxed">
-                For {toolLabel}, we typically:
-              </p>
-              <ul className="list-disc pl-4 space-y-1 text-base text-muted-foreground leading-relaxed">
-                <li>
-                  Use n8n and native APIs/webhooks to route tickets
-                  automatically, based on queue, language, and intent.
-                </li>
-                <li>
-                  Add SLA timers and Slack alerts so you see{" "}
-                  {painLabel} before it becomes a fire.
-                </li>
-                <li>
-                  Generate simple reporting so you can see volume, response
-                  times, and breaches without exporting data.
-                </li>
-              </ul>
-              <p className="text-base text-muted-foreground leading-relaxed pt-1">
-                Result: fewer manual handoffs, faster replies, and far fewer
-                surprises around SLAs.
-              </p>
-            </motion.div>
+
+            {loading && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center py-10 gap-3"
+              >
+                <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                <p className="text-sm text-muted-foreground">Analyzing your setup…</p>
+              </motion.div>
+            )}
+
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-xl border border-destructive/40 bg-destructive/10 p-4"
+              >
+                <p className="text-sm text-destructive">{error}</p>
+              </motion.div>
+            )}
+
+            {aiResponse && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.35 }}
+                className="rounded-xl border border-border/70 bg-secondary/40 p-4 text-base text-muted-foreground leading-relaxed whitespace-pre-line"
+              >
+                {aiResponse}
+              </motion.div>
+            )}
+
             <div className="flex gap-2">
               <Button
                 variant="outline"
                 className="flex-1 justify-center text-base h-10"
-                onClick={() => setStep(1)}
+                onClick={handleReset}
               >
                 Start over
-              </Button>
-              <Button className="flex-1 justify-center text-base h-10">
-                See how this would work for your team
               </Button>
             </div>
           </motion.div>
