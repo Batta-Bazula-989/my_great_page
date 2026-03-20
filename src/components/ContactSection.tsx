@@ -24,7 +24,7 @@ const ContactSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
               <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
                 <Calendar className="w-5 h-5" />
-                Book a Free Workflow Audit
+                Book a Free Audit
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
