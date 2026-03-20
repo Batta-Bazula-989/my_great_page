@@ -12,16 +12,16 @@ const ContactSection = () => {
 
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center pt-5 md:pt-6 px-10 pb-10 md:px-16 md:pb-16 rounded-3xl border border-border" style={{backgroundColor: 'rgb(43, 48, 59)'}}>
+          <div className="text-center pt-5 md:pt-6 px-4 pb-4 md:px-6 md:pb-6 rounded-3xl border border-border" style={{backgroundColor: 'rgb(43, 48, 59)'}}>
             <span className="text-primary text-[1.05rem] font-medium uppercase tracking-wider">Let's Talk</span>
             <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
               Book a 30-minute call. We'll look at what's slowing you down and figure out what to automate first.
             </p>
-            <p className="text-muted-foreground/70 mb-10 text-sm max-w-md mx-auto">
+            <p className="text-muted-foreground/70 mb-5 text-sm max-w-md mx-auto">
               No pitch. No pressure. If it's not a fit, I'll tell you.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
               <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
                 <Calendar className="w-5 h-5" />
                 Book a Free Workflow Audit
