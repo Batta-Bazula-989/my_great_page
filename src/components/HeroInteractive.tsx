@@ -367,7 +367,7 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
     setAiResponse(null);
     try {
       const res = await fetch(
-        "https://stash-312.app.n8n.cloud/webhook/cdbd6281-a45c-479d-80d8-1c8ab8795935",
+        "https://stash-312.app.n8n.cloud/webhook/80778882-6ca4-4618-bcd9-6a104f5abc12",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
