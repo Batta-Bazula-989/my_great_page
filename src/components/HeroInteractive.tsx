@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Workflow, PieChart, Wrench, ArrowUpRight, Loader2 } from "lucide-react";
+import { MessageCircle, Workflow, PieChart, Wrench, ArrowUpRight, Loader2, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const SERVICES = [
   {
@@ -188,33 +190,98 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   );
 };
 
-const GuidedFlowPanel = () => {
+const MESSENGER_SUBS = [
+  { id: "telegram", label: "Telegram" },
+  { id: "whatsapp", label: "WhatsApp" },
+  { id: "facebook", label: "Facebook" },
+] as const;
+
+const BOT_CHANNELS = [
+  { id: "website", label: "Website" },
+  { id: "phone", label: "Phone" },
+  { id: "instagram", label: "Instagram" },
+  { id: "other", label: "Other" },
+] as const;
+
+const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
+  const isBots = serviceId === "bots";
   const [step, setStep] = useState<1 | 2 | 3>(1);
+
+  // Routing state (single-select)
   const [tool, setTool] = useState<ToolOption | null>(null);
   const [otherTool, setOtherTool] = useState("");
+
+  // Bots state (multi-select)
+  const [botChannels, setBotChannels] = useState<Set<string>>(new Set());
+  const [messengerSubs, setMessengerSubs] = useState<Set<string>>(new Set());
+  const [otherChannel, setOtherChannel] = useState("");
+
   const [pain, setPain] = useState<PainOption | null>(null);
   const [otherPain, setOtherPain] = useState("");
   const [loading, setLoading] = useState(false);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const canNextFromStep1 =
-    !!tool && (tool !== "other" || otherTool.trim().length > 0);
+  const toggleChannel = (ch: string) => {
+    setBotChannels((prev) => {
+      const next = new Set(prev);
+      if (next.has(ch)) {
+        next.delete(ch);
+        if (ch === "other") setOtherChannel("");
+      } else {
+        next.add(ch);
+      }
+      return next;
+    });
+  };
+
+  const toggleMessengerSub = (sub: string) => {
+    setMessengerSubs((prev) => {
+      const next = new Set(prev);
+      if (next.has(sub)) next.delete(sub);
+      else next.add(sub);
+      setBotChannels((p) => {
+        const n = new Set(p);
+        if (next.size > 0) n.add("messenger");
+        else n.delete("messenger");
+        return n;
+      });
+      return next;
+    });
+  };
+
+  const canNextFromStep1 = isBots
+    ? botChannels.size > 0 &&
+      (!botChannels.has("other") || otherChannel.trim().length > 0)
+    : !!tool && (tool !== "other" || otherTool.trim().length > 0);
+
   const canNextFromStep2 =
     !!pain && (pain !== "other" || otherPain.trim().length > 0);
 
-  const toolLabel =
-    tool === "jira"
-      ? "Jira"
-      : tool === "zendesk"
-      ? "Zendesk"
-      : tool === "freshdesk"
-      ? "Freshdesk"
-      : tool === "slack"
-      ? "Slack"
-      : tool === "other"
-      ? otherTool.trim() || "Other"
-      : "";
+  const toolLabel = isBots
+    ? (() => {
+        const labels: string[] = [];
+        if (botChannels.has("website")) labels.push("Website");
+        if (botChannels.has("phone")) labels.push("Phone");
+        if (messengerSubs.size > 0) {
+          const subs = MESSENGER_SUBS.filter((s) => messengerSubs.has(s.id)).map((s) => s.label);
+          labels.push(subs.join(", "));
+        }
+        if (botChannels.has("instagram")) labels.push("Instagram");
+        if (botChannels.has("other")) labels.push(otherChannel.trim() || "Other");
+        return labels.join(", ") || "";
+      })()
+    : tool === "jira"
+    ? "Jira"
+    : tool === "zendesk"
+    ? "Zendesk"
+    : tool === "freshdesk"
+    ? "Freshdesk"
+    : tool === "slack"
+    ? "Slack"
+    : tool === "other"
+    ? otherTool.trim() || "Other"
+    : "";
 
   const painLabel =
     pain === "routing"
@@ -242,6 +309,7 @@ const GuidedFlowPanel = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            service: isBots ? "Support chat & voice bots" : "Ticket routing & categorization",
             tool: toolLabel,
             pain: painLabel,
           }),
@@ -265,6 +333,9 @@ const GuidedFlowPanel = () => {
     setStep(1);
     setTool(null);
     setOtherTool("");
+    setBotChannels(new Set());
+    setMessengerSubs(new Set());
+    setOtherChannel("");
     setPain(null);
     setOtherPain("");
     setAiResponse(null);
@@ -297,58 +368,156 @@ const GuidedFlowPanel = () => {
             className="space-y-3"
           >
             <p className="text-base font-medium text-foreground/90">
-              Step 1 — What tools do you use for support today?
+              Step 1 — {isBots ? "Where do you want to deploy your bot?" : "What tools do you use for support today?"}
             </p>
-            <div className="flex flex-wrap gap-2.5">
-              {([
-                { id: "jira", label: "Jira" },
-                { id: "zendesk", label: "Zendesk" },
-                { id: "freshdesk", label: "Freshdesk" },
-                { id: "slack", label: "Slack" },
-                { id: "other", label: "Other" },
-              ] as { id: ToolOption; label: string }[]).map((opt, i) => (
-                <motion.button
-                  key={opt.id}
-                  type="button"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.25 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => {
-                    setTool(opt.id);
-                    if (opt.id !== "other") {
-                      setOtherTool("");
-                    }
-                  }}
-                  className={cn(
-                    "rounded-full border px-4 py-2 text-base transition-colors",
-                    "bg-secondary/40 border-border/80 hover:border-primary/60",
-                    tool === opt.id && "border-primary bg-primary/10"
+
+            {isBots ? (
+              <>
+                <div className="flex flex-wrap gap-2.5">
+                  {BOT_CHANNELS.filter((c) => c.id !== "other").map((ch, i) => (
+                    <motion.button
+                      key={ch.id}
+                      type="button"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.05, duration: 0.25 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => toggleChannel(ch.id)}
+                      className={cn(
+                        "rounded-full border px-4 py-2 text-base transition-colors",
+                        "bg-secondary/40 border-border/80 hover:border-primary/60",
+                        botChannels.has(ch.id) && "border-primary bg-primary/10"
+                      )}
+                    >
+                      {ch.label}
+                    </motion.button>
+                  ))}
+
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <motion.button
+                        type="button"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1, duration: 0.25 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.97 }}
+                        className={cn(
+                          "rounded-full border px-4 py-2 text-base transition-colors flex items-center gap-1.5",
+                          "bg-secondary/40 border-border/80 hover:border-primary/60",
+                          botChannels.has("messenger") && "border-primary bg-primary/10"
+                        )}
+                      >
+                        Messenger
+                        <ChevronDown className="h-3.5 w-3.5" />
+                      </motion.button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-52 p-3" align="start" sideOffset={8}>
+                      <div className="space-y-3">
+                        {MESSENGER_SUBS.map((sub) => (
+                          <label key={sub.id} className="flex items-center gap-2.5 cursor-pointer text-sm">
+                            <Checkbox
+                              checked={messengerSubs.has(sub.id)}
+                              onCheckedChange={() => toggleMessengerSub(sub.id)}
+                            />
+                            {sub.label}
+                          </label>
+                        ))}
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+
+                  <motion.button
+                    type="button"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.25 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => toggleChannel("other")}
+                    className={cn(
+                      "rounded-full border px-4 py-2 text-base transition-colors",
+                      "bg-secondary/40 border-border/80 hover:border-primary/60",
+                      botChannels.has("other") && "border-primary bg-primary/10"
+                    )}
+                  >
+                    Other
+                  </motion.button>
+                </div>
+
+                <AnimatePresence>
+                  {botChannels.has("other") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Input
+                        autoFocus
+                        placeholder="Describe the channel…"
+                        value={otherChannel}
+                        onChange={(e) => setOtherChannel(e.target.value)}
+                        className="mt-2 h-10 text-base bg-background/60"
+                      />
+                    </motion.div>
                   )}
-                >
-                  {opt.label}
-                </motion.button>
-              ))}
-            </div>
-            <AnimatePresence>
-              {tool === "other" && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Input
-                    autoFocus
-                    placeholder="What tools are you using today?"
-                    value={otherTool}
-                    onChange={(e) => setOtherTool(e.target.value)}
-                    className="mt-2 h-10 text-base bg-background/60"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </AnimatePresence>
+              </>
+            ) : (
+              <>
+                <div className="flex flex-wrap gap-2.5">
+                  {([
+                    { id: "jira", label: "Jira" },
+                    { id: "zendesk", label: "Zendesk" },
+                    { id: "freshdesk", label: "Freshdesk" },
+                    { id: "slack", label: "Slack" },
+                    { id: "other", label: "Other" },
+                  ] as { id: ToolOption; label: string }[]).map((opt, i) => (
+                    <motion.button
+                      key={opt.id}
+                      type="button"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.05, duration: 0.25 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => {
+                        setTool(opt.id);
+                        if (opt.id !== "other") setOtherTool("");
+                      }}
+                      className={cn(
+                        "rounded-full border px-4 py-2 text-base transition-colors",
+                        "bg-secondary/40 border-border/80 hover:border-primary/60",
+                        tool === opt.id && "border-primary bg-primary/10"
+                      )}
+                    >
+                      {opt.label}
+                    </motion.button>
+                  ))}
+                </div>
+                <AnimatePresence>
+                  {tool === "other" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Input
+                        autoFocus
+                        placeholder="What tools are you using today?"
+                        value={otherTool}
+                        onChange={(e) => setOtherTool(e.target.value)}
+                        className="mt-2 h-10 text-base bg-background/60"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </>
+            )}
+
             <Button
               className="w-full justify-center mt-1 text-base h-10"
               disabled={!canNextFromStep1}
@@ -376,10 +545,7 @@ const GuidedFlowPanel = () => {
                 { id: "routing", label: "Routing is slow or manual" },
                 { id: "slas", label: "We miss or guess SLAs" },
                 { id: "slow_replies", label: "First replies are slow" },
-                {
-                  id: "missed_alerts",
-                  label: "We find out about issues too late",
-                },
+                { id: "missed_alerts", label: "We find out about issues too late" },
                 { id: "other", label: "Other" },
               ] as { id: PainOption; label: string }[]).map((opt, i) => (
                 <motion.button
@@ -392,9 +558,7 @@ const GuidedFlowPanel = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     setPain(opt.id);
-                    if (opt.id !== "other") {
-                      setOtherPain("");
-                    }
+                    if (opt.id !== "other") setOtherPain("");
                   }}
                   className={cn(
                     "rounded-xl border px-4 py-3 text-base text-left transition-colors",
@@ -607,7 +771,7 @@ const HeroInteractive = () => {
                   exit={{ opacity: 0, y: -12, scale: 0.98 }}
                   transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
                 >
-                  <GuidedFlowPanel />
+                  <GuidedFlowPanel serviceId={activeService.id as "bots" | "routing"} />
                 </motion.div>
               )}
             </AnimatePresence>
