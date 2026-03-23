@@ -223,16 +223,25 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
   const [error, setError] = useState<string | null>(null);
 
   const toggleChannel = (ch: string) => {
-    setBotChannels((prev) => {
-      const next = new Set(prev);
-      if (next.has(ch)) {
-        next.delete(ch);
-        if (ch === "other") setOtherChannel("");
-      } else {
-        next.add(ch);
-      }
-      return next;
-    });
+    if (ch === "other") {
+      setBotChannels((prev) => {
+        if (prev.has("other")) {
+          setOtherChannel("");
+          return new Set();
+        }
+        return new Set(["other"]);
+      });
+      setMessengerSubs(new Set());
+    } else {
+      setBotChannels((prev) => {
+        const next = new Set(prev);
+        next.delete("other");
+        setOtherChannel("");
+        if (next.has(ch)) next.delete(ch);
+        else next.add(ch);
+        return next;
+      });
+    }
   };
 
   const toggleMessengerSub = (sub: string) => {
@@ -242,6 +251,8 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
       else next.add(sub);
       setBotChannels((p) => {
         const n = new Set(p);
+        n.delete("other");
+        setOtherChannel("");
         if (next.size > 0) n.add("messenger");
         else n.delete("messenger");
         return n;
@@ -379,15 +390,20 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       key={ch.id}
                       type="button"
                       initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{
+                        opacity: botChannels.has("other") ? 0.4 : 1,
+                        y: 0,
+                        scale: botChannels.has("other") ? 0.97 : 1,
+                      }}
                       transition={{ delay: i * 0.05, duration: 0.25 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.97 }}
-                      onClick={() => toggleChannel(ch.id)}
+                      whileHover={!botChannels.has("other") ? { scale: 1.05 } : {}}
+                      whileTap={!botChannels.has("other") ? { scale: 0.97 } : {}}
+                      onClick={() => !botChannels.has("other") && toggleChannel(ch.id)}
                       className={cn(
-                        "rounded-full border px-4 py-2 text-base transition-colors",
+                        "rounded-full border px-4 py-2 text-base transition-all duration-200",
                         "bg-secondary/40 border-border/80 hover:border-primary/60",
-                        botChannels.has(ch.id) && "border-primary bg-primary/10"
+                        botChannels.has(ch.id) && !botChannels.has("other") && "border-primary bg-primary/10",
+                        botChannels.has("other") && "cursor-not-allowed"
                       )}
                     >
                       {ch.label}
@@ -399,18 +415,24 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       <motion.button
                         type="button"
                         initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        animate={{
+                          opacity: botChannels.has("other") ? 0.4 : 1,
+                          y: 0,
+                          scale: botChannels.has("other") ? 0.97 : 1,
+                        }}
                         transition={{ delay: 0.1, duration: 0.25 }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.97 }}
+                        whileHover={!botChannels.has("other") ? { scale: 1.05 } : {}}
+                        whileTap={!botChannels.has("other") ? { scale: 0.97 } : {}}
+                        onClick={(e) => { if (botChannels.has("other")) e.preventDefault(); }}
                         className={cn(
-                          "rounded-full border px-4 py-2 text-base transition-colors flex items-center gap-1.5",
+                          "rounded-full border px-4 py-2 text-base transition-all duration-200 flex items-center gap-1.5",
                           "bg-secondary/40 border-border/80 hover:border-primary/60",
-                          botChannels.has("messenger") && "border-primary bg-primary/10"
+                          botChannels.has("messenger") && !botChannels.has("other") && "border-primary bg-primary/10",
+                          botChannels.has("other") && "cursor-not-allowed"
                         )}
                       >
                         Messenger
-                        <ChevronDown className="h-3.5 w-3.5" />
+                        <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200" />
                       </motion.button>
                     </PopoverTrigger>
                     <PopoverContent className="w-52 p-3" align="start" sideOffset={8}>
@@ -437,7 +459,7 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                     whileTap={{ scale: 0.97 }}
                     onClick={() => toggleChannel("other")}
                     className={cn(
-                      "rounded-full border px-4 py-2 text-base transition-colors",
+                      "rounded-full border px-4 py-2 text-base transition-all duration-200",
                       "bg-secondary/40 border-border/80 hover:border-primary/60",
                       botChannels.has("other") && "border-primary bg-primary/10"
                     )}
@@ -452,7 +474,7 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
                     >
                       <Input
                         autoFocus
