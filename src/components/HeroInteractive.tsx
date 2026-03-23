@@ -78,7 +78,7 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
     const message = input.trim();
     setSubmitted(true);
     try {
-      await fetch("https://stash-312.app.n8n.cloud/webhook/8a1fce76-80be-4abb-8bd7-d39d67c64450", {
+      await fetch("https://stash-312.app.n8n.cloud/webhook/80778882-6ca4-4618-bcd9-6a104f5abc12", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId: sessionId.current, message, service: service.label }),
