@@ -41,7 +41,7 @@ const SERVICES = [
 type ServiceId = (typeof SERVICES)[number]["id"];
 
 type ToolOption = "jira" | "zendesk" | "freshdesk" | "slack" | "other";
-type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "other";
+type PainOption = "routing" | "slas" | "slow_replies" | "missed_alerts" | "repetitive_qs" | "long_wait" | "no_after_hours" | "cant_scale" | "other";
 
 const spring = { type: "spring" as const, stiffness: 400, damping: 30 };
 const smoothSpring = { type: "spring" as const, stiffness: 300, damping: 28 };
@@ -203,6 +203,22 @@ const BOT_CHANNELS = [
   { id: "other", label: "Other" },
 ] as const;
 
+const BOT_PAINS: { id: PainOption; label: string }[] = [
+  { id: "repetitive_qs", label: "Too many repetitive questions for the team" },
+  { id: "long_wait", label: "Customers wait too long for a first reply" },
+  { id: "no_after_hours", label: "No support outside business hours" },
+  { id: "cant_scale", label: "We can't scale without hiring more agents" },
+  { id: "other", label: "Other" },
+];
+
+const ROUTING_PAINS: { id: PainOption; label: string }[] = [
+  { id: "routing", label: "Routing is slow or manual" },
+  { id: "slas", label: "We miss or guess SLAs" },
+  { id: "slow_replies", label: "First replies are slow" },
+  { id: "missed_alerts", label: "We find out about issues too late" },
+  { id: "other", label: "Other" },
+];
+
 const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
   const isBots = serviceId === "bots";
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -216,8 +232,13 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
   const [messengerSubs, setMessengerSubs] = useState<Set<string>>(new Set());
   const [otherChannel, setOtherChannel] = useState("");
 
+  // Routing pain (single-select)
   const [pain, setPain] = useState<PainOption | null>(null);
   const [otherPain, setOtherPain] = useState("");
+
+  // Bots pain (multi-select)
+  const [botPains, setBotPains] = useState<Set<PainOption>>(new Set());
+  const [botOtherPain, setBotOtherPain] = useState("");
   const [loading, setLoading] = useState(false);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -266,8 +287,31 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
       (!botChannels.has("other") || otherChannel.trim().length > 0)
     : !!tool && (tool !== "other" || otherTool.trim().length > 0);
 
-  const canNextFromStep2 =
-    !!pain && (pain !== "other" || otherPain.trim().length > 0);
+  const toggleBotPain = (p: PainOption) => {
+    if (p === "other") {
+      setBotPains((prev) => {
+        if (prev.has("other")) {
+          setBotOtherPain("");
+          return new Set();
+        }
+        return new Set(["other"] as PainOption[]);
+      });
+    } else {
+      setBotPains((prev) => {
+        const next = new Set(prev);
+        next.delete("other");
+        setBotOtherPain("");
+        if (next.has(p)) next.delete(p);
+        else next.add(p);
+        return next;
+      });
+    }
+  };
+
+  const canNextFromStep2 = isBots
+    ? botPains.size > 0 &&
+      (!botPains.has("other") || botOtherPain.trim().length > 0)
+    : !!pain && (pain !== "other" || otherPain.trim().length > 0);
 
   const toolLabel = isBots
     ? (() => {
@@ -294,18 +338,26 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
     ? otherTool.trim() || "Other"
     : "";
 
-  const painLabel =
-    pain === "routing"
-      ? "Routing is slow or manual"
-      : pain === "slas"
-      ? "We miss or guess SLAs"
-      : pain === "slow_replies"
-      ? "First replies are slow"
-      : pain === "missed_alerts"
-      ? "We find out about issues too late"
-      : pain === "other"
-      ? otherPain.trim() || "Other"
-      : "";
+  const painLabel = isBots
+    ? (() => {
+        if (botPains.has("other")) return botOtherPain.trim() || "Other";
+        const allPains = [...BOT_PAINS, ...ROUTING_PAINS];
+        const labels = [...botPains]
+          .filter((p) => p !== "other")
+          .map((p) => allPains.find((x) => x.id === p)?.label ?? p);
+        return labels.join(", ") || "";
+      })()
+    : pain === "routing"
+    ? "Routing is slow or manual"
+    : pain === "slas"
+    ? "We miss or guess SLAs"
+    : pain === "slow_replies"
+    ? "First replies are slow"
+    : pain === "missed_alerts"
+    ? "We find out about issues too late"
+    : pain === "other"
+    ? otherPain.trim() || "Other"
+    : "";
 
   const handleSubmit = async () => {
     if (!canNextFromStep2) return;
@@ -349,6 +401,8 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
     setOtherChannel("");
     setPain(null);
     setOtherPain("");
+    setBotPains(new Set());
+    setBotOtherPain("");
     setAiResponse(null);
     setError(null);
   };
@@ -562,54 +616,117 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
             <p className="text-base font-medium text-foreground/90">
               Step 2 — What is the main pain right now?
             </p>
-            <div className="grid grid-cols-1 gap-2">
-              {([
-                { id: "routing", label: "Routing is slow or manual" },
-                { id: "slas", label: "We miss or guess SLAs" },
-                { id: "slow_replies", label: "First replies are slow" },
-                { id: "missed_alerts", label: "We find out about issues too late" },
-                { id: "other", label: "Other" },
-              ] as { id: PainOption; label: string }[]).map((opt, i) => (
-                <motion.button
-                  key={opt.id}
-                  type="button"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.04, duration: 0.25 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    setPain(opt.id);
-                    if (opt.id !== "other") setOtherPain("");
-                  }}
-                  className={cn(
-                    "rounded-xl border px-4 py-3 text-base text-left transition-colors",
-                    "bg-secondary/40 border-border/80 hover:border-primary/60",
-                    pain === opt.id && "border-primary bg-primary/10"
+
+            {isBots ? (
+              <>
+                <div className="grid grid-cols-1 gap-2">
+                  {BOT_PAINS.filter((p) => p.id !== "other").map((opt, i) => (
+                    <motion.button
+                      key={opt.id}
+                      type="button"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{
+                        opacity: botPains.has("other") ? 0.4 : 1,
+                        y: 0,
+                        scale: botPains.has("other") ? 0.99 : 1,
+                      }}
+                      transition={{ delay: i * 0.04, duration: 0.25 }}
+                      whileHover={!botPains.has("other") ? { scale: 1.02 } : {}}
+                      whileTap={!botPains.has("other") ? { scale: 0.98 } : {}}
+                      onClick={() => !botPains.has("other") && toggleBotPain(opt.id)}
+                      className={cn(
+                        "rounded-xl border px-4 py-3 text-base text-left transition-all duration-200",
+                        "bg-secondary/40 border-border/80 hover:border-primary/60",
+                        botPains.has(opt.id) && !botPains.has("other") && "border-primary bg-primary/10",
+                        botPains.has("other") && "cursor-not-allowed"
+                      )}
+                    >
+                      {opt.label}
+                    </motion.button>
+                  ))}
+                  <motion.button
+                    type="button"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.25 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => toggleBotPain("other")}
+                    className={cn(
+                      "rounded-xl border px-4 py-3 text-base text-left transition-all duration-200",
+                      "bg-secondary/40 border-border/80 hover:border-primary/60",
+                      botPains.has("other") && "border-primary bg-primary/10"
+                    )}
+                  >
+                    Other
+                  </motion.button>
+                </div>
+                <AnimatePresence>
+                  {botPains.has("other") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+                    >
+                      <Input
+                        autoFocus
+                        placeholder="Describe the main pain…"
+                        value={botOtherPain}
+                        onChange={(e) => setBotOtherPain(e.target.value)}
+                        className="mt-2 h-10 text-base bg-background/60"
+                      />
+                    </motion.div>
                   )}
-                >
-                  {opt.label}
-                </motion.button>
-              ))}
-            </div>
-            <AnimatePresence>
-              {pain === "other" && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Input
-                    autoFocus
-                    placeholder="Describe the main pain…"
-                    value={otherPain}
-                    onChange={(e) => setOtherPain(e.target.value)}
-                    className="mt-2 h-10 text-base bg-background/60"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </AnimatePresence>
+              </>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 gap-2">
+                  {ROUTING_PAINS.map((opt, i) => (
+                    <motion.button
+                      key={opt.id}
+                      type="button"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.04, duration: 0.25 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => {
+                        setPain(opt.id);
+                        if (opt.id !== "other") setOtherPain("");
+                      }}
+                      className={cn(
+                        "rounded-xl border px-4 py-3 text-base text-left transition-all duration-200",
+                        "bg-secondary/40 border-border/80 hover:border-primary/60",
+                        pain === opt.id && "border-primary bg-primary/10"
+                      )}
+                    >
+                      {opt.label}
+                    </motion.button>
+                  ))}
+                </div>
+                <AnimatePresence>
+                  {pain === "other" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+                    >
+                      <Input
+                        autoFocus
+                        placeholder="Describe the main pain…"
+                        value={otherPain}
+                        onChange={(e) => setOtherPain(e.target.value)}
+                        className="mt-2 h-10 text-base bg-background/60"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </>
+            )}
+
             <div className="flex gap-2">
               <Button
                 variant="outline"
