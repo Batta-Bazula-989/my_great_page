@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const goodFit = [
@@ -20,7 +21,13 @@ const WhoForSection = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <span className="text-primary text-sm font-medium uppercase tracking-wider">
             Is This a Fit?
           </span>
@@ -30,12 +37,16 @@ const WhoForSection = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Clear expectations up front mean better results for both of us.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div
-            className="p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
+          <motion.div
+            className="p-8 rounded-2xl border hover:-translate-y-1 card-hover-glow"
             style={{ backgroundColor: 'rgb(43, 48, 59)', borderColor: 'rgb(43, 48, 59)' }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
           >
             <h3 className="text-xl font-bold font-display mb-6 text-gradient">Good Fit</h3>
             <div className="space-y-4">
@@ -46,11 +57,15 @@ const WhoForSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div
-            className="p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
+          <motion.div
+            className="p-8 rounded-2xl border hover:-translate-y-1 card-hover-glow"
             style={{ backgroundColor: 'rgb(43, 48, 59)', borderColor: 'rgb(43, 48, 59)' }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
           >
             <h3 className="text-xl font-bold font-display mb-6 text-muted-foreground">Not the Right Fit</h3>
             <div className="space-y-4">
@@ -61,7 +76,7 @@ const WhoForSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

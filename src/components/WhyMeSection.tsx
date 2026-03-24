@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Briefcase, Shield, BookOpen, MessageCircle } from "lucide-react";
 
 const items = [
@@ -29,33 +30,43 @@ const WhyMeSection = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <span className="text-primary text-sm font-medium uppercase tracking-wider">
             Why Work With Me
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
             Honest Work. Clear Communication. Reliable Systems.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="group p-6 rounded-xl border transition-all duration-300 hover:-translate-y-1 card-hover-glow"
+                className="group p-6 rounded-xl border hover:-translate-y-1 card-hover-glow"
                 style={{
                   backgroundColor: 'rgb(43, 48, 59)',
                   borderColor: 'rgb(43, 48, 59)',
                 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                   <Icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="font-semibold font-display mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

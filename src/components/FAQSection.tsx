@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -48,18 +49,25 @@ const FAQSection = () => {
         <div className="max-w-2xl mx-auto">
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <motion.div
                 key={index}
-                value={`faq-${index}`}
-                className="border-none rounded-xl bg-secondary/30 border border-border px-6 hover:border-primary/30 transition-all duration-300"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.06 }}
               >
-                <AccordionTrigger className="hover:no-underline text-left font-display text-base">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`faq-${index}`}
+                  className="border-none rounded-xl bg-secondary/30 border border-border px-6 hover:border-primary/30 transition-all duration-300"
+                >
+                  <AccordionTrigger className="hover:no-underline text-left font-display text-base">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </div>
