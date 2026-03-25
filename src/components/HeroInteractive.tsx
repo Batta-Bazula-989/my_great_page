@@ -113,13 +113,13 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ ...smoothSpring, stiffness: 200 }}
-        className="flex flex-col items-center justify-center py-12 text-center"
+        className="flex flex-col justify-center py-6"
       >
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
-          className="text-sm text-muted-foreground"
+          className="text-base leading-relaxed text-foreground whitespace-pre-wrap"
         >
           {aiResponse}
         </motion.p>
