@@ -758,10 +758,6 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
             transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
             className="space-y-3"
           >
-            <p className="text-base font-medium text-foreground/90">
-              Your automation outcome
-            </p>
-
             {loading && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -788,7 +784,7 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.35 }}
-                className="rounded-xl border border-border/70 bg-secondary/40 p-4 text-base text-muted-foreground leading-relaxed whitespace-pre-line"
+                className="text-base leading-relaxed text-foreground whitespace-pre-wrap"
               >
                 {aiResponse}
               </motion.div>
