@@ -447,20 +447,15 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       key={ch.id}
                       type="button"
                       initial={{ opacity: 0, y: 8 }}
-                      animate={{
-                        opacity: botChannels.has("other") ? 0.4 : 1,
-                        y: 0,
-                        scale: botChannels.has("other") ? 0.97 : 1,
-                      }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ delay: i * 0.05, duration: 0.25 }}
-                      whileHover={!botChannels.has("other") ? { scale: 1.05 } : {}}
-                      whileTap={!botChannels.has("other") ? { scale: 0.97 } : {}}
-                      onClick={() => !botChannels.has("other") && toggleChannel(ch.id)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => toggleChannel(ch.id)}
                       className={cn(
                         "rounded-full border px-4 py-2 text-base transition-all duration-200",
                         "bg-secondary/40 border-border/80 hover:border-primary/60",
-                        botChannels.has(ch.id) && !botChannels.has("other") && "border-primary bg-primary/10",
-                        botChannels.has("other") && "cursor-not-allowed"
+                        botChannels.has(ch.id) && "border-primary bg-primary/10"
                       )}
                     >
                       {ch.label}
@@ -472,20 +467,14 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       <motion.button
                         type="button"
                         initial={{ opacity: 0, y: 8 }}
-                        animate={{
-                          opacity: botChannels.has("other") ? 0.4 : 1,
-                          y: 0,
-                          scale: botChannels.has("other") ? 0.97 : 1,
-                        }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ delay: 0.1, duration: 0.25 }}
-                        whileHover={!botChannels.has("other") ? { scale: 1.05 } : {}}
-                        whileTap={!botChannels.has("other") ? { scale: 0.97 } : {}}
-                        onClick={(e) => { if (botChannels.has("other")) e.preventDefault(); }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.97 }}
                         className={cn(
                           "rounded-full border px-4 py-2 text-base transition-all duration-200 flex items-center gap-1.5",
                           "bg-secondary/40 border-border/80 hover:border-primary/60",
-                          botChannels.has("messenger") && !botChannels.has("other") && "border-primary bg-primary/10",
-                          botChannels.has("other") && "cursor-not-allowed"
+                          botChannels.has("messenger") && "border-primary bg-primary/10"
                         )}
                       >
                         Messenger
@@ -628,20 +617,15 @@ const GuidedFlowPanel = ({ serviceId }: { serviceId: "bots" | "routing" }) => {
                       key={opt.id}
                       type="button"
                       initial={{ opacity: 0, y: 8 }}
-                      animate={{
-                        opacity: botPains.has("other") ? 0.4 : 1,
-                        y: 0,
-                        scale: botPains.has("other") ? 0.99 : 1,
-                      }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ delay: i * 0.04, duration: 0.25 }}
-                      whileHover={!botPains.has("other") ? { scale: 1.02 } : {}}
-                      whileTap={!botPains.has("other") ? { scale: 0.98 } : {}}
-                      onClick={() => !botPains.has("other") && toggleBotPain(opt.id)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => toggleBotPain(opt.id)}
                       className={cn(
                         "rounded-xl border px-4 py-3 text-base text-left transition-all duration-200",
                         "bg-secondary/40 border-border/80 hover:border-primary/60",
-                        botPains.has(opt.id) && !botPains.has("other") && "border-primary bg-primary/10",
-                        botPains.has("other") && "cursor-not-allowed"
+                        botPains.has(opt.id) && "border-primary bg-primary/10"
                       )}
                     >
                       {opt.label}
