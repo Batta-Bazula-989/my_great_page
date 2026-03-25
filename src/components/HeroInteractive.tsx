@@ -96,6 +96,18 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   };
 
   if (submitted) {
+    if (!aiResponse) {
+      return (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col items-center justify-center py-10 gap-3"
+        >
+          <Loader2 className="h-6 w-6 animate-spin text-primary" />
+          <p className="text-sm text-muted-foreground">Analyzing your setup…</p>
+        </motion.div>
+      );
+    }
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -117,7 +129,7 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
           transition={{ delay: 0.2, duration: 0.3 }}
           className="text-lg font-semibold text-foreground mb-1"
         >
-          {aiResponse ? "Here's what I found" : "Request sent"}
+          Here's what I found
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -125,7 +137,7 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
           transition={{ delay: 0.3, duration: 0.3 }}
           className="text-sm text-muted-foreground"
         >
-          {aiResponse ?? "Processing your request…"}
+          {aiResponse}
         </motion.p>
       </motion.div>
     );
