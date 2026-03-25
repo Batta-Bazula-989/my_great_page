@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="container px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#">
-            <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
+            <img src="/favicon.svg" alt="Logo" className="h-8 w-8" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
