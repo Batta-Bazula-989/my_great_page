@@ -41,7 +41,7 @@ const FAQSection = () => {
 
       <div className="container px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
             FAQ
           </span>
         </div>
