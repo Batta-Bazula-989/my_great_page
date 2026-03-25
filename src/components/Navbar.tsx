@@ -32,8 +32,8 @@ const Navbar = () => {
     >
       <div className="container px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="font-display font-bold text-xl">
-            <span className="text-gradient">RZ</span>
+          <a href="#">
+            <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
