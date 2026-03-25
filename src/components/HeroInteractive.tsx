@@ -139,9 +139,6 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
         >
           {service.label}
         </motion.span>
-        <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mt-2">
-          Describe what you're trying to achieve
-        </h2>
         <p className="text-base text-muted-foreground mt-1">
           Be as specific as possible — the more detail, the better we can help.
         </p>
@@ -164,13 +161,6 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
         <div className="flex items-center gap-3 text-sm text-muted-foreground/60">
           <span>{input.length}/300</span>
-          <span>
-            Press{" "}
-            <kbd className="px-1.5 py-0.5 rounded bg-secondary/80 border border-border/60 text-[10px] font-mono">
-              ⌘ Enter
-            </kbd>{" "}
-            to send
-          </span>
         </div>
         <motion.button
           type="button"
