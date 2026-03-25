@@ -115,26 +115,10 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
         transition={{ ...smoothSpring, stiffness: 200 }}
         className="flex flex-col items-center justify-center py-12 text-center"
       >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ ...spring, delay: 0.1 }}
-          className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4"
-        >
-          <ArrowUpRight className="h-5 w-5 text-primary" />
-        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
-          className="text-lg font-semibold text-foreground mb-1"
-        >
-          Here's what I found
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.3 }}
           className="text-sm text-muted-foreground"
         >
           {aiResponse}
