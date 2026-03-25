@@ -50,12 +50,14 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
   const service = SERVICES.find((s) => s.id === serviceId)!;
   const [input, setInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [aiResponse, setAiResponse] = useState<string | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const sessionId = useRef<string>(crypto.randomUUID());
 
   useEffect(() => {
     setInput("");
     setSubmitted(false);
+    setAiResponse(null);
     sessionId.current = crypto.randomUUID();
     const timer = setTimeout(() => inputRef.current?.focus(), 100);
     return () => clearTimeout(timer);
@@ -81,13 +83,15 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
       const webhookUrl = serviceId === "reporting"
         ? "https://stash-312.app.n8n.cloud/webhook/8a1fce76-80be-4abb-8bd7-d39d67c64450"
         : "https://stash-312.app.n8n.cloud/webhook/7c2a255a-f238-43e0-9476-e39a7ec1a828";
-      await fetch(webhookUrl, {
+      const res = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId: sessionId.current, message, service: service.label }),
       });
+      const data = await res.json();
+      setAiResponse(data.output ?? "Done.");
     } catch {
-      // silently fail – user already sees confirmation
+      setAiResponse("Something went wrong. Please try again.");
     }
   };
 
@@ -113,7 +117,7 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
           transition={{ delay: 0.2, duration: 0.3 }}
           className="text-lg font-semibold text-foreground mb-1"
         >
-          Request sent
+          {aiResponse ? "Here's what I found" : "Request sent"}
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -121,7 +125,7 @@ const RequestPanel = ({ serviceId }: { serviceId: "reporting" | "custom" }) => {
           transition={{ delay: 0.3, duration: 0.3 }}
           className="text-sm text-muted-foreground"
         >
-          I'll get back to you shortly.
+          {aiResponse ?? "Processing your request…"}
         </motion.p>
       </motion.div>
     );
