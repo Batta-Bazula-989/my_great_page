@@ -12,8 +12,12 @@ const ContactSection = () => {
 
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
+              Let's Talk
+            </span>
+          </div>
           <div className="text-center pt-5 md:pt-6 px-4 pb-4 md:px-6 md:pb-6 rounded-3xl border border-border" style={{backgroundColor: 'rgb(43, 48, 59)'}}>
-            <span className="text-primary text-[1.05rem] font-medium uppercase tracking-wider">Let's Talk</span>
             <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
               Book a 30-minute call. We'll look at what's slowing you down and figure out what to automate first.
             </p>
