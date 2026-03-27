@@ -50,9 +50,11 @@ const ServicesCarousel = () => {
   return (
     <section className="w-full py-[3.2rem] md:py-[4.8rem]">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight text-center">
-          Automate your support operations
-        </h2>
+        <div className="text-center mb-6">
+          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
+            What I Do
+          </span>
+        </div>
 
         <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
           {services.map((service, i) => {
