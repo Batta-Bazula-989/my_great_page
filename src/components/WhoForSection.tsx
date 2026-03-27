@@ -28,15 +28,9 @@ const WhoForSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
             Is This a Fit?
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
-            Who This Is For — and Who It's Not
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Clear expectations up front mean better results for both of us.
-          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
