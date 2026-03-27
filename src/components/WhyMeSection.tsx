@@ -37,12 +37,9 @@ const WhyMeSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
             Why Work With Me
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-display mt-4 mb-6">
-            Honest Work. Clear Communication. Reliable Systems.
-          </h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
