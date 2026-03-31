@@ -7,7 +7,7 @@ const ContactSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section id="contact" className="py-[4.8rem] relative">
+    <section id="contact" className="pt-[4.8rem] pb-8 relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-glow opacity-20" />
 
       <div className="container px-4 relative z-10">
