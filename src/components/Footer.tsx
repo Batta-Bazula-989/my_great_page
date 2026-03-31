@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,25 +18,6 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
-          </div>
-
-          <div className="flex items-center gap-5">
-            <a
-              href="mailto:romanzakharenko.r@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-md hover:bg-muted"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/roman-zakharenko"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-md hover:bg-muted"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
           </div>
 
           <p className="text-muted-foreground/60 text-xs">
