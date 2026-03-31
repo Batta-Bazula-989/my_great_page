@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, ArrowUpRight, Calendar, Send } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
-import Footer from "@/components/Footer";
 
 const ContactSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section id="contact" className="pt-[4.8rem] pb-0 relative">
+    <section id="contact" className="pt-[4.8rem] pb-8 relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-glow opacity-20" />
 
       <div className="container px-4 relative z-10">
@@ -40,26 +40,38 @@ const ContactSection = () => {
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-foreground/85">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 shrink-0" />
                 <a href="mailto:romanzakharenko.r@gmail.com" className="hover:text-primary transition-colors">
                   romanzakharenko.r@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 shrink-0" />
                 <a href="https://t.me/Rr9ea" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   Telegram
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
+      <footer role="contentinfo" className="mt-6 pb-4 text-center">
+        <div className="flex items-center justify-center gap-4 text-xs text-foreground/50">
+          <Link to="/privacy" className="hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
+          <span aria-hidden>·</span>
+          <Link to="/terms" className="hover:text-primary transition-colors">
+            Terms of Service
+          </Link>
+        </div>
+      </footer>
+
       <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
-      <Footer />
     </section>
   );
 };
