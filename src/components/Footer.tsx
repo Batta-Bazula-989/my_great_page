@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="py-10 border-t border-border">
+    <footer className="py-4 border-t border-border">
       <div className="container px-4">
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-2">
           <div className="flex items-center gap-6">
             <Link
               to="/privacy"
