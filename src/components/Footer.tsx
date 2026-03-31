@@ -2,22 +2,27 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="flex items-center justify-center gap-6 py-1.5 pb-2">
+    <footer className="shrink-0 border-t-2 border-primary/50 bg-background">
+      <nav
+        className="flex items-center justify-center gap-6 px-4 py-2.5"
+        aria-label="Legal"
+      >
         <Link
           to="/privacy"
-          className="text-base font-medium text-foreground/90 hover:text-foreground transition-colors"
+          className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
         >
           Privacy Policy
         </Link>
-        <span className="text-foreground/35">·</span>
+        <span className="text-foreground/40" aria-hidden>
+          ·
+        </span>
         <Link
           to="/terms"
-          className="text-base font-medium text-foreground/90 hover:text-foreground transition-colors"
+          className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
         >
           Terms of Service
         </Link>
-      </div>
+      </nav>
     </footer>
   );
 };
