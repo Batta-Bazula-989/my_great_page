@@ -59,8 +59,8 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <footer role="contentinfo" className="mt-6 pb-4 text-center">
-        <div className="flex items-center justify-center gap-4 text-xs text-foreground/50">
+      <div className="mt-6 pb-8 text-center">
+        <div className="flex items-center justify-center gap-6 text-sm text-foreground/60">
           <Link to="/privacy" className="hover:text-primary transition-colors">
             Privacy Policy
           </Link>
@@ -69,6 +69,12 @@ const ContactSection = () => {
             Terms of Service
           </Link>
         </div>
+      </div>
+
+      <footer role="contentinfo" className="w-full border-t border-border/30 py-2">
+        <p className="text-center text-[10px] text-foreground/30 tracking-wide">
+          © {new Date().getFullYear()} Roman Zakharenko
+        </p>
       </footer>
 
       <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
