@@ -59,22 +59,12 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="mt-6 pb-8 text-center">
-        <div className="flex items-center justify-center gap-6 text-sm text-foreground/60">
-          <Link to="/privacy" className="hover:text-primary transition-colors">
-            Privacy Policy
-          </Link>
+      <footer role="contentinfo" className="mt-8 w-full border-t border-border/30 py-2">
+        <div className="flex items-center justify-center gap-5 text-[11px] text-foreground/40">
+          <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           <span aria-hidden>·</span>
-          <Link to="/terms" className="hover:text-primary transition-colors">
-            Terms of Service
-          </Link>
+          <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
         </div>
-      </div>
-
-      <footer role="contentinfo" className="w-full border-t border-border/30 py-2">
-        <p className="text-center text-[10px] text-foreground/30 tracking-wide">
-          © {new Date().getFullYear()} Roman Zakharenko
-        </p>
       </footer>
 
       <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
