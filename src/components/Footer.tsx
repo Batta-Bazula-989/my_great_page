@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 
+/** Tight legal strip — uses div + inline layout to avoid any flex/UA stretching issues */
 const Footer = () => {
   return (
-    <footer className="h-fit w-full flex-none border-t-2 border-primary/50 bg-background">
-      <nav
-        className="flex h-fit items-center justify-center gap-6 px-4 py-2 leading-none"
-        aria-label="Legal"
+    <div
+      role="contentinfo"
+      className="relative z-10 w-full border-t-2 border-primary/50 bg-background"
+      style={{
+        margin: 0,
+        paddingTop: 10,
+        paddingBottom: 10,
+        boxSizing: "border-box",
+        height: "fit-content",
+        minHeight: 0,
+        maxHeight: "none",
+      }}
+    >
+      <div
+        className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 px-4"
+        style={{ margin: 0, padding: 0, lineHeight: 1.25 }}
       >
         <Link
           to="/privacy"
@@ -22,8 +35,8 @@ const Footer = () => {
         >
           Terms of Service
         </Link>
-      </nav>
-    </footer>
+      </div>
+    </div>
   );
 };
 

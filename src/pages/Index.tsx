@@ -5,7 +5,6 @@ import WhoForSection from "@/components/WhoForSection";
 import WhyMeSection from "@/components/WhyMeSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <WhyMeSection />
       <FAQSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 };
