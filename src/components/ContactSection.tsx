@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, ArrowUpRight, Calendar, Send } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
@@ -8,8 +7,7 @@ const ContactSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <>
-    <section id="contact" className="pt-[4.8rem] pb-0 relative">
+    <section id="contact" className="pt-[4.8rem] pb-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-glow opacity-20" />
 
       <div className="container px-4 relative z-10">
@@ -62,15 +60,6 @@ const ContactSection = () => {
 
       <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
-
-    <footer role="contentinfo" className="w-full border-t border-border/30 py-2">
-      <div className="flex items-center justify-center gap-5 text-[11px] text-foreground/40">
-        <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-        <span aria-hidden>·</span>
-        <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-      </div>
-    </footer>
-    </>
   );
 };
 
