@@ -17,144 +17,243 @@ const Privacy = () => {
           Privacy Policy
         </h1>
         <p className="text-muted-foreground mb-10 text-sm">
-          Last updated: February 2025
+          Updated at 2026-04-01
         </p>
 
         <div className="space-y-8 text-foreground/90 leading-relaxed">
+
           <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              What This Covers
-            </h2>
             <p>
-              This policy explains how I collect, use, and protect your
-              information when you visit this website or get in touch with me.
-              I offer consulting, audits, and implementation services for
-              support teams — there are no user accounts, subscriptions, or
-              SaaS products here.
+              TaskaLab ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by TaskaLab.
             </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              What Data I Collect
-            </h2>
-            <ul className="list-disc list-inside space-y-2 text-foreground/80">
-              <li>
-                <strong>Contact form submissions</strong> — your name, email,
-                and message when you reach out through the site.
-              </li>
-              <li>
-                <strong>Calendar bookings</strong> — scheduling details when
-                you book a call via an embedded tool like Calendly.
-              </li>
-              <li>
-                <strong>Email communication</strong> — anything you share when
-                we correspond via email.
-              </li>
-              <li>
-                <strong>Analytics data</strong> — basic, anonymized usage data
-                (pages visited, device type, referral source) collected through
-                tools like Google Analytics.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Why I Collect It
-            </h2>
-            <ul className="list-disc list-inside space-y-2 text-foreground/80">
-              <li>To respond to your inquiries and schedule calls.</li>
-              <li>To understand how people find and use this website.</li>
-              <li>
-                To improve the site and the services I offer.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              How I Use Your Data
-            </h2>
-            <p>
-              Your information is used solely for the purposes described above.
-              I do not sell, rent, or share your personal data with third
-              parties. If we move forward with a paid engagement, any client
-              data shared during projects is handled under separate agreements
-              and treated with strict confidentiality.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Cookies & Analytics
-            </h2>
-            <p>
-              This site may use cookies for basic analytics purposes. These
-              help me understand traffic patterns and improve the user
-              experience. No cookies are used for advertising or tracking
-              across other websites. You can disable cookies in your browser
-              settings at any time.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Third-Party Services
-            </h2>
-            <p>
-              This site may use third-party tools such as Calendly for
-              scheduling and Google Analytics for traffic insights. These
-              services have their own privacy policies, and I encourage you to
-              review them. I choose tools that respect user privacy and limit
-              data collection to what's necessary.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Your Rights
-            </h2>
-            <p className="mb-2">You have the right to:</p>
-            <ul className="list-disc list-inside space-y-2 text-foreground/80">
-              <li>Request access to the personal data I hold about you.</li>
-              <li>Ask me to correct or delete your data.</li>
-              <li>Withdraw consent for data processing at any time.</li>
-            </ul>
             <p className="mt-3">
-              To exercise any of these rights, email me at{" "}
-              <a
-                href="mailto:romanzakharenko.r@gmail.com"
-                className="text-primary hover:underline"
-              >
-                romanzakharenko.r@gmail.com
-              </a>
-              .
+              This Privacy Policy applies to our website, and its associated subdomains (collectively, our "Service") alongside our application, TaskaLab. By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy and our Terms of Service.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Data Security
-            </h2>
-            <p>
-              I take reasonable precautions to protect your data from
-              unauthorized access, loss, or misuse. However, no method of
-              transmission over the internet is 100% secure, and I cannot
-              guarantee absolute security.
+            <h2 className="font-display text-xl font-semibold mb-3">Definitions and key terms</h2>
+            <p className="mb-3">To help explain things as clearly as possible in this Privacy Policy, every time any of these terms are referenced, are strictly defined as:</p>
+            <ul className="list-disc list-inside space-y-2 text-foreground/80">
+              <li><strong>Cookie:</strong> small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.</li>
+              <li><strong>Company:</strong> when this policy mentions "Company," "we," "us," or "our," it refers to TaskaLab, that is responsible for your information under this Privacy Policy.</li>
+              <li><strong>Country:</strong> where TaskaLab or the owners/founders of TaskaLab are based, in this case is Hungary.</li>
+              <li><strong>Customer:</strong> refers to the company, organization or person that signs up to use the TaskaLab Service to manage the relationships with your consumers or service users.</li>
+              <li><strong>Device:</strong> any internet connected device such as a phone, tablet, computer or any other device that can be used to visit TaskaLab and use the services.</li>
+              <li><strong>IP address:</strong> Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet.</li>
+              <li><strong>Personnel:</strong> refers to those individuals who are employed by TaskaLab or are under contract to perform a service on behalf of one of the parties.</li>
+              <li><strong>Personal Data:</strong> any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person.</li>
+              <li><strong>Service:</strong> refers to the service provided by TaskaLab as described in the relative terms (if available) and on this platform.</li>
+              <li><strong>Third-party service:</strong> refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.</li>
+              <li><strong>Website:</strong> TaskaLab's site, which can be accessed via this URL: https://www.tascalab.com/</li>
+              <li><strong>You:</strong> a person or entity that is registered with TaskaLab to use the Services.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Information automatically collected</h2>
+            <p className="mb-3">
+              There is some information like your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our platform. This information may be used to connect your computer to the Internet. Other information collected automatically could be a login, e-mail address, password, computer and connection information such as browser plug-in types and versions and time zone setting, operating systems and platforms, purchase history, (we sometimes aggregate with similar information from other Users), the full Uniform Resource Locator (URL) clickstream to, through and from our Website that may include date and time; cookie number; parts of the site you viewed or searched for; and the phone number you used to call our Customer Services. We may also use browser data such as cookies, Flash cookies (also known as Flash Local Shared Objects) or similar data on certain parts of our Website for fraud prevention and other purposes. During your visits, we may use software tools such as JavaScript to measure and collect session information including page response times, download errors, length of visits to certain pages, page interaction information (such as scrolling, clicks, and mouse-overs), and methods used to browse away from the page. We may also collect technical information to help us identify your device for fraud prevention and diagnostic purposes.
             </p>
+            <p>
+              We automatically collect certain information when you visit, use or navigate the platform. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about who and when you use our and other technical information. This information is primarily needed to maintain the security and operation of our platform, and for our internal analytics and reporting purposes.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Sale of Business</h2>
+            <p>
+              We reserve the right to transfer information to a third party in the event of a sale, merger or other transfer of all or substantially all of the assets of TaskaLab or any of its Corporate Affiliates (as defined herein), or that portion of TaskaLab or any of its Corporate Affiliates to which the Service relates, or in the event that we discontinue our business or file a petition or have filed against us a petition in bankruptcy, reorganization or similar proceeding, provided that the third party agrees to adhere to the terms of this Privacy Policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Affiliates</h2>
+            <p>
+              We may disclose information (including personal information) about you to our Corporate Affiliates. For purposes of this Privacy Policy, "Corporate Affiliate" means any person or entity which directly or indirectly controls, is controlled by or is under common control with TaskaLab, whether by ownership or otherwise. Any information relating to you that we provide to our Corporate Affiliates will be treated by those Corporate Affiliates in accordance with the terms of this Privacy Policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Governing Law</h2>
+            <p className="mb-3">
+              This Privacy Policy is governed by the laws of Hungary without regard to its conflict of laws provision. You consent to the exclusive jurisdiction of the courts in connection with any action or dispute arising between the parties under or in connection with this Privacy Policy except for those individuals who may have rights to make claims under Privacy Shield, or the Swiss-US framework.
+            </p>
+            <p className="mb-3">
+              The laws of Hungary, excluding its conflicts of law rules, shall govern this Agreement and your use of the website. Your use of the website may also be subject to other local, state, national, or international laws.
+            </p>
+            <p>
+              By using TaskaLab or contacting us directly, you signify your acceptance of this Privacy Policy. If you do not agree to this Privacy Policy, you should not engage with our website, or use our services. Continued use of the website, direct engagement with us, or following the posting of changes to this Privacy Policy that do not significantly affect the use or disclosure of your personal information will mean that you accept those changes.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Your Consent</h2>
+            <p>
+              We've updated our Privacy Policy to provide you with complete transparency into what is being set when you visit our site and how it's being used. By using our website, registering an account, or making a purchase, you hereby consent to our Privacy Policy and agree to its terms.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Links to Other Websites</h2>
+            <p>
+              This Privacy Policy applies only to the Services. The Services may contain links to other websites not operated or controlled by TaskaLab. We are not responsible for the content, accuracy or opinions expressed in such websites, and such websites are not investigated, monitored or checked for accuracy or completeness by us. Please remember that when you use a link to go from the Services to another website, our Privacy Policy is no longer in effect. Your browsing and interaction on any other website, including those that have a link on our platform, is subject to that website's own rules and policies. Such third parties may use their own cookies or other methods to collect information about you.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Cookies</h2>
+            <p>
+              TaskaLab uses "Cookies" to identify the areas of our website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to enhance the performance and functionality of our website but are non-essential to their use. However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the website as we would not be able to remember that you had logged in previously. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our website correctly or at all. We never place Personally Identifiable Information in Cookies.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Blocking and disabling cookies and similar technologies</h2>
+            <p>
+              Wherever you're located you may also set your browser to block cookies and similar technologies, but this action may block our essential cookies and prevent our website from functioning properly, and you may not be able to fully utilize all of its features and services. You should also be aware that you may also lose some saved information (e.g. saved login details, site preferences) if you block cookies on your browser. Different browsers make different controls available to you. Disabling a cookie or category of cookie does not delete the cookie from your browser, you will need to do this yourself from within your browser, you should visit your browser's help menu for more information.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Remarketing Services</h2>
+            <p>
+              We use remarketing services. What Is Remarketing? In digital marketing, remarketing (or retargeting) is the practice of serving ads across the internet to people who have already visited your website. It allows your company to seem like they're "following" people around the internet by serving ads on the websites and platforms they use most.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Kids' Privacy</h2>
+            <p>
+              We do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Changes To Our Privacy Policy</h2>
+            <p>
+              We may change our Service and policies, and we may need to make changes to this Privacy Policy so that they accurately reflect our Service and policies. Unless otherwise required by law, we will notify you (for example, through our Service) before we make changes to this Privacy Policy and give you an opportunity to review them before they go into effect. Then, if you continue to use the Service, you will be bound by the updated Privacy Policy. If you do not want to agree to this or any updated Privacy Policy, you can delete your account.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Third-Party Services</h2>
+            <p className="mb-3">
+              We may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services ("Third-Party Services").
+            </p>
+            <p className="mb-3">
+              You acknowledge and agree that TaskaLab shall not be responsible for any Third-Party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect thereof. TaskaLab does not assume and shall not have any liability or responsibility to you or any other person or entity for any Third-Party Services.
+            </p>
+            <p>
+              Third-Party Services and links thereto are provided solely as a convenience to you and you access and use them entirely at your own risk and subject to such third parties' terms and conditions.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Tracking Technologies</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold mb-1">Cookies</h3>
+                <p className="text-foreground/80">
+                  We use Cookies to enhance the performance and functionality of our website but are non-essential to their use. However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the website as we would not be able to remember that you had logged in previously.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">Sessions</h3>
+                <p className="text-foreground/80">
+                  TaskaLab uses "Sessions" to identify the areas of our website that you have visited. A Session is a small piece of data stored on your computer or mobile device by your web browser.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Information about General Data Protection Regulation (GDPR)</h2>
+            <p>
+              We may be collecting and using information from you if you are from the European Economic Area (EEA), and in this section of our Privacy Policy we are going to explain exactly how and why is this data collected, and how we maintain this data under protection from being replicated or used in the wrong way.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">What is GDPR?</h2>
+            <p className="mb-3">
+              GDPR is an EU-wide privacy and data protection law that regulates how EU residents' data is protected by companies and enhances the control the EU residents have, over their personal data.
+            </p>
+            <p>
+              The GDPR is relevant to any globally operating company and not just the EU-based businesses and EU residents. Our customers' data is important irrespective of where they are located, which is why we have implemented GDPR controls as our baseline standard for all our operations worldwide.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">What is personal data?</h2>
+            <p>
+              Any data that relates to an identifiable or identified individual. GDPR covers a broad spectrum of information that could be used on its own, or in combination with other pieces of information, to identify a person. Personal data extends beyond a person's name or email address. Some examples include financial information, political opinions, genetic data, biometric data, IP addresses, physical address, sexual orientation, and ethnicity.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">The Data Protection Principles include requirements such as:</h2>
+            <ul className="list-disc list-inside space-y-2 text-foreground/80">
+              <li>Personal data collected must be processed in a fair, legal, and transparent way and should only be used in a way that a person would reasonably expect.</li>
+              <li>Personal data should only be collected to fulfil a specific purpose and it should only be used for that purpose. Organizations must specify why they need the personal data when they collect it.</li>
+              <li>Personal data should be held no longer than necessary to fulfil its purpose.</li>
+              <li>People covered by the GDPR have the right to access their own personal data. They can also request a copy of their data, and that their data be updated, deleted, restricted, or moved to another organization.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Why is GDPR important?</h2>
+            <p>
+              GDPR adds some new requirements regarding how companies should protect individuals' personal data that they collect and process. It also raises the stakes for compliance by increasing enforcement and imposing greater fines for breach. Beyond these facts it's simply the right thing to do. At TaskaLab we strongly believe that your data privacy is very important and we already have solid security and privacy practices in place that go beyond the requirements of this new regulation.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">Individual Data Subject's Rights - Data Access, Portability and Deletion</h2>
+            <p className="mb-3">
+              We are committed to helping our customers meet the data subject rights requirements of GDPR. TaskaLab processes or stores all personal data in fully vetted, DPA compliant vendors. We do store all conversation and personal data for up to 6 years unless your account is deleted. In which case, we dispose of all data in accordance with our Terms of Service and Privacy Policy, but we will not hold it longer than 60 days.
+            </p>
+            <p>
+              We are aware that if you are working with EU customers, you need to be able to provide them with the ability to access, update, retrieve and remove personal data. We got you! We've been set up as self service from the start and have always given you access to your data and your customers data. Our customer support team is here for you to answer any questions you might have about working with the API.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold mb-3">California Residents</h2>
+            <p className="mb-3">
+              The California Consumer Privacy Act (CCPA) requires us to disclose categories of Personal Information we collect and how we use it, the categories of sources from whom we collect Personal Information, and the third parties with whom we share it, which we have explained above.
+            </p>
+            <p className="mb-3">We are also required to communicate information about rights California residents have under California law. You may exercise the following rights:</p>
+            <ul className="list-disc list-inside space-y-2 text-foreground/80 mb-3">
+              <li><strong>Right to Know and Access.</strong> You may submit a verifiable request for information regarding the: (1) categories of Personal Information we collect, use, or share; (2) purposes for which categories of Personal Information are collected or used by us; (3) categories of sources from which we collect Personal Information; and (4) specific pieces of Personal Information we have collected about you.</li>
+              <li><strong>Right to Equal Service.</strong> We will not discriminate against you if you exercise your privacy rights.</li>
+              <li><strong>Right to Delete.</strong> You may submit a verifiable request to close your account and we will delete Personal Information about you that we have collected.</li>
+              <li>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li>
+            </ul>
+            <p className="mb-3">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+            <p>We do not sell the Personal Information of our users. For more information about these rights, please contact us.</p>
           </section>
 
           <section className="border-t border-border pt-8">
-            <h2 className="font-display text-xl font-semibold mb-3">
-              Disclaimer
-            </h2>
-            <p className="text-muted-foreground text-sm">
-              This privacy policy is provided for transparency and is not a
-              legal contract. It may be updated from time to time. If you have
-              questions or concerns, feel free to reach out directly.
-            </p>
+            <h2 className="font-display text-xl font-semibold mb-3">Contact Us</h2>
+            <p className="mb-3">Don't hesitate to contact us if you have any questions.</p>
+            <ul className="list-disc list-inside space-y-2 text-foreground/80">
+              <li>
+                Via Email:{" "}
+                <a href="mailto:romanzakharenko.r@gmail.com" className="text-primary hover:underline">
+                  romanzakharenko.r@gmail.com
+                </a>
+              </li>
+              <li>Via Phone number: +380984709579</li>
+              <li>
+                Via this Link:{" "}
+                <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  linkedin.com/in/roman-zakharenko
+                </a>
+              </li>
+            </ul>
           </section>
+
         </div>
       </div>
     </main>
