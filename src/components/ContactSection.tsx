@@ -12,7 +12,7 @@ const ContactSection = () => {
 
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-11">
             <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
               Let's Talk
             </span>
