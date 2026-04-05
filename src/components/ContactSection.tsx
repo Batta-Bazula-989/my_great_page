@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, ArrowUpRight, Calendar, Send } from "lucide-react";
+import { Mail, Linkedin, ArrowUpRight, Calendar, Send, Instagram } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 
 const ContactSection = () => {
@@ -43,7 +43,13 @@ const ContactSection = () => {
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0" />
                 <a href="mailto:romanzakharenko.r@gmail.com" className="hover:text-primary transition-colors">
-                  romanzakharenko.r@gmail.com
+                  Email
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Instagram className="w-4 h-4 shrink-0" />
+                <a href="https://www.instagram.com/tasca_lab/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Instagram
                 </a>
               </div>
               <div className="flex items-center gap-2">
