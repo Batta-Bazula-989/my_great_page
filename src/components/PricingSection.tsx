@@ -4,7 +4,7 @@ import { MessageSquare, Mic, BarChart2, Settings2, Info, Check } from "lucide-re
 const categories = [
   {
     icon: MessageSquare,
-    title: "Chat Bots",
+    title: "Chat Agent",
     description:
       "Automated text assistants for your website or messaging platforms. Handle FAQs, lead qualification, and basic triage — around the clock.",
     plans: [
@@ -24,15 +24,15 @@ const categories = [
   },
   {
     icon: Mic,
-    title: "Voice + Chat Bots",
+    title: "Voice Agent",
     description:
       "Both channels in one setup. Voice bot for inbound calls, chat bot for messaging. Better coverage, shared logic, single handover point.",
     plans: [
       {
         name: "Voice + Chat Package",
         price: "$1,300 – $1,900",
-        detail: "Voice & text channels",
-        includes: ["Voice bot for inbound calls", "Chat bot for messaging", "Unified routing logic", "Escalation handling"],
+        detail: "Voice channels",
+        includes: ["Voice bot for inbound calls", "Chat bot for messaging", "Unified routing logic", "Escalation handling accordingly"],
       },
     ],
   },
