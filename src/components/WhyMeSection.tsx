@@ -1,25 +1,30 @@
 import { motion } from "framer-motion";
-import { Briefcase, Shield, BookOpen, MessageCircle } from "lucide-react";
+import { Briefcase, Shield, BookOpen, MessageCircle, MapPin } from "lucide-react";
 
 const items = [
   {
-    title: "I've Worked Inside Support",
-    desc: "I've handled tickets, built reports manually, and dealt with broken workflows. I understand what slows teams down because I've lived it.",
+    title: "I've worked in support — not just around it",
+    desc: "I've handled tickets, built reports manually, and dealt with workflows held together with copy-paste and wishful thinking. I know what actually slows teams down because I've been on that side of it.",
     icon: Briefcase,
   },
   {
-    title: "Built to Last, Not to Impress",
-    desc: "Every workflow includes error handling, monitoring, and testing. I don't ship fragile automations that break on edge cases.",
+    title: "Built to hold up, not to demo well",
+    desc: "Every automation includes error handling, edge case testing, and monitoring. If something unexpected happens, it fails gracefully and alerts the right person — it doesn't just silently break.",
     icon: Shield,
   },
   {
-    title: "Full Documentation & Handover",
-    desc: "You get clear docs so your team can maintain and extend what I build. No vendor lock-in, no black boxes.",
+    title: "You own everything when we're done",
+    desc: "Full documentation. Clear handover. No proprietary tooling that only I can access. Your team can maintain and extend what I build without needing to call me.",
     icon: BookOpen,
   },
   {
-    title: "Plain Language, No Jargon",
-    desc: "I explain what I'm building and why — in terms your team actually understands. Technical decisions are shared, not hidden.",
+    title: "Ukraine-based. Serious about quality.",
+    desc: "Senior-level work at a significantly lower cost than Western agencies — without the quality trade-off. Ukraine has one of the strongest engineering cultures in Europe. I treat every project like my name is on it, because it is.",
+    icon: MapPin,
+  },
+  {
+    title: "Straight communication, always",
+    desc: "I'll tell you if something isn't worth automating. I'll tell you if your budget doesn't fit the scope. I won't nod and invoice you for something that won't move the needle.",
     icon: MessageCircle,
   },
 ];
@@ -42,7 +47,7 @@ const WhyMeSection = () => {
           </span>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (

@@ -11,28 +11,28 @@ const SERVICES = [
   {
     id: "bots",
     label: "Support chat & voice bots",
-    description: "Bots that handle incoming chat and phone requests. They answer common questions, collect what's needed, and route complex issues to your team with context.",
+    description: "Handles first-contact messages and inbound calls. Qualifies the request, answers what it can, hands off what it can't — cleanly. A filter in front of your team, not a replacement for it.",
     icon: MessageCircle,
     mode: "flow" as const,
   },
   {
     id: "routing",
     label: "Ticket routing & categorization",
-    description: "Automatically route tickets to the right team and person based on what they're about. Tags, priority, and assignment handled from the start.",
+    description: "Every ticket gets tagged, prioritized, and assigned the moment it comes in — based on what it actually says. No manual sorting, no tickets sitting in the wrong queue.",
     icon: Workflow,
     mode: "flow" as const,
   },
   {
     id: "reporting",
     label: "Reporting",
-    description: "Turn manual reporting into automated delivery. Your current reports get generated and sent to the right people on schedule.",
+    description: "The reports your team pulls manually every week get generated and delivered automatically. Right format, right people, right time. No more pulling data.",
     icon: PieChart,
     mode: "chat" as const,
   },
   {
     id: "custom",
     label: "Custom solution",
-    description: "Have a specific automation need or idea that doesn't exist anywhere?",
+    description: "Something specific that doesn't fit a template? I scope and build it. If it can be automated, we'll figure out how.",
     icon: Wrench,
     mode: "chat" as const,
   },
@@ -807,11 +807,11 @@ const HeroInteractive = () => {
     >
       <motion.div className="text-center" variants={itemVariants}>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
-          Automate your{" "}
-          <span className="text-gradient">support ops</span>
+          Your support team is doing work that{" "}
+          <span className="text-gradient">shouldn't need humans.</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3 mx-auto">
-          Replace manual support busywork with reliable, production-ready automation.
+          I build support automation that actually holds up — chat bots, voice bots, ticket routing, and reporting, wired into the tools you already use. No platform switches. No bloat. Just less manual work.
         </p>
       </motion.div>
 

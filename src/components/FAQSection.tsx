@@ -10,27 +10,32 @@ const faqs = [
   {
     question: "Do I need to switch my support tools?",
     answer:
-      "No. I work with your existing stack — Zendesk, Freshdesk, Jira, Slack, and internal tools. The goal is to connect and improve what you already use, not replace it.",
+      "No. I work with whatever you're already using — Zendesk, Freshdesk, Jira, Slack, internal tools. The goal is to connect and improve what you have, not replace it.",
   },
   {
-    question: "What if the automation breaks?",
+    question: "What if something breaks after launch?",
     answer:
-      "Every project includes full documentation and 30 days of post-launch monitoring. If something breaks during that period, I fix it. I build using standard integrations (APIs, webhooks, Make/n8n), not fragile custom hacks.",
+      "Every project includes 30 days of post-launch support. If something breaks in that window, I fix it. I build on standard integrations — APIs, webhooks, Make/n8n — not fragile custom hacks that only work in one environment.",
   },
   {
     question: "Can my team maintain this after you're done?",
     answer:
-      "Yes. I document the logic clearly and explain how everything works. You're not locked in. Ongoing support is optional.",
+      "Yes. I document everything clearly — the logic, the flow, the edge cases. You're not locked in. Ongoing support is available but optional.",
   },
   {
-    question: "Can you integrate [specific tool]?",
+    question: "Can you integrate a specific tool?",
     answer:
-      "If the tool has an API or webhook support, most likely yes. Share the tool during the audit call and I'll confirm feasibility.",
+      "If it has an API or webhook support, almost certainly. Bring it up on the audit call and I'll confirm.",
   },
   {
-    question: "What happens in the free audit?",
+    question: "What actually happens in the free audit?",
     answer:
-      "We spend 30 minutes reviewing your support setup and pain points. I identify 2–3 areas where automation would have the biggest impact and give you a clear recommendation, including rough scope and cost. No pitch deck. No pressure.",
+      "30 minutes. We look at your current setup, where the friction is, and where automation would actually make a difference. You leave with 2–3 concrete recommendations, a rough scope, and a price range. No sales deck. No pressure.",
+  },
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Most setups take 1–3 weeks depending on complexity and how quickly we can align on requirements. I'll give you a realistic timeline upfront — not an optimistic one.",
   },
 ];
 

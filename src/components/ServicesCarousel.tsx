@@ -7,25 +7,25 @@ const services = [
     icon: Bot,
     title: "Support chat & voice bots",
     description:
-      "Bots that triage and route incoming requests in chat and on the phone. They handle the first layer and hand off cleanly — not replace your team.",
+      "Handles first-contact messages and inbound calls. Qualifies the request, answers what it can, hands off what it can't — cleanly. A filter in front of your team, not a replacement for it.",
   },
   {
     icon: GitBranch,
     title: "Ticket routing & categorization",
     description:
-      "Auto-assign tickets, apply tags, and set priority based on content — so every ticket lands in the right queue with the right owner from the start.",
+      "Every ticket gets tagged, prioritized, and assigned the moment it comes in — based on what it actually says. No manual sorting, no tickets sitting in the wrong queue.",
   },
   {
     icon: BarChart3,
     title: "Reporting",
     description:
-      "Turn manual reporting into automated delivery. Your team's current reports — metrics, summaries, tracking — get generated and sent to the right people automatically. No more pulling data and formatting updates.",
+      "The reports your team pulls manually every week get generated and delivered automatically. Right format, right people, right time. No more pulling data.",
   },
   {
     icon: Wrench,
     title: "Custom solution",
     description:
-      "Have a specific automation need or idea that doesn't exist anywhere? I build custom solutions tailored to your exact situation — whether it's a unique way to handle tickets, connect tools, or automate something completely specific to your team.",
+      "Something specific that doesn't fit a template? I scope and build it. If it can be automated, we'll figure out how.",
   },
 ];
 

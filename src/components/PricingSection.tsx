@@ -1,22 +1,24 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Mic, BarChart2, Settings2, Info } from "lucide-react";
+import { MessageSquare, Mic, BarChart2, Settings2, Info, Check } from "lucide-react";
 
 const categories = [
   {
     icon: MessageSquare,
     title: "Chat Bots",
     description:
-      "Automated text-based assistants for your website, WhatsApp, Telegram, or other messaging platforms. Handles FAQs, lead qualification, and basic support — 24/7.",
+      "Automated text assistants for your website or messaging platforms. Handle FAQs, lead qualification, and basic triage — around the clock.",
     plans: [
       {
         name: "Starter Chat Bot",
         price: "$350 – $450",
         detail: "1–2 channels",
+        includes: ["Chat bot setup", "FAQ automation", "Basic handoff to human agent"],
       },
       {
         name: "Standard Chat Bot",
         price: "$500 – $650",
         detail: "3–5 channels",
+        includes: ["Everything in Starter", "Multi-channel deployment", "Lead qualification flow"],
       },
     ],
   },
@@ -24,12 +26,13 @@ const categories = [
     icon: Mic,
     title: "Voice + Chat Bots",
     description:
-      "A combined package: voice bot for phone calls and a chat bot for messaging. Ideal if you need both channels covered under one setup.",
+      "Both channels in one setup. Voice bot for inbound calls, chat bot for messaging. Better coverage, shared logic, single handover point.",
     plans: [
       {
         name: "Voice + Chat Package",
         price: "$1,300 – $1,900",
-        detail: "Voice & text channels included",
+        detail: "Voice & text channels",
+        includes: ["Voice bot for inbound calls", "Chat bot for messaging", "Unified routing logic", "Escalation handling"],
       },
     ],
   },
@@ -37,17 +40,19 @@ const categories = [
     icon: BarChart2,
     title: "Automated Reporting",
     description:
-      "Scheduled reports delivered to your inbox or dashboard — no manual data pulling. Smart tier adds trend analysis and actionable insights.",
+      "Scheduled reports delivered automatically — no manual data pulling. Smart tier adds trend detection so the numbers actually mean something.",
     plans: [
       {
         name: "Basic Reports",
         price: "$450 – $650",
-        detail: "Scheduled data summaries",
+        detail: "Scheduled summaries",
+        includes: ["Automated report generation", "Key metrics delivery", "Scheduled email/Slack delivery"],
       },
       {
         name: "Smart Reports + Insights",
         price: "$800 – $1,100",
-        detail: "Trends, anomalies & recommendations",
+        detail: "Trends & recommendations",
+        includes: ["Everything in Basic", "Trend & anomaly detection", "Actionable insights layer"],
       },
     ],
   },
@@ -55,12 +60,13 @@ const categories = [
     icon: Settings2,
     title: "Custom Solutions",
     description:
-      "Something more specific in mind? We'll scope it together and build it to fit.",
+      "Something specific that doesn't fit above. We scope it together and build it to fit.",
     plans: [
       {
         name: "Custom Automation",
         price: "$1,200 – $2,000",
         detail: "Scoped per project",
+        includes: ["Discovery & scoping session", "Custom-built automation", "Full documentation & handover"],
       },
     ],
   },
@@ -69,25 +75,21 @@ const categories = [
 const PricingSection = () => {
   return (
     <section id="pricing" className="py-[4.8rem] relative overflow-hidden">
-      {/* Top gradient divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
-        {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-5">
           <span
             className="text-primary font-bold uppercase tracking-wider"
             style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}
           >
             Pricing
           </span>
-          <p className="text-muted-foreground mt-4 text-base max-w-xl mx-auto leading-relaxed">
-            All prices below are one-time setup fees — no monthly retainers, no
-            hidden charges.
+          <p className="text-muted-foreground mt-4 text-base max-w-lg mx-auto leading-relaxed">
+            One-time setup fees. No subscriptions, no monthly retainers.
           </p>
         </div>
 
-        {/* Category cards */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {categories.map((cat, i) => {
             const Icon = cat.icon;
@@ -98,7 +100,7 @@ const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.08 }}
-                className="rounded-2xl border border-border hover:border-primary/30 transition-colors duration-300 overflow-hidden"
+                className="rounded-2xl border border-border hover:border-primary/30 transition-colors duration-300 flex flex-col"
                 style={{ backgroundColor: "rgb(43, 48, 59)" }}
               >
                 {/* Card header */}
@@ -116,24 +118,36 @@ const PricingSection = () => {
                   </div>
                 </div>
 
-                {/* Plans table */}
-                <div className="px-7 py-5 space-y-3">
+                {/* Plans */}
+                <div className="px-7 py-5 flex flex-col gap-4 flex-1">
                   {cat.plans.map((plan) => (
                     <div
                       key={plan.name}
-                      className="flex items-center justify-between gap-4 py-3 px-4 rounded-xl bg-secondary/40 border border-border/40"
+                      className="rounded-xl bg-secondary/40 border border-border/40 overflow-hidden"
                     >
-                      <div>
-                        <p className="text-foreground/90 text-sm font-medium">
-                          {plan.name}
-                        </p>
-                        <p className="text-muted-foreground text-xs mt-0.5">
-                          {plan.detail}
-                        </p>
+                      {/* Plan header row */}
+                      <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-border/30">
+                        <div>
+                          <p className="text-foreground/90 text-sm font-semibold">
+                            {plan.name}
+                          </p>
+                          <p className="text-muted-foreground text-xs mt-0.5">
+                            {plan.detail}
+                          </p>
+                        </div>
+                        <span className="text-primary font-bold font-display text-base whitespace-nowrap">
+                          {plan.price}
+                        </span>
                       </div>
-                      <span className="text-primary font-bold font-display text-base whitespace-nowrap">
-                        {plan.price}
-                      </span>
+                      {/* Includes list */}
+                      <div className="px-4 py-3 space-y-1.5">
+                        {plan.includes.map((item) => (
+                          <div key={item} className="flex items-center gap-2">
+                            <Check className="w-3.5 h-3.5 text-primary shrink-0" />
+                            <span className="text-muted-foreground text-xs">{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -152,12 +166,9 @@ const PricingSection = () => {
         >
           <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Final price depends on your specific requirements and integrations.
-            Every setup includes{" "}
-            <span className="text-foreground/80 font-medium">
-              30 days of free support
-            </span>{" "}
-            after launch.
+            Final price depends on your specific requirements and integrations. Every setup includes{" "}
+            <span className="text-foreground/80 font-medium">30 days of free post-launch support</span>
+            {" "}— if something breaks in the first month, I fix it.
           </p>
         </motion.div>
       </div>
