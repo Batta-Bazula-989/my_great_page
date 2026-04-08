@@ -807,8 +807,7 @@ const HeroInteractive = () => {
     >
       <motion.div className="text-center" variants={itemVariants}>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight">
-          Your support team is doing work that{" "}
-          <span className="text-gradient">shouldn't need humans.</span>
+          <span className="text-gradient">Automate your support ops</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-3 mx-auto">
           I build support automation that actually holds up — chat bots, voice bots, ticket routing, and reporting, wired into the tools you already use. No platform switches. No bloat. Just less manual work.
