@@ -4,7 +4,7 @@ import { MessageSquare, Mic, BarChart2, Settings2, Info } from "lucide-react";
 const categories = [
   {
     icon: MessageSquare,
-    title: "Chat Bots (Text)",
+    title: "Chat Bots",
     description:
       "Automated text-based assistants for your website, WhatsApp, Telegram, or other messaging platforms. Handles FAQs, lead qualification, and basic support — 24/7.",
     plans: [
