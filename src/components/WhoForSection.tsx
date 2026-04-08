@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const goodFit = [
-  “Your support team handles repetitive, predictable work that shows up every single day”,
-  “You’re on Zendesk, Freshdesk, Jira, or similar — and want automation on top, not a replacement”,
-  “You want clear reporting without someone manually pulling data every week”,
-  “Your tools don’t talk to each other and tickets fall through the cracks because of it”,
-  “You want to know exactly what you’re getting before you pay for anything”,
+  "Your support team handles repetitive, predictable work that shows up every single day",
+  "You're on Zendesk, Freshdesk, Jira, or similar — and want automation on top, not a replacement",
+  "You want clear reporting without someone manually pulling data every week",
+  "Your tools don't talk to each other and tickets fall through the cracks because of it",
+  "You want to know exactly what you're getting before you pay for anything",
 ];
 
 const notFit = [
-  “You need a full-time support manager to run day-to-day ops”,
-  “You want one tool to handle everything — intake, resolution, escalation, reporting, all of it”,
-  “You’re planning to replace your entire support stack and start from scratch”,
-  `You believe AI can fully replace your support team — it can’t, and anyone who says otherwise is selling something`,
+  "You need a full-time support manager to run day-to-day ops",
+  "You want one tool to handle everything — intake, resolution, escalation, reporting, all of it",
+  "You're planning to replace your entire support stack and start from scratch",
+  `You believe AI can fully replace your support team — it can't, and anyone who says otherwise is selling something`,
 ];
 
 const WhoForSection = () => {
