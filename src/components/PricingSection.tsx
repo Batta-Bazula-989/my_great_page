@@ -32,7 +32,7 @@ const categories = [
         name: "Voice + Chat Package",
         price: "$1,300 – $1,900",
         detail: "Voice channels",
-        includes: ["Voice bot for inbound calls", "Chat bot for messaging", "Unified routing logic", "Escalation handling accordingly"],
+        includes: ["Voice bot for inbound calls", "Unified routing logic", "Escalation handling accordingly"],
       },
     ],
   },
