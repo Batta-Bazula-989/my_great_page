@@ -138,7 +138,7 @@ const PricingSection = () => {
                         {plan.includes.map((item) => (
                           <div key={item} className="flex items-center gap-2">
                             <Check className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span className="text-muted-foreground text-xs">{item}</span>
+                            <span className="text-muted-foreground text-sm">{item}</span>
                           </div>
                         ))}
                       </div>
