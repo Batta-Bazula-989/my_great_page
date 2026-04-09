@@ -11,14 +11,14 @@ const categories = [
       {
         name: "Starter Chat Bot",
         price: "$350 – $450",
-        detail: "1–2 channels",
-        includes: ["Chat bot setup", "FAQ automation", "Basic handoff to human agent"],
+        detail: "",
+        includes: ["Chat bot setup", "FAQ automation", "Basic handoff to human agent", "1–2 channels"],
       },
       {
         name: "Standard Chat Bot",
         price: "$500 – $650",
-        detail: "3–5 channels",
-        includes: ["Everything in Starter", "Multi-channel deployment", "Lead qualification flow"],
+        detail: "",
+        includes: ["Everything in Starter", "Multi-channel deployment", "Lead qualification flow", "3–5 channels"],
       },
     ],
   },
@@ -31,7 +31,7 @@ const categories = [
       {
         name: "Voice Agent",
         price: "$1,300 – $1,900",
-        detail: "Voice channels",
+        detail: "",
         includes: ["Voice bot for inbound calls", "Unified routing logic", "Escalation handling accordingly"],
       },
     ],
@@ -45,7 +45,7 @@ const categories = [
       {
         name: "Automated Reports",
         price: "$500 – $900",
-        detail: "Scheduled summaries",
+        detail: "",
         includes: ["Scheduled summaries of key metrics", "Automated report generation", "Delivery via email or Slack"],
       },
     ],
@@ -59,7 +59,7 @@ const categories = [
       {
         name: "Custom Automation",
         price: "$1,200 – $2,000",
-        detail: "Scoped per project",
+        detail: "",
         includes: ["Discovery & scoping session", "Custom-built automation", "Full documentation & handover"],
       },
     ],
@@ -125,9 +125,11 @@ const PricingSection = () => {
                           <p className="text-foreground/90 text-sm font-semibold">
                             {plan.name}
                           </p>
-                          <p className="text-muted-foreground text-xs mt-0.5">
-                            {plan.detail}
-                          </p>
+                          {plan.detail && (
+                            <p className="text-muted-foreground text-xs mt-0.5">
+                              {plan.detail}
+                            </p>
+                          )}
                         </div>
                         <span className="text-primary font-bold font-display text-base whitespace-nowrap">
                           {plan.price}
