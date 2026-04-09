@@ -26,10 +26,10 @@ const categories = [
     icon: Mic,
     title: "Voice Agent",
     description:
-      "Both channels in one setup. Voice bot for inbound calls, chat bot for messaging. Better coverage, shared logic, single handover point.",
+      "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to human agents.",
     plans: [
       {
-        name: "Voice + Chat Package",
+        name: "Voice Agent",
         price: "$1,300 – $1,900",
         detail: "Voice channels",
         includes: ["Voice bot for inbound calls", "Unified routing logic", "Escalation handling accordingly"],
@@ -40,19 +40,13 @@ const categories = [
     icon: BarChart2,
     title: "Automated Reporting",
     description:
-      "Scheduled reports delivered automatically — no manual data pulling. Smart tier adds trend detection so the numbers actually mean something.",
+      "Scheduled reports delivered automatically — no more manual data pulling.",
     plans: [
       {
-        name: "Basic Reports",
-        price: "$450 – $650",
+        name: "Automated Reports",
+        price: "$500 – $900",
         detail: "Scheduled summaries",
-        includes: ["Automated report generation", "Key metrics delivery", "Scheduled email/Slack delivery"],
-      },
-      {
-        name: "Smart Reports + Insights",
-        price: "$800 – $1,100",
-        detail: "Trends & recommendations",
-        includes: ["Everything in Basic", "Trend & anomaly detection", "Actionable insights layer"],
+        includes: ["Scheduled summaries of key metrics", "Automated report generation", "Delivery via email or Slack"],
       },
     ],
   },
