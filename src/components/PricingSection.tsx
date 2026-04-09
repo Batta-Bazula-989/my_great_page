@@ -30,7 +30,7 @@ const categories = [
     plans: [
       {
         name: "Voice Agent",
-        price: "$1,300 – $1,900",
+        price: "$1,100 – $1,700",
         detail: "",
         includes: ["Voice bot for inbound calls", "Unified routing logic", "Escalation handling accordingly"],
       },
