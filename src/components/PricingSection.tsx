@@ -26,7 +26,7 @@ const categories = [
     icon: Mic,
     title: "Voice Agent",
     description:
-      "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to human agents.",
+      "Voice agent for handling inbound calls with natural conversation, triage, and clean handover to human agents.",
     plans: [
       {
         name: "Voice Agent",
