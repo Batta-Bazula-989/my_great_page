@@ -55,7 +55,7 @@ const plans = [
     price: "$1,200 – $2,000",
     description: "For more complex or unique needs.",
     features: [],
-    cta: "Get in Touch",
+    cta: "Get Started",
     popular: false,
   },
 ];

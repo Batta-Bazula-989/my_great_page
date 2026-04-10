@@ -375,15 +375,15 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-background border-border">
+      <DialogContent className="sm:max-w-md bg-background border-border p-5 gap-2">
         <DialogHeader>
-          <DialogTitle className="font-display text-xl">Book a Free Support Review</DialogTitle>
-          <DialogDescription className="text-muted-foreground">
+          <DialogTitle className="font-display text-base">Book a Free Support Review</DialogTitle>
+          <DialogDescription className="text-xs text-muted-foreground">
             Leave your details and I'll reach out to schedule a 30-minute call. No commitment, no pitch.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4" autoComplete="off">
-          <div className="space-y-2">
+        <form onSubmit={handleSubmit} className="space-y-3 mt-1" autoComplete="off">
+          <div className="space-y-1.5">
             <Label htmlFor="fullName">
               Full Name<span className="text-destructive ml-1">*</span>
             </Label>
@@ -407,7 +407,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
             )}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor="email">
               Work Email<span className="text-destructive ml-1">*</span>
             </Label>
@@ -431,7 +431,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
             )}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor="companyName">Company Name</Label>
             <Input
               id="companyName"
@@ -460,7 +460,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
             )}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor="meetingMethod">Preferred Meeting Method</Label>
             <Select value={meetingMethod} onValueChange={handleMeetingMethodChange}>
               <SelectTrigger 
@@ -583,7 +583,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           <Button
             type="submit"
             variant="hero"
-            className="w-full mt-6"
+            className="w-full mt-2"
             disabled={isSubmitting}
           >
             {meetingMethod === "zoom" || meetingMethod === "google-meet" 
