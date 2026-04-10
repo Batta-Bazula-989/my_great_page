@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ShieldCheck, Clock, FileText } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 
 const plans = [
@@ -188,22 +188,42 @@ const PricingSection = () => {
 
         {/* Trust elements */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.35 }}
-          className="mt-10 text-center"
+          className="mt-16 max-w-3xl mx-auto"
         >
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-muted-foreground/70 text-sm mb-2">
-            <span>No hidden fees</span>
-            <span className="hidden sm:block w-1 h-1 rounded-full bg-border/60" />
-            <span>30 days of support after delivery</span>
-            <span className="hidden sm:block w-1 h-1 rounded-full bg-border/60" />
-            <span>Basic documentation included</span>
+          <div
+            className="rounded-2xl border border-border/50 px-8 py-7"
+            style={{ backgroundColor: "rgb(43, 48, 59)" }}
+          >
+            {/* Three benefit items */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+              {[
+                { icon: ShieldCheck, text: "No hidden fees" },
+                { icon: Clock,       text: "30 days of support after delivery" },
+                { icon: FileText,    text: "Basic documentation included" },
+              ].map(({ icon: Icon, text }) => (
+                <div key={text} className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-foreground/90 text-sm font-medium leading-snug pt-1">
+                    {text}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-border/40 mb-4" />
+
+            {/* Pricing note */}
+            <p className="text-muted-foreground/60 text-xs text-center leading-relaxed">
+              Every project is scoped individually — the price shown is a starting range, not a ceiling.
+            </p>
           </div>
-          <p className="text-muted-foreground/50 text-xs mt-1">
-            Final price depends on the exact requirements.
-          </p>
         </motion.div>
       </div>
 
