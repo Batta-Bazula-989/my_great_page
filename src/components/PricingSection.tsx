@@ -14,7 +14,7 @@ const plans = [
   },
   {
     name: "Voice Bot",
-    price: "$1,300 – $1,900",
+    price: "$1,100 – $1,600",
     description: "For inbound phone calls.",
     features: [
       "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team",
@@ -195,11 +195,10 @@ const PricingSection = () => {
           className="mt-16 max-w-3xl mx-auto"
         >
           <div
-            className="rounded-2xl border border-border/50 px-8 py-7"
+            className="rounded-2xl border border-border/50 px-5 py-4"
             style={{ backgroundColor: "rgb(43, 48, 59)" }}
           >
-            {/* Three benefit items */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: ShieldCheck, text: "No hidden fees" },
                 { icon: Clock,       text: "30 days of support after delivery" },
@@ -209,20 +208,12 @@ const PricingSection = () => {
                   <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="w-4 h-4 text-primary" />
                   </div>
-                  <span className="text-foreground/90 text-sm font-medium leading-snug pt-1">
+                  <span className="text-foreground/90 font-medium leading-snug pt-1" style={{ fontSize: "1.137rem" }}>
                     {text}
                   </span>
                 </div>
               ))}
             </div>
-
-            {/* Divider */}
-            <div className="border-t border-border/40 mb-4" />
-
-            {/* Pricing note */}
-            <p className="text-muted-foreground/60 text-xs text-center leading-relaxed">
-              Every project is scoped individually — the price shown is a starting range, not a ceiling.
-            </p>
           </div>
         </motion.div>
       </div>
