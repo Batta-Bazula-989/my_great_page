@@ -1,92 +1,72 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Mic, BarChart2, Settings2, Info, Check, Tag } from "lucide-react";
+import { Check } from "lucide-react";
 
-const categories = [
+const plans = [
   {
-    icon: MessageSquare,
-    title: "Chat Bots",
-    description:
-      "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
-    plans: [
-      {
-        name: "Starter Chat Bot",
-        price: "$350 – $450",
-        detail: "",
-        includes: ["1–2 channels"],
-      },
-      {
-        name: "Standard Chat Bot",
-        price: "$500 – $650",
-        detail: "",
-        includes: ["3–5 channels"],
-      },
-    ],
+    name: "Starter Chat Bot",
+    price: "$350 – $450",
+    description: "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
+    features: ["1–2 channels"],
+    cta: "Get Started",
+    popular: false,
   },
   {
-    icon: Mic,
-    title: "Voice Bots",
-    description:
-      "For inbound phone calls.",
-    plans: [
-      {
-        name: "Voice Bot",
-        price: "$1,300 – $1,900",
-        detail: "",
-        includes: ["Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team"],
-      },
+    name: "Voice Bot",
+    price: "$1,300 – $1,900",
+    description: "For inbound phone calls.",
+    features: [
+      "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team",
     ],
+    cta: "Get Started",
+    popular: true,
   },
   {
-    icon: Tag,
-    title: "Ticket Routing & Categorization",
-    description:
-      "Automatic sorting and assigning of tickets.",
-    plans: [
-      {
-        name: "Ticket Routing & Categorization",
-        price: "$600 – $950",
-        detail: "",
-        includes: ["Automatically tags, categorizes, and routes tickets to the right person or team"],
-      },
-    ],
+    name: "Standard Chat Bot",
+    price: "$500 – $650",
+    description: "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
+    features: ["3–5 channels"],
+    cta: "Get Started",
+    popular: false,
   },
   {
-    icon: BarChart2,
-    title: "Automated Reporting",
-    description:
-      "Scheduled reports sent automatically.",
-    plans: [
-      {
-        name: "Automated Reports",
-        price: "$500 – $900",
-        detail: "",
-        includes: ["Regular scheduled reports with your key support metrics delivered by email or Slack"],
-      },
+    name: "Ticket Routing & Categorization",
+    price: "$600 – $950",
+    description: "Automatic sorting and assigning of tickets.",
+    features: [
+      "Automatically tags, categorizes, and routes tickets to the right person or team",
     ],
+    cta: "Get Started",
+    popular: false,
   },
   {
-    icon: Settings2,
-    title: "Custom Solutions",
-    description:
-      "For more complex or unique needs.",
-    plans: [
-      {
-        name: "Custom Automation",
-        price: "$1,200 – $2,000",
-        detail: "",
-        includes: [],
-      },
+    name: "Automated Reports",
+    price: "$500 – $900",
+    description: "Scheduled reports sent automatically.",
+    features: [
+      "Regular scheduled reports with your key support metrics delivered by email or Slack",
     ],
+    cta: "Get Started",
+    popular: false,
+  },
+  {
+    name: "Custom Automation",
+    price: "$1,200 – $2,000",
+    description: "For more complex or unique needs.",
+    features: [],
+    cta: "Get in Touch",
+    popular: false,
   },
 ];
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-[4.8rem] relative overflow-hidden">
+    <section id="pricing" className="py-20 relative overflow-visible bg-background">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-5">
+        {/* Header */}
+        <div className="text-center mb-16">
           <span
             className="text-primary font-bold uppercase tracking-wider"
             style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}
@@ -94,90 +74,124 @@ const PricingSection = () => {
             Pricing
           </span>
           <p className="text-muted-foreground mt-4 text-base max-w-lg mx-auto leading-relaxed">
-            One-time setup fees. No subscriptions, no monthly retainers.
+            All prices are one-time setup fees. No subscriptions, no monthly retainers.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {categories.map((cat, i) => {
-            const Icon = cat.icon;
-            return (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.08 }}
-                className="rounded-2xl border border-border hover:border-primary/30 transition-colors duration-300 flex flex-col"
-                style={{ backgroundColor: "rgb(43, 48, 59)" }}
-              >
-                {/* Card header */}
-                <div className="px-7 pt-7 pb-5 border-b border-border/60 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5 text-primary" />
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start pb-8">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: plan.popular ? -16 : 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.07 }}
+              whileHover={{
+                y: plan.popular ? -22 : -6,
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              className={`
+                relative rounded-2xl flex flex-col
+                ${plan.popular
+                  ? "border-2 border-primary"
+                  : "border border-border/60 hover:border-primary/30"
+                }
+              `}
+              style={{
+                backgroundColor: plan.popular ? "rgb(52, 58, 72)" : "rgb(43, 48, 59)",
+                boxShadow: plan.popular
+                  ? "0 24px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(var(--primary), 0.15)"
+                  : "0 4px 16px rgba(0,0,0,0.2)",
+              }}
+            >
+              {/* Most Popular badge */}
+              {plan.popular && (
+                <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                  <span className="bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-primary/30">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+
+              <div className={`flex flex-col flex-1 ${plan.popular ? "p-8 pt-10" : "p-7"}`}>
+                {/* Plan name */}
+                <h3
+                  className="font-bold font-display text-foreground mb-2"
+                  style={{ fontSize: plan.popular ? "1.25rem" : "1.05rem" }}
+                >
+                  {plan.name}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                  {plan.description}
+                </p>
+
+                {/* Price */}
+                <div className="mb-6">
+                  <div
+                    className="font-bold font-display text-primary leading-none"
+                    style={{ fontSize: plan.popular ? "2.4rem" : "2rem" }}
+                  >
+                    {plan.price}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold font-display text-foreground mb-1">
-                      {cat.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {cat.description}
-                    </p>
-                  </div>
+                  <p className="text-muted-foreground/60 text-xs mt-2">one-time fee</p>
                 </div>
 
-                {/* Plans */}
-                <div className="px-7 py-5 flex flex-col gap-4 flex-1">
-                  {cat.plans.map((plan) => (
-                    <div
-                      key={plan.name}
-                      className="rounded-xl bg-secondary/40 border border-border/40 overflow-hidden"
-                    >
-                      {/* Plan header row */}
-                      <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-border/30">
-                        <div>
-                          <p className="text-foreground/90 text-sm font-semibold">
-                            {plan.name}
-                          </p>
-                          {plan.detail && (
-                            <p className="text-muted-foreground text-xs mt-0.5">
-                              {plan.detail}
-                            </p>
-                          )}
-                        </div>
-                        <span className="text-primary font-bold font-display text-base whitespace-nowrap">
-                          {plan.price}
-                        </span>
-                      </div>
-                      {/* Includes list */}
-                      <div className="px-4 py-3 space-y-1.5">
-                        {plan.includes.map((item) => (
-                          <div key={item} className="flex items-center gap-2">
-                            <Check className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span className="text-muted-foreground" style={{ fontSize: "16.8px" }}>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                {/* Divider */}
+                <div className="border-t border-border/40 mb-6" />
+
+                {/* Features */}
+                <div className="flex-1 mb-7">
+                  {plan.features.length > 0 && (
+                    <ul className="space-y-3">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground text-sm leading-relaxed">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-              </motion.div>
-            );
-          })}
+
+                {/* CTA button */}
+                <button
+                  className={`
+                    w-full py-3 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer
+                    ${plan.popular
+                      ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/30"
+                      : "bg-transparent text-primary border border-primary/40 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                    }
+                  `}
+                >
+                  {plan.cta}
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Footer note */}
+        {/* Trust elements */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
-          className="mt-10 max-w-2xl mx-auto flex items-start gap-3 px-5 py-4 rounded-xl border border-border/60 bg-secondary/20"
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.35 }}
+          className="mt-10 text-center"
         >
-          <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Final price depends on the exact requirements. Every project includes basic documentation and{" "}
-            <span className="text-foreground/80 font-medium">30 days of support after delivery</span>.
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-muted-foreground/70 text-sm mb-2">
+            <span>No hidden fees</span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-border/60" />
+            <span>30 days of support after delivery</span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-border/60" />
+            <span>Basic documentation included</span>
+          </div>
+          <p className="text-muted-foreground/50 text-xs mt-1">
+            Final price depends on the exact requirements.
           </p>
         </motion.div>
       </div>
