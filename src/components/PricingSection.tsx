@@ -1,38 +1,52 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Mic, BarChart2, Settings2, Info, Check } from "lucide-react";
+import { MessageSquare, Mic, BarChart2, Settings2, Info, Check, Tag } from "lucide-react";
 
 const categories = [
   {
     icon: MessageSquare,
-    title: "Chat Agent",
+    title: "Chat Bots",
     description:
-      "Automated text assistants for your website or messaging platforms. Handle FAQs, lead qualification, and basic triage — around the clock.",
+      "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
     plans: [
       {
         name: "Starter Chat Bot",
         price: "$350 – $450",
         detail: "",
-        includes: ["Chat bot setup", "FAQ automation", "Basic handoff to human agent", "1–2 channels"],
+        includes: ["1–2 channels"],
       },
       {
         name: "Standard Chat Bot",
         price: "$500 – $650",
         detail: "",
-        includes: ["Everything in Starter", "Multi-channel deployment", "Lead qualification flow", "3–5 channels"],
+        includes: ["3–5 channels"],
       },
     ],
   },
   {
     icon: Mic,
-    title: "Voice Agent",
+    title: "Voice Bots",
     description:
-      "Voice agent for handling inbound calls with natural conversation, triage, and clean handover to human agents.",
+      "For inbound phone calls.",
     plans: [
       {
-        name: "Voice Agent",
-        price: "$1,100 – $1,700",
+        name: "Voice Bot",
+        price: "$1,300 – $1,900",
         detail: "",
-        includes: ["Voice bot for inbound calls", "Unified routing logic", "Escalation handling accordingly"],
+        includes: ["Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team"],
+      },
+    ],
+  },
+  {
+    icon: Tag,
+    title: "Ticket Routing & Categorization",
+    description:
+      "Automatic sorting and assigning of tickets.",
+    plans: [
+      {
+        name: "Ticket Routing & Categorization",
+        price: "$600 – $950",
+        detail: "",
+        includes: ["Automatically tags, categorizes, and routes tickets to the right person or team"],
       },
     ],
   },
@@ -40,13 +54,13 @@ const categories = [
     icon: BarChart2,
     title: "Automated Reporting",
     description:
-      "Scheduled reports delivered automatically — no more manual data pulling.",
+      "Scheduled reports sent automatically.",
     plans: [
       {
         name: "Automated Reports",
         price: "$500 – $900",
         detail: "",
-        includes: ["Scheduled summaries of key metrics", "Automated report generation", "Delivery via email or Slack"],
+        includes: ["Regular scheduled reports with your key support metrics delivered by email or Slack"],
       },
     ],
   },
@@ -54,13 +68,13 @@ const categories = [
     icon: Settings2,
     title: "Custom Solutions",
     description:
-      "Something specific that doesn't fit above. We scope it together and build it to fit.",
+      "For more complex or unique needs.",
     plans: [
       {
         name: "Custom Automation",
         price: "$1,200 – $2,000",
         detail: "",
-        includes: ["Discovery & scoping session", "Custom-built automation", "Full documentation & handover"],
+        includes: [],
       },
     ],
   },
@@ -162,9 +176,8 @@ const PricingSection = () => {
         >
           <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Final price depends on your specific requirements and integrations. Every setup includes{" "}
-            <span className="text-foreground/80 font-medium">30 days of free post-launch support</span>
-            {" "}— if something breaks in the first month, I fix it.
+            Final price depends on the exact requirements. Every project includes basic documentation and{" "}
+            <span className="text-foreground/80 font-medium">30 days of support after delivery</span>.
           </p>
         </motion.div>
       </div>
