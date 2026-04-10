@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import BookingModal from "@/components/BookingModal";
 
 const plans = [
   {
@@ -18,7 +20,7 @@ const plans = [
       "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team",
     ],
     cta: "Get Started",
-    popular: true,
+    popular: false,
   },
   {
     name: "Standard Chat Bot",
@@ -59,6 +61,14 @@ const plans = [
 ];
 
 const PricingSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | undefined>(undefined);
+
+  const handleCTA = (planName: string) => {
+    setSelectedPlan(planName);
+    setModalOpen(true);
+  };
+
   return (
     <section id="pricing" className="py-20 relative overflow-visible bg-background">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
@@ -160,6 +170,7 @@ const PricingSection = () => {
 
                 {/* CTA button */}
                 <button
+                  onClick={() => handleCTA(plan.name)}
                   className={`
                     w-full py-3 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer
                     ${plan.popular
@@ -195,6 +206,12 @@ const PricingSection = () => {
           </p>
         </motion.div>
       </div>
+
+      <BookingModal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        selectedPlan={selectedPlan}
+      />
     </section>
   );
 };

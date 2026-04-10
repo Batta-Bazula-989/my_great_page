@@ -36,6 +36,7 @@ import { z } from "zod";
 interface BookingModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  selectedPlan?: string;
 }
 
 const meetingMethods = [
@@ -151,7 +152,7 @@ const telegramSchema = z.object({
     }, "Please enter a valid Telegram link (e.g., https://t.me/username) or username (e.g., @username)"),
 });
 
-const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
+const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) => {
   const { toast } = useToast();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -302,6 +303,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           meetingMethod,
           phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
           telegram: needsTelegram ? telegram.trim() : undefined,
+          selectedPlan: selectedPlan || undefined,
         }),
       });
       const data = await res.json().catch(() => ({}));
