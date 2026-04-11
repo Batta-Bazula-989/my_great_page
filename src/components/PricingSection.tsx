@@ -35,7 +35,7 @@ const plans = [
     price: "$600 – $950",
     description: "Automatic sorting and assigning of tickets.",
     features: [
-      "Automatically tags, categorizes, and routes tickets to the right person or team",
+      "Automatically tags, categorizes, and routes tickets to the right team, so nothing gets missed and response times stay fast.",
     ],
     cta: "Get Started",
     popular: false,
@@ -45,7 +45,7 @@ const plans = [
     price: "$500 – $900",
     description: "Scheduled reports sent automatically.",
     features: [
-      "Regular scheduled reports with your key support metrics delivered by email or Slack",
+      "Automated reports with your key business metrics delivered to email or Slack, so you stay informed without manual work.",
     ],
     cta: "Get Started",
     popular: false,
@@ -128,13 +128,13 @@ const PricingSection = () => {
                 {/* Plan name */}
                 <h3
                   className="font-bold font-display text-foreground mb-2"
-                  style={{ fontSize: plan.popular ? "1.25rem" : "1.05rem" }}
+                  style={{ fontSize: plan.popular ? "1.5rem" : "1.26rem" }}
                 >
                   {plan.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed" style={{ fontSize: "1.05rem" }}>
                   {plan.description}
                 </p>
 
@@ -142,11 +142,11 @@ const PricingSection = () => {
                 <div className="mb-6">
                   <div
                     className="font-bold font-display text-primary leading-none"
-                    style={{ fontSize: plan.popular ? "2.4rem" : "2rem" }}
+                    style={{ fontSize: plan.popular ? "2.88rem" : "2.4rem" }}
                   >
                     {plan.price}
                   </div>
-                  <p className="text-muted-foreground/60 text-xs mt-2">one-time fee</p>
+                  <p className="text-muted-foreground/60 mt-2" style={{ fontSize: "0.9rem" }}>one-time fee</p>
                 </div>
 
                 {/* Divider */}
@@ -159,7 +159,7 @@ const PricingSection = () => {
                       {plan.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
                           <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground text-sm leading-relaxed">
+                          <span className="text-muted-foreground leading-relaxed" style={{ fontSize: "1.05rem" }}>
                             {feature}
                           </span>
                         </li>
@@ -171,8 +171,9 @@ const PricingSection = () => {
                 {/* CTA button */}
                 <button
                   onClick={() => handleCTA(plan.name)}
+                  style={{ fontSize: "1.05rem" }}
                   className={`
-                    w-full py-3 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer
+                    w-full py-3 rounded-xl font-semibold transition-all duration-200 cursor-pointer
                     ${plan.popular
                       ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/30"
                       : "bg-transparent text-primary border border-primary/40 hover:bg-primary hover:text-primary-foreground hover:border-primary"
