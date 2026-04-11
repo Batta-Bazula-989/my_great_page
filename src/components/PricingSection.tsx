@@ -134,7 +134,7 @@ const PricingSection = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed min-h-[5.5rem]" style={{ fontSize: "1.05rem" }}>
+                <p className="text-muted-foreground mb-6 leading-relaxed min-h-[7rem]" style={{ fontSize: "1.05rem" }}>
                   {plan.description}
                 </p>
 
