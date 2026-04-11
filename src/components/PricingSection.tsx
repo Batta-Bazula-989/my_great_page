@@ -83,9 +83,6 @@ const PricingSection = () => {
           >
             Pricing
           </span>
-          <p className="text-muted-foreground mt-4 text-base max-w-lg mx-auto leading-relaxed">
-            All prices are one-time setup fees. No subscriptions, no monthly retainers.
-          </p>
         </div>
 
         {/* Cards */}
