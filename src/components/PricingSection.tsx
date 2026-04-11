@@ -7,8 +7,8 @@ const plans = [
   {
     name: "Starter Chat Bot",
     price: "$350 – $450",
-    description: "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
-    features: ["1–2 channels"],
+    description: "Handles basic customer queries and FAQs across 1–2 channels. Perfect for small businesses getting started with automation.",
+    features: ["1–2 channels", "Answers FAQs, collects basic info, and handles common requests automatically"],
     cta: "Get Started",
     popular: false,
   },
@@ -25,8 +25,8 @@ const plans = [
   {
     name: "Standard Chat Bot",
     price: "$500 – $650",
-    description: "For website, WhatsApp, Telegram, Instagram and other messaging channels.",
-    features: ["3–5 channels"],
+    description: "Advanced chatbot with multi-channel support, smarter responses, and better handling of customer interactions at scale.",
+    features: ["3–5 channels", "Handles more complex conversations with smarter logic and smoother handoffs to your team"],
     cta: "Get Started",
     popular: false,
   },
@@ -53,8 +53,8 @@ const plans = [
   {
     name: "Custom Automation",
     price: "$1,200 – $2,000",
-    description: "For more complex or unique needs.",
-    features: [],
+    description: "Fully customized automation built around your workflows, tools, and unique business requirements.",
+    features: ["Fully customized automation built around your workflows, tools, and unique business requirements"],
     cta: "Get Started",
     popular: false,
   },
