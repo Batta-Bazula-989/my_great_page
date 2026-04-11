@@ -139,14 +139,14 @@ const PricingSection = () => {
                 </p>
 
                 {/* Price */}
-                <div className="mb-6">
+                <div className="mb-6 flex items-baseline gap-2">
                   <div
                     className="font-bold font-display text-primary leading-none"
                     style={{ fontSize: plan.popular ? "2.88rem" : "2.4rem" }}
                   >
                     {plan.price}
                   </div>
-                  <p className="text-muted-foreground/60 mt-2" style={{ fontSize: "0.9rem" }}>one-time fee</p>
+                  <p className="text-muted-foreground/60 shrink-0" style={{ fontSize: "0.9rem" }}>one-time fee</p>
                 </div>
 
                 {/* Divider */}
