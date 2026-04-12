@@ -17,49 +17,51 @@ const ContactSection = () => {
               Let's Talk
             </span>
           </div>
-          <div className="text-center pt-5 md:pt-6 px-4 pb-4 md:px-6 md:pb-6 rounded-3xl border border-border" style={{backgroundColor: 'rgb(43, 48, 59)'}}>
-            <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
-              Book a 30-minute call. We'll look at what's slowing your team down and figure out where to start.
-            </p>
-            <p className="text-muted-foreground/70 mb-5 text-sm max-w-md mx-auto">
-              No pitch. No pressure. If it's not a fit, I'll tell you that too.
-            </p>
+          <div className="relative pt-5 md:pt-6 px-4 pb-4 md:px-6 md:pb-6 rounded-[20px] overflow-hidden bg-secondary border border-primary/20">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
+            <div className="relative z-10 text-center">
+              <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
+                Book a 30-minute call. We'll look at what's slowing your team down and figure out where to start.
+              </p>
+              <p className="text-muted-foreground/70 mb-5 text-sm max-w-md mx-auto">
+                No pitch. No pressure. If it's not a fit, I'll tell you that too.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
-              <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
-                <Calendar className="w-5 h-5" />
-                Book a Free Audit
-              </Button>
-              <Button variant="heroOutline" size="lg" asChild>
-                <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-5 h-5" />
-                  Connect on LinkedIn
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
+                <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
+                  <Calendar className="w-5 h-5" />
+                  Book a Free Audit
+                </Button>
+                <Button variant="heroOutline" size="lg" asChild>
+                  <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-5 h-5" />
+                    Connect on LinkedIn
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-foreground/85">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 shrink-0" />
+                  <a href="mailto:romanzakharenko.r@gmail.com" className="hover:text-primary transition-colors">
+                    Email
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Instagram className="w-4 h-4 shrink-0" />
+                  <a href="https://www.instagram.com/tasca_lab/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    Instagram
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Send className="w-4 h-4 shrink-0" />
+                  <a href="https://t.me/Rr9ea" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    Telegram
+                  </a>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-foreground/85">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 shrink-0" />
-                <a href="mailto:romanzakharenko.r@gmail.com" className="hover:text-primary transition-colors">
-                  Email
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Instagram className="w-4 h-4 shrink-0" />
-                <a href="https://www.instagram.com/tasca_lab/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  Instagram
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Send className="w-4 h-4 shrink-0" />
-                <a href="https://t.me/Rr9ea" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  Telegram
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
