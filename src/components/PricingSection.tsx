@@ -99,7 +99,7 @@ const PricingSection = () => {
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
               className={`
-                relative rounded-[20px] flex flex-col overflow-hidden
+                relative rounded-[24px] flex flex-col overflow-hidden
                 bg-secondary
                 ${plan.popular
                   ? "border-2 border-primary"
@@ -191,7 +191,7 @@ const PricingSection = () => {
           className="mt-16 max-w-3xl mx-auto"
         >
           <div
-            className="relative rounded-[20px] overflow-hidden bg-secondary border border-primary/20 px-5 py-4"
+            className="relative rounded-[24px] overflow-hidden bg-secondary border border-primary/20 px-5 py-4"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
