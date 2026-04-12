@@ -99,19 +99,17 @@ const PricingSection = () => {
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
               className={`
-                relative rounded-2xl flex flex-col
+                relative rounded-2xl flex flex-col overflow-hidden
+                bg-secondary
                 ${plan.popular
                   ? "border-2 border-primary"
-                  : "border border-border/60 hover:border-primary/30"
+                  : "border border-primary/20"
                 }
               `}
-              style={{
-                backgroundColor: plan.popular ? "rgb(52, 58, 72)" : "rgb(43, 48, 59)",
-                boxShadow: plan.popular
-                  ? "0 24px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(var(--primary), 0.15)"
-                  : "0 4px 16px rgba(0,0,0,0.2)",
-              }}
             >
+              {/* Subtle cyan glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
+
               {/* Most Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-0 right-0 flex justify-center">
@@ -121,7 +119,7 @@ const PricingSection = () => {
                 </div>
               )}
 
-              <div className={`flex flex-col flex-1 ${plan.popular ? "p-8 pt-10" : "p-7"}`}>
+              <div className={`relative z-10 flex flex-col flex-1 ${plan.popular ? "p-8 pt-10" : "p-7"}`}>
                 {/* Plan name */}
                 <h3
                   className="font-bold font-display text-foreground mb-2"
@@ -193,10 +191,10 @@ const PricingSection = () => {
           className="mt-16 max-w-3xl mx-auto"
         >
           <div
-            className="rounded-2xl border border-border/50 px-5 py-4"
-            style={{ backgroundColor: "rgb(43, 48, 59)" }}
+            className="relative rounded-2xl overflow-hidden bg-secondary border border-primary/20 px-5 py-4"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: ShieldCheck, text: "No hidden fees" },
                 { icon: Clock,       text: "30 days of support after delivery" },
