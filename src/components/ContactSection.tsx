@@ -23,10 +23,6 @@ const ContactSection = () => {
               <p className="text-muted-foreground mb-4 text-lg max-w-xl mx-auto">
                 Book a 30-minute call. We'll look at what's slowing your team down and figure out where to start.
               </p>
-              <p className="text-muted-foreground/70 mb-5 text-sm max-w-md mx-auto">
-                No pitch. No pressure. If it's not a fit, I'll tell you that too.
-              </p>
-
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
                 <Button variant="hero" size="xl" onClick={() => setBookingOpen(true)}>
                   <Calendar className="w-5 h-5" />
