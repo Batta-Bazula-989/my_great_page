@@ -13,7 +13,7 @@ const notFit = [
   "You need a full-time support manager to run day-to-day ops",
   "You want one tool to handle everything — intake, resolution, escalation, reporting, all of it",
   "You're planning to replace your entire support stack and start from scratch",
-  `You believe AI can fully replace your support team — it can't, and anyone who says otherwise is selling something`,
+  `You believe AI can fully replace your support team`,
 ];
 
 const WhoForSection = () => {
