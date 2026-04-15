@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getStoredUtms } from "@/utils/utm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -304,6 +305,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
           telegram: needsTelegram ? telegram.trim() : undefined,
           selectedPlan: selectedPlan || undefined,
+          ...getStoredUtms(),
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -312,6 +314,13 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
         throw new Error(`${msg} (${res.status})`);
       }
       bookingSent = true;
+
+      // Fire conversion event — picked up by GTM → GA4 / Google Ads
+      window.dataLayer?.push({
+        event: "booking_submitted",
+        meeting_method: meetingMethod,
+        selected_plan: selectedPlan || "none",
+      });
     } catch (err) {
       console.error("Booking notify failed:", err);
       const message = err instanceof Error ? err.message : "Network error or server not reachable.";

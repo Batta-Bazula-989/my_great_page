@@ -39,7 +39,10 @@ app.post("/api/booking", async (req, res) => {
     return res.status(500).json({ ok: false, error: "Server not configured" });
   }
 
-  const { fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan } = req.body || {};
+  const {
+    fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan,
+    utm_source, utm_medium, utm_campaign,
+  } = req.body || {};
   const lines = [
     "📅 New Book a Free Support Review",
     "",
@@ -51,6 +54,8 @@ app.post("/api/booking", async (req, res) => {
   if (selectedPlan) lines.push(`Selected plan: ${selectedPlan}`);
   if (phone) lines.push(`Phone: ${phone}`);
   if (telegram) lines.push(`Telegram: ${telegram}`);
+  const utmParts = [utm_source, utm_medium, utm_campaign].filter(Boolean);
+  if (utmParts.length) lines.push(`Source: ${utmParts.join(" / ")}`);
 
   const text = lines.join("\n");
 
