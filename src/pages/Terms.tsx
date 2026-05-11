@@ -357,8 +357,8 @@ const Terms = () => {
               <li>Via Phone number: +380984709579</li>
               <li>
                 Via this Link:{" "}
-                <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  linkedin.com/in/roman-zakharenko
+                <a href="https://www.linkedin.com/in/roman-zakharenko-159a27403/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  linkedin.com/in/roman-zakharenko-159a27403
                 </a>
               </li>
             </ul>

@@ -29,7 +29,7 @@ const ContactSection = () => {
                   Book a Free Audit
                 </Button>
                 <Button variant="heroOutline" size="lg" asChild>
-                  <a href="https://www.linkedin.com/in/roman-zakharenko" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/roman-zakharenko-159a27403/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-5 h-5" />
                     Connect on LinkedIn
                     <ArrowUpRight className="w-4 h-4" />
