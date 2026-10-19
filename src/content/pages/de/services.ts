@@ -181,19 +181,19 @@ export const servicesPages: TranslatedPage[] = [
           {
             type: "table",
             caption: "Chatbot-Pakete von TascaLab (einmaliger Preis)",
-            head: ["Paket", "Umfang", "Preis (USD)"],
+            head: ["Paket", "Umfang", "Preis"],
             rows: [
-              ["Starter Chat Bot", "1–2 Kanäle, FAQs, einfache Erfassung von Informationen", "350–450 USD"],
+              ["Starter Chat Bot", "1–2 Kanäle, FAQs, einfache Erfassung von Informationen", "{{price:starter}}"],
               [
                 "Standard Chat Bot",
                 "3–5 Kanäle, komplexere Gespräche, reibungslosere Übergaben",
-                "500–650 USD",
+                "{{price:standard}}",
               ],
             ],
           },
           {
             type: "p",
-            text: "Verfügbare Kanäle: Website, WhatsApp, Telegram, Facebook Messenger und Instagram sowie Telefon über den Voicebot. Die meisten Setups dauern 1–3 Wochen, und jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten. Ausgangspunkt ist ein kostenloses 30-minütiges Audit-Gespräch.",
+            text: "Verfügbare Kanäle: Website, WhatsApp, Telegram, Facebook Messenger und Instagram sowie Telefon über den Voicebot. Die meisten Setups dauern 1–3 Wochen, und jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten. Ausgangspunkt ist ein kostenloses 30-minütiges Health-Check-Gespräch.",
           },
         ],
       },
@@ -404,11 +404,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Das Paket „Voice Bot“ von TascaLab umfasst eingehende Anrufe, Triage und Übergabe an Ihr Team zum einmaligen Preis von 1.100–1.600 USD. Der Bot wird über APIs und Webhooks an die Tools angebunden, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, sodass Anrufergebnisse als Tickets oder Nachrichten ankommen, die Ihr Team ohnehin im Blick hat. Er ist als Filter vor Ihrem Team konzipiert, nicht als Ersatz dafür.",
+            text: "Das Paket „Voice Bot“ von TascaLab umfasst eingehende Anrufe, Triage und Übergabe an Ihr Team zum einmaligen Preis von {{price:voice}}. Der Bot wird über APIs und Webhooks an die Tools angebunden, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, sodass Anrufergebnisse als Tickets oder Nachrichten ankommen, die Ihr Team ohnehin im Blick hat. Er ist als Filter vor Ihrem Team konzipiert, nicht als Ersatz dafür.",
           },
           {
             type: "p",
-            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Audit-Gespräch starten.",
+            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Health-Check-Gespräch starten.",
           },
         ],
       },
@@ -623,11 +623,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Der Service „Ticket Routing & Categorization“ von TascaLab (600–950 USD einmalig) setzt auf dem Helpdesk auf, den Sie bereits haben – Zendesk, Freshdesk oder Jira. Er nutzt dessen native Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht, etwa um Tickets zu kategorisieren, bevor Ihr natives Routing sie zuweist. Ein Plattformwechsel ist nicht nötig.",
+            text: "Der Service „Ticket Routing & Categorization“ von TascaLab ({{price:routing}} einmalig) setzt auf dem Helpdesk auf, den Sie bereits haben – Zendesk, Freshdesk oder Jira. Er nutzt dessen native Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht, etwa um Tickets zu kategorisieren, bevor Ihr natives Routing sie zuweist. Ein Plattformwechsel ist nicht nötig.",
           },
           {
             type: "p",
-            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und ein kostenloses 30-minütiges Audit-Gespräch ist ein guter Rahmen, um Ihre aktuelle Queue zu erfassen.",
+            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und ein kostenloses 30-minütiges Health-Check-Gespräch ist ein guter Rahmen, um Ihre aktuelle Queue zu erfassen.",
           },
         ],
       },
@@ -866,11 +866,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Der Service „Automated Reports“ von TascaLab (500–900 USD einmalig) liefert Ihre Support-Kennzahlen nach Zeitplan per E-Mail oder in Slack. Er setzt über deren APIs und Make oder n8n auf Zendesk, Freshdesk, Jira und Ihren internen Tools auf, sodass sich an der täglichen Arbeitsweise Ihres Teams nichts ändert.",
+            text: "Der Service „Automated Reports“ von TascaLab ({{price:reports}} einmalig) liefert Ihre Support-Kennzahlen nach Zeitplan per E-Mail oder in Slack. Er setzt über deren APIs und Make oder n8n auf Zendesk, Freshdesk, Jira und Ihren internen Tools auf, sodass sich an der täglichen Arbeitsweise Ihres Teams nichts ändert.",
           },
           {
             type: "p",
-            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Audit-Gespräch starten.",
+            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Health-Check-Gespräch starten.",
           },
         ],
       },
@@ -1078,11 +1078,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richtet das auf dem Helpdesk ein, den Sie bereits nutzen – Zendesk, Freshdesk oder Jira –, mit nativen Triggern und Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht. Ein Plattformwechsel ist nicht nötig. Das Klassifizieren und Routen eingehender E-Mails passt zum Service „Ticket Routing & Categorization“ (600–950 USD einmalig); mehrstufige Workflows, etwa eine Bestellnummer aus einer E-Mail auslesen und in einem anderen System nachschlagen, fallen unter „Custom Automation“ (1.200–2.000 USD).",
+            text: "TascaLab richtet das auf dem Helpdesk ein, den Sie bereits nutzen – Zendesk, Freshdesk oder Jira –, mit nativen Triggern und Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht. Ein Plattformwechsel ist nicht nötig. Das Klassifizieren und Routen eingehender E-Mails passt zum Service „Ticket Routing & Categorization“ ({{price:routing}} einmalig); mehrstufige Workflows, etwa eine Bestellnummer aus einer E-Mail auslesen und in einem anderen System nachschlagen, fallen unter „Custom Automation“ ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und ein kostenloses 30-minütiges Audit-Gespräch ist ein guter Rahmen, um Ihren aktuellen E-Mail-Fluss zu erfassen.",
+            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und ein kostenloses 30-minütiges Health-Check-Gespräch ist ein guter Rahmen, um Ihren aktuellen E-Mail-Fluss zu erfassen.",
           },
         ],
       },
@@ -1317,11 +1317,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab baut Chatbots auf den Tools auf, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, über APIs, Webhooks und Make oder n8n, sodass Ihre Wissensdatenbank bleibt, wo sie ist. Der Starter Chat Bot (350–450 USD einmalig) deckt 1–2 Kanäle ab, der Standard Chat Bot (500–650 USD) 3–5 Kanäle, auf Ihrer Website, am Telefon sowie über WhatsApp, Telegram, Facebook Messenger und Instagram. Pflege-Workflows wie Überprüfungserinnerungen für veraltete Artikel fallen unter „Custom Automation“ (1.200–2.000 USD).",
+            text: "TascaLab baut Chatbots auf den Tools auf, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, über APIs, Webhooks und Make oder n8n, sodass Ihre Wissensdatenbank bleibt, wo sie ist. Der Starter Chat Bot ({{price:starter}} einmalig) deckt 1–2 Kanäle ab, der Standard Chat Bot ({{price:standard}}) 3–5 Kanäle, auf Ihrer Website, am Telefon sowie über WhatsApp, Telegram, Facebook Messenger und Instagram. Pflege-Workflows wie Überprüfungserinnerungen für veraltete Artikel fallen unter „Custom Automation“ ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Audit-Gespräch starten.",
+            text: "Die meisten Setups dauern 1–3 Wochen. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und Sie können mit einem kostenlosen 30-minütigen Health-Check-Gespräch starten.",
           },
         ],
       },
