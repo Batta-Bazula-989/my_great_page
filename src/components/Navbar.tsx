@@ -21,7 +21,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div
         className={`container max-w-5xl px-4 rounded-[22px] border transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
-            ? "glass-panel"
+            ? "glass-nav"
             : "border-transparent"
         }`}
       >

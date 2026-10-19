@@ -49,8 +49,8 @@ html {
     --shadow-card: 0 8px 32px hsl(0, 0%, 0%, 0.4);
 
     /* Liquid glass */
-    --glass-bg: linear-gradient(145deg, hsl(210 40% 98% / 0.09) 0%, hsl(210 40% 98% / 0.03) 100%);
-    --glass-bg-strong: linear-gradient(145deg, hsl(210 40% 98% / 0.13) 0%, hsl(210 40% 98% / 0.05) 100%);
+    --glass-bg: linear-gradient(145deg, hsl(210 40% 98% / 0.1) 0%, hsl(210 40% 98% / 0.035) 100%);
+    --glass-bg-strong: linear-gradient(145deg, hsl(210 40% 98% / 0.14) 0%, hsl(210 40% 98% / 0.055) 100%);
     --glass-border: hsl(210 40% 98% / 0.12);
     --glass-highlight: inset 0 1px 0 hsl(0 0% 100% / 0.18), inset 0 -1px 0 hsl(0 0% 100% / 0.04);
     --glass-shadow: 0 10px 40px -10px hsl(220 40% 2% / 0.6);
@@ -92,6 +92,8 @@ html {
     inset: -10%;
     z-index: -1;
     pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
     background:
       radial-gradient(40% 35% at 15% 10%, hsl(175 80% 50% / 0.22), transparent 70%),
       radial-gradient(35% 30% at 90% 25%, hsl(260 80% 65% / 0.18), transparent 70%),
@@ -158,20 +160,26 @@ html {
     opacity: 0;
   }
 
+  /* Glass surfaces sit on a smooth gradient, where a live backdrop blur looks identical to none but costs a
+     re-blur of every card on every scroll frame. Only the floating navbar (.glass-nav) blurs live content. */
   .glass,
   .glass-panel,
   .glass-chip {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-highlight), var(--glass-shadow);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    backdrop-filter: blur(24px) saturate(180%);
   }
 
   .glass-panel {
     background: var(--glass-bg-strong);
-    -webkit-backdrop-filter: blur(40px) saturate(190%);
-    backdrop-filter: blur(40px) saturate(190%);
+  }
+
+  .glass-nav {
+    background: hsl(220 20% 8% / 0.72);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    backdrop-filter: blur(20px) saturate(170%);
   }
 
   /* Denser frosted glass for stacked cards (carousels), where backdrop blur can't reach siblings */
@@ -183,8 +191,6 @@ html {
 
   .glass-chip {
     box-shadow: var(--glass-highlight);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    backdrop-filter: blur(16px) saturate(160%);
   }
 
   .glass-hover {

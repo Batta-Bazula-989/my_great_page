@@ -26,7 +26,7 @@ const HeroSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <header className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <header className="relative min-h-[92svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
       <div className="container relative z-10 px-4">
         <div className="glass-panel mx-auto max-w-4xl rounded-[32px] px-6 py-10 md:px-14 md:py-14 text-center">
           <motion.p
