@@ -427,4 +427,669 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 3. Customer support metrics
+  // ---------------------------------------------------------------------------
+  {
+    key: "customer-support-metrics",
+    slug: "kpi-klantenservice",
+    category: "basics",
+    navLabel: "KPI's voor klantenservice",
+    primaryKeyword: "KPI's klantenservice",
+    title: "KPI's voor klantenservice: definities en formules",
+    description:
+      "KPI's voor klantenservice uitgelegd: eerste reactietijd, oplossingstijd, FCR, heropeningen, CSAT, CES, NPS en backlog, en hoe je elke KPI echt berekent.",
+    h1: "KPI's voor klantenservice: wat je meet en hoe je elke KPI berekent",
+    intro:
+      "KPI's voor klantenservice zijn de metingen die laten zien hoe snel en hoe goed je team klantverzoeken oplost, en onder welke werkdruk. De kernset omvat snelheid (eerste reactietijd en oplossingstijd), kwaliteit (first contact resolution en heropeningen), klantfeedback (CSAT, CES en NPS) en werkdruk (backlog). Hieronder wordt elke KPI gedefinieerd zoals helpdeskleveranciers en de oorspronkelijke auteurs dat doen.",
+    keyFacts: [
+      "De full resolution time van Zendesk loopt van het aanmaken van een ticket tot de meest recente oplossing, dus heropende tickets blijven meetellen.",
+      "Freshdesk telt een ticket alleen mee voor FCR als de klant na het eerste contact geen berichten meer heeft gestuurd.",
+      "NPS is het percentage promotors (scores 9–10) min het percentage criticasters (scores 0–6).",
+      "NPS werd in december 2003 geïntroduceerd door Fred Reichheld in Harvard Business Review.",
+      "Het pleidooi voor het meten van klantinspanning werd gemaakt in het HBR-artikel Stop Trying to Delight Your Customers van juli 2010.",
+    ],
+    sections: [
+      {
+        heading: "De belangrijkste klantenservice-KPI's in één oogopslag",
+        blocks: [
+          {
+            type: "table",
+            caption: "KPI's voor klantenservice en hoe ze worden berekend",
+            head: ["KPI", "Wat het meet", "Hoe het wordt berekend"],
+            rows: [
+              [
+                "Eerste reactietijd (FRT)",
+                "Hoe lang klanten op het eerste antwoord wachten",
+                "Tijd van het aanmaken van het ticket tot het eerste antwoord van een agent, gerapporteerd als gemiddelde of mediaan over tickets",
+              ],
+              [
+                "Volledige oplossingstijd",
+                "Hoe lang het duurt om een ticket definitief op te lossen",
+                "Tijd van het aanmaken van het ticket tot de meest recente oplossing (definitie van Zendesk)",
+              ],
+              [
+                "Gemiddelde oplossingstijd",
+                "Typische oplossingstijd over veel tickets",
+                "Som van de oplossingstijden gedeeld door het aantal tickets dat in de periode is opgelost",
+              ],
+              [
+                "First contact resolution (FCR)",
+                "Aandeel problemen dat is opgelost zonder dat de klant terugkomt",
+                "Tickets die zijn opgelost zonder verdere berichten van de klant na het eerste contact, gedeeld door alle tickets die in de periode zijn opgelost (definitie van Freshdesk)",
+              ],
+              [
+                "Heropeningen",
+                "Tickets die niet echt waren opgelost",
+                "Aantal tickets dat van Solved terug naar Open is gezet (Zendesk), vaak weergegeven als aandeel van de opgeloste tickets",
+              ],
+              [
+                "CSAT",
+                "Tevredenheid over een specifieke interactie",
+                "Tickets met de beoordeling goed gedeeld door alle tickets met een beoordeling, als percentage (Zendesk Explore)",
+              ],
+              [
+                "CES",
+                "Hoeveel moeite de klant moest doen",
+                "Een enquête na de interactie over gemak of moeite, bijgehouden als gemiddelde score of als aandeel antwoorden met weinig moeite",
+              ],
+              [
+                "NPS",
+                "Bereidheid om het bedrijf aan te bevelen",
+                "Percentage promotors (9–10) min percentage criticasters (0–6) op een schaal van 0–10",
+              ],
+              [
+                "Backlog",
+                "Onopgelost werk dat op het team wacht",
+                "Aantal tickets met de status New, Open, Pending of On-hold op een bepaald moment (Zendesk)",
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Snelheid: eerste reactietijd en oplossingstijd",
+        blocks: [
+          {
+            type: "p",
+            text: "De eerste reactietijd is de tijd tussen het aanmaken van een ticket en het eerste antwoord van een agent; zo meet de metric first reply time van Zendesk het. Het is de eerste wachttijd die een klant ervaart, en meestal het eerste doel dat teams in een SLA-beleid opnemen.",
+          },
+          {
+            type: "p",
+            text: "De oplossingstijd meet hoe lang het duurt om het probleem op te lossen. De full resolution time van Zendesk loopt van het aanmaken tot de laatste oplossing van het ticket, dus een ticket dat wordt heropend en opnieuw wordt opgelost, blijft tijd opbouwen. De gemiddelde oplossingstijd is simpelweg het gemiddelde van die doorlooptijden over de tickets die in een periode zijn opgelost. Een handvol zeer oude tickets kan een gemiddelde flink omhoogtrekken, dus het loont om er de mediaan naast te bekijken.",
+          },
+          {
+            type: "p",
+            text: "Twee instellingen veranderen deze cijfers sterk: of je kantooruren of kalenderuren telt, en of automatische antwoorden als reactie tellen. Beslis dit één keer, leg het vast en houd het stabiel, zodat trends van maand tot maand vergelijkbaar blijven.",
+          },
+        ],
+      },
+      {
+        heading: "Kwaliteit: first contact resolution en heropeningen",
+        blocks: [
+          {
+            type: "p",
+            text: "First contact resolution (FCR) is het aandeel problemen dat wordt opgelost zonder dat de klant hoeft terug te komen. Freshdesk berekent FCR% als het aantal tickets dat na het eerste contact van de klant is opgelost of gesloten, gedeeld door alle tickets die in de geselecteerde periode zijn opgelost of gesloten. Een ticket telt alleen mee als de klant na het eerste bericht geen berichten meer heeft gestuurd; de oorspronkelijke ticketbeschrijving telt niet als antwoord van de klant, en het aantal antwoorden van agents maakt niet uit. Heropende tickets worden niet meegeteld, en uitgaande tickets die een agent is begonnen ook niet.",
+          },
+          {
+            type: "p",
+            text: "Heropeningen vangen het omgekeerde geval: een ticket dat als opgelost is gemarkeerd en terugkomt. Zendesk registreert een heropening wanneer de status van een ticket van Solved terug naar Open gaat. Bekijk FCR en heropeningen samen. Als je team tickets te vroeg sluit om een oplossingsdoel te halen, stijgt het aantal heropeningen.",
+          },
+          {
+            type: "note",
+            text: "Leveranciers definiëren FCR verschillend: sommige tellen antwoorden van agents, andere antwoorden van klanten, en sommige sluiten bepaalde kanalen uit. Controleer de definitie van je helpdesk voordat je je cijfer met dat van een ander vergelijkt.",
+          },
+        ],
+      },
+      {
+        heading: "Klantfeedback: CSAT, CES en NPS",
+        blocks: [
+          {
+            type: "p",
+            text: "CSAT (customer satisfaction score) vraagt klanten een specifieke interactie te beoordelen. In Zendesk Explore is de tevredenheidsscore het aantal tickets met de beoordeling goed gedeeld door alle tickets met een tevredenheidsreactie, weergegeven als percentage. Omdat CSAT aan één ticket is gekoppeld, is het de meest directe feedback op het werk van je supportteam.",
+          },
+          {
+            type: "p",
+            text: "CES (customer effort score) vraagt hoe makkelijk het was om een probleem afgehandeld te krijgen. Het idee komt uit Stop Trying to Delight Your Customers, gepubliceerd in Harvard Business Review in juli 2010. Dat artikel was gebaseerd op een onderzoek onder meer dan 75.000 mensen die contact hadden gehad met medewerkers van contactcenters of met selfservicekanalen, en stelde dat een stap extra zetten weinig verschil maakt voor loyaliteit, terwijl het verminderen van de moeite voor klanten dat wel doet. Vraagformulering en schalen verschillen per tool, dus kies één versie en houd die aan.",
+          },
+          {
+            type: "p",
+            text: "NPS (Net Promoter Score) meet de bereidheid om het bedrijf aan te bevelen, niet slechts één interactie. Fred Reichheld van Bain & Company introduceerde de score in The One Number You Need to Grow, gepubliceerd in Harvard Business Review in december 2003. Klanten geven op een schaal van 0–10 aan hoe waarschijnlijk het is dat ze het bedrijf aanbevelen aan een vriend of collega. Scores van 9–10 zijn promotors, 7–8 passieven en 0–6 criticasters. NPS is het percentage promotors min het percentage criticasters, dus de score loopt van -100 tot +100.",
+          },
+        ],
+      },
+      {
+        heading: "Werkdruk: backlog, en KPI's eerlijk houden",
+        blocks: [
+          {
+            type: "p",
+            text: "De backlog is het onopgeloste werk dat voor je team ligt. Zendesk definieert de ticketbacklog als alle tickets die op dat moment de status New, Open, Pending of On-hold hebben, zowel toegewezen als niet-toegewezen. Houd hem bij als dagelijkse momentopname, zodat je de trend ziet. Een backlog die week na week groeit, betekent dat het binnenkomende volume de capaciteit overtreft, ook als de reactietijden er nog goed uitzien.",
+          },
+          {
+            type: "p",
+            text: "Een paar gewoonten houden KPI's bruikbaar:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Koppel een snelheids-KPI aan een kwaliteits-KPI, zoals oplossingstijd aan heropeningen, zodat de ene niet kan verbeteren ten koste van de andere.",
+              "Segmenteer op kanaal en prioriteit. Een eerste reactie in chat en een eerste reactie per e-mail zijn niet vergelijkbaar.",
+              "Houd door de tijd heen dezelfde definities en uureninstelling aan, en vermeld elke wijziging in je rapporten.",
+              "Zet je belangrijkste doelen om in SLA-beleid, zodat de helpdesk ze op elk ticket bijhoudt.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Hoe TascaLab kan helpen",
+        blocks: [
+          {
+            type: "p",
+            text: "De dienst Automated Reports van TascaLab (500–900 USD, eenmalig) haalt deze KPI's uit je helpdesk, zoals Zendesk, Freshdesk of Jira, en levert volgens schema een samenvatting per e-mail of in Slack. Elk project omvat basisdocumentatie, 30 dagen ondersteuning na livegang en geen verborgen kosten, en de meeste implementaties duren 1–3 weken. Een gratis auditgesprek van 30 minuten helpt bepalen welke KPI's het eerst de moeite waard zijn om te automatiseren.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat is het verschil tussen eerste reactietijd en oplossingstijd?",
+        a: "De eerste reactietijd eindigt bij het eerste antwoord van een agent. De oplossingstijd eindigt wanneer het ticket is opgelost; de full resolution time van Zendesk loopt tot de meest recente oplossing, dus heropende tickets blijven meetellen.",
+      },
+      {
+        q: "Hoe wordt NPS berekend?",
+        a: "Vraag klanten op een schaal van 0–10 hoe waarschijnlijk het is dat ze je aanbevelen en trek daarna het percentage criticasters (0–6) af van het percentage promotors (9–10). Passieven (7–8) tellen mee in het totale aantal antwoorden, maar niet in de aftrekking.",
+      },
+      {
+        q: "Wat is het verschil tussen CSAT, CES en NPS?",
+        a: "CSAT meet de tevredenheid over een specifieke interactie, CES meet hoeveel moeite het kostte om een probleem afgehandeld te krijgen, en NPS meet hoe waarschijnlijk het is dat een klant het bedrijf in het algemeen aanbeveelt.",
+      },
+      {
+        q: "Hoe berekent Freshdesk first contact resolution?",
+        a: "FCR% is het aantal tickets dat is opgelost zonder verdere berichten van de klant na het eerste contact, gedeeld door alle tickets die in de periode zijn opgelost. Heropende en uitgaande tickets worden niet meegeteld.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Support",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408827693594-Metrics-and-attributes-for-Zendesk-Support",
+      },
+      {
+        label: "Zendesk Help Center — Explore recipe: Determining satisfaction scores for your agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408822875930-Explore-recipe-Determining-satisfaction-scores-for-your-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding backlog evolution",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155859610-Understanding-backlog-evolution",
+      },
+      {
+        label: "Freshdesk Support — How are FCR%, First Response SLA%, and Average First response time calculated?",
+        url: "https://support.freshdesk.com/support/solutions/articles/226861-how-are-fcr-first-response-sla-and-average-first-response-time-metrics-calculated-for-agent-perfo",
+      },
+      {
+        label: "Harvard Business Review — The One Number You Need to Grow (December 2003)",
+        url: "https://hbr.org/2003/12/the-one-number-you-need-to-grow",
+      },
+      {
+        label: "Net Promoter System — Measuring Your Net Promoter Score",
+        url: "https://www.netpromotersystem.com/about/measuring-your-net-promoter-score/",
+      },
+      {
+        label: "Net Promoter System — The History of Net Promoter",
+        url: "https://www.netpromotersystem.com/about/history-of-net-promoter/",
+      },
+      {
+        label: "Harvard Business Review — Stop Trying to Delight Your Customers (July 2010)",
+        url: "https://hbr.org/2010/07/stop-trying-to-delight-your-customers",
+      },
+    ],
+    related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 4. SLA policies explained
+  // ---------------------------------------------------------------------------
+  {
+    key: "sla-policies-explained",
+    slug: "sla-beleid-klantenservice",
+    category: "basics",
+    navLabel: "SLA-beleid uitgelegd",
+    primaryKeyword: "SLA-beleid klantenservice",
+    title: "SLA-beleid in de klantenservice, uitgelegd",
+    description:
+      "SLA-beleid in de klantenservice: doelen voor eerste antwoord, volgend antwoord en oplossing, kantooruren vs. kalenderuren, pauzeren, alerts en helpdeskopzet.",
+    h1: "SLA-beleid in de klantenservice, uitgelegd",
+    intro:
+      "Een SLA-beleid is een set regels in je helpdesk die tickets doelen voor reactie- en oplostijd geeft, op basis van voorwaarden zoals prioriteit, en elk ticket daaraan toetst. Het bepaalt welke tickets welke doelen krijgen, of de klok kantooruren of kalenderuren telt, wanneer de klok pauzeert en wat er gebeurt vóór een overschrijding. Hier lees je hoe SLA-beleid werkt en hoe Zendesk, Freshdesk en Jira Service Management het inrichten.",
+    keyFacts: [
+      "Zendesk past het eerste SLA-beleid toe, van boven naar beneden in de lijst, waarvan de voorwaarden overeenkomen met het ticket.",
+      "In Zendesk pauzeert requester wait time in Pending, en agent work time in Pending en On-hold.",
+      "In Freshdesk kun je elke SLA berekenen in kantooruren of kalenderuren (24x7).",
+      "Herinneringen in Freshdesk kunnen worden ingesteld van 5 minuten tot 4 uur voordat een SLA-doel verloopt.",
+      "In Jira Service Management heeft elke SLA start-, pauze- en stopvoorwaarden plus doelen die aanvragen selecteren met JQL.",
+    ],
+    sections: [
+      {
+        heading: "Wat een SLA-beleid is",
+        blocks: [
+          {
+            type: "p",
+            text: "Een service level agreement (SLA) is een belofte over hoe snel je op verzoeken reageert en ze oplost. Een SLA-beleid is de manier waarop je helpdesk die belofte op elk ticket afdwingt. De meeste beleidsregels hebben dezelfde onderdelen:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Voorwaarden: op welke tickets het beleid van toepassing is, bijvoorbeeld per klant, kanaal of aanvraagtype",
+              "Doelen: tijdslimieten voor het eerste antwoord, latere antwoorden en de oplossing, meestal per prioriteit ingesteld",
+              "Uren: of de klok kantooruren of kalenderuren telt",
+              "Pauzeregels: welke statussen de klok stilzetten",
+              "Acties bij overschrijding: herinneringen voordat een doel wordt gemist en escalaties daarna",
+            ],
+          },
+          {
+            type: "p",
+            text: "Bij meerdere beleidsregels is de volgorde belangrijk. Zendesk voert eerst de triggers uit, vergelijkt het ticket daarna van boven naar beneden met de SLA-beleidsregels en past de eerste toe waarvan aan de voorwaarden is voldaan. Zet specifieke beleidsregels, zoals een voor enterpriseklanten, boven algemene. Zendesk vereist ook dat de prioriteit van het ticket in het standaard systeemveld voor prioriteit is ingesteld; een aangepast prioriteitsveld komt niet overeen met een beleid.",
+          },
+        ],
+      },
+      {
+        heading: "Doelen voor eerste antwoord, volgend antwoord en oplossing",
+        blocks: [
+          {
+            type: "table",
+            caption: "SLA-doelen en hoe elke tool ze noemt",
+            head: ["Doel", "Wat het meet", "Zendesk", "Freshdesk", "Jira Service Management"],
+            rows: [
+              [
+                "Eerste antwoord",
+                "Tijd van het aanmaken van het ticket tot het eerste antwoord van een agent",
+                "First reply time",
+                "First response",
+                "Een aangepaste SLA die start wanneer de aanvraag wordt aangemaakt en stopt bij het eerste antwoord aan de klant",
+              ],
+              [
+                "Volgend antwoord",
+                "Tijd van een onbeantwoord klantbericht tot het volgende antwoord van een agent",
+                "Next reply time",
+                "Every response",
+                "Een aangepaste SLA met eigen start- en stopvoorwaarden",
+              ],
+              [
+                "Oplossing",
+                "Tijd van het aanmaken tot het ticket is opgelost",
+                "Requester wait time, agent work time of total resolution time",
+                "Resolution",
+                "Een aangepaste SLA die stopt wanneer de aanvraag is opgelost",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Zendesk definieert next reply time als de tijd tussen de oudste onbeantwoorde opmerking van de klant en de volgende openbare opmerking van een agent. Daarnaast is er de metric periodic update, die de tijd tussen openbare opmerkingen van agents meet. Voor de oplossing heeft Zendesk drie metrics en raadt het aan er per beleid maar één te kiezen: requester wait time (tijd in New, Open en On-hold), agent work time (tijd in New en Open) en total resolution time (de hele levenscyclus vanaf het aanmaken tot het ticket is opgelost).",
+          },
+          {
+            type: "p",
+            text: "Freshdesk stelt binnen elk SLA-beleid per prioriteit doelen in voor first response, every response en resolution. In Jira Service Management is elke SLA een timer met een naam: je bepaalt wanneer hij start, pauzeert en stopt, en voegt daarna doelen toe die met JQL kiezen op welke aanvragen ze van toepassing zijn, met tijdsdoelen genoteerd als 4h 30m.",
+          },
+        ],
+      },
+      {
+        heading: "Wanneer de klok loopt: kantooruren, kalenderuren en pauzeren",
+        blocks: [
+          {
+            type: "p",
+            text: "Kantooruren tellen alleen tijd binnen je werkrooster; kalenderuren tellen elk uur van elke dag. In Zendesk kies je per prioriteit binnen een beleid voor kantooruren of kalenderuren. Freshdesk vraagt of elke SLA de kantooruren moet gebruiken die je hebt ingesteld of kalenderuren (24x7). Jira Service Management koppelt aan elk doel een kalender, met een tijdzone, werkdagen en -uren, en feestdagen.",
+          },
+          {
+            type: "p",
+            text: "Een doel van 4 kantooruren op een ticket dat laat op vrijdag is aangemaakt, verloopt misschien pas op maandag. Dat is eerlijk tegenover je team, maar het is niet wat de klant ervaart, dus gebruik kalenderuren voor elke prioriteit waarvoor je bereikbaarheid rond de klok belooft.",
+          },
+          {
+            type: "p",
+            text: "Pauzeren is de andere helft. Tijd waarin je op de klant wacht, hoort meestal niet tegen je te tellen, en elke tool gaat daar anders mee om:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: requester wait time pauzeert in Pending; agent work time pauzeert in Pending en On-hold; total resolution time pauzeert bij geen enkele statuswijziging totdat het ticket is opgelost.",
+              "Freshdesk: de status Pending pauzeert SLA-timers, en je kunt de SLA-timer uitzetten voor elke status, ook voor aangepaste statussen zoals Waiting on Third Party. Tickets waarvan de timer uit staat, worden weergegeven als On Hold, en wanneer de klant antwoordt, gaat het ticket terug naar Open en loopt de klok weer.",
+              "Jira Service Management: een SLA kan pauzevoorwaarden hebben, bijvoorbeeld terwijl je op een reactie van de klant wacht, naast de start- en stopvoorwaarden.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Waarschuwingen en escalaties bij overschrijding",
+        blocks: [
+          {
+            type: "p",
+            text: "Een SLA heeft alleen zin als iemand in actie komt voordat het doel wordt gemist. Stel een waarschuwing in vóór de deadline en een escalatie daarna:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: bouw een automatisering met de voorwaarde Hours until next SLA breach om een team of persoon te waarschuwen wanneer een ticket bijna over de SLA gaat. Automatiseringen draaien eens per uur, dus de alert kan tot een uur vóór of na de drempel binnenkomen, nooit op het exacte moment. In het voorbeeld van Zendesk voegt dezelfde automatisering een tag toe, zodat ze maar één keer per ticket afgaat.",
+              "Freshdesk: elk SLA-beleid kan agents van 5 minuten tot 4 uur voordat een doel voor first response of resolution verloopt een herinnering sturen, en bij een overschreden doel escaleren naar de toegewezen agent of naar andere mensen die je kiest, zoals een teamleider. Beide stel je in onder Admin > Workflows > SLA Policies.",
+              "Elke tool: stuur overschrijdingsalerts naar de plek waar je team echt kijkt, zoals een Slack-kanaal, en niet alleen naar e-mail.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Hoe Zendesk, Freshdesk en Jira Service Management SLA's configureren",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk: maak SLA-beleidsregels met voorwaarden en doelen per prioriteit, kies per prioriteit kantooruren of kalenderuren, en orden de lijst zodat specifieke beleidsregels bovenaan staan. Voeg een automatisering toe voor alerts bij een dreigende overschrijding.",
+              "Freshdesk: stel onder Admin > Workflows > SLA Policies per prioriteit doelen in voor first response, every response en resolution, kies kantooruren of kalenderuren en voeg daarna herinneringen en escalaties toe. Bepaal in de instellingen van je ticketstatussen welke statussen de SLA-timer uitzetten.",
+              "Jira Service Management: maak elke SLA aan met start-, pauze- en stopvoorwaarden. Meerdere startvoorwaarden werken als OR, en de SLA stopt zodra aan een van de stopvoorwaarden is voldaan. Voeg daarna doelen toe die aanvragen selecteren met JQL, stel een tijdsdoel in en kies een kalender.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Welke tool je ook gebruikt, begin met één beleid en een paar prioriteiten, laat het een paar weken draaien en vergelijk daarna de werkelijke eerste reactietijden en oplossingstijden met de doelen voordat je ze aanscherpt.",
+          },
+        ],
+      },
+      {
+        heading: "Hoe TascaLab kan helpen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab richt SLA-gerelateerde automatisering in bovenop Zendesk, Freshdesk en Jira: routing die de prioriteit instelt zodat het juiste beleid wordt toegepast, overschrijdingsalerts naar Slack en geplande SLA-rapporten. Relevante eenmalige prijzen zijn Ticket Routing & Categorization (600–950 USD), Automated Reports (500–900 USD) en Custom Automation (1.200–2.000 USD). Projecten omvatten basisdocumentatie, 30 dagen ondersteuning na livegang en geen verborgen kosten, en de meeste duren 1–3 weken. Begin met een gratis auditgesprek van 30 minuten.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat is het verschil tussen de eerste en de volgende reactietijd?",
+        a: "De eerste reactietijd meet de wachttijd tot het eerste antwoord van een agent nadat een ticket is aangemaakt. De next reply time van Zendesk meet vanaf de oudste onbeantwoorde opmerking van de klant tot de volgende openbare opmerking van een agent, en geldt dus gedurende het hele gesprek.",
+      },
+      {
+        q: "Moeten SLA's kantooruren of kalenderuren gebruiken?",
+        a: "Gebruik kantooruren als je team vaste uren werkt en klanten dat weten, en kalenderuren voor prioriteiten waarvoor je bereikbaarheid rond de klok belooft. Bij Zendesk en Freshdesk kies je dit per beleid, en Jira Service Management gebruikt een kalender die je aan elk doel koppelt.",
+      },
+      {
+        q: "Stopt de SLA-klok wanneer een ticket op Pending staat?",
+        a: "Dat hangt af van de tool en de metric. Freshdesk pauzeert SLA-timers in Pending. In Zendesk pauzeren requester wait time en agent work time in Pending, terwijl total resolution time doorloopt totdat het ticket is opgelost.",
+      },
+      {
+        q: "Kan Zendesk me waarschuwen op het exacte moment dat een SLA wordt overschreden?",
+        a: "Nee. De alerts van Zendesk bij een dreigende overschrijding gebruiken automatiseringen, die eens per uur draaien, dus een melding kan tot een uur vóór of na de overschrijding binnenkomen.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Defining SLA policies",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408829459866-Defining-SLA-policies",
+      },
+      {
+        label: "Zendesk Help Center — About SLA policies and how they work",
+        url: "https://support.zendesk.com/hc/en-us/articles/5600997516058-About-SLA-policies-and-how-they-work",
+      },
+      {
+        label: "Zendesk Help Center — Workflow: How to alert your team to tickets nearing an SLA breach",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408820131994-Workflow-How-to-alert-your-team-to-tickets-nearing-an-SLA-breach",
+      },
+      {
+        label: "Freshdesk Support — Understanding SLA Policies",
+        url: "https://support.freshdesk.com/support/solutions/articles/37626-understanding-sla-policies",
+      },
+      {
+        label: "Freshdesk Support — Setting SLA targets for every response",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000001634-setting-sla-targets-for-every-response",
+      },
+      {
+        label: "Freshdesk Support — Customizing your ticket statuses",
+        url: "https://support.freshdesk.com/en/support/articles/37600-customizing-your-ticket-statuses",
+      },
+      {
+        label: "Atlassian Support — Create service level agreements (SLAs) to manage goals",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/create-service-level-agreements-slas/",
+      },
+      {
+        label: "Atlassian Support — Set up SLA conditions",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-sla-conditions/",
+      },
+    ],
+    related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 5. Ticket deflection
+  // ---------------------------------------------------------------------------
+  {
+    key: "ticket-deflection",
+    slug: "ticket-deflection-uitgelegd",
+    category: "basics",
+    navLabel: "Ticket deflection",
+    primaryKeyword: "ticket deflection",
+    title: "Ticket deflection: definitie, meting en beperkingen",
+    description:
+      "Ticket deflection: welke selfservicekanalen tickets afvangen, hoe Zendesk, Freshdesk en Intercom het meten en waarom afgebroken sessies de score opblazen.",
+    h1: "Ticket deflection: wat het is en hoe je het eerlijk meet",
+    intro:
+      "Ticket deflection is wanneer een klant zijn vraag oplost via selfservice, zoals een helpcenterartikel of een AI-agent, in plaats van een ticket aan te maken voor je team. Helpdeskleveranciers meten het op heel verschillende manieren, en de meeste van hun metingen tellen klanten die gewoon zijn vertrokken zonder om hulp te vragen als afgevangen. Een deflection rate is pas bruikbaar als je precies weet wat die telt en welke verzoeken nooit afgevangen zouden moeten worden.",
+    keyFacts: [
+      "De self-service score van Zendesk, ook wel ticket deflection ratio genoemd, vergelijkt het gebruik van het helpcenter met het aantal tickets dat in dezelfde periode is aangemaakt.",
+      "Zendesk registreert een aangenomen deflection wanneer een helpcenterbezoeker geen ticket indient, maar nooit bevestigt dat hij een antwoord heeft gevonden.",
+      "In de rapporten over AI-agents van Zendesk telt elk gesprek dat niet in een escalatie eindigt als afgevangen.",
+      "Intercom registreert een aangenomen oplossing (assumed resolution) wanneer een klant na het laatste antwoord van Fin vertrekt zonder om meer hulp te vragen.",
+      "Volgens een Gartner-enquête die in augustus 2024 werd gepubliceerd, wordt slechts 14% van de klantenserviceproblemen volledig via selfservice opgelost.",
+    ],
+    sections: [
+      {
+        heading: "Waar deflection plaatsvindt: selfservicekanalen",
+        blocks: [
+          {
+            type: "p",
+            text: "Deflection gebeurt overal waar een klant een antwoord kan vinden voordat hij bij een agent uitkomt. Elk kanaal vangt op een andere manier tickets af en laat een ander spoor achter in je data, dus het helpt om te weten wat je per kanaal echt kunt meten.",
+          },
+          {
+            type: "table",
+            caption: "Selfservicekanalen die tickets afvangen",
+            head: ["Kanaal", "Hoe het afvangt", "Wat je kunt meten"],
+            rows: [
+              [
+                "Helpcenter of kennisbank",
+                "Klanten zoeken of bladeren door artikelen voordat ze contact opnemen",
+                "Helpcentersessies of -gebruikers vergeleken met aangemaakte tickets; weergaven van en stemmen op artikelen",
+              ],
+              [
+                "Artikelsuggesties op het contactformulier",
+                "Het aanvraagformulier stelt artikelen voor terwijl de klant het probleem beschrijft",
+                "Zendesk registreert een bevestigde deflection wanneer een voorgesteld artikel wordt geselecteerd en er in die sessie geen ticket wordt ingediend",
+              ],
+              [
+                "AI-agent of chatbot",
+                "Beantwoordt vragen in chat, messaging of e-mail, en escaleert naar een persoon als hij niet kan helpen",
+                "Gesprekken die zonder escalatie zijn geëindigd, en idealiter oplossingen die de klant heeft bevestigd",
+              ],
+              [
+                "In-product of contextuele hulp",
+                "Een helpwidget toont artikelen die horen bij de pagina of functie die de klant gebruikt",
+                "Hoe vaak de widget wordt geopend, artikelweergaven en ingediende contactformulieren vanuit de widget",
+              ],
+              [
+                "Communityforum",
+                "Klanten beantwoorden elkaars vragen, en beantwoorde threads blijven latere bezoekers helpen",
+                "Moeilijk direct aan tickets te koppelen; meestal bijgehouden als threads met een geaccepteerd antwoord",
+              ],
+            ],
+          },
+          {
+            type: "note",
+            text: "Deflection is een bijeffect van goede selfservice, geen doel op zich. Een klant die in twee minuten een correct antwoord krijgt, is winst. Een klant die opgeeft niet, ook al tellen veel rapporten beide op dezelfde manier.",
+          },
+        ],
+      },
+      {
+        heading: "Hoe leveranciers deflection definiëren en meten",
+        blocks: [
+          {
+            type: "p",
+            text: "Er is geen gedeelde definitie. Elke helpdesk telt iets net anders, en daarom kun je deflection rates uit twee tools, of uit casestudy's van twee leveranciers, niet direct vergelijken.",
+          },
+          {
+            type: "table",
+            caption: "Hoe helpdeskleveranciers deflection definiëren",
+            head: ["Leverancier en metric", "Wat telt", "Waar je op moet letten"],
+            rows: [
+              [
+                "Self-service score van Zendesk (ook wel self-service ratio of ticket deflection ratio)",
+                "Gebruik van het helpcenter vergeleken met het aantal tickets dat in dezelfde periode is aangemaakt. In de Knowledge-rapportage van Zendesk is de self-service ratio het aantal helpcentersessies gedeeld door het aantal ingediende tickets",
+                "Het is een verhouding, geen telling van opgeloste problemen, en de deflectionrapporten van Zendesk volgen alleen tickets die via het aanvraagformulier van het helpcenter zijn ingediend",
+              ],
+              [
+                "Bevestigde en aangenomen deflection bij Zendesk",
+                "Bevestigd: de bezoeker selecteerde een voorgesteld artikel op het aanvraagformulier en diende in die sessie geen ticket in. Aangenomen: de bezoeker gebruikte het helpcenter en diende geen ticket in, maar bevestigde niet dat hij een antwoord had gevonden",
+                "Een aangenomen deflection is een conclusie op basis van stilte",
+              ],
+              [
+                "Deflection rate van de AI-agent van Zendesk",
+                "Elk gesprek dat niet in een escalatie eindigt, inclusief mislukte escalaties en gesprekken zonder status",
+                "Zendesk rapporteert er strengere metingen naast: door de AI-agent afgehandelde gesprekken en geautomatiseerde oplossingen die door een LLM zijn geverifieerd",
+              ],
+              [
+                "Deflection rate van de AI-agent van Freshdesk",
+                "Het aandeel gesprekken binnen een onderwerp dat de AI-agent zonder menselijke tussenkomst heeft opgelost",
+                "De deflectiontrend van de Email AI Agent telt ook tickets die een menselijke agent heeft gesloten nadat de klant een antwoord had gelezen en niet had gereageerd",
+              ],
+              [
+                "Fin-oplossing bij Intercom",
+                "Na het laatste antwoord van Fin bevestigt de klant dat het heeft geholpen (confirmed resolution) of vertrekt hij zonder om meer hulp te vragen (assumed resolution)",
+                "Komt de klant terug in het gesprek voor meer hulp, dan wordt de oplossing weer afgetrokken",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Twee patronen springen eruit. Ten eerste tellen de breedste metrics, zoals de deflection rate van de AI-agent van Zendesk, aangenomen deflections en de assumed resolutions van Intercom, stilte als succes. Ten tweede voegen de strengere metrics een vorm van verificatie toe: Zendesk telt een geautomatiseerde oplossing alleen als een LLM-controle bevestigt dat het verzoek zonder mens is opgelost, en gesprekken die niet door die controle komen, verbruiken geen automated resolution.",
+          },
+        ],
+      },
+      {
+        heading: "Het probleem van afgebroken sessies",
+        blocks: [
+          {
+            type: "p",
+            text: "De meeste deflectionmetrics kunnen een klant die het antwoord heeft gevonden niet onderscheiden van een klant die heeft opgegeven. Een bezoeker die een artikel leest, het niet begrijpt en je daarna belt, is een aangenomen deflection in het helpcenterrapport en een ticket in de telefoonwachtrij. Een chat die eindigt omdat de klant het tabblad heeft gesloten, ziet er hetzelfde uit als een chat die eindigde omdat het probleem was opgelost. Zendesk merkt op dat zelfs de strengere categorie van door de AI-agent afgehandelde gesprekken gesprekken kan bevatten waarin klanten afhaakten voordat ze escaleerden of ontevreden waren over de oplossing.",
+          },
+          {
+            type: "p",
+            text: "Echt selfservicesucces is meestal lager dan dashboards doen vermoeden. In een Gartner-enquête onder 5.728 klanten, gepubliceerd in augustus 2024, werd slechts 14% van de klantenserviceproblemen volledig via selfservice opgelost, en slechts 36% zelfs wanneer klanten het probleem als heel eenvoudig omschreven.",
+          },
+          {
+            type: "p",
+            text: "Zo houd je je deflectioncijfers eerlijk:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Rapporteer bevestigde en aangenomen deflections apart, en behandel het aangenomen cijfer als bovengrens.",
+              "Volg herhaalde contacten. Een klant die een dag na een afgevangen sessie via een ander kanaal contact opneemt, is niet afgevangen.",
+              "Let op het aantal contacten per klant of per bestelling. Als deflection stijgt maar het aantal contacten per klant niet daalt, bestaat de deflection alleen op papier.",
+              "Lees elke maand een steekproef van transcripten van afgevangen botgesprekken om te zien hoe gesprekken echt eindigden.",
+              "Koppel deflection aan een kwaliteitsmetric, zoals CSAT op botgesprekken of heropende tickets.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Wat je niet moet afvangen",
+        blocks: [
+          {
+            type: "p",
+            text: "Sommige verzoeken moeten zo snel mogelijk bij een persoon terechtkomen, ook als een bot technisch gezien zou kunnen antwoorden. Als je ze afvangt, bespaar je een ticket en verlies je een klant.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Klanten die expliciet om een mens vragen. Maak die route zichtbaar in plaats van haar te verstoppen achter een reeks mislukte botbeurten.",
+              "Beveiligingsproblemen, zoals gehackte accounts, vermoedelijke fraude of onverwachte afschrijvingen.",
+              "Factuurgeschillen, terugbetalingen en opzeggingen, waarbij een verkeerd of tijdrekkend antwoord direct geld kost.",
+              "Klachten en escalaties, vooral herhaalde contacten over hetzelfde probleem.",
+              "Juridische verzoeken en verzoeken over gegevensbescherming, zoals verzoeken om inzage in of verwijdering van persoonsgegevens, die een gedocumenteerd antwoord vereisen.",
+              "Urgente of veiligheidsgerelateerde problemen, en klanten die van streek of kwetsbaar lijken.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Klanten verwachten die uitweg. In een Gartner-enquête onder 3.566 klanten, gehouden in februari en maart 2026 en gepubliceerd in augustus 2026, zei 87% dat bedrijven die GenAI inzetten voor klantenservice toegang tot een menselijke agent moeten bieden. Het advies van Gartner in hetzelfde persbericht is om GenAI geen verplichte eerste stap te maken, en alleen een oplossing te proberen wanneer de zekerheid hoog is, met een duidelijk pad naar een persoon.",
+          },
+          {
+            type: "p",
+            text: "In de praktijk betekent dat routingregels die deze verzoeken direct naar de juiste wachtrij sturen, en een overdracht van bot naar mens die het volledige gesprek meegeeft, zodat de klant niets hoeft te herhalen.",
+          },
+        ],
+      },
+      {
+        heading: "Hoe TascaLab kan helpen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bouwt AI-chatbots die veelgestelde vragen beantwoorden op je website, WhatsApp, Telegram, Facebook Messenger of Instagram en al het andere doorgeven aan je team in Zendesk, Freshdesk of je bestaande tools. Een Starter Chat Bot kost 350–450 USD en een Standard Chat Bot voor 3–5 kanalen kost 500–650 USD, eenmalig. Automated Reports (500–900 USD) kunnen deflection naast herhaalde contacten en heropeningen bijhouden, zodat je het echte effect ziet. Elk project omvat basisdocumentatie, 30 dagen ondersteuning na livegang en geen verborgen kosten, en de meeste implementaties duren 1–3 weken. Een gratis auditgesprek van 30 minuten is een goed moment om te bepalen wat je automatiseert en wat menselijk blijft.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat is het verschil tussen ticket deflection en ticketoplossing?",
+        a: "Deflection betekent dat de klant geen ticket heeft aangemaakt of geen agent heeft bereikt; oplossing betekent dat het probleem echt is opgelost. De deflection rate van de AI-agent van Zendesk telt elk gesprek dat niet in een escalatie eindigde, terwijl de geautomatiseerde oplossingen ook een LLM-controle vereisen die bevestigt dat het verzoek is opgelost.",
+      },
+      {
+        q: "Wat is een aangenomen deflection in Zendesk?",
+        a: "Een helpcentersessie waarin de bezoeker niet om hulp vroeg en geen ticket indiende, maar ook niet bevestigde dat hij een antwoord had gevonden. Voor een bevestigde deflection moet de bezoeker een voorgesteld artikel op het aanvraagformulier selecteren en daarna in die sessie geen ticket indienen.",
+      },
+      {
+        q: "Hoe berekent Zendesk de self-service ratio?",
+        a: "Die vergelijkt het gebruik van het helpcenter met het aantal tickets in dezelfde periode. In de Knowledge-rapportage van Zendesk is de self-service ratio het aantal helpcentersessies gedeeld door het aantal ingediende tickets, en deflectionrapporten volgen alleen tickets die via het aanvraagformulier van het helpcenter zijn ingediend.",
+      },
+      {
+        q: "Telt Intercom een Fin-gesprek als opgelost als de klant gewoon vertrekt?",
+        a: "Ja. Als de klant na het laatste antwoord van Fin vertrekt zonder om verdere hulp te vragen, registreert Intercom een assumed resolution. Bevestigt de klant dat het antwoord heeft geholpen, dan is het een confirmed resolution.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Getting started with self-service, Part 6: Tracking essential self-service metrics",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408894139930-Getting-started-with-self-service-Part-6-Tracking-essential-self-service-metrics",
+      },
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Knowledge",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155064090-Metrics-and-attributes-for-Zendesk-Knowledge",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the difference between deflection, AI agent-handled, automated resolution, and custom resolution rates",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756478106-Understanding-the-difference-between-deflection-AI-agent-handled-automated-resolution-and-custom-resolution-rates",
+      },
+      {
+        label: "Freshdesk Support — Monitor and Analyze AI Agent Performance Metrics in Freshdesk",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011716-monitor-ai-agent-performance",
+      },
+      {
+        label: "Freshdesk Support — Manage, Test & Troubleshoot Your Email AI Agent",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011217-use-and-manage-the-email-ai-agent",
+      },
+      {
+        label: "Intercom Help — Fin AI Agent outcomes",
+        url: "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+      },
+      {
+        label: "Gartner — Survey Finds Only 14% of Customer Service Issues Are Fully Resolved in Self-Service (August 2024)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service",
+      },
+      {
+        label: "Gartner — Survey Finds 87% of Customers Say Companies Using GenAI for Customer Service Must Provide Access to a Human Agent (August 2026)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2026-08-04-gartner-survey-finds-87-percent-of-customers-say-companies-using-genai-for-customer-service-must-provide-access-to-a-human-agent0",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
+    updated: "2026-10-19",
+  },
 ];

@@ -397,4 +397,754 @@ export const channelPages: TranslatedPage[] = [
     ],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 3. Facebook Messenger
+  // ---------------------------------------------------------------------------
+  {
+    key: "facebook-messenger-bot-customer-service",
+    slug: "bot-facebook-messenger-atencion-al-cliente",
+    category: "channels",
+    navLabel: "Bot de Messenger para soporte",
+    primaryKeyword: "bot de Facebook Messenger para atención al cliente",
+    title: "Bot de Facebook Messenger para atención al cliente: normas",
+    description:
+      "Cómo funciona un bot de Facebook Messenger para atención al cliente: webhooks, ventana de 24 horas, etiqueta HUMAN_AGENT, traspaso a agentes y política de Meta.",
+    h1: "Bot de Facebook Messenger para atención al cliente: ventanas, etiquetas y traspaso",
+    intro:
+      "Un bot de Facebook Messenger para atención al cliente se conecta a tu página de Facebook a través de la Messenger Platform de Meta: los mensajes entrantes llegan a tu servidor mediante webhooks, y el bot responde a través de la Send API. Puedes responder durante las 24 horas siguientes a cada mensaje del cliente, y un agente humano puede responder hasta 7 días después con la etiqueta HUMAN_AGENT una vez que tu app esté aprobada para usarla.",
+    keyFacts: [
+      "La mensajería estándar te permite responder en las 24 horas siguientes al mensaje de una persona.",
+      "La etiqueta HUMAN_AGENT permite respuestas humanas en un plazo de 7 días, previa aprobación de la app.",
+      "Desde el 27 de abril de 2026, las etiquetas CONFIRMED_EVENT_UPDATE, ACCOUNT_UPDATE y POST_PURCHASE_UPDATE devuelven un error.",
+      "Cuando la ley lo exija, un bot debe informar de que la persona está hablando con un servicio automatizado.",
+      "La política de Meta espera que las experiencias automatizadas respondan a lo que escribe el usuario en un plazo de 30 segundos.",
+    ],
+    sections: [
+      {
+        heading: "Cómo encajan las piezas de la Messenger Platform",
+        blocks: [
+          {
+            type: "p",
+            text: "Un bot de Messenger es una app de Meta conectada a una o varias páginas de Facebook. La app se suscribe a cada página a través del edge subscribed_apps de la página, lo que requiere los permisos pages_messaging y pages_manage_metadata. Después, Meta envía a tu webhook eventos como los mensajes nuevos o los toques en botones, y tu bot responde a través de la Send API.",
+          },
+          {
+            type: "table",
+            caption: "Eventos de webhook que suele usar un bot de soporte",
+            head: ["Evento", "Qué le dice a tu bot"],
+            rows: [
+              ["messages", "Un cliente ha enviado un mensaje a tu página"],
+              ["messaging_postbacks", "Un cliente ha tocado un botón de postback, el botón «Get Started» o un elemento del menú persistente"],
+              ["messaging_handovers", "El control de la conversación se ha pasado, tomado o cambiado entre apps"],
+              ["standby", "Ha llegado un mensaje mientras otra app tenía el control de la conversación"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Meta también te ofrece puntos de entrada fijos. Al tocar el botón «Get Started» se envía un postback, que es un buen momento para un mensaje de bienvenida. Un menú persistente, con hasta 20 elementos, puede incluir una opción «Hablar con una persona»; solo aparece cuando hay un botón «Get Started» configurado.",
+          },
+        ],
+      },
+      {
+        heading: "La ventana de 24 horas y las etiquetas de mensaje",
+        blocks: [
+          {
+            type: "p",
+            text: "La ventana de mensajería estándar de Messenger te da 24 horas para responder después de que una persona escriba a tu página, y los mensajes dentro de ella pueden incluir contenido promocional. Si envías un mensaje normal después de que se cierre la ventana, la Send API devuelve el error 1545041.",
+          },
+          {
+            type: "table",
+            caption: "Qué permite Meta después de que un cliente escriba",
+            head: ["Plazo o caso de uso", "Qué puedes enviar", "Notas"],
+            rows: [
+              ["En las 24 horas siguientes al mensaje del cliente", "Mensajes estándar del bot o de un agente", "En esta ventana se permite contenido promocional"],
+              ["Hasta 7 días después del mensaje del cliente", "Una respuesta humana con la etiqueta HUMAN_AGENT", "Requiere aprobación de la app; no sirve para mensajes automatizados ni promocionales"],
+              ["Actualizaciones de eventos, compras o cuentas", "Las antiguas etiquetas no: CONFIRMED_EVENT_UPDATE, ACCOUNT_UPDATE y POST_PURCHASE_UPDATE devuelven un error desde el 27 de abril de 2026", "Meta remite a las plantillas de utilidad o a la Marketing Messages API"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Meta limita HUMAN_AGENT a los problemas que no se pueden resolver dentro de la ventana estándar, como una solicitud que llega mientras tu empresa está cerrada el fin de semana o un caso que lleva más de un día. Los mensajes automatizados son un uso no permitido de la etiqueta, así que el bot no puede usarla para enviar seguimientos tardíos por su cuenta.",
+          },
+        ],
+      },
+      {
+        heading: "Pasar conversaciones del bot a una persona",
+        blocks: [
+          {
+            type: "p",
+            text: "Varias apps pueden trabajar en la misma página, por ejemplo tu bot y un helpdesk. El protocolo de traspaso (handover protocol) te permite pasar una conversación de una app o bandeja de entrada a otra, y el webhook messaging_handovers informa de cuándo se pasa, se toma o se cambia el control. Las apps que no controlan el hilo reciben eventos standby en lugar de los eventos de mensaje normales.",
+          },
+          {
+            type: "p",
+            text: "Meta ha ido llevando esto hacia Conversation Routing. Una actualización de 2021 eliminó la necesidad de asignar roles principal y secundario y añadió los modos Exclusive e Idle. Ahora las reglas de enrutamiento pueden gestionarse en la configuración de la página, y cuando Conversation Routing está activado, la Conversations API devuelve un campo is_owner para que tu app responda solo a los hilos que controla.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Ofrece una salida clara: la documentación de Meta menciona escalar mediante un intent de respaldo, una palabra clave o respuestas rápidas.",
+              "Antes de pasar el control, publica un breve resumen (tema, número de pedido, lo que el bot ya ha intentado) donde lo vaya a ver el agente.",
+              "Explica al cliente qué pasará a continuación, incluido tu horario si no hay nadie conectado.",
+              "Cuando el agente termine, devuelve el control al bot para que la siguiente pregunta se responda automáticamente.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Normas de la política que condicionan el bot",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Transparencia: cuando la legislación aplicable lo exija, las experiencias de chat automatizadas deben informar de que la persona está hablando con un servicio automatizado, por ejemplo al inicio de una conversación o cuando una persona devuelve la conversación a la automatización. Meta sugiere informar incluso donde no es obligatorio y menciona expresamente California y Alemania.",
+              "Capacidad de respuesta: las experiencias totalmente automatizadas deben responder a todo lo que escriba el usuario en un plazo de 30 segundos. Las configuraciones híbridas que combinan bots y personas deben actualizar el ajuste de respuesta en «Page Settings», dentro de «Advanced Messaging».",
+              "Nada de promoción en los mensajes con etiqueta: las etiquetas de mensaje no pueden usarse para publicidad, marketing ni captación comercial.",
+              "Aprobación de la app: tu app debe estar aprobada antes de poder usar la etiqueta HUMAN_AGENT.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Conectar Messenger a tu helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "La mayoría de los helpdesks pueden recibir conversaciones de Messenger como tickets. En Zendesk, Messenger es un canal de mensajería del Agent Workspace, y Zendesk documenta algunos límites prácticos:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Los agentes tienen siete días para responder antes de que se cierre la ventana de mensajería; pasado ese plazo, el cuadro de respuesta queda bloqueado.",
+              "Las respuestas que un agente envía directamente en Messenger no se sincronizan con Zendesk, así que los agentes deben responder desde Zendesk.",
+              "Los mensajes de más de 2.000 caracteres no se entregan.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Si tu bot funciona como una app aparte, decide qué app controla el hilo por defecto y cuándo pasa el control; si no, el bot y el helpdesk pueden acabar respondiendo los dos al mismo cliente.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab crea bots de Messenger que funcionan sobre Zendesk, Freshdesk, Jira, Slack o tus herramientas internas, mediante API, webhooks y Make o n8n. Un Starter Chat Bot (350–450 USD) cubre uno o dos canales; un Standard Chat Bot (500–650 USD) cubre de tres a cinco canales, como Messenger, Instagram y WhatsApp, con conversaciones más complejas y traspasos más fluidos. Cada proyecto incluye 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. Reserva una llamada de auditoría gratuita de 30 minutos para analizar tu flujo actual de Messenger.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Cuánto tiempo tengo para responder en Messenger?",
+        a: "Puedes enviar mensajes estándar en las 24 horas siguientes al mensaje de una persona. Un agente humano puede responder hasta 7 días después con la etiqueta HUMAN_AGENT, una vez que tu app esté aprobada para usarla.",
+      },
+      {
+        q: "¿Puede mi bot usar la etiqueta HUMAN_AGENT?",
+        a: "No. Meta incluye los mensajes automatizados entre los usos no permitidos de la etiqueta. Está pensada para respuestas de personas cuando un problema no se puede resolver en 24 horas.",
+      },
+      {
+        q: "¿Qué sustituye a las etiquetas ACCOUNT_UPDATE y POST_PURCHASE_UPDATE?",
+        a: "Esas etiquetas, junto con CONFIRMED_EVENT_UPDATE, devuelven un error desde el 27 de abril de 2026. Meta recomienda las plantillas de utilidad o la Marketing Messages API para esos casos de uso.",
+      },
+      {
+        q: "¿Tengo que decir a los usuarios que hablan con un bot?",
+        a: "La política de Meta exige informar de ello cuando la legislación aplicable lo requiera y lo recomienda en los demás casos. Decirlo al inicio de la conversación es la forma más sencilla.",
+      },
+    ],
+    sources: [
+      {
+        label: "Meta for Developers — Send a message (Messenger Platform)",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages",
+      },
+      {
+        label: "Meta for Developers — Message tags (Send API)",
+        url: "https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags/",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform and IG Messaging API policy",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/policy",
+      },
+      {
+        label: "Meta for Developers — Webhooks for Messenger Platform",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/webhooks",
+      },
+      {
+        label: "Meta for Developers — messaging_handovers webhook event reference",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/webhooks/webhook-events/messaging_handovers",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform changelog",
+        url: "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      },
+      {
+        label: "Meta for Developers — Persistent menu",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages/persistent-menu",
+      },
+      {
+        label: "Zendesk Help Center — Adding Facebook Messenger channels",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408835753370-Adding-Facebook-Messenger-channels",
+      },
+    ],
+    related: [
+      "instagram-dm-automation",
+      "chatbot-to-human-handoff",
+      "zendesk-automation",
+    ],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 4. Instagram
+  // ---------------------------------------------------------------------------
+  {
+    key: "instagram-dm-automation",
+    slug: "automatizacion-mensajes-directos-instagram",
+    category: "channels",
+    navLabel: "Automatización de DM de Instagram",
+    primaryKeyword: "automatización de mensajes directos de Instagram",
+    title: "Automatización de mensajes directos de Instagram: normas",
+    description:
+      "Automatización de mensajes directos de Instagram: cuentas profesionales, ventana de 24 horas, etiqueta human agent, del comentario al DM e ice breakers.",
+    h1: "Automatización de mensajes directos de Instagram para atención al cliente",
+    intro:
+      "Automatizar los mensajes directos (DM) de Instagram significa conectar un bot a los mensajes directos de una cuenta profesional de Instagram a través de las API de Meta, para que las preguntas rutinarias reciban respuesta al instante y el resto llegue a una persona. El bot solo puede responder después de que alguien te escriba y tiene 24 horas para hacerlo; los agentes humanos pueden responder hasta 7 días después con la etiqueta human agent.",
+    keyFacts: [
+      "Las API de mensajería de Instagram funcionan con cuentas profesionales (de empresa o de creador).",
+      "Tu app solo puede escribir a un usuario después de que este te escriba, y entonces tiene 24 horas para responder.",
+      "La etiqueta human agent permite responder en un plazo de 7 días, tras la revisión de la app.",
+      "Las respuestas privadas a comentarios pueden enviarse en los 7 días siguientes al comentario.",
+      "En Instagram, Meta ha sustituido el protocolo de traspaso (handover protocol) por Conversation Routing.",
+    ],
+    sections: [
+      {
+        heading: "Qué necesitas antes de automatizar los DM de Instagram",
+        blocks: [
+          {
+            type: "p",
+            text: "Las API de mensajería de Instagram funcionan con cuentas profesionales. Hay dos tipos: las cuentas de empresa, para comercios, negocios locales, marcas, organizaciones y proveedores de servicios, y las cuentas de creador, para figuras públicas, creadores de contenido, artistas e influencers. Ten en cuenta que pasar una cuenta personal privada a profesional la hace pública.",
+          },
+          {
+            type: "table",
+            caption: "Dos formas de conectar la mensajería de Instagram",
+            head: ["", "Instagram API with Instagram Login", "Instagram Messaging API (Messenger Platform)"],
+            rows: [
+              ["Página de Facebook", "No es necesaria", "La cuenta de Instagram debe estar vinculada a una página de Facebook"],
+              ["Envío de mensajes", "Token de acceso de usuario de Instagram con el permiso instagram_business_manage_messages", "El mismo endpoint /PAGE_ID/messages que Messenger, con el ID del cliente con ámbito de Instagram (Instagram-scoped ID)"],
+              ["Mensajes entrantes", "Webhooks de mensajería", "El campo de webhook messages, junto con los mensajes de Messenger"],
+              ["Encaja bien con", "Empresas y creadores que solo usan Instagram", "Equipos que ya tienen un bot de Messenger o un helpdesk conectado a Meta"],
+            ],
+          },
+          {
+            type: "p",
+            text: "En ambos casos, el titular de la cuenta debe permitir el acceso a los mensajes en «Connected tools», dentro de la configuración de mensajes de Instagram; si no, la API no puede gestionar las conversaciones. Zendesk señala que este interruptor hay que activarlo en la app móvil de Instagram, no en la web. Si tu app da servicio a cuentas profesionales que no son tuyas ni gestionas, también necesita Advanced Access a través de la revisión de apps de Meta.",
+          },
+        ],
+      },
+      {
+        heading: "Ventanas de mensajería y la etiqueta human agent",
+        blocks: [
+          {
+            type: "p",
+            text: "Tu app solo puede escribir a alguien después de que esa persona escriba a tu cuenta, y tiene 24 horas para responder a cada mensaje. Para los problemas que llevan más tiempo, como una solicitud que llega mientras tu empresa está cerrada el fin de semana, la etiqueta human agent permite que una persona responda en un plazo de 7 días. La etiqueta solo está disponible para las apps que han superado la revisión de apps.",
+          },
+          {
+            type: "table",
+            caption: "Límites de los DM de Instagram que conviene conocer",
+            head: ["Norma", "Qué significa para tu bot"],
+            rows: [
+              ["Ventana de respuesta de 24 horas", "Las respuestas automáticas deben enviarse en las 24 horas siguientes al mensaje del cliente"],
+              ["Etiqueta human agent (7 días)", "Las respuestas tardías las envía una persona, tras la revisión de la app"],
+              ["Sin mensajes de grupo", "La API no admite conversaciones de grupo"],
+              ["Carpeta de solicitudes", "La API no devuelve las conversaciones de la carpeta Solicitudes (Requests) que llevan 30 días inactivas"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Del comentario al DM: respuestas privadas",
+        blocks: [
+          {
+            type: "p",
+            text: "Muchas preguntas de soporte empiezan en los comentarios, como «¿Hay stock de esto?» o «¿Cómo lo devuelvo?». Las respuestas privadas permiten a tu cuenta contestar a un comentario con un mensaje directo a quien lo ha escrito. Funcionan con comentarios en publicaciones, reels y anuncios, y con comentarios de Instagram Live. Una respuesta privada es un único mensaje, enviado en los 7 días siguientes al comentario, que incluye automáticamente un enlace a la publicación o al comentario.",
+          },
+          {
+            type: "p",
+            text: "Las respuestas privadas ya no necesitan la etiqueta human agent. Si la persona contesta a tu respuesta privada, ese mensaje inicia una conversación normal y se aplica la ventana habitual de 24 horas. Una configuración práctica: vigila los comentarios en busca de palabras clave de soporte, envía una respuesta privada con una respuesta o una pregunta y deja que el bot de DM siga desde ahí, manteniendo los números de pedido y los datos personales fuera de los comentarios públicos.",
+          },
+        ],
+      },
+      {
+        heading: "Ice breakers y puntos de entrada",
+        blocks: [
+          {
+            type: "p",
+            text: "Los ice breakers son preguntas predefinidas que la gente puede tocar al iniciar una conversación nueva con tu cuenta, como «¿Dónde está mi pedido?» o «Hablar con soporte». Cuando alguien toca una, tu app recibe un evento de webhook messaging_postback, así que cada ice breaker puede iniciar su propio flujo del bot. Los ice breakers pueden configurarse en varios idiomas, y se muestra la versión adecuada según la configuración regional del usuario. Úsalos para tus preguntas de soporte más habituales, dirige cada uno a un flujo concreto y revisa cuáles toca realmente la gente para sustituir los que nadie usa.",
+          },
+          {
+            type: "p",
+            text: "Los enlaces ig.me pueden pasar un parámetro de referencia (referral) a una conversación, por ejemplo para indicar al bot desde qué página de producto llega el cliente. En las conversaciones nuevas, Meta exige que haya ice breakers configurados para que llegue ese parámetro de referencia.",
+          },
+        ],
+      },
+      {
+        heading: "Pasar los DM a una persona",
+        blocks: [
+          {
+            type: "p",
+            text: "En Instagram, Meta ya no admite el protocolo de traspaso y ha trasladado a todas las empresas a Conversation Routing. Te permite pasar el control del hilo a la bandeja de entrada de Instagram o a una bandeja de entrada de terceros, como un helpdesk. Durante la revisión de la app, Meta espera que demuestres que, cuando se produce una escalada, la titularidad del hilo pasa a la bandeja de entrada y el agente puede responder desde allí.",
+          },
+          {
+            type: "p",
+            text: "Hay dos particularidades que conviene conocer. Las respuestas enviadas a través de una app de terceros mueven el hilo a la carpeta General, y los mensajes entregados a través de la plataforma no incluyen la información de carpeta que se ve en la app de Instagram. En el canal Instagram Direct de Zendesk, las respuestas hechas directamente en Instagram no se añaden al ticket, así que los agentes deben responder desde Zendesk.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab configura bots de DM para Instagram que responden a las preguntas habituales, recogen datos y pasan las conversaciones a tu equipo en Zendesk, Freshdesk, Jira, Slack o una herramienta interna, sobre la base de API, webhooks y Make o n8n. Un Starter Chat Bot (350–450 USD) cubre uno o dos canales; un Standard Chat Bot (500–650 USD) cubre de tres a cinco, como Instagram, Messenger y tu web. Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. La llamada de auditoría gratuita de 30 minutos es el punto de partida.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Puedo automatizar los DM de una cuenta personal de Instagram?",
+        a: "No. Las API de mensajería de Meta funcionan con cuentas profesionales, que pueden ser de empresa o de creador.",
+      },
+      {
+        q: "¿Necesito una página de Facebook para automatizar los DM de Instagram?",
+        a: "No con la Instagram API with Instagram Login, que no requiere una página vinculada. La Instagram Messaging API, a través de la Messenger Platform, sí la requiere.",
+      },
+      {
+        q: "¿Cuánto puedo esperar antes de responder a un DM?",
+        a: "Las respuestas automáticas deben enviarse en las 24 horas siguientes al mensaje del cliente. Un agente humano puede responder hasta 7 días después con la etiqueta human agent, una vez que tu app supere la revisión.",
+      },
+      {
+        q: "¿Puedo enviar un DM a alguien que ha comentado mi publicación?",
+        a: "Sí, con una respuesta privada: un único mensaje enviado en los 7 días siguientes al comentario, que incluye automáticamente un enlace a la publicación o al comentario.",
+      },
+    ],
+    sources: [
+      {
+        label: "Meta for Developers — Instagram API with Instagram Login: Send Messages",
+        url: "https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/messaging-api/",
+      },
+      {
+        label: "Meta for Developers — Instagram Platform overview",
+        url: "https://developers.facebook.com/docs/instagram-platform/overview/",
+      },
+      {
+        label: "Meta for Developers — Instagram Messaging: Human Agent Escalation",
+        url: "https://developers.facebook.com/documentation/business-messaging/instagram-messaging/features/human-agent-escalation",
+      },
+      {
+        label: "Meta for Developers — Send a message (Messenger Platform, private replies)",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages",
+      },
+      {
+        label: "Meta for Developers — Using ig.me Links",
+        url: "https://developers.facebook.com/documentation/business-messaging/instagram-messaging/features/ig-me-links",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform changelog",
+        url: "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      },
+      {
+        label: "Instagram Help Center — Set up a professional Instagram account",
+        url: "https://help.instagram.com/502981923235522",
+      },
+      {
+        label: "Zendesk Help Center — Adding and configuring the Instagram Direct channel",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408835013018-Adding-and-configuring-Instagram-Direct",
+      },
+    ],
+    related: [
+      "facebook-messenger-bot-customer-service",
+      "chatbot-to-human-handoff",
+      "ai-chatbot-for-customer-support",
+    ],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 5. Chatbot web
+  // ---------------------------------------------------------------------------
+  {
+    key: "website-chatbot-for-support",
+    slug: "chatbot-web-atencion-al-cliente",
+    category: "channels",
+    navLabel: "Chatbot web para soporte",
+    primaryKeyword: "chatbot web para atención al cliente",
+    title: "Chatbot web para atención al cliente: widget y traspaso",
+    description:
+      "Chatbot web para atención al cliente: widgets de helpdesk como Zendesk y Freshchat, traspaso del bot al agente, fuera de horario y accesibilidad WCAG.",
+    h1: "Chatbot web para atención al cliente: widgets, traspaso y accesibilidad",
+    intro:
+      "Un chatbot web para atención al cliente es un widget de chat en tu web o en tu centro de ayuda donde un bot responde a las preguntas habituales, recoge datos y pasa la conversación a un agente en directo cuando no puede ayudar. La mayoría de los helpdesks incluyen su propio widget, así que el trabajo real está en configurar los flujos del bot, el traspaso, el comportamiento fuera de horario y la accesibilidad.",
+    keyFacts: [
+      "El Web Widget de mensajería de Zendesk se instala añadiendo un fragmento de código a cada página en la que deba aparecer.",
+      "La mensajería de Zendesk puede mostrar respuestas distintas dentro y fuera del horario de atención.",
+      "Los agentes de IA de Freshdesk pueden configurarse para recoger los datos del cliente antes de transferirlo a una persona.",
+      "Las WCAG 2.2 exigen que toda la funcionalidad pueda manejarse con el teclado (2.1.1, nivel A).",
+      "La técnica role=\"log\" del W3C permite que los lectores de pantalla anuncien los nuevos mensajes del chat a medida que llegan.",
+    ],
+    sections: [
+      {
+        heading: "¿Widget nativo del helpdesk o uno a medida?",
+        blocks: [
+          {
+            type: "p",
+            text: "Si ya usas un helpdesk, empieza por su widget. Los chats llegan a la misma cola que el email y los mensajes de redes sociales, los agentes responden desde un único espacio de trabajo y el proveedor mantiene el código del widget.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Web Widget de Zendesk (mensajería): en Admin Center, ve a «Channels > Messaging and social > Messaging», abre el widget y copia el código de la sección «Installation». Añádelo al código fuente de cada página en la que deba aparecer el widget, y asegúrate de que tu firewall permite el widget.",
+              "Widget web de Freshchat (Freshdesk): copia el código de inserción de la configuración del canal de chat web y añádelo a cada página en la que deba aparecer el widget. Freshworks también documenta cómo instalarlo en WordPress, Shopify y Squarespace, y en apps de iOS y Android.",
+            ],
+          },
+          {
+            type: "table",
+            caption: "Cómo elegir un widget",
+            head: ["Opción", "Encaja bien cuando", "Ojo con"],
+            rows: [
+              ["Widget nativo del helpdesk", "Quieres chats, tickets e informes en un mismo lugar", "El diseño y la lógica del bot se limitan a lo que admite el proveedor"],
+              ["Widget nativo con un bot a medida", "Necesitas lógica o integraciones que el bot integrado no tiene", "Hay que montar y probar el traspaso y el paso de contexto"],
+              ["Widget totalmente a medida", "El chat forma parte de la interfaz de tu producto", "La accesibilidad, la disponibilidad y la integración del lado del agente corren de tu cuenta"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Diseñar el traspaso del bot a una persona",
+        blocks: [
+          {
+            type: "p",
+            text: "El traspaso es donde fallan la mayoría de los bots web. Uno bueno lleva al cliente hasta una persona sin obligarle a repetirse. Los dos principales helpdesks admiten este patrón:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: al añadir un agente de IA a un canal de mensajería, la respuesta de mensajería predeterminada se sustituye por las respuestas propias del agente de IA. En la receta de flujo de trabajo de Zendesk, el agente de IA saluda al cliente, muestra un formulario para recoger lo que necesitan los agentes, le dice al cliente que su solicitud pasa al equipo y después reenvía la conversación a un agente, que recibe un aviso y ve los datos al aceptarla. La receta usa un formulario más corto, sin nombre ni email, para los clientes que han iniciado sesión.",
+              "Freshchat y Freshdesk: los flujos del bot hacen el traspaso con acciones como «Assign to group» o «Make available for assignment», y los ajustes de traspaso de los agentes de IA de Freshdesk incluyen una opción para recoger los datos del cliente antes de la transferencia.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Decide qué recoger en función de lo primero que preguntan tus agentes. Los campos típicos son el nombre y el email para los visitantes que no han iniciado sesión, un número de pedido o de cuenta, el tipo de incidencia elegido con botones, una breve descripción con las palabras del propio cliente y la página en la que estaba.",
+          },
+        ],
+      },
+      {
+        heading: "Cobertura fuera de horario",
+        blocks: [
+          {
+            type: "p",
+            text: "Un widget que promete «un agente te atenderá en breve» a las 2 de la madrugada hace más daño que no tener chat. Planifica qué pasa cuando no hay nadie conectado:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Define el horario de atención: los canales de mensajería de Zendesk pueden usar un horario de atención y mostrar respuestas distintas dentro y fuera de ese horario.",
+              "Convierte los chats en tickets: en la receta de Zendesk, el agente de IA escala a un agente en directo dentro del horario de atención y, fuera de él, recoge los datos del cliente y escala la solicitud como ticket de email para hacer el seguimiento.",
+              "Deja que el bot responda lo que pueda: las respuestas a preguntas frecuentes, las consultas del estado de pedidos y los enlaces al centro de ayuda funcionan a cualquier hora.",
+              "Di cuándo vas a responder: indica al cliente tu horario y por dónde le llegará la respuesta, por ejemplo por email.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Nociones básicas de accesibilidad para widgets de chat",
+        blocks: [
+          {
+            type: "p",
+            text: "Un widget de chat es contenido interactivo superpuesto a tu web, así que debe cumplir el mismo nivel de accesibilidad que el resto de la página. Las WCAG 2.2 son la versión actual del W3C, y estos criterios de conformidad son especialmente relevantes para el chat:",
+          },
+          {
+            type: "table",
+            caption: "Criterios de las WCAG 2.2 que conviene comprobar en un widget de chat",
+            head: ["Criterio", "Nivel", "Qué significa para un widget de chat"],
+            rows: [
+              ["2.1.1 Teclado", "A", "Abrir el widget, escribir, elegir botones y cerrarlo funcionan sin ratón"],
+              ["2.4.7 Foco visible", "AA", "Los usuarios ven qué botón o campo tiene el foco del teclado"],
+              ["2.4.11 Foco no oculto (mínimo)", "AA", "El botón de apertura o el panel de chat abierto no ocultan por completo el elemento con foco de la página"],
+              ["4.1.2 Nombre, función, valor", "A", "Los botones personalizados, los menús y el botón de apertura exponen sus nombres y estados a las tecnologías de apoyo"],
+              ["4.1.3 Mensajes de estado", "AA", "Avisos como «Mensaje enviado» se anuncian sin mover el foco"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Para la conversación en sí, la técnica ARIA23 del W3C marca el historial del chat con role=\"log\": los mensajes nuevos se añaden al final de la región y los lectores de pantalla los anuncian a medida que aparecen. Con un widget de un proveedor, prueba tu propia configuración con teclado y con un lector de pantalla, ya que los colores personalizados y el contenido del bot pueden seguir causando problemas.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab configura chatbots web sobre el helpdesk que ya usas, como Zendesk o Freshdesk, o conecta un bot a medida a Jira, Slack o herramientas internas mediante API, webhooks y Make o n8n. Un Starter Chat Bot (350–450 USD) cubre uno o dos canales con preguntas frecuentes y recogida básica de información; un Standard Chat Bot (500–650 USD) cubre de tres a cinco canales con conversaciones más complejas y traspasos más fluidos. Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, sin costes ocultos, y la mayoría de las implantaciones llevan 1–3 semanas. Empieza con una llamada de auditoría gratuita de 30 minutos.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Necesito una herramienta de chatbot aparte si mi helpdesk tiene un widget?",
+        a: "No necesariamente. Tanto Zendesk como Freshdesk permiten conectar un bot o un agente de IA a su widget web. Una herramienta aparte tiene sentido cuando necesitas lógica o integraciones que el bot integrado no ofrece.",
+      },
+      {
+        q: "¿Qué debe recoger el bot antes de pasar la conversación a un agente?",
+        a: "Lo que tus agentes preguntan primero: normalmente los datos de contacto de los visitantes anónimos, un número de pedido o de cuenta, el tipo de incidencia y una breve descripción. Tanto Zendesk como Freshdesk permiten recoger datos antes de la transferencia.",
+      },
+      {
+        q: "¿Qué debe hacer un chatbot web fuera del horario de atención?",
+        a: "Responder lo que pueda, explicar tu horario y convertir el resto en un ticket. La receta documentada de Zendesk recoge los datos del cliente fuera de horario y escala la solicitud como ticket de email.",
+      },
+      {
+        q: "¿Qué norma de accesibilidad se aplica a un widget de chat?",
+        a: "Las WCAG 2.2 son la versión actual del W3C. El manejo con teclado (2.1.1), el foco visible (2.4.7), los nombres y funciones de los controles (4.1.2) y los mensajes de estado (4.1.3) son especialmente relevantes para el chat.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Installing the Web Widget for messaging",
+        url: "https://support.zendesk.com/hc/en-us/articles/4500748175258-Installing-the-Web-Widget-for-messaging",
+      },
+      {
+        label: "Zendesk Help Center — Configuring messaging responses and business hours",
+        url: "https://support.zendesk.com/hc/en-us/articles/4500737327258-Configuring-messaging-responses-and-business-hours",
+      },
+      {
+        label: "Zendesk Help Center — Workflow recipe: Using an AI agent to collect customer info and immediately escalate to a human agent",
+        url: "https://support.zendesk.com/hc/en-us/articles/10412442245914-Workflow-recipe-Using-an-AI-agent-to-collect-customer-info-and-immediately-escalate-to-a-human-agent",
+      },
+      {
+        label: "Freshworks Support — Install Freshchat on your web/apps",
+        url: "https://crmsupport.freshworks.com/support/solutions/articles/50000004353-embed-the-freshchat-widget-on-your-website",
+      },
+      {
+        label: "Freshworks Support — Gracefully handover conversations from bots to your Freshchat agents",
+        url: "https://crmsupport.freshworks.com/support/solutions/articles/50000004659-assigning-bot-conversations-to-your-agents",
+      },
+      {
+        label: "Freshdesk Support — Configure handover settings for AI Agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000012026-configure-handover-settings-for-ai-agents",
+      },
+      {
+        label: "W3C — Web Content Accessibility Guidelines (WCAG) 2.2",
+        url: "https://www.w3.org/TR/WCAG22/",
+      },
+      {
+        label: "W3C — ARIA23: Using role=log to identify sequential information updates",
+        url: "https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "chatbot-to-human-handoff",
+      "freshdesk-automation",
+    ],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 6. SMS
+  // ---------------------------------------------------------------------------
+  {
+    key: "sms-customer-support-automation",
+    slug: "automatizacion-sms-atencion-al-cliente",
+    category: "channels",
+    navLabel: "Automatización de soporte por SMS",
+    primaryKeyword: "automatización de atención al cliente por SMS",
+    title: "Automatización de atención al cliente por SMS: 10DLC y STOP",
+    description:
+      "Cómo funciona la automatización de atención al cliente por SMS: webhooks entrantes, A2P 10DLC y verificación toll-free, bajas con STOP, segmentos y tickets.",
+    h1: "Automatización de atención al cliente por SMS: cómo funciona y qué hay que configurar",
+    intro:
+      "La automatización de la atención al cliente por SMS conecta un número de teléfono de empresa a un código que lee los mensajes entrantes, responde a las preguntas sencillas y convierte todo lo demás en tickets. Con un proveedor como Twilio Programmable Messaging, cada SMS entrante se envía a tu webhook y tu código responde a través de la API. En EE. UU., además, tienes que registrar el número y respetar las bajas con STOP; si no, tus mensajes se bloquean.",
+    keyFacts: [
+      "Twilio envía cada SMS entrante a la URL de tu webhook con campos como From, To, Body y MessageSid.",
+      "Según Twilio, los operadores de EE. UU. tratan cualquier mensaje enviado desde una plataforma como Twilio como tráfico de aplicación a persona (A2P).",
+      "Los mensajes desde números 10DLC de EE. UU. no registrados se bloquean con el error 30034, incluso mientras el registro está pendiente.",
+      "Twilio gestiona por defecto STOP y las demás palabras clave estándar de baja en los números long code.",
+      "Un segmento SMS en GSM-7 admite 160 caracteres; un segmento UCS-2, necesario para los emojis, admite 70.",
+    ],
+    sections: [
+      {
+        heading: "Cómo funciona la automatización del soporte por SMS",
+        blocks: [
+          {
+            type: "p",
+            text: "Consigues un número de teléfono de un proveedor de SMS, diriges su webhook de mensajes entrantes a tu código y envías las respuestas a través de la API del proveedor. Con Twilio Programmable Messaging, cada SMS enviado a tu número se convierte en una petición HTTP a la URL de tu webhook. La petición incluye el remitente en From, tu número en To, el texto del mensaje en Body (hasta 1.600 caracteres) y un MessageSid de 34 caracteres que puedes usar para recuperar el mensaje más tarde a través de la API REST.",
+          },
+          {
+            type: "p",
+            text: "Tu endpoint responde con TwiML, el formato XML de Twilio que le indica qué hacer a continuación, como enviar una respuesta. Si tu helpdesk va a responder más tarde y el bot no tiene nada que decir, devuelve un elemento Response vacío para que Twilio acepte el mensaje sin responder.",
+          },
+          {
+            type: "ol",
+            items: [
+              "El cliente envía un SMS a tu número de soporte.",
+              "Twilio envía el mensaje a tu webhook.",
+              "Tu bot responde al momento a una pregunta habitual o pide datos como un número de pedido.",
+              "Todo lo que el bot no puede resolver se convierte en un ticket en tu helpdesk, vinculado al número de teléfono del cliente.",
+              "Las respuestas de los agentes vuelven al cliente como SMS desde el mismo número.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Registro en EE. UU.: A2P 10DLC y verificación toll-free",
+        blocks: [
+          {
+            type: "p",
+            text: "La documentación de Twilio indica que los operadores de EE. UU. consideran de aplicación a persona (A2P) cualquier mensaje enviado desde una plataforma como Twilio. Si envías SMS o MMS a números de EE. UU. desde un long code estándar de 10 dígitos (10DLC), debes registrarte en A2P 10DLC. El registro tiene dos partes: una marca (brand), que indica a los operadores quién envía, y una campaña (campaign), que describe el caso de uso y cómo las personas se dan de alta, se dan de baja y piden ayuda. Una vez aprobada la campaña, añades tu número al Messaging Service vinculado a ella.",
+          },
+          {
+            type: "p",
+            text: "El registro no es un mero trámite opcional. Twilio bloquea los mensajes con destino a EE. UU. desde números 10DLC que no están vinculados a una campaña aprobada, incluidos los números cuyo registro sigue pendiente, y sus tarifas de mensajería se siguen aplicando a los mensajes bloqueados. Los números toll-free (gratuitos) pasan por un proceso aparte llamado Toll-Free Verification.",
+          },
+          {
+            type: "table",
+            caption: "Qué exige Twilio antes de enviar SMS a clientes de EE. UU.",
+            head: ["Tipo de remitente", "Requisito", "Qué pasa si no se cumple"],
+            rows: [
+              ["Long code 10DLC", "Marca y campaña A2P 10DLC aprobadas, con el número en el Messaging Service de la campaña", "Los mensajes se bloquean con el error 30034"],
+              ["10DLC, autónomo (sole proprietor)", "El mismo registro, pero una campaña de autónomo solo puede tener un número 10DLC registrado", "Los números adicionales del Messaging Service siguen sin registrar"],
+              ["Número toll-free", "Toll-Free Verification aprobada", "Los mensajes a números móviles de EE. UU. y Canadá fallan con el error 30032"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Palabras clave STOP, bajas y consentimiento",
+        blocks: [
+          {
+            type: "p",
+            text: "Twilio gestiona por ti las palabras clave estándar de baja en inglés en los números long code. Su documentación enumera STOP, UNSUBSCRIBE, END, QUIT, STOPALL, REVOKE, OPTOUT y CANCEL, que se reconocen sin distinguir entre mayúsculas y minúsculas. Twilio envía una confirmación estándar, y tus mensajes dejan de llegar a ese número hasta que el cliente envía START. En los números toll-free, solo START y UNSTOP vuelven a dar de alta a un cliente. Advanced Opt-Out, desactivado por defecto, te permite personalizar las palabras clave y las respuestas en un Messaging Service, aunque las palabras clave reservadas como START no se pueden eliminar.",
+          },
+          {
+            type: "p",
+            text: "Asegúrate de que tu bot no envía nada más a un cliente que se ha dado de baja. Las normas de EE. UU. también lo regulan. La orden de la FCC de 2024 (FCC 24-24) establece que los consumidores pueden revocar el consentimiento a las robocalls y los robotexts por cualquier medio razonable, que una respuesta como stop, quit, end, revoke, opt out, cancel o unsubscribe se considera razonable, y que las revocaciones deben atenderse en un plazo razonable de no más de diez días hábiles. En 2026, la FCC adoptó una nueva orden (FCC 26-67) que permite a quienes llaman designar un único método automatizado de revocación, como un SMS de respuesta con palabras estándar como stop, quit o unsubscribe, siempre que el método se comunique claramente, y abre una consulta sobre acortar el plazo. Comprueba qué versión de las normas está en vigor cuando lances el servicio.",
+          },
+          {
+            type: "note",
+            text: "Esto es un resumen del texto de las normas de la FCC, no asesoramiento jurídico. Comprueba las normas vigentes con tu propio asesor legal antes de enviar SMS automatizados a clientes de EE. UU.",
+          },
+        ],
+      },
+      {
+        heading: "Longitud de los mensajes y segmentos",
+        blocks: [
+          {
+            type: "p",
+            text: "Los SMS se envían en segmentos, y cada segmento se factura, así que la longitud de las respuestas de tu bot afecta al coste. La documentación de Twilio da estos límites:",
+          },
+          {
+            type: "table",
+            caption: "Tamaños de segmento SMS según la documentación de Twilio",
+            head: ["Codificación", "Mensaje único", "Por segmento si se divide", "Cuándo se usa"],
+            rows: [
+              ["GSM-7", "160 caracteres", "153 caracteres", "Texto que solo usa el juego de caracteres GSM-7"],
+              ["UCS-2", "70 caracteres", "67 caracteres", "Cualquier mensaje con al menos un carácter fuera de GSM-7, como un emoji"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Un solo carácter que no sea GSM-7 hace que todo el mensaje pase a UCS-2, no solo ese carácter. Los emojis, las comillas tipográficas y las rayas largas son causas habituales, algo importante cuando un bot copia respuestas de artículos del centro de ayuda. Smart Encoding de Twilio puede sustituir algunos de estos caracteres por equivalentes GSM-7. El texto de un mensaje saliente puede tener hasta 1.600 caracteres, pero las respuestas cortas con un enlace al artículo completo suelen funcionar mejor.",
+          },
+        ],
+      },
+      {
+        heading: "Conectar los SMS a tu helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk ofrece SMS mediante Zendesk Text. Un SMS enviado a tu número de Text crea un ticket automáticamente, y las respuestas públicas de ese ticket vuelven al cliente como SMS. Zendesk también indica que los SMS a consumidores de EE. UU. desde números no registrados se bloquearán, así que el registro A2P 10DLC también se aplica ahí.",
+          },
+          {
+            type: "p",
+            text: "Si tu helpdesk no tiene canal de SMS, o necesitas una lógica que el canal integrado no ofrece, puede encargarse un pequeño servicio intermedio. Recibe el webhook de Twilio, ejecuta el bot, crea o actualiza tickets a través de la API del helpdesk y devuelve las respuestas de los agentes a través de Twilio.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "Los canales de bot que ofrece TascaLab son web, teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Los SMS no están en esa lista, pero otros canales con API pueden valorarse en la llamada de auditoría gratuita de 30 minutos. TascaLab trabaja sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, mediante API, webhooks y Make o n8n. Un Starter Chat Bot cuesta 350–450 USD para uno o dos canales y un Standard Chat Bot, 500–650 USD para entre tres y cinco. Todos los proyectos incluyen 30 días de soporte tras el lanzamiento, documentación básica y ningún coste oculto, y la mayoría de las implantaciones llevan 1–3 semanas.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Necesito el registro A2P 10DLC para un bot de soporte por SMS?",
+        a: "Sí, si envías SMS o MMS a números de EE. UU. desde un long code de 10 dígitos a través de una plataforma como Twilio. Twilio bloquea con el error 30034 los mensajes con destino a EE. UU. desde números 10DLC no registrados, también mientras el registro está pendiente.",
+      },
+      {
+        q: "¿Qué pasa cuando un cliente envía STOP?",
+        a: "En los números long code, Twilio gestiona por defecto STOP y las demás palabras clave estándar de baja. Envía una confirmación, y tus mensajes dejan de llegar a ese número hasta que el cliente envía START.",
+      },
+      {
+        q: "¿Por qué un mensaje corto ha contado como dos segmentos?",
+        a: "Probablemente contenía un carácter fuera de GSM-7, como un emoji o unas comillas tipográficas. Eso hace que todo el mensaje pase a UCS-2, que solo admite 70 caracteres en un único segmento.",
+      },
+      {
+        q: "¿Puedo usar un número toll-free en lugar de un número 10DLC?",
+        a: "Sí, pero necesita Toll-Free Verification. Hasta que se apruebe, los mensajes a números móviles de EE. UU. y Canadá fallan con el error 30032.",
+      },
+    ],
+    sources: [
+      {
+        label: "Twilio Docs — Twilio's request to your incoming message Webhook URL",
+        url: "https://www.twilio.com/docs/messaging/guides/webhook-request",
+      },
+      {
+        label: "Twilio Docs — Programmable Messaging and A2P 10DLC",
+        url: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
+      },
+      {
+        label: "Twilio Docs — Error 30034: US A2P 10DLC - Message from an Unregistered Number",
+        url: "https://www.twilio.com/docs/api/errors/30034",
+      },
+      {
+        label: "Twilio Docs — Error 30032: Toll-Free Number Has Not Been Verified",
+        url: "https://www.twilio.com/docs/api/errors/30032",
+      },
+      {
+        label: "Twilio Docs — Customize users' opt-in and opt-out experience with Advanced Opt-Out",
+        url: "https://www.twilio.com/docs/messaging/tutorials/advanced-opt-out",
+      },
+      {
+        label: "Twilio Docs — How long can a message be?",
+        url: "https://www.twilio.com/docs/glossary/what-sms-character-limit",
+      },
+      {
+        label: "FCC — FCC 24-24 Report and Order on revoking consent under the TCPA",
+        url: "https://docs.fcc.gov/public/attachments/FCC-24-24A1.pdf",
+      },
+      {
+        label: "FCC — FCC 26-67 Report and Order on revocation of consent (2026)",
+        url: "https://docs.fcc.gov/public/attachments/FCC-26-67A1.pdf",
+      },
+      {
+        label: "Zendesk Help Center — Getting started with Text",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408823788314-Getting-started-with-Text",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "zendesk-automation",
+      "omnichannel-customer-support",
+    ],
+    updated: "2026-10-19",
+  },
 ];

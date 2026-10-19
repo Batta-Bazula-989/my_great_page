@@ -427,4 +427,669 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 3. Customer support metrics
+  // ---------------------------------------------------------------------------
+  {
+    key: "customer-support-metrics",
+    slug: "kpi-support-client",
+    category: "basics",
+    navLabel: "KPI du support client",
+    primaryKeyword: "KPI support client",
+    title: "KPI du support client : définitions et formules",
+    description:
+      "Les KPI du support client expliqués : première réponse, délai de résolution, FCR, réouvertures, CSAT, CES, NPS et backlog, avec leur mode de calcul réel.",
+    h1: "KPI du support client : quoi suivre et comment calculer chaque indicateur",
+    intro:
+      "Les indicateurs du support client sont les mesures qui montrent à quelle vitesse, avec quelle qualité et sous quelle charge de travail votre équipe résout les demandes des clients. Le socle couvre la rapidité (délai de première réponse et délai de résolution), la qualité (résolution au premier contact et réouvertures), le retour client (CSAT, CES et NPS) et la charge de travail (backlog). Ci-dessous, chacun est défini comme le font les éditeurs de helpdesks et les auteurs d'origine.",
+    keyFacts: [
+      "Le full resolution time de Zendesk court de la création du ticket à sa résolution la plus récente : les tickets rouverts continuent donc d'être comptés.",
+      "Freshdesk ne compte un ticket dans le FCR que si le client n'a envoyé aucun autre message après son premier contact.",
+      "Le NPS est le pourcentage de promoteurs (notes de 9 à 10) moins le pourcentage de détracteurs (notes de 0 à 6).",
+      "Le NPS a été présenté par Fred Reichheld dans la Harvard Business Review en décembre 2003.",
+      "La mesure de l'effort client a été défendue dans l'article de la HBR de juillet 2010 Stop Trying to Delight Your Customers.",
+    ],
+    sections: [
+      {
+        heading: "Les principaux indicateurs du support client en un coup d'œil",
+        blocks: [
+          {
+            type: "table",
+            caption: "Indicateurs du support client et leur mode de calcul",
+            head: ["Indicateur", "Ce qu'il mesure", "Mode de calcul"],
+            rows: [
+              [
+                "Délai de première réponse (FRT)",
+                "Combien de temps les clients attendent la première réponse",
+                "Temps entre la création du ticket et la première réponse d'un agent, exprimé en moyenne ou en médiane sur l'ensemble des tickets",
+              ],
+              [
+                "Délai de résolution complète",
+                "Le temps nécessaire pour résoudre définitivement un ticket",
+                "Temps entre la création du ticket et sa résolution la plus récente (définition Zendesk)",
+              ],
+              [
+                "Délai moyen de résolution",
+                "Le temps de résolution typique sur de nombreux tickets",
+                "Somme des délais de résolution divisée par le nombre de tickets résolus sur la période",
+              ],
+              [
+                "Résolution au premier contact (FCR)",
+                "Part des problèmes résolus sans que le client revienne",
+                "Tickets résolus sans autre message du client après le premier contact, divisés par l'ensemble des tickets résolus sur la période (définition Freshdesk)",
+              ],
+              [
+                "Réouvertures",
+                "Les tickets qui n'étaient pas vraiment résolus",
+                "Nombre de tickets repassés de Solved à Open (Zendesk), souvent exprimé en part des tickets résolus",
+              ],
+              [
+                "CSAT",
+                "La satisfaction vis-à-vis d'une interaction précise",
+                "Tickets notés « good » divisés par l'ensemble des tickets notés, en pourcentage (Zendesk Explore)",
+              ],
+              [
+                "CES",
+                "L'effort que le client a dû fournir",
+                "Une enquête après l'interaction sur la facilité ou l'effort, suivie sous forme de score moyen ou de part de réponses à faible effort",
+              ],
+              [
+                "NPS",
+                "La propension à recommander l'entreprise",
+                "Pourcentage de promoteurs (9–10) moins pourcentage de détracteurs (0–6) sur une échelle de 0 à 10",
+              ],
+              [
+                "Backlog",
+                "Le travail non résolu qui attend l'équipe",
+                "Nombre de tickets aux statuts New, Open, Pending ou On-hold à un instant donné (Zendesk)",
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Rapidité : délai de première réponse et délai de résolution",
+        blocks: [
+          {
+            type: "p",
+            text: "Le délai de première réponse est l'écart entre la création d'un ticket et la première réponse d'un agent ; c'est ainsi que le mesure l'indicateur first reply time de Zendesk. C'est la première attente que vit le client, et c'est généralement le premier objectif que les équipes inscrivent dans une politique SLA.",
+          },
+          {
+            type: "p",
+            text: "Le délai de résolution mesure le temps nécessaire pour résoudre le problème. Le full resolution time de Zendesk court de la création à la résolution la plus récente du ticket : un ticket rouvert puis résolu à nouveau continue donc d'accumuler du temps. Le délai moyen de résolution est simplement la moyenne de ces durées sur les tickets résolus pendant une période. Quelques tickets très anciens peuvent faire grimper fortement une moyenne : il vaut donc la peine de regarder aussi la médiane.",
+          },
+          {
+            type: "p",
+            text: "Deux réglages changent beaucoup ces chiffres : compter en heures ouvrées ou en heures calendaires, et considérer ou non les réponses automatiques comme une réponse. Décidez une fois pour toutes, notez-le et n'y touchez plus, pour que les tendances restent comparables d'un mois à l'autre.",
+          },
+        ],
+      },
+      {
+        heading: "Qualité : résolution au premier contact et réouvertures",
+        blocks: [
+          {
+            type: "p",
+            text: "La résolution au premier contact (FCR) est la part des problèmes résolus sans que le client ait besoin de revenir. Freshdesk calcule le FCR% comme le nombre de tickets résolus ou fermés après le premier contact du client, divisé par l'ensemble des tickets résolus ou fermés sur la période sélectionnée. Un ticket n'est retenu que si le client n'a envoyé aucun autre message après le premier ; la description initiale du ticket ne compte pas comme une réponse du client, et le nombre de réponses de l'agent n'a pas d'importance. Les tickets rouverts sont exclus, de même que les tickets sortants initiés par un agent.",
+          },
+          {
+            type: "p",
+            text: "Les réouvertures captent le cas inverse : un ticket marqué comme résolu qui revient. Zendesk enregistre une réouverture quand le statut d'un ticket repasse de Solved à Open. Surveillez le FCR et les réouvertures ensemble. Si votre équipe clôt des tickets trop tôt pour atteindre un objectif de résolution, les réouvertures augmenteront.",
+          },
+          {
+            type: "note",
+            text: "Les éditeurs définissent le FCR différemment : certains comptent les réponses des agents, d'autres celles des clients, et d'autres excluent certains canaux. Vérifiez la définition de votre helpdesk avant de comparer votre chiffre à celui de quelqu'un d'autre.",
+          },
+        ],
+      },
+      {
+        heading: "Retour client : CSAT, CES et NPS",
+        blocks: [
+          {
+            type: "p",
+            text: "Le CSAT (customer satisfaction score) demande aux clients de noter une interaction précise. Dans Zendesk Explore, le score de satisfaction est le nombre de tickets notés « good » divisé par l'ensemble des tickets ayant reçu une réponse de satisfaction, exprimé en pourcentage. Comme il est lié à un ticket, le CSAT est le retour le plus direct sur le travail de votre équipe support.",
+          },
+          {
+            type: "p",
+            text: "Le CES (customer effort score) demande à quel point il a été facile de faire traiter un problème. L'idée vient de l'article Stop Trying to Delight Your Customers, publié dans la Harvard Business Review en juillet 2010. Il s'appuyait sur une étude portant sur plus de 75 000 personnes ayant eu affaire à des conseillers de centre de contact ou à des canaux de self-service, et soutenait que dépasser les attentes ne change pas grand-chose à la fidélité, contrairement à la réduction de l'effort client. La formulation et les échelles des enquêtes varient selon les outils : choisissez une version et gardez-la.",
+          },
+          {
+            type: "p",
+            text: "Le NPS (Net Promoter Score) mesure la propension à recommander l'entreprise, et pas seulement une interaction. Fred Reichheld, de Bain & Company, l'a présenté dans The One Number You Need to Grow, publié dans la Harvard Business Review en décembre 2003. Les clients indiquent sur une échelle de 0 à 10 dans quelle mesure ils recommanderaient l'entreprise à un ami ou à un collègue. Les notes de 9 à 10 désignent les promoteurs, de 7 à 8 les passifs et de 0 à 6 les détracteurs. Le NPS est le pourcentage de promoteurs moins le pourcentage de détracteurs : il va donc de -100 à +100.",
+          },
+        ],
+      },
+      {
+        heading: "Charge de travail : le backlog, et des indicateurs fiables",
+        blocks: [
+          {
+            type: "p",
+            text: "Le backlog est le travail non résolu qui attend votre équipe. Zendesk définit le backlog de tickets comme l'ensemble des tickets actuellement aux statuts New, Open, Pending ou On-hold, attribués ou non. Suivez-le sous forme d'instantané quotidien pour voir la tendance. Un backlog qui grossit de semaine en semaine signifie que le volume entrant dépasse la capacité, même si les délais de réponse semblent encore corrects.",
+          },
+          {
+            type: "p",
+            text: "Quelques habitudes gardent les indicateurs utiles :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Associez un indicateur de rapidité à un indicateur de qualité, comme le délai de résolution et les réouvertures, pour que l'un ne puisse pas s'améliorer au détriment de l'autre.",
+              "Segmentez par canal et par priorité. Une première réponse en chat et une première réponse par e-mail ne sont pas comparables.",
+              "Gardez les mêmes définitions et le même réglage d'heures dans le temps, et signalez tout changement dans vos rapports.",
+              "Transformez vos objectifs les plus importants en politiques SLA, pour que le helpdesk les suive sur chaque ticket.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "Le service Automated Reports de TascaLab (500–900 USD, paiement unique) extrait ces indicateurs de votre helpdesk, comme Zendesk, Freshdesk ou Jira, et livre un récapitulatif planifié par e-mail ou sur Slack. Chaque projet comprend une documentation de base, 30 jours de support après le lancement et aucun frais caché, et la plupart des mises en place prennent 1 à 3 semaines. Un appel d'audit gratuit de 30 minutes aide à choisir les indicateurs à automatiser en priorité.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Quelle est la différence entre le délai de première réponse et le délai de résolution ?",
+        a: "Le délai de première réponse s'arrête à la première réponse d'un agent. Le délai de résolution s'arrête quand le ticket est résolu ; le full resolution time de Zendesk court jusqu'à la résolution la plus récente : les tickets rouverts continuent donc d'être comptés.",
+      },
+      {
+        q: "Comment calcule-t-on le NPS ?",
+        a: "Demandez aux clients, sur une échelle de 0 à 10, dans quelle mesure ils vous recommanderaient, puis soustrayez le pourcentage de détracteurs (0–6) du pourcentage de promoteurs (9–10). Les passifs (7–8) comptent dans le total des réponses, mais pas dans la soustraction.",
+      },
+      {
+        q: "Quelle est la différence entre CSAT, CES et NPS ?",
+        a: "Le CSAT note la satisfaction vis-à-vis d'une interaction précise, le CES mesure l'effort nécessaire pour faire traiter un problème, et le NPS mesure la probabilité qu'un client recommande l'entreprise dans son ensemble.",
+      },
+      {
+        q: "Comment Freshdesk calcule-t-il la résolution au premier contact ?",
+        a: "Le FCR% est le nombre de tickets résolus sans autre message du client après le premier contact, divisé par l'ensemble des tickets résolus sur la période. Les tickets rouverts et sortants sont exclus.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Support",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408827693594-Metrics-and-attributes-for-Zendesk-Support",
+      },
+      {
+        label: "Zendesk Help Center — Explore recipe: Determining satisfaction scores for your agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408822875930-Explore-recipe-Determining-satisfaction-scores-for-your-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding backlog evolution",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155859610-Understanding-backlog-evolution",
+      },
+      {
+        label: "Freshdesk Support — How are FCR%, First Response SLA%, and Average First response time calculated?",
+        url: "https://support.freshdesk.com/support/solutions/articles/226861-how-are-fcr-first-response-sla-and-average-first-response-time-metrics-calculated-for-agent-perfo",
+      },
+      {
+        label: "Harvard Business Review — The One Number You Need to Grow (December 2003)",
+        url: "https://hbr.org/2003/12/the-one-number-you-need-to-grow",
+      },
+      {
+        label: "Net Promoter System — Measuring Your Net Promoter Score",
+        url: "https://www.netpromotersystem.com/about/measuring-your-net-promoter-score/",
+      },
+      {
+        label: "Net Promoter System — The History of Net Promoter",
+        url: "https://www.netpromotersystem.com/about/history-of-net-promoter/",
+      },
+      {
+        label: "Harvard Business Review — Stop Trying to Delight Your Customers (July 2010)",
+        url: "https://hbr.org/2010/07/stop-trying-to-delight-your-customers",
+      },
+    ],
+    related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 4. SLA policies explained
+  // ---------------------------------------------------------------------------
+  {
+    key: "sla-policies-explained",
+    slug: "politiques-sla-support-client",
+    category: "basics",
+    navLabel: "Politiques SLA expliquées",
+    primaryKeyword: "politique SLA support client",
+    title: "Politiques SLA du support client expliquées",
+    description:
+      "Politiques SLA du support client : objectifs de première réponse, réponse suivante et résolution, heures ouvrées ou calendaires, pause, alertes, configuration.",
+    h1: "Les politiques SLA du support client, expliquées",
+    intro:
+      "Une politique SLA est un ensemble de règles de votre helpdesk qui attribue aux tickets des objectifs de délai de réponse et de résolution, selon des conditions comme la priorité, et suit chaque ticket par rapport à ces objectifs. Elle détermine quels tickets reçoivent quels objectifs, si le chronomètre compte en heures ouvrées ou en heures calendaires, quand il se met en pause et ce qui se passe avant un dépassement. Voici comment fonctionnent les politiques SLA, et comment Zendesk, Freshdesk et Jira Service Management les configurent.",
+    keyFacts: [
+      "Zendesk applique la première politique SLA, en parcourant la liste de haut en bas, dont les conditions correspondent au ticket.",
+      "Dans Zendesk, le requester wait time se met en pause en Pending, et l'agent work time en Pending et On-hold.",
+      "Freshdesk vous permet de calculer chaque SLA en heures ouvrées ou en heures calendaires (24x7).",
+      "Les rappels de Freshdesk peuvent être programmés de 5 minutes à 4 heures avant l'échéance d'un objectif SLA.",
+      "Dans Jira Service Management, chaque SLA a des conditions de démarrage, de pause et d'arrêt, ainsi que des objectifs qui sélectionnent les demandes en JQL.",
+    ],
+    sections: [
+      {
+        heading: "Qu'est-ce qu'une politique SLA",
+        blocks: [
+          {
+            type: "p",
+            text: "Un accord de niveau de service (SLA, service level agreement) est un engagement sur la rapidité avec laquelle vous répondez aux demandes et les résolvez. Une politique SLA est la façon dont votre helpdesk fait respecter cet engagement sur chaque ticket. La plupart des politiques ont les mêmes composantes :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Conditions : les tickets auxquels la politique s'applique, par exemple selon le client, le canal ou le type de demande",
+              "Objectifs : les délais maximaux pour la première réponse, les réponses suivantes et la résolution, généralement définis par priorité",
+              "Heures : si le chronomètre compte en heures ouvrées ou en heures calendaires",
+              "Règles de pause : les statuts qui arrêtent le chronomètre",
+              "Actions en cas de dépassement : rappels avant qu'un objectif ne soit manqué et escalades après",
+            ],
+          },
+          {
+            type: "p",
+            text: "L'ordre compte quand vous avez plusieurs politiques. Zendesk exécute d'abord les déclencheurs, puis compare le ticket à ses politiques SLA en parcourant la liste de haut en bas et applique la première dont les conditions sont remplies. Placez les politiques spécifiques, comme celle des clients grands comptes, au-dessus des politiques générales. Zendesk exige aussi que la priorité du ticket soit définie dans le champ de priorité système par défaut ; un champ de priorité personnalisé ne correspondra à aucune politique.",
+          },
+        ],
+      },
+      {
+        heading: "Objectifs de première réponse, de réponse suivante et de résolution",
+        blocks: [
+          {
+            type: "table",
+            caption: "Objectifs SLA et leur nom dans chaque outil",
+            head: ["Objectif", "Ce qu'il mesure", "Zendesk", "Freshdesk", "Jira Service Management"],
+            rows: [
+              [
+                "Première réponse",
+                "Temps entre la création du ticket et la première réponse d'un agent",
+                "First reply time",
+                "First response",
+                "Un SLA personnalisé qui démarre à la création de la demande et s'arrête à la première réponse au client",
+              ],
+              [
+                "Réponse suivante",
+                "Temps entre un message client resté sans réponse et la réponse suivante d'un agent",
+                "Next reply time",
+                "Every response",
+                "Un SLA personnalisé avec ses propres conditions de démarrage et d'arrêt",
+              ],
+              [
+                "Résolution",
+                "Temps entre la création et la résolution du ticket",
+                "Requester wait time, agent work time ou total resolution time",
+                "Resolution",
+                "Un SLA personnalisé qui s'arrête quand la demande est résolue",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Zendesk définit le next reply time comme le temps entre le plus ancien commentaire client sans réponse et le commentaire public suivant d'un agent. Il propose aussi un indicateur periodic update, qui mesure le temps entre les commentaires publics des agents. Pour la résolution, Zendesk dispose de trois indicateurs et recommande de n'en choisir qu'un par politique : requester wait time (temps passé en New, Open et On-hold), agent work time (temps passé en New et Open) et total resolution time (tout le cycle de vie, de la création jusqu'à la résolution du ticket).",
+          },
+          {
+            type: "p",
+            text: "Freshdesk définit des objectifs first response, every response et resolution par priorité dans chaque politique SLA. Dans Jira Service Management, chaque SLA est un minuteur nommé : vous définissez quand il démarre, se met en pause et s'arrête, puis vous ajoutez des objectifs qui utilisent JQL pour choisir les demandes concernées, avec des délais cibles écrits sous la forme 4h 30m.",
+          },
+        ],
+      },
+      {
+        heading: "Quand le chronomètre tourne : heures ouvrées, heures calendaires et pause",
+        blocks: [
+          {
+            type: "p",
+            text: "Les heures ouvrées ne comptent que le temps compris dans vos horaires de travail ; les heures calendaires comptent chaque heure de chaque jour. Zendesk vous permet de choisir heures ouvrées ou calendaires pour chaque priorité d'une politique. Freshdesk demande si chaque SLA doit utiliser les horaires d'ouverture que vous avez définis ou les heures calendaires (24x7). Jira Service Management associe à chaque objectif un calendrier, avec un fuseau horaire, des jours et des heures ouvrés, et des jours fériés.",
+          },
+          {
+            type: "p",
+            text: "Un objectif de 4 heures ouvrées sur un ticket créé tard le vendredi peut n'arriver à échéance que le lundi. C'est juste pour votre équipe, mais ce n'est pas ce que vit le client : utilisez donc les heures calendaires pour toute priorité où vous promettez une couverture jour et nuit.",
+          },
+          {
+            type: "p",
+            text: "La pause est l'autre moitié du sujet. Le temps passé à attendre le client ne devrait généralement pas compter contre vous, et chaque outil le gère différemment :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk : le requester wait time se met en pause en Pending ; l'agent work time se met en pause en Pending et On-hold ; le total resolution time ne se met en pause sur aucun changement de statut jusqu'à la résolution du ticket.",
+              "Freshdesk : le statut Pending met en pause les minuteurs SLA, et vous pouvez désactiver le minuteur SLA pour n'importe quel statut, y compris des statuts personnalisés comme Waiting on Third Party. Les tickets dont le minuteur est désactivé apparaissent comme On Hold, et quand le client répond, le ticket repasse en Open et le chronomètre reprend.",
+              "Jira Service Management : un SLA peut avoir des conditions de pause, par exemple pendant que vous attendez la réponse du client, en plus de ses conditions de démarrage et d'arrêt.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Alertes de dépassement et escalades",
+        blocks: [
+          {
+            type: "p",
+            text: "Un SLA n'est utile que si quelqu'un agit avant qu'il ne soit manqué. Prévoyez un avertissement avant l'échéance et une escalade après :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk : créez une automatisation avec la condition « Hours until next SLA breach » pour prévenir une équipe ou une personne quand un ticket approche du dépassement. Les automatisations s'exécutent une fois par heure : l'alerte peut donc arriver jusqu'à une heure avant ou après le seuil, jamais au moment exact. L'exemple de Zendesk ajoute un tag dans la même automatisation pour qu'elle ne se déclenche qu'une fois par ticket.",
+              "Freshdesk : chaque politique SLA peut envoyer aux agents un rappel de 5 minutes à 4 heures avant l'échéance d'un objectif de première réponse ou de résolution, et escalader en cas de non-respect vers l'agent assigné ou d'autres personnes de votre choix, comme un chef d'équipe. Les deux se règlent dans Admin > Workflows > SLA Policies.",
+              "Tout outil : envoyez les alertes de dépassement là où votre équipe regarde vraiment, comme un canal Slack, et pas seulement par e-mail.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Comment Zendesk, Freshdesk et Jira Service Management configurent les SLA",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk : créez des politiques SLA avec des conditions et des objectifs par priorité, choisissez heures ouvrées ou calendaires pour chaque priorité, et ordonnez la liste pour que les politiques spécifiques viennent en premier. Ajoutez une automatisation pour les alertes de dépassement imminent.",
+              "Freshdesk : dans Admin > Workflows > SLA Policies, définissez des objectifs first response, every response et resolution par priorité, choisissez heures ouvrées ou calendaires, puis ajoutez des rappels et des escalades. Décidez dans les paramètres de statut des tickets quels statuts désactivent le minuteur SLA.",
+              "Jira Service Management : créez chaque SLA avec des conditions de démarrage, de pause et d'arrêt. Plusieurs conditions de démarrage se combinent avec OR, et le SLA s'arrête dès qu'une condition d'arrêt est remplie. Ajoutez ensuite des objectifs qui sélectionnent les demandes en JQL, définissez un délai cible et choisissez un calendrier.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Quel que soit l'outil, commencez par une politique et quelques priorités, faites-la tourner quelques semaines, puis comparez les délais réels de première réponse et de résolution aux objectifs avant de les resserrer.",
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab met en place l'automatisation liée aux SLA sur Zendesk, Freshdesk et Jira : un routage qui définit la priorité pour que la bonne politique s'applique, des alertes de dépassement vers Slack et des rapports SLA planifiés. Les tarifs ponctuels concernés sont Ticket Routing & Categorization (600–950 USD), Automated Reports (500–900 USD) et Custom Automation (1 200–2 000 USD). Les projets comprennent une documentation de base, 30 jours de support après le lancement et aucun frais caché, et la plupart prennent 1 à 3 semaines. Commencez par un appel d'audit gratuit de 30 minutes.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Quelle est la différence entre le délai de première réponse et le délai de réponse suivante ?",
+        a: "Le délai de première réponse mesure l'attente de la première réponse d'un agent après la création d'un ticket. Le next reply time de Zendesk se mesure du plus ancien commentaire client sans réponse jusqu'au commentaire public suivant d'un agent : il s'applique donc tout au long de la conversation.",
+      },
+      {
+        q: "Les SLA doivent-ils utiliser les heures ouvrées ou les heures calendaires ?",
+        a: "Utilisez les heures ouvrées si votre équipe travaille selon des horaires définis et que les clients le savent, et les heures calendaires pour les priorités où vous promettez une couverture jour et nuit. Zendesk et Freshdesk vous laissent choisir par politique, et Jira Service Management utilise un calendrier que vous attribuez à chaque objectif.",
+      },
+      {
+        q: "Le chronomètre SLA s'arrête-t-il quand un ticket est en Pending ?",
+        a: "Cela dépend de l'outil et de l'indicateur. Freshdesk met en pause les minuteurs SLA en Pending. Dans Zendesk, le requester wait time et l'agent work time se mettent en pause en Pending, tandis que le total resolution time continue de tourner jusqu'à la résolution du ticket.",
+      },
+      {
+        q: "Zendesk peut-il m'alerter au moment exact où un SLA est dépassé ?",
+        a: "Non. Les alertes de dépassement imminent de Zendesk utilisent des automatisations, qui s'exécutent une fois par heure : une notification peut donc arriver jusqu'à une heure avant ou après le dépassement.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Defining SLA policies",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408829459866-Defining-SLA-policies",
+      },
+      {
+        label: "Zendesk Help Center — About SLA policies and how they work",
+        url: "https://support.zendesk.com/hc/en-us/articles/5600997516058-About-SLA-policies-and-how-they-work",
+      },
+      {
+        label: "Zendesk Help Center — Workflow: How to alert your team to tickets nearing an SLA breach",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408820131994-Workflow-How-to-alert-your-team-to-tickets-nearing-an-SLA-breach",
+      },
+      {
+        label: "Freshdesk Support — Understanding SLA Policies",
+        url: "https://support.freshdesk.com/support/solutions/articles/37626-understanding-sla-policies",
+      },
+      {
+        label: "Freshdesk Support — Setting SLA targets for every response",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000001634-setting-sla-targets-for-every-response",
+      },
+      {
+        label: "Freshdesk Support — Customizing your ticket statuses",
+        url: "https://support.freshdesk.com/en/support/articles/37600-customizing-your-ticket-statuses",
+      },
+      {
+        label: "Atlassian Support — Create service level agreements (SLAs) to manage goals",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/create-service-level-agreements-slas/",
+      },
+      {
+        label: "Atlassian Support — Set up SLA conditions",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-sla-conditions/",
+      },
+    ],
+    related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 5. Ticket deflection
+  // ---------------------------------------------------------------------------
+  {
+    key: "ticket-deflection",
+    slug: "deflexion-tickets",
+    category: "basics",
+    navLabel: "Déflexion des tickets",
+    primaryKeyword: "déflexion de tickets",
+    title: "Déflexion de tickets : définition, mesure et limites",
+    description:
+      "La déflexion de tickets expliquée : canaux de self-service concernés, mesure chez Zendesk, Freshdesk et Intercom, et sessions abandonnées qui gonflent le taux.",
+    h1: "Déflexion de tickets : ce que c'est et comment la mesurer honnêtement",
+    intro:
+      "On parle de déflexion de tickets quand un client résout sa question en self-service, par exemple grâce à un article du centre d'aide ou à un agent IA, au lieu de créer un ticket pour votre équipe. Les éditeurs de helpdesks la mesurent de façons très différentes, et la plupart de leurs mesures comptent comme déviés les clients qui sont simplement partis sans demander d'aide. Un taux de déflexion n'est utile qu'une fois que vous savez exactement ce qu'il compte et quelles demandes ne devraient jamais être déviées.",
+    keyFacts: [
+      "Le self-service score de Zendesk, aussi appelé ticket deflection ratio, compare l'utilisation du centre d'aide aux tickets créés sur la même période.",
+      "Zendesk enregistre une déflexion supposée (assumed deflection) quand un visiteur du centre d'aide ne soumet aucun ticket mais ne confirme jamais avoir trouvé une réponse.",
+      "Dans les rapports sur les agents IA de Zendesk, toute conversation qui ne se termine pas par une escalade compte comme déviée.",
+      "Intercom enregistre une résolution supposée (assumed resolution) quand un client part après la dernière réponse de Fin sans demander davantage d'aide.",
+      "Une enquête Gartner publiée en août 2024 a montré que seuls 14 % des problèmes de service client sont entièrement résolus en self-service.",
+    ],
+    sections: [
+      {
+        heading: "Où se produit la déflexion : les canaux de self-service",
+        blocks: [
+          {
+            type: "p",
+            text: "La déflexion se produit partout où un client peut trouver une réponse avant de joindre un agent. Chaque canal dévie les demandes d'une manière différente et laisse une trace différente dans vos données : il est donc utile de savoir ce que vous pouvez réellement mesurer pour chacun.",
+          },
+          {
+            type: "table",
+            caption: "Canaux de self-service qui dévient les tickets",
+            head: ["Canal", "Comment il dévie", "Ce que vous pouvez mesurer"],
+            rows: [
+              [
+                "Centre d'aide ou base de connaissances",
+                "Les clients cherchent ou parcourent des articles avant de vous contacter",
+                "Sessions ou utilisateurs du centre d'aide comparés aux tickets créés ; vues et votes sur les articles",
+              ],
+              [
+                "Suggestions d'articles sur le formulaire de contact",
+                "Le formulaire de demande suggère des articles pendant que le client décrit son problème",
+                "Zendesk enregistre une déflexion confirmée quand un article suggéré est sélectionné et qu'aucun ticket n'est soumis dans cette session",
+              ],
+              [
+                "Agent IA ou chatbot",
+                "Répond aux questions par chat, messagerie ou e-mail, et escalade vers une personne quand il ne peut pas aider",
+                "Conversations terminées sans escalade et, idéalement, résolutions confirmées par le client",
+              ],
+              [
+                "Aide contextuelle ou intégrée au produit",
+                "Un widget d'aide affiche des articles liés à la page ou à la fonctionnalité que le client utilise",
+                "Ouvertures du widget, vues d'articles et formulaires de contact envoyés depuis le widget",
+              ],
+              [
+                "Forum communautaire",
+                "Les clients se répondent entre eux, et les fils résolus continuent d'aider les visiteurs suivants",
+                "Difficile à relier directement aux tickets ; généralement suivi sous forme de fils avec une réponse acceptée",
+              ],
+            ],
+          },
+          {
+            type: "note",
+            text: "La déflexion est un effet secondaire d'un bon self-service, pas un objectif en soi. Un client qui obtient une réponse correcte en deux minutes, c'est une réussite. Un client qui abandonne, non, même si beaucoup de rapports comptent les deux de la même façon.",
+          },
+        ],
+      },
+      {
+        heading: "Comment les éditeurs définissent et mesurent la déflexion",
+        blocks: [
+          {
+            type: "p",
+            text: "Il n'existe pas de définition commune. Chaque helpdesk compte quelque chose de légèrement différent, c'est pourquoi les taux de déflexion de deux outils, ou des études de cas de deux éditeurs, ne sont pas directement comparables.",
+          },
+          {
+            type: "table",
+            caption: "Comment les éditeurs de helpdesks définissent la déflexion",
+            head: ["Éditeur et indicateur", "Ce qui est compté", "Points de vigilance"],
+            rows: [
+              [
+                "Self-service score de Zendesk (aussi appelé self-service ratio ou ticket deflection ratio)",
+                "L'utilisation du centre d'aide comparée aux tickets créés sur la même période. Dans le reporting Knowledge de Zendesk, le self-service ratio correspond aux sessions du centre d'aide divisées par les tickets soumis",
+                "C'est un ratio, pas un nombre de problèmes résolus, et les rapports de déflexion de Zendesk ne suivent que les tickets soumis via le formulaire de demande du centre d'aide",
+              ],
+              [
+                "Déflexion confirmée et supposée chez Zendesk",
+                "Confirmée : le visiteur a sélectionné un article suggéré sur le formulaire de demande et n'a soumis aucun ticket dans cette session. Supposée : le visiteur a utilisé le centre d'aide et n'a soumis aucun ticket, mais n'a pas confirmé avoir trouvé une réponse",
+                "La déflexion supposée est une déduction tirée du silence",
+              ],
+              [
+                "Taux de déflexion des agents IA de Zendesk",
+                "Toute conversation qui ne se termine pas par une escalade, y compris les escalades échouées et les conversations sans statut",
+                "Zendesk publie à côté des mesures plus strictes : les conversations gérées par l'agent IA et les résolutions automatisées vérifiées par un LLM",
+              ],
+              [
+                "Taux de déflexion des agents IA de Freshdesk",
+                "La part des conversations d'un sujet résolues par l'agent IA sans intervention humaine",
+                "La tendance de déflexion de l'Email AI Agent compte aussi les tickets qu'un agent humain a fermés après que le client a lu une réponse sans y répondre",
+              ],
+              [
+                "Résolution par Fin chez Intercom",
+                "Après la dernière réponse de Fin, le client confirme qu'elle l'a aidé (résolution confirmée) ou part sans demander davantage d'aide (résolution supposée)",
+                "Si le client revient dans la conversation pour obtenir plus d'aide, la résolution est retirée du décompte",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Deux tendances ressortent. D'abord, les indicateurs les plus larges, comme le taux de déflexion des agents IA de Zendesk, les déflexions supposées et les résolutions supposées d'Intercom, comptent le silence comme un succès. Ensuite, les indicateurs plus stricts ajoutent une forme de vérification : Zendesk ne compte une résolution automatisée que lorsqu'un contrôle par LLM confirme que la demande a été résolue sans humain, et les conversations qui échouent à ce contrôle ne consomment pas de résolution automatisée.",
+          },
+        ],
+      },
+      {
+        heading: "Le problème des sessions abandonnées",
+        blocks: [
+          {
+            type: "p",
+            text: "La plupart des indicateurs de déflexion ne savent pas distinguer un client qui a trouvé la réponse d'un client qui a abandonné. Un visiteur qui lit un article, ne le comprend pas, puis vous appelle est une déflexion supposée dans le rapport du centre d'aide et un ticket dans la file téléphonique. Un chat qui se termine parce que le client a fermé l'onglet ressemble à un chat terminé parce que le problème est résolu. Zendesk note que même sa catégorie plus stricte des conversations gérées par l'agent IA peut inclure des conversations où les clients ont décroché avant l'escalade ou étaient mécontents de la résolution.",
+          },
+          {
+            type: "p",
+            text: "Le succès réel du self-service est généralement plus faible que ne le suggèrent les tableaux de bord. Dans une enquête Gartner menée auprès de 5 728 clients et publiée en août 2024, seuls 14 % des problèmes de service client ont été entièrement résolus en self-service, et seulement 36 % même lorsque les clients décrivaient le problème comme très simple.",
+          },
+          {
+            type: "p",
+            text: "Pour que vos chiffres de déflexion restent honnêtes :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Présentez séparément les déflexions confirmées et supposées, et traitez le chiffre supposé comme une borne haute.",
+              "Suivez les contacts répétés. Un client qui vous joint sur un autre canal le lendemain d'une session déviée n'a pas été dévié.",
+              "Surveillez les contacts par client ou par commande. Si la déflexion augmente mais que les contacts par client ne baissent pas, la déflexion n'existe que sur le papier.",
+              "Lisez chaque mois un échantillon de transcriptions de bot comptées comme déviées pour voir comment les conversations se sont réellement terminées.",
+              "Associez la déflexion à un indicateur de qualité, comme le CSAT des conversations avec le bot ou les tickets rouverts.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ce qui ne doit pas être dévié",
+        blocks: [
+          {
+            type: "p",
+            text: "Certaines demandes doivent parvenir à une personne le plus vite possible, même si un bot pourrait techniquement répondre. Les dévier vous épargne un ticket et vous coûte un client.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Les clients qui demandent explicitement un humain. Rendez ce chemin visible au lieu de le cacher derrière plusieurs échanges ratés avec le bot.",
+              "Les problèmes de sécurité, comme les comptes compromis, les soupçons de fraude ou les prélèvements inattendus.",
+              "Les litiges de facturation, les remboursements et les résiliations, où une réponse erronée ou dilatoire a un coût direct.",
+              "Les réclamations et les escalades, surtout les contacts répétés sur le même problème.",
+              "Les demandes juridiques et de protection des données, comme les demandes d'accès ou de suppression de données personnelles, qui exigent une réponse documentée.",
+              "Les problèmes urgents ou liés à la sécurité des personnes, et les clients qui semblent en détresse ou vulnérables.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Les clients attendent cette porte de sortie. Dans une enquête Gartner menée auprès de 3 566 clients en février et mars 2026 et publiée en août 2026, 87 % ont déclaré que les entreprises qui utilisent l'IA générative (GenAI) pour le service client doivent donner accès à un agent humain. Dans le même communiqué, Gartner conseille de ne pas faire de l'IA générative une première étape obligatoire, et de ne tenter une résolution que lorsque la confiance est élevée, avec un chemin clair vers une personne.",
+          },
+          {
+            type: "p",
+            text: "En pratique, cela signifie des règles de routage qui envoient ces demandes directement dans la bonne file, et un transfert du bot vers un humain qui transmet toute la conversation pour que le client n'ait rien à répéter.",
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab construit des chatbots IA qui répondent aux questions courantes sur votre site web, WhatsApp, Telegram, Facebook Messenger ou Instagram, et transmettent tout le reste à votre équipe dans Zendesk, Freshdesk ou vos outils existants. Un Starter Chat Bot coûte 350–450 USD et un Standard Chat Bot couvrant 3 à 5 canaux coûte 500–650 USD, en paiement unique. Automated Reports (500–900 USD) peut suivre la déflexion à côté des contacts répétés et des réouvertures, pour que vous en voyiez l'effet réel. Chaque projet comprend une documentation de base, 30 jours de support après le lancement et aucun frais caché, et la plupart des mises en place prennent 1 à 3 semaines. Un appel d'audit gratuit de 30 minutes est un bon moyen de décider ce qu'il faut automatiser et ce qu'il faut garder humain.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Quelle est la différence entre déflexion et résolution de tickets ?",
+        a: "La déflexion signifie que le client n'a pas créé de ticket ni joint d'agent ; la résolution signifie que le problème a réellement été résolu. Le taux de déflexion des agents IA de Zendesk compte toute conversation qui ne s'est pas terminée par une escalade, tandis que ses résolutions automatisées exigent en plus un contrôle par LLM confirmant que la demande a été résolue.",
+      },
+      {
+        q: "Qu'est-ce qu'une déflexion supposée (assumed deflection) dans Zendesk ?",
+        a: "Une session du centre d'aide où le visiteur n'a ni demandé d'aide ni soumis de ticket, mais n'a pas non plus confirmé avoir trouvé une réponse. Une déflexion confirmée exige que le visiteur sélectionne un article suggéré sur le formulaire de demande, puis ne soumette aucun ticket dans cette session.",
+      },
+      {
+        q: "Comment Zendesk calcule-t-il le self-service ratio ?",
+        a: "Il compare l'utilisation du centre d'aide aux tickets de la même période. Dans le reporting Knowledge de Zendesk, le self-service ratio correspond aux sessions du centre d'aide divisées par les tickets soumis, et les rapports de déflexion ne suivent que les tickets soumis via le formulaire de demande du centre d'aide.",
+      },
+      {
+        q: "Intercom compte-t-il une conversation Fin comme résolue si le client part simplement ?",
+        a: "Oui. Si le client quitte la conversation après la dernière réponse de Fin sans demander davantage d'aide, Intercom enregistre une résolution supposée. Si le client confirme que la réponse l'a aidé, il s'agit d'une résolution confirmée.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Getting started with self-service, Part 6: Tracking essential self-service metrics",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408894139930-Getting-started-with-self-service-Part-6-Tracking-essential-self-service-metrics",
+      },
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Knowledge",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155064090-Metrics-and-attributes-for-Zendesk-Knowledge",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the difference between deflection, AI agent-handled, automated resolution, and custom resolution rates",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756478106-Understanding-the-difference-between-deflection-AI-agent-handled-automated-resolution-and-custom-resolution-rates",
+      },
+      {
+        label: "Freshdesk Support — Monitor and Analyze AI Agent Performance Metrics in Freshdesk",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011716-monitor-ai-agent-performance",
+      },
+      {
+        label: "Freshdesk Support — Manage, Test & Troubleshoot Your Email AI Agent",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011217-use-and-manage-the-email-ai-agent",
+      },
+      {
+        label: "Intercom Help — Fin AI Agent outcomes",
+        url: "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+      },
+      {
+        label: "Gartner — Survey Finds Only 14% of Customer Service Issues Are Fully Resolved in Self-Service (August 2024)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service",
+      },
+      {
+        label: "Gartner — Survey Finds 87% of Customers Say Companies Using GenAI for Customer Service Must Provide Access to a Human Agent (August 2026)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2026-08-04-gartner-survey-finds-87-percent-of-customers-say-companies-using-genai-for-customer-service-must-provide-access-to-a-human-agent0",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
+    updated: "2026-10-19",
+  },
 ];
