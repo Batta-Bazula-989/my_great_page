@@ -4,7 +4,7 @@ const it: Dictionary = {
   meta: {
     homeTitle: "Automazione AI dell'assistenza clienti: chatbot e voice bot | TascaLab",
     homeDescription:
-      "Chatbot AI, voice bot, smistamento ticket Zendesk/Freshdesk/Jira e report automatici negli strumenti che usi già. Freelance, prezzi fissi, audit gratis di 30 min.",
+      "Chatbot AI, voice bot, smistamento ticket Zendesk/Freshdesk/Jira e report automatici nei tool che usi già. Freelance, prezzi fissi, audit gratis di 30 min.",
     noscriptHeading: "Automazione AI dell'assistenza clienti: chatbot, voice bot e smistamento dei ticket",
     noscriptText:
       "TascaLab realizza chatbot AI, voice bot, smistamento dei ticket e report automatici su Zendesk, Freshdesk, Jira e Slack. Scrivi a romanzakharenko.r@gmail.com per prenotare un audit gratuito di 30 minuti.",

@@ -952,4 +952,199 @@ export const channelPages: TranslatedPage[] = [
     ],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 6. SMS
+  // ---------------------------------------------------------------------------
+  {
+    key: "sms-customer-support-automation",
+    slug: "automazione-sms-assistenza-clienti",
+    category: "channels",
+    navLabel: "Automazione SMS per il supporto",
+    primaryKeyword: "automazione SMS per assistenza clienti",
+    title: "Automazione SMS per assistenza clienti: webhook, 10DLC, STOP",
+    description:
+      "Come funziona l'automazione SMS per l'assistenza: webhook in entrata, A2P 10DLC e verifica toll-free, opt-out con STOP, limiti dei segmenti e ticket nell'helpdesk.",
+    h1: "Automazione SMS per l'assistenza clienti: come funziona e cosa configurare",
+    intro:
+      "L'automazione SMS per l'assistenza clienti collega un numero di telefono aziendale a un codice che legge gli SMS in arrivo, risponde alle domande semplici e trasforma tutto il resto in ticket. Con un provider come Twilio Programmable Messaging, ogni SMS in arrivo viene inviato al tuo webhook e il tuo codice risponde tramite l'API. Negli Stati Uniti devi anche registrare il numero e rispettare gli opt-out con STOP, altrimenti i tuoi messaggi vengono bloccati.",
+    keyFacts: [
+      "Twilio invia ogni SMS in arrivo all'URL del tuo webhook con campi come From, To, Body e MessageSid.",
+      "Secondo Twilio, gli operatori statunitensi trattano qualsiasi messaggio inviato da una piattaforma come Twilio come traffico application-to-person (A2P).",
+      "I messaggi da numeri 10DLC statunitensi non registrati vengono bloccati con l'errore 30034, anche mentre la registrazione è in attesa.",
+      "Twilio gestisce per impostazione predefinita STOP e le altre parole chiave standard di opt-out sui numeri long code.",
+      "Un segmento SMS GSM-7 contiene 160 caratteri; un segmento UCS-2, necessario per le emoji, ne contiene 70.",
+    ],
+    sections: [
+      {
+        heading: "Come funziona l'automazione SMS per l'assistenza",
+        blocks: [
+          {
+            type: "p",
+            text: "Ottieni un numero di telefono da un provider SMS, punti il suo webhook per i messaggi in arrivo verso il tuo codice e invii le risposte tramite l'API del provider. Con Twilio Programmable Messaging, ogni SMS inviato al tuo numero diventa una richiesta HTTP all'URL del tuo webhook. La richiesta contiene il mittente in From, il tuo numero in To, il testo del messaggio in Body (fino a 1.600 caratteri) e un MessageSid di 34 caratteri che puoi usare per recuperare il messaggio in seguito tramite la REST API.",
+          },
+          {
+            type: "p",
+            text: "Il tuo endpoint risponde con TwiML, il formato XML di Twilio che indica a Twilio cosa fare dopo, per esempio inviare una risposta. Se il tuo helpdesk risponderà più tardi e il bot non ha nulla da dire, restituisci un elemento Response vuoto, così Twilio accetta il messaggio senza rispondere.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Il cliente invia un SMS al tuo numero di assistenza.",
+              "Twilio invia il messaggio al tuo webhook.",
+              "Il tuo bot risponde subito a una domanda comune o chiede dati come un numero d'ordine.",
+              "Tutto ciò che il bot non riesce a risolvere diventa un ticket nel tuo helpdesk, associato al numero di telefono del cliente.",
+              "Le risposte degli operatori tornano al cliente come SMS dallo stesso numero.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Registrazione negli Stati Uniti: A2P 10DLC e Toll-Free Verification",
+        blocks: [
+          {
+            type: "p",
+            text: "La documentazione di Twilio afferma che gli operatori statunitensi considerano application-to-person (A2P) qualsiasi messaggio inviato da una piattaforma come Twilio. Se invii SMS o MMS a numeri statunitensi da un long code standard a 10 cifre (10DLC), devi registrarti ad A2P 10DLC. La registrazione ha due parti: un brand, che dice agli operatori chi sta inviando, e una campaign, che descrive il caso d'uso e il modo in cui le persone danno il consenso, lo revocano e ottengono aiuto. Una volta approvata la campaign, aggiungi il tuo numero al Messaging Service collegato.",
+          },
+          {
+            type: "p",
+            text: "La registrazione non è una pratica burocratica facoltativa. Twilio blocca i messaggi diretti negli Stati Uniti dai numeri 10DLC non associati a una campaign approvata, compresi i numeri la cui registrazione è ancora in attesa, e le sue tariffe di messaggistica si applicano comunque ai messaggi bloccati. I numeri toll-free seguono un processo separato chiamato Toll-Free Verification.",
+          },
+          {
+            type: "table",
+            caption: "Cosa richiede Twilio prima di inviare SMS a clienti statunitensi",
+            head: ["Tipo di mittente", "Requisito", "Cosa succede senza"],
+            rows: [
+              ["Long code 10DLC", "Brand e campaign A2P 10DLC approvati, con il numero nel Messaging Service della campaign", "I messaggi vengono bloccati con l'errore 30034"],
+              ["10DLC, ditta individuale (sole proprietor)", "Stessa registrazione, ma una campaign sole proprietor può avere un solo numero 10DLC registrato", "Gli altri numeri nel Messaging Service restano non registrati"],
+              ["Numero toll-free", "Toll-Free Verification approvata", "I messaggi verso numeri mobili statunitensi e canadesi falliscono con l'errore 30032"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Parole chiave STOP, opt-out e consenso",
+        blocks: [
+          {
+            type: "p",
+            text: "Sui numeri long code, Twilio gestisce per te le parole chiave standard di opt-out in inglese. La sua documentazione elenca STOP, UNSUBSCRIBE, END, QUIT, STOPALL, REVOKE, OPTOUT e CANCEL, riconosciute indipendentemente da maiuscole e minuscole. Twilio invia una conferma standard e i tuoi messaggi smettono di raggiungere quel numero finché il cliente non invia START. Sui numeri toll-free, solo START e UNSTOP riattivano l'iscrizione di un cliente. Advanced Opt-Out, disattivato per impostazione predefinita, ti permette di personalizzare parole chiave e risposte su un Messaging Service, anche se le parole chiave riservate come START non si possono rimuovere.",
+          },
+          {
+            type: "p",
+            text: "Assicurati che il tuo bot non invii più nulla a un cliente che ha revocato il consenso. Anche le norme statunitensi coprono questo aspetto. L'ordinanza della FCC del 2024 (FCC 24-24) stabilisce che i consumatori possono revocare il consenso a robocall e robotext con qualsiasi mezzo ragionevole, che una risposta come stop, quit, end, revoke, opt out, cancel o unsubscribe conta come ragionevole e che le revoche devono essere rispettate entro un tempo ragionevole, non superiore a dieci giorni lavorativi. Nel 2026 la FCC ha adottato un'ulteriore ordinanza (FCC 26-67) che consente a chi effettua le comunicazioni di designare un unico metodo di revoca automatizzato, come un SMS di risposta con parole standard quali stop, quit o unsubscribe, a condizione che il metodo sia indicato chiaramente, e chiede osservazioni sulla riduzione del termine. Verifica quale versione delle regole è in vigore al momento del lancio.",
+          },
+          {
+            type: "note",
+            text: "Questa è una sintesi del testo della norma FCC, non una consulenza legale. Verifica le regole vigenti con il tuo consulente legale prima di inviare SMS automatici a clienti statunitensi.",
+          },
+        ],
+      },
+      {
+        heading: "Lunghezza dei messaggi e segmenti",
+        blocks: [
+          {
+            type: "p",
+            text: "Gli SMS vengono inviati in segmenti, e ogni segmento viene fatturato, quindi la lunghezza delle risposte del tuo bot incide sui costi. La documentazione di Twilio indica questi limiti:",
+          },
+          {
+            type: "table",
+            caption: "Dimensioni dei segmenti SMS secondo la documentazione di Twilio",
+            head: ["Codifica", "Messaggio singolo", "Per segmento se suddiviso", "Quando si usa"],
+            rows: [
+              ["GSM-7", "160 caratteri", "153 caratteri", "Testo che usa solo il set di caratteri GSM-7"],
+              ["UCS-2", "70 caratteri", "67 caratteri", "Qualsiasi messaggio con almeno un carattere fuori da GSM-7, come un'emoji"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Un solo carattere non GSM-7 fa passare l'intero messaggio a UCS-2, non solo quel carattere. Emoji, virgolette tipografiche e trattini lunghi sono cause comuni, e questo conta quando un bot copia le risposte dagli articoli dell'help center. Lo Smart Encoding di Twilio può sostituire alcuni di questi caratteri con equivalenti GSM-7. Il testo di un messaggio in uscita può arrivare a 1.600 caratteri, ma di solito funzionano meglio risposte brevi con un link all'articolo completo.",
+          },
+        ],
+      },
+      {
+        heading: "Collegare gli SMS al tuo helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk offre gli SMS come Zendesk Text. Un SMS inviato al tuo numero Text crea automaticamente un ticket, e le risposte pubbliche su quel ticket tornano al cliente come SMS. Zendesk precisa inoltre che gli SMS inviati a consumatori statunitensi da numeri non registrati verranno bloccati, quindi anche lì si applica la registrazione A2P 10DLC.",
+          },
+          {
+            type: "p",
+            text: "Se il tuo helpdesk non ha un canale SMS, o ti serve una logica che quello integrato non offre, può occuparsene un piccolo servizio intermedio. Riceve il webhook di Twilio, esegue il bot, crea o aggiorna i ticket tramite l'API dell'helpdesk e rimanda le risposte degli operatori tramite Twilio.",
+          },
+        ],
+      },
+      {
+        heading: "Come può aiutarti TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "I canali per bot indicati da TascaLab sono sito web, telefono, WhatsApp, Telegram, Facebook Messenger e Instagram. Gli SMS non sono in quell'elenco, ma altri canali con un'API possono essere valutati durante la call di audit gratuita di 30 minuti. TascaLab lavora sopra gli strumenti che usi già, come Zendesk, Freshdesk, Jira e Slack, tramite API, webhook e Make o n8n. Uno Starter Chat Bot costa 350–450 USD per uno o due canali e uno Standard Chat Bot 500–650 USD per tre-cinque canali. Ogni progetto include 30 giorni di supporto dopo il lancio, una documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Serve la registrazione A2P 10DLC per un bot di assistenza via SMS?",
+        a: "Sì, se invii SMS o MMS a numeri statunitensi da un long code a 10 cifre tramite una piattaforma come Twilio. Twilio blocca i messaggi diretti negli Stati Uniti dai numeri 10DLC non registrati con l'errore 30034, anche mentre la registrazione è in attesa.",
+      },
+      {
+        q: "Cosa succede quando un cliente invia STOP?",
+        a: "Sui numeri long code Twilio gestisce per impostazione predefinita STOP e le altre parole chiave standard di opt-out. Invia una conferma e i tuoi messaggi smettono di raggiungere quel numero finché il cliente non invia START.",
+      },
+      {
+        q: "Perché un messaggio breve è stato conteggiato come due segmenti?",
+        a: "Probabilmente conteneva un carattere fuori da GSM-7, come un'emoji o una virgoletta tipografica. Questo fa passare l'intero messaggio a UCS-2, che in un singolo segmento contiene solo 70 caratteri.",
+      },
+      {
+        q: "Posso usare un numero toll-free invece di un numero 10DLC?",
+        a: "Sì, ma serve la Toll-Free Verification. Finché non è approvata, i messaggi verso numeri mobili statunitensi e canadesi falliscono con l'errore 30032.",
+      },
+    ],
+    sources: [
+      {
+        label: "Twilio Docs — Twilio's request to your incoming message Webhook URL",
+        url: "https://www.twilio.com/docs/messaging/guides/webhook-request",
+      },
+      {
+        label: "Twilio Docs — Programmable Messaging and A2P 10DLC",
+        url: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
+      },
+      {
+        label: "Twilio Docs — Error 30034: US A2P 10DLC - Message from an Unregistered Number",
+        url: "https://www.twilio.com/docs/api/errors/30034",
+      },
+      {
+        label: "Twilio Docs — Error 30032: Toll-Free Number Has Not Been Verified",
+        url: "https://www.twilio.com/docs/api/errors/30032",
+      },
+      {
+        label: "Twilio Docs — Customize users' opt-in and opt-out experience with Advanced Opt-Out",
+        url: "https://www.twilio.com/docs/messaging/tutorials/advanced-opt-out",
+      },
+      {
+        label: "Twilio Docs — How long can a message be?",
+        url: "https://www.twilio.com/docs/glossary/what-sms-character-limit",
+      },
+      {
+        label: "FCC — FCC 24-24 Report and Order on revoking consent under the TCPA",
+        url: "https://docs.fcc.gov/public/attachments/FCC-24-24A1.pdf",
+      },
+      {
+        label: "FCC — FCC 26-67 Report and Order on revocation of consent (2026)",
+        url: "https://docs.fcc.gov/public/attachments/FCC-26-67A1.pdf",
+      },
+      {
+        label: "Zendesk Help Center — Getting started with Text",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408823788314-Getting-started-with-Text",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "zendesk-automation",
+      "omnichannel-customer-support",
+    ],
+    updated: "2026-10-19",
+  },
 ];
