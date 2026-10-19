@@ -4,7 +4,7 @@ const es: Dictionary = {
   meta: {
     homeTitle: "Atención al cliente con IA: chatbots, bots de voz y tickets | TascaLab",
     homeDescription:
-      "Automatización freelance del soporte: chatbots y bots de voz con IA, enrutamiento de tickets en Zendesk/Freshdesk/Jira e informes automáticos. Precio fijo, auditoría gratis de 30 min.",
+      "Chatbots y bots de voz con IA, enrutamiento de tickets e informes automáticos en tu Zendesk/Freshdesk/Jira. Freelance, precio fijo, auditoría gratis de 30 min.",
     noscriptHeading: "Automatización de la atención al cliente con IA: chatbots, bots de voz y enrutamiento de tickets",
     noscriptText:
       "TascaLab crea chatbots con IA, bots de voz, enrutamiento de tickets e informes automáticos sobre Zendesk, Freshdesk, Jira y Slack. Escribe a romanzakharenko.r@gmail.com para reservar una auditoría gratuita de 30 minutos.",
@@ -299,7 +299,7 @@ const es: Dictionary = {
   resources: {
     metaTitle: "Recursos de automatización del soporte | TascaLab",
     metaDescription:
-      "Guías sobre chatbots de soporte con IA, enrutamiento de tickets, automatización de Zendesk, Freshdesk y Jira, bots de WhatsApp y Telegram, métricas, SLA y normas UE.",
+      "Guías sobre chatbots de soporte con IA, enrutamiento de tickets, Zendesk, Freshdesk y Jira, bots de WhatsApp y Telegram, métricas, SLA y normas de la UE.",
     eyebrow: "Recursos",
     title: "Recursos sobre automatización de la atención al cliente",
     intro:
