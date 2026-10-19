@@ -1,14 +1,26 @@
+import type { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { categories, pagesInCategory } from "@/content";
+
+// Only one menu open at a time. `name` gives this natively in current browsers;
+// the toggle handler covers browsers that don't support grouped <details> yet.
+const closeOtherMenus = (e: SyntheticEvent<HTMLDetailsElement>) => {
+  const opened = e.currentTarget;
+  if (!opened.open) return;
+  opened
+    .closest("nav")
+    ?.querySelectorAll<HTMLDetailsElement>("details[open]")
+    .forEach((d) => d !== opened && (d.open = false));
+};
 
 const Footer = () => (
   <footer className="w-full border-t border-white/10">
     <nav aria-label="Resources" className="container px-4 py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-2">
         {categories.map((category) => (
-          <details key={category.id} className="group py-2">
+          <details key={category.id} name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary [&::-webkit-details-marker]:hidden">
               {category.label}
               <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
