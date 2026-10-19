@@ -1147,4 +1147,197 @@ export const channelPages: TranslatedPage[] = [
     ],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 7. Viber
+  // ---------------------------------------------------------------------------
+  {
+    key: "viber-chatbot-for-customer-support",
+    slug: "chatbot-viber-service-client",
+    category: "channels",
+    navLabel: "Chatbot Viber pour le support",
+    primaryKeyword: "chatbot Viber service client",
+    title: "Chatbot Viber service client : Bot API et règles",
+    description:
+      "Comment fonctionne un chatbot Viber de service client : jeton d'authentification, set_webhook, callbacks, destinataires autorisés, claviers et transfert.",
+    h1: "Chatbot Viber pour le service client : fonctionnement et mise en place",
+    intro:
+      "Un chatbot Viber de service client est un compte bot connecté à la Viber REST Bot API. Votre serveur enregistre un webhook avec set_webhook, reçoit des callbacks lorsque les clients ouvrent la discussion ou envoient des messages, et répond avec send_message à l'aide du jeton d'authentification du bot. Les bots Viber ne peuvent continuer à écrire qu'aux utilisateurs abonnés : chaque conversation de support commence donc à l'initiative du client.",
+    keyFacts: [
+      "Chaque requête API transmet le jeton d'authentification du bot dans l'en-tête X-Viber-Auth-Token.",
+      "Les URL de webhook doivent utiliser SSL ; Viber ne prend pas en charge les certificats auto-signés.",
+      "Les callbacks message, subscribed et unsubscribed sont obligatoires et ne peuvent pas être filtrés.",
+      "Un événement conversation_started autorise un seul message de bienvenue, pas un échange continu.",
+      "À la date d'octobre 2026, la documentation développeurs de Viber indique que les bots ne peuvent être créés que sous conditions commerciales.",
+    ],
+    sections: [
+      {
+        heading: "Comment fonctionne un bot de support Viber",
+        blocks: [
+          {
+            type: "p",
+            text: "Votre bot est identifié par un jeton d'authentification. Chaque requête vers la REST Bot API doit l'inclure dans un en-tête HTTP appelé X-Viber-Auth-Token ; sans lui, vous obtenez une erreur missing_auth_token. Vous enregistrez un webhook HTTPS public avec set_webhook, Viber y envoie des callbacks au fil des événements, et vous répondez avec send_message.",
+          },
+          {
+            type: "p",
+            text: "Lorsque vous appelez set_webhook, Viber vérifie votre URL en lui envoyant un callback avec l'événement webhook. La vérification ne réussit que si votre serveur répond avec le statut HTTP 200. Une réponse set_webhook réussie a le statut 0 ; une URL injoignable renvoie le statut 1, invalidUrl.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Le client ouvre votre bot depuis un lien sur votre site web, et Viber envoie un callback conversation_started.",
+              "Votre bot envoie un message de bienvenue unique avec des boutons pour les sujets courants.",
+              "Le client répond, ce qui l'abonne, et votre bot reçoit un callback message.",
+              "Le bot répond aux questions simples et collecte les informations pour tout le reste.",
+              "Les cas non résolus deviennent des tickets dans le helpdesk, et les réponses des agents repartent via send_message.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Webhooks et événements callback",
+        blocks: [
+          {
+            type: "p",
+            text: "L'URL du webhook doit utiliser SSL avec un certificat valide émis par une autorité de certification de confiance. La liste facultative event_types de set_webhook détermine les callbacks que vous recevez, mais certains ne peuvent pas être désactivés.",
+          },
+          {
+            type: "table",
+            caption: "Callbacks Viber qu'un bot de support traite",
+            head: ["Événement", "Quand il arrive", "Peut-on le filtrer ?"],
+            rows: [
+              ["webhook", "Juste après set_webhook, pour vérifier votre URL", "Non, il fait partie de la configuration"],
+              ["conversation_started", "Un utilisateur ouvre une discussion individuelle avec le bot, par exemple via un deep link", "Oui"],
+              ["subscribed", "Un utilisateur s'abonne au bot (pas lorsque l'abonnement résulte d'un premier message)", "Non"],
+              ["unsubscribed", "Un utilisateur se désabonne ; le bot ne peut plus lui écrire", "Non"],
+              ["message", "Un utilisateur envoie un message au bot", "Non"],
+              ["delivered, seen, failed", "Mises à jour de statut des messages envoyés par le bot", "Oui"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Viber signe chaque callback. L'en-tête X-Viber-Content-Signature contient un HMAC-SHA256 du corps de la requête, calculé avec votre jeton d'authentification comme clé : vérifiez-le avant tout traitement. Si votre webhook ne renvoie pas HTTP 200, Viber renvoie le callback plusieurs fois : assurez-vous donc qu'un callback répété ne crée pas de ticket en double.",
+          },
+        ],
+      },
+      {
+        heading: "À qui votre bot peut écrire",
+        blocks: [
+          {
+            type: "p",
+            text: "Cette règle façonne tout parcours de support sur Viber : votre bot ne peut envoyer des messages qu'aux utilisateurs abonnés. Un événement conversation_started n'est pas un abonnement. Il autorise un seul message de bienvenue qu'il convient, selon Viber, d'envoyer dans les 5 minutes via send_message, en incluant le paramètre receiver. L'événement se déclenche aussi pour les utilisateurs déjà abonnés.",
+          },
+          {
+            type: "p",
+            text: "Un utilisateur s'abonne en envoyant un message au bot. Ce premier message déclenche un callback message, et non un callback subscribed : enregistrez donc l'ID utilisateur à partir de l'un ou l'autre événement. Les utilisateurs peuvent se désabonner à tout moment, ce qui bloque immédiatement tout nouveau message du bot, et vous recevez un callback unsubscribed avec leur ID. S'ils se réabonnent, tout contexte ou tracking_data de la conversation est supprimé.",
+          },
+          {
+            type: "p",
+            text: "Pour démarrer des conversations depuis votre site web, utilisez un deep link de la forme viber://pa?chatURI= suivi de l'URI de votre bot. L'ajout d'un paramètre context transmet une valeur, comme la page d'où vient le client, dans le callback conversation_started. Viber signale que certains navigateurs peuvent ne pas reconnaître le deep link. Pour les avis de panne, l'API broadcast envoie à 300 destinataires maximum par requête, et toute personne non abonnée est renvoyée en échec (failed).",
+          },
+        ],
+      },
+      {
+        heading: "Envoyer des messages et des claviers",
+        blocks: [
+          {
+            type: "p",
+            text: "Une requête send_message indique le destinataire (receiver, l'ID utilisateur), le type de message et un objet sender dont le name est obligatoire et limité à 28 caractères. Les messages texte peuvent atteindre 7 000 caractères. Deux champs facultatifs sont utiles pour le support : tracking_data (jusqu'à 4 096 caractères), que Viber renvoie avec la réponse de l'utilisateur et qui peut donc contenir un ID de ticket ou l'étape en cours d'un parcours ; et min_api_version, la version minimale de l'API client nécessaire pour le message, qui vaut 1 par défaut.",
+          },
+          {
+            type: "p",
+            text: "Des claviers peuvent être joints à tout type de message via le champ keyboard. Chaque bouton a un ActionType :",
+          },
+          {
+            type: "ul",
+            items: [
+              "reply (par défaut) envoie la réponse du bouton au bot.",
+              "open-url ouvre une URL, dans Viber ou dans un navigateur externe selon OpenURLType, et envoie l'URL au bot.",
+              "location-picker, share-phone et none sont également disponibles.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Deux réglages de clavier aident les parcours de support. InputFieldState défini sur hidden supprime le champ de saisie lorsque vous voulez que les clients choisissent un bouton, et DefaultHeight défini sur true maintient le clavier à la hauteur du clavier natif.",
+          },
+        ],
+      },
+      {
+        heading: "Conditions commerciales et transfert vers le helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "À la date d'octobre 2026, la documentation développeurs de Viber indique que « since 5.02.24, Viber bots can only be created on commercial terms » (depuis le 5.02.24, les bots Viber ne peuvent être créés que sous conditions commerciales), les demandes étant adressées à Rakuten Viber directement ou via ses partenaires officiels vérifiés. Demandez les tarifs actuels à Viber ou à un partenaire avant de développer. La réponse de send_message inclut aussi un champ de statut de facturation qui montre comment chaque message a été catégorisé pour la facturation.",
+          },
+          {
+            type: "p",
+            text: "Pour le transfert vers les agents, Zendesk cite Viber parmi les canaux disponibles via Sunshine Conversations. L'ajout de canaux Sunshine Conversations à l'Agent Workspace nécessite Suite Professional ou supérieur, et vous devez aussi utiliser la messagerie et l'Agent Workspace. Les messages deviennent alors des tickets, et les réponses des agents repartent vers le client. À défaut, le schéma habituel est un petit service qui crée des tickets via l'API de votre helpdesk et envoie les réponses des agents avec send_message.",
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "Les canaux de bot proposés par TascaLab sont le site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Viber n'en fait pas partie, mais d'autres canaux dotés d'une API peuvent être étudiés lors de l'appel d'audit gratuit de 30 minutes. TascaLab construit par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira et Slack, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot coûte 350–450 USD pour un ou deux canaux et un Standard Chat Bot 500–650 USD pour trois à cinq. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Un bot Viber peut-il écrire en premier aux clients ?",
+        a: "Seulement aux utilisateurs abonnés. Un événement conversation_started autorise un seul message de bienvenue, mais les messages suivants exigent que l'utilisateur s'abonne, ce qui se produit lorsqu'il envoie un message au bot.",
+      },
+      {
+        q: "Pourquoi set_webhook échoue-t-il ?",
+        a: "Viber vérifie votre URL avec un callback webhook et ne l'accepte que si votre serveur renvoie HTTP 200. L'URL doit aussi utiliser SSL avec un certificat émis par une autorité de confiance ; les certificats auto-signés ne sont pas pris en charge.",
+      },
+      {
+        q: "Comment mon bot peut-il savoir d'où vient un client ?",
+        a: "Ajoutez un paramètre context à votre deep link viber://pa?chatURI=. Viber le transmet à votre bot dans le callback conversation_started.",
+      },
+      {
+        q: "Puis-je encore créer un bot Viber gratuit ?",
+        a: "À la date d'octobre 2026, la documentation développeurs de Viber indique que les bots ne peuvent être créés que sous conditions commerciales, via Rakuten Viber directement ou ses partenaires officiels vérifiés.",
+      },
+      {
+        q: "Zendesk prend-il en charge Viber ?",
+        a: "Oui, via Sunshine Conversations. Zendesk indique que ses canaux Sunshine Conversations dans l'Agent Workspace nécessitent Suite Professional ou supérieur.",
+      },
+    ],
+    sources: [
+      {
+        label: "Viber Developers — Viber REST API",
+        url: "https://developers.viber.com/docs/api/rest-bot-api/",
+      },
+      {
+        label: "Viber Developers — Keyboards",
+        url: "https://developers.viber.com/docs/tools/keyboards/",
+      },
+      {
+        label: "Viber Developers — DeepLinks",
+        url: "https://developers.viber.com/docs/tools/deep-links/",
+      },
+      {
+        label: "Viber Developers — API Access White Paper",
+        url: "https://developers.viber.com/docs/general/api-access-white-paper/",
+      },
+      {
+        label: "Zendesk Help Center — Adding Sunshine Conversations channels to the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836484378-Adding-Sunshine-Conversations-channels-to-the-Zendesk-Agent-Workspace",
+      },
+      {
+        label: "Zendesk Help Center — What is Sunshine Conversations and how does it work?",
+        url: "https://support.zendesk.com/hc/en-us/articles/6380323137306-What-is-Sunshine-Conversations-and-how-does-it-work",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "telegram-support-bot",
+      "chatbot-to-human-handoff",
+    ],
+    updated: "2026-10-19",
+  },
 ];
