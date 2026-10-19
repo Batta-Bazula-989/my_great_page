@@ -775,4 +775,192 @@ export const guidePages: TranslatedPage[] = [
     related: ["website-chatbot-for-support", "eu-ai-act-chatbot-rules", "chatbot-to-human-handoff"],
     updated: "2026-10-19",
   },
+  {
+    key: "n8n-zendesk-integration",
+    slug: "integracja-n8n-zendesk",
+    category: "guides",
+    navLabel: "Integracja n8n z Zendesk",
+    primaryKeyword: "integracja n8n Zendesk",
+    title: "Integracja n8n z Zendesk: nody, triggery i webhooki",
+    description:
+      "Integracja n8n z Zendesk: operacje node'a Zendesk, Zendesk Trigger, poświadczenia z tokenem API lub OAuth2, webhooki, limity zapytań i przykładowy workflow.",
+    h1: "Integracja n8n z Zendesk: nody, poświadczenia i przykładowe workflowy",
+    intro:
+      "n8n łączy się z Zendesk przez dwa wbudowane nody. Node Zendesk działa na zgłoszeniach, polach zgłoszeń, użytkownikach i organizacjach, a node Zendesk Trigger uruchamia workflow, gdy coś wydarzy się w Zendesk. Oba korzystają z tych samych poświadczeń: tokena API lub OAuth2. Jeśli wolisz trzymać reguły w Zendesk, możesz zamiast tego skierować webhook Zendesk na node Webhook w n8n i uruchamiać go z triggera Zendesk.",
+    keyFacts: [
+      "Node Zendesk w n8n ma cztery zasoby: Ticket, Ticket Field, User i Organization.",
+      "Ustawianie tagów operacją Update Ticket w tym nodzie zastępuje całą listę tagów. Tagi, których nie podasz, zostaną usunięte.",
+      "Poświadczenia Zendesk w n8n obsługują token API (subdomena, e-mail logowania i token) lub OAuth2.",
+      "Zendesk podpisuje żądania webhooków nagłówkami X-Zendesk-Webhook-Signature i X-Zendesk-Webhook-Signature-Timestamp.",
+      "Limity API w Zendesk Suite wynoszą od 200 żądań na minutę w planie Team do 2 500 w planie Enterprise Plus.",
+    ],
+    sections: [
+      {
+        heading: "Co potrafi node Zendesk w n8n",
+        blocks: [
+          {
+            type: "p",
+            text: "Node Zendesk odczytuje lub zmienia dane w Zendesk jako krok workflow. Dokumentacja n8n grupuje jego operacje według zasobów.",
+          },
+          {
+            type: "table",
+            caption: "Zasoby i operacje node'a Zendesk (dokumentacja n8n, sprawdzona w październiku 2026)",
+            head: ["Zasób", "Operacje"],
+            rows: [
+              ["Ticket", "Tworzenie, usuwanie, pobieranie jednego lub wielu, aktualizacja oraz przywracanie zawieszonego zgłoszenia"],
+              ["Ticket Field", "Pobieranie jednego pola zgłoszenia lub wszystkich systemowych i niestandardowych pól zgłoszeń"],
+              ["User", "Tworzenie, usuwanie, pobieranie jednego lub wielu, aktualizacja, wyszukiwanie, pobieranie organizacji użytkownika i pobieranie powiązanych danych"],
+              ["Organization", "Tworzenie, usuwanie, zliczanie, pobieranie jednej lub wielu, aktualizacja i pobieranie powiązanych danych"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Jedno zachowanie często zaskakuje. Gdy używasz Update Ticket i wypełniasz pole Tag Names or IDs, według dokumentacji n8n cała lista tagów zgłoszenia zostaje zastąpiona, więc każdy tag, którego nie uwzględnisz, zostanie usunięty. Wynika to z domyślnego sposobu, w jaki Zendesk API obsługuje aktualizacje tagów. Dokumentacja podaje trzy obejścia: pobierz bieżące tagi i scal je z nowymi przed aktualizacją, użyj node'a HTTP Request z właściwością additional_tags w Zendesk albo wywołaj endpoint tagów zgłoszenia. Dwa ostatnie dodają tagi bez usuwania istniejących.",
+          },
+          {
+            type: "p",
+            text: "Jeśli node nie obsługuje potrzebnej Ci operacji, użyj node'a HTTP Request, ustaw Authentication na Predefined Credential Type i wybierz swoje poświadczenia Zendesk. Żądanie korzysta wtedy z tego samego połączenia co node Zendesk.",
+          },
+        ],
+      },
+      {
+        heading: "Konfiguracja poświadczeń Zendesk w n8n",
+        blocks: [
+          {
+            type: "p",
+            text: "Nody Zendesk i Zendesk Trigger korzystają z tych samych poświadczeń, a n8n obsługuje dwa sposoby uwierzytelniania. Oba wymagają Twojej subdomeny, czyli części adresu URL Zendesk między https:// a .zendesk.com.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Token API: w Zendesk Admin Center otwórz Apps and integrations, a następnie APIs, i włącz dostęp przez token dla Zendesk API. Dodaj token z opisem i skopiuj go. W n8n wpisz subdomenę, adres e-mail, którym logujesz się do Zendesk, i token.",
+              "OAuth2: w Zendesk Admin Center utwórz klienta OAuth w Apps and integrations, a następnie APIs. Wklej adres OAuth callback URL z n8n w pole redirect URL klienta. Skopiuj unikalny identyfikator klienta do pola Client ID w n8n, a jego sekret do Client Secret, dodaj subdomenę, zapisz i połącz swoje konto Zendesk.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Node Zendesk Trigger czy webhook Zendesk",
+        blocks: [
+          {
+            type: "p",
+            text: "Workflow n8n można uruchomić z Zendesk na dwa sposoby. Node Zendesk Trigger uruchamia workflow, gdy zdarzenia w Zendesk pasują do warunków ustawionych w nodzie. W przykładzie z dokumentacji n8n filtruje zgłoszenia o statusie Open, a workflow działa po jego włączeniu.",
+          },
+          {
+            type: "p",
+            text: "Alternatywą jest samodzielne zbudowanie połączenia. W Zendesk Admin Center przejdź do Apps and integrations, a następnie Webhooks, utwórz webhook, wybierz Trigger or Automation jako metodę połączenia i skieruj go na Production URL node'a Webhook w n8n. Następnie dodaj akcję 'Notify webhook' do triggera lub automatyzacji Zendesk i napisz payload, który nie może przekraczać 16 000 znaków. Dzięki temu warunki pozostają w regułach biznesowych Zendesk, a Ty dokładnie wybierasz, które pola wysłać.",
+          },
+          {
+            type: "table",
+            caption: "Dwa sposoby uruchomienia workflow n8n z Zendesk",
+            head: ["Pytanie", "Node Zendesk Trigger", "Webhook Zendesk + node Webhook w n8n"],
+            rows: [
+              ["Gdzie są warunki", "W nodzie, w n8n", "W triggerze lub automatyzacji Zendesk z akcją 'Notify webhook'"],
+              ["Co otrzymuje n8n", "Dane zdarzenia dostarczane przez node", "Payload, który piszesz w akcji triggera, do 16 000 znaków"],
+              ["Poświadczenia Zendesk", "Potrzebne do samego triggera", "Potrzebne tylko w dalszych krokach, które wywołują Zendesk"],
+              ["Testowanie", "Uruchom node w edytorze, jak w przykładzie z dokumentacji n8n", "Użyj Test URL node'a Webhook, który nasłuchuje przez 120 sekund, a potem przełącz się na Production URL"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Jeśli używasz webhooka, sprawdzaj, czy żądania naprawdę pochodzą z Zendesk. Zendesk wysyła dwa nagłówki: X-Zendesk-Webhook-Signature i X-Zendesk-Webhook-Signature-Timestamp. Podpis to base64(HMACSHA256(timestamp + body)) utworzony z użyciem sekretu podpisującego webhooka, który możesz odsłonić na stronie szczegółów webhooka lub pobrać przez API. Przelicz go w swoim workflow i odrzucaj żądania, które się nie zgadzają. Zendesk zaznacza też, że ta sama akcja może wywołać webhook więcej niż raz, więc zadbaj, aby workflow można było bezpiecznie uruchomić dwa razy dla tego samego zgłoszenia.",
+          },
+          {
+            type: "p",
+            text: "Node Webhook może odpowiedzieć od razu, po zakończeniu ostatniego node'a albo przez osobny node Respond to Webhook. Przy dłuższych workflowach natychmiastowa odpowiedź szybko potwierdza odbiór po stronie Zendesk, podczas gdy reszta pracy trwa dalej.",
+          },
+        ],
+      },
+      {
+        heading: "Przykładowy workflow: klasyfikacja nowych zgłoszeń i powiadomienie na Slacku",
+        blocks: [
+          {
+            type: "p",
+            text: "Oto popularny wzorzec opisany krok po kroku. Pokazuje, jak nody do siebie pasują. To nie jest case study TascaLab.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Trigger: node Zendesk Trigger albo node Webhook zasilany przez trigger Zendesk, który uruchamia się po utworzeniu zgłoszenia. Wyślij co najmniej ID zgłoszenia.",
+              "Pobranie: node Zendesk z zasobem Ticket pobiera pełne zgłoszenie, w tym temat, opis i bieżące tagi.",
+              "Klasyfikacja: node Text Classifier przypisuje tekst do zdefiniowanych przez Ciebie kategorii, np. rozliczenia, problem techniczny lub zwrot. Każda kategoria ma nazwę i opis, który pomaga modelowi. Domyślnie elementy niepasujące do żadnej kategorii są odrzucane, więc włącz gałąź Other, aby je wychwycić.",
+              "Aktualizacja: node Zendesk ustawia grupę i tagi. Najpierw scal istniejące tagi albo dodaj tagi przez node HTTP Request z additional_tags, aby nie wymazać tagów ustawionych przez agentów.",
+              "Powiadomienie: node Slack publikuje kategorię i link do zgłoszenia na kanale zespołu.",
+              "Obsługa błędów: wysyłaj nieudane uruchomienia do alertu, a gdy Zendesk zwróci odpowiedź 429, odczekaj i ponów próbę.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Ten sam wzorzec możesz rozbudować. Wysyłaj pilne zgłoszenia na osobny kanał Slack albo przed wyborem grupy wyszukaj organizację klienta za pomocą zasobu Organization.",
+          },
+        ],
+      },
+      {
+        heading: "Limity zapytań i gdzie działa n8n",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk ogranicza liczbę żądań API na minutę w zależności od planu. Dokumentacja dla deweloperów podaje następujące domyślne limity dla Support API i Help Center API:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Suite Team: 200 żądań na minutę.",
+              "Suite Growth i Suite Professional: 400 żądań na minutę.",
+              "Suite Enterprise: 700 żądań na minutę.",
+              "Suite Enterprise Plus: 2 500 żądań na minutę.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Dodatek High Volume API podnosi limit kwalifikującego się planu do 2 500 żądań na minutę. Zastępuje on limit planu, a nie się do niego dodaje, i wymaga planu Suite Growth lub wyższego (albo Support Professional lub wyższego) z co najmniej 10 licencjami agentów. Po przekroczeniu limitu Zendesk zwraca HTTP 429 z nagłówkiem Retry-After, który podaje, ile sekund trzeba odczekać. Niektóre endpointy mają własne, surowsze limity. Policz wywołania API wykonywane przy każdym uruchomieniu i pomnóż przez szczytowy wolumen zgłoszeń. Zadania zbiorcze, np. uzupełnianie tagów w starych zgłoszeniach, częściej trafiają na limit, więc dziel je na partie i dodawaj odczekiwanie.",
+          },
+          {
+            type: "p",
+            text: "n8n działa jako n8n Cloud – zarządzana instancja, którą n8n uruchamia za Ciebie – albo jako instalacja self-hosted na Twoim własnym komputerze lub infrastrukturze. W większości instalacji self-hosted dokumentacja zaleca Dockera, a n8n Cloud – jeśli nie masz doświadczenia w zarządzaniu serwerami. Przy obu metodach uruchamiania Zendesk musi mieć dostęp do Twojej instancji n8n. Jeśli instancja self-hosted stoi za reverse proxy, ustaw N8N_WEBHOOK_URL na jej publiczny bazowy URL, aby n8n pokazywało prawidłowe adresy URL webhooków, a usługi zewnętrzne poprawnie je rejestrowały. N8N_WEBHOOK_URL zastępuje WEBHOOK_URL, które nadal działa, ale od n8n 2.35.0 jest przestarzałe (deprecated).",
+          },
+          {
+            type: "p",
+            text: "TascaLab buduje takie automatyzacje Zendesk z użyciem n8n, Make, API i webhooków, na narzędziach, których już używasz. Projekty Ticket Routing & Categorization kosztują od 600 do 950 USD, a projekty Custom Automation od 1 200 do 2 000 USD. Większość wdrożeń trwa od 1 do 3 tygodni, a każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy audytowej.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Czy n8n ma wbudowaną integrację z Zendesk?",
+        a: "Tak. n8n ma node Zendesk dla zgłoszeń, pól zgłoszeń, użytkowników i organizacji oraz node Zendesk Trigger, który uruchamia workflowy na podstawie zdarzeń w Zendesk. Oba korzystają z tych samych poświadczeń Zendesk.",
+      },
+      {
+        q: "Dlaczego node Zendesk w n8n usuwa tagi moich zgłoszeń?",
+        a: "Gdy wypełniasz Tag Names or IDs w operacji Update Ticket, cała lista tagów zostaje zastąpiona. Dokumentacja n8n sugeruje najpierw scalić istniejące tagi albo dodawać tagi przez node HTTP Request z właściwością additional_tags w Zendesk lub przez endpoint tagów.",
+      },
+      {
+        q: "Jakie metody uwierzytelniania obsługują poświadczenia Zendesk w n8n?",
+        a: "Token API, wpisywany razem z subdomeną i e-mailem, którym się logujesz, albo OAuth2 z użyciem client ID i sekretu klienta OAuth utworzonego w Zendesk.",
+      },
+      {
+        q: "Jak sprawdzić, czy żądanie webhooka pochodzi z Zendesk?",
+        a: "Przelicz base64(HMACSHA256(timestamp + body)) z użyciem sekretu podpisującego webhooka i porównaj wynik z nagłówkiem X-Zendesk-Webhook-Signature. Znacznik czasu znajduje się w nagłówku X-Zendesk-Webhook-Signature-Timestamp.",
+      },
+      {
+        q: "Co się dzieje, gdy workflow przekroczy limit zapytań Zendesk API?",
+        a: "Zendesk odrzuca żądanie z kodem HTTP 429 i nagłówkiem Retry-After, który podaje, ile sekund trzeba odczekać. Domyślne limity wynoszą od 200 żądań na minutę w Suite Team do 2 500 w Suite Enterprise Plus.",
+      },
+    ],
+    sources: [
+      { label: "n8n Docs — Zendesk node", url: "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zendesk" },
+      { label: "n8n Docs — Zendesk Trigger node", url: "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.zendesktrigger" },
+      { label: "n8n Docs — Zendesk credentials", url: "https://docs.n8n.io/integrations/builtin/credentials/zendesk" },
+      { label: "n8n Docs — Webhook node", url: "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook" },
+      { label: "n8n Docs — Text Classifier node", url: "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier" },
+      { label: "n8n Docs — Host n8n", url: "https://docs.n8n.io/hosting/" },
+      { label: "n8n Docs — Configure webhook URLs with reverse proxy", url: "https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url/" },
+      { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
+      { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
+      { label: "Zendesk Developer Docs — Rate limits", url: "https://developer.zendesk.com/api-reference/introduction/rate-limits/" },
+    ],
+    related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
+    updated: "2026-10-19",
+  },
 ];
