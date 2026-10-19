@@ -170,7 +170,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab crea automatizaciones de soporte sobre las herramientas que ya usas (Zendesk, Freshdesk, Jira, Slack y herramientas internas) con APIs, webhooks, Make y n8n. La mayoría de las implementaciones llevan de 1 a 3 semanas. Todos los proyectos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de auditoría gratuita de 30 minutos.",
+            text: "TascaLab crea automatizaciones de soporte sobre las herramientas que ya usas (Zendesk, Freshdesk, Jira, Slack y herramientas internas) con APIs, webhooks, Make y n8n. La mayoría de las implementaciones llevan de 1 a 3 semanas. Todos los proyectos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },
@@ -373,7 +373,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab crea bots de chat y de voz sobre las herramientas que ya usas (Zendesk, Freshdesk, Jira, Slack y herramientas internas). Los proyectos Standard Chat Bot cuestan de 500 a 650 USD y los proyectos Voice Bot, de 1.100 a 1.600 USD. Ambos incluyen documentación básica y 30 días de soporte tras el lanzamiento.",
+            text: "TascaLab crea bots de chat y de voz sobre las herramientas que ya usas (Zendesk, Freshdesk, Jira, Slack y herramientas internas). Los proyectos Standard Chat Bot cuestan {{price:standard}} y los proyectos Voice Bot, {{price:voice}}. Ambos incluyen documentación básica y 30 días de soporte tras el lanzamiento.",
           },
         ],
       },
@@ -554,7 +554,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab crea automatizaciones sobre Zendesk, Freshdesk, Jira, Slack y herramientas internas, usando APIs, webhooks, Make y n8n. Todos los proyectos incluyen documentación básica de lo que se ha construido, que ayuda a la hora de mapear los flujos de datos, además de 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de auditoría gratuita de 30 minutos.",
+            text: "TascaLab crea automatizaciones sobre Zendesk, Freshdesk, Jira, Slack y herramientas internas, usando APIs, webhooks, Make y n8n. Todos los proyectos incluyen documentación básica de lo que se ha construido, que ayuda a la hora de mapear los flujos de datos, además de 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },
@@ -736,7 +736,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab crea bots de chat y de voz sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack. Los proyectos Standard Chat Bot cuestan de 500 a 650 USD y los proyectos Voice Bot, de 1.100 a 1.600 USD. Ambos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de auditoría gratuita de 30 minutos.",
+            text: "TascaLab crea bots de chat y de voz sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack. Los proyectos Standard Chat Bot cuestan {{price:standard}} y los proyectos Voice Bot, {{price:voice}}. Ambos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },
@@ -921,7 +921,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab crea automatizaciones de Zendesk como esta con n8n, Make, APIs y webhooks, sobre las herramientas que ya usas. Los proyectos de Ticket Routing & Categorization cuestan de 600 a 950 USD, y los de Custom Automation, de 1.200 a 2.000 USD. La mayoría de las implementaciones llevan de 1 a 3 semanas, y todos los proyectos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de auditoría gratuita de 30 minutos.",
+            text: "TascaLab crea automatizaciones de Zendesk como esta con n8n, Make, APIs y webhooks, sobre las herramientas que ya usas. Los proyectos de Ticket Routing & Categorization cuestan {{price:routing}}, y los de Custom Automation, {{price:custom}}. La mayoría de las implementaciones llevan de 1 a 3 semanas, y todos los proyectos incluyen documentación básica y 30 días de soporte tras el lanzamiento. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },

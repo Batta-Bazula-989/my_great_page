@@ -19,7 +19,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
   console.warn(
     "⚠️ Telegram not configured: set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in Railway Variables. " +
-    "Book a Free Support Review leads will not be sent until then."
+    "Health Check booking leads will not be sent until then."
   );
 } else {
   console.log("✓ Telegram bot configured; booking leads will be sent.");
@@ -44,7 +44,7 @@ app.post("/api/booking", async (req, res) => {
     utm_source, utm_medium, utm_campaign,
   } = req.body || {};
   const lines = [
-    "📅 New Book a Free Support Review",
+    "📅 New Free Health Check booking",
     "",
     `Name: ${fullName || "—"}`,
     `Email: ${email || "—"}`,
