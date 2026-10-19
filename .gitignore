@@ -24,3 +24,7 @@ server/.env
 *.njsproj
 *.sln
 *.sw?
+
+# Research notes and reports (delivered separately, not part of the site)
+research_notes/
+reports/
