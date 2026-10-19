@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tascalab.com/sitemap.xml
+Sitemap: https://www.tascalab.com/sitemap.xml

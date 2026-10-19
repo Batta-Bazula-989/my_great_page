@@ -6,10 +6,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const SITE_URL = "https://tascalab.com";
+const SITE_URL = "https://www.tascalab.com";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const dist = path.join(root, "dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
+// dist/index.html is rewritten below, so a second run would start from an already processed page.
+if (template.includes('hreflang="x-default"')) {
+  console.error("prerender: dist/index.html is already pre-rendered — run `npm run build` instead of re-running this script.");
+  process.exit(1);
+}
 const { render, routes, contentProblems } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
 
 const problems = contentProblems();
@@ -111,6 +116,7 @@ ${entries.map(urlEntry).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
-if (process.argv.includes("--write-public")) fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
+// Keep the committed copy in public/ in sync with the generated one.
+fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
 
 console.log(`prerender: wrote ${routes.length} pages and sitemap.xml (${entries.length} URLs)`);

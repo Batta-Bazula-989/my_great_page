@@ -12,7 +12,7 @@ import * as nl from "./pages/nl";
 import * as pl from "./pages/pl";
 import * as sv from "./pages/sv";
 
-export const SITE_URL = "https://tascalab.com";
+export const SITE_URL = "https://www.tascalab.com";
 
 export const CATEGORY_IDS: CategoryId[] = ["services", "helpdesks", "channels", "basics", "guides"];
 
