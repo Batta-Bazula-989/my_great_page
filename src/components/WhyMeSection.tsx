@@ -2,34 +2,13 @@ import { useCallback, useState } from "react";
 import { Briefcase, Shield, BookOpen, MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 
-const items = [
-  {
-    icon: Briefcase,
-    title: "I've worked in support — not just around it",
-    description:
-      "I've handled tickets, built reports manually, and dealt with workflows held together with copy-paste and wishful thinking. I know what actually slows teams down because I've been on that side of it.",
-  },
-  {
-    icon: Shield,
-    title: "Built to hold up, not to demo well",
-    description:
-      "Every automation includes error handling, edge case testing, and monitoring. If something unexpected happens, it fails gracefully and alerts the right person — it doesn't just silently break.",
-  },
-  {
-    icon: BookOpen,
-    title: "You own everything when we're done",
-    description:
-      "Full documentation. Clear handover. No proprietary tooling that only I can access. Your team can maintain and extend what I build without needing to call me.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Straight communication, always",
-    description:
-      "I'll tell you if something isn't worth automating. I'll tell you if your budget doesn't fit the scope. I won't nod and invoice you for something that won't move the needle.",
-  },
-];
+import { format, useDict } from "@/i18n";
+
+const icons = [Briefcase, Shield, BookOpen, MessageCircle];
 
 const WhyMeSection = () => {
+  const t = useDict().whyMe;
+  const items = t.items.map((item, i) => ({ ...item, icon: icons[i] }));
   const [current, setCurrent] = useState(0);
   const total = items.length;
 
@@ -49,8 +28,8 @@ const WhyMeSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-6">
-          <span className="section-eyebrow">Why Work With Me</span>
-          <h2 id="why-me-title" className="section-title">Built by someone who's worked in support</h2>
+          <span className="section-eyebrow">{t.eyebrow}</span>
+          <h2 id="why-me-title" className="section-title">{t.title}</h2>
         </div>
 
         <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
@@ -85,14 +64,14 @@ const WhyMeSection = () => {
 
           <button
             onClick={prev}
-            aria-label="Previous reason"
+            aria-label={t.previous}
             className="glass absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            aria-label="Next reason"
+            aria-label={t.next}
             className="glass absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronRight className="w-6 h-6" />
@@ -104,7 +83,7 @@ const WhyMeSection = () => {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Show ${items[i].title}`}
+              aria-label={format(t.show, { title: items[i].title })}
               className="h-2.5 rounded-full transition-all duration-500 ease-out"
               style={{
                 width: i === current ? "2rem" : "0.625rem",

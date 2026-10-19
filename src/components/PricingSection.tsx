@@ -3,69 +3,20 @@ import { motion } from "framer-motion";
 import { Check, ShieldCheck, Clock, FileText } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 
-const plans = [
-  {
-    name: "Starter Chat Bot",
-    price: "$350 – $450",
-    description: "Handles basic customer queries and FAQs across 1–2 channels. Perfect for small businesses getting started with automation.",
-    features: ["1–2 channels", "Answers FAQs, collects basic info, and handles common requests automatically"],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Voice Bot",
-    price: "$1,100 – $1,600",
-    description: "For inbound phone calls.",
-    features: [
-      "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Standard Chat Bot",
-    price: "$500 – $650",
-    description: "Advanced chatbot with multi-channel support, smarter responses, and better handling of customer interactions at scale.",
-    features: ["3–5 channels", "Handles more complex conversations with smarter logic and smoother handoffs to your team"],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Ticket Routing & Categorization",
-    price: "$600 – $950",
-    description: "Automatic sorting and assigning of tickets.",
-    features: [
-      "Automatically tags, categorizes, and routes tickets to the right team, so nothing gets missed and response times stay fast.",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Automated Reports",
-    price: "$500 – $900",
-    description: "Scheduled reports sent automatically.",
-    features: [
-      "Automated reports with your key business metrics delivered to email or Slack, so you stay informed without manual work.",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Custom Automation",
-    price: "$1,200 – $2,000",
-    description: "Fully customized automation built around your workflows, tools, and unique business requirements.",
-    features: ["Fully customized automation built around your workflows, tools, and unique business requirements"],
-    cta: "Get Started",
-    popular: false,
-  },
-];
+import { useDict } from "@/i18n";
+import en from "@/i18n/en";
+
+const trustIcons = [ShieldCheck, Clock, FileText];
 
 const PricingSection = () => {
+  const t = useDict().pricing;
+  const plans = t.plans.map((plan) => ({ ...plan, popular: false, cta: t.cta }));
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | undefined>(undefined);
 
-  const handleCTA = (planName: string) => {
-    setSelectedPlan(planName);
+  // The lead notification always carries the English plan name.
+  const handleCTA = (index: number) => {
+    setSelectedPlan(en.pricing.plans[index].name);
     setModalOpen(true);
   };
 
@@ -76,10 +27,10 @@ const PricingSection = () => {
       <div className="container px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="section-eyebrow">Pricing</span>
-          <h2 id="pricing-title" className="section-title">Fixed-price support automation packages</h2>
+          <span className="section-eyebrow">{t.eyebrow}</span>
+          <h2 id="pricing-title" className="section-title">{t.title}</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-            One-time project fees. You know the price range before we start — final quote after a free audit.
+            {t.intro}
           </p>
         </div>
 
@@ -132,7 +83,7 @@ const PricingSection = () => {
                   >
                     {plan.price}
                   </div>
-                  <p className="text-muted-foreground/60 mt-2" style={{ fontSize: "0.9rem" }}>one-time fee</p>
+                  <p className="text-muted-foreground/60 mt-2" style={{ fontSize: "0.9rem" }}>{t.oneTimeFee}</p>
                 </div>
 
                 {/* Divider */}
@@ -156,7 +107,7 @@ const PricingSection = () => {
 
                 {/* CTA button */}
                 <button
-                  onClick={() => handleCTA(plan.name)}
+                  onClick={() => handleCTA(i)}
                   style={{ fontSize: "1.05rem" }}
                   className={`
                     w-full py-3 rounded-full font-semibold transition-all duration-200 cursor-pointer
@@ -185,11 +136,7 @@ const PricingSection = () => {
             className="glass relative rounded-[28px] overflow-hidden px-5 py-4"
           >
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { icon: ShieldCheck, text: "No hidden fees" },
-                { icon: Clock,       text: "30 days of support after delivery" },
-                { icon: FileText,    text: "Basic documentation included" },
-              ].map(({ icon: Icon, text }) => (
+              {t.trust.map((text, i) => ({ icon: trustIcons[i], text })).map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-3">
                   <div className="glass-chip w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="w-4 h-4 text-primary" />

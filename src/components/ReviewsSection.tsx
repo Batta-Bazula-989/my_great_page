@@ -2,19 +2,20 @@ import { motion } from "framer-motion";
 import { Star, ArrowUpRight, MessageSquareQuote, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
+import { useDict } from "@/i18n";
 
 const ReviewsSection = () => {
+  const t = useDict().reviews;
   return (
     <section id="reviews" aria-labelledby="reviews-title" className="py-[4.8rem] relative">
       <div className="container px-4 relative z-10">
         <div className="text-center mb-12">
-          <span className="section-eyebrow">Client Feedback</span>
+          <span className="section-eyebrow">{t.eyebrow}</span>
           <h2 id="reviews-title" className="section-title">
-            Verified reviews on Upwork
+            {t.title}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-            Every review on my Upwork profile comes from a real, paid contract — so you can
-            see exactly how past support-automation projects went before you book a call.
+            {t.intro}
           </p>
         </div>
 
@@ -33,15 +34,14 @@ const ReviewsSection = () => {
             </div>
             <h3 className="text-xl font-bold font-display mb-2 flex items-center gap-2">
               <BadgeCheck className="w-5 h-5 text-primary" aria-hidden />
-              Read client reviews
+              {t.readTitle}
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
-              See ratings, job success score, and written feedback from teams I've built
-              chatbots, ticket routing, and reporting automations for.
+              {t.readText}
             </p>
             <Button variant="hero" size="lg" className="rounded-full self-start" asChild>
               <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                View my Upwork profile
+                {t.readCta}
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </Button>
@@ -57,14 +57,13 @@ const ReviewsSection = () => {
             <div className="w-12 h-12 rounded-2xl glass-chip flex items-center justify-center mb-5">
               <MessageSquareQuote className="w-6 h-6 text-primary" aria-hidden />
             </div>
-            <h3 className="text-xl font-bold font-display mb-2">Worked with me? Leave a review</h3>
+            <h3 className="text-xl font-bold font-display mb-2">{t.leaveTitle}</h3>
             <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
-              If we've finished a project together, a short review on Upwork helps other
-              support teams decide with confidence. It takes two minutes — thank you.
+              {t.leaveText}
             </p>
             <Button variant="glass" size="lg" className="rounded-full self-start" asChild>
               <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                Leave feedback on Upwork
+                {t.leaveCta}
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </Button>

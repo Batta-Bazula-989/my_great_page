@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getStoredUtms } from "@/utils/utm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +33,8 @@ import {
 import { ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { useDict, useLocale } from "@/i18n";
+import type { Dictionary } from "@/i18n/en";
 
 interface BookingModalProps {
   open: boolean;
@@ -40,33 +42,37 @@ interface BookingModalProps {
   selectedPlan?: string;
 }
 
-const meetingMethods = [
-  { value: "zoom", label: "Zoom" },
-  { value: "google-meet", label: "Google Meet" },
-  { value: "phone", label: "Phone" },
-  { value: "whatsapp", label: "WhatsApp" },
-  { value: "telegram", label: "Telegram" },
-];
+// Letters in any script (José, Müller, Zoë), spaces, hyphens and apostrophes.
+const NAME_PATTERN = /^[\p{L}\s'’-]+$/u;
 
-const schema = z.object({
-  fullName: z.string().trim()
-    .min(1, "Full Name is required")
-    .min(2, "Full Name must be at least 2 characters")
-    .max(50, "Full Name must be less than 50 characters")
-    .regex(/^[a-zA-Z\s'-]+$/, "Full Name can only contain letters, spaces, hyphens, and apostrophes"),
-  email: z.string().trim()
-    .min(1, "Work Email is required")
-    .email("Please enter a valid email address"),
-  companyName: z.string().trim()
-    .optional()
-    .refine((val) => {
-      if (!val || val.length === 0) return true;
-      return val.length >= 2 && val.length <= 50;
-    }, "Company Name must be between 2 and 50 characters"),
-  meetingMethod: z.string().optional(),
-  phone: z.string().trim().optional(),
-  telegram: z.string().trim().optional(),
-});
+type BookingErrors = Dictionary["booking"]["errors"];
+
+const nameSchema = (e: BookingErrors) =>
+  z.string().trim()
+    .min(1, e.nameRequired)
+    .min(2, e.nameShort)
+    .max(50, e.nameLong)
+    .regex(NAME_PATTERN, e.nameChars);
+
+const emailSchema = (e: BookingErrors) =>
+  z.string().trim()
+    .min(1, e.emailRequired)
+    .email(e.emailInvalid);
+
+const makeSchema = (e: BookingErrors) =>
+  z.object({
+    fullName: nameSchema(e),
+    email: emailSchema(e),
+    companyName: z.string().trim()
+      .optional()
+      .refine((val) => {
+        if (!val || val.length === 0) return true;
+        return val.length >= 2 && val.length <= 50;
+      }, e.companyLength),
+    meetingMethod: z.string().optional(),
+    phone: z.string().trim().optional(),
+    telegram: z.string().trim().optional(),
+  });
 
 // Country code dropdown: flag + code display, name/code for search
 const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
@@ -127,19 +133,19 @@ const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
   { code: "995", flag: "🇬🇪", name: "Georgia" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
-const phoneSchema = z.object({
+const makePhoneSchema = (e: BookingErrors) => z.object({
   phone: z.string().trim()
-    .min(1, "Phone number is required")
-    .regex(/^[\d\s().-]*$/, "Use only digits, spaces, dots, dashes, parentheses")
+    .min(1, e.phoneRequired)
+    .regex(/^[\d\s().-]*$/, e.phoneChars)
     .refine((val) => {
       const digits = val.replace(/\D/g, "");
       return digits.length >= 6 && digits.length <= 15;
-    }, "Phone number must be 6–15 digits"),
+    }, e.phoneDigits),
 });
 
-const telegramSchema = z.object({
+const makeTelegramSchema = (e: BookingErrors) => z.object({
   telegram: z.string().trim()
-    .min(1, "Telegram link or username is required")
+    .min(1, e.telegramRequired)
     .refine((val) => {
       // Normalize the input: remove protocol, t.me/, and @ prefix
       let normalized = val.trim();
@@ -150,11 +156,24 @@ const telegramSchema = z.object({
       // Telegram usernames are 5-32 characters, alphanumeric and underscores only
       const telegramPattern = /^[a-zA-Z0-9_]{5,32}$/;
       return telegramPattern.test(normalized);
-    }, "Please enter a valid Telegram link (e.g., https://t.me/username) or username (e.g., @username)"),
+    }, e.telegramInvalid),
 });
 
 const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) => {
   const { toast } = useToast();
+  const locale = useLocale();
+  const t = useDict().booking;
+  const { schema, phoneSchema, telegramSchema } = useMemo(
+    () => ({ schema: makeSchema(t.errors), phoneSchema: makePhoneSchema(t.errors), telegramSchema: makeTelegramSchema(t.errors) }),
+    [t],
+  );
+  const meetingMethods = [
+    { value: "zoom", label: "Zoom" },
+    { value: "google-meet", label: "Google Meet" },
+    { value: "phone", label: t.methodPhone },
+    { value: "whatsapp", label: "WhatsApp" },
+    { value: "telegram", label: "Telegram" },
+  ];
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -186,27 +205,19 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
   // Validate individual field
   const validateField = (fieldName: keyof typeof errors, value: string) => {
     if (fieldName === "fullName") {
-      const result = z.string().trim()
-        .min(1, "Full Name is required")
-        .min(2, "Full Name must be at least 2 characters")
-        .max(50, "Full Name must be less than 50 characters")
-        .regex(/^[a-zA-Z\s'-]+$/, "Full Name can only contain letters, spaces, hyphens, and apostrophes")
-        .safeParse(value);
+      const result = nameSchema(t.errors).safeParse(value);
       if (!result.success) {
         return result.error.errors[0]?.message || "";
       }
     } else if (fieldName === "email") {
-      const result = z.string().trim()
-        .min(1, "Work Email is required")
-        .email("Please enter a valid email address")
-        .safeParse(value);
+      const result = emailSchema(t.errors).safeParse(value);
       if (!result.success) {
         return result.error.errors[0]?.message || "";
       }
     } else if (fieldName === "companyName" && value.trim()) {
       const result = z.string().trim()
-        .min(2, "Company Name must be at least 2 characters")
-        .max(50, "Company Name must be less than 50 characters")
+        .min(2, t.errors.companyLength)
+        .max(50, t.errors.companyLength)
         .safeParse(value);
       if (!result.success) {
         return result.error.errors[0]?.message || "";
@@ -305,6 +316,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
           telegram: needsTelegram ? telegram.trim() : undefined,
           selectedPlan: selectedPlan || undefined,
+          language: locale,
           ...getStoredUtms(),
         }),
       });
@@ -323,10 +335,10 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
       });
     } catch (err) {
       console.error("Booking notify failed:", err);
-      const message = err instanceof Error ? err.message : "Network error or server not reachable.";
+      const message = err instanceof Error ? err.message : t.networkError;
       toast({
         variant: "destructive",
-        title: "Could not send request",
+        title: t.sendFailed,
         description: message,
       });
       setIsSubmitting(false);
@@ -343,7 +355,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
       if (companyName) params.append("a1", companyName);
       window.open(calendlyUrl + (params.toString() ? `?${params.toString()}` : ""), "_blank");
     } else {
-      toast({ title: "Request sent! I'll be in touch within 24 hours." });
+      toast({ title: t.sent });
     }
 
     setFullName("");
@@ -386,15 +398,15 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md bg-background border-border p-5 gap-2">
         <DialogHeader>
-          <DialogTitle className="font-display text-base">Book a Free Support Review</DialogTitle>
+          <DialogTitle className="font-display text-base">{t.title}</DialogTitle>
           <DialogDescription className="text-xs text-muted-foreground">
-            Leave your details and I'll reach out to schedule a 30-minute call. No commitment, no pitch.
+            {t.description}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-3 mt-1" autoComplete="off">
           <div className="space-y-1.5">
             <Label htmlFor="fullName">
-              Full Name<span className="text-destructive ml-1">*</span>
+              {t.fullName}<span className="text-destructive ml-1">*</span>
             </Label>
             <Input
               id="fullName"
@@ -407,7 +419,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                 }
               }}
               onBlur={() => handleBlur("fullName")}
-              placeholder="Jane Smith"
+              placeholder={t.fullNamePlaceholder}
               maxLength={50}
               className={errors.fullName ? "border-destructive" : ""}
             />
@@ -418,7 +430,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
 
           <div className="space-y-1.5">
             <Label htmlFor="email">
-              Work Email<span className="text-destructive ml-1">*</span>
+              {t.email}<span className="text-destructive ml-1">*</span>
             </Label>
             <Input
               id="email"
@@ -432,7 +444,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                 }
               }}
               onBlur={() => handleBlur("email")}
-              placeholder="jane@company.com"
+              placeholder={t.emailPlaceholder}
               className={errors.email ? "border-destructive" : ""}
             />
             {errors.email && (
@@ -441,7 +453,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="companyName">Company Name</Label>
+            <Label htmlFor="companyName">{t.company}</Label>
             <Input
               id="companyName"
               value={companyName}
@@ -459,7 +471,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                 }
               }}
               onBlur={() => handleBlur("companyName")}
-              placeholder="Acme Inc."
+              placeholder={t.companyPlaceholder}
               maxLength={100}
               autoComplete="off"
               className={errors.companyName ? "border-destructive" : ""}
@@ -470,7 +482,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="meetingMethod">Preferred Meeting Method</Label>
+            <Label htmlFor="meetingMethod">{t.meetingMethod}</Label>
             <Select value={meetingMethod} onValueChange={handleMeetingMethodChange}>
               <SelectTrigger 
                 id="meetingMethod"
@@ -494,7 +506,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           {needsPhone && (
             <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
               <Label htmlFor="phone">
-                Phone Number<span className="text-destructive ml-1">*</span>
+                {t.phone}<span className="text-destructive ml-1">*</span>
               </Label>
               <div className="flex gap-2">
                 <Popover open={phoneCountryOpen} onOpenChange={setPhoneCountryOpen}>
@@ -516,9 +528,9 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                   </PopoverTrigger>
                   <PopoverContent className="w-[260px] p-0" align="start">
                     <Command>
-                      <CommandInput placeholder="Search country or code..." />
+                      <CommandInput placeholder={t.searchCountry} />
                       <CommandList>
-                        <CommandEmpty>No country found.</CommandEmpty>
+                        <CommandEmpty>{t.noCountry}</CommandEmpty>
                         <CommandGroup>
                           {PHONE_COUNTRY_OPTIONS.map((opt) => (
                             <CommandItem
@@ -551,7 +563,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                     }
                   }}
                   onBlur={() => handleBlur("phone")}
-                  placeholder="123 456 7890"
+                  placeholder={t.phonePlaceholder}
                   maxLength={15}
                   className={`flex-1 min-w-0 ${errors.phone ? "border-destructive" : ""}`}
                 />
@@ -565,7 +577,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
           {needsTelegram && (
             <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
               <Label htmlFor="telegram">
-                Telegram Link or Username<span className="text-destructive ml-1">*</span>
+                {t.telegram}<span className="text-destructive ml-1">*</span>
               </Label>
               <Input
                 id="telegram"
@@ -579,7 +591,7 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
                   }
                 }}
                 onBlur={() => handleBlur("telegram")}
-                placeholder="https://t.me/username or @username"
+                placeholder={t.telegramPlaceholder}
                 maxLength={50}
                 className={errors.telegram ? "border-destructive" : ""}
               />
@@ -596,10 +608,10 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
             disabled={isSubmitting}
           >
             {meetingMethod === "zoom" || meetingMethod === "google-meet" 
-              ? "Continue to Calendar" 
-              : isSubmitting 
-              ? "Sending..." 
-              : "Book Free Support Review"}
+              ? t.submitCalendar
+              : isSubmitting
+              ? t.submitting
+              : t.submit}
           </Button>
         </form>
       </DialogContent>

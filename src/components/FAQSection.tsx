@@ -5,49 +5,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqs = [
-  {
-    question: "Do I need to switch my support tools?",
-    answer:
-      "No. I work with whatever you're already using — Zendesk, Freshdesk, Jira, Slack, internal tools. The goal is to connect and improve what you have, not replace it.",
-  },
-  {
-    question: "What if something breaks after launch?",
-    answer:
-      "Every project includes 30 days of post-launch support. If something breaks in that window, I fix it. I build on standard integrations — APIs, webhooks, Make/n8n — not fragile custom hacks that only work in one environment.",
-  },
-  {
-    question: "Can my team maintain this after you're done?",
-    answer:
-      "Yes. I document everything clearly — the logic, the flow, the edge cases. You're not locked in. Ongoing support is available but optional.",
-  },
-  {
-    question: "Can you integrate a specific tool?",
-    answer:
-      "If it has an API or webhook support, almost certainly. Bring it up on the audit call and I'll confirm.",
-  },
-  {
-    question: "What actually happens in the free audit?",
-    answer:
-      "30 minutes. We look at your current setup, where the friction is, and where automation would actually make a difference. You leave with 2–3 concrete recommendations, a rough scope, and a price range. No sales deck. No pressure.",
-  },
-  {
-    question: "How long does a typical project take?",
-    answer:
-      "Most setups take 1–3 weeks depending on complexity and how quickly we can align on requirements. I'll give you a realistic timeline upfront — not an optimistic one.",
-  },
-];
+import { useDict } from "@/i18n";
 
 const FAQSection = () => {
+  const t = useDict().faq;
+  const faqs = t.items.map(({ q, a }) => ({ question: q, answer: a }));
   return (
     <section id="faq" aria-labelledby="faq-title" className="py-[4.8rem] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="section-eyebrow">FAQ</span>
-          <h2 id="faq-title" className="section-title">Frequently asked questions</h2>
+          <span className="section-eyebrow">{t.eyebrow}</span>
+          <h2 id="faq-title" className="section-title">{t.title}</h2>
         </div>
 
         <div className="max-w-2xl mx-auto">

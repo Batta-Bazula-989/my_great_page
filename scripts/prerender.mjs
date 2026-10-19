@@ -1,5 +1,6 @@
-// Writes a static HTML file per SEO route (dist/<slug>.html) with the page content and its own
-// <title>, meta description, canonical, social tags and JSON-LD, then regenerates the sitemap.
+// Writes a static HTML file for every route in every language (dist/<slug>.html, dist/de/<slug>.html,
+// dist/de/index.html, …) with its own <html lang>, title, description, canonical, hreflang alternates,
+// social tags and JSON-LD, then regenerates the sitemap.
 // Runs after `vite build` and `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
 import fs from "node:fs";
 import path from "node:path";
@@ -28,57 +29,91 @@ const replaceOnce = (html, pattern, replacement, label) => {
   return html.replace(pattern, replacement);
 };
 
+const meta = (html, attr, name, value) =>
+  replaceOnce(
+    html,
+    new RegExp(`<meta ${attr}="${name}" content="[^"]*" />`),
+    `<meta ${attr}="${name}" content="${escapeAttr(value)}" />`,
+    `${attr}=${name}`,
+  );
+
 for (const route of routes) {
   const url = `${SITE_URL}${route.path}`;
-  const title = escapeAttr(route.title);
-  const description = escapeAttr(route.description);
   let html = template;
 
+  html = replaceOnce(html, /<html lang="[^"]*">/, `<html lang="${route.htmlLang}">`, "<html lang>");
   html = replaceOnce(html, /<title>[\s\S]*?<\/title>/, `<title>${escapeText(route.title)}</title>`, "<title>");
-  html = replaceOnce(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${description}" />`, "meta description");
-  html = replaceOnce(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`, "canonical");
-  html = replaceOnce(html, /<meta property="og:type" content="[^"]*" \/>/, `<meta property="og:type" content="article" />`, "og:type");
-  html = replaceOnce(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`, "og:url");
-  html = replaceOnce(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${title}" />`, "og:title");
-  html = replaceOnce(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${description}" />`, "og:description");
-  html = replaceOnce(html, /<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${title}" />`, "twitter:title");
-  html = replaceOnce(html, /<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${description}" />`, "twitter:description");
-  // The homepage's business/FAQ structured data doesn't describe this page; swap in the page's own.
+  html = meta(html, "name", "description", route.description);
+  html = replaceOnce(
+    html,
+    /<link rel="canonical" href="[^"]*" \/>/,
+    [
+      `<link rel="canonical" href="${url}" />`,
+      ...route.alternates.map((a) => `<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`),
+    ].join("\n    "),
+    "canonical",
+  );
+  html = meta(html, "property", "og:type", route.render ? "article" : "website");
+  html = meta(html, "property", "og:locale", route.ogLocale);
+  html = meta(html, "property", "og:url", url);
+  html = meta(html, "property", "og:title", route.title);
+  html = meta(html, "property", "og:description", route.description);
+  html = meta(html, "name", "twitter:title", route.title);
+  html = meta(html, "name", "twitter:description", route.description);
   html = replaceOnce(
     html,
     /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     route.jsonLd.map((o) => `<script type="application/ld+json">${safeJson(o)}</script>`).join("\n    "),
     "JSON-LD",
   );
-  // The homepage <noscript> summary is replaced by the real pre-rendered content.
-  html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
-  html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(route.path)}</div>`, "#root");
 
-  fs.writeFileSync(path.join(dist, `${route.path.slice(1)}.html`), html);
+  if (route.render) {
+    // The real content replaces the homepage's <noscript> summary.
+    html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
+    html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(route.path)}</div>`, "#root");
+  } else if (route.noscript) {
+    html = replaceOnce(
+      html,
+      /<noscript>\s*<h1>[\s\S]*?<\/noscript>/,
+      `<noscript>\n  <h1>${escapeText(route.noscript.heading)}</h1>\n  <p>${escapeText(route.noscript.text)}</p>\n</noscript>`,
+      "noscript summary",
+    );
+  }
+
+  const out = path.join(dist, route.file);
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html);
 }
 
-const staticUrls = [
-  { loc: `${SITE_URL}/`, changefreq: "weekly", priority: "1.0" },
+// Sitemap: every URL, each with its language alternates.
+const urlEntry = ({ loc, lastmod, changefreq, priority, alternates = [] }) =>
+  [
+    "  <url>",
+    `    <loc>${loc}</loc>`,
+    ...alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`),
+    ...(lastmod ? [`    <lastmod>${lastmod}</lastmod>`] : []),
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority}</priority>`,
+    "  </url>",
+  ].join("\n");
+
+const entries = [
+  ...routes.map((r) => ({
+    loc: `${SITE_URL}${r.path}`,
+    lastmod: r.lastmod,
+    changefreq: r.render ? "monthly" : "weekly",
+    priority: !r.render ? "1.0" : r.path.endsWith("/resources") ? "0.8" : "0.7",
+    alternates: r.alternates,
+  })),
   { loc: `${SITE_URL}/privacy`, changefreq: "monthly", priority: "0.3" },
   { loc: `${SITE_URL}/terms`, changefreq: "monthly", priority: "0.3" },
 ];
-const pageUrls = routes.map((r) => ({
-  loc: `${SITE_URL}${r.path}`,
-  lastmod: r.lastmod,
-  changefreq: "monthly",
-  priority: r.path === "/resources" ? "0.8" : "0.7",
-}));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticUrls, ...pageUrls]
-  .map(
-    (u) =>
-      `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ""}    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`,
-  )
-  .join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries.map(urlEntry).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 if (process.argv.includes("--write-public")) fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
 
-console.log(`prerender: wrote ${routes.length} pages and sitemap.xml (${staticUrls.length + pageUrls.length} URLs)`);
+console.log(`prerender: wrote ${routes.length} pages and sitemap.xml (${entries.length} URLs)`);

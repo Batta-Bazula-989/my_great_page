@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { href: "/#services", label: "What I Do" },
-  { href: "/#fit", label: "A Fit?" },
-  { href: "/#why-me", label: "Why Me?" },
-  { href: "/#pricing", label: "Prices" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/#faq", label: "FAQ" },
-  { href: "/resources", label: "Resources" },
-];
+import { LanguageList, LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useDict, useLocale } from "@/i18n";
+import { localePath } from "@/i18n/config";
 
 const Navbar = () => {
+  const t = useDict();
+  const locale = useLocale();
+  const home = localePath(locale);
+  const navLinks = [
+    { href: `${home}#services`, label: t.nav.services },
+    { href: `${home}#fit`, label: t.nav.fit },
+    { href: `${home}#why-me`, label: t.nav.whyMe },
+    { href: `${home}#pricing`, label: t.nav.pricing },
+    { href: `${home}#reviews`, label: t.nav.reviews },
+    { href: `${home}#faq`, label: t.nav.faq },
+    { href: localePath(locale, "resources"), label: t.nav.resources },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,12 +44,12 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between h-14">
-          <a href="/" className="flex items-center gap-2 font-display font-semibold">
-            <img src="/favicon.svg" alt="TascaLab logo" width={32} height={32} className="h-8 w-8" />
+          <Link to={home} className="flex items-center gap-2 font-display font-semibold">
+            <img src="/favicon.svg" alt={t.nav.logoAlt} width={32} height={32} className="h-8 w-8" />
             <span>TascaLab</span>
-          </a>
+          </Link>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -53,15 +59,16 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-              <a href="/#contact">Book a Free Audit</a>
+              <a href={`${home}#contact`}>{t.nav.cta}</a>
             </Button>
           </div>
 
           <div className="lg:hidden">
             <button
               className="p-2"
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -99,9 +106,10 @@ const Navbar = () => {
                   transition={{ delay: navLinks.length * 0.05 + 0.05 }}
                 >
                   <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Free Audit</a>
+                    <a href={`${home}#contact`} onClick={() => setIsMobileMenuOpen(false)}>{t.nav.cta}</a>
                   </Button>
                 </motion.div>
+                <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
               </div>
             </motion.div>
           )}

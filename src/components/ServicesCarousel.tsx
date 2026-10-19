@@ -1,35 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { BarChart3, Bot, GitBranch, Wrench, ChevronLeft, ChevronRight } from "lucide-react";
 import ServiceCard from "./ServiceCard";
+import { format, useDict } from "@/i18n";
 
-const services = [
-  {
-    icon: Bot,
-    title: "Support chat & voice bots",
-    description:
-      "Handles first-contact messages and inbound calls. Qualifies the request, answers what it can, hands off what it can't — cleanly. A filter in front of your team, not a replacement for it.",
-  },
-  {
-    icon: GitBranch,
-    title: "Ticket routing & categorization",
-    description:
-      "Every ticket gets tagged, prioritized, and assigned the moment it comes in — based on what it actually says. No manual sorting, no tickets sitting in the wrong queue.",
-  },
-  {
-    icon: BarChart3,
-    title: "Reporting",
-    description:
-      "The reports your team pulls manually every week get generated and delivered automatically. Right format, right people, right time. No more pulling data.",
-  },
-  {
-    icon: Wrench,
-    title: "Custom solution",
-    description:
-      "Something specific that doesn't fit a template? I scope and build it. If it can be automated, we'll figure out how.",
-  },
-];
+const icons = [Bot, GitBranch, BarChart3, Wrench];
 
 const ServicesCarousel = () => {
+  const t = useDict().services;
+  const services = t.items.map((item, i) => ({ ...item, icon: icons[i] }));
   const [current, setCurrent] = useState(0);
   const total = services.length;
 
@@ -51,8 +29,8 @@ const ServicesCarousel = () => {
     <div className="w-full py-[3.2rem] md:py-[4.8rem]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-6">
-          <span className="section-eyebrow">What I Do</span>
-          <h2 id="services-title" className="section-title">Customer support automation services</h2>
+          <span className="section-eyebrow">{t.eyebrow}</span>
+          <h2 id="services-title" className="section-title">{t.title}</h2>
         </div>
 
         <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
@@ -89,14 +67,14 @@ const ServicesCarousel = () => {
 
           <button
             onClick={prev}
-            aria-label="Previous service"
+            aria-label={t.previous}
             className="glass absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            aria-label="Next service"
+            aria-label={t.next}
             className="glass absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronRight className="w-6 h-6" />
@@ -108,7 +86,7 @@ const ServicesCarousel = () => {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Show ${services[i].title}`}
+              aria-label={format(t.show, { title: services[i].title })}
               className="h-2.5 rounded-full transition-all duration-500 ease-out"
               style={{
                 width: i === current ? "2rem" : "0.625rem",

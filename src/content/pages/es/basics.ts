@@ -1,0 +1,861 @@
+import type { TranslatedPage } from "../../types";
+
+export const basicsPages: TranslatedPage[] = [
+  // ---------------------------------------------------------------------------
+  // 1. What is customer support automation
+  // ---------------------------------------------------------------------------
+  {
+    key: "what-is-customer-support-automation",
+    slug: "que-es-automatizacion-atencion-cliente",
+    category: "basics",
+    navLabel: "Qué es automatizar el soporte",
+    primaryKeyword: "qué es la automatización de la atención al cliente",
+    title: "¿Qué es la automatización de la atención al cliente?",
+    description:
+      "Qué es automatizar la atención al cliente: bots, enrutamiento, macros, autorrespuestas, SLA e informes, qué dejar en manos humanas y cómo encaja en tu helpdesk.",
+    h1: "¿Qué es la automatización de la atención al cliente?",
+    intro:
+      "La automatización de la atención al cliente consiste en usar reglas, bots e integraciones para resolver el trabajo de soporte repetitivo, como responder preguntas frecuentes, clasificar tickets, enviar acuses de recibo y controlar plazos, sin que un agente tenga que hacer cada paso a mano. La mayor parte funciona dentro del helpdesk que ya usas, ampliado con APIs y webhooks. El objetivo es dar a tus agentes más tiempo para las conversaciones que requieren criterio.",
+    keyFacts: [
+      "Los triggers de Zendesk se ejecutan inmediatamente después de crear o actualizar un ticket; las automatizaciones de Zendesk se basan en el tiempo y se ejecutan una vez cada hora.",
+      "Las macros de Zendesk no tienen condiciones: es un agente quien decide cuándo aplicar una.",
+      "Las automatizaciones de Zendesk, Freshdesk y Jira pueden enviar solicitudes HTTP a otros sistemas desde sus reglas.",
+      "Según las indicaciones de Zendesk, las consultas complejas, urgentes o delicadas pueden necesitar un traspaso a un agente humano.",
+    ],
+    sections: [
+      {
+        heading: "Qué es la automatización de la atención al cliente",
+        blocks: [
+          {
+            type: "p",
+            text: "Toda automatización de soporte tiene las mismas tres partes: algo que la pone en marcha (un evento, como un ticket nuevo, o el paso del tiempo), condiciones que deciden si se aplica y acciones que ejecuta. Los helpdesks exponen este modelo directamente. Zendesk las llama reglas de negocio: los triggers se ejecutan inmediatamente después de crear o actualizar un ticket, mientras que las automatizaciones se basan en el tiempo y se ejecutan una vez cada hora sobre los tickets que no están cerrados. Zendesk señala que la diferencia entre ambos no está en qué acciones pueden realizar, sino en qué condiciones los activan.",
+          },
+          {
+            type: "p",
+            text: "La automatización va de un extremo a otro. En un extremo, actúa antes de que una persona vea el ticket: un bot responde la pregunta, o una regla fija la prioridad y asigna un grupo. En el otro, ayuda al agente: una respuesta guardada rellena una contestación habitual, o una barra lateral trae el pedido del cliente desde otro sistema. Ambas cuentan, y la mayoría de los equipos necesitan las dos.",
+          },
+        ],
+      },
+      {
+        heading: "Los principales tipos de automatización del soporte",
+        blocks: [
+          {
+            type: "table",
+            caption: "Tipos habituales de automatización de la atención al cliente",
+            head: ["Tipo", "Qué hace", "Ejemplo en un helpdesk"],
+            rows: [
+              [
+                "Autoservicio y bots",
+                "Responde preguntas frecuentes por chat, mensajería o correo sin un agente",
+                "Los agentes de IA de Zendesk responden preguntas con contenido de tus fuentes de conocimiento y pueden escalar a una persona",
+              ],
+              [
+                "Enrutamiento y triaje",
+                "Clasifica los tickets nuevos y los envía al grupo o agente adecuado",
+                "Los triggers de Zendesk pueden añadir habilidades a los tickets al crearse o actualizarse; el enrutamiento omnicanal reparte el trabajo según la disponibilidad y la capacidad de los agentes",
+              ],
+              [
+                "Macros y respuestas predefinidas",
+                "Aplica una respuesta guardada y actualizaciones del ticket en una sola acción",
+                "Una macro de Zendesk puede añadir texto de comentario, actualizar campos, añadir o quitar etiquetas y cambiar el agente asignado",
+              ],
+              [
+                "Respuestas automáticas",
+                "Confirma la recepción y fija expectativas de inmediato",
+                "Un trigger basado en eventos que envía al solicitante un acuse de recibo por correo cuando se crea un ticket",
+              ],
+              [
+                "Temporizadores de SLA y escalados",
+                "Controla los plazos de respuesta y resolución y avisa antes de un incumplimiento",
+                "Una política de SLA más una regla basada en el tiempo que avisa a un jefe de equipo antes de que se incumpla un objetivo",
+              ],
+              [
+                "Informes",
+                "Recoge métricas de soporte y las entrega de forma programada",
+                "Un resumen semanal del volumen de tickets, el tiempo de primera respuesta y el CSAT enviado por correo o a Slack",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Las macros son un caso límite útil. Zendesk indica que las macros no tienen condiciones: nada evalúa un ticket para decidir si se aplica una macro, así que es el agente quien la elige. Eso convierte las respuestas guardadas en el punto de partida de menor riesgo, porque sigue siendo una persona quien decide cada vez.",
+          },
+          {
+            type: "p",
+            text: "El enrutamiento suele ser donde la automatización da resultados antes, porque afecta a todos los tickets. El triaje inteligente de Zendesk, por ejemplo, clasifica los tickets nuevos por tema, sentimiento e idioma, y puede enrutarlos mediante el enrutamiento omnicanal, el enrutamiento basado en habilidades o triggers. Las configuraciones más sencillas usan reglas por palabras clave o por campos de formulario para fijar el grupo y la prioridad.",
+          },
+        ],
+      },
+      {
+        heading: "Qué debe seguir en manos humanas",
+        blocks: [
+          {
+            type: "p",
+            text: "La automatización funciona bien con el trabajo repetible y bien definido. Funciona mal con el criterio, la empatía y las excepciones. Según las indicaciones de Zendesk para los agentes de IA, a veces una consulta tiene que pasar a un agente humano cuando es compleja, urgente o delicada, y recomienda definir esas vías de escalado antes del lanzamiento. En la práctica, deja esto en manos de personas:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Quejas, cancelaciones y conversaciones con carga emocional",
+              "Disputas de facturación, reembolsos fuera de la política y otras excepciones que necesitan a alguien con autoridad",
+              "Seguridad de la cuenta y verificaciones de identidad en las que un error sale caro",
+              "Preguntas que el bot no sabe clasificar o que ya no ha conseguido responder",
+              "Cuentas de alto valor o en riesgo que has decidido atender personalmente",
+            ],
+          },
+          {
+            type: "p",
+            text: "Automatices lo que automatices, mantén una forma visible de llegar a una persona y transmite el historial de la conversación, para que el cliente no tenga que repetirse. Nuestra guía sobre el traspaso de chatbot a humano explica cómo hacerlo.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo encaja la automatización en tu helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "Rara vez necesitas sustituir tu helpdesk para automatizarlo. Los helpdesks modernos pueden llamar a otros sistemas desde sus reglas, y otros sistemas pueden actualizar tickets a través de la API del helpdesk. Así se construyen las automatizaciones a medida:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: creas un webhook en Admin Center y luego lo vinculas a un trigger o a una automatización con la acción 'Notify webhook'. El cuerpo de la solicitud puede ser JSON, XML o form-encoded, y los marcadores insertan datos del ticket.",
+              "Freshdesk: las reglas de automatización que se ejecutan al crear o actualizar tickets pueden usar la acción 'Trigger webhook' con GET, POST, PUT, PATCH o DELETE y marcadores como {{ticket.id}}. Los webhooks fallidos se reintentan cada 30 minutos, hasta 48 llamadas.",
+              "Jira: la acción de automatización 'Send web request' llama a otro sistema cuando se ejecuta una regla y puede esperar la respuesta para que los pasos posteriores usen los datos devueltos.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Un flujo a medida típico es así:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Una regla del helpdesk se activa con un ticket nuevo o actualizado y envía un webhook.",
+              "Una herramienta de flujos de trabajo como Make o n8n, o un pequeño servicio, lo recibe y busca datos en otro sitio: un sistema de pedidos, un CRM o un modelo de lenguaje.",
+              "El flujo escribe el resultado de vuelta a través de la API del helpdesk como una etiqueta, el valor de un campo, una nota privada o una asignación.",
+              "Los agentes ven el resultado dentro del ticket, y a partir de ahí se encargan las reglas propias del helpdesk.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Por dónde empezar",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Haz una lista de los tipos de solicitud más frecuentes del último mes y marca los que siguen siempre los mismos pasos.",
+              "Arregla primero el enrutamiento y las respuestas automáticas. Afectan a todos los tickets y son fáciles de verificar.",
+              "Convierte las respuestas repetidas en macros o respuestas predefinidas antes de meterlas en un bot.",
+              "Añade un bot para las preguntas más habituales y de bajo riesgo, con un traspaso claro a una persona.",
+              "Mide el tiempo de primera respuesta, el tiempo de resolución y el CSAT antes y después de cada cambio, para saber qué ha ayudado de verdad.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab es un estudio unipersonal dirigido por Roman Zakharenko que crea automatizaciones de soporte sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, con APIs, webhooks y Make o n8n. Entre los precios de proyecto puntual están Ticket Routing & Categorization (600–950 USD), un Starter Chat Bot (350–450 USD) y Automated Reports (500–900 USD). La mayoría de las implementaciones llevan 1–3 semanas e incluyen documentación básica, 30 días de soporte tras el lanzamiento y ningún coste oculto. Puedes empezar con una llamada de auditoría gratuita de 30 minutos.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿La automatización de la atención al cliente es lo mismo que un chatbot?",
+        a: "No. Un chatbot es solo un tipo. Las reglas de enrutamiento, las macros, las respuestas automáticas, los temporizadores de SLA y los informes programados también son automatización del soporte, y muchos equipos empiezan por ellos porque se aplican a todos los tickets.",
+      },
+      {
+        q: "¿Qué diferencia hay entre un trigger y una automatización en Zendesk?",
+        a: "Los triggers se basan en eventos y se ejecutan inmediatamente después de crear o actualizar un ticket. Las automatizaciones se basan en el tiempo y se ejecutan una vez cada hora, así que encajan con acciones como un recordatorio tras un número determinado de horas.",
+      },
+      {
+        q: "¿Tengo que cambiar de helpdesk para automatizar el soporte?",
+        a: "Normalmente no. Las automatizaciones de Zendesk, Freshdesk y Jira pueden enviar solicitudes HTTP salientes desde sus reglas, así que puedes conectar otros sistemas al helpdesk que ya usas.",
+      },
+      {
+        q: "¿Qué no se debería automatizar en la atención al cliente?",
+        a: "Las conversaciones complejas, urgentes o delicadas, que según las indicaciones de Zendesk pueden necesitar un agente humano, además de las disputas y las excepciones a la política que requieren que decida alguien con autoridad.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — About automations and how they work",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408832701850-About-automations-and-how-they-work",
+      },
+      {
+        label: "Zendesk Help Center — Routing and automation options for incoming tickets",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408831658650-Routing-and-automation-options-for-incoming-tickets",
+      },
+      {
+        label: "Zendesk Help Center — Creating macros for repetitive ticket responses and actions",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408844187034-Creating-macros-for-repetitive-ticket-responses-and-actions",
+      },
+      {
+        label: "Zendesk Help Center — About AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/6970583409690-About-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Configuring escalation strategies and flows for AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756604186-Configuring-escalation-strategies-and-flows-for-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Creating webhooks to interact with third-party systems",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems",
+      },
+      {
+        label: "Freshdesk Support — Using webhooks in automation rules that run on ticket updates",
+        url: "https://support.freshdesk.com/support/solutions/articles/132589-using-webhooks-in-automation-rules",
+      },
+      {
+        label: "Atlassian Support — Jira automation actions",
+        url: "https://support.atlassian.com/cloud-automation/docs/jira-automation-actions/",
+      },
+    ],
+    related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 2. Chatbot to human handoff
+  // ---------------------------------------------------------------------------
+  {
+    key: "chatbot-to-human-handoff",
+    slug: "traspaso-chatbot-a-agente-humano",
+    category: "basics",
+    navLabel: "Traspaso de chatbot a humano",
+    primaryKeyword: "traspaso de chatbot a agente humano",
+    title: "Traspaso de chatbot a humano: desencadenantes y contexto",
+    description:
+      "Traspaso de chatbot a humano: cuándo escalar, qué contexto pasar al agente, qué hacer fuera de horario y cómo lo hacen Zendesk, Freshdesk y Messenger.",
+    h1: "Traspaso de chatbot a humano: cómo escalar sin perder al cliente",
+    intro:
+      "El traspaso de chatbot a humano es el momento en que un bot deja de gestionar una conversación y la transfiere, con su historial y los datos que haya recogido, a un agente humano o a una cola. Un buen traspaso se activa en el momento adecuado, lleva el contexto para que el cliente no tenga que repetirse y sigue funcionando cuando no hay nadie conectado. Esta guía cubre los desencadenantes, el contexto que hay que pasar y cómo lo implementan Zendesk, Freshdesk y Messenger.",
+    keyFacts: [
+      "Zendesk indica que un agente de IA puede tener que transferir una consulta a una persona cuando es compleja, urgente o delicada.",
+      "Los AI Agents de Freshdesk pueden transferir automáticamente cuando el cliente usa frases desencadenantes que tú defines, como pedir hablar con un agente.",
+      "En Dialogflow CX, si ningún intent alcanza el umbral de clasificación, se activa un evento no-match en lugar de una coincidencia.",
+      "En Messenger, el handover protocol decide qué app es dueña de un hilo de conversación; Meta ha pasado Instagram a Conversation Routing.",
+    ],
+    sections: [
+      {
+        heading: "Qué es un traspaso de chatbot a humano",
+        blocks: [
+          {
+            type: "p",
+            text: "Un traspaso, también llamado escalado o transferencia, pasa la responsabilidad de una conversación de la automatización a una persona. Según el canal, el resultado es un chat en directo asignado a un agente, una conversación esperando en una cola o un ticket que un agente recoge más tarde. En los agentes de IA de Zendesk, esto se construye con bloques de escalado en el editor de diálogos, que definen cómo pasa una consulta a una persona cuando el agente de IA no puede resolverla.",
+          },
+          {
+            type: "p",
+            text: "Los traspasos pueden ser de dos tipos. En un traspaso síncrono, el cliente sigue en la misma conversación en directo y se une un agente. En un traspaso asíncrono, se crea un ticket para que un agente responda más tarde, que es la alternativa habitual cuando no hay nadie disponible. Zendesk documenta ambos, incluido un flujo de escalado asíncrono a ticket que permite a los clientes dejar un mensaje cuando tu equipo no está disponible.",
+          },
+        ],
+      },
+      {
+        heading: "Cuándo debe el bot hacer el traspaso",
+        blocks: [
+          {
+            type: "table",
+            caption: "Desencadenantes habituales del traspaso de un chatbot",
+            head: ["Desencadenante", "Cómo se manifiesta", "Cómo se detecta"],
+            rows: [
+              [
+                "El cliente pide una persona",
+                "Agente, hablar con una persona, esto no me ayuda",
+                "Los AI Agents de Freshdesk transfieren automáticamente ante las frases desencadenantes que definas, como una petición de hablar con un agente",
+              ],
+              [
+                "Baja confianza o sin coincidencia",
+                "El bot no sabe qué quiere el cliente",
+                "Dialogflow CX activa un evento no-match cuando ningún intent alcanza el umbral de clasificación; usa esa alternativa para ofrecer una persona",
+              ],
+              [
+                "Tema delicado o urgente",
+                "Quejas, pagos fallidos, seguridad, cuestiones legales o de protección",
+                "Zendesk cita las consultas complejas, urgentes o delicadas como motivos para transferir; entre las frases desencadenantes de ejemplo de Freshdesk está el aviso de un pago fallido",
+              ],
+              [
+                "Fallos repetidos",
+                "El cliente reformula la misma pregunta o el bot entra en bucle",
+                "Cuenta las respuestas de fallback en la sesión y escala tras un número fijado",
+              ],
+              [
+                "Regla de negocio",
+                "Cuenta VIP, pedido de importe alto, incidencia abierta",
+                "Consulta los datos del cliente mediante una API antes de que responda el bot y envía a esos clientes directamente a una persona",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "La confianza es el desencadenante que los equipos dejan implícito con más frecuencia. En Dialogflow CX, el intent con mayor puntuación solo se devuelve como coincidencia si su puntuación de confianza es mayor o igual que el umbral de clasificación; si no, se invoca un evento no-match. Trata ese evento como una señal: haz una pregunta aclaratoria y, si vuelve a ocurrir, haz el traspaso.",
+          },
+          {
+            type: "p",
+            text: "Zendesk también aconseja ofrecer el escalado solo cuando el agente de IA no puede guiar al cliente hacia recursos de autoservicio. Así los agentes se reservan para problemas reales, pero no escondas la opción. Un cliente que pide expresamente una persona debería tenerla, o recibir una respuesta clara sobre cuándo la tendrá.",
+          },
+        ],
+      },
+      {
+        heading: "Pasa el contexto, no solo al cliente",
+        blocks: [
+          {
+            type: "p",
+            text: "Un traspaso que pierde la conversación obliga al cliente a empezar de cero. El paso heredado 'Transfer to agent' de Zendesk, por ejemplo, crea un ticket que incluye el historial de la conversación del cliente, que el cliente no ve, y puede añadir etiquetas a ese ticket para el enrutamiento. Los AI Agents de Freshdesk pueden recoger datos como un ID de cliente, un número de referencia o un número de pedido antes de la transferencia, cuando la recogida de propiedades está activada tanto en el comportamiento de la conversación como en la configuración del traspaso.",
+          },
+          {
+            type: "p",
+            text: "Como mínimo, el agente debería recibir:",
+          },
+          {
+            type: "ul",
+            items: [
+              "La transcripción completa, incluido lo que el bot ya ha sugerido",
+              "El motivo del traspaso: petición del cliente, sin coincidencia, tema delicado o regla de negocio",
+              "Datos de identidad como nombre, correo o ID de cuenta, y si se han verificado",
+              "Los campos estructurados que recogió el bot, como el número de pedido o el producto",
+              "Etiquetas o una categoría, para que las reglas de enrutamiento envíen la conversación al grupo correcto",
+            ],
+          },
+          {
+            type: "p",
+            text: "Fija las expectativas del cliente en el mismo mensaje: dile que una persona se hace cargo y, aproximadamente, cuándo tendrá respuesta.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo implementan el traspaso Zendesk, Freshdesk y Messenger",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk: los bloques de escalado del editor de diálogos del agente de IA deciden adónde va una conversación cuando el agente de IA no puede resolverla, por ejemplo reenviándola a un agente. Un bloque de disponibilidad puede comprobar el horario laboral o la disponibilidad de los agentes antes de que se ejecute el escalado.",
+              "Freshdesk: en la configuración de traspaso del AI Agent, activas 'Transfer conversation', defines las frases desencadenantes que deben provocar una transferencia automática y puedes hacer que el AI Agent recoja primero los datos del cliente.",
+              "Messenger: cuando más de una app gestiona los mensajes de una página de Facebook, como tu bot y una bandeja de chat en directo, el handover protocol de Meta decide qué app es dueña del hilo. El webhook messaging_handovers informa de los eventos pass thread control, take thread control, request thread control y app role. Un evento pass_thread_control incluye los ID de la app propietaria anterior y de la nueva, además de una cadena metadata fijada en la solicitud a la API, que es un buen sitio para indicar el motivo del traspaso.",
+              "Instagram: el registro de cambios de Meta indica que ya no admite el handover protocol para Instagram y que ha migrado a todas las empresas a Conversation Routing, que permite definir qué partners controlan las conversaciones con clientes en cada momento. Meta describe Conversation Routing como retrocompatible con la mayoría de las APIs del handover protocol.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Qué hacer fuera del horario de atención",
+        blocks: [
+          {
+            type: "p",
+            text: "Un bot que promete una persona cuando no hay nadie conectado es peor que no tener traspaso. Comprueba primero la disponibilidad y luego elige una alternativa:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: un bloque de disponibilidad comprueba el horario laboral o la disponibilidad de los agentes. En un canal síncrono como la mensajería, Zendesk sugiere escalar por correo electrónico cuando se está fuera del horario de los agentes, y su flujo de escalado asíncrono a ticket permite a los clientes dejar un mensaje para que una persona haga el seguimiento más tarde.",
+              "Freshdesk: la opción 'Transfer outside business hours' te permite elegir un horario laboral, transferir la conversación a un agente o a un grupo y redactar el mensaje que ve el cliente.",
+              "Cualquier plataforma: crea un ticket con la transcripción, indica cuándo vuelve el equipo y deja que el bot siga respondiendo mientras tanto preguntas de autoservicio.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Prueba por separado el camino fuera de horario. Es la rama con más probabilidades de romperse sin que nadie lo note, porque no hay nadie del equipo conectado cuando se ejecuta.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab crea chatbots con traspaso a tu helpdesk actual o a Slack: un Starter Chat Bot (350–450 USD) o un Standard Chat Bot (500–650 USD), conectados mediante APIs, webhooks y Make o n8n. Todos los proyectos incluyen documentación básica y 30 días de soporte tras el lanzamiento, sin costes ocultos, y la mayoría de las implementaciones llevan 1–3 semanas. Una llamada de auditoría gratuita de 30 minutos es un buen punto de partida para definir tus desencadenantes de traspaso.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Cuándo debe un chatbot pasar la conversación a una persona?",
+        a: "Cuando el cliente pide una persona, cuando el bot no puede identificar la solicitud con confianza y cuando el tema es complejo, urgente o delicado, que es como Zendesk describe las consultas que necesitan un agente humano.",
+      },
+      {
+        q: "¿Cómo evito que los clientes tengan que repetirse tras un traspaso?",
+        a: "Pasa al ticket o al chat la transcripción, el motivo del traspaso y los datos que haya recogido el bot. El paso de transferencia heredado de Zendesk añade el historial de la conversación al ticket, y los AI Agents de Freshdesk pueden recoger datos como un número de pedido antes de la transferencia.",
+      },
+      {
+        q: "¿Qué es el handover protocol de Messenger?",
+        a: "Es el mecanismo de Meta para decidir qué app es dueña de un hilo de conversación de Messenger cuando varias apps atienden la misma página. Las apps pasan, toman y solicitan el control del hilo, y el webhook messaging_handovers informa de esos eventos.",
+      },
+      {
+        q: "¿Qué pasa si un cliente pide una persona fuera del horario de atención?",
+        a: "Comprueba la disponibilidad antes de escalar. Tanto Zendesk como Freshdesk permiten gestionar de otra forma los traspasos fuera de horario, por ejemplo creando un ticket para hacer el seguimiento más tarde y mostrando un mensaje sobre cuándo está disponible el equipo.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Configuring escalation strategies and flows for AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756604186-Configuring-escalation-strategies-and-flows-for-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Workflow recipe: Configuring asynchronous ticket escalations for messaging AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/11285019603098-Workflow-recipe-Configuring-asynchronous-ticket-escalations-for-messaging-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the step types for AI agent answers (Legacy)",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836323738-Understanding-the-step-types-for-AI-agent-answers-Legacy",
+      },
+      {
+        label: "Freshdesk Support — Configure handover settings for AI Agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000012026-configure-handover-settings-for-ai-agents",
+      },
+      {
+        label: "Freshdesk Support — Configure conversation behaviour for AI agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011713-configure-conversation-behaviour-for-ai-agent",
+      },
+      {
+        label: "Meta for Developers — messaging_handovers webhook event reference",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/webhooks/webhook-events/messaging_handovers",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform changelog",
+        url: "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      },
+      {
+        label: "Google Cloud — Dialogflow CX intents",
+        url: "https://docs.cloud.google.com/dialogflow/cx/docs/concept/intent",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 3. Customer support metrics
+  // ---------------------------------------------------------------------------
+  {
+    key: "customer-support-metrics",
+    slug: "metricas-atencion-al-cliente",
+    category: "basics",
+    navLabel: "Métricas de atención al cliente",
+    primaryKeyword: "métricas de atención al cliente",
+    title: "Métricas de atención al cliente: definiciones y fórmulas",
+    description:
+      "Métricas de atención al cliente: tiempo de primera respuesta, tiempo de resolución, FCR, reaperturas, CSAT, CES, NPS y backlog, y cómo se calcula cada una.",
+    h1: "Métricas de atención al cliente: qué medir y cómo se calcula cada una",
+    intro:
+      "Las métricas de atención al cliente son las mediciones que muestran con qué rapidez, con qué calidad y con cuánta carga de trabajo resuelve tu equipo las solicitudes de los clientes. El conjunto básico abarca la velocidad (tiempo de primera respuesta y tiempo de resolución), la calidad (resolución en el primer contacto y reaperturas), la opinión del cliente (CSAT, CES y NPS) y la carga de trabajo (backlog). A continuación, cada una se define tal como la definen los proveedores de helpdesk y sus autores originales.",
+    keyFacts: [
+      "El tiempo de resolución completo de Zendesk va desde la creación del ticket hasta su resolución más reciente, así que los tickets reabiertos siguen sumando tiempo.",
+      "Freshdesk solo cuenta un ticket para el FCR si el cliente no envió más mensajes después de su primer contacto.",
+      "El NPS es el porcentaje de promotores (puntuaciones 9–10) menos el porcentaje de detractores (puntuaciones 0–6).",
+      "Fred Reichheld presentó el NPS en Harvard Business Review en diciembre de 2003.",
+      "La defensa de medir el esfuerzo del cliente se planteó en el artículo de HBR de julio de 2010 «Stop Trying to Delight Your Customers».",
+    ],
+    sections: [
+      {
+        heading: "Las métricas básicas de atención al cliente de un vistazo",
+        blocks: [
+          {
+            type: "table",
+            caption: "Métricas de atención al cliente y cómo se calculan",
+            head: ["Métrica", "Qué mide", "Cómo se calcula"],
+            rows: [
+              [
+                "Tiempo de primera respuesta (FRT)",
+                "Cuánto esperan los clientes la primera respuesta",
+                "Tiempo desde la creación del ticket hasta la primera respuesta de un agente, expresado como media o mediana de todos los tickets",
+              ],
+              [
+                "Tiempo de resolución completo",
+                "Cuánto se tarda en resolver definitivamente un ticket",
+                "Tiempo desde la creación del ticket hasta su resolución más reciente (definición de Zendesk)",
+              ],
+              [
+                "Tiempo medio de resolución",
+                "Tiempo típico de resolución en muchos tickets",
+                "Suma de los tiempos de resolución dividida entre el número de tickets resueltos en el periodo",
+              ],
+              [
+                "Resolución en el primer contacto (FCR)",
+                "Porcentaje de problemas resueltos sin que el cliente vuelva",
+                "Tickets resueltos sin más mensajes del cliente después del primer contacto, divididos entre todos los tickets resueltos en el periodo (definición de Freshdesk)",
+              ],
+              [
+                "Reaperturas",
+                "Tickets que en realidad no estaban resueltos",
+                "Número de tickets que pasan de 'Solved' de nuevo a 'Open' (Zendesk), a menudo expresado como porcentaje de los tickets resueltos",
+              ],
+              [
+                "CSAT",
+                "Satisfacción con una interacción concreta",
+                "Tickets valorados como buenos divididos entre todos los tickets con valoración, en porcentaje (Zendesk Explore)",
+              ],
+              [
+                "CES",
+                "Cuánto esfuerzo ha tenido que hacer el cliente",
+                "Una encuesta posterior a la interacción sobre la facilidad o el esfuerzo, medida como puntuación media o como porcentaje de respuestas de bajo esfuerzo",
+              ],
+              [
+                "NPS",
+                "Disposición a recomendar la empresa",
+                "Porcentaje de promotores (9–10) menos porcentaje de detractores (0–6) en una escala de 0–10",
+              ],
+              [
+                "Backlog",
+                "Trabajo sin resolver pendiente para el equipo",
+                "Número de tickets en estado 'New', 'Open', 'Pending' u 'On-hold' en un momento dado (Zendesk)",
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Velocidad: tiempo de primera respuesta y tiempo de resolución",
+        blocks: [
+          {
+            type: "p",
+            text: "El tiempo de primera respuesta es el intervalo entre la creación de un ticket y la primera respuesta de un agente, que es como lo mide la métrica de tiempo de primera respuesta de Zendesk. Es la primera espera que vive el cliente, y suele ser el primer objetivo que los equipos incluyen en una política de SLA.",
+          },
+          {
+            type: "p",
+            text: "El tiempo de resolución mide cuánto se tarda en resolver el problema. El tiempo de resolución completo de Zendesk va desde la creación hasta la última resolución del ticket, así que un ticket que se reabre y se vuelve a resolver sigue acumulando tiempo. El tiempo medio de resolución es simplemente la media de esas duraciones en los tickets resueltos en un periodo. Unos pocos tickets muy antiguos pueden disparar la media, así que conviene mirar también la mediana.",
+          },
+          {
+            type: "p",
+            text: "Dos ajustes cambian mucho estas cifras: si cuentas horas laborables u horas naturales, y si las respuestas automáticas cuentan como respuesta. Decídelo una vez, déjalo por escrito y mantenlo estable, para que las tendencias sigan siendo comparables de un mes a otro.",
+          },
+        ],
+      },
+      {
+        heading: "Calidad: resolución en el primer contacto y reaperturas",
+        blocks: [
+          {
+            type: "p",
+            text: "La resolución en el primer contacto (FCR) es el porcentaje de problemas resueltos sin que el cliente tenga que volver. Freshdesk calcula el FCR% como el número de tickets resueltos o cerrados tras el primer contacto del cliente, dividido entre todos los tickets resueltos o cerrados en el periodo seleccionado. Un ticket solo cuenta si el cliente no envió más mensajes después del primero; la descripción inicial del ticket no cuenta como respuesta del cliente, y el número de respuestas del agente no importa. Se excluyen los tickets reabiertos y también los tickets salientes iniciados por un agente.",
+          },
+          {
+            type: "p",
+            text: "Las reaperturas recogen el caso contrario: un ticket marcado como resuelto que vuelve. Zendesk registra una reapertura cuando el estado de un ticket pasa de 'Solved' de nuevo a 'Open'. Vigila el FCR y las reaperturas a la vez. Si tu equipo cierra tickets antes de tiempo para cumplir un objetivo de resolución, las reaperturas aumentarán.",
+          },
+          {
+            type: "note",
+            text: "Cada proveedor define el FCR de forma distinta: unos cuentan las respuestas del agente, otros las del cliente y otros excluyen ciertos canales. Comprueba la definición de tu helpdesk antes de comparar tu cifra con la de otros.",
+          },
+        ],
+      },
+      {
+        heading: "Opinión del cliente: CSAT, CES y NPS",
+        blocks: [
+          {
+            type: "p",
+            text: "El CSAT (customer satisfaction score) pide a los clientes que valoren una interacción concreta. En Zendesk Explore, la puntuación de satisfacción es el número de tickets valorados como buenos dividido entre todos los tickets con una respuesta de satisfacción, expresado en porcentaje. Como está ligado a un solo ticket, el CSAT es la opinión más directa sobre el trabajo de tu equipo de soporte.",
+          },
+          {
+            type: "p",
+            text: "El CES (customer effort score) pregunta lo fácil que ha sido resolver un problema. La idea procede de «Stop Trying to Delight Your Customers», publicado en Harvard Business Review en julio de 2010. Se basó en un estudio con más de 75.000 personas que habían tratado con agentes de contact center o con canales de autoservicio, y sostenía que esforzarse por superar las expectativas apenas influye en la fidelidad, mientras que reducir el esfuerzo del cliente sí lo hace. La redacción de la encuesta y las escalas varían entre herramientas, así que elige una versión y mantenla.",
+          },
+          {
+            type: "p",
+            text: "El NPS (Net Promoter Score) mide la disposición a recomendar la empresa, no solo una interacción. Fred Reichheld, de Bain & Company, lo presentó en «The One Number You Need to Grow», publicado en Harvard Business Review en diciembre de 2003. Los clientes indican en una escala de 0–10 la probabilidad de que recomienden la empresa a un amigo o compañero. Las puntuaciones de 9–10 son promotores, las de 7–8 son pasivos y las de 0–6 son detractores. El NPS es el porcentaje de promotores menos el porcentaje de detractores, así que va de -100 a +100.",
+          },
+        ],
+      },
+      {
+        heading: "Carga de trabajo: backlog y métricas fiables",
+        blocks: [
+          {
+            type: "p",
+            text: "El backlog es el trabajo sin resolver que tiene pendiente tu equipo. Zendesk define el backlog de tickets como todos los tickets que están en estado 'New', 'Open', 'Pending' u 'On-hold', tanto asignados como sin asignar. Regístralo como una foto diaria para poder ver la tendencia. Un backlog que crece semana tras semana significa que el volumen entrante supera la capacidad, aunque los tiempos de respuesta todavía parezcan correctos.",
+          },
+          {
+            type: "p",
+            text: "Algunos hábitos mantienen útiles las métricas:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Combina una métrica de velocidad con una de calidad, como el tiempo de resolución con las reaperturas, para que una no mejore a costa de la otra.",
+              "Segmenta por canal y prioridad. Una primera respuesta en chat y una primera respuesta por correo no son comparables.",
+              "Mantén las mismas definiciones y el mismo ajuste de horario a lo largo del tiempo, y anota cualquier cambio en tus informes.",
+              "Convierte tus objetivos más importantes en políticas de SLA, para que el helpdesk los controle en cada ticket.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "El servicio Automated Reports de TascaLab (500–900 USD, proyecto puntual) extrae estas métricas de tu helpdesk, como Zendesk, Freshdesk o Jira, y envía un resumen programado por correo o a Slack. Cada proyecto incluye documentación básica, 30 días de soporte tras el lanzamiento y ningún coste oculto, y la mayoría de las implementaciones llevan 1–3 semanas. Una llamada de auditoría gratuita de 30 minutos ayuda a decidir qué métricas merece la pena automatizar primero.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Qué diferencia hay entre el tiempo de primera respuesta y el tiempo de resolución?",
+        a: "El tiempo de primera respuesta termina con la primera respuesta de un agente. El tiempo de resolución termina cuando se resuelve el ticket; el tiempo de resolución completo de Zendesk llega hasta la resolución más reciente, así que los tickets reabiertos siguen sumando tiempo.",
+      },
+      {
+        q: "¿Cómo se calcula el NPS?",
+        a: "Pregunta a los clientes, en una escala de 0–10, qué probabilidad hay de que te recomienden y, después, resta el porcentaje de detractores (0–6) del porcentaje de promotores (9–10). Los pasivos (7–8) cuentan en el total de respuestas, pero no en la resta.",
+      },
+      {
+        q: "¿Qué diferencia hay entre CSAT, CES y NPS?",
+        a: "El CSAT valora la satisfacción con una interacción concreta, el CES mide cuánto esfuerzo costó resolver un problema y el NPS mide la probabilidad de que un cliente recomiende la empresa en general.",
+      },
+      {
+        q: "¿Cómo calcula Freshdesk la resolución en el primer contacto?",
+        a: "El FCR% es el número de tickets resueltos sin más mensajes del cliente después del primer contacto, dividido entre todos los tickets resueltos en el periodo. Se excluyen los tickets reabiertos y los salientes.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Support",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408827693594-Metrics-and-attributes-for-Zendesk-Support",
+      },
+      {
+        label: "Zendesk Help Center — Explore recipe: Determining satisfaction scores for your agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408822875930-Explore-recipe-Determining-satisfaction-scores-for-your-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding backlog evolution",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155859610-Understanding-backlog-evolution",
+      },
+      {
+        label: "Freshdesk Support — How are FCR%, First Response SLA%, and Average First response time calculated?",
+        url: "https://support.freshdesk.com/support/solutions/articles/226861-how-are-fcr-first-response-sla-and-average-first-response-time-metrics-calculated-for-agent-perfo",
+      },
+      {
+        label: "Harvard Business Review — The One Number You Need to Grow (December 2003)",
+        url: "https://hbr.org/2003/12/the-one-number-you-need-to-grow",
+      },
+      {
+        label: "Net Promoter System — Measuring Your Net Promoter Score",
+        url: "https://www.netpromotersystem.com/about/measuring-your-net-promoter-score/",
+      },
+      {
+        label: "Net Promoter System — The History of Net Promoter",
+        url: "https://www.netpromotersystem.com/about/history-of-net-promoter/",
+      },
+      {
+        label: "Harvard Business Review — Stop Trying to Delight Your Customers (July 2010)",
+        url: "https://hbr.org/2010/07/stop-trying-to-delight-your-customers",
+      },
+    ],
+    related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 4. SLA policies explained
+  // ---------------------------------------------------------------------------
+  {
+    key: "sla-policies-explained",
+    slug: "politicas-sla-atencion-al-cliente",
+    category: "basics",
+    navLabel: "Políticas de SLA explicadas",
+    primaryKeyword: "políticas de SLA en atención al cliente",
+    title: "Políticas de SLA en atención al cliente, explicadas",
+    description:
+      "Políticas de SLA en atención al cliente: objetivos de primera y siguiente respuesta y de resolución, horario laboral o natural, pausas, avisos y configuración.",
+    h1: "Políticas de SLA en atención al cliente, explicadas",
+    intro:
+      "Una política de SLA es un conjunto de reglas de tu helpdesk que asigna a los tickets objetivos de tiempo de respuesta y de resolución, según condiciones como la prioridad, y controla cada ticket frente a ellos. Decide qué tickets reciben qué objetivos, si el reloj cuenta horas laborables o naturales, cuándo se pausa y qué ocurre antes de un incumplimiento. Aquí verás cómo funcionan las políticas de SLA y cómo las configuran Zendesk, Freshdesk y Jira Service Management.",
+    keyFacts: [
+      "Zendesk aplica la primera política de SLA, recorriendo la lista de arriba abajo, cuyas condiciones cumple el ticket.",
+      "En Zendesk, 'requester wait time' se pausa en 'Pending', y 'agent work time' se pausa en 'Pending' y 'On-hold'.",
+      "Freshdesk te permite calcular cada SLA en horas laborables o en horas naturales (24x7).",
+      "Los recordatorios de Freshdesk se pueden configurar desde 5 minutos hasta 4 horas antes del vencimiento de un objetivo de SLA.",
+      "En Jira Service Management, cada SLA tiene condiciones de inicio, pausa y parada, además de objetivos que seleccionan las solicitudes con JQL.",
+    ],
+    sections: [
+      {
+        heading: "Qué es una política de SLA",
+        blocks: [
+          {
+            type: "p",
+            text: "Un acuerdo de nivel de servicio (SLA) es un compromiso sobre la rapidez con la que vas a responder y resolver las solicitudes. Una política de SLA es la forma en que tu helpdesk hace cumplir ese compromiso en cada ticket. La mayoría de las políticas tienen las mismas partes:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Condiciones: a qué tickets se aplica la política, por ejemplo según el cliente, el canal o el tipo de solicitud",
+              "Objetivos: límites de tiempo para la primera respuesta, las respuestas posteriores y la resolución, normalmente fijados por prioridad",
+              "Horario: si el reloj cuenta horas laborables u horas naturales",
+              "Reglas de pausa: qué estados detienen el reloj",
+              "Acciones ante incumplimientos: recordatorios antes de que se incumpla un objetivo y escalados después",
+            ],
+          },
+          {
+            type: "p",
+            text: "El orden importa cuando tienes varias políticas. Zendesk ejecuta primero los triggers, luego compara el ticket con sus políticas de SLA de arriba abajo y aplica la primera cuyas condiciones se cumplen. Coloca las políticas específicas, como una para clientes enterprise, por encima de las generales. Zendesk también exige que la prioridad del ticket esté en el campo de prioridad predeterminado del sistema; un campo de prioridad personalizado no hará coincidir ninguna política.",
+          },
+        ],
+      },
+      {
+        heading: "Objetivos de primera respuesta, siguiente respuesta y resolución",
+        blocks: [
+          {
+            type: "table",
+            caption: "Objetivos de SLA y cómo los llama cada herramienta",
+            head: ["Objetivo", "Qué mide", "Zendesk", "Freshdesk", "Jira Service Management"],
+            rows: [
+              [
+                "Primera respuesta",
+                "Tiempo desde la creación del ticket hasta la primera respuesta de un agente",
+                "First reply time",
+                "First response",
+                "Un SLA personalizado que empieza al crearse la solicitud y se detiene con la primera respuesta al cliente",
+              ],
+              [
+                "Siguiente respuesta",
+                "Tiempo desde un mensaje del cliente sin contestar hasta la siguiente respuesta de un agente",
+                "Next reply time",
+                "Every response",
+                "Un SLA personalizado con sus propias condiciones de inicio y parada",
+              ],
+              [
+                "Resolución",
+                "Tiempo desde la creación hasta que se resuelve el ticket",
+                "Requester wait time, agent work time o total resolution time",
+                "Resolution",
+                "Un SLA personalizado que se detiene cuando se resuelve la solicitud",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Zendesk define 'next reply time' como el tiempo entre el comentario del cliente sin contestar más antiguo y el siguiente comentario público de un agente. También ofrece una métrica de actualización periódica, que mide el tiempo entre comentarios públicos de agentes. Para la resolución, Zendesk tiene tres métricas y recomienda elegir solo una por política: 'requester wait time' (tiempo en 'New', 'Open' y 'On-hold'), 'agent work time' (tiempo en 'New' y 'Open') y 'total resolution time' (todo el ciclo de vida, desde la creación hasta que el ticket se resuelve).",
+          },
+          {
+            type: "p",
+            text: "Freshdesk fija objetivos de primera respuesta, de cada respuesta y de resolución por prioridad dentro de cada política de SLA. En Jira Service Management, cada SLA es un temporizador con nombre: defines cuándo empieza, se pausa y se detiene, y luego añades objetivos que usan JQL para elegir a qué solicitudes se aplican, con tiempos objetivo escritos como 4h 30m.",
+          },
+        ],
+      },
+      {
+        heading: "Cuándo corre el reloj: horas laborables, horas naturales y pausas",
+        blocks: [
+          {
+            type: "p",
+            text: "Las horas laborables solo cuentan el tiempo dentro de tu horario de trabajo; las horas naturales cuentan todas las horas de todos los días. Zendesk te permite elegir horas laborables o naturales para cada prioridad dentro de una política. Freshdesk pregunta si cada SLA debe usar el horario laboral que has configurado u horas naturales (24x7). Jira Service Management asocia a cada objetivo un calendario con zona horaria, días y horas laborables y festivos.",
+          },
+          {
+            type: "p",
+            text: "Un objetivo de 4 horas laborables en un ticket creado el viernes a última hora puede no vencer hasta el lunes. Es justo para tu equipo, pero no es lo que vive el cliente, así que usa horas naturales en cualquier prioridad en la que prometas cobertura las 24 horas.",
+          },
+          {
+            type: "p",
+            text: "La pausa es la otra mitad. El tiempo que se pasa esperando al cliente normalmente no debería contar en tu contra, y cada herramienta lo gestiona de forma distinta:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: 'requester wait time' se pausa en 'Pending'; 'agent work time' se pausa en 'Pending' y 'On-hold'; 'total resolution time' no se pausa con ningún cambio de estado hasta que se resuelve el ticket.",
+              "Freshdesk: el estado 'Pending' pausa los temporizadores de SLA, y puedes desactivar el temporizador de SLA para cualquier estado, incluidos los personalizados como 'Waiting on Third Party'. Los tickets con el temporizador desactivado aparecen como 'On Hold', y cuando el cliente responde, el ticket vuelve a 'Open' y el reloj se reanuda.",
+              "Jira Service Management: un SLA puede tener condiciones de pausa, por ejemplo mientras esperas la respuesta del cliente, junto con sus condiciones de inicio y parada.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Avisos de incumplimiento y escalados",
+        blocks: [
+          {
+            type: "p",
+            text: "Un SLA solo sirve si alguien actúa antes de que se incumpla. Configura un aviso antes del plazo y un escalado después:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: crea una automatización con la condición 'Hours until next SLA breach' para avisar a un equipo o a una persona cuando un ticket esté a punto de incumplirse. Las automatizaciones se ejecutan una vez por hora, así que el aviso puede llegar hasta una hora antes o después del umbral, nunca en el momento exacto. El ejemplo de Zendesk añade una etiqueta en la misma automatización para que solo se active una vez por ticket.",
+              "Freshdesk: cada política de SLA puede recordar a los agentes, desde 5 minutos hasta 4 horas antes, que vence un objetivo de primera respuesta o de resolución, y escalar cuando se incumple un objetivo al agente asignado o a otras personas que elijas, como un jefe de equipo. Ambas cosas se configuran en Admin > Workflows > SLA Policies.",
+              "Cualquier herramienta: envía los avisos de incumplimiento donde tu equipo mira de verdad, como un canal de Slack, y no solo al correo.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Cómo configuran los SLA Zendesk, Freshdesk y Jira Service Management",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk: crea políticas de SLA con condiciones y objetivos por prioridad, elige horas laborables o naturales para cada prioridad y ordena la lista para que las políticas específicas vayan primero. Añade una automatización para los avisos de incumplimiento inminente.",
+              "Freshdesk: en Admin > Workflows > SLA Policies, fija objetivos de primera respuesta, de cada respuesta y de resolución por prioridad, elige horas laborables o naturales y luego añade recordatorios y escalados. Decide en la configuración de estados de ticket qué estados desactivan el temporizador de SLA.",
+              "Jira Service Management: crea cada SLA con condiciones de inicio, pausa y parada. Varias condiciones de inicio funcionan como OR, y el SLA se detiene en cuanto se cumple cualquier condición de parada. Después añade objetivos que seleccionen solicitudes con JQL, fija un tiempo objetivo y elige un calendario.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Sea cual sea la herramienta, empieza con una política y unas pocas prioridades, déjala funcionar unas semanas y luego compara los tiempos reales de primera respuesta y de resolución con los objetivos antes de ajustarlos.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab configura automatizaciones relacionadas con los SLA sobre Zendesk, Freshdesk y Jira: enrutamiento que fija la prioridad para que se aplique la política correcta, avisos de incumplimiento en Slack e informes de SLA programados. Los precios de proyecto puntual relevantes son Ticket Routing & Categorization (600–950 USD), Automated Reports (500–900 USD) y Custom Automation (1.200–2.000 USD). Los proyectos incluyen documentación básica, 30 días de soporte tras el lanzamiento y ningún coste oculto, y la mayoría llevan 1–3 semanas. Empieza con una llamada de auditoría gratuita de 30 minutos.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Qué diferencia hay entre el tiempo de primera respuesta y el tiempo de siguiente respuesta?",
+        a: "El tiempo de primera respuesta mide la espera hasta la primera respuesta de un agente tras crearse un ticket. El 'next reply time' de Zendesk se mide desde el comentario del cliente sin contestar más antiguo hasta el siguiente comentario público de un agente, así que se aplica durante toda la conversación.",
+      },
+      {
+        q: "¿Los SLA deben usar horas laborables u horas naturales?",
+        a: "Usa horas laborables si tu equipo trabaja en un horario fijo y los clientes lo saben, y horas naturales en las prioridades en las que prometes cobertura las 24 horas. Zendesk y Freshdesk te permiten elegir por política, y Jira Service Management usa un calendario que asignas a cada objetivo.",
+      },
+      {
+        q: "¿Se detiene el reloj del SLA cuando un ticket está en 'Pending'?",
+        a: "Depende de la herramienta y de la métrica. Freshdesk pausa los temporizadores de SLA en 'Pending'. En Zendesk, 'requester wait time' y 'agent work time' se pausan en 'Pending', mientras que 'total resolution time' sigue corriendo hasta que se resuelve el ticket.",
+      },
+      {
+        q: "¿Puede Zendesk avisarme en el momento exacto en que se incumple un SLA?",
+        a: "No. Los avisos de incumplimiento inminente de Zendesk usan automatizaciones, que se ejecutan una vez por hora, así que una notificación puede llegar hasta una hora antes o después del incumplimiento.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Defining SLA policies",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408829459866-Defining-SLA-policies",
+      },
+      {
+        label: "Zendesk Help Center — About SLA policies and how they work",
+        url: "https://support.zendesk.com/hc/en-us/articles/5600997516058-About-SLA-policies-and-how-they-work",
+      },
+      {
+        label: "Zendesk Help Center — Workflow: How to alert your team to tickets nearing an SLA breach",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408820131994-Workflow-How-to-alert-your-team-to-tickets-nearing-an-SLA-breach",
+      },
+      {
+        label: "Freshdesk Support — Understanding SLA Policies",
+        url: "https://support.freshdesk.com/support/solutions/articles/37626-understanding-sla-policies",
+      },
+      {
+        label: "Freshdesk Support — Setting SLA targets for every response",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000001634-setting-sla-targets-for-every-response",
+      },
+      {
+        label: "Freshdesk Support — Customizing your ticket statuses",
+        url: "https://support.freshdesk.com/en/support/articles/37600-customizing-your-ticket-statuses",
+      },
+      {
+        label: "Atlassian Support — Create service level agreements (SLAs) to manage goals",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/create-service-level-agreements-slas/",
+      },
+      {
+        label: "Atlassian Support — Set up SLA conditions",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-sla-conditions/",
+      },
+    ],
+    related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
+    updated: "2026-10-19",
+  },
+];

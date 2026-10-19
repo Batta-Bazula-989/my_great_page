@@ -40,7 +40,7 @@ app.post("/api/booking", async (req, res) => {
   }
 
   const {
-    fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan,
+    fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan, language,
     utm_source, utm_medium, utm_campaign,
   } = req.body || {};
   const lines = [
@@ -52,6 +52,7 @@ app.post("/api/booking", async (req, res) => {
     `Meeting method: ${meetingMethod || "—"}`,
   ];
   if (selectedPlan) lines.push(`Selected plan: ${selectedPlan}`);
+  if (language && language !== "en") lines.push(`Site language: ${language}`);
   if (phone) lines.push(`Phone: ${phone}`);
   if (telegram) lines.push(`Telegram: ${telegram}`);
   const utmParts = [utm_source, utm_medium, utm_campaign].filter(Boolean);

@@ -1,22 +1,10 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
-const goodFit = [
-  "Your support team handles repetitive, predictable work that shows up every single day",
-  "You're on Zendesk, Freshdesk, Jira, or similar — and want automation on top, not a replacement",
-  "You want clear reporting without someone manually pulling data every week",
-  "Your tools don't talk to each other and tickets fall through the cracks because of it",
-  "You want to know exactly what you're getting before you pay for anything",
-];
-
-const notFit = [
-  "You need a full-time support manager to run day-to-day ops",
-  "You want one tool to handle everything — intake, resolution, escalation, reporting, all of it",
-  "You're planning to replace your entire support stack and start from scratch",
-  `You believe AI can fully replace your support team`,
-];
+import { useDict } from "@/i18n";
 
 const WhoForSection = () => {
+  const t = useDict().fit;
   return (
     <section id="fit" aria-labelledby="fit-title" className="py-[4.8rem] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
@@ -29,8 +17,8 @@ const WhoForSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <span className="section-eyebrow">Is This a Fit?</span>
-          <h2 id="fit-title" className="section-title">Who this support automation is for</h2>
+          <span className="section-eyebrow">{t.eyebrow}</span>
+          <h2 id="fit-title" className="section-title">{t.title}</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -42,9 +30,9 @@ const WhoForSection = () => {
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
             <div className="relative z-10">
-              <h3 className="text-xl font-bold font-display mb-6 text-gradient">Good Fit</h3>
+              <h3 className="text-xl font-bold font-display mb-6 text-gradient">{t.goodTitle}</h3>
               <div className="space-y-4">
-                {goodFit.map((item, i) => (
+                {t.good.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-foreground/90 text-sm">{item}</span>
@@ -62,9 +50,9 @@ const WhoForSection = () => {
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
           >
             <div className="relative z-10">
-              <h3 className="text-xl font-bold font-display mb-6 text-muted-foreground">Not the Right Fit</h3>
+              <h3 className="text-xl font-bold font-display mb-6 text-muted-foreground">{t.notTitle}</h3>
               <div className="space-y-4">
-                {notFit.map((item, i) => (
+                {t.not.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <X className="w-5 h-5 text-destructive/60 mt-0.5 shrink-0" />
                     <span className="text-muted-foreground text-sm">{item}</span>

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { dictionaries } from "@/i18n";
+import { localeFromPath } from "@/i18n/config";
 
 const STORAGE_KEY = "cookie_consent";
 
@@ -24,6 +27,8 @@ function updateConsent(granted: boolean) {
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
+  // Rendered outside the per-language layout, so the language comes from the URL.
+  const t = dictionaries[localeFromPath(useLocation().pathname)].cookie;
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -52,20 +57,20 @@ const CookieConsent = () => {
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <p className="text-sm text-muted-foreground">
-          We use cookies for analytics and ad measurement to understand how visitors find and use this site.{" "}
+          {t.text}{" "}
           <a
             href="/privacy"
             className="underline underline-offset-2 hover:text-foreground transition-colors"
           >
-            Privacy Policy
+            {t.privacy}
           </a>
         </p>
         <div className="flex shrink-0 gap-2">
           <Button variant="outline" size="sm" onClick={handleDecline}>
-            Decline
+            {t.decline}
           </Button>
           <Button variant="hero" size="sm" onClick={handleAccept}>
-            Accept
+            {t.accept}
           </Button>
         </div>
       </div>

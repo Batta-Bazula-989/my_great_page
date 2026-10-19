@@ -1,108 +1,219 @@
-// Server entry used only at build time (scripts/prerender.mjs) to turn the SEO pages into static HTML.
+// Server entry used only at build time (scripts/prerender.mjs) to turn every language's pages into static HTML.
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
-import { Route, Routes } from "react-router-dom";
-import SeoPage from "./pages/SeoPage";
-import Resources, { RESOURCES_DESCRIPTION, RESOURCES_TITLE } from "./pages/Resources";
-import { SITE_URL, categoryLabel, seoPages } from "./content";
+import { AppRoutes } from "./routes";
+import { SITE_URL, pageByKey, pagesByLocale } from "./content";
+import type { Locale, TranslatedPage } from "./content/types";
+import { dictionaries } from "./i18n";
+import { DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
+
+export { contentProblems } from "./content/validate";
 
 export interface PrerenderRoute {
-  path: string;
+  path: string; // URL path, e.g. "/de/zendesk-automatisierung"
+  file: string; // output file relative to dist/
+  locale: Locale;
+  htmlLang: string;
+  ogLocale: string;
   title: string;
   description: string;
   jsonLd: object[];
-  lastmod: string;
+  alternates: { hreflang: string; href: string }[];
+  lastmod?: string;
+  render: boolean; // false: head only (the homepage animates in on the client)
+  noscript?: { heading: string; text: string };
 }
+
+const url = (path: string) => `${SITE_URL}${path}`;
+const fileFor = (locale: Locale, name: string) => (locale === DEFAULT_LOCALE ? name : `${locale}/${name}`);
+
+const withXDefault = (alternates: { hreflang: string; href: string }[]) => {
+  const en = alternates.find((a) => a.hreflang === DEFAULT_LOCALE);
+  return en ? [...alternates, { hreflang: "x-default", href: en.href }] : alternates;
+};
 
 const business = { "@type": "ProfessionalService", "@id": `${SITE_URL}/#business`, name: "TascaLab", url: `${SITE_URL}/` };
 const author = { "@type": "Person", "@id": `${SITE_URL}/#founder`, name: "Roman Zakharenko" };
 
-export const routes: PrerenderRoute[] = [
-  {
-    path: "/resources",
-    title: RESOURCES_TITLE,
-    description: RESOURCES_DESCRIPTION,
-    lastmod: seoPages.map((p) => p.updated).sort().at(-1) ?? "",
+// USD ranges in the same order as the pricing plans in the dictionaries.
+const PRICE_RANGES: [number, number][] = [
+  [350, 450],
+  [1100, 1600],
+  [500, 650],
+  [600, 950],
+  [500, 900],
+  [1200, 2000],
+];
+
+const homeJsonLd = (locale: Locale): object[] => {
+  const t = dictionaries[locale];
+  return [
+    {
+      "@context": "https://schema.org",
+      ...business,
+      logo: `${SITE_URL}/favicon.svg`,
+      image: `${SITE_URL}/og-image.png`,
+      description: t.meta.homeDescription,
+      email: "romanzakharenko.r@gmail.com",
+      priceRange: "$350 - $2,000",
+      areaServed: "Worldwide",
+      founder: author,
+      sameAs: [
+        "https://www.upwork.com/freelancers/~01966ceb979589cb68",
+        "https://www.linkedin.com/in/roman-zakharenko-159a27403/",
+        "https://www.instagram.com/tasca_lab/",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: t.services.title,
+        itemListElement: t.pricing.plans.map((plan, i) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: plan.name },
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            minPrice: PRICE_RANGES[i][0],
+            maxPrice: PRICE_RANGES[i][1],
+          },
+        })),
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "TascaLab",
+      publisher: { "@id": business["@id"] },
+      inLanguage: locale,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: locale,
+      mainEntity: t.faq.items.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+};
+
+const pageJsonLd = (locale: Locale, page: TranslatedPage): object[] => {
+  const t = dictionaries[locale];
+  const path = localePath(locale, page.slug);
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: page.h1,
+      description: page.description,
+      inLanguage: locale,
+      url: url(path),
+      mainEntityOfPage: url(path),
+      dateModified: page.updated,
+      author,
+      publisher: business,
+      image: `${SITE_URL}/og-image.png`,
+      about: page.primaryKeyword,
+      citation: page.sources.map((s) => s.url),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: t.seo.home, item: url(localePath(locale)) },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: t.categories[page.category].label,
+          item: `${url(localePath(locale, "resources"))}#${page.category}`,
+        },
+        { "@type": "ListItem", position: 3, name: page.navLabel, item: url(path) },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: locale,
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+};
+
+const latest = (locale: Locale) => pagesByLocale[locale].map((p) => p.updated).sort().at(-1);
+
+export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
+  const t = dictionaries[locale];
+  const info = localeInfo(locale);
+  const base = { locale, htmlLang: locale, ogLocale: info.ogLocale };
+
+  const home: PrerenderRoute = {
+    ...base,
+    path: localePath(locale),
+    file: fileFor(locale, "index.html"),
+    title: t.meta.homeTitle,
+    description: t.meta.homeDescription,
+    jsonLd: homeJsonLd(locale),
+    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code)) }))),
+    render: false,
+    noscript: { heading: t.meta.noscriptHeading, text: t.meta.noscriptText },
+  };
+
+  const resources: PrerenderRoute = {
+    ...base,
+    path: localePath(locale, "resources"),
+    file: fileFor(locale, "resources.html"),
+    title: t.resources.metaTitle,
+    description: t.resources.metaDescription,
+    lastmod: latest(locale),
+    render: true,
+    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code, "resources")) }))),
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Customer support automation resources",
-        url: `${SITE_URL}/resources`,
+        name: t.resources.title,
+        inLanguage: locale,
+        url: url(localePath(locale, "resources")),
         publisher: business,
-        hasPart: seoPages.map((p) => ({ "@type": "Article", headline: p.h1, url: `${SITE_URL}/${p.slug}` })),
-      },
-    ],
-  },
-  ...seoPages.map((page) => ({
-    path: `/${page.slug}`,
-    title: page.title,
-    description: page.description,
-    lastmod: page.updated,
-    jsonLd: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: page.h1,
-        description: page.description,
-        url: `${SITE_URL}/${page.slug}`,
-        mainEntityOfPage: `${SITE_URL}/${page.slug}`,
-        dateModified: page.updated,
-        author,
-        publisher: business,
-        image: `${SITE_URL}/og-image.png`,
-        about: page.primaryKeyword,
-        citation: page.sources.map((s) => s.url),
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-          { "@type": "ListItem", position: 2, name: categoryLabel(page.category), item: `${SITE_URL}/resources#${page.category}` },
-          { "@type": "ListItem", position: 3, name: page.navLabel, item: `${SITE_URL}/${page.slug}` },
-        ],
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: page.faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+        hasPart: pagesByLocale[locale].map((p) => ({
+          "@type": "Article",
+          headline: p.h1,
+          url: url(localePath(locale, p.slug)),
         })),
       },
     ],
-  })),
-];
+  };
 
-// Build fails on these, so broken links or oversized meta tags never ship.
-export const contentProblems = (): string[] => {
-  const problems: string[] = [];
-  const slugs = new Set<string>();
-  for (const p of seoPages) {
-    const where = `[${p.slug}]`;
-    if (slugs.has(p.slug)) problems.push(`${where} duplicate slug`);
-    slugs.add(p.slug);
-    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug)) problems.push(`${where} slug is not kebab-case`);
-    if (p.title.length > 60) problems.push(`${where} title is ${p.title.length} chars (max 60)`);
-    if (p.description.length < 120 || p.description.length > 160)
-      problems.push(`${where} description is ${p.description.length} chars (want 120–160)`);
-    if (p.sources.length === 0) problems.push(`${where} has no sources`);
-    for (const s of p.sources) if (!/^https:\/\//.test(s.url)) problems.push(`${where} source is not https: ${s.url}`);
-    if (p.faqs.length === 0) problems.push(`${where} has no FAQs`);
-  }
-  for (const p of seoPages)
-    for (const r of p.related) if (!slugs.has(r) || r === p.slug) problems.push(`[${p.slug}] bad related slug: ${r}`);
-  return problems;
-};
+  const pages: PrerenderRoute[] = pagesByLocale[locale].map((page) => ({
+    ...base,
+    path: localePath(locale, page.slug),
+    file: fileFor(locale, `${page.slug}.html`),
+    title: page.title,
+    description: page.description,
+    lastmod: page.updated,
+    render: true,
+    jsonLd: pageJsonLd(locale, page),
+    alternates: withXDefault(
+      LOCALES.flatMap((l) => {
+        const translated = pageByKey(l.code, page.key);
+        return translated ? [{ hreflang: l.code, href: url(localePath(l.code, translated.slug)) }] : [];
+      }),
+    ),
+  }));
 
-export const render = (url: string) =>
+  return [home, resources, ...pages];
+});
+
+export const render = (path: string) =>
   renderToString(
-    <StaticRouter location={url}>
-      <Routes>
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/:slug" element={<SeoPage />} />
-      </Routes>
+    <StaticRouter location={path}>
+      <AppRoutes />
     </StaticRouter>,
   );

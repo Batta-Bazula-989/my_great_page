@@ -41,3 +41,11 @@ export interface SeoPageContent {
   related: string[]; // 3 slugs of other pages
   updated: string; // ISO date the facts were checked
 }
+
+export type Locale = "en" | "de" | "fr" | "es" | "it" | "nl";
+
+// A page in a non-English locale. `key` is the English page's slug and links all translations together;
+// `slug` is the localized URL slug. `related` keeps English keys.
+export interface TranslatedPage extends SeoPageContent {
+  key: string;
+}
