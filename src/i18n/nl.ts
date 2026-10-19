@@ -116,7 +116,7 @@ const nl: Dictionary = {
     eyebrow: "Prijzen",
     title: "Pakketten voor supportautomatisering tegen een vaste prijs",
     intro:
-      "Eén prijs per pakket, één keer betaald. Geen maandelijkse kosten van mijn kant. Twijfel je welk pakket past? Begin met de gratis Health Check.",
+      "Eén prijs per pakket, één keer betaald. Geen abonnement. Twijfel je welk pakket past? Begin met de gratis Health Check.",
     oneTimeFee: "eenmalig",
     cta: "Aan de slag",
     from: "vanaf {price}",
@@ -126,7 +126,7 @@ const nl: Dictionary = {
     supportTime: "30 dagen",
     included: "Wat er inbegrepen is",
     running: "Lopende kosten per maand",
-    runningNote: "Die betaal je aan de aanbieders van de tools, niet aan mij.",
+    runningNote: "Gefactureerd door de aanbieders van de tools. Niet inbegrepen in de pakketprijs.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -140,9 +140,9 @@ const nl: Dictionary = {
           "Basisdocumentatie",
         ],
         running: [
-          "AI-gebruik, gefactureerd door je AI-aanbieder: ongeveer $ 2,50–50 per 1.000 gesprekken*",
-          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
-          "Alleen bij WhatsApp: de eerste 1.000 serviceberichten per maand gratis per nummer, daarna de tarieven van Meta",
+          "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
+          "Alleen bij WhatsApp: vanaf 1 oktober 2026 zijn 1.000 serviceberichten per maand per zakelijk nummer gratis, daarna geldt het tarief per bericht van Meta",
         ],
       },
       {
@@ -156,7 +156,7 @@ const nl: Dictionary = {
           "Basisdocumentatie",
         ],
         running: [
-          "Kosten per minuut van het voiceplatform, bijv. Retell AI vanaf $ 0,07 per minuut",
+          "Kosten per minuut van het voiceplatform, bijv. Retell AI vanaf $ 0,07 per minuut, plus het AI-model en de telefoonlijn",
           "Een telefoonnummer van je telefonieaanbieder",
         ],
       },
@@ -171,9 +171,9 @@ const nl: Dictionary = {
           "Basisdocumentatie",
         ],
         running: [
-          "AI-gebruik, gefactureerd door je AI-aanbieder: ongeveer $ 2,50–50 per 1.000 gesprekken*",
-          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
-          "Alleen bij WhatsApp: de eerste 1.000 serviceberichten per maand gratis per nummer, daarna de tarieven van Meta",
+          "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
+          "Alleen bij WhatsApp: vanaf 1 oktober 2026 zijn 1.000 serviceberichten per maand per zakelijk nummer gratis, daarna geldt het tarief per bericht van Meta",
         ],
       },
       {
@@ -186,8 +186,8 @@ const nl: Dictionary = {
           "Basisdocumentatie",
         ],
         running: [
-          "AI-classificatie: ongeveer $ 0,20 per 1.000 tickets*",
-          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
+          "AI-classificatie, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
         ],
       },
       {
@@ -199,7 +199,7 @@ const nl: Dictionary = {
           "Basisdocumentatie",
         ],
         running: [
-          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
           "Geen AI-kosten, tenzij je samenvattingen door AI wilt laten schrijven",
         ],
       },
@@ -216,8 +216,8 @@ const nl: Dictionary = {
       },
     ],
     footnote:
-      "* De AI-schattingen gaan uit van de lijstprijzen van Anthropic (oktober 2026) voor Claude Haiku 5.5 ($ 0,10 / $ 0,50 per miljoen input-/outputtokens) en Claude Sonnet 5.5 ($ 2 / $ 10), bij ongeveer 20.000 input- en 1.000 outputtokens per gesprek en 1.500 / 100 per ticket. Andere aanbieders en modellen kosten anders, en aanbieders kunnen hun prijzen wijzigen.",
-    trust: ["Geen maandelijkse kosten van mijn kant", "30 dagen ondersteuning na oplevering", "Basisdocumentatie inbegrepen"],
+      "* Lijstprijzen van Anthropic (oktober 2026) voor prompts tot 100.000 tokens; langere prompts kosten $ 0,50 / $ 2,50. Andere aanbieders en modellen hebben andere prijzen, en aanbieders kunnen hun prijzen wijzigen.",
+    trust: ["Eenmalige prijs, geen abonnement", "30 dagen ondersteuning na oplevering", "Basisdocumentatie inbegrepen"],
     healthCheck: {
       title: "Gratis Health Check",
       text: "Een gesprek van 30 minuten over je supportopzet, gevolgd door een schriftelijk rapport: wat je het eerst automatiseert, welk pakket past, de vaste prijs en planning, en de geschatte lopende kosten per maand.",
@@ -235,7 +235,7 @@ const nl: Dictionary = {
         points: [
           "Gebouwd in je eigen helpdesk, je automatiseringsomgeving en je account bij je AI-aanbieder",
           "Klantgegevens blijven in systemen die jij beheert, onder je eigen contracten met die aanbieders",
-          "Mijn toegang is alleen voor de bouw en wordt na de overdracht ingetrokken",
+          "Jij bepaalt welke toegang ik krijg, en je kunt die na de overdracht intrekken",
           "Elke workflow, prompt en API-sleutel is van jou",
         ],
       },
@@ -244,8 +244,8 @@ const nl: Dictionary = {
         points: [
           "Ik draai de automatisering op accounts die ik beheer",
           "We sluiten een verwerkersovereenkomst (art. 28 AVG) voordat er persoonsgegevens worden verwerkt",
-          "Elke subverwerker, zoals het automatiseringsplatform, de AI-aanbieder en de hosting, wordt daarin genoemd",
-          "Na afloop van de overeenkomst worden de gegevens verwijderd of teruggegeven, zoals art. 28 vereist",
+          "Geen subverwerker, zoals het automatiseringsplatform, de AI-aanbieder of de hosting, wordt ingezet zonder je schriftelijke toestemming (art. 28 lid 2 AVG)",
+          "Na afloop van de overeenkomst worden de gegevens verwijderd of teruggegeven, naar jouw keuze (art. 28 lid 3 sub g AVG)",
         ],
       },
     ],
