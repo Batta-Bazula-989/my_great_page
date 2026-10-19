@@ -141,7 +141,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje boty na WhatsAppa na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira, Slack czy systemy wewnętrzne, z wykorzystaniem API, webhooków oraz Make lub n8n. Starter Chat Bot (350–450 USD) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji; Standard Chat Bot (500–650 USD) obejmuje od trzech do pięciu kanałów z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa audytowa to prosty sposób, by sprawdzić, czy WhatsApp pasuje do skali Twojej obsługi klienta.",
+            text: "TascaLab buduje boty na WhatsAppa na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira, Slack czy systemy wewnętrzne, z wykorzystaniem API, webhooków oraz Make lub n8n. Starter Chat Bot ({{price:starter}}) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji; Standard Chat Bot ({{price:standard}}) obejmuje od trzech do pięciu kanałów z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa Health Check to prosty sposób, by sprawdzić, czy WhatsApp pasuje do skali Twojej obsługi klienta.",
           },
         ],
       },
@@ -333,7 +333,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje boty obsługi klienta na Telegramie, które łączą się z narzędziami, których już używasz, takimi jak Zendesk, Freshdesk, Jira, Slack czy systemy wewnętrzne, przez API, webhooki oraz Make lub n8n. Starter Chat Bot (350–450 USD) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji, co pasuje do połączenia Telegrama z widżetem na stronie internetowej. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Możesz zacząć od bezpłatnej 30-minutowej rozmowy audytowej.",
+            text: "TascaLab buduje boty obsługi klienta na Telegramie, które łączą się z narzędziami, których już używasz, takimi jak Zendesk, Freshdesk, Jira, Slack czy systemy wewnętrzne, przez API, webhooki oraz Make lub n8n. Starter Chat Bot ({{price:starter}}) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji, co pasuje do połączenia Telegrama z widżetem na stronie internetowej. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -530,7 +530,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje boty na Messengera działające na bazie Zendeska, Freshdeska, Jiry, Slacka lub Twoich narzędzi wewnętrznych, z wykorzystaniem API, webhooków oraz Make lub n8n. Starter Chat Bot (350–450 USD) obejmuje jeden lub dwa kanały; Standard Chat Bot (500–650 USD) obejmuje od trzech do pięciu kanałów, np. Messenger, Instagram i WhatsApp, z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zarezerwuj bezpłatną 30-minutową rozmowę audytową, aby rozpisać Twój obecny przepływ w Messengerze.",
+            text: "TascaLab buduje boty na Messengera działające na bazie Zendeska, Freshdeska, Jiry, Slacka lub Twoich narzędzi wewnętrznych, z wykorzystaniem API, webhooków oraz Make lub n8n. Starter Chat Bot ({{price:starter}}) obejmuje jeden lub dwa kanały; Standard Chat Bot ({{price:standard}}) obejmuje od trzech do pięciu kanałów, np. Messenger, Instagram i WhatsApp, z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zarezerwuj bezpłatną 30-minutową rozmowę Health Check, aby rozpisać Twój obecny przepływ w Messengerze.",
           },
         ],
       },
@@ -706,7 +706,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab konfiguruje boty DM na Instagramie, które odpowiadają na częste pytania, zbierają dane i przekazują rozmowy Twojemu zespołowi w Zendesku, Freshdesku, Jirze, Slacku lub narzędziu wewnętrznym, zbudowane na API, webhookach oraz Make lub n8n. Starter Chat Bot (350–450 USD) obejmuje jeden lub dwa kanały; Standard Chat Bot (500–650 USD) — od trzech do pięciu, np. Instagram, Messenger i Twoją stronę internetową. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Punktem wyjścia jest bezpłatna 30-minutowa rozmowa audytowa.",
+            text: "TascaLab konfiguruje boty DM na Instagramie, które odpowiadają na częste pytania, zbierają dane i przekazują rozmowy Twojemu zespołowi w Zendesku, Freshdesku, Jirze, Slacku lub narzędziu wewnętrznym, zbudowane na API, webhookach oraz Make lub n8n. Starter Chat Bot ({{price:starter}}) obejmuje jeden lub dwa kanały; Standard Chat Bot ({{price:standard}}) — od trzech do pięciu, np. Instagram, Messenger i Twoją stronę internetową. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Punktem wyjścia jest bezpłatna 30-minutowa rozmowa Health Check.",
           },
         ],
       },
@@ -888,7 +888,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab konfiguruje chatboty na stronę na bazie helpdesku, którego już używasz, np. Zendeska lub Freshdeska, albo łączy własnego bota z Jirą, Slackiem lub narzędziami wewnętrznymi przez API, webhooki oraz Make lub n8n. Starter Chat Bot (350–450 USD) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji; Standard Chat Bot (500–650 USD) obejmuje od trzech do pięciu kanałów z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy audytowej.",
+            text: "TascaLab konfiguruje chatboty na stronę na bazie helpdesku, którego już używasz, np. Zendeska lub Freshdeska, albo łączy własnego bota z Jirą, Slackiem lub narzędziami wewnętrznymi przez API, webhooki oraz Make lub n8n. Starter Chat Bot ({{price:starter}}) obejmuje jeden lub dwa kanały z FAQ i podstawowym zbieraniem informacji; Standard Chat Bot ({{price:standard}}) obejmuje od trzech do pięciu kanałów z bardziej złożonymi rozmowami i płynniejszymi przekazaniami. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -1079,7 +1079,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Kanały botów w ofercie TascaLab to strona internetowa, telefon, WhatsApp, Telegram, Facebook Messenger i Instagram. SMS-a nie ma na tej liście, ale zakres prac dla innych kanałów z API można ustalić podczas bezpłatnej 30-minutowej rozmowy audytowej. TascaLab buduje rozwiązania na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack, przez API, webhooki oraz Make lub n8n. Starter Chat Bot kosztuje 350–450 USD za jeden lub dwa kanały, a Standard Chat Bot 500–650 USD za trzy do pięciu. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
+            text: "Kanały botów w ofercie TascaLab to strona internetowa, telefon, WhatsApp, Telegram, Facebook Messenger i Instagram. SMS-a nie ma na tej liście, ale zakres prac dla innych kanałów z API można ustalić podczas bezpłatnej 30-minutowej rozmowy Health Check. TascaLab buduje rozwiązania na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack, przez API, webhooki oraz Make lub n8n. Starter Chat Bot kosztuje {{price:starter}} za jeden lub dwa kanały, a Standard Chat Bot {{price:standard}} za trzy do pięciu. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
           },
         ],
       },
@@ -1280,7 +1280,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Kanały botów w ofercie TascaLab to strona internetowa, telefon, WhatsApp, Telegram, Facebook Messenger i Instagram. Vibera nie ma na tej liście, ale zakres prac dla innych kanałów z API można ustalić podczas bezpłatnej 30-minutowej rozmowy audytowej. TascaLab buduje rozwiązania na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack, przez API, webhooki oraz Make lub n8n. Starter Chat Bot kosztuje 350–450 USD za jeden lub dwa kanały, a Standard Chat Bot 500–650 USD za trzy do pięciu. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
+            text: "Kanały botów w ofercie TascaLab to strona internetowa, telefon, WhatsApp, Telegram, Facebook Messenger i Instagram. Vibera nie ma na tej liście, ale zakres prac dla innych kanałów z API można ustalić podczas bezpłatnej 30-minutowej rozmowy Health Check. TascaLab buduje rozwiązania na bazie narzędzi, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack, przez API, webhooki oraz Make lub n8n. Starter Chat Bot kosztuje {{price:starter}} za jeden lub dwa kanały, a Standard Chat Bot {{price:standard}} za trzy do pięciu. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
           },
         ],
       },

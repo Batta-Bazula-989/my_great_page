@@ -159,7 +159,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab to jednoosobowa praktyka – prowadzi ją Roman Zakharenko – która buduje automatyzację wsparcia na narzędziach, których już używasz, w tym Zendesk, Freshdesk, Jira i Slack, z wykorzystaniem API, webhooków oraz Make lub n8n. Ceny jednorazowe obejmują Ticket Routing & Categorization (600–950 USD), Starter Chat Bot (350–450 USD) i Automated Reports (500–900 USD). Większość wdrożeń trwa 1–3 tygodnie i obejmuje podstawową dokumentację oraz 30 dni wsparcia po uruchomieniu, bez ukrytych opłat. Możesz zacząć od bezpłatnej 30-minutowej rozmowy audytowej.",
+            text: "TascaLab to jednoosobowa praktyka – prowadzi ją Roman Zakharenko – która buduje automatyzację wsparcia na narzędziach, których już używasz, w tym Zendesk, Freshdesk, Jira i Slack, z wykorzystaniem API, webhooków oraz Make lub n8n. Ceny jednorazowe obejmują Ticket Routing & Categorization ({{price:routing}}), Starter Chat Bot ({{price:starter}}) i Automated Reports ({{price:reports}}). Większość wdrożeń trwa 1–3 tygodnie i obejmuje podstawową dokumentację oraz 30 dni wsparcia po uruchomieniu, bez ukrytych opłat. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -367,7 +367,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje chatboty z przekazaniem do Twojego istniejącego helpdesku lub Slacka: Starter Chat Bot (350–450 USD) lub Standard Chat Bot (500–650 USD), połączone przez API, webhooki oraz Make lub n8n. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa audytowa to dobry moment, by rozpisać wyzwalacze przekazania.",
+            text: "TascaLab buduje chatboty z przekazaniem do Twojego istniejącego helpdesku lub Slacka: Starter Chat Bot ({{price:starter}}) lub Standard Chat Bot ({{price:standard}}), połączone przez API, webhooki oraz Make lub n8n. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa Health Check to dobry moment, by rozpisać wyzwalacze przekazania.",
           },
         ],
       },
@@ -586,7 +586,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Usługa Automated Reports od TascaLab (500–900 USD, jednorazowo) pobiera te wskaźniki z Twojego helpdesku, np. Zendesk, Freshdesk lub Jira, i dostarcza cykliczne podsumowanie e-mailem lub na Slacka. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa audytowa pomaga zdecydować, które wskaźniki warto zautomatyzować najpierw.",
+            text: "Usługa Automated Reports od TascaLab ({{price:reports}}, jednorazowo) pobiera te wskaźniki z Twojego helpdesku, np. Zendesk, Freshdesk lub Jira, i dostarcza cykliczne podsumowanie e-mailem lub na Slacka. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa Health Check pomaga zdecydować, które wskaźniki warto zautomatyzować najpierw.",
           },
         ],
       },
@@ -798,7 +798,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab konfiguruje automatyzację związaną z SLA na Zendesk, Freshdesk i Jira: routing, który ustawia priorytet, aby zastosowana została właściwa polityka, alerty o przekroczeniach na Slacku i cykliczne raporty SLA. Odpowiednie ceny jednorazowe to Ticket Routing & Categorization (600–950 USD), Automated Reports (500–900 USD) i Custom Automation (1 200–2 000 USD). Projekty obejmują podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy audytowej.",
+            text: "TascaLab konfiguruje automatyzację związaną z SLA na Zendesk, Freshdesk i Jira: routing, który ustawia priorytet, aby zastosowana została właściwa polityka, alerty o przekroczeniach na Slacku i cykliczne raporty SLA. Odpowiednie ceny jednorazowe to Ticket Routing & Categorization ({{price:routing}}), Automated Reports ({{price:reports}}) i Custom Automation ({{price:custom}}). Projekty obejmują podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -1032,7 +1032,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje chatboty AI, które odpowiadają na częste pytania na Twojej stronie, w WhatsAppie, Telegramie, Facebook Messengerze lub na Instagramie, a wszystko inne przekazują Twojemu zespołowi w Zendesk, Freshdesk lub Twoich obecnych narzędziach. Starter Chat Bot kosztuje 350–450 USD, a Standard Chat Bot obejmujący 3–5 kanałów – 500–650 USD, jednorazowo. Automated Reports (500–900 USD) mogą śledzić deflekcję obok ponownych kontaktów i ponownych otwarć, abyś widział rzeczywisty efekt. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa audytowa to dobry moment, by zdecydować, co zautomatyzować, a co zostawić ludziom.",
+            text: "TascaLab buduje chatboty AI, które odpowiadają na częste pytania na Twojej stronie, w WhatsAppie, Telegramie, Facebook Messengerze lub na Instagramie, a wszystko inne przekazują Twojemu zespołowi w Zendesk, Freshdesk lub Twoich obecnych narzędziach. Starter Chat Bot kosztuje {{price:starter}}, a Standard Chat Bot obejmujący 3–5 kanałów – {{price:standard}}, jednorazowo. Automated Reports ({{price:reports}}) mogą śledzić deflekcję obok ponownych kontaktów i ponownych otwarć, abyś widział rzeczywisty efekt. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa Health Check to dobry moment, by zdecydować, co zautomatyzować, a co zostawić ludziom.",
           },
         ],
       },
@@ -1237,7 +1237,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab łączy kanały z helpdeskiem, którego już używasz, np. Zendesk lub Freshdesk, za pomocą API, webhooków oraz Make lub n8n. Standard Chat Bot (500–650 USD, jednorazowo) obejmuje 3–5 kanałów, takich jak Twoja strona, WhatsApp, Telegram, Facebook Messenger i Instagram, a Ticket Routing & Categorization (600–950 USD) kieruje przychodzące rozmowy do właściwej kolejki. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa audytowa pozwala rozpisać Twoje obecne kanały, zanim cokolwiek powstanie.",
+            text: "TascaLab łączy kanały z helpdeskiem, którego już używasz, np. Zendesk lub Freshdesk, za pomocą API, webhooków oraz Make lub n8n. Standard Chat Bot ({{price:standard}}, jednorazowo) obejmuje 3–5 kanałów, takich jak Twoja strona, WhatsApp, Telegram, Facebook Messenger i Instagram, a Ticket Routing & Categorization ({{price:routing}}) kieruje przychodzące rozmowy do właściwej kolejki. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Bezpłatna 30-minutowa rozmowa Health Check pozwala rozpisać Twoje obecne kanały, zanim cokolwiek powstanie.",
           },
         ],
       },

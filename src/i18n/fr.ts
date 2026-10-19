@@ -4,10 +4,10 @@ const fr: Dictionary = {
   meta: {
     homeTitle: "Support client IA : chatbots, callbots, routage des tickets | TascaLab",
     homeDescription:
-      "Freelance : chatbots IA, callbots, routage des tickets Zendesk/Freshdesk/Jira et reporting automatisé, dans vos outils. Prix fixes, audit gratuit de 30 min.",
+      "Automatisation du support : chatbots IA, callbots, routage de tickets et rapports automatisés pour Zendesk, Freshdesk et Jira. Prix fixes, Health Check gratuit.",
     noscriptHeading: "Automatisation du support client par IA : chatbots, callbots et routage des tickets",
     noscriptText:
-      "TascaLab crée des chatbots IA, des callbots, du routage de tickets et du reporting automatisé sur Zendesk, Freshdesk, Jira et Slack. Écrivez à romanzakharenko.r@gmail.com pour réserver un audit gratuit de 30 minutes.",
+      "TascaLab crée des chatbots IA, des callbots, du routage de tickets et du reporting automatisé sur Zendesk, Freshdesk, Jira et Slack. Écrivez à romanzakharenko.r@gmail.com pour réserver un Health Check gratuit.",
   },
   nav: {
     services: "Ce que je fais",
@@ -17,7 +17,7 @@ const fr: Dictionary = {
     reviews: "Avis",
     faq: "FAQ",
     resources: "Ressources",
-    cta: "Réserver un audit gratuit",
+    cta: "Health Check gratuit",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
     language: "Langue",
@@ -30,7 +30,7 @@ const fr: Dictionary = {
     titleAfter: " pour les équipes support",
     intro:
       "Je connecte l'IA au helpdesk que vous utilisez déjà — pour répondre aux questions répétitives, orienter chaque ticket vers la bonne file d'attente et livrer les rapports que votre équipe prépare à la main. Moins de tâches manuelles, des premières réponses plus rapides, sans changer de plateforme.",
-    ctaBook: "Réserver un audit gratuit",
+    ctaBook: "Réserver un Health Check gratuit",
     ctaUpwork: "Avis sur Upwork",
     highlights: ["Fonctionne avec votre helpdesk actuel", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
     integratesWith: "S'intègre avec",
@@ -116,65 +116,141 @@ const fr: Dictionary = {
     eyebrow: "Tarifs",
     title: "Offres d'automatisation du support à prix fixe",
     intro:
-      "Des frais de projet uniques. Vous connaissez la fourchette de prix avant de commencer — devis définitif après un audit gratuit.",
+      "Un prix par offre, payé une seule fois. Pas de frais mensuels de ma part. Vous ne savez pas laquelle choisir ? Commencez par le Health Check gratuit.",
     oneTimeFee: "paiement unique",
     cta: "Commencer",
+    from: "à partir de {price}",
+    delivery: "Livraison",
+    deliveryDays: "{days} jours",
+    deliveryFrom: "à partir de {days} jours",
+    support: "Support",
+    included: "Ce qui est inclus",
+    running: "Coûts mensuels de fonctionnement",
+    runningNote: "Payés aux fournisseurs des outils, pas à moi.",
+    // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
         name: "Starter Chat Bot",
-        price: "350 – 450 USD",
-        description:
-          "Gère les demandes clients simples et les FAQ sur 1–2 canaux. Idéal pour les petites entreprises qui se lancent dans l'automatisation.",
-        features: [
-          "1–2 canaux",
-          "Répond aux FAQ, collecte les informations de base et traite automatiquement les demandes courantes",
+        description: "Répond aux questions courantes sur 1–2 canaux et transmet le reste à votre équipe.",
+        included: [
+          "Chatbot sur 1–2 canaux : site web, WhatsApp, Telegram, Messenger ou Instagram",
+          "Répond à vos FAQ et traite les demandes courantes",
+          "Collecte les informations de base sur le client",
+          "Transmet le reste à votre équipe, avec le contexte",
+          "Documentation de base",
+        ],
+        running: [
+          "Utilisation de l'IA, facturée par votre fournisseur d'IA : environ 2,50 à 50 $ pour 1 000 conversations*",
+          "Plateforme d'automatisation : n8n auto-hébergé (gratuit), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois",
+          "WhatsApp uniquement : 1 000 premiers messages de service gratuits par mois et par numéro, puis tarifs de Meta",
         ],
       },
       {
         name: "Voice Bot",
-        price: "1 100 – 1 600 USD",
-        description: "Pour les appels téléphoniques entrants.",
-        features: [
-          "Agent vocal complet pour gérer les appels entrants avec une conversation naturelle, un tri des demandes et un transfert propre vers votre équipe",
+        description: "Répond aux appels entrants, les trie et les transfère à votre équipe.",
+        included: [
+          "Agent vocal pour les appels entrants, avec une conversation naturelle",
+          "Tri de chaque appel",
+          "Transfert propre vers votre équipe",
+          "Connecté à votre helpdesk",
+          "Documentation de base",
+        ],
+        running: [
+          "Frais à la minute de la plateforme vocale, par ex. Retell AI à partir de 0,07 $ la minute",
+          "Un numéro de téléphone fourni par votre opérateur téléphonique",
         ],
       },
       {
         name: "Standard Chat Bot",
-        price: "500 – 650 USD",
-        description:
-          "Chatbot avancé avec prise en charge multicanal, des réponses plus intelligentes et une meilleure gestion des interactions clients à grande échelle.",
-        features: [
-          "3–5 canaux",
-          "Gère des conversations plus complexes avec une logique plus fine et des transferts plus fluides vers votre équipe",
+        description: "Gère des conversations plus complexes sur 3–5 canaux.",
+        included: [
+          "Chatbot sur 3–5 canaux",
+          "Conversations en plusieurs étapes, avec une logique plus fine",
+          "Transferts plus fluides vers votre équipe",
+          "Connecté à votre helpdesk",
+          "Documentation de base",
+        ],
+        running: [
+          "Utilisation de l'IA, facturée par votre fournisseur d'IA : environ 2,50 à 50 $ pour 1 000 conversations*",
+          "Plateforme d'automatisation : n8n auto-hébergé (gratuit), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois",
+          "WhatsApp uniquement : 1 000 premiers messages de service gratuits par mois et par numéro, puis tarifs de Meta",
         ],
       },
       {
         name: "Ticket Routing & Categorization",
-        price: "600 – 950 USD",
-        description: "Tri et attribution automatiques des tickets.",
-        features: [
-          "Tague, catégorise et route automatiquement les tickets vers la bonne équipe : rien ne passe à la trappe et les délais de réponse restent courts.",
+        description: "Chaque ticket tagué, priorisé et attribué dès son arrivée.",
+        included: [
+          "Classification par IA de chaque nouveau ticket selon le sujet et l'urgence",
+          "Tags, priorité et attribution au bon groupe",
+          "Fonctionne dans Zendesk, Freshdesk ou Jira Service Management",
+          "Documentation de base",
+        ],
+        running: [
+          "Classification par IA : environ 0,20 $ pour 1 000 tickets*",
+          "Plateforme d'automatisation : n8n auto-hébergé (gratuit), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois",
         ],
       },
       {
         name: "Automated Reports",
-        price: "500 – 900 USD",
-        description: "Des rapports planifiés, envoyés automatiquement.",
-        features: [
-          "Des rapports automatisés avec vos indicateurs clés, livrés par e-mail ou dans Slack, pour rester informé sans travail manuel.",
+        description: "Les rapports que votre équipe prépare à la main, envoyés automatiquement.",
+        included: [
+          "Vos indicateurs clés de support, extraits de votre helpdesk",
+          "Envoi planifié par e-mail ou dans Slack",
+          "Documentation de base",
+        ],
+        running: [
+          "Plateforme d'automatisation : n8n auto-hébergé (gratuit), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois",
+          "Pas de frais d'IA, sauf si vous voulez des résumés rédigés par l'IA",
         ],
       },
       {
         name: "Custom Automation",
-        price: "1 200 – 2 000 USD",
-        description:
-          "Une automatisation entièrement personnalisée, construite autour de vos workflows, de vos outils et de vos besoins métier spécifiques.",
-        features: [
-          "Une automatisation entièrement personnalisée, construite autour de vos workflows, de vos outils et de vos besoins métier spécifiques",
+        description: "Construite autour de vos workflows, de vos outils et de vos besoins.",
+        included: [
+          "Périmètre défini ensemble lors de votre Health Check gratuit",
+          "Prix fixe et calendrier convenus avant le début des travaux",
+          "Tout outil doté d'une API ou de webhooks",
+          "Documentation de base",
+        ],
+        running: ["Selon les outils utilisés ; estimation fournie dans le rapport de votre Health Check"],
+      },
+    ],
+    footnote:
+      "* Les estimations liées à l'IA reposent sur les prix catalogue d'Anthropic (octobre 2026) pour Claude Haiku 5.5 (0,10 $ / 0,50 $ par million de tokens en entrée / en sortie) et Claude Sonnet 5.5 (2 $ / 10 $), en supposant environ 20 000 tokens en entrée et 1 000 en sortie par conversation, et 1 500 / 100 par ticket. Les autres fournisseurs et modèles ont des coûts différents, et les fournisseurs peuvent modifier leurs prix.",
+    trust: ["Pas de frais mensuels de ma part", "30 jours de support après la livraison", "Documentation de base incluse"],
+    healthCheck: {
+      title: "Health Check gratuit",
+      text: "Un appel de 30 minutes sur votre configuration de support, suivi d'un rapport écrit : ce qu'il faut automatiser en premier, l'offre qui vous convient, le prix fixe et le calendrier, ainsi que les coûts mensuels de fonctionnement estimés.",
+      cta: "Réserver votre Health Check",
+      price: "Gratuit",
+    },
+  },
+  data: {
+    eyebrow: "Vos données",
+    title: "Vos données et le RGPD",
+    intro:
+      "Vous choisissez où tourne votre automatisation. Nous en convenons lors de votre Health Check, avant de construire quoi que ce soit.",
+    options: [
+      {
+        title: "Dans vos propres comptes (par défaut)",
+        points: [
+          "Mise en place dans votre helpdesk, votre espace d'automatisation et votre compte chez votre fournisseur d'IA",
+          "Les données clients restent dans des systèmes que vous contrôlez, dans le cadre de vos propres contrats avec ces fournisseurs",
+          "Mon accès sert uniquement à la mise en place et est supprimé après la passation",
+          "Chaque workflow, prompt et clé API vous appartient",
+        ],
+      },
+      {
+        title: "Hébergement par mes soins, avec un DPA",
+        points: [
+          "Je fais tourner l'automatisation sur des comptes que je gère",
+          "Nous signons un contrat de sous-traitance (DPA) au titre de l'article 28 du RGPD avant tout traitement de données personnelles",
+          "Chaque sous-traitant ultérieur, comme la plateforme d'automatisation, le fournisseur d'IA et l'hébergeur, y est nommé",
+          "À la fin du contrat, les données sont supprimées ou restituées, comme l'exige l'article 28",
         ],
       },
     ],
-    trust: ["Aucuns frais cachés", "30 jours de support après la livraison", "Documentation de base incluse"],
+    note: "Cette section décrit la manière dont les projets sont organisés. Elle ne constitue pas un conseil juridique.",
   },
   reviews: {
     eyebrow: "Avis clients",
@@ -208,11 +284,11 @@ const fr: Dictionary = {
       },
       {
         q: "Pouvez-vous intégrer un outil en particulier ?",
-        a: "S'il dispose d'une API ou prend en charge les webhooks, presque certainement. Mentionnez-le pendant l'appel d'audit et je vous le confirmerai.",
+        a: "S'il dispose d'une API ou prend en charge les webhooks, presque certainement. Mentionnez-le lors de votre Health Check et je vous le confirmerai.",
       },
       {
-        q: "Que se passe-t-il concrètement pendant l'audit gratuit ?",
-        a: "30 minutes. Nous examinons votre configuration actuelle, les points de friction et les endroits où l'automatisation ferait vraiment la différence. Vous repartez avec 2 à 3 recommandations concrètes, un périmètre approximatif et une fourchette de prix. Pas de présentation commerciale. Aucune pression.",
+        q: "Que se passe-t-il concrètement pendant le Health Check gratuit ?",
+        a: "Un appel de 30 minutes sur votre configuration actuelle, les points de friction et les endroits où l'automatisation ferait vraiment la différence. Ensuite, vous recevez un rapport écrit avec 2 à 3 recommandations concrètes, l'offre et le prix fixe qui vous conviennent, et les coûts mensuels de fonctionnement estimés. Pas de présentation commerciale. Aucune pression.",
       },
       {
         q: "Combien de temps dure un projet type ?",
@@ -222,9 +298,10 @@ const fr: Dictionary = {
   },
   contact: {
     eyebrow: "Parlons-en",
-    title: "Réservez un audit gratuit de votre support (30 minutes)",
-    intro: "Réservez un appel de 30 minutes. Nous verrons ce qui ralentit votre équipe et déterminerons par où commencer.",
-    cta: "Réserver un audit gratuit",
+    title: "Obtenez un Health Check gratuit de votre support",
+    intro:
+      "Un appel de 30 minutes, puis un rapport écrit. Nous verrons ce qui ralentit votre équipe et déterminerons par où commencer.",
+    cta: "Réserver un Health Check gratuit",
     linkedin: "Entrer en relation sur LinkedIn",
     email: "E-mail",
     upwork: "Avis Upwork",
@@ -250,9 +327,9 @@ const fr: Dictionary = {
     accept: "Accepter",
   },
   booking: {
-    title: "Réservez un bilan gratuit de votre support",
+    title: "Réservez un Health Check gratuit",
     description:
-      "Laissez vos coordonnées et je vous recontacterai pour planifier un appel de 30 minutes. Sans engagement, sans argumentaire commercial.",
+      "Laissez vos coordonnées et je vous recontacterai pour planifier un appel de 30 minutes. Vous recevrez ensuite un rapport écrit. Sans engagement, sans argumentaire commercial.",
     fullName: "Nom complet",
     fullNamePlaceholder: "Marie Dupont",
     email: "E-mail professionnel",
@@ -269,7 +346,7 @@ const fr: Dictionary = {
     telegramPlaceholder: "https://t.me/pseudo ou @pseudo",
     submitCalendar: "Continuer vers l'agenda",
     submitting: "Envoi en cours...",
-    submit: "Réserver mon bilan support gratuit",
+    submit: "Réserver mon Health Check gratuit",
     sendFailed: "Impossible d'envoyer la demande",
     networkError: "Erreur réseau ou serveur injoignable.",
     sent: "Demande envoyée ! Je vous recontacte sous 24 heures.",
@@ -298,8 +375,8 @@ const fr: Dictionary = {
     faqShort: "FAQ",
     ctaTitle: "Vous voulez mettre cela en place pour votre équipe ?",
     ctaText:
-      "Réservez un audit gratuit de 30 minutes. Vous repartez avec 2 à 3 recommandations concrètes, un périmètre approximatif et une fourchette de prix — sans argumentaire commercial.",
-    ctaBook: "Réserver un audit gratuit",
+      "Réservez un Health Check gratuit : un appel de 30 minutes et un rapport écrit avec 2 à 3 recommandations concrètes, un prix fixe et une estimation des coûts de fonctionnement. Sans argumentaire commercial.",
+    ctaBook: "Réserver un Health Check gratuit",
     ctaUpwork: "Avis sur Upwork",
     sources: "Sources",
     onThisPage: "Sur cette page",

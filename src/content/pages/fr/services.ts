@@ -181,19 +181,19 @@ export const servicesPages: TranslatedPage[] = [
           {
             type: "table",
             caption: "Offres chatbot TascaLab (prix unique)",
-            head: ["Offre", "Périmètre", "Prix (USD)"],
+            head: ["Offre", "Périmètre", "Prix"],
             rows: [
-              ["Starter Chat Bot", "1–2 canaux, FAQ, collecte d'informations de base", "350–450 USD"],
+              ["Starter Chat Bot", "1–2 canaux, FAQ, collecte d'informations de base", "{{price:starter}}"],
               [
                 "Standard Chat Bot",
                 "3–5 canaux, conversations plus complexes, transferts plus fluides",
-                "500–650 USD",
+                "{{price:standard}}",
               ],
             ],
           },
           {
             type: "p",
-            text: "Canaux disponibles : site web, WhatsApp, Telegram, Facebook Messenger et Instagram, plus le téléphone via le callbot. La plupart des mises en place prennent 1 à 3 semaines, et chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés. Un appel d'audit gratuit de 30 minutes est le point de départ.",
+            text: "Canaux disponibles : site web, WhatsApp, Telegram, Facebook Messenger et Instagram, plus le téléphone via le callbot. La plupart des mises en place prennent 1 à 3 semaines, et chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés. Un appel Health Check gratuit de 30 minutes est le point de départ.",
           },
         ],
       },
@@ -404,11 +404,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "L'offre Voice Bot de TascaLab couvre les appels entrants, le tri et le transfert vers votre équipe, pour un prix unique de 1 100–1 600 USD. Le bot se connecte aux outils que vous utilisez déjà — Zendesk, Freshdesk, Jira, Slack ou des systèmes internes — via des API et des webhooks, si bien que les résultats des appels arrivent sous forme de tickets ou de messages que votre équipe suit déjà. Il est conçu comme un filtre devant votre équipe, pas comme un remplaçant.",
+            text: "L'offre Voice Bot de TascaLab couvre les appels entrants, le tri et le transfert vers votre équipe, pour un prix unique de {{price:voice}}. Le bot se connecte aux outils que vous utilisez déjà — Zendesk, Freshdesk, Jira, Slack ou des systèmes internes — via des API et des webhooks, si bien que les résultats des appels arrivent sous forme de tickets ou de messages que votre équipe suit déjà. Il est conçu comme un filtre devant votre équipe, pas comme un remplaçant.",
           },
           {
             type: "p",
-            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel d'audit gratuit de 30 minutes.",
+            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel Health Check gratuit de 30 minutes.",
           },
         ],
       },
@@ -623,11 +623,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Le service Ticket Routing & Categorization de TascaLab (600–950 USD, prix unique) s'appuie sur le helpdesk que vous avez déjà — Zendesk, Freshdesk ou Jira — en utilisant ses règles natives lorsqu'elles suffisent, et des API, des webhooks ou Make/n8n lorsqu'elles ne suffisent pas, par exemple pour catégoriser les tickets avant que votre routage natif ne les attribue. Aucun changement de plateforme.",
+            text: "Le service Ticket Routing & Categorization de TascaLab ({{price:routing}}, prix unique) s'appuie sur le helpdesk que vous avez déjà — Zendesk, Freshdesk ou Jira — en utilisant ses règles natives lorsqu'elles suffisent, et des API, des webhooks ou Make/n8n lorsqu'elles ne suffisent pas, par exemple pour catégoriser les tickets avant que votre routage natif ne les attribue. Aucun changement de plateforme.",
           },
           {
             type: "p",
-            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et un appel d'audit gratuit de 30 minutes est un bon moyen de cartographier votre file actuelle.",
+            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et un appel Health Check gratuit de 30 minutes est un bon moyen de cartographier votre file actuelle.",
           },
         ],
       },
@@ -866,11 +866,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Le service Automated Reports de TascaLab (500–900 USD, prix unique) envoie vos indicateurs de support par e-mail ou dans Slack selon un calendrier. Il fonctionne par-dessus Zendesk, Freshdesk, Jira et vos outils internes via leurs API et Make ou n8n : rien ne change dans le travail quotidien de votre équipe.",
+            text: "Le service Automated Reports de TascaLab ({{price:reports}}, prix unique) envoie vos indicateurs de support par e-mail ou dans Slack selon un calendrier. Il fonctionne par-dessus Zendesk, Freshdesk, Jira et vos outils internes via leurs API et Make ou n8n : rien ne change dans le travail quotidien de votre équipe.",
           },
           {
             type: "p",
-            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel d'audit gratuit de 30 minutes.",
+            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel Health Check gratuit de 30 minutes.",
           },
         ],
       },
@@ -1078,11 +1078,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab met cela en place par-dessus le helpdesk que vous utilisez déjà — Zendesk, Freshdesk ou Jira — avec les déclencheurs et règles natifs lorsqu'ils suffisent, et des API, des webhooks ou Make/n8n lorsqu'ils ne suffisent pas. Aucun changement de plateforme. La classification et le routage des e-mails entrants relèvent du service Ticket Routing & Categorization (600–950 USD, prix unique) ; les workflows en plusieurs étapes, comme lire un numéro de commande dans un e-mail et le rechercher dans un autre système, relèvent de Custom Automation (1 200–2 000 USD).",
+            text: "TascaLab met cela en place par-dessus le helpdesk que vous utilisez déjà — Zendesk, Freshdesk ou Jira — avec les déclencheurs et règles natifs lorsqu'ils suffisent, et des API, des webhooks ou Make/n8n lorsqu'ils ne suffisent pas. Aucun changement de plateforme. La classification et le routage des e-mails entrants relèvent du service Ticket Routing & Categorization ({{price:routing}}, prix unique) ; les workflows en plusieurs étapes, comme lire un numéro de commande dans un e-mail et le rechercher dans un autre système, relèvent de Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et un appel d'audit gratuit de 30 minutes est un bon moyen de cartographier votre flux d'e-mails actuel.",
+            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et un appel Health Check gratuit de 30 minutes est un bon moyen de cartographier votre flux d'e-mails actuel.",
           },
         ],
       },
@@ -1317,11 +1317,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab construit des chatbots par-dessus les outils que vous utilisez déjà — Zendesk, Freshdesk, Jira, Slack ou des systèmes internes — via des API, des webhooks et Make ou n8n : votre base de connaissances reste où elle est. Le Starter Chat Bot (350–450 USD, prix unique) couvre 1–2 canaux et le Standard Chat Bot (500–650 USD) en couvre 3–5, parmi votre site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Les workflows de maintenance, comme les rappels de relecture pour les articles obsolètes, relèvent de Custom Automation (1 200–2 000 USD).",
+            text: "TascaLab construit des chatbots par-dessus les outils que vous utilisez déjà — Zendesk, Freshdesk, Jira, Slack ou des systèmes internes — via des API, des webhooks et Make ou n8n : votre base de connaissances reste où elle est. Le Starter Chat Bot ({{price:starter}}, prix unique) couvre 1–2 canaux et le Standard Chat Bot ({{price:standard}}) en couvre 3–5, parmi votre site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Les workflows de maintenance, comme les rappels de relecture pour les articles obsolètes, relèvent de Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel d'audit gratuit de 30 minutes.",
+            text: "La plupart des mises en place prennent 1 à 3 semaines. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et vous pouvez commencer par un appel Health Check gratuit de 30 minutes.",
           },
         ],
       },

@@ -141,7 +141,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab construit des bots WhatsApp par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira, Slack ou des systèmes internes, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux avec FAQ et collecte d'informations de base ; un Standard Chat Bot (500–650 USD) couvre trois à cinq canaux avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines. Un appel d'audit gratuit de 30 minutes est un moyen simple de vérifier si WhatsApp correspond à votre volume de support.",
+            text: "TascaLab construit des bots WhatsApp par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira, Slack ou des systèmes internes, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot ({{price:starter}}) couvre un ou deux canaux avec FAQ et collecte d'informations de base ; un Standard Chat Bot ({{price:standard}}) couvre trois à cinq canaux avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines. Un appel Health Check gratuit de 30 minutes est un moyen simple de vérifier si WhatsApp correspond à votre volume de support.",
           },
         ],
       },
@@ -333,7 +333,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab construit des bots Telegram de support qui se connectent aux outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira, Slack ou des systèmes internes, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux avec FAQ et collecte d'informations de base, ce qui convient à Telegram associé à un widget sur votre site web. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. Vous pouvez commencer par un appel d'audit gratuit de 30 minutes.",
+            text: "TascaLab construit des bots Telegram de support qui se connectent aux outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira, Slack ou des systèmes internes, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot ({{price:starter}}) couvre un ou deux canaux avec FAQ et collecte d'informations de base, ce qui convient à Telegram associé à un widget sur votre site web. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. Vous pouvez commencer par un appel Health Check gratuit de 30 minutes.",
           },
         ],
       },
@@ -530,7 +530,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab construit des bots Messenger qui fonctionnent par-dessus Zendesk, Freshdesk, Jira, Slack ou vos outils internes, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux ; un Standard Chat Bot (500–650 USD) couvre trois à cinq canaux, comme Messenger, Instagram et WhatsApp, avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. Réservez un appel d'audit gratuit de 30 minutes pour cartographier votre parcours Messenger actuel.",
+            text: "TascaLab construit des bots Messenger qui fonctionnent par-dessus Zendesk, Freshdesk, Jira, Slack ou vos outils internes, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot ({{price:starter}}) couvre un ou deux canaux ; un Standard Chat Bot ({{price:standard}}) couvre trois à cinq canaux, comme Messenger, Instagram et WhatsApp, avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. Réservez un appel Health Check gratuit de 30 minutes pour cartographier votre parcours Messenger actuel.",
           },
         ],
       },
@@ -706,7 +706,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab met en place des bots de DM Instagram qui répondent aux questions courantes, collectent les informations et transmettent les conversations à votre équipe dans Zendesk, Freshdesk, Jira, Slack ou un outil interne, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux ; un Standard Chat Bot (500–650 USD) en couvre trois à cinq, comme Instagram, Messenger et votre site web. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. L'appel d'audit gratuit de 30 minutes est le point de départ.",
+            text: "TascaLab met en place des bots de DM Instagram qui répondent aux questions courantes, collectent les informations et transmettent les conversations à votre équipe dans Zendesk, Freshdesk, Jira, Slack ou un outil interne, à l'aide d'API, de webhooks et de Make ou n8n. Un Starter Chat Bot ({{price:starter}}) couvre un ou deux canaux ; un Standard Chat Bot ({{price:standard}}) en couvre trois à cinq, comme Instagram, Messenger et votre site web. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. L'appel Health Check gratuit de 30 minutes est le point de départ.",
           },
         ],
       },
@@ -888,7 +888,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab met en place des chatbots de site web par-dessus le helpdesk que vous utilisez déjà, comme Zendesk ou Freshdesk, ou connecte un bot sur mesure à Jira, Slack ou des outils internes via des API, des webhooks et Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux avec FAQ et collecte d'informations de base ; un Standard Chat Bot (500–650 USD) couvre trois à cinq canaux avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines. Commencez par un appel d'audit gratuit de 30 minutes.",
+            text: "TascaLab met en place des chatbots de site web par-dessus le helpdesk que vous utilisez déjà, comme Zendesk ou Freshdesk, ou connecte un bot sur mesure à Jira, Slack ou des outils internes via des API, des webhooks et Make ou n8n. Un Starter Chat Bot ({{price:starter}}) couvre un ou deux canaux avec FAQ et collecte d'informations de base ; un Standard Chat Bot ({{price:standard}}) couvre trois à cinq canaux avec des conversations plus complexes et des transferts plus fluides. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines. Commencez par un appel Health Check gratuit de 30 minutes.",
           },
         ],
       },
@@ -1079,7 +1079,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Les canaux de bot proposés par TascaLab sont le site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Le SMS n'en fait pas partie, mais d'autres canaux dotés d'une API peuvent être étudiés lors de l'appel d'audit gratuit de 30 minutes. TascaLab construit par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira et Slack, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot coûte 350–450 USD pour un ou deux canaux et un Standard Chat Bot 500–650 USD pour trois à cinq. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines.",
+            text: "Les canaux de bot proposés par TascaLab sont le site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Le SMS n'en fait pas partie, mais d'autres canaux dotés d'une API peuvent être étudiés lors de l'appel Health Check gratuit de 30 minutes. TascaLab construit par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira et Slack, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot coûte {{price:starter}} pour un ou deux canaux et un Standard Chat Bot coûte {{price:standard}} pour trois à cinq. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines.",
           },
         ],
       },
@@ -1280,7 +1280,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Les canaux de bot proposés par TascaLab sont le site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Viber n'en fait pas partie, mais d'autres canaux dotés d'une API peuvent être étudiés lors de l'appel d'audit gratuit de 30 minutes. TascaLab construit par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira et Slack, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot coûte 350–450 USD pour un ou deux canaux et un Standard Chat Bot 500–650 USD pour trois à cinq. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines.",
+            text: "Les canaux de bot proposés par TascaLab sont le site web, le téléphone, WhatsApp, Telegram, Facebook Messenger et Instagram. Viber n'en fait pas partie, mais d'autres canaux dotés d'une API peuvent être étudiés lors de l'appel Health Check gratuit de 30 minutes. TascaLab construit par-dessus les outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira et Slack, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot coûte {{price:starter}} pour un ou deux canaux et un Standard Chat Bot coûte {{price:standard}} pour trois à cinq. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines.",
           },
         ],
       },
