@@ -8,6 +8,7 @@ const navLinks = [
   { href: "#fit", label: "A Fit?" },
   { href: "#why-me", label: "Why Me?" },
   { href: "#pricing", label: "Prices" },
+  { href: "#reviews", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -25,19 +26,23 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-[0_2px_20px_hsl(0_0%_0%/0.3)]'
-          : ''
-      }`}
+      aria-label="Main"
+      className="fixed top-3 left-0 right-0 z-50 px-3"
     >
-      <div className="container px-4">
-        <div className="flex items-center justify-between h-16">
-          <a href="#">
-            <img src="/favicon.svg" alt="Logo" className="h-8 w-8" />
+      <div
+        className={`container max-w-5xl px-4 rounded-[22px] border transition-all duration-300 ${
+          isScrolled || isMobileMenuOpen
+            ? "glass-panel"
+            : "border-transparent"
+        }`}
+      >
+        <div className="flex items-center justify-between h-14">
+          <a href="#" className="flex items-center gap-2 font-display font-semibold">
+            <img src="/favicon.svg" alt="TascaLab logo" width={32} height={32} className="h-8 w-8" />
+            <span>TascaLab</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -47,7 +52,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" size="sm" asChild>
+            <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
               <a href="#contact">Book a Free Audit</a>
             </Button>
           </div>
@@ -55,6 +60,8 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               className="p-2"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -65,7 +72,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden border-t border-border overflow-hidden"
+              className="md:hidden border-t border-white/10 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -90,7 +97,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.05 + 0.05 }}
                 >
-                  <Button variant="hero" size="sm" asChild>
+                  <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
                     <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Free Audit</a>
                   </Button>
                 </motion.div>

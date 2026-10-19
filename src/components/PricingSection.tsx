@@ -70,19 +70,17 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 relative overflow-visible bg-background">
+    <section id="pricing" aria-labelledby="pricing-title" className="py-20 relative overflow-visible">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="container px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <span
-            className="text-primary font-bold uppercase tracking-wider"
-            style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}
-          >
-            Pricing
-          </span>
+          <span className="section-eyebrow">Pricing</span>
+          <h2 id="pricing-title" className="section-title">Fixed-price support automation packages</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
+            One-time project fees. You know the price range before we start — final quote after a free audit.
+          </p>
         </div>
 
         {/* Cards */}
@@ -99,17 +97,10 @@ const PricingSection = () => {
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
               className={`
-                relative rounded-[24px] flex flex-col overflow-hidden
-                bg-secondary
-                ${plan.popular
-                  ? "border-2 border-primary"
-                  : "border border-primary/20"
-                }
+                glass glass-hover relative rounded-[28px] flex flex-col overflow-hidden
+                ${plan.popular ? "border-2 border-primary" : ""}
               `}
             >
-              {/* Subtle cyan glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
-
               {/* Most Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-0 right-0 flex justify-center">
@@ -168,10 +159,10 @@ const PricingSection = () => {
                   onClick={() => handleCTA(plan.name)}
                   style={{ fontSize: "1.05rem" }}
                   className={`
-                    w-full py-3 rounded-xl font-semibold transition-all duration-200 cursor-pointer
+                    w-full py-3 rounded-full font-semibold transition-all duration-200 cursor-pointer
                     ${plan.popular
                       ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/30"
-                      : "bg-transparent text-primary border border-primary/40 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                      : "glass-chip text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary"
                     }
                   `}
                 >
@@ -191,9 +182,8 @@ const PricingSection = () => {
           className="mt-16 max-w-3xl mx-auto"
         >
           <div
-            className="relative rounded-[24px] overflow-hidden bg-secondary border border-primary/20 px-5 py-4"
+            className="glass relative rounded-[28px] overflow-hidden px-5 py-4"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: ShieldCheck, text: "No hidden fees" },
@@ -201,7 +191,7 @@ const PricingSection = () => {
                 { icon: FileText,    text: "Basic documentation included" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="glass-chip w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-foreground/90 font-medium leading-snug pt-1" style={{ fontSize: "1.137rem" }}>

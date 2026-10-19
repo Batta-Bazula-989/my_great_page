@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,6 +48,13 @@ html {
     --shadow-glow: 0 0 60px hsl(175, 80%, 50%, 0.2);
     --shadow-card: 0 8px 32px hsl(0, 0%, 0%, 0.4);
 
+    /* Liquid glass */
+    --glass-bg: linear-gradient(145deg, hsl(210 40% 98% / 0.09) 0%, hsl(210 40% 98% / 0.03) 100%);
+    --glass-bg-strong: linear-gradient(145deg, hsl(210 40% 98% / 0.13) 0%, hsl(210 40% 98% / 0.05) 100%);
+    --glass-border: hsl(210 40% 98% / 0.12);
+    --glass-highlight: inset 0 1px 0 hsl(0 0% 100% / 0.18), inset 0 -1px 0 hsl(0 0% 100% / 0.04);
+    --glass-shadow: 0 10px 40px -10px hsl(220 40% 2% / 0.6);
+
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
 
@@ -77,6 +82,22 @@ html {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Soft colour fields behind the page so the glass has something to refract */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -10%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(40% 35% at 15% 10%, hsl(175 80% 50% / 0.22), transparent 70%),
+      radial-gradient(35% 30% at 90% 25%, hsl(260 80% 65% / 0.18), transparent 70%),
+      radial-gradient(45% 40% at 70% 85%, hsl(195 85% 55% / 0.16), transparent 70%),
+      radial-gradient(30% 30% at 10% 80%, hsl(320 70% 60% / 0.10), transparent 70%),
+      hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -135,6 +156,52 @@ html {
   .animate-fade-up-delay-3 {
     animation: fade-up 0.8s ease-out 0.3s forwards;
     opacity: 0;
+  }
+
+  .glass,
+  .glass-panel,
+  .glass-chip {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+
+  .glass-panel {
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: blur(40px) saturate(190%);
+    backdrop-filter: blur(40px) saturate(190%);
+  }
+
+  /* Denser frosted glass for stacked cards (carousels), where backdrop blur can't reach siblings */
+  .glass-solid {
+    background: linear-gradient(145deg, hsl(220 18% 17% / 0.94) 0%, hsl(220 20% 10% / 0.92) 100%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
+  }
+
+  .glass-chip {
+    box-shadow: var(--glass-highlight);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+  }
+
+  .glass-hover {
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .glass-hover:hover {
+    border-color: hsl(var(--primary) / 0.35);
+    box-shadow: var(--glass-highlight), 0 0 28px hsl(var(--primary) / 0.15), var(--glass-shadow);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-[2.6rem] font-bold font-display tracking-tight leading-tight;
+  }
+
+  .section-eyebrow {
+    @apply text-primary font-semibold uppercase text-sm tracking-[0.2em] mb-3 block;
   }
 
   .card-hover-glow {

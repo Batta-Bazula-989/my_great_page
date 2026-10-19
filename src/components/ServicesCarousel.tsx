@@ -48,12 +48,11 @@ const ServicesCarousel = () => {
   };
 
   return (
-    <section className="w-full py-[3.2rem] md:py-[4.8rem]">
+    <div className="w-full py-[3.2rem] md:py-[4.8rem]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-6">
-          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
-            What I Do
-          </span>
+          <span className="section-eyebrow">What I Do</span>
+          <h2 id="services-title" className="section-title">Customer support automation services</h2>
         </div>
 
         <div className="relative flex items-center justify-center h-[380px] md:h-[420px] overflow-hidden">
@@ -90,13 +89,15 @@ const ServicesCarousel = () => {
 
           <button
             onClick={prev}
-            className="absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors duration-200"
+            aria-label="Previous service"
+            className="glass absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors duration-200"
+            aria-label="Next service"
+            className="glass absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full flex items-center justify-center text-foreground hover:bg-white/10 transition-colors duration-200"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -107,6 +108,7 @@ const ServicesCarousel = () => {
             <button
               key={i}
               onClick={() => setCurrent(i)}
+              aria-label={`Show ${services[i].title}`}
               className="h-2.5 rounded-full transition-all duration-500 ease-out"
               style={{
                 width: i === current ? "2rem" : "0.625rem",
@@ -116,7 +118,7 @@ const ServicesCarousel = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

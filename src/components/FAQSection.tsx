@@ -41,14 +41,13 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-[4.8rem] relative overflow-hidden">
+    <section id="faq" aria-labelledby="faq-title" className="py-[4.8rem] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
-            FAQ
-          </span>
+          <span className="section-eyebrow">FAQ</span>
+          <h2 id="faq-title" className="section-title">Frequently asked questions</h2>
         </div>
 
         <div className="max-w-2xl mx-auto">
@@ -63,7 +62,7 @@ const FAQSection = () => {
               >
                 <AccordionItem
                   value={`faq-${index}`}
-                  className="border-none rounded-xl bg-secondary/30 border border-border px-6 hover:border-primary/30 transition-all duration-300"
+                  className="glass glass-hover rounded-2xl px-6"
                 >
                   <AccordionTrigger className="hover:no-underline text-left font-display text-base">
                     {faq.question}

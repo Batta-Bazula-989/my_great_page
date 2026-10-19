@@ -18,7 +18,7 @@ const notFit = [
 
 const WhoForSection = () => {
   return (
-    <section id="fit" className="py-[4.8rem] relative overflow-hidden">
+    <section id="fit" aria-labelledby="fit-title" className="py-[4.8rem] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container px-4 relative z-10">
@@ -29,20 +29,18 @@ const WhoForSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <span className="text-primary font-bold uppercase tracking-wider" style={{ fontSize: "2.6rem", letterSpacing: "0.2em" }}>
-            Is This a Fit?
-          </span>
+          <span className="section-eyebrow">Is This a Fit?</span>
+          <h2 id="fit-title" className="section-title">Who this support automation is for</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <motion.div
-            className="relative p-8 rounded-[20px] overflow-hidden bg-secondary border border-primary/20 hover:-translate-y-1 card-hover-glow"
+            className="glass glass-hover relative p-8 rounded-[28px] overflow-hidden hover:-translate-y-1"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
             <div className="relative z-10">
               <h3 className="text-xl font-bold font-display mb-6 text-gradient">Good Fit</h3>
               <div className="space-y-4">
@@ -57,13 +55,12 @@ const WhoForSection = () => {
           </motion.div>
 
           <motion.div
-            className="relative p-8 rounded-[20px] overflow-hidden bg-secondary border border-red-500/25 hover:-translate-y-1 card-hover-glow"
+            className="glass glass-hover relative p-8 rounded-[28px] overflow-hidden hover:-translate-y-1"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10" />
             <div className="relative z-10">
               <h3 className="text-xl font-bold font-display mb-6 text-muted-foreground">Not the Right Fit</h3>
               <div className="space-y-4">
