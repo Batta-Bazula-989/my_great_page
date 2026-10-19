@@ -116,7 +116,7 @@ const pl: Dictionary = {
     eyebrow: "Cennik",
     title: "Pakiety automatyzacji obsługi klienta w stałej cenie",
     intro:
-      "Jedna cena za pakiet, płatna jednorazowo. Żadnych miesięcznych opłat na moją rzecz. Nie wiesz, który pakiet pasuje? Zacznij od bezpłatnego Health Check.",
+      "Jedna cena za pakiet, płatna jednorazowo. Bez abonamentu. Nie wiesz, który pakiet pasuje? Zacznij od bezpłatnego Health Check.",
     oneTimeFee: "jednorazowo",
     cta: "Rozpocznij",
     from: "od {price}",
@@ -126,7 +126,7 @@ const pl: Dictionary = {
     supportTime: "30 dni",
     included: "Co obejmuje pakiet",
     running: "Miesięczne koszty bieżące",
-    runningNote: "Płacisz je dostawcom narzędzi, nie mnie.",
+    runningNote: "Naliczane przez dostawców narzędzi. Nie są wliczone w cenę pakietu.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -140,9 +140,9 @@ const pl: Dictionary = {
           "Podstawowa dokumentacja",
         ],
         running: [
-          "Korzystanie z AI, rozliczane przez Twojego dostawcę AI: ok. 2,50–50 USD za 1000 rozmów*",
-          "Platforma automatyzacji: n8n na własnym serwerze (bezpłatnie), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie",
-          "Tylko WhatsApp: pierwsze 1000 wiadomości serwisowych miesięcznie bezpłatnie dla każdego numeru, potem stawki Meta",
+          "Korzystanie z AI, rozliczane za tokeny przez Twojego dostawcę AI, np. Claude Haiku 5.5 od 0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych*",
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
+          "Tylko WhatsApp: od 1 października 2026 r. 1000 bezpłatnych wiadomości serwisowych miesięcznie dla każdego numeru firmowego, potem stawka Meta za wiadomość",
         ],
       },
       {
@@ -156,7 +156,7 @@ const pl: Dictionary = {
           "Podstawowa dokumentacja",
         ],
         running: [
-          "Opłaty minutowe platformy głosowej, np. Retell AI od 0,07 USD za minutę",
+          "Opłaty minutowe platformy głosowej, np. Retell AI od 0,07 USD za minutę, plus model AI i linia telefoniczna",
           "Numer telefonu od Twojego operatora telefonii",
         ],
       },
@@ -171,9 +171,9 @@ const pl: Dictionary = {
           "Podstawowa dokumentacja",
         ],
         running: [
-          "Korzystanie z AI, rozliczane przez Twojego dostawcę AI: ok. 2,50–50 USD za 1000 rozmów*",
-          "Platforma automatyzacji: n8n na własnym serwerze (bezpłatnie), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie",
-          "Tylko WhatsApp: pierwsze 1000 wiadomości serwisowych miesięcznie bezpłatnie dla każdego numeru, potem stawki Meta",
+          "Korzystanie z AI, rozliczane za tokeny przez Twojego dostawcę AI, np. Claude Haiku 5.5 od 0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych*",
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
+          "Tylko WhatsApp: od 1 października 2026 r. 1000 bezpłatnych wiadomości serwisowych miesięcznie dla każdego numeru firmowego, potem stawka Meta za wiadomość",
         ],
       },
       {
@@ -186,8 +186,8 @@ const pl: Dictionary = {
           "Podstawowa dokumentacja",
         ],
         running: [
-          "Klasyfikacja AI: ok. 0,20 USD za 1000 zgłoszeń*",
-          "Platforma automatyzacji: n8n na własnym serwerze (bezpłatnie), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie",
+          "Klasyfikacja AI, rozliczana za tokeny przez Twojego dostawcę AI, np. Claude Haiku 5.5 od 0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych*",
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
         ],
       },
       {
@@ -199,7 +199,7 @@ const pl: Dictionary = {
           "Podstawowa dokumentacja",
         ],
         running: [
-          "Platforma automatyzacji: n8n na własnym serwerze (bezpłatnie), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie",
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
           "Bez opłat za AI, chyba że chcesz podsumowań pisanych przez AI",
         ],
       },
@@ -216,8 +216,8 @@ const pl: Dictionary = {
       },
     ],
     footnote:
-      "* Szacunki kosztów AI opierają się na cenach katalogowych Anthropic (październik 2026) dla Claude Haiku 5.5 (0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych) i Claude Sonnet 5.5 (2 / 10 USD), przy założeniu ok. 20 000 tokenów wejściowych i 1000 wyjściowych na rozmowę oraz 1500 / 100 na zgłoszenie. Inni dostawcy i modele mają inne ceny, a dostawcy mogą zmieniać swoje cenniki.",
-    trust: ["Żadnych miesięcznych opłat na moją rzecz", "30 dni wsparcia po wdrożeniu", "Podstawowa dokumentacja w cenie"],
+      "* Ceny katalogowe Anthropic (październik 2026) dla promptów do 100 000 tokenów; dłuższe prompty kosztują 0,50 / 2,50 USD. Inni dostawcy i modele mają inne ceny, a dostawcy mogą zmieniać swoje cenniki.",
+    trust: ["Jednorazowa cena, bez abonamentu", "30 dni wsparcia po wdrożeniu", "Podstawowa dokumentacja w cenie"],
     healthCheck: {
       title: "Bezpłatny Health Check",
       text: "30-minutowa rozmowa o tym, jak działa Twoja obsługa klienta, a po niej pisemny raport: co zautomatyzować najpierw, który pakiet pasuje, stała cena i harmonogram oraz szacowane miesięczne koszty bieżące.",
@@ -236,7 +236,7 @@ const pl: Dictionary = {
         points: [
           "Budowana w Twoim helpdesku, Twoim środowisku automatyzacji i na Twoim koncie u dostawcy AI",
           "Dane klientów zostają w systemach, które kontrolujesz, na podstawie Twoich własnych umów z tymi dostawcami",
-          "Mój dostęp służy tylko do budowy i jest usuwany po przekazaniu",
+          "Decydujesz, jaki dostęp otrzymuję, i możesz go odebrać po przekazaniu",
           "Każdy workflow, prompt i klucz API należy do Ciebie",
         ],
       },
@@ -245,8 +245,8 @@ const pl: Dictionary = {
         points: [
           "Uruchamiam automatyzację na kontach, którymi zarządzam",
           "Zanim jakiekolwiek dane osobowe zostaną przetworzone, podpisujemy umowę powierzenia przetwarzania danych (DPA, art. 28 RODO)",
-          "Umowa wymienia każdy podmiot podprzetwarzający, np. platformę automatyzacji, dostawcę AI i hosting",
-          "Po zakończeniu umowy dane są usuwane lub zwracane, zgodnie z wymogami art. 28",
+          "Żaden podmiot podprzetwarzający, np. platforma automatyzacji, dostawca AI czy hosting, nie jest wykorzystywany bez Twojej pisemnej zgody (art. 28 ust. 2 RODO)",
+          "Po zakończeniu umowy dane są usuwane lub zwracane, według Twojego wyboru (art. 28 ust. 3 lit. g RODO)",
         ],
       },
     ],
