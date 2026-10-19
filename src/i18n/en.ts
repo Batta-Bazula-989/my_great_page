@@ -140,9 +140,9 @@ const en = {
           "Basic documentation",
         ],
         running: [
-          "AI usage, billed by your AI provider: about $2.50–$50 per 1,000 conversations*",
-          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
-          "WhatsApp only: first 1,000 service messages a month free per number, then Meta's rates",
+          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+          "WhatsApp only: from 1 October 2026, 1,000 free service messages a month per business number, then Meta's per-message rate",
         ],
       },
       {
@@ -156,7 +156,7 @@ const en = {
           "Basic documentation",
         ],
         running: [
-          "Voice platform per-minute fees, e.g. Retell AI from $0.07 per minute",
+          "Voice platform per-minute fees, e.g. Retell AI from $0.07 per minute, plus the AI model and phone line",
           "A phone number from your telephony provider",
         ],
       },
@@ -171,9 +171,9 @@ const en = {
           "Basic documentation",
         ],
         running: [
-          "AI usage, billed by your AI provider: about $2.50–$50 per 1,000 conversations*",
-          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
-          "WhatsApp only: first 1,000 service messages a month free per number, then Meta's rates",
+          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+          "WhatsApp only: from 1 October 2026, 1,000 free service messages a month per business number, then Meta's per-message rate",
         ],
       },
       {
@@ -186,8 +186,8 @@ const en = {
           "Basic documentation",
         ],
         running: [
-          "AI classification: about $0.20 per 1,000 tickets*",
-          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
+          "AI classification, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
         ],
       },
       {
@@ -199,7 +199,7 @@ const en = {
           "Basic documentation",
         ],
         running: [
-          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
           "No AI fees unless you want AI-written summaries",
         ],
       },
@@ -216,7 +216,7 @@ const en = {
       },
     ],
     footnote:
-      "* AI estimates use Anthropic's list prices (October 2026) for Claude Haiku 5.5 ($0.10 / $0.50 per million input / output tokens) and Claude Sonnet 5.5 ($2 / $10), assuming about 20,000 input and 1,000 output tokens per conversation and 1,500 / 100 per ticket. Other providers and models cost differently, and providers can change their prices.",
+      "* Anthropic's list prices (October 2026) for prompts up to 100,000 tokens; longer prompts cost $0.50 / $2.50. Other providers and models are priced differently, and providers can change their prices.",
     trust: ["One-time price, no retainer", "30 days of support after delivery", "Basic documentation included"],
     healthCheck: {
       title: "Free Health Check",
