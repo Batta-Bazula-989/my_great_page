@@ -116,7 +116,7 @@ const sv: Dictionary = {
     eyebrow: "Priser",
     title: "Paket för supportautomatisering till fast pris",
     intro:
-      "Ett pris per paket, som du betalar en gång. Ingen månadsavgift till mig. Osäker på vilket som passar? Börja med en kostnadsfri Health Check.",
+      "Ett pris per paket, som du betalar en gång. Inget löpande avtal. Osäker på vilket som passar? Börja med en kostnadsfri Health Check.",
     oneTimeFee: "engångspris",
     cta: "Kom igång",
     from: "från {price}",
@@ -126,7 +126,7 @@ const sv: Dictionary = {
     supportTime: "30 dagar",
     included: "Det här ingår",
     running: "Driftskostnader per månad",
-    runningNote: "Betalas till verktygsleverantörerna, inte till mig.",
+    runningNote: "Faktureras av verktygsleverantörerna. Ingår inte i paketpriset.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -140,9 +140,9 @@ const sv: Dictionary = {
           "Grundläggande dokumentation",
         ],
         running: [
-          "AI-användning, som din AI-leverantör fakturerar: cirka 2,50–50 USD per 1 000 konversationer*",
-          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
-          "Endast för WhatsApp: de första 1 000 servicemeddelandena per månad och nummer är gratis, sedan gäller Metas priser",
+          "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
+          "Endast för WhatsApp: från den 1 oktober 2026 är 1 000 servicemeddelanden per månad och företagstelefonnummer gratis, sedan gäller Metas pris per meddelande",
         ],
       },
       {
@@ -156,7 +156,7 @@ const sv: Dictionary = {
           "Grundläggande dokumentation",
         ],
         running: [
-          "Minutavgifter till röstplattformen, t.ex. Retell AI från 0,07 USD per minut",
+          "Minutavgifter till röstplattformen, t.ex. Retell AI från 0,07 USD per minut, plus AI-modellen och telefonlinjen",
           "Ett telefonnummer från din telefonioperatör",
         ],
       },
@@ -171,9 +171,9 @@ const sv: Dictionary = {
           "Grundläggande dokumentation",
         ],
         running: [
-          "AI-användning, som din AI-leverantör fakturerar: cirka 2,50–50 USD per 1 000 konversationer*",
-          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
-          "Endast för WhatsApp: de första 1 000 servicemeddelandena per månad och nummer är gratis, sedan gäller Metas priser",
+          "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
+          "Endast för WhatsApp: från den 1 oktober 2026 är 1 000 servicemeddelanden per månad och företagstelefonnummer gratis, sedan gäller Metas pris per meddelande",
         ],
       },
       {
@@ -186,8 +186,8 @@ const sv: Dictionary = {
           "Grundläggande dokumentation",
         ],
         running: [
-          "AI-klassificering: cirka 0,20 USD per 1 000 ärenden*",
-          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
+          "AI-klassificering, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
         ],
       },
       {
@@ -199,7 +199,7 @@ const sv: Dictionary = {
           "Grundläggande dokumentation",
         ],
         running: [
-          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
           "Inga AI-avgifter, om du inte vill ha sammanfattningar skrivna av AI",
         ],
       },
@@ -216,8 +216,8 @@ const sv: Dictionary = {
       },
     ],
     footnote:
-      "* AI-uppskattningarna bygger på Anthropics listpriser (oktober 2026) för Claude Haiku 5.5 (0,10 / 0,50 USD per miljon input-/output-tokens) och Claude Sonnet 5.5 (2 / 10 USD) och utgår från cirka 20 000 input- och 1 000 output-tokens per konversation och 1 500 / 100 per ärende. Andra leverantörer och modeller kostar olika mycket, och leverantörerna kan ändra sina priser.",
-    trust: ["Ingen månadsavgift till mig", "30 dagars support efter leverans", "Grundläggande dokumentation ingår"],
+      "* Anthropics listpriser (oktober 2026) för promptar på upp till 100 000 tokens; längre promptar kostar 0,50 / 2,50 USD. Andra leverantörer och modeller prissätts annorlunda, och leverantörerna kan ändra sina priser.",
+    trust: ["Engångspris, inget löpande avtal", "30 dagars support efter leverans", "Grundläggande dokumentation ingår"],
     healthCheck: {
       title: "Kostnadsfri Health Check",
       text: "Ett samtal på 30 minuter om din supportuppsättning, följt av en skriftlig rapport: vad du ska automatisera först, vilket paket som passar, det fasta priset och tidsplanen samt de uppskattade driftskostnaderna per månad.",
@@ -235,7 +235,7 @@ const sv: Dictionary = {
         points: [
           "Byggs i din helpdesk, din arbetsyta för automatisering och ditt konto hos AI-leverantören",
           "Kunddata stannar i system som du kontrollerar, under dina egna avtal med de leverantörerna",
-          "Min åtkomst gäller bara under bygget och tas bort efter överlämningen",
+          "Du bestämmer vilken åtkomst jag får, och du kan ta bort den efter överlämningen",
           "Du äger varje arbetsflöde, prompt och API-nyckel",
         ],
       },
@@ -244,8 +244,8 @@ const sv: Dictionary = {
         points: [
           "Jag kör automatiseringen på konton som jag hanterar",
           "Vi tecknar ett personuppgiftsbiträdesavtal (PUB-avtal) enligt artikel 28 i GDPR innan några personuppgifter behandlas",
-          "Varje underbiträde, till exempel automatiseringsplattformen, AI-leverantören och hostingen, anges i avtalet",
-          "När avtalet upphör raderas eller återlämnas uppgifterna, så som artikel 28 kräver",
+          "Inget underbiträde, till exempel automatiseringsplattformen, AI-leverantören eller hostingen, anlitas utan ditt skriftliga godkännande (artikel 28.2 i GDPR)",
+          "När avtalet upphör raderas eller återlämnas uppgifterna, enligt ditt val (artikel 28.3 g i GDPR)",
         ],
       },
     ],
