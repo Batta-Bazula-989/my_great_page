@@ -1092,4 +1092,209 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 6. Omnichannel customer support
+  // ---------------------------------------------------------------------------
+  {
+    key: "omnichannel-customer-support",
+    slug: "omnichannel-kundenservice",
+    category: "basics",
+    navLabel: "Omnichannel-Kundenservice",
+    primaryKeyword: "Omnichannel Kundenservice",
+    title: "Omnichannel-Kundenservice: Was er in der Praxis bedeutet",
+    description:
+      "Omnichannel-Kundenservice erklärt: Unterschied zu Multichannel, einheitlicher Arbeitsbereich für Agenten, Omnichannel-Routing, Fenster bei WhatsApp und Messenger.",
+    h1: "Omnichannel-Kundenservice: was er bedeutet und wie er funktioniert",
+    intro:
+      "Omnichannel-Kundenservice bedeutet, dass jeder Kanal, über den ein Kunde Sie erreicht – etwa E-Mail, Chat, Telefon, WhatsApp oder Social Messaging –, mit einem einzigen Kundendatensatz und einem einzigen Gesprächsverlauf verbunden ist, den jeder Agent sehen kann. Multichannel-Support bietet dieselben Kanäle, betreibt sie aber getrennt, sodass Kunden sich bei jedem Kanalwechsel wiederholen müssen. Der Weg zu Omnichannel erfordert einen einheitlichen Arbeitsbereich für Agenten, ein Routing, das alle Kanäle als einen gemeinsamen Arbeitspool behandelt, und Workflows, die die eigenen Regeln jedes Kanals respektieren.",
+    keyFacts: [
+      "Freshworks beschreibt Multichannel-Support als unabhängige Kanäle, die jeweils autonom arbeiten; im Omnichannel-Support sind sie miteinander verbunden.",
+      "Im Zendesk Agent Workspace kann ein einzelnes Ticket-Gespräch E-Mail, Chat und Telefonie umfassen.",
+      "Das Omnichannel-Routing von Zendesk weist E-Mail-, Messaging- und Anruf-Tickets anhand von Agentenstatus und freier Kapazität zu.",
+      "Bei WhatsApp sind frei formulierte Antworten nur innerhalb eines 24-stündigen Kundenservice-Fensters erlaubt; danach können nur noch Vorlagen gesendet werden.",
+      "Laut einer im Juli 2025 veröffentlichten Gartner-Umfrage beginnen, bleiben und lösen nur 22 % der Kunden ihr Anliegen vollständig in den eigenen Kanälen eines Unternehmens.",
+    ],
+    sections: [
+      {
+        heading: "Omnichannel- vs. Multichannel-Support",
+        blocks: [
+          {
+            type: "p",
+            text: "Beide Modelle bieten mehrere Kanäle. Der Unterschied liegt darin, ob diese Kanäle Kontext teilen. Freshworks definiert Multichannel-Support als das Angebot mehrerer unabhängiger Kanäle, die jeweils autonom arbeiten, und merkt an, dass dafür typischerweise eigene Teams pro Kanal zuständig sind. Omnichannel-Systeme sorgen dagegen dafür, dass alle Kanäle miteinander verbunden sind. Zendesk zieht dieselbe Grenze: Im Multichannel-Support werden Gespräche nicht von einem Kanal in den nächsten übernommen, während Omnichannel-Support Interaktionen zu einem durchgehenden Gespräch verbindet und Agenten einen vollständigen Blick auf die Historie des Kunden gibt.",
+          },
+          {
+            type: "table",
+            caption: "Multichannel- vs. Omnichannel-Kundenservice",
+            head: ["Aspekt", "Multichannel", "Omnichannel"],
+            rows: [
+              ["Kanäle", "Mehrere Kanäle, jeder mit eigenem Tool oder Posteingang", "Mehrere Kanäle, die in einen Helpdesk einfließen"],
+              ["Kundenhistorie", "Bleibt in dem Kanal, in dem sie entstanden ist", "Eine Historie über alle Kanäle, für jeden Agenten sichtbar"],
+              ["Kanalwechsel", "Der Kunde fängt von vorn an und wiederholt Details", "Der Agent macht dort weiter, wo die letzte Interaktion aufgehört hat"],
+              ["Team-Aufstellung", "Oft ein eigenes Team pro Kanal", "Eine gemeinsame Queue, in der Agenten mehrere Kanäle bearbeiten"],
+              ["Routing", "Pro Kanal, oft manuell", "Eine Routing-Konfiguration anhand von Status, Kapazität und Skills"],
+              ["Reporting", "Getrennte Zahlen pro Kanal", "Reporting pro Kunde und pro Anliegen über alle Kanäle hinweg"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Ein zusätzlicher Kanal macht Sie noch nicht zu Omnichannel. Wenn WhatsApp-Nachrichten in einer separaten App landen, die Ihre E-Mail-Agenten nicht sehen, haben Sie nur ein Silo mehr. Und Kunden wechseln tatsächlich zwischen Kanälen: Laut einer Gartner-Umfrage unter 5.801 Kunden, veröffentlicht im Juli 2025, beginnen, bleiben und lösen nur 22 % ihr Anliegen vollständig in den eigenen Kanälen eines Unternehmens, und 51 % der Service-Journeys beginnen inzwischen auf Plattformen Dritter wie Google, YouTube und ChatGPT.",
+          },
+        ],
+      },
+      {
+        heading: "Ein einheitlicher Agenten-Arbeitsbereich und eine gemeinsame Historie",
+        blocks: [
+          {
+            type: "p",
+            text: "Kern des Omnichannel-Supports ist ein Ort, an dem Agenten jedes Gespräch sehen und beantworten. Im Zendesk Agent Workspace können Ticket-Gespräche E-Mail, Chat und Telefonie umfassen, und Agenten können außerdem Social- und Web-Nachrichten empfangen und beantworten. Zendesk nennt als eigenes Beispiel ein Ticket, das als Live-Chat begann und per E-Mail fortgesetzt wurde – erfasst als ein einziger Gesprächsverlauf. Der Kundenkontext, einschließlich der Interaktionshistorie, steht direkt neben dem Gespräch, und Agenten können Help-Center-Artikel auf demselben Bildschirm durchsuchen und zitieren.",
+          },
+          {
+            type: "p",
+            text: "Welchen Helpdesk Sie auch nutzen: Ein funktionierendes Omnichannel-Setup braucht dieselben Fähigkeiten:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Einen Kundendatensatz, der E-Mail-Adressen, Telefonnummern und Messaging-IDs verknüpft, damit eine WhatsApp-Nachricht und eine E-Mail derselben Person in derselben Historie landen.",
+              "Den Gesprächsverlauf aus jedem Kanal im Ticket, einschließlich des Bot-Gesprächs vor einer Übergabe.",
+              "Die Möglichkeit, auf einem anderen Kanal zu antworten, wenn der ursprüngliche keine Antwort mehr zulässt.",
+              "Gemeinsame Tags, Felder und Makros, damit das Reporting auf jedem Kanal gleich funktioniert.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Am Identitätsabgleich scheitern viele Setups. Wenn Ihre Telefonanlage, Ihre WhatsApp-Nummer und Ihr E-Mail-Posteingang nicht demselben Kundendatensatz zugeordnet sind, sehen Agenten weiterhin nur Fragmente – eben in einem Fenster.",
+          },
+        ],
+      },
+      {
+        heading: "Omnichannel-Routing",
+        blocks: [
+          {
+            type: "p",
+            text: "Das Routing entscheidet, welcher Agent welches Gespräch bekommt. Das Omnichannel-Routing von Zendesk schickt neue und offene Tickets aus E-Mail, Anrufen und Messaging anhand von Verfügbarkeit und Kapazität an Agenten. Statt für jeden Kanal einen Status zu setzen, setzen Agenten einen einheitlichen Status für E-Mail, Telefonie und Messaging. Für Messaging und Anrufe muss der Agent online sein, und jeder Agent braucht freie Kapazität, also weniger zugewiesene offene Tickets als sein Maximum für diesen Kanal.",
+          },
+          {
+            type: "p",
+            text: "Standardmäßig geht ein Ticket an den Agenten mit der meisten freien Kapazität für diesen Kanal; bei Gleichstand an den Agenten, der am längsten kein Ticket aus diesem Kanal bekommen hat. Sie können stattdessen auf Round Robin umstellen und den Fokusmodus aktivieren, damit ein Agent nicht gleichzeitig Messaging-Gespräche und Anrufe erhält. Je nach Zendesk-Plan kann das Routing außerdem die Zeit bis zur SLA-Verletzung, die Ticketpriorität und die Skills der Agenten berücksichtigen.",
+          },
+          {
+            type: "p",
+            text: "Der Sinn eines kanalübergreifenden statt kanalweisen Routings ist geteilte Kapazität: Einem Agenten in einem Telefonat sollte kein neuer Chat angeboten werden, und ein Agent mit wenigen offenen E-Mails kann mehr Arbeit übernehmen.",
+          },
+        ],
+      },
+      {
+        heading: "Kanalregeln: Messaging-Fenster bei WhatsApp und Messenger",
+        blocks: [
+          {
+            type: "p",
+            text: "Omnichannel macht Kanäle nicht identisch. Messaging-Plattformen legen fest, wann ein Unternehmen antworten darf, und Ihre Workflows müssen das respektieren.",
+          },
+          {
+            type: "table",
+            caption: "Messaging-Fenster bei WhatsApp und Facebook Messenger",
+            head: ["Kanal", "Antwortfenster", "Nach Ablauf des Fensters"],
+            rows: [
+              [
+                "WhatsApp Business Platform",
+                "Ein 24-stündiges Kundenservice-Fenster beginnt, wenn der Kunde Ihnen schreibt oder Sie anruft, und startet mit jeder neuen Nachricht oder jedem neuen Anruf neu. Innerhalb dieses Fensters können Sie frei formulierte Service-Nachrichten ohne vorherige Freigabe senden.",
+                "Es können nur vorab freigegebene Vorlagennachrichten gesendet werden. Frei formulierte Nachrichten können nur auf Nutzer antworten, aber kein Gespräch beginnen.",
+              ],
+              [
+                "Facebook Messenger",
+                "Das Standard-Messaging-Fenster beträgt 24 Stunden ab der letzten Nachricht der Person.",
+                "Mit dem Tag Human Agent kann ein Mensch innerhalb von 7 Tagen nach der Nachricht des Kunden antworten. Ihre App muss für die Nutzung des Tags freigegeben sein, und automatisierte Nachrichten sind damit nicht erlaubt.",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Diese Regeln prägen Ihren Workflow. Übernimmt ein Agent ein WhatsApp-Gespräch mehr als 24 Stunden nach der letzten Nachricht des Kunden, ist keine frei formulierte Antwort möglich: Sie brauchen eine freigegebene Vorlage oder einen Wechsel auf einen anderen Kanal wie E-Mail. Auch Bots sind betroffen, denn das Tag Human Agent im Messenger ist ausschließlich für Antworten von Menschen gedacht. Prüfen Sie die aktuelle Dokumentation von Meta, bevor Sie Abläufe um diese Limits herum planen, denn Meta aktualisiert seine Messaging-Richtlinien und Preise.",
+          },
+        ],
+      },
+      {
+        heading: "Der Weg von Multichannel zu Omnichannel",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Listen Sie jeden Kanal auf, den Kunden heute nutzen, und wo er jeweils landet: welches Tool, welches Team, welcher Posteingang.",
+              "Führen Sie die Kanäle in einem Helpdesk zusammen, über native Integrationen, wo es sie gibt, und über APIs oder Webhooks, wo nicht.",
+              "Legen Sie fest, wie Sie Identitäten kanalübergreifend abgleichen, etwa über E-Mail-Adresse und Telefonnummer, und wie Sie Duplikate zusammenführen.",
+              "Richten Sie eine Routing-Konfiguration mit Kapazität pro Kanal ein, statt getrennter Queues pro Team.",
+              "Sorgen Sie dafür, dass Übergaben vom Bot an einen Menschen das gesamte Gespräch und die Kundendaten ins Ticket übernehmen.",
+              "Ergänzen Sie kanalspezifische Regeln, etwa Vorlagenantworten bei WhatsApp nach 24 Stunden und unterschiedliche SLA-Ziele für Live- und asynchrone Kanäle.",
+              "Berichten Sie pro Kunde und pro Anliegen über alle Kanäle hinweg, nicht nur pro Kanal.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Wie TascaLab helfen kann",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab verbindet Kanäle mit dem Helpdesk, den Sie bereits nutzen, etwa Zendesk oder Freshdesk, über APIs, Webhooks sowie Make oder n8n. Ein Standard Chat Bot (500–650 USD, einmalig) deckt 3–5 Kanäle ab, etwa Ihre Website, WhatsApp, Telegram, Facebook Messenger und Instagram, und Ticket Routing & Categorization (600–950 USD) sortiert eingehende Gespräche in die richtige Queue. Jedes Projekt umfasst eine Basisdokumentation, 30 Tage Support nach dem Launch und keine versteckten Kosten, und die meisten Setups dauern 1–3 Wochen. In einem kostenlosen 30-minütigen Audit-Call werden Ihre aktuellen Kanäle erfasst, bevor irgendetwas gebaut wird.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Was ist der Unterschied zwischen Omnichannel- und Multichannel-Support?",
+        a: "Multichannel-Support bietet mehrere Kanäle, die unabhängig voneinander laufen; die Historie bleibt also im jeweiligen Kanal. Omnichannel-Support verbindet die Kanäle, sodass Agenten eine einzige Kundenhistorie sehen und Kunden den Kanal wechseln können, ohne sich zu wiederholen.",
+      },
+      {
+        q: "Was ist Omnichannel-Routing in Zendesk?",
+        a: "Ein Routing-System, das E-Mail-, Messaging- und Anruf-Tickets anhand eines einheitlichen Agentenstatus und der freien Kapazität pro Kanal an Agenten zuweist. Standardmäßig bekommt der Agent mit der meisten freien Kapazität für diesen Kanal das Ticket.",
+      },
+      {
+        q: "Kann ich einem WhatsApp-Kunden nach 24 Stunden antworten?",
+        a: "Nicht mit einer frei formulierten Nachricht. Sobald das 24-stündige Kundenservice-Fenster geschlossen ist, können nur vorab freigegebene Vorlagennachrichten gesendet werden. Eine neue Nachricht oder ein neuer Anruf des Kunden öffnet ein neues Fenster.",
+      },
+      {
+        q: "Wie lange kann ein menschlicher Agent im Facebook Messenger antworten?",
+        a: "Das Standard-Messaging-Fenster beträgt 24 Stunden. Mit dem Tag Human Agent, das eine Freigabe der App erfordert, kann ein menschlicher Agent innerhalb von 7 Tagen nach der Nachricht des Kunden antworten. Für automatisierte Nachrichten darf das Tag nicht verwendet werden.",
+      },
+    ],
+    sources: [
+      {
+        label: "Freshworks — Omnichannel vs Multichannel: Key Service Differences",
+        url: "https://www.freshworks.com/explore-cx/omnichannel-vs-multichannel-support/",
+      },
+      {
+        label: "Zendesk — What is omnichannel customer service?",
+        url: "https://www.zendesk.com/blog/customer-service/support/omnichannel-really-means/",
+      },
+      {
+        label: "Zendesk Help Center — About the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408821259930-About-the-Zendesk-Agent-Workspace",
+      },
+      {
+        label: "Zendesk Help Center — About omnichannel routing",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409149119514-About-omnichannel-routing",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Service messages",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Template fundamentals",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform Send API reference",
+        url: "https://developers.facebook.com/docs/messenger-platform/reference/send-api/",
+      },
+      {
+        label: "Gartner — Survey Finds More Than Half of Customer Service Journeys Now Start on Third-Party Platforms (July 2025)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2025-07-23-gartner-survey-finds-more-than-half-of-customer-service-journeys-now-start-on-third-party-platforms",
+      },
+    ],
+    related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
 ];
