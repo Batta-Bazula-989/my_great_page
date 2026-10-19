@@ -116,7 +116,7 @@ const de: Dictionary = {
     eyebrow: "Preise",
     title: "Support-Automatisierungspakete zum Festpreis",
     intro:
-      "Ein Preis pro Paket, einmal bezahlt. Keine monatliche Gebühr an mich. Nicht sicher, welches passt? Starten Sie mit dem kostenlosen Health Check.",
+      "Ein Preis pro Paket, einmal bezahlt. Keine laufende Pauschale. Nicht sicher, welches passt? Starten Sie mit dem kostenlosen Health Check.",
     oneTimeFee: "einmalig",
     cta: "Jetzt starten",
     from: "ab {price}",
@@ -126,7 +126,7 @@ const de: Dictionary = {
     supportTime: "30 Tage",
     included: "Im Paket enthalten",
     running: "Laufende Kosten pro Monat",
-    runningNote: "Sie zahlen diese an die Tool-Anbieter, nicht an mich.",
+    runningNote: "Berechnet von den Tool-Anbietern. Nicht im Paketpreis enthalten.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -140,9 +140,9 @@ const de: Dictionary = {
           "Basisdokumentation",
         ],
         running: [
-          "KI-Nutzung, abgerechnet von Ihrem KI-Anbieter: etwa 2,50–50 $ pro 1.000 Gespräche*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlos), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat",
-          "Nur bei WhatsApp: die ersten 1.000 Service-Nachrichten pro Monat und Nummer kostenlos, danach gelten die Preise von Meta",
+          "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
+          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
+          "Nur bei WhatsApp: Ab 1. Oktober 2026 sind 1.000 Service-Nachrichten pro Monat und Business-Nummer kostenlos, danach gilt der Preis von Meta pro Nachricht",
         ],
       },
       {
@@ -156,7 +156,7 @@ const de: Dictionary = {
           "Basisdokumentation",
         ],
         running: [
-          "Minutenpreise der Voice-Plattform, z. B. Retell AI ab 0,07 $ pro Minute",
+          "Minutenpreise der Voice-Plattform, z. B. Retell AI ab 0,07 $ pro Minute, plus KI-Modell und Telefonleitung",
           "Eine Telefonnummer von Ihrem Telefonieanbieter",
         ],
       },
@@ -171,9 +171,9 @@ const de: Dictionary = {
           "Basisdokumentation",
         ],
         running: [
-          "KI-Nutzung, abgerechnet von Ihrem KI-Anbieter: etwa 2,50–50 $ pro 1.000 Gespräche*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlos), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat",
-          "Nur bei WhatsApp: die ersten 1.000 Service-Nachrichten pro Monat und Nummer kostenlos, danach gelten die Preise von Meta",
+          "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
+          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
+          "Nur bei WhatsApp: Ab 1. Oktober 2026 sind 1.000 Service-Nachrichten pro Monat und Business-Nummer kostenlos, danach gilt der Preis von Meta pro Nachricht",
         ],
       },
       {
@@ -186,8 +186,8 @@ const de: Dictionary = {
           "Basisdokumentation",
         ],
         running: [
-          "KI-Klassifizierung: etwa 0,20 $ pro 1.000 Tickets*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlos), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat",
+          "KI-Klassifizierung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
+          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
         ],
       },
       {
@@ -199,7 +199,7 @@ const de: Dictionary = {
           "Basisdokumentation",
         ],
         running: [
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlos), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat",
+          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
           "Keine KI-Kosten, es sei denn, Sie möchten von KI geschriebene Zusammenfassungen",
         ],
       },
@@ -216,8 +216,8 @@ const de: Dictionary = {
       },
     ],
     footnote:
-      "* Die KI-Schätzungen beruhen auf den Listenpreisen von Anthropic (Oktober 2026) für Claude Haiku 5.5 (0,10 $ / 0,50 $ pro Million Input-/Output-Tokens) und Claude Sonnet 5.5 (2 $ / 10 $), bei etwa 20.000 Input- und 1.000 Output-Tokens pro Gespräch und 1.500 / 100 pro Ticket. Andere Anbieter und Modelle kosten anders, und Anbieter können ihre Preise ändern.",
-    trust: ["Keine monatliche Gebühr an mich", "30 Tage Support nach der Auslieferung", "Basisdokumentation inklusive"],
+      "* Listenpreise von Anthropic (Oktober 2026) für Prompts bis 100.000 Tokens; längere Prompts kosten 0,50 $ / 2,50 $. Andere Anbieter und Modelle haben andere Preise, und Anbieter können ihre Preise ändern.",
+    trust: ["Einmalpreis, keine laufende Pauschale", "30 Tage Support nach der Auslieferung", "Basisdokumentation inklusive"],
     healthCheck: {
       title: "Kostenloser Health Check",
       text: "Ein 30-minütiges Gespräch über Ihr Support-Setup, danach ein schriftlicher Bericht: was Sie zuerst automatisieren sollten, welches Paket passt, Festpreis und Zeitplan sowie die geschätzten laufenden Kosten pro Monat.",
@@ -236,7 +236,7 @@ const de: Dictionary = {
         points: [
           "Gebaut in Ihrem Helpdesk, Ihrem Automatisierungs-Workspace und Ihrem Konto beim KI-Anbieter",
           "Kundendaten bleiben in Systemen, die Sie kontrollieren, im Rahmen Ihrer eigenen Verträge mit diesen Anbietern",
-          "Mein Zugang dient nur der Umsetzung und wird nach der Übergabe entfernt",
+          "Sie entscheiden, welchen Zugang ich bekomme, und können ihn nach der Übergabe entfernen",
           "Jeder Workflow, jeder Prompt und jeder API-Schlüssel gehört Ihnen",
         ],
       },
@@ -245,8 +245,8 @@ const de: Dictionary = {
         points: [
           "Ich betreibe die Automatisierung auf Konten, die ich verwalte",
           "Wir schließen einen Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO ab, bevor personenbezogene Daten verarbeitet werden",
-          "Darin ist jeder Unterauftragsverarbeiter genannt, etwa Automatisierungsplattform, KI-Anbieter und Hosting",
-          "Bei Vertragsende werden die Daten gelöscht oder zurückgegeben, wie es Art. 28 verlangt",
+          "Kein Unterauftragsverarbeiter, etwa Automatisierungsplattform, KI-Anbieter oder Hosting, wird ohne Ihre schriftliche Genehmigung eingesetzt (Art. 28 Abs. 2 DSGVO)",
+          "Bei Vertragsende werden die Daten nach Ihrer Wahl gelöscht oder zurückgegeben (Art. 28 Abs. 3 lit. g DSGVO)",
         ],
       },
     ],
