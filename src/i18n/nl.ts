@@ -4,10 +4,10 @@ const nl: Dictionary = {
   meta: {
     homeTitle: "AI-klantenservice: chatbots, voicebots & ticketroutering | TascaLab",
     homeDescription:
-      "Freelance supportautomatisering: AI-chatbots, voicebots, ticketroutering en rapportages in je Zendesk, Freshdesk of Jira. Vaste prijzen, gratis audit (30 min).",
+      "Supportautomatisering: AI-chatbots, voicebots, ticketroutering en automatische rapportages voor Zendesk, Freshdesk en Jira. Vaste prijzen, gratis Health Check.",
     noscriptHeading: "AI-automatisering voor klantenservice — chatbots, voicebots & ticketroutering",
     noscriptText:
-      "TascaLab bouwt AI-chatbots, voicebots, ticketroutering en automatische rapportages bovenop Zendesk, Freshdesk, Jira en Slack. Mail naar romanzakharenko.r@gmail.com om een gratis audit van 30 minuten te plannen.",
+      "TascaLab bouwt AI-chatbots, voicebots, ticketroutering en automatische rapportages bovenop Zendesk, Freshdesk, Jira en Slack. Mail naar romanzakharenko.r@gmail.com om een gratis Health Check te plannen.",
   },
   nav: {
     services: "Wat ik doe",
@@ -17,7 +17,7 @@ const nl: Dictionary = {
     reviews: "Reviews",
     faq: "FAQ",
     resources: "Gidsen",
-    cta: "Plan een gratis audit",
+    cta: "Gratis Health Check",
     openMenu: "Menu openen",
     closeMenu: "Menu sluiten",
     language: "Taal",
@@ -30,7 +30,7 @@ const nl: Dictionary = {
     titleAfter: " voor supportteams",
     intro:
       "Ik koppel AI aan de helpdesk die je al gebruikt: hij beantwoordt terugkerende vragen, stuurt elk ticket naar de juiste wachtrij en levert de rapportages die je team nu met de hand maakt. Minder handwerk, snellere eerste reacties en geen overstap naar een ander platform.",
-    ctaBook: "Plan een gratis audit",
+    ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
     highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
     integratesWith: "Integreert met",
@@ -115,58 +115,141 @@ const nl: Dictionary = {
   pricing: {
     eyebrow: "Prijzen",
     title: "Pakketten voor supportautomatisering tegen een vaste prijs",
-    intro: "Eenmalige projectprijzen. Je kent de prijsrange voordat we beginnen; de definitieve offerte volgt na een gratis audit.",
+    intro:
+      "Eén prijs per pakket, één keer betaald. Geen maandelijkse kosten van mijn kant. Twijfel je welk pakket past? Begin met de gratis Health Check.",
     oneTimeFee: "eenmalig",
     cta: "Aan de slag",
-    // Same order as the plans in PricingSection; prices stay in USD. Plan names match the nl landing pages.
+    from: "vanaf {price}",
+    delivery: "Oplevering",
+    deliveryDays: "{days} dagen",
+    deliveryFrom: "vanaf {days} dagen",
+    support: "Ondersteuning",
+    included: "Wat er inbegrepen is",
+    running: "Lopende kosten per maand",
+    runningNote: "Die betaal je aan de aanbieders van de tools, niet aan mij.",
+    // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
         name: "Starter Chat Bot",
-        price: "350 – 450 USD",
-        description:
-          "Handelt eenvoudige klantvragen en FAQ's af via 1–2 kanalen. Ideaal voor kleine bedrijven die met automatisering beginnen.",
-        features: ["1–2 kanalen", "Beantwoordt FAQ's, verzamelt basisgegevens en handelt veelvoorkomende verzoeken automatisch af"],
+        description: "Beantwoordt veelgestelde vragen op 1–2 kanalen en geeft de rest door aan je team.",
+        included: [
+          "Chatbot op 1–2 kanalen: website, WhatsApp, Telegram, Messenger of Instagram",
+          "Beantwoordt je FAQ's en handelt veelvoorkomende verzoeken af",
+          "Verzamelt basisgegevens van klanten",
+          "Geeft de rest met context door aan je team",
+          "Basisdocumentatie",
+        ],
+        running: [
+          "AI-gebruik, gefactureerd door je AI-aanbieder: ongeveer $ 2,50–50 per 1.000 gesprekken*",
+          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
+          "Alleen bij WhatsApp: de eerste 1.000 serviceberichten per maand gratis per nummer, daarna de tarieven van Meta",
+        ],
       },
       {
         name: "Voice Bot",
-        price: "1.100 – 1.600 USD",
-        description: "Voor inkomende telefoongesprekken.",
-        features: [
-          "Volledige voice-agent voor inkomende gesprekken, met natuurlijke conversatie, triage en een nette overdracht aan je team",
+        description: "Neemt inkomende gesprekken aan, doet de triage en draagt ze over aan je team.",
+        included: [
+          "Voice-agent voor inkomende gesprekken, met natuurlijke conversatie",
+          "Triage van elk gesprek",
+          "Nette overdracht aan je team",
+          "Gekoppeld aan je helpdesk",
+          "Basisdocumentatie",
+        ],
+        running: [
+          "Kosten per minuut van het voiceplatform, bijv. Retell AI vanaf $ 0,07 per minuut",
+          "Een telefoonnummer van je telefonieaanbieder",
         ],
       },
       {
         name: "Standard Chat Bot",
-        price: "500 – 650 USD",
-        description:
-          "Geavanceerde chatbot met ondersteuning voor meerdere kanalen, slimmere antwoorden en een betere afhandeling van klantcontact op grote schaal.",
-        features: ["3–5 kanalen", "Handelt complexere gesprekken af met slimmere logica en soepelere overdrachten aan je team"],
+        description: "Handelt complexere gesprekken af op 3–5 kanalen.",
+        included: [
+          "Chatbot op 3–5 kanalen",
+          "Gesprekken in meerdere stappen, met slimmere logica",
+          "Soepelere overdrachten aan je team",
+          "Gekoppeld aan je helpdesk",
+          "Basisdocumentatie",
+        ],
+        running: [
+          "AI-gebruik, gefactureerd door je AI-aanbieder: ongeveer $ 2,50–50 per 1.000 gesprekken*",
+          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
+          "Alleen bij WhatsApp: de eerste 1.000 serviceberichten per maand gratis per nummer, daarna de tarieven van Meta",
+        ],
       },
       {
         name: "Ticket Routing & Categorization",
-        price: "600 – 950 USD",
-        description: "Tickets automatisch sorteren en toewijzen.",
-        features: [
-          "Tagt, categoriseert en routeert tickets automatisch naar het juiste team, zodat er niets tussen wal en schip valt en de reactietijden kort blijven.",
+        description: "Elk ticket krijgt direct bij binnenkomst tags, een prioriteit en een behandelaar.",
+        included: [
+          "AI-classificatie van elk nieuw ticket op onderwerp en urgentie",
+          "Tags, prioriteit en toewijzing aan de juiste groep",
+          "Werkt in Zendesk, Freshdesk of Jira Service Management",
+          "Basisdocumentatie",
+        ],
+        running: [
+          "AI-classificatie: ongeveer $ 0,20 per 1.000 tickets*",
+          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
         ],
       },
       {
         name: "Automated Reports",
-        price: "500 – 900 USD",
-        description: "Geplande rapportages, automatisch verstuurd.",
-        features: [
-          "Automatische rapportages met je belangrijkste bedrijfscijfers, geleverd per e-mail of in Slack, zodat je op de hoogte blijft zonder handwerk.",
+        description: "De rapportages die je team nu met de hand maakt, automatisch verstuurd.",
+        included: [
+          "Je belangrijkste supportmetrics, opgehaald uit je helpdesk",
+          "Volgens schema verstuurd per e-mail of naar Slack",
+          "Basisdocumentatie",
+        ],
+        running: [
+          "Automatiseringsplatform: n8n self-hosted (gratis), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand",
+          "Geen AI-kosten, tenzij je samenvattingen door AI wilt laten schrijven",
         ],
       },
       {
         name: "Custom Automation",
-        price: "1.200 – 2.000 USD",
-        description:
-          "Volledig op maat gemaakte automatisering, gebouwd rond je workflows, tools en specifieke bedrijfseisen.",
-        features: ["Volledig op maat gemaakte automatisering, gebouwd rond je workflows, tools en specifieke bedrijfseisen"],
+        description: "Gebouwd rond je workflows, tools en eisen.",
+        included: [
+          "Samen afgebakend in je gratis Health Check",
+          "Vaste prijs en planning afgesproken voordat het werk begint",
+          "Elke tool met een API of webhooks",
+          "Basisdocumentatie",
+        ],
+        running: ["Hangt af van de gebruikte tools; geschat in je Health Check-rapport"],
       },
     ],
-    trust: ["Geen verborgen kosten", "30 dagen ondersteuning na oplevering", "Basisdocumentatie inbegrepen"],
+    footnote:
+      "* De AI-schattingen gaan uit van de lijstprijzen van Anthropic (oktober 2026) voor Claude Haiku 5.5 ($ 0,10 / $ 0,50 per miljoen input-/outputtokens) en Claude Sonnet 5.5 ($ 2 / $ 10), bij ongeveer 20.000 input- en 1.000 outputtokens per gesprek en 1.500 / 100 per ticket. Andere aanbieders en modellen kosten anders, en aanbieders kunnen hun prijzen wijzigen.",
+    trust: ["Geen maandelijkse kosten van mijn kant", "30 dagen ondersteuning na oplevering", "Basisdocumentatie inbegrepen"],
+    healthCheck: {
+      title: "Gratis Health Check",
+      text: "Een gesprek van 30 minuten over je supportopzet, gevolgd door een schriftelijk rapport: wat je het eerst automatiseert, welk pakket past, de vaste prijs en planning, en de geschatte lopende kosten per maand.",
+      cta: "Plan je Health Check",
+      price: "Gratis",
+    },
+  },
+  data: {
+    eyebrow: "Je gegevens",
+    title: "Je gegevens en de AVG",
+    intro: "Jij kiest waar je automatisering draait. Dat spreken we af in je Health Check, voordat er iets wordt gebouwd.",
+    options: [
+      {
+        title: "In je eigen accounts (standaard)",
+        points: [
+          "Gebouwd in je eigen helpdesk, je automatiseringsomgeving en je account bij je AI-aanbieder",
+          "Klantgegevens blijven in systemen die jij beheert, onder je eigen contracten met die aanbieders",
+          "Mijn toegang is alleen voor de bouw en wordt na de overdracht ingetrokken",
+          "Elke workflow, prompt en API-sleutel is van jou",
+        ],
+      },
+      {
+        title: "Gehost door mij, met een verwerkersovereenkomst",
+        points: [
+          "Ik draai de automatisering op accounts die ik beheer",
+          "We sluiten een verwerkersovereenkomst (art. 28 AVG) voordat er persoonsgegevens worden verwerkt",
+          "Elke subverwerker, zoals het automatiseringsplatform, de AI-aanbieder en de hosting, wordt daarin genoemd",
+          "Na afloop van de overeenkomst worden de gegevens verwijderd of teruggegeven, zoals art. 28 vereist",
+        ],
+      },
+    ],
+    note: "Dit beschrijft hoe projecten worden opgezet. Het is geen juridisch advies.",
   },
   reviews: {
     eyebrow: "Feedback van klanten",
@@ -200,11 +283,11 @@ const nl: Dictionary = {
       },
       {
         q: "Kun je een specifieke tool integreren?",
-        a: "Als die een API of webhooks ondersteunt, vrijwel zeker. Noem het tijdens het auditgesprek, dan bevestig ik het.",
+        a: "Als die een API of webhooks ondersteunt, vrijwel zeker. Noem het in je Health Check, dan bevestig ik het.",
       },
       {
-        q: "Wat gebeurt er precies tijdens de gratis audit?",
-        a: "30 minuten. We bekijken je huidige opzet, waar het schuurt en waar automatisering echt verschil zou maken. Je gaat weg met 2–3 concrete aanbevelingen, een globale scope en een prijsrange. Geen salespresentatie. Geen druk.",
+        q: "Wat gebeurt er precies tijdens de gratis Health Check?",
+        a: "Een gesprek van 30 minuten over je huidige opzet, waar het schuurt en waar automatisering echt verschil zou maken. Daarna krijg je een schriftelijk rapport met 2–3 concrete aanbevelingen, het pakket en de vaste prijs die passen, en de geschatte lopende kosten per maand. Geen salespresentatie. Geen druk.",
       },
       {
         q: "Hoe lang duurt een gemiddeld project?",
@@ -214,9 +297,9 @@ const nl: Dictionary = {
   },
   contact: {
     eyebrow: "Laten we praten",
-    title: "Plan een gratis supportaudit van 30 minuten",
-    intro: "Plan een gesprek van 30 minuten. We kijken wat je team vertraagt en bepalen waar we beginnen.",
-    cta: "Plan een gratis audit",
+    title: "Vraag een gratis Health Check van je support aan",
+    intro: "Een gesprek van 30 minuten, daarna een schriftelijk rapport. We kijken wat je team vertraagt en bepalen waar we beginnen.",
+    cta: "Plan een gratis Health Check",
     linkedin: "Connect op LinkedIn",
     email: "E-mail",
     upwork: "Reviews op Upwork",
@@ -242,8 +325,9 @@ const nl: Dictionary = {
     accept: "Accepteren",
   },
   booking: {
-    title: "Plan een gratis supportreview",
-    description: "Laat je gegevens achter, dan neem ik contact op om een gesprek van 30 minuten in te plannen. Geen verplichtingen, geen verkooppraatje.",
+    title: "Plan een gratis Health Check",
+    description:
+      "Laat je gegevens achter, dan neem ik contact op om een gesprek van 30 minuten in te plannen. Daarna krijg je een schriftelijk rapport. Geen verplichtingen, geen verkooppraatje.",
     fullName: "Volledige naam",
     fullNamePlaceholder: "Sanne de Vries",
     email: "Zakelijk e-mailadres",
@@ -260,7 +344,7 @@ const nl: Dictionary = {
     telegramPlaceholder: "https://t.me/gebruikersnaam of @gebruikersnaam",
     submitCalendar: "Verder naar agenda",
     submitting: "Bezig met versturen...",
-    submit: "Plan gratis supportreview",
+    submit: "Plan gratis Health Check",
     sendFailed: "Aanvraag kon niet worden verstuurd",
     networkError: "Netwerkfout of server niet bereikbaar.",
     sent: "Aanvraag verstuurd! Ik neem binnen 24 uur contact op.",
@@ -289,8 +373,8 @@ const nl: Dictionary = {
     faqShort: "FAQ",
     ctaTitle: "Wil je dit laten opzetten voor je team?",
     ctaText:
-      "Plan een gratis audit van 30 minuten. Je krijgt 2–3 concrete aanbevelingen, een globale scope en een prijsrange, zonder verkooppraatje.",
-    ctaBook: "Plan een gratis audit",
+      "Plan een gratis Health Check: een gesprek van 30 minuten en een schriftelijk rapport met 2–3 concrete aanbevelingen, een vaste prijs en de geschatte lopende kosten. Geen verkooppraatje.",
+    ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
     sources: "Bronnen",
     onThisPage: "Op deze pagina",

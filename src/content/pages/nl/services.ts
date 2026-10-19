@@ -181,19 +181,19 @@ export const servicesPages: TranslatedPage[] = [
           {
             type: "table",
             caption: "Chatbotpakketten van TascaLab (eenmalige prijs)",
-            head: ["Pakket", "Omvang", "Prijs (USD)"],
+            head: ["Pakket", "Omvang", "Prijs"],
             rows: [
-              ["Starter Chat Bot", "1–2 kanalen, FAQ's, eenvoudige gegevensverzameling", "350–450 USD"],
+              ["Starter Chat Bot", "1–2 kanalen, FAQ's, eenvoudige gegevensverzameling", "{{price:starter}}"],
               [
                 "Standard Chat Bot",
                 "3–5 kanalen, complexere gesprekken, soepelere overdrachten",
-                "500–650 USD",
+                "{{price:standard}}",
               ],
             ],
           },
           {
             type: "p",
-            text: "Beschikbare kanalen: website, WhatsApp, Telegram, Facebook Messenger en Instagram, plus telefoon via de voicebot. De meeste projecten duren 1–3 weken, en elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten. Een gratis audit-gesprek van 30 minuten is het startpunt.",
+            text: "Beschikbare kanalen: website, WhatsApp, Telegram, Facebook Messenger en Instagram, plus telefoon via de voicebot. De meeste projecten duren 1–3 weken, en elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten. Een gratis Health Check-gesprek van 30 minuten is het startpunt.",
           },
         ],
       },
@@ -404,11 +404,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Het Voice Bot-pakket van TascaLab omvat inkomende gesprekken, triage en overdracht aan je team, voor een eenmalige prijs van 1.100–1.600 USD. De bot koppelt met de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's en webhooks, zodat de uitkomsten van gesprekken binnenkomen als tickets of berichten die je team al in de gaten houdt. Hij is gebouwd als filter vóór je team, niet als vervanging ervan.",
+            text: "Het Voice Bot-pakket van TascaLab omvat inkomende gesprekken, triage en overdracht aan je team, voor een eenmalige prijs van {{price:voice}}. De bot koppelt met de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's en webhooks, zodat de uitkomsten van gesprekken binnenkomen als tickets of berichten die je team al in de gaten houdt. Hij is gebouwd als filter vóór je team, niet als vervanging ervan.",
           },
           {
             type: "p",
-            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis audit-gesprek van 30 minuten.",
+            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -623,11 +623,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De dienst Ticket Routing & Categorization van TascaLab (eenmalig 600–950 USD) werkt bovenop de helpdesk die je al hebt — Zendesk, Freshdesk of Jira — met de ingebouwde regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is, bijvoorbeeld om tickets te categoriseren voordat je ingebouwde routering ze toewijst. Je hoeft niet van platform te wisselen.",
+            text: "De dienst Ticket Routing & Categorization van TascaLab (eenmalig {{price:routing}}) werkt bovenop de helpdesk die je al hebt — Zendesk, Freshdesk of Jira — met de ingebouwde regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is, bijvoorbeeld om tickets te categoriseren voordat je ingebouwde routering ze toewijst. Je hoeft niet van platform te wisselen.",
           },
           {
             type: "p",
-            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en een gratis audit-gesprek van 30 minuten is een goed moment om je huidige wachtrij in kaart te brengen.",
+            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en een gratis Health Check-gesprek van 30 minuten is een goed moment om je huidige wachtrij in kaart te brengen.",
           },
         ],
       },
@@ -866,11 +866,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De dienst Automated Reports van TascaLab (eenmalig 500–900 USD) levert je supportmetrics volgens schema per e-mail of in Slack. Hij werkt bovenop Zendesk, Freshdesk, Jira en je interne tools via hun API's en Make of n8n, zodat er niets verandert aan hoe je team dagelijks werkt.",
+            text: "De dienst Automated Reports van TascaLab (eenmalig {{price:reports}}) levert je supportmetrics volgens schema per e-mail of in Slack. Hij werkt bovenop Zendesk, Freshdesk, Jira en je interne tools via hun API's en Make of n8n, zodat er niets verandert aan hoe je team dagelijks werkt.",
           },
           {
             type: "p",
-            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis audit-gesprek van 30 minuten.",
+            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -1078,11 +1078,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richt dit in bovenop de helpdesk die je al gebruikt — Zendesk, Freshdesk of Jira — met ingebouwde triggers en regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is. Je hoeft niet van platform te wisselen. Het classificeren en routeren van inkomende e-mail valt onder de dienst Ticket Routing & Categorization (eenmalig 600–950 USD); workflows met meerdere stappen, zoals een ordernummer uit een e-mail lezen en dat in een ander systeem opzoeken, vallen onder Custom Automation (1.200–2.000 USD).",
+            text: "TascaLab richt dit in bovenop de helpdesk die je al gebruikt — Zendesk, Freshdesk of Jira — met ingebouwde triggers en regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is. Je hoeft niet van platform te wisselen. Het classificeren en routeren van inkomende e-mail valt onder de dienst Ticket Routing & Categorization (eenmalig {{price:routing}}); workflows met meerdere stappen, zoals een ordernummer uit een e-mail lezen en dat in een ander systeem opzoeken, vallen onder Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en een gratis audit-gesprek van 30 minuten is een goed moment om je huidige e-mailstroom in kaart te brengen.",
+            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en een gratis Health Check-gesprek van 30 minuten is een goed moment om je huidige e-mailstroom in kaart te brengen.",
           },
         ],
       },
@@ -1317,11 +1317,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt chatbots bovenop de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's, webhooks en Make of n8n, zodat je kennisbank blijft waar hij is. De Starter Chat Bot (eenmalig 350–450 USD) dekt 1–2 kanalen en de Standard Chat Bot (500–650 USD) dekt er 3–5, verdeeld over je website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Onderhoudsworkflows, zoals reviewherinneringen voor verouderde artikelen, vallen onder Custom Automation (1.200–2.000 USD).",
+            text: "TascaLab bouwt chatbots bovenop de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's, webhooks en Make of n8n, zodat je kennisbank blijft waar hij is. De Starter Chat Bot (eenmalig {{price:starter}}) dekt 1–2 kanalen en de Standard Chat Bot ({{price:standard}}) dekt er 3–5, verdeeld over je website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Onderhoudsworkflows, zoals reviewherinneringen voor verouderde artikelen, vallen onder Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis audit-gesprek van 30 minuten.",
+            text: "De meeste projecten duren 1–3 weken. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
