@@ -116,17 +116,17 @@ const en = {
   pricing: {
     eyebrow: "Pricing",
     title: "Fixed-price support automation packages",
-    intro: "One price per package, paid once. No monthly fee from me. Not sure which fits? Start with the free Health Check.",
+    intro: "One price per package, paid once. No retainer. Not sure which fits? Start with the free Health Check.",
     oneTimeFee: "one-time",
     cta: "Get Started",
     from: "from {price}",
     delivery: "Delivery",
-    deliveryDays: "{days} days",
-    deliveryFrom: "from {days} days",
+    deliveryTime: "1–3 weeks",
     support: "Support",
+    supportTime: "30 days",
     included: "What's included",
     running: "Monthly running costs",
-    runningNote: "Paid to the tool providers, not to me.",
+    runningNote: "Charged by the tool providers. Not included in the package price.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -217,7 +217,7 @@ const en = {
     ],
     footnote:
       "* AI estimates use Anthropic's list prices (October 2026) for Claude Haiku 5.5 ($0.10 / $0.50 per million input / output tokens) and Claude Sonnet 5.5 ($2 / $10), assuming about 20,000 input and 1,000 output tokens per conversation and 1,500 / 100 per ticket. Other providers and models cost differently, and providers can change their prices.",
-    trust: ["No monthly fee from me", "30 days of support after delivery", "Basic documentation included"],
+    trust: ["One-time price, no retainer", "30 days of support after delivery", "Basic documentation included"],
     healthCheck: {
       title: "Free Health Check",
       text: "A 30-minute call about your support setup, followed by a written report: what to automate first, which package fits, the fixed price and timeline, and the estimated monthly running costs.",
@@ -235,7 +235,7 @@ const en = {
         points: [
           "Built inside your helpdesk, your automation workspace and your AI provider account",
           "Customer data stays in systems you control, under your own contracts with those providers",
-          "My access is only for the build and is removed after handover",
+          "You decide what access I get, and you can remove it after handover",
           "You own every workflow, prompt and API key",
         ],
       },
@@ -244,8 +244,8 @@ const en = {
         points: [
           "I run the automation on accounts I manage",
           "We sign a data processing agreement (Art. 28 GDPR) before any personal data is processed",
-          "Every sub-processor, such as the automation platform, AI provider and hosting, is named in it",
-          "When the contract ends, the data is deleted or returned, as Art. 28 requires",
+          "No sub-processor, such as the automation platform, AI provider or hosting, is used without your written authorisation (Art. 28(2))",
+          "When the contract ends, the data is deleted or returned, at your choice (Art. 28(3)(g))",
         ],
       },
     ],

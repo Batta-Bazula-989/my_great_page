@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ShieldCheck, Clock, FileText, CalendarClock, LifeBuoy, Receipt, Stethoscope } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
-import { format, useDict, useLocale } from "@/i18n";
+import { useDict, useLocale } from "@/i18n";
 import en from "@/i18n/en";
 import { PACKAGES, packagePrice } from "@/lib/pricing";
 
@@ -87,7 +87,7 @@ const PricingSection = () => {
                         {t.delivery}
                       </dt>
                       <dd className="font-semibold mt-0.5">
-                        {format(pkg.isMinimum ? t.deliveryFrom : t.deliveryDays, { days: String(pkg.deliveryDays) })}
+                        {t.deliveryTime}
                       </dd>
                     </div>
                     <div className="glass-chip rounded-xl px-3 py-2">
@@ -95,7 +95,7 @@ const PricingSection = () => {
                         <LifeBuoy className="w-3.5 h-3.5 text-primary" aria-hidden />
                         {t.support}
                       </dt>
-                      <dd className="font-semibold mt-0.5">{format(t.deliveryDays, { days: "30" })}</dd>
+                      <dd className="font-semibold mt-0.5">{t.supportTime}</dd>
                     </div>
                   </dl>
 
