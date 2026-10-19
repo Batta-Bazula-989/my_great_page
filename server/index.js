@@ -132,7 +132,8 @@ Main issue: ${main_issue}${additional_notes ? `\nAdditional context: ${additiona
 
 // Serve static files from dist directory
 const distPath = path.join(__dirname, "..", "dist");
-app.use(express.static(distPath));
+// extensions: serve pre-rendered SEO pages (dist/<slug>.html) at /<slug>
+app.use(express.static(distPath, { extensions: ["html"] }));
 
 // Serve index.html for all other routes (SPA fallback)
 app.get("*", (req, res) => {

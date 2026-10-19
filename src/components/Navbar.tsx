@@ -4,12 +4,13 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: "#services", label: "What I Do" },
-  { href: "#fit", label: "A Fit?" },
-  { href: "#why-me", label: "Why Me?" },
-  { href: "#pricing", label: "Prices" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#services", label: "What I Do" },
+  { href: "/#fit", label: "A Fit?" },
+  { href: "/#why-me", label: "Why Me?" },
+  { href: "/#pricing", label: "Prices" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/resources", label: "Resources" },
 ];
 
 const Navbar = () => {
@@ -37,12 +38,12 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between h-14">
-          <a href="#" className="flex items-center gap-2 font-display font-semibold">
+          <a href="/" className="flex items-center gap-2 font-display font-semibold">
             <img src="/favicon.svg" alt="TascaLab logo" width={32} height={32} className="h-8 w-8" />
             <span>TascaLab</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -53,11 +54,11 @@ const Navbar = () => {
               </a>
             ))}
             <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-              <a href="#contact">Book a Free Audit</a>
+              <a href="/#contact">Book a Free Audit</a>
             </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               className="p-2"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -72,7 +73,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden border-t border-white/10 overflow-hidden"
+              className="lg:hidden border-t border-white/10 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -98,7 +99,7 @@ const Navbar = () => {
                   transition={{ delay: navLinks.length * 0.05 + 0.05 }}
                 >
                   <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-                    <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Free Audit</a>
+                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Free Audit</a>
                   </Button>
                 </motion.div>
               </div>
