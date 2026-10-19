@@ -37,7 +37,7 @@ const Navbar = () => {
       className="fixed top-3 left-0 right-0 z-50 px-3"
     >
       <div
-        className={`container max-w-5xl px-4 rounded-[22px] border transition-all duration-300 ${
+        className={`container max-w-6xl px-4 rounded-[22px] border transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
             ? "glass-nav"
             : "border-transparent"
@@ -49,7 +49,7 @@ const Navbar = () => {
             <span>TascaLab</span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden xl:flex items-center gap-5 whitespace-nowrap">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -65,7 +65,7 @@ const Navbar = () => {
             </Button>
           </div>
 
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <button
               className="p-2"
               aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
@@ -80,7 +80,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="lg:hidden border-t border-white/10 overflow-hidden"
+              className="xl:hidden border-t border-white/10 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}

@@ -97,17 +97,14 @@ const urlEntry = ({ loc, lastmod, changefreq, priority, alternates = [] }) =>
     "  </url>",
   ].join("\n");
 
-const entries = [
-  ...routes.map((r) => ({
-    loc: `${SITE_URL}${r.path}`,
-    lastmod: r.lastmod,
-    changefreq: r.render ? "monthly" : "weekly",
-    priority: !r.render ? "1.0" : r.path.endsWith("/resources") ? "0.8" : "0.7",
-    alternates: r.alternates,
-  })),
-  { loc: `${SITE_URL}/privacy`, changefreq: "monthly", priority: "0.3" },
-  { loc: `${SITE_URL}/terms`, changefreq: "monthly", priority: "0.3" },
-];
+const LEGAL = ["/privacy", "/terms"];
+const entries = routes.map((r) => ({
+  loc: `${SITE_URL}${r.path}`,
+  lastmod: r.lastmod,
+  changefreq: r.render ? "monthly" : "weekly",
+  priority: !r.render ? "1.0" : LEGAL.includes(r.path) ? "0.3" : r.path.endsWith("/resources") ? "0.8" : "0.7",
+  alternates: r.alternates,
+}));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries.map(urlEntry).join("\n")}

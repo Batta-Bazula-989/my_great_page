@@ -211,6 +211,33 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
   return [home, resources, ...pages];
 });
 
+// Privacy and Terms are English only; pre-rendering them gives each its own canonical URL and title.
+for (const [path, title, description] of [
+  [
+    "/privacy",
+    "Privacy Policy | TascaLab",
+    "TascaLab privacy policy: what personal information the website and booking form collect, how it is used and disclosed, and how to contact us.",
+  ],
+  [
+    "/terms",
+    "Terms of Service | TascaLab",
+    "TascaLab terms of service: the terms that apply when you use the tascalab.com website and book or buy customer support automation services.",
+  ],
+] as const) {
+  routes.push({
+    path,
+    file: `${path.slice(1)}.html`,
+    locale: DEFAULT_LOCALE,
+    htmlLang: DEFAULT_LOCALE,
+    ogLocale: localeInfo(DEFAULT_LOCALE).ogLocale,
+    title,
+    description,
+    jsonLd: [],
+    alternates: [],
+    render: true,
+  });
+}
+
 export const render = (path: string) =>
   renderToString(
     <StaticRouter location={path}>
