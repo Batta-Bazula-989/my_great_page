@@ -926,4 +926,453 @@ export const servicesPages: SeoPageContent[] = [
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
     updated: "2026-10-19",
   },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // 5. Customer support email automation
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    slug: "customer-support-email-automation",
+    category: "services",
+    navLabel: "Support email automation",
+    primaryKeyword: "customer support email automation",
+    title: "Customer Support Email Automation: Setup Guide | TascaLab",
+    description:
+      "Customer support email automation: forward your support address into Zendesk or Freshdesk, set up SPF and DKIM, then acknowledge, route and escalate emails.",
+    h1: "Customer support email automation: from inbox to answered ticket",
+    intro:
+      "Customer support email automation turns every message sent to your support address into a ticket, confirms receipt, sends it to the right team and, where it's safe, answers it — while people keep the threads that need judgment. You don't need a new inbox: forward your existing address into Zendesk or Freshdesk, set up your sending domain so replies are delivered, then add triggers, classification and AI on top.",
+    keyFacts: [
+      "Every Zendesk account has a system support address in the form support@yoursubdomain.zendesk.com.",
+      "Zendesk recommends automatic forwarding at the mail server level rather than forwarding from an email client.",
+      "Freshdesk converts forwarded email into tickets only once the forwarding rule is in place; Gmail and Microsoft 365 mailboxes can also be connected directly.",
+      "In Zendesk, turning on DKIM signing before the CNAME records are in DNS causes delivery failures.",
+      "Zendesk's legacy email autoreplies with articles won't be available from December 10, 2026.",
+    ],
+    sections: [
+      {
+        heading: "Step 1: Turn every support email into a ticket",
+        blocks: [
+          {
+            type: "p",
+            text: "Customers keep writing to the address they already know, such as support@yourcompany.com. Behind the scenes, that mailbox forwards everything into your helpdesk, which creates or updates a ticket for each message. Nothing changes for the customer, and your team stops working out of a shared inbox.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk. Every account has a system support address, support@yoursubdomain.zendesk.com. You add your own address as a support address, set up forwarding in your email provider, then verify it. Zendesk recommends automatic forwarding at the server level, not manual forwarding or auto-forwarding from an email client, and notes that after you fix a failed setup it can take up to 48 hours to be recognized.",
+              "Freshdesk. Add the address under Admin > Channels > Email > New Support Email. With the default Freshworks mail server, you create a forwarding rule in your mailbox that sends mail to the address Freshdesk generates; emails become tickets only after that rule exists. Alternatively, connect a Gmail or Microsoft 365 mailbox directly by signing in.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Use one address per purpose — for example support@, billing@ and partners@ — rather than a single catch-all. Each address becomes a free routing signal later on.",
+          },
+          {
+            type: "note",
+            text: "Test with a message from an outside address. Zendesk suspends email that arrives from one of your own support addresses, because that pattern can cause mail loops.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Make sure your replies are delivered",
+        blocks: [
+          {
+            type: "p",
+            text: "When the helpdesk replies as support@yourcompany.com, it sends on behalf of your domain, and receiving mail servers check that it's allowed to. You prove it with DNS records: SPF lists the services allowed to send for your domain, and DKIM adds a signature to each message. It's a one-time task for whoever manages your DNS.",
+          },
+          {
+            type: "table",
+            caption: "Sending-domain setup in Zendesk and Freshdesk",
+            head: ["Helpdesk", "Record", "What to do", "Watch out for"],
+            rows: [
+              [
+                "Zendesk",
+                "SPF",
+                "Add include:mail.zendesk.com to your domain's SPF TXT record",
+                "A domain can have only one SPF record; if other services send for you, combine them in that single record",
+              ],
+              [
+                "Zendesk",
+                "DKIM",
+                "Add the CNAME records from Zendesk's DKIM guide for each external domain, then turn on digital signatures in Admin Center",
+                "Turning signatures on before the CNAME records exist causes delivery failures",
+              ],
+              [
+                "Freshdesk",
+                "DKIM",
+                "Under Admin > Channels > Email > Advanced Settings > Configure DKIM, publish the four generated CNAME records, then click Verify",
+                "Some DNS providers, such as GoDaddy, add your domain automatically, so enter only the host prefix",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Order matters: records first, switch on second. If another team or an agency manages your DNS, send them the exact values from your helpdesk's documentation or admin screen instead of retyping them.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Acknowledge, sort and route on arrival",
+        blocks: [
+          {
+            type: "p",
+            text: "Once mail flows in, the first automations run the moment a ticket is created. In Zendesk, the confirmation email comes from a default trigger, Notify requester and CCs of received request. Edit its text so it tells the customer something useful:",
+          },
+          {
+            type: "ul",
+            items: [
+              "The ticket reference, so the customer can quote it.",
+              "When to expect a reply — only if you can meet it.",
+              "Links to help center articles for your most common questions.",
+              "What to include for faster help, such as an order number or account email.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Next, route. The simplest signal is the address the email was sent to. Zendesk's documented workflow is a trigger with the conditions Ticket Is Created and Ticket Received at Is your billing address, plus an action that sets the group — paired with a view that shows that group its tickets.",
+          },
+          {
+            type: "p",
+            text: "Content-based routing comes next. Keyword rules on the subject line work for a while, then break as customers phrase things differently. A classification step — an AI model or a set of rules run through the helpdesk API — reads the subject and body, writes the category, language and urgency to ticket fields, and pulls out details such as order numbers so agents don't have to search for them. Your triggers or automation rules then route on those fields.",
+          },
+          {
+            type: "note",
+            text: "Auto-replies can bounce between systems. Zendesk suspends incoming messages with auto-responder headers such as Auto-Submitted, Precedence or X-Autoresponder, and when one sender sends a large number of emails in a short period, it suspends them and blocklists the address for an hour. Check suspended tickets regularly so a real customer message doesn't sit there.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Answer the simple ones, keep people on the rest",
+        blocks: [
+          {
+            type: "p",
+            text: "Many support emails ask the same few questions. Zendesk long handled this with autoreplies with articles: an email that recommends up to three help center articles and lets the customer close the request. That feature moved to legacy status on July 31, 2025 and won't be available from December 10, 2026. Zendesk's replacement is AI agents, which deliver generative AI responses on messaging, email and web form channels. If you still rely on autoreplies, plan the switch now.",
+          },
+          {
+            type: "p",
+            text: "Any AI reply is only as good as the articles it draws on, so fix the knowledge base before you switch on automatic answers. Then decide where automation stops. Hand the thread to a person when:",
+          },
+          {
+            type: "ul",
+            items: [
+              "The customer asks for a person, or replies that the answer didn't help.",
+              "The topic is billing, refunds, legal, security or a complaint.",
+              "The tone is angry, or the thread has gone back and forth several times.",
+              "Several people are in CC, or the email is part of an ongoing account conversation.",
+              "Answering would mean changing an account the automation can't verify.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Make the handover visible: tag the ticket, raise its priority if needed, and keep everything in one ticket so the agent sees what the customer has already received.",
+          },
+        ],
+      },
+      {
+        heading: "How TascaLab automates support email",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Ticket Routing & Categorization service ($600–$950 one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ($1,200–$2,000).",
+          },
+          {
+            type: "p",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and a free 30-minute audit call is a good place to map your current email flow.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I keep my own support email address?",
+        a: "Yes. In Zendesk you add it as a support address and forward its mail into Zendesk, preferably with automatic forwarding at the server level. In Freshdesk you forward it to the address Freshdesk generates, or connect a Gmail or Microsoft 365 mailbox directly.",
+      },
+      {
+        q: "Do I need SPF and DKIM for helpdesk email?",
+        a: "If the helpdesk sends replies from your own domain, set both up. Zendesk asks you to add include:mail.zendesk.com to your SPF record and to add its CNAME records before turning on DKIM signing. Freshdesk generates four DKIM CNAME records for you to publish and verify.",
+      },
+      {
+        q: "Why didn't a customer email become a ticket in Zendesk?",
+        a: "Check suspended tickets. Zendesk suspends messages it identifies as automated replies, messages sent from one of your own support addresses, and bursts of email from a single sender.",
+      },
+      {
+        q: "Is Zendesk's autoreplies with articles still available?",
+        a: "It has been a legacy feature since July 31, 2025 and won't be available from December 10, 2026. Zendesk points customers to AI agents, which can answer on email as well as messaging and web forms.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Forwarding incoming email from your existing email address to Zendesk Support",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408886828698-Forwarding-incoming-email-from-your-existing-email-address-to-Zendesk-Support",
+      },
+      {
+        label: "Zendesk Help Center — Allowing Zendesk to send email on behalf of your email domain",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408832543770-Allowing-Zendesk-to-send-email-on-behalf-of-your-email-domain",
+      },
+      {
+        label: "Zendesk Help Center — Digitally signing your email with DKIM",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+      },
+      {
+        label: "Zendesk Help Center — Causes for ticket suspension",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408828416282-Causes-for-ticket-suspension",
+      },
+      {
+        label: "Zendesk Help Center — Workflow: Route tickets to groups based on support address",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408823834394-Workflow-Route-tickets-to-groups-based-on-support-address",
+      },
+      {
+        label: "Zendesk Help Center — Configuring email autoreplies to recommend articles",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408825385242-Configuring-email-autoreplies-to-recommend-articles",
+      },
+      {
+        label: "Freshdesk Support — Converting support emails into tickets",
+        url: "https://support.freshdesk.com/support/solutions/articles/37541-set-up-your-support-email",
+      },
+      {
+        label: "Freshdesk Support — Email domain verification using DKIM records",
+        url: "https://support.freshdesk.com/support/solutions/articles/223779-configuring-dkim-records",
+      },
+    ],
+    related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // 6. AI knowledge base for customer support
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    slug: "ai-knowledge-base-for-customer-support",
+    category: "services",
+    navLabel: "AI knowledge base for support",
+    primaryKeyword: "AI knowledge base for customer support",
+    title: "AI Knowledge Base for Customer Support Guide | TascaLab",
+    description:
+      "How an AI knowledge base for customer support works, how to structure articles in Zendesk, Freshdesk or Confluence, keep them current and measure deflection.",
+    h1: "AI knowledge base for customer support: how it works and how to build one",
+    intro:
+      "An AI knowledge base for customer support is a help center written so that both customers and AI agents can answer questions from it. The AI looks up the relevant articles and builds its reply from them, so its answers are only as accurate, complete and current as your articles. You can build it in the tool you already have: Zendesk's help center, Freshdesk's knowledge base or Confluence spaces linked to Jira Service Management.",
+    keyFacts: [
+      "Retrieval-augmented generation finds relevant passages in your documents and adds them to the prompt, so the model answers from your content.",
+      "In a Zendesk help center, articles live in sections inside categories; they can't sit directly in a category.",
+      "Freshdesk organizes its knowledge base into categories, folders and articles.",
+      "Confluence spaces linked to a Jira Service Management knowledge base feed its help center, knowledge base search and virtual service agent.",
+      "Jira Service Management counts a request as deflected when a customer picks a suggested article while submitting and marks it helpful.",
+    ],
+    sections: [
+      {
+        heading: "How AI answers draw on your articles",
+        blocks: [
+          {
+            type: "p",
+            text: "Most AI support agents use some form of retrieval-augmented generation (RAG). AWS describes RAG as a technique that augments a large language model with external data, such as a company's internal documents. In outline:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Your documents are converted into embeddings — numeric representations of the text — and stored in a vector database. This is a one-time setup step.",
+              "A customer asks a question in natural language.",
+              "The system runs a similarity search on the vector database and adds the passages it finds to the prompt as context.",
+              "The language model writes its answer using that context.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Two things follow. The AI can't answer from what isn't written down, and it works with pieces of articles rather than your whole help center. Freshdesk's guidance makes the same point: Freddy AI retrieves and uses articles independently, so if an article leaves out definitions or context, the AI may make assumptions or give partial answers.",
+          },
+          {
+            type: "p",
+            text: "The major helpdesks build this in. Zendesk's AI agents can use generative replies on messaging and email, connected to multiple knowledge sources, with search rules that control which sources are searched under specific conditions. In Jira Service Management, articles from a linked Confluence space show up in the help center, in knowledge base search and in the virtual service agent.",
+          },
+        ],
+      },
+      {
+        heading: "Where the knowledge base lives in your helpdesk",
+        blocks: [
+          {
+            type: "table",
+            caption: "Knowledge base structure by helpdesk",
+            head: ["Helpdesk", "Where articles live", "How they're organized", "What draws on them"],
+            rows: [
+              [
+                "Zendesk",
+                "Help center",
+                "Categories contain sections, and sections hold articles; sections can be nested, but articles can't sit directly in a category",
+                "Customers browsing and searching, and AI agents with generative replies",
+              ],
+              [
+                "Freshdesk",
+                "Knowledge base (solution articles)",
+                "Categories contain folders, and folders hold articles; folders can be nested",
+                "Customers on the portal, and Freddy AI",
+              ],
+              [
+                "Jira Service Management",
+                "Confluence spaces linked to the service project's knowledge base",
+                "Pages in the linked Confluence space",
+                "The help center, knowledge base search and the virtual service agent",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "One practical detail: in Freshdesk, a category or folder appears on the customer portal only after at least one article in it is published. For AI answers, what each article says matters more than where it sits; the hierarchy mainly helps people who browse.",
+          },
+        ],
+      },
+      {
+        heading: "Write articles an AI can answer from",
+        blocks: [
+          {
+            type: "p",
+            text: "Freshdesk publishes guidance on writing knowledge content for Freddy AI, and it applies to any retrieval-based AI:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Keep each article to a single topic, and say when the information applies and when it doesn't.",
+              "Link to related articles instead of embedding secondary workflows.",
+              "Split setup, usage and troubleshooting into separate articles when they serve different goals.",
+              "Make every article self-contained: define the terms and context it relies on.",
+              "Use one top-level heading for the article's purpose, and lower-level headings to separate tasks, options or concepts.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Add a few habits of your own. Title articles with the words customers actually use, not internal product names. Put the answer in the first lines, then the steps. Keep exact values — limits, deadlines, prices — in one place and link to it, so a change doesn't leave two different numbers for the AI to choose between. And start where the tickets are: a few weeks of tickets grouped by topic shows which articles to write or repair first.",
+          },
+        ],
+      },
+      {
+        heading: "Keep the content current",
+        blocks: [
+          {
+            type: "p",
+            text: "An outdated article turns into a confident, wrong AI answer, so give every article an owner and a review rhythm. Zendesk supports this with article verification: knowledge admins set verification rules that flag articles for review based on filters and intervals — for example, every three months for articles with a specific label, in a certain category, or not updated in a while — and article owners get email reminders to verify them. Check whether your plan includes it before you count on it.",
+          },
+          {
+            type: "p",
+            text: "Scheduled reviews catch slow drift. These events should trigger an update straight away:",
+          },
+          {
+            type: "ul",
+            items: [
+              "A product, pricing or policy change: update the articles on or before release day.",
+              "An agent answers a ticket the knowledge base doesn't cover: create or flag an article.",
+              "The AI hands a conversation to a person because it couldn't answer: review that question.",
+              "Two articles give different answers: merge them and unpublish the duplicate.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Measure self-service",
+        blocks: [
+          {
+            type: "p",
+            text: "Measure whether articles prevent tickets, not just whether people read them. Keep the definitions the same every month so the trend means something.",
+          },
+          {
+            type: "table",
+            caption: "Self-service measures worth tracking",
+            head: ["Measure", "What it tells you", "How to get it"],
+            rows: [
+              [
+                "Deflected requests",
+                "Customers who found an answer while submitting a request",
+                "Jira Service Management counts a request as deflected when the customer selects a suggested article during submission and marks it helpful",
+              ],
+              [
+                "Requests resolved with an article",
+                "How often agents close requests using knowledge base content",
+                "Jira Service Management's Requests resolved report tracks requests closed with or without a knowledge base article",
+              ],
+              [
+                "Self-service ratio",
+                "Help center use per ticket",
+                "Divide help center sessions by tickets created in the same period, and watch the trend",
+              ],
+              [
+                "AI handoff rate",
+                "Share of AI conversations passed to a person",
+                "Your AI agent's analytics, or a tag added on every handover",
+              ],
+              [
+                "Tickets on documented topics",
+                "Whether existing articles actually prevent tickets",
+                "Sample tickets each month and check whether an article already covered the question",
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How TascaLab puts your knowledge base to work",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. The Starter Chat Bot ($350–$450 one-time) covers 1–2 channels and the Standard Chat Bot ($500–$650) covers 3–5, across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ($1,200–$2,000).",
+          },
+          {
+            type: "p",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute audit call.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is retrieval-augmented generation in customer support?",
+        a: "It's a way for an AI to answer from your own content. Relevant passages are retrieved from your documents, typically through a similarity search on a vector database, and added to the prompt, so the language model writes its answer from that context.",
+      },
+      {
+        q: "Can Jira Service Management use Confluence as its knowledge base?",
+        a: "Yes. You link a Confluence space to the service project's knowledge base, and its articles appear in the help center, in knowledge base search and in the virtual service agent.",
+      },
+      {
+        q: "How do I keep Zendesk knowledge base articles up to date?",
+        a: "Use article verification if your plan includes it. Verification rules flag articles for review based on filters and intervals, and article owners get email reminders to verify them.",
+      },
+      {
+        q: "How should articles be structured for AI answers?",
+        a: "One topic per article, self-contained, with clear headings. Freshdesk notes that Freddy AI retrieves articles independently, so missing definitions or context can lead to assumptions or partial answers.",
+      },
+    ],
+    sources: [
+      {
+        label: "AWS Prescriptive Guidance — Understanding Retrieval Augmented Generation",
+        url: "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/what-is-rag.html",
+      },
+      {
+        label: "Zendesk Help Center — Organizing knowledge base content in categories and sections",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408845897370-Organizing-knowledge-base-content-in-categories-and-sections",
+      },
+      {
+        label: "Zendesk Help Center — Generative replies in AI agents FAQs",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756420506-Generative-replies-in-AI-agents-FAQs",
+      },
+      {
+        label: "Zendesk Help Center — About article verification and how it works",
+        url: "https://support.zendesk.com/hc/en-us/articles/5588297664666-About-article-verification-and-how-it-works",
+      },
+      {
+        label: "Freshdesk Support — Create categories, folders and articles in your knowledge base",
+        url: "https://support.freshdesk.com/support/solutions/articles/37611-create-and-organize-knowledge-base",
+      },
+      {
+        label: "Freshdesk Support — Write Freddy AI–optimised knowledge content",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011859-write-freddy-ai-optimised-knowledge-content",
+      },
+      {
+        label: "Atlassian Support — Link a Confluence space to your knowledge base",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/link-confluence-spaces-to-your-service-project/",
+      },
+      {
+        label: "Atlassian Support — Find out how your knowledge base articles are performing",
+        url: "https://support.atlassian.com/jira-service-management-cloud/docs/how-are-my-knowledge-base-articles-performing/",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
+    updated: "2026-10-19",
+  },
 ];

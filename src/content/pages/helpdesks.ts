@@ -810,4 +810,449 @@ export const helpdeskPages: SeoPageContent[] = [
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 5. Intercom automation
+  // ---------------------------------------------------------------------------
+  {
+    slug: "intercom-automation",
+    category: "helpdesks",
+    navLabel: "Intercom automation",
+    primaryKeyword: "Intercom automation",
+    title: "Intercom Automation: Workflows, Fin, Routing and API",
+    description:
+      "How Intercom automation works: Workflows triggers, branches and actions, team inbox assignment, Fin AI Agent, Slack and Jira, webhooks and the REST API.",
+    h1: "Intercom automation: Workflows, assignment, Fin and the API",
+    intro:
+      "Intercom automation is built mainly in Workflows: a visual builder where a trigger starts the flow, branches pick a path and actions do the work, such as tagging, assigning or letting Fin answer. Each team inbox's assignment method then decides which teammate gets the conversation, and webhooks plus the REST API cover anything that has to happen outside Intercom. Below is how each piece behaves and where to start.",
+    keyFacts: [
+      "Workflows are built in a visual builder and can be customer-facing or run silently in the background for teammates.",
+      "With branches, a conversation follows only the first matching path; Apply rules runs every matched path.",
+      "Only one SLA can be applied to a conversation; later SLA actions from other workflows are ignored.",
+      "Balanced assignment gives a conversation to the eligible teammate with the fewest open conversations.",
+      "Webhook subscriptions are created in the Developer Hub, not through the API, and the endpoint must use HTTPS.",
+    ],
+    sections: [
+      {
+        heading: "How Intercom Workflows are built",
+        blocks: [
+          {
+            type: "p",
+            text: "Workflows are Intercom's single place to automate customer conversations and teammate processes. You build them in a visual builder from reusable steps. A workflow can be customer-facing, like a bot that greets and triages, or run silently in the background for your team. Every workflow combines the same few kinds of steps.",
+          },
+          {
+            type: "table",
+            caption: "The building blocks of an Intercom workflow",
+            head: ["Building block", "What it does", "Examples"],
+            rows: [
+              [
+                "Trigger",
+                "Sets when the workflow starts and for whom",
+                "When a conversation starts, during a conversation, on a ticket event, or when another workflow calls it as a reusable workflow",
+              ],
+              [
+                "Branches",
+                "Check conditions and send the conversation down the first path whose condition matches",
+                "Separate paths for different audiences, channels or topics",
+              ],
+              [
+                "Apply rules",
+                "Checks every path and runs the actions of each one that matches",
+                "Several independent tags or attributes set in one step",
+              ],
+              [
+                "Actions",
+                "Do the work",
+                "Tag, assign, snooze, set priority, apply an SLA, let Fin answer, notify Slack",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "The difference between branches and Apply rules matters when conditions overlap. With branches, a conversation that meets several conditions only follows the first matching path, read from top to bottom, so put the most specific conditions first. Apply rules runs the actions of every matched path, which suits steps that should stack rather than compete.",
+          },
+        ],
+      },
+      {
+        heading: "Inbox automation: assignment, priority and SLAs",
+        blocks: [
+          {
+            type: "p",
+            text: "Most inbox automation is a background workflow made of actions. Assign sends a conversation to a chosen teammate or team inbox. Tag adds a tag, and tags are created and managed in your workspace settings. Snooze temporarily removes the conversation from the teammate inbox; if the customer or a teammate replies during the snooze, the workflow ends. Set priority marks how urgent the conversation is.",
+          },
+          {
+            type: "p",
+            text: "SLAs are applied with an action too, but only one SLA can be added to a conversation. If a later workflow tries to apply another SLA, that action is ignored, so decide which workflow owns SLAs before you build several of them.",
+          },
+          {
+            type: "p",
+            text: "Once a conversation lands in a team inbox, that inbox's assignment method decides who gets it: manual, round robin or balanced. Balanced assignment gives each new conversation to the eligible teammate with the fewest open conversations, and breaks ties in favour of the teammate who has waited longest for one. To be eligible, a teammate must be active and under their assignment limit. Intercom recommends balanced assignment for support teams.",
+          },
+          {
+            type: "note",
+            text: "A simple starting pattern: one background workflow on new conversations tags them by topic, sets priority, applies a single SLA and assigns them to the right team inbox. The inbox's assignment method then picks the teammate.",
+          },
+        ],
+      },
+      {
+        heading: "Fin AI Agent in your workflows",
+        blocks: [
+          {
+            type: "p",
+            text: "Fin AI Agent is Intercom's AI agent for answering customer questions. It answers from the content you give it: public articles, documents, snippets and public URLs, which you manage under Knowledge > Sources. It respects audience targeting on Intercom articles, so it won't answer from private or restricted articles that the customer on Messenger isn't allowed to see.",
+          },
+          {
+            type: "p",
+            text: "Fin is supported on Intercom Messenger on web, iOS and Android, and on email, WhatsApp, SMS, Facebook and Instagram. Inside Workflows, a 'Let Fin answer' step lets Fin respond at any point in the flow and keep going until the issue is resolved or escalated to a teammate.",
+          },
+          {
+            type: "p",
+            text: "Plan the handoff as carefully as the answers. Decide which team inbox an escalated conversation should go to, and build that path in the workflow so it never sits unassigned.",
+          },
+        ],
+      },
+      {
+        heading: "Webhooks and the Intercom REST API",
+        blocks: [
+          {
+            type: "p",
+            text: "When something in Intercom needs to reach another system, use webhooks. You set them up in the Developer Hub: open your app, go to Configure, then Webhooks, and enter your endpoint URL. The endpoint must use HTTPS and must accept a HEAD request, which Intercom uses to validate the URL. Subscriptions can only be created in the Developer Hub, not through the API.",
+          },
+          {
+            type: "p",
+            text: "Next you pick topics. A topic is an event inside Intercom that triggers the webhook, and each topic is tied to one or more permissions your app must have. Intercom sends an HTTP POST to your endpoint for every topic you subscribe to, and each payload includes the topic and a delivery attempt count. The 'Send a test request' button in the webhooks section lets you check the endpoint.",
+          },
+          {
+            type: "p",
+            text: "To act on conversations from your own code, use the REST API. Requests go to api.intercom.io with an access token sent as a Bearer token in the Authorization header, plus an Intercom-Version header that defaults to the version set in your app. Replying, for example, is a POST to /conversations/{id}/reply with a JSON body that sets the message type, the author type and the message body.",
+          },
+          {
+            type: "p",
+            text: "Good first candidates for Intercom automation:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Tagging new conversations and assigning them to the right team inbox.",
+              "Applying one SLA per conversation and raising priority for key accounts.",
+              "Sending conversation events to a webhook so Make or n8n can update other systems.",
+              "Posting new or escalated conversations to a Slack channel.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Slack and Jira integrations",
+        blocks: [
+          {
+            type: "p",
+            text: "For Slack alerts, set a Slack channel's purpose to notification-only, then add a 'Notify Slack' step to a workflow. The Intercom app posts the notification, and later notifications for the same conversation appear as thread replies under the original message. Replies typed in that thread are not sent back to the Intercom conversation, so teammates still answer customers in Intercom.",
+          },
+          {
+            type: "p",
+            text: "For engineering escalations, Intercom's Jira for Tickets app can automatically create Jira issues from the ticket types you specify, mirror Jira issue statuses back to the Intercom tickets and sync notes. Its basic automation maps only the title and description; for more fields, use its custom automation built on Workflows templates. It doesn't create issues straight from conversations, so a conversation has to be converted into a ticket first.",
+          },
+        ],
+      },
+      {
+        heading: "Getting this built",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab builds on top of the tools you already use, with no platform switch, using APIs, webhooks and Make or n8n. Intercom has both a REST API and webhooks, so it can almost certainly be connected; the specific setup is confirmed on a free 30-minute audit call. Ticket Routing & Categorization is a one-time project in the $600–$950 range, and Custom Automation for flows across several systems is $1,200–$2,000. Every project includes 30 days of post-launch support, basic documentation and no hidden fees, and most setups take 1–3 weeks.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between branches and Apply rules in Intercom Workflows?",
+        a: "Branches send the conversation down only the first path whose condition matches, checked from top to bottom. Apply rules checks every path and runs the actions of each one that matches.",
+      },
+      {
+        q: "Which assignment method does Intercom recommend for support teams?",
+        a: "Balanced assignment. It gives each conversation to the active teammate under their assignment limit who has the fewest open conversations, with ties going to whoever has waited longest.",
+      },
+      {
+        q: "What content does Fin AI Agent use to answer customers?",
+        a: "Public articles, documents, snippets and public URLs that you add under Knowledge > Sources. It respects article audience targeting, so it won't answer from articles the customer can't see.",
+      },
+      {
+        q: "Can I create Intercom webhook subscriptions through the API?",
+        a: "No. Webhook subscriptions are set up in the Developer Hub. The endpoint must use HTTPS and accept a HEAD request, which Intercom uses to validate it.",
+      },
+      {
+        q: "Can teammates reply to customers from Intercom's Slack notifications?",
+        a: "No. In a notification-only Slack channel, replies in a notification's thread are not sent back to the Intercom conversation.",
+      },
+    ],
+    sources: [
+      {
+        label: "Intercom Help — Workflows explained",
+        url: "https://www.intercom.com/help/en/articles/7836459-workflows-explained",
+      },
+      {
+        label: "Intercom Help — Using actions in Workflows",
+        url: "https://www.intercom.com/help/en/articles/7836466-using-actions-in-workflows",
+      },
+      {
+        label: "Intercom Help — Balanced assignment deep dive",
+        url: "https://www.intercom.com/help/en/articles/6553774-balanced-assignment-deep-dive",
+      },
+      {
+        label: "Intercom Help — Fin AI Agent FAQs",
+        url: "https://www.intercom.com/help/en/articles/7837535-fin-ai-agent-faqs",
+      },
+      {
+        label: "Intercom Help — Set up Slack notifications",
+        url: "https://www.intercom.com/help/en/articles/12556780-set-up-slack-notifications",
+      },
+      {
+        label: "Intercom Help — Jira for Tickets app",
+        url: "https://www.intercom.com/help/en/articles/7918909-jira-for-tickets-app",
+      },
+      {
+        label: "Intercom Developers — Set up Webhooks",
+        url: "https://developers.intercom.com/docs/webhooks/setting-up-webhooks",
+      },
+      {
+        label: "Intercom Developers — Reply to a conversation",
+        url: "https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/replyconversation",
+      },
+    ],
+    related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 6. HubSpot Service Hub automation
+  // ---------------------------------------------------------------------------
+  {
+    slug: "hubspot-service-hub-automation",
+    category: "helpdesks",
+    navLabel: "HubSpot Service Hub automation",
+    primaryKeyword: "HubSpot Service Hub automation",
+    title: "HubSpot Service Hub Automation: Tickets, Workflows, SLAs",
+    description:
+      "HubSpot Service Hub automation: help desk channels and routing, ticket pipelines and statuses, SLA goals, ticket workflows, chatbots, webhooks and the API.",
+    h1: "HubSpot Service Hub automation: help desk, tickets, workflows and the API",
+    intro:
+      "HubSpot Service Hub automation centres on the ticket: help desk channels create tickets, routing assigns them, pipelines and statuses track them, and ticket-based workflows act on them. Rule-based chatbots collect details before a ticket exists, and the workflow webhook action and the CRM API connect HubSpot to everything else. Below is what each piece does and where to start.",
+    keyFacts: [
+      "By default, help desk creates tickets automatically from every channel you connect to it.",
+      "The default Support Pipeline has four ticket statuses: New, Waiting on contact, Waiting on us and Closed.",
+      "Help desk SLA goals can track time to first reply, time to next reply and time to close.",
+      "The workflow webhook action only accepts URLs that begin with HTTPS.",
+      "Tickets are created through the API with a POST to /crm/v3/objects/tickets.",
+    ],
+    sections: [
+      {
+        heading: "What you can automate in HubSpot Service Hub",
+        blocks: [
+          {
+            type: "p",
+            text: "Service Hub automation is spread across several tools that all act on the ticket record. Decide where a rule belongs before you build it; most problems come from the same logic living in two places.",
+          },
+          {
+            type: "table",
+            caption: "Where each kind of Service Hub automation lives",
+            head: ["Tool", "What it automates", "Typical use"],
+            rows: [
+              [
+                "Help desk channels and routing",
+                "Creating tickets from connected channels and assigning them",
+                "Every support email or chat becomes a ticket and reaches the right team",
+              ],
+              [
+                "Ticket pipelines and statuses",
+                "The stages a ticket moves through, and whether each counts as open or closed",
+                "Separate pipelines for different kinds of support work",
+              ],
+              [
+                "SLA goals",
+                "Targets for first reply, next reply and close times",
+                "A faster response goal for chat than for email",
+              ],
+              [
+                "Ticket-based workflows",
+                "Actions on tickets that meet enrollment triggers",
+                "Rotating owners, updating properties, delayed follow-ups",
+              ],
+              [
+                "Rule-based chatbots",
+                "Questions, ticket creation and handoff in chat",
+                "Collecting order details before an agent joins",
+              ],
+              [
+                "Webhooks and the API",
+                "Sending ticket data out, and creating or updating tickets from other systems",
+                "Syncing tickets with Jira or internal tools",
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Help desk channels and routing",
+        blocks: [
+          {
+            type: "p",
+            text: "Help desk is HubSpot's workspace for ticket-based support. You can connect chat, email, form, calling and Facebook Messenger channels to it. By default, tickets are created automatically from every channel you connect, and HubSpot recommends connecting all of your support channels, because tickets from unconnected channels may be missing their subject and thread in help desk.",
+          },
+          {
+            type: "p",
+            text: "Routing is set per channel. When you connect a team email, for example, you choose the default pipeline, status and priority for new tickets, then pick a routing option:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Specific users or teams.",
+              "The contact owner.",
+              "Skill-based routing, which matches tickets to agents' skills.",
+              "An assignment workflow, when you need logic beyond the built-in options.",
+              "No one, which leaves tickets in the Unassigned view for agents to pick up.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Automatic and skill-based routing depend on your seats and subscription. Check what your account includes before you design around a specific routing option.",
+          },
+        ],
+      },
+      {
+        heading: "Ticket pipelines, statuses and SLA goals",
+        blocks: [
+          {
+            type: "p",
+            text: "Tickets move through a pipeline, and for tickets the pipeline stages are called statuses. The default Support Pipeline has four: New, Waiting on contact, Waiting on us and Closed. You manage pipelines under Settings > Objects > Tickets > Pipelines, and every status you add must be marked as Open or Closed.",
+          },
+          {
+            type: "p",
+            text: "That choice drives automation. When a ticket moves to a closed status, its Close date is set to today; if it moves back to an open status, the Close date is cleared. You can adjust this behaviour per pipeline. Because workflows and reports filter on status, keep statuses few and unambiguous.",
+          },
+          {
+            type: "p",
+            text: "SLA goals in help desk set targets for time to first reply, time to next reply and time to close. A goal can apply to all tickets, to tickets with a specific property value, or to a combination of properties, and each rule can be limited to set hours and a time zone. HubSpot's own examples include a shorter reply goal for enterprise customers and a faster response goal for chat than for email. Snoozing a ticket does not affect its SLA.",
+          },
+        ],
+      },
+      {
+        heading: "Ticket-based workflows",
+        blocks: [
+          {
+            type: "p",
+            text: "A ticket-based workflow enrolls tickets that meet its enrollment triggers, then runs a sequence of actions. The actions most useful for support work:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Delays: wait a set number of days, hours and minutes, or until a calendar date, a date property or an event.",
+              "If/then branches: send tickets down different paths based on filter criteria combined with AND and OR.",
+              "Edit record: set, copy or clear property values on the ticket or on an associated record.",
+              "Create record: create a new record, which is associated with the enrolled ticket by default.",
+              "Rotate record to owner: assign tickets in turn among the users you choose. Rotation counts are tracked per action and reset if you add or remove owners after the workflow is turned on.",
+              "Send a webhook: call an external URL with ticket data, covered in the next section.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Good first candidates for HubSpot ticket workflows:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Rotating new tickets in a pipeline among a group of agents.",
+              "Copying a property from an associated record onto the ticket so routing and reports can use it.",
+              "Sending a ticket to Jira or an internal tool through a webhook when its status changes.",
+              "Waiting a set time after a ticket closes, then branching on a property to decide on a follow-up.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Chatbots, webhooks and the HubSpot API",
+        blocks: [
+          {
+            type: "p",
+            text: "Rule-based chatbots handle the first minutes of a chat. Three actions do most of the support work. Ask question stores the visitor's answer in a contact property and can offer quick replies. Submit a ticket creates a ticket with the name, pipeline and status you set, but is skipped if the visitor has no associated contact record. Send to team member hands the chat to a specific user or team after checking that they are available, and shows the away message if they aren't. If the bot has operating hours, chats are only routed to a team member during those hours.",
+          },
+          {
+            type: "p",
+            text: "The workflow webhook action sends data out. Choose POST or GET and enter a URL that begins with HTTPS. A POST body can include all of the record's properties or a customised set of keys, each mapped to a HubSpot property. You can authenticate with a request signature, which HubSpot adds as a header for your endpoint to verify, or with an API key stored as a secret and sent in a header or query parameter. You can test the action from its panel without affecting existing records. Whether this action is available depends on your subscription.",
+          },
+          {
+            type: "p",
+            text: "For the other direction, use the CRM API. A POST to /crm/v3/objects/tickets creates a ticket; include subject, hs_pipeline_stage (the status) and hs_pipeline, using internal IDs rather than labels. If no pipeline is given, the default pipeline is used. A GET to /crm/v3/properties/tickets lists your account's ticket properties. Apps can also subscribe to ticket events through the Webhooks API, including ticket.creation and ticket.propertyChange, which fires when a property you name changes on any ticket. These subscriptions are configured at the app level and need the tickets scope.",
+          },
+        ],
+      },
+      {
+        heading: "Getting this built",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab builds on top of the tools you already use, with no platform switch, using APIs, webhooks and Make or n8n. HubSpot has a documented API and webhook support, so it can almost certainly be connected; the specific setup is confirmed on a free 30-minute audit call. Ticket Routing & Categorization is a one-time project in the $600–$950 range, Automated Reports by email or Slack are $500–$900, and Custom Automation across several systems is $1,200–$2,000. Every project includes 30 days of post-launch support, basic documentation and no hidden fees, and most setups take 1–3 weeks.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What are the default ticket statuses in HubSpot?",
+        a: "The default Support Pipeline has four statuses: New, Waiting on contact, Waiting on us and Closed. You can add your own and mark each one as Open or Closed.",
+      },
+      {
+        q: "Can HubSpot help desk track SLAs?",
+        a: "Yes. SLA goals in help desk track time to first reply, time to next reply and time to close, for all tickets or by ticket properties, and can be limited to set hours. Snoozing a ticket doesn't affect its SLA.",
+      },
+      {
+        q: "Can a HubSpot chatbot create tickets?",
+        a: "Yes. The Submit a ticket action creates a ticket with the name, pipeline and status you set. It is skipped if the visitor has no associated contact record.",
+      },
+      {
+        q: "How do I send HubSpot ticket data to another system?",
+        a: "Add a webhook action to a ticket-based workflow, which sends a POST or GET request to an HTTPS URL. Apps can also subscribe to ticket events such as ticket.creation and ticket.propertyChange through the Webhooks API.",
+      },
+      {
+        q: "What do I need to create a ticket through the HubSpot API?",
+        a: "Send a POST to /crm/v3/objects/tickets with subject, hs_pipeline_stage and hs_pipeline, using internal IDs. If you leave out the pipeline, the default one is used.",
+      },
+    ],
+    sources: [
+      {
+        label: "HubSpot Knowledge Base — Connect channels to help desk",
+        url: "https://knowledge.hubspot.com/help-desk/connect-channels-to-help-desk",
+      },
+      {
+        label: "HubSpot Knowledge Base — Set up and manage object pipelines",
+        url: "https://knowledge.hubspot.com/object-settings/set-up-and-customize-pipelines",
+      },
+      {
+        label: "HubSpot Knowledge Base — Set SLA goals in help desk",
+        url: "https://knowledge.hubspot.com/help-desk/set-sla-goals-in-help-desk",
+      },
+      {
+        label: "HubSpot Knowledge Base — Choose your workflow actions",
+        url: "https://knowledge.hubspot.com/workflows/choose-your-workflow-actions",
+      },
+      {
+        label: "HubSpot Knowledge Base — Use webhooks with HubSpot workflows",
+        url: "https://knowledge.hubspot.com/workflows/how-do-i-use-webhooks-with-hubspot-workflows",
+      },
+      {
+        label: "HubSpot Knowledge Base — Choose your rule-based chatbot actions",
+        url: "https://knowledge.hubspot.com/chatflows/a-guide-to-bot-actions",
+      },
+      {
+        label: "HubSpot Developers — Tickets API",
+        url: "https://developers.hubspot.com/docs/api-reference/latest/crm/objects/tickets/guide",
+      },
+      {
+        label: "HubSpot Developers — Webhooks API guide",
+        url: "https://developers.hubspot.com/docs/api-reference/latest/webhooks/guide",
+      },
+    ],
+    related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
+    updated: "2026-10-19",
+  },
 ];

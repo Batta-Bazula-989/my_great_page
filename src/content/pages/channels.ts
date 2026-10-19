@@ -107,7 +107,7 @@ export const channelPages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "Two points matter for support teams. Conversations that start from a Click to WhatsApp ad or a Facebook Page call-to-action open a free entry point window of 72 hours. And helpdesk vendors can add their own fees: Freshworks' documentation, for example, states that it adds a markup on top of Meta's WhatsApp charges.",
+            text: "Two points matter for support teams. Conversations that start from a Click to WhatsApp ad or a Facebook Page call-to-action can open a free entry point window: if you reply within the customer service window, your messages aren't charged, and Meta's current pricing page says that window can stay open for up to 7 days (the older conversation-based pricing gave 72 hours). And helpdesk vendors can add their own fees: Freshworks' documentation, for example, states that it adds a markup on top of Meta's WhatsApp charges.",
           },
           {
             type: "note",
@@ -944,6 +944,392 @@ export const channelPages: SeoPageContent[] = [
       "ai-chatbot-for-customer-support",
       "chatbot-to-human-handoff",
       "freshdesk-automation",
+    ],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 6. SMS
+  // ---------------------------------------------------------------------------
+  {
+    slug: "sms-customer-support-automation",
+    category: "channels",
+    navLabel: "SMS support automation",
+    primaryKeyword: "SMS customer support automation",
+    title: "SMS Customer Support Automation: Webhooks, 10DLC, STOP",
+    description:
+      "How SMS customer support automation works: inbound webhooks, A2P 10DLC and toll-free verification, STOP opt-outs, segment limits and helpdesk tickets.",
+    h1: "SMS customer support automation: how it works and what to set up",
+    intro:
+      "SMS customer support automation connects a business phone number to code that reads incoming texts, answers simple questions and turns everything else into tickets. With a provider such as Twilio Programmable Messaging, each inbound text is sent to your webhook and your code replies through the API. In the US you also have to register the number and honor STOP opt-outs, or your messages get blocked.",
+    keyFacts: [
+      "Twilio sends each incoming text to your webhook URL with fields such as From, To, Body and MessageSid.",
+      "Twilio says US carriers treat any message sent from a platform like Twilio as application-to-person (A2P) traffic.",
+      "Messages from unregistered US 10DLC numbers are blocked with error 30034, even while registration is pending.",
+      "Twilio handles STOP and other standard opt-out keywords by default on long code numbers.",
+      "One GSM-7 SMS segment holds 160 characters; a UCS-2 segment, needed for emoji, holds 70.",
+    ],
+    sections: [
+      {
+        heading: "How SMS support automation works",
+        blocks: [
+          {
+            type: "p",
+            text: "You get a phone number from an SMS provider, point its incoming-message webhook at your code, and send replies through the provider's API. With Twilio Programmable Messaging, every text sent to your number becomes an HTTP request to your webhook URL. The request carries the sender in From, your number in To, the message text in Body (up to 1,600 characters) and a 34-character MessageSid you can use to fetch the message later through the REST API.",
+          },
+          {
+            type: "p",
+            text: "Your endpoint answers with TwiML, Twilio's XML format that tells Twilio what to do next, such as sending a reply. If your helpdesk will answer later and the bot has nothing to say, return an empty Response element so Twilio accepts the message without replying.",
+          },
+          {
+            type: "ol",
+            items: [
+              "The customer texts your support number.",
+              "Twilio sends the message to your webhook.",
+              "Your bot answers a common question straight away or asks for details such as an order number.",
+              "Anything the bot can't resolve becomes a ticket in your helpdesk, keyed to the customer's phone number.",
+              "Agent replies go back to the customer as SMS from the same number.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "US registration: A2P 10DLC and toll-free verification",
+        blocks: [
+          {
+            type: "p",
+            text: "Twilio's documentation says US carriers consider any message sent from a platform like Twilio to be application-to-person (A2P). If you send SMS or MMS to US numbers from a standard 10-digit long code (10DLC), you must register for A2P 10DLC. Registration has two parts: a brand, which tells carriers who is sending, and a campaign, which describes the use case and how people opt in, opt out and get help. Once the campaign is approved, you add your number to the Messaging Service linked to it.",
+          },
+          {
+            type: "p",
+            text: "Registration isn't optional paperwork. Twilio blocks US-bound messages from 10DLC numbers that aren't tied to an approved campaign, including numbers whose registration is still pending, and its messaging rates still apply to the blocked messages. Toll-free numbers go through a separate process called Toll-Free Verification.",
+          },
+          {
+            type: "table",
+            caption: "What Twilio requires before you text US customers",
+            head: ["Sender type", "Requirement", "What happens without it"],
+            rows: [
+              ["10DLC long code", "Approved A2P 10DLC brand and campaign, with the number in the campaign's Messaging Service", "Messages are blocked with error 30034"],
+              ["10DLC, sole proprietor", "Same registration, but a sole proprietor campaign can have only one registered 10DLC number", "Extra numbers in the Messaging Service stay unregistered"],
+              ["Toll-free number", "Approved Toll-Free Verification", "Messages to US and Canadian mobile numbers fail with error 30032"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "STOP keywords, opt-outs and consent",
+        blocks: [
+          {
+            type: "p",
+            text: "Twilio handles standard English opt-out keywords for you on long code numbers. Its documentation lists STOP, UNSUBSCRIBE, END, QUIT, STOPALL, REVOKE, OPTOUT and CANCEL, matched regardless of case. Twilio sends a standard confirmation, and your messages stop reaching that number until the customer texts START. On toll-free numbers, only START and UNSTOP re-subscribe a customer. Advanced Opt-Out, which is off by default, lets you customize keywords and replies on a Messaging Service, though reserved keywords such as START can't be removed.",
+          },
+          {
+            type: "p",
+            text: "Make sure your bot sends nothing further to a customer who has opted out. US rules also cover this. The FCC's 2024 order (FCC 24-24) says consumers can revoke consent to robocalls and robotexts by any reasonable means, that a reply such as stop, quit, end, revoke, opt out, cancel or unsubscribe counts as reasonable, and that revocations must be honored within a reasonable time of no more than ten business days. In 2026 the FCC adopted a further order (FCC 26-67) that lets callers designate one automated revocation method, such as a reply text with standard words like stop, quit or unsubscribe, provided the method is clearly disclosed, and it asks for comment on shortening the time limit. Check which version of the rules is in effect when you launch.",
+          },
+          {
+            type: "note",
+            text: "This is a summary of the FCC rule text, not legal advice. Check the current rules with your own counsel before you send automated texts to US customers.",
+          },
+        ],
+      },
+      {
+        heading: "Message length and segments",
+        blocks: [
+          {
+            type: "p",
+            text: "SMS is sent in segments, and each segment is billed, so the length of your bot's replies affects cost. Twilio's documentation gives these limits:",
+          },
+          {
+            type: "table",
+            caption: "SMS segment sizes from Twilio's documentation",
+            head: ["Encoding", "Single message", "Per segment when split", "When it's used"],
+            rows: [
+              ["GSM-7", "160 characters", "153 characters", "Text that only uses the GSM-7 character set"],
+              ["UCS-2", "70 characters", "67 characters", "Any message with at least one character outside GSM-7, such as an emoji"],
+            ],
+          },
+          {
+            type: "p",
+            text: "One non-GSM-7 character switches the whole message to UCS-2, not just that character. Emoji, smart quotes and long dashes are common causes, which matters when a bot copies answers from help center articles. Twilio's Smart Encoding can replace some of these characters with GSM-7 equivalents. Outgoing message text can be up to 1,600 characters, but short replies with a link to the full article usually work better.",
+          },
+        ],
+      },
+      {
+        heading: "Connecting SMS to your helpdesk",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk offers SMS as Zendesk Text. A text sent to your Text number creates a ticket automatically, and public replies on that ticket go back to the customer as texts. Zendesk also says that texts to US consumers from unregistered numbers will be blocked, so A2P 10DLC registration applies there too.",
+          },
+          {
+            type: "p",
+            text: "If your helpdesk has no SMS channel, or you need logic the built-in one doesn't offer, a small service in the middle can handle it. It receives the Twilio webhook, runs the bot, creates or updates tickets through the helpdesk API, and sends agent replies back through Twilio.",
+          },
+        ],
+      },
+      {
+        heading: "How TascaLab can help",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab's listed bot channels are website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. SMS isn't on that list, but other channels with an API can be scoped on the free 30-minute audit call. TascaLab builds on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack, through APIs, webhooks and Make or n8n. A Starter Chat Bot is $350–$450 for one or two channels and a Standard Chat Bot is $500–$650 for three to five. Every project includes 30 days of post-launch support, basic documentation and no hidden fees, and most setups take 1–3 weeks.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I need A2P 10DLC registration for an SMS support bot?",
+        a: "Yes, if you send SMS or MMS to US numbers from a 10-digit long code through a platform like Twilio. Twilio blocks US-bound messages from unregistered 10DLC numbers with error 30034, including while registration is pending.",
+      },
+      {
+        q: "What happens when a customer texts STOP?",
+        a: "On long code numbers Twilio handles STOP and other standard opt-out keywords by default. It sends a confirmation, and your messages stop reaching that number until the customer texts START.",
+      },
+      {
+        q: "Why did a short message count as two segments?",
+        a: "It probably contained a character outside GSM-7, such as an emoji or a smart quote. That switches the whole message to UCS-2, which fits only 70 characters in a single segment.",
+      },
+      {
+        q: "Can I use a toll-free number instead of a 10DLC number?",
+        a: "Yes, but it needs Toll-Free Verification. Until it's approved, messages to US and Canadian mobile numbers fail with error 30032.",
+      },
+    ],
+    sources: [
+      {
+        label: "Twilio Docs — Twilio's request to your incoming message Webhook URL",
+        url: "https://www.twilio.com/docs/messaging/guides/webhook-request",
+      },
+      {
+        label: "Twilio Docs — Programmable Messaging and A2P 10DLC",
+        url: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
+      },
+      {
+        label: "Twilio Docs — Error 30034: US A2P 10DLC - Message from an Unregistered Number",
+        url: "https://www.twilio.com/docs/api/errors/30034",
+      },
+      {
+        label: "Twilio Docs — Error 30032: Toll-Free Number Has Not Been Verified",
+        url: "https://www.twilio.com/docs/api/errors/30032",
+      },
+      {
+        label: "Twilio Docs — Customize users' opt-in and opt-out experience with Advanced Opt-Out",
+        url: "https://www.twilio.com/docs/messaging/tutorials/advanced-opt-out",
+      },
+      {
+        label: "Twilio Docs — How long can a message be?",
+        url: "https://www.twilio.com/docs/glossary/what-sms-character-limit",
+      },
+      {
+        label: "FCC — FCC 24-24 Report and Order on revoking consent under the TCPA",
+        url: "https://docs.fcc.gov/public/attachments/FCC-24-24A1.pdf",
+      },
+      {
+        label: "FCC — FCC 26-67 Report and Order on revocation of consent (2026)",
+        url: "https://docs.fcc.gov/public/attachments/FCC-26-67A1.pdf",
+      },
+      {
+        label: "Zendesk Help Center — Getting started with Text",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408823788314-Getting-started-with-Text",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "zendesk-automation",
+      "omnichannel-customer-support",
+    ],
+    updated: "2026-10-19",
+  },
+
+  // ---------------------------------------------------------------------------
+  // 7. Viber
+  // ---------------------------------------------------------------------------
+  {
+    slug: "viber-chatbot-for-customer-support",
+    category: "channels",
+    navLabel: "Viber chatbot for support",
+    primaryKeyword: "Viber chatbot for customer support",
+    title: "Viber Chatbot for Customer Support: Bot API and Rules",
+    description:
+      "How a Viber chatbot for customer support works: auth token, set_webhook, callback events, who the bot can message, keyboards and handoff to your helpdesk.",
+    h1: "Viber chatbot for customer support: how it works and how to set it up",
+    intro:
+      "A Viber chatbot for customer support is a bot account connected to the Viber REST Bot API. Your server registers a webhook with set_webhook, receives callbacks when customers open the chat or send messages, and replies with send_message using the bot's authentication token. Viber bots can only keep messaging users who have subscribed, so every support conversation starts with the customer.",
+    keyFacts: [
+      "Every API request carries the bot's authentication token in the X-Viber-Auth-Token header.",
+      "Webhook URLs must use SSL; Viber doesn't support self-signed certificates.",
+      "The message, subscribed and unsubscribed callbacks are mandatory and can't be filtered out.",
+      "A conversation_started event allows one welcome message, not ongoing messaging.",
+      "As of October 2026, Viber's developer docs say bots can only be created on commercial terms.",
+    ],
+    sections: [
+      {
+        heading: "How a Viber support bot works",
+        blocks: [
+          {
+            type: "p",
+            text: "Your bot is identified by an authentication token. Every request to the REST Bot API must include it in an HTTP header called X-Viber-Auth-Token; leave it out and you get a missing_auth_token error. You register a public HTTPS webhook with set_webhook, Viber posts callbacks to it as things happen, and you reply with send_message.",
+          },
+          {
+            type: "p",
+            text: "When you call set_webhook, Viber checks your URL by sending it a callback with the event webhook. The check passes only if your server answers with HTTP status 200. A successful set_webhook response has status 0; an unreachable URL returns status 1, invalidUrl.",
+          },
+          {
+            type: "ol",
+            items: [
+              "The customer opens your bot from a link on your website, and Viber sends a conversation_started callback.",
+              "Your bot sends one welcome message with buttons for common topics.",
+              "The customer replies, which subscribes them, and your bot receives a message callback.",
+              "The bot answers simple questions and collects details for everything else.",
+              "Unresolved cases become helpdesk tickets, and agent replies go back through send_message.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Webhooks and callback events",
+        blocks: [
+          {
+            type: "p",
+            text: "The webhook URL must use SSL with a valid certificate from a trusted certificate authority. The optional event_types list in set_webhook controls which callbacks you receive, but some can't be switched off.",
+          },
+          {
+            type: "table",
+            caption: "Viber callbacks a support bot handles",
+            head: ["Event", "When it arrives", "Can you filter it out?"],
+            rows: [
+              ["webhook", "Right after set_webhook, to check your URL", "No, it's part of setup"],
+              ["conversation_started", "A user opens a one-on-one chat with the bot, for example through a deep link", "Yes"],
+              ["subscribed", "A user subscribes to the bot (not when the subscription comes from a first message)", "No"],
+              ["unsubscribed", "A user unsubscribes; the bot can no longer message them", "No"],
+              ["message", "A user sends the bot a message", "No"],
+              ["delivered, seen, failed", "Status updates for messages the bot sent", "Yes"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Viber signs each callback. The X-Viber-Content-Signature header holds an HMAC-SHA256 of the request body, keyed with your authentication token, so check it before you process anything. If your webhook doesn't return HTTP 200, Viber retries the callback several times, so make sure a repeated callback doesn't create a duplicate ticket.",
+          },
+        ],
+      },
+      {
+        heading: "Who your bot can message",
+        blocks: [
+          {
+            type: "p",
+            text: "This rule shapes every Viber support flow: your bot can send messages only to users who have subscribed. A conversation_started event is not a subscription. It allows one welcome message, which Viber says you should send within 5 minutes through send_message, including the receiver parameter. The event also fires for users who are already subscribed.",
+          },
+          {
+            type: "p",
+            text: "A user subscribes by sending the bot a message. That first message triggers a message callback, not a subscribed callback, so save the user ID from either event. Users can unsubscribe at any time, which immediately blocks further messages from the bot, and you receive an unsubscribed callback with their ID. If they subscribe again, any context or tracking_data for the conversation is deleted.",
+          },
+          {
+            type: "p",
+            text: "To start conversations from your website, use a deep link in the form viber://pa?chatURI= followed by your bot's URI. Adding a context parameter passes a value, such as the page the customer came from, into the conversation_started callback. Viber notes that some browsers may not recognize the deep link. For outage notices, the broadcast API sends to up to 300 receivers per request, and anyone who isn't subscribed comes back as failed.",
+          },
+        ],
+      },
+      {
+        heading: "Sending messages and keyboards",
+        blocks: [
+          {
+            type: "p",
+            text: "A send_message request names the receiver (the user ID), the message type and a sender object whose name is required and limited to 28 characters. Text messages can be up to 7,000 characters. Two optional fields are useful for support: tracking_data (up to 4,096 characters), which Viber passes back with the user's reply, so it can hold a ticket ID or the current step in a flow; and min_api_version, the minimum client API version needed for the message, which defaults to 1.",
+          },
+          {
+            type: "p",
+            text: "Keyboards can be attached to any message type through the keyboard field. Each button has an ActionType:",
+          },
+          {
+            type: "ul",
+            items: [
+              "reply (the default) sends the button's reply to the bot.",
+              "open-url opens a URL, inside Viber or in an external browser depending on OpenURLType, and sends the URL to the bot.",
+              "location-picker, share-phone and none are also available.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Two keyboard settings help support flows. InputFieldState set to hidden removes the text input when you want customers to pick a button, and DefaultHeight set to true keeps the keyboard at the native keyboard's height.",
+          },
+        ],
+      },
+      {
+        heading: "Commercial terms and helpdesk handoff",
+        blocks: [
+          {
+            type: "p",
+            text: "As of October 2026, Viber's developer documentation states that \"since 5.02.24, Viber bots can only be created on commercial terms\", with applications going to Rakuten Viber directly or through its verified official partners. Ask Viber or a partner for current pricing before you build. The send_message response also includes a billing status field that shows how each message was categorized for billing.",
+          },
+          {
+            type: "p",
+            text: "For handoff to agents, Zendesk lists Viber among the channels available through Sunshine Conversations. Adding Sunshine Conversations channels to the Agent Workspace requires Suite Professional or above, and you must also use messaging and the Agent Workspace. Messages then become tickets, and agent replies go back to the customer. Without that, the usual pattern is a small service that creates tickets through your helpdesk API and sends agent replies with send_message.",
+          },
+        ],
+      },
+      {
+        heading: "How TascaLab can help",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab's listed bot channels are website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Viber isn't on that list, but other channels with an API can be scoped on the free 30-minute audit call. TascaLab builds on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack, through APIs, webhooks and Make or n8n. A Starter Chat Bot is $350–$450 for one or two channels and a Standard Chat Bot is $500–$650 for three to five. Every project includes 30 days of post-launch support, basic documentation and no hidden fees, and most setups take 1–3 weeks.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can a Viber bot message customers first?",
+        a: "Only subscribed users. A conversation_started event allows one welcome message, but ongoing messages require the user to subscribe, which happens when they send the bot a message.",
+      },
+      {
+        q: "Why does set_webhook fail?",
+        a: "Viber checks your URL with a webhook callback and accepts it only if your server returns HTTP 200. The URL also needs SSL with a certificate from a trusted authority; self-signed certificates aren't supported.",
+      },
+      {
+        q: "How can my bot know where a customer came from?",
+        a: "Add a context parameter to your viber://pa?chatURI= deep link. Viber passes it to your bot in the conversation_started callback.",
+      },
+      {
+        q: "Can I still create a free Viber bot?",
+        a: "As of October 2026, Viber's developer docs say bots can only be created on commercial terms, through Rakuten Viber directly or its verified official partners.",
+      },
+      {
+        q: "Does Zendesk support Viber?",
+        a: "Yes, through Sunshine Conversations. Zendesk says its Sunshine Conversations channels in the Agent Workspace require Suite Professional or above.",
+      },
+    ],
+    sources: [
+      {
+        label: "Viber Developers — Viber REST API",
+        url: "https://developers.viber.com/docs/api/rest-bot-api/",
+      },
+      {
+        label: "Viber Developers — Keyboards",
+        url: "https://developers.viber.com/docs/tools/keyboards/",
+      },
+      {
+        label: "Viber Developers — DeepLinks",
+        url: "https://developers.viber.com/docs/tools/deep-links/",
+      },
+      {
+        label: "Viber Developers — API Access White Paper",
+        url: "https://developers.viber.com/docs/general/api-access-white-paper/",
+      },
+      {
+        label: "Zendesk Help Center — Adding Sunshine Conversations channels to the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836484378-Adding-Sunshine-Conversations-channels-to-the-Zendesk-Agent-Workspace",
+      },
+      {
+        label: "Zendesk Help Center — What is Sunshine Conversations and how does it work?",
+        url: "https://support.zendesk.com/hc/en-us/articles/6380323137306-What-is-Sunshine-Conversations-and-how-does-it-work",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "telegram-support-bot",
+      "chatbot-to-human-handoff",
     ],
     updated: "2026-10-19",
   },

@@ -591,4 +591,371 @@ export const guidePages: SeoPageContent[] = [
     related: ["eu-ai-act-chatbot-rules", "ai-chatbot-for-customer-support", "n8n-vs-make-vs-zapier"],
     updated: "2026-10-19",
   },
+  {
+    slug: "european-accessibility-act-customer-service",
+    category: "guides",
+    navLabel: "European Accessibility Act",
+    primaryKeyword: "European Accessibility Act customer service",
+    title: "European Accessibility Act Customer Service Rules",
+    description:
+      "European Accessibility Act customer service guide: which services are in scope, key dates, the microenterprise exemption and what Annex I asks of support.",
+    h1: "European Accessibility Act and customer service: what support teams need to know",
+    intro:
+      "The European Accessibility Act (Directive (EU) 2019/882) has applied since 28 June 2025 to a list of consumer services that includes e-commerce, consumer banking, e-books and electronic communications. For services in scope, Annex I asks that websites and mobile apps be accessible and that support services such as help desks and call centres, where you have them, give information on the service's accessibility in accessible modes of communication. Microenterprises that provide services are exempt.",
+    keyFacts: [
+      "Article 31: Member States had to adopt their national laws by 28 June 2022 and apply them from 28 June 2025.",
+      "Article 2(2) covers services to consumers such as electronic communications, consumer banking, e-books and e-commerce.",
+      "Article 4(5) exempts microenterprises providing services; Article 3(23) defines them as fewer than 10 persons with turnover or balance sheet total of EUR 2 million or less.",
+      "Annex I, Section III: where available, support services must give information on the service's accessibility in accessible modes of communication.",
+      "EN 301 549 V4.1.1 was adopted in August 2026, but AccessibleEU says it is not yet the legal reference for EAA compliance.",
+    ],
+    sections: [
+      {
+        heading: "Which services the European Accessibility Act covers",
+        blocks: [
+          {
+            type: "p",
+            text: "Directive (EU) 2019/882, known as the European Accessibility Act or EAA, sets accessibility requirements for a list of products in Article 2(1) and a list of services in Article 2(2). This page focuses on services, because that's where customer support sits. Article 2(2) applies to the following services provided to consumers after 28 June 2025.",
+          },
+          {
+            type: "table",
+            caption: "Services listed in Article 2(2) of Directive (EU) 2019/882",
+            head: ["Article 2(2)", "Service", "Support touchpoints worth reviewing"],
+            rows: [
+              ["(a)", "Electronic communications services, except transmission services used for machine-to-machine services", "Help pages, live chat and contact options for subscribers"],
+              ["(b)", "Services providing access to audiovisual media services", "In-app help and support chat"],
+              ["(c)", "Certain elements of air, bus, rail and waterborne passenger transport services", "Booking help, travel information and chat on the website or app"],
+              ["(d)", "Consumer banking services", "Chat and voice bots that answer account or card questions"],
+              ["(e)", "E-books and dedicated software", "Help desk for reading apps and purchases"],
+              ["(f)", "E-commerce services", "Chat widget on the shop, order-status bot, returns flow"],
+            ],
+          },
+          {
+            type: "p",
+            text: "The directive defines e-commerce services as services provided at a distance, through websites and mobile device-based services, by electronic means and at the individual request of a consumer with a view to concluding a consumer contract. The directive's recitals add that the e-commerce obligations cover the online sale of any product or service. The third column in the table is a checklist suggestion, not a statement of what the law requires of your business.",
+          },
+        ],
+      },
+      {
+        heading: "Key dates and transitional periods",
+        blocks: [
+          {
+            type: "p",
+            text: "The EAA is a directive, so it reaches businesses through national laws. Article 31 required Member States to adopt and publish those laws by 28 June 2022 and to apply them from 28 June 2025. Article 32 adds some transitional periods.",
+          },
+          {
+            type: "table",
+            caption: "EAA dates for services (Directive (EU) 2019/882)",
+            head: ["Date", "What it means", "Article"],
+            rows: [
+              ["28 June 2022", "Deadline for Member States to adopt and publish the national laws that transpose the directive", "Article 31"],
+              ["28 June 2025", "National measures apply. Article 2(2) covers services provided to consumers after this date", "Articles 2(2) and 31"],
+              ["Up to 5 years from 28 June 2025", "Service contracts agreed before 28 June 2025 may continue without alteration until they expire", "Article 32"],
+              ["28 June 2030", "End of the period in which service providers may keep providing services with products they were already lawfully using for similar services", "Article 32"],
+              ["Up to 20 years in service", "Member States may let self-service terminals used before 28 June 2025 keep operating until the end of their useful life, but no longer than 20 years after they entered service", "Article 32"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Because each Member State writes its own law, the national texts and the authorities that enforce them differ between countries. The Commission says it monitors the complete and correct transposition of the Act. If you serve customers in several EU countries, check the national law in each one.",
+          },
+        ],
+      },
+      {
+        heading: "The microenterprise exemption and other limits",
+        blocks: [
+          {
+            type: "p",
+            text: "Article 3(23) defines a microenterprise as an enterprise that employs fewer than 10 persons and has an annual turnover not exceeding EUR 2 million or an annual balance sheet total not exceeding EUR 2 million. Under Article 4(5), microenterprises providing services are exempt from the accessibility requirements in Article 4(3) and from the obligations relating to compliance with them. The recitals explain that asking these businesses to carry out an assessment would itself be a disproportionate burden. The directive still encourages microenterprises to provide services that meet the requirements.",
+          },
+          {
+            type: "p",
+            text: "The exemption covers services only. Microenterprises that deal in products are treated differently and are not fully exempt.",
+          },
+          {
+            type: "p",
+            text: "For everyone else, Article 14 says the accessibility requirements apply only to the extent that compliance doesn't require a significant change that fundamentally alters the basic nature of the service, and doesn't impose a disproportionate burden. A business that relies on this has to make an assessment using the criteria in Annex VI. Service providers must renew it when the service is altered, when an authority asks, and at least every five years. The recitals add that lack of priority, time or knowledge should not be considered legitimate reasons.",
+          },
+        ],
+      },
+      {
+        heading: "What Annex I says about customer support",
+        blocks: [
+          {
+            type: "p",
+            text: "Article 4(3) says all services, except urban and suburban transport services and regional transport services, must comply with Section III of Annex I, which sets general accessibility requirements for services. Section IV adds requirements for specific services, such as consumer banking and e-commerce. Three points in Section III matter most for support teams:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Point (a): the products used to provide the service must be accessible.",
+              "Point (c): websites, including related online applications, and mobile device-based services, including mobile apps, must be made accessible in a consistent and adequate way by making them perceivable, operable, understandable and robust.",
+              "Point (d): where available, support services (help desks, call centres, technical support, relay services and training services) must provide information on the accessibility of the service and its compatibility with assistive technologies, in accessible modes of communication.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Article 13 adds a transparency duty. Service providers prepare information, following Annex V, that explains how the service meets the accessibility requirements, and make it available to the public in written and oral format, including in a way that is accessible to persons with disabilities. AccessibleEU's guidance adds that this information must be kept for as long as the service is in operation.",
+          },
+          {
+            type: "p",
+            text: "A chat widget or support bot that runs on your website or app is part of the interface customers use, so it makes sense to hold it to the same perceivable, operable, understandable and robust test. Your help desk, staffed by people or bots, should also be ready to answer questions about the accessibility of your service.",
+          },
+        ],
+      },
+      {
+        heading: "Practical guidance for chat widgets and support bots",
+        blocks: [
+          {
+            type: "p",
+            text: "The directive doesn't list technical checks for a chat widget. The points below are common engineering practice that maps to the Annex I principles. Test them with real assistive technology, such as screen readers and keyboard-only use.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Make the chat launcher, message field, buttons and quick replies usable with a keyboard alone, with a visible focus indicator.",
+              "Give every control a text label that screen readers announce, and announce new messages without moving the user's focus.",
+              "Don't rely on colour, icons or images alone to carry meaning. Give images and cards text alternatives.",
+              "Avoid short inactivity timeouts that close the chat, or warn before closing and let the customer continue.",
+              "Keep bot replies short and plain, and give customers an easy way to reach a person, with the conversation history passed along.",
+              "Teach the bot and your agents to answer questions about your service's accessibility and to point to your Article 13 information.",
+              "Offer more than one contact channel, such as chat and email, and give voice bot callers a text-based alternative.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For technical detail, look at EN 301 549, the European standard on accessibility requirements for ICT products and services. Commission Implementing Decision (EU) 2021/1339 references EN 301 549 V3.2.1 as a harmonised standard under the Web Accessibility Directive, which covers public sector websites and apps. ETSI adopted EN 301 549 V4.1.1 on 24 August 2026. It moves to WCAG 2.2 and adds an annex that maps its requirements to the EAA. AccessibleEU says V4.1.1 is not yet the legal reference for showing compliance with the EAA or the Web Accessibility Directive, and that the reference remains V3.2.1, based on WCAG 2.1 level AA, until the Commission cites V4.1.1 in the Official Journal.",
+          },
+          {
+            type: "note",
+            text: "This is not legal advice. This page summarises Directive (EU) 2019/882 and official EU guidance as checked on 19 October 2026. Whether your service is in scope, and what you must do, depends on the national law that applies to you. For decisions about your own service, read the official texts and talk to a qualified lawyer.",
+          },
+          {
+            type: "p",
+            text: "TascaLab builds chat and voice bots on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack. Standard Chat Bot projects cost $500 to $650 and Voice Bot projects $1,100 to $1,600. Both include basic documentation and 30 days of post-launch support. You can start with a free 30-minute audit call.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "When did the European Accessibility Act start to apply?",
+        a: "Article 31 required Member States to adopt their national laws by 28 June 2022 and to apply them from 28 June 2025. Article 2(2) covers services provided to consumers after 28 June 2025.",
+      },
+      {
+        q: "Are small businesses exempt from the European Accessibility Act?",
+        a: "Microenterprises that provide services are exempt under Article 4(5). Article 3(23) defines a microenterprise as having fewer than 10 persons and an annual turnover or balance sheet total of no more than EUR 2 million. The exemption doesn't fully cover microenterprises that deal in products.",
+      },
+      {
+        q: "Does the European Accessibility Act cover customer support?",
+        a: "Annex I, Section III, point (d) says that, where available, support services such as help desks, call centres, technical support, relay services and training services must provide information on the accessibility of the service and its compatibility with assistive technologies, in accessible modes of communication.",
+      },
+      {
+        q: "Is EN 301 549 the harmonised standard for the EAA?",
+        a: "EN 301 549 V4.1.1, adopted on 24 August 2026, adds an annex mapping its requirements to the EAA. AccessibleEU says it is not yet the legal reference for EAA compliance until the Commission cites it in the Official Journal, and that the reference remains V3.2.1 until then.",
+      },
+      {
+        q: "Do service contracts signed before June 2025 have to change?",
+        a: "Article 32 lets service contracts agreed before 28 June 2025 continue without alteration until they expire, but for no longer than five years from that date.",
+      },
+    ],
+    sources: [
+      { label: "EUR-Lex — Directive (EU) 2019/882 (European Accessibility Act)", url: "https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng" },
+      { label: "EUR-Lex — Summary: Accessibility of products and services", url: "https://eur-lex.europa.eu/EN/legal-content/summary/accessibility-of-products-and-services.html" },
+      { label: "European Commission — European Accessibility Act (EAA)", url: "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en" },
+      { label: "AccessibleEU — Guidance on legislation", url: "https://accessible-eu-centre.ec.europa.eu/document/download/7bf9cb97-8ccf-421f-9d2d-6d1283e602ef_en?filename=AccEU_Guidance+on+legislation_English_acc.pdf" },
+      { label: "AccessibleEU — The European accessibility standard EN 301 549 has been updated", url: "https://accessible-eu-centre.ec.europa.eu/content-corner/news/european-accessibility-standard-en-301-549-has-been-updated-2026-09-07_en" },
+      { label: "ETSI — EN 301 549 V4.1.1 (2026-09)", url: "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/04.01.01_60/en_301549v040101p.pdf" },
+      { label: "EUR-Lex — Commission Implementing Decision (EU) 2021/1339", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32021D1339" },
+    ],
+    related: ["website-chatbot-for-support", "eu-ai-act-chatbot-rules", "chatbot-to-human-handoff"],
+    updated: "2026-10-19",
+  },
+  {
+    slug: "n8n-zendesk-integration",
+    category: "guides",
+    navLabel: "n8n Zendesk integration",
+    primaryKeyword: "n8n Zendesk integration",
+    title: "n8n Zendesk Integration: Nodes, Triggers and Webhooks",
+    description:
+      "n8n Zendesk integration guide: Zendesk node operations, the Zendesk Trigger, API token or OAuth2 credentials, webhooks, rate limits and an example workflow.",
+    h1: "n8n Zendesk integration: nodes, credentials and example workflows",
+    intro:
+      "n8n connects to Zendesk through two built-in nodes. The Zendesk node works with tickets, ticket fields, users and organizations, and the Zendesk Trigger node starts a workflow when something happens in Zendesk. Both use the same credential, an API token or OAuth2. If you'd rather keep the rules in Zendesk, you can instead point a Zendesk webhook at an n8n Webhook node and fire it from a Zendesk trigger.",
+    keyFacts: [
+      "The n8n Zendesk node has four resources: Ticket, Ticket Field, User and Organization.",
+      "Setting tags with the node's Update Ticket operation replaces the whole tag list. Tags you leave out are removed.",
+      "n8n's Zendesk credential supports an API token (subdomain, login email and token) or OAuth2.",
+      "Zendesk signs webhook requests with the X-Zendesk-Webhook-Signature and X-Zendesk-Webhook-Signature-Timestamp headers.",
+      "Zendesk Suite API limits run from 200 requests per minute on Team to 2,500 on Enterprise Plus.",
+    ],
+    sections: [
+      {
+        heading: "What the n8n Zendesk node can do",
+        blocks: [
+          {
+            type: "p",
+            text: "The Zendesk node reads or changes data in Zendesk as a step in a workflow. n8n's docs group its operations by resource.",
+          },
+          {
+            type: "table",
+            caption: "Zendesk node resources and operations (n8n docs, checked October 2026)",
+            head: ["Resource", "Operations"],
+            rows: [
+              ["Ticket", "Create, delete, get one or many, update, and recover a suspended ticket"],
+              ["Ticket Field", "Get one ticket field, or get all system and custom ticket fields"],
+              ["User", "Create, delete, get one or many, update, search, get a user's organizations and get related data"],
+              ["Organization", "Create, delete, count, get one or many, update and get related data"],
+            ],
+          },
+          {
+            type: "p",
+            text: "One behaviour catches people out. When you use Update Ticket and fill in the Tag Names or IDs field, n8n's docs say the entire list of tags on the ticket is replaced, so any tag you don't include is removed. This follows how the Zendesk API handles tag updates by default. The docs list three workarounds: fetch the current tags and merge them with the new ones before you update, use the HTTP Request node with Zendesk's additional_tags property, or call the ticket's tags endpoint. The last two add tags without removing existing ones.",
+          },
+          {
+            type: "p",
+            text: "If the node doesn't support an operation you need, use the HTTP Request node, set Authentication to Predefined Credential Type and pick your Zendesk credential. The request then reuses the same connection as the Zendesk node.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up Zendesk credentials in n8n",
+        blocks: [
+          {
+            type: "p",
+            text: "The Zendesk and Zendesk Trigger nodes use the same credential, and n8n supports two ways to authenticate. Both need your subdomain, which is the part of your Zendesk URL between https:// and .zendesk.com.",
+          },
+          {
+            type: "ul",
+            items: [
+              "API token: in Zendesk Admin Center, open Apps and integrations, then APIs, and enable token access for the Zendesk API. Add a token with a description and copy it. In n8n, enter the subdomain, the email address you use to log in to Zendesk and the token.",
+              "OAuth2: in Zendesk Admin Center, create an OAuth client under Apps and integrations, then APIs. Paste n8n's OAuth callback URL into the client's redirect URL field. Copy the client's unique identifier into Client ID in n8n and its secret into Client Secret, add the subdomain, save, and connect your Zendesk account.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Zendesk Trigger node or a Zendesk webhook",
+        blocks: [
+          {
+            type: "p",
+            text: "There are two ways to start an n8n workflow from Zendesk. The Zendesk Trigger node starts a workflow when Zendesk events match the conditions you set in the node. In n8n's docs example, it filters for tickets whose status is Open, and the workflow runs once you turn it on.",
+          },
+          {
+            type: "p",
+            text: "The alternative is to build the connection yourself. In Zendesk Admin Center, go to Apps and integrations, then Webhooks, create a webhook, choose Trigger or Automation as the connection method, and point it at the Production URL of an n8n Webhook node. Then add the Notify webhook action to a Zendesk trigger or automation and write the payload, which can't exceed 16,000 characters. This keeps the conditions in Zendesk business rules and lets you choose exactly which fields to send.",
+          },
+          {
+            type: "table",
+            caption: "Two ways to start an n8n workflow from Zendesk",
+            head: ["Question", "Zendesk Trigger node", "Zendesk webhook + n8n Webhook node"],
+            rows: [
+              ["Where the conditions live", "In the node, in n8n", "In a Zendesk trigger or automation with the Notify webhook action"],
+              ["What n8n receives", "The event data the node provides", "The payload you write in the trigger action, up to 16,000 characters"],
+              ["Zendesk credential", "Needed for the trigger itself", "Only needed for later steps that call Zendesk"],
+              ["Testing", "Execute the node in the editor, as in n8n's docs example", "Use the Webhook node's Test URL, which listens for 120 seconds, then switch to the Production URL"],
+            ],
+          },
+          {
+            type: "p",
+            text: "If you use a webhook, check that requests really come from Zendesk. Zendesk sends two headers, X-Zendesk-Webhook-Signature and X-Zendesk-Webhook-Signature-Timestamp. The signature is base64(HMACSHA256(timestamp + body)) made with the webhook's signing secret, which you can reveal on the webhook's details page or get through the API. Recompute it in your workflow and reject requests that don't match. Zendesk also says the same action can call a webhook more than once, so make the workflow safe to run twice for the same ticket.",
+          },
+          {
+            type: "p",
+            text: "The Webhook node can reply immediately, when the last node finishes, or through a separate Respond to Webhook node. For longer workflows, replying immediately gives Zendesk a quick answer while the rest of the work continues.",
+          },
+        ],
+      },
+      {
+        heading: "Example workflow: classify new tickets and notify Slack",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is a common pattern, described as steps. It shows how the nodes fit together. It isn't a TascaLab case study.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Trigger: a Zendesk Trigger node, or a Webhook node fed by a Zendesk trigger that fires when a ticket is created. Send at least the ticket ID.",
+              "Fetch: a Zendesk node with the Ticket resource gets the full ticket, including the subject, description and current tags.",
+              "Classify: a Text Classifier node sorts the text into categories you define, such as billing, technical issue or refund. Each category has a name and a description that helps the model. By default, items that match no category are dropped, so turn on the Other branch to catch them.",
+              "Update: a Zendesk node sets the group and tags. Merge the existing tags first, or add tags through the HTTP Request node with additional_tags, so you don't wipe tags that agents set.",
+              "Notify: a Slack node posts the category and a link to the ticket in the team's channel.",
+              "Handle errors: send failed runs to an alert, and wait and retry when Zendesk returns a 429 response.",
+            ],
+          },
+          {
+            type: "p",
+            text: "You can extend the same pattern. Send urgent tickets to a separate Slack channel, or look up the customer's organization with the Organization resource before you choose a group.",
+          },
+        ],
+      },
+      {
+        heading: "Rate limits and where n8n runs",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk limits API requests per minute by plan. Its developer docs list these default limits for the Support and Help Center APIs:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Suite Team: 200 requests per minute.",
+              "Suite Growth and Suite Professional: 400 requests per minute.",
+              "Suite Enterprise: 700 requests per minute.",
+              "Suite Enterprise Plus: 2,500 requests per minute.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The High Volume API add-on raises a qualifying plan to 2,500 requests per minute. It replaces the plan limit rather than adding to it, and needs Suite Growth or above (or Support Professional or above) with at least 10 agent seats. Over the limit, Zendesk returns HTTP 429 with a Retry-After header that says how many seconds to wait. Some endpoints have their own, stricter limits. Count the API calls each run makes and multiply by your peak ticket volume. Bulk jobs, such as backfilling tags on old tickets, are more likely to hit the limit, so batch them and add waits.",
+          },
+          {
+            type: "p",
+            text: "n8n runs as n8n Cloud, a managed instance that n8n runs for you, or self-hosted on your own machine or infrastructure. For most self-hosted setups the docs recommend Docker, and they recommend n8n Cloud if you aren't experienced at managing servers. With either trigger method, Zendesk has to be able to reach your n8n instance. If a self-hosted instance sits behind a reverse proxy, set N8N_WEBHOOK_URL to its public base URL so n8n shows the right webhook URLs and external services register them correctly. N8N_WEBHOOK_URL replaces WEBHOOK_URL, which still works but is deprecated from n8n 2.35.0.",
+          },
+          {
+            type: "p",
+            text: "TascaLab builds Zendesk automations like this with n8n, Make, APIs and webhooks, on top of the tools you already use. Ticket Routing & Categorization projects cost $600 to $950, and Custom Automation projects $1,200 to $2,000. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute audit call.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Does n8n have a built-in Zendesk integration?",
+        a: "Yes. n8n has a Zendesk node for tickets, ticket fields, users and organizations, and a Zendesk Trigger node that starts workflows from Zendesk events. Both use the same Zendesk credential.",
+      },
+      {
+        q: "Why does the n8n Zendesk node remove my ticket tags?",
+        a: "When you fill in Tag Names or IDs in the Update Ticket operation, the whole tag list is replaced. n8n's docs suggest merging the existing tags first, or adding tags through the HTTP Request node with Zendesk's additional_tags property or the tags endpoint.",
+      },
+      {
+        q: "Which authentication methods does the n8n Zendesk credential support?",
+        a: "An API token, entered with your subdomain and the email you log in with, or OAuth2, using the client ID and secret from an OAuth client you create in Zendesk.",
+      },
+      {
+        q: "How do I check that a webhook request came from Zendesk?",
+        a: "Recompute base64(HMACSHA256(timestamp + body)) with the webhook's signing secret and compare it with the X-Zendesk-Webhook-Signature header. The timestamp is in the X-Zendesk-Webhook-Signature-Timestamp header.",
+      },
+      {
+        q: "What happens when a workflow hits the Zendesk API rate limit?",
+        a: "Zendesk rejects the request with HTTP 429 and a Retry-After header that says how many seconds to wait. Default limits run from 200 requests per minute on Suite Team to 2,500 on Suite Enterprise Plus.",
+      },
+    ],
+    sources: [
+      { label: "n8n Docs — Zendesk node", url: "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zendesk" },
+      { label: "n8n Docs — Zendesk Trigger node", url: "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.zendesktrigger" },
+      { label: "n8n Docs — Zendesk credentials", url: "https://docs.n8n.io/integrations/builtin/credentials/zendesk" },
+      { label: "n8n Docs — Webhook node", url: "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook" },
+      { label: "n8n Docs — Text Classifier node", url: "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier" },
+      { label: "n8n Docs — Host n8n", url: "https://docs.n8n.io/hosting/" },
+      { label: "n8n Docs — Configure webhook URLs with reverse proxy", url: "https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url/" },
+      { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
+      { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
+      { label: "Zendesk Developer Docs — Rate limits", url: "https://developer.zendesk.com/api-reference/introduction/rate-limits/" },
+    ],
+    related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
+    updated: "2026-10-19",
+  },
 ];
