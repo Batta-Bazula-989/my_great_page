@@ -181,19 +181,19 @@ export const servicesPages: TranslatedPage[] = [
           {
             type: "table",
             caption: "TascaLabs chattbotpaket (engångspris)",
-            head: ["Paket", "Omfattning", "Pris (USD)"],
+            head: ["Paket", "Omfattning", "Pris"],
             rows: [
-              ["Starter Chat Bot", "1–2 kanaler, vanliga frågor, enkel insamling av uppgifter", "350–450 USD"],
+              ["Starter Chat Bot", "1–2 kanaler, vanliga frågor, enkel insamling av uppgifter", "{{price:starter}}"],
               [
                 "Standard Chat Bot",
                 "3–5 kanaler, mer komplexa samtal, smidigare överlämningar",
-                "500–650 USD",
+                "{{price:standard}}",
               ],
             ],
           },
           {
             type: "p",
-            text: "Tillgängliga kanaler: webbplats, WhatsApp, Telegram, Facebook Messenger och Instagram, plus telefon via röstboten. De flesta uppsättningar tar 1–3 veckor, och varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter. Startpunkten är ett kostnadsfritt genomlysningssamtal på 30 minuter.",
+            text: "Tillgängliga kanaler: webbplats, WhatsApp, Telegram, Facebook Messenger och Instagram, plus telefon via röstboten. De flesta uppsättningar tar 1–3 veckor, och varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter. Startpunkten är ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -408,11 +408,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLabs paket Voice Bot omfattar inkommande samtal, triage och överlämning till ditt team, till ett engångspris på 1 100–1 600 USD. Boten kopplas till de verktyg du redan använder – Zendesk, Freshdesk, Jira, Slack eller interna system – via API:er och webhooks, så att samtalens utfall kommer in som ärenden eller meddelanden som ditt team redan bevakar. Den är byggd som ett filter framför ditt team, inte som en ersättning för det.",
+            text: "TascaLabs paket Voice Bot omfattar inkommande samtal, triage och överlämning till ditt team, till ett engångspris på {{price:voice}}. Boten kopplas till de verktyg du redan använder – Zendesk, Freshdesk, Jira, Slack eller interna system – via API:er och webhooks, så att samtalens utfall kommer in som ärenden eller meddelanden som ditt team redan bevakar. Den är byggd som ett filter framför ditt team, inte som en ersättning för det.",
           },
           {
             type: "p",
-            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt genomlysningssamtal på 30 minuter.",
+            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -627,11 +627,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLabs tjänst Ticket Routing & Categorization (600–950 USD, engångspris) bygger på den helpdesk du redan har – Zendesk, Freshdesk eller Jira – och använder dess inbyggda regler där de räcker och API:er, webhooks eller Make/n8n där de inte gör det, till exempel för att kategorisera ärenden innan din inbyggda routing tilldelar dem. Du behöver inte byta plattform.",
+            text: "TascaLabs tjänst Ticket Routing & Categorization ({{price:routing}}, engångspris) bygger på den helpdesk du redan har – Zendesk, Freshdesk eller Jira – och använder dess inbyggda regler där de räcker och API:er, webhooks eller Make/n8n där de inte gör det, till exempel för att kategorisera ärenden innan din inbyggda routing tilldelar dem. Du behöver inte byta plattform.",
           },
           {
             type: "p",
-            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och ett kostnadsfritt genomlysningssamtal på 30 minuter är ett bra tillfälle att kartlägga din nuvarande kö.",
+            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra tillfälle att kartlägga din nuvarande kö.",
           },
         ],
       },
@@ -870,11 +870,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLabs tjänst Automated Reports (500–900 USD, engångspris) levererar dina supportnyckeltal till e-post eller Slack enligt ett schema. Den bygger på Zendesk, Freshdesk, Jira och dina interna verktyg via deras API:er och Make eller n8n, så inget ändras i hur ditt team arbetar i vardagen.",
+            text: "TascaLabs tjänst Automated Reports ({{price:reports}}, engångspris) levererar dina supportnyckeltal till e-post eller Slack enligt ett schema. Den bygger på Zendesk, Freshdesk, Jira och dina interna verktyg via deras API:er och Make eller n8n, så inget ändras i hur ditt team arbetar i vardagen.",
           },
           {
             type: "p",
-            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt genomlysningssamtal på 30 minuter.",
+            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -1082,11 +1082,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sätter upp detta ovanpå den helpdesk du redan använder – Zendesk, Freshdesk eller Jira – med inbyggda triggers och regler där de räcker och API:er, webhooks eller Make/n8n där de inte gör det. Du behöver inte byta plattform. Klassificering och routing av inkommande e-post passar i tjänsten Ticket Routing & Categorization (600–950 USD, engångspris); arbetsflöden i flera steg, som att läsa ut ett ordernummer ur ett e-postmeddelande och slå upp det i ett annat system, ingår i Custom Automation (1 200–2 000 USD).",
+            text: "TascaLab sätter upp detta ovanpå den helpdesk du redan använder – Zendesk, Freshdesk eller Jira – med inbyggda triggers och regler där de räcker och API:er, webhooks eller Make/n8n där de inte gör det. Du behöver inte byta plattform. Klassificering och routing av inkommande e-post passar i tjänsten Ticket Routing & Categorization ({{price:routing}}, engångspris); arbetsflöden i flera steg, som att läsa ut ett ordernummer ur ett e-postmeddelande och slå upp det i ett annat system, ingår i Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och ett kostnadsfritt genomlysningssamtal på 30 minuter är ett bra tillfälle att kartlägga ditt nuvarande e-postflöde.",
+            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra tillfälle att kartlägga ditt nuvarande e-postflöde.",
           },
         ],
       },
@@ -1321,11 +1321,11 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger chattbottar ovanpå de verktyg du redan använder – Zendesk, Freshdesk, Jira, Slack eller interna system – via API:er, webhooks och Make eller n8n, så att din kunskapsbas stannar där den är. Starter Chat Bot (350–450 USD, engångspris) täcker 1–2 kanaler och Standard Chat Bot (500–650 USD) täcker 3–5, på din webbplats, i telefon, WhatsApp, Telegram, Facebook Messenger och Instagram. Arbetsflöden för underhåll, till exempel påminnelser om att granska inaktuella artiklar, passar i Custom Automation (1 200–2 000 USD).",
+            text: "TascaLab bygger chattbottar ovanpå de verktyg du redan använder – Zendesk, Freshdesk, Jira, Slack eller interna system – via API:er, webhooks och Make eller n8n, så att din kunskapsbas stannar där den är. Starter Chat Bot ({{price:starter}}, engångspris) täcker 1–2 kanaler och Standard Chat Bot ({{price:standard}}) täcker 3–5, på din webbplats, i telefon, WhatsApp, Telegram, Facebook Messenger och Instagram. Arbetsflöden för underhåll, till exempel påminnelser om att granska inaktuella artiklar, passar i Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt genomlysningssamtal på 30 minuter.",
+            text: "De flesta uppsättningar tar 1–3 veckor. Varje projekt omfattar 30 dagars support efter lansering och grundläggande dokumentation, utan dolda avgifter, och du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },

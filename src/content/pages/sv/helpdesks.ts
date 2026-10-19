@@ -153,7 +153,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab arbetar i ditt befintliga Zendesk-konto, utan plattformsbyte, med Zendesk API, webhooks och Make eller n8n där de passar. Ticket Routing & Categorization är ett engångsprojekt i spannet 600–950 USD; Custom Automation för flöden som går över flera system kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Du kan börja med ett kostnadsfritt auditsamtal på 30 minuter.",
+            text: "TascaLab arbetar i ditt befintliga Zendesk-konto, utan plattformsbyte, med Zendesk API, webhooks och Make eller n8n där de passar. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}; Custom Automation för flöden som går över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -361,7 +361,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på ditt befintliga Freshdesk-konto, utan plattformsbyte, med automatiseringsregler, webhooks, Freshdesk API och Make eller n8n där de hjälper. Ticket Routing & Categorization är ett engångsprojekt i spannet 600–950 USD; Custom Automation kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Första steget är ett kostnadsfritt auditsamtal på 30 minuter.",
+            text: "TascaLab bygger vidare på ditt befintliga Freshdesk-konto, utan plattformsbyte, med automatiseringsregler, webhooks, Freshdesk API och Make eller n8n där de hjälper. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}; Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Första steget är ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -554,7 +554,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab arbetar i din befintliga Jira Service Management-site, utan plattformsbyte, och kombinerar inbyggd automatisering med API:er, webhooks och Make eller n8n där ett flöde behöver nå andra verktyg. Ticket Routing & Categorization kostar 600–950 USD som engångsbelopp; Custom Automation kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt auditsamtal på 30 minuter.",
+            text: "TascaLab arbetar i din befintliga Jira Service Management-site, utan plattformsbyte, och kombinerar inbyggd automatisering med API:er, webhooks och Make eller n8n där ett flöde behöver nå andra verktyg. Ticket Routing & Categorization kostar {{price:routing}} som engångsbelopp; Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -739,7 +739,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab kopplar Slack till den helpdesk du redan använder (Zendesk, Freshdesk, Jira eller interna verktyg) via API:er, webhooks och Make eller n8n, utan plattformsbyte. Automated Reports som levereras till Slack eller mejl kostar 500–900 USD som engångsbelopp; Custom Automation för tvåvägsflöden i Slack kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt auditsamtal på 30 minuter.",
+            text: "TascaLab kopplar Slack till den helpdesk du redan använder (Zendesk, Freshdesk, Jira eller interna verktyg) via API:er, webhooks och Make eller n8n, utan plattformsbyte. Automated Reports som levereras till Slack eller mejl kostar {{price:reports}} som engångsbelopp; Custom Automation för tvåvägsflöden i Slack kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -945,7 +945,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. Intercom har både ett REST API och webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt auditsamtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt i spannet 600–950 USD, och Custom Automation för flöden över flera system kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
+            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. Intercom har både ett REST API och webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}, och Custom Automation för flöden över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
           },
         ],
       },
@@ -1174,7 +1174,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. HubSpot har ett dokumenterat API och stöd för webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt auditsamtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt i spannet 600–950 USD, Automated Reports via mejl eller Slack kostar 500–900 USD och Custom Automation över flera system kostar 1 200–2 000 USD. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
+            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. HubSpot har ett dokumenterat API och stöd för webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}, Automated Reports via mejl eller Slack kostar {{price:reports}} och Custom Automation över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
           },
         ],
       },

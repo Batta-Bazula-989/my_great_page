@@ -4,10 +4,10 @@ const sv: Dictionary = {
   meta: {
     homeTitle: "AI-chattbottar, röstbottar & ärenderoutning för kundtjänst | TascaLab",
     homeDescription:
-      "Frilansare: AI-chatt- och röstbottar, ärenderoutning i Zendesk/Freshdesk/Jira och automatiska rapporter i dina verktyg. Fastpris, gratis genomlysning (30 min).",
+      "Kundtjänstautomatisering: AI-chattbottar, röstbottar, ärenderoutning och automatiska rapporter i Zendesk, Freshdesk och Jira. Fast pris, gratis Health Check.",
     noscriptHeading: "AI-automatisering av kundtjänst – chattbottar, röstbottar & ärenderoutning",
     noscriptText:
-      "TascaLab bygger AI-chattbottar, röstbottar, ärenderoutning och automatiserad rapportering ovanpå Zendesk, Freshdesk, Jira och Slack. Mejla romanzakharenko.r@gmail.com för att boka en kostnadsfri genomlysning på 30 minuter.",
+      "TascaLab bygger AI-chattbottar, röstbottar, ärenderoutning och automatiserad rapportering ovanpå Zendesk, Freshdesk, Jira och Slack. Mejla romanzakharenko.r@gmail.com för att boka en kostnadsfri Health Check.",
   },
   nav: {
     services: "Tjänster",
@@ -17,7 +17,7 @@ const sv: Dictionary = {
     reviews: "Omdömen",
     faq: "FAQ",
     resources: "Resurser",
-    cta: "Boka kostnadsfri genomlysning",
+    cta: "Kostnadsfri Health Check",
     openMenu: "Öppna menyn",
     closeMenu: "Stäng menyn",
     language: "Språk",
@@ -30,7 +30,7 @@ const sv: Dictionary = {
     titleAfter: " för supportteam",
     intro:
       "Jag kopplar AI till den helpdesk du redan använder – den besvarar återkommande frågor, skickar varje ärende till rätt kö och levererar de rapporter som ditt team i dag tar fram för hand. Färre manuella uppgifter, snabbare första svar, inget plattformsbyte.",
-    ctaBook: "Boka kostnadsfri genomlysning",
+    ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
     highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
     integratesWith: "Integreras med",
@@ -116,65 +116,140 @@ const sv: Dictionary = {
     eyebrow: "Priser",
     title: "Paket för supportautomatisering till fast pris",
     intro:
-      "Engångsavgifter per projekt. Du vet prisintervallet innan vi börjar – slutlig offert efter en kostnadsfri genomlysning.",
-    oneTimeFee: "engångsavgift",
+      "Ett pris per paket, som du betalar en gång. Ingen månadsavgift till mig. Osäker på vilket som passar? Börja med en kostnadsfri Health Check.",
+    oneTimeFee: "engångspris",
     cta: "Kom igång",
-    // Same order as the plans in PricingSection; prices stay in USD.
-    // Package names stay in English, as in every other language.
+    from: "från {price}",
+    delivery: "Leverans",
+    deliveryDays: "{days} dagar",
+    deliveryFrom: "från {days} dagar",
+    support: "Support",
+    included: "Det här ingår",
+    running: "Driftskostnader per månad",
+    runningNote: "Betalas till verktygsleverantörerna, inte till mig.",
+    // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
         name: "Starter Chat Bot",
-        price: "350 – 450 USD",
-        description:
-          "Hanterar enkla kundfrågor och FAQ i 1–2 kanaler. Perfekt för små företag som tar sina första steg med automatisering.",
-        features: [
-          "1–2 kanaler",
-          "Besvarar FAQ, samlar in grundläggande uppgifter och hanterar vanliga förfrågningar automatiskt",
+        description: "Besvarar vanliga frågor i 1–2 kanaler och lämnar över resten till ditt team.",
+        included: [
+          "Chattbot i 1–2 kanaler: webbplats, WhatsApp, Telegram, Messenger eller Instagram",
+          "Besvarar dina FAQ och hanterar vanliga förfrågningar",
+          "Samlar in grundläggande kunduppgifter",
+          "Lämnar över resten till ditt team med kontext",
+          "Grundläggande dokumentation",
+        ],
+        running: [
+          "AI-användning, som din AI-leverantör fakturerar: cirka 2,50–50 USD per 1 000 konversationer*",
+          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
+          "Endast för WhatsApp: de första 1 000 servicemeddelandena per månad och nummer är gratis, sedan gäller Metas priser",
         ],
       },
       {
         name: "Voice Bot",
-        price: "1 100 – 1 600 USD",
-        description: "För inkommande telefonsamtal.",
-        features: [
-          "Fullständig röstagent som tar emot inkommande samtal med naturlig dialog, triage och smidig överlämning till ditt team",
+        description: "Besvarar inkommande samtal, gör triage och lämnar över till ditt team.",
+        included: [
+          "Röstagent för inkommande samtal med naturlig dialog",
+          "Triage av varje samtal",
+          "Smidig överlämning till ditt team",
+          "Kopplad till din helpdesk",
+          "Grundläggande dokumentation",
+        ],
+        running: [
+          "Minutavgifter till röstplattformen, t.ex. Retell AI från 0,07 USD per minut",
+          "Ett telefonnummer från din telefonioperatör",
         ],
       },
       {
         name: "Standard Chat Bot",
-        price: "500 – 650 USD",
-        description:
-          "Avancerad chattbot med stöd för flera kanaler, smartare svar och bättre hantering av kundinteraktioner i stor skala.",
-        features: [
-          "3–5 kanaler",
-          "Hanterar mer komplexa konversationer med smartare logik och smidigare överlämningar till ditt team",
+        description: "Hanterar mer komplexa konversationer i 3–5 kanaler.",
+        included: [
+          "Chattbot i 3–5 kanaler",
+          "Konversationer i flera steg med smartare logik",
+          "Smidigare överlämningar till ditt team",
+          "Kopplad till din helpdesk",
+          "Grundläggande dokumentation",
+        ],
+        running: [
+          "AI-användning, som din AI-leverantör fakturerar: cirka 2,50–50 USD per 1 000 konversationer*",
+          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
+          "Endast för WhatsApp: de första 1 000 servicemeddelandena per månad och nummer är gratis, sedan gäller Metas priser",
         ],
       },
       {
         name: "Ticket Routing & Categorization",
-        price: "600 – 950 USD",
-        description: "Automatisk sortering och tilldelning av ärenden.",
-        features: [
-          "Taggar, kategoriserar och routar ärenden automatiskt till rätt team, så att inget missas och svarstiderna hålls korta.",
+        description: "Varje ärende taggas, prioriteras och tilldelas i samma stund som det kommer in.",
+        included: [
+          "AI-klassificering av varje nytt ärende efter ämne och brådska",
+          "Taggar, prioritet och tilldelning till rätt grupp",
+          "Fungerar i Zendesk, Freshdesk eller Jira Service Management",
+          "Grundläggande dokumentation",
+        ],
+        running: [
+          "AI-klassificering: cirka 0,20 USD per 1 000 ärenden*",
+          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
         ],
       },
       {
         name: "Automated Reports",
-        price: "500 – 900 USD",
-        description: "Schemalagda rapporter som skickas automatiskt.",
-        features: [
-          "Automatiska rapporter med dina viktigaste affärsnyckeltal, levererade via e-post eller Slack, så att du håller dig informerad utan manuellt arbete.",
+        description: "De rapporter som ditt team tar fram för hand, skickade automatiskt.",
+        included: [
+          "Dina viktigaste supportnyckeltal, hämtade från din helpdesk",
+          "Schemalagt utskick till e-post eller Slack",
+          "Grundläggande dokumentation",
+        ],
+        running: [
+          "Automatiseringsplattform: n8n i egen drift (gratis), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad",
+          "Inga AI-avgifter, om du inte vill ha sammanfattningar skrivna av AI",
         ],
       },
       {
         name: "Custom Automation",
-        price: "1 200 – 2 000 USD",
-        description:
-          "Helt skräddarsydd automatisering byggd kring dina arbetsflöden, verktyg och unika affärskrav.",
-        features: ["Helt skräddarsydd automatisering byggd kring dina arbetsflöden, verktyg och unika affärskrav"],
+        description: "Byggd kring dina arbetsflöden, verktyg och krav.",
+        included: [
+          "Omfattningen tas fram tillsammans i din kostnadsfria Health Check",
+          "Fast pris och tidsplan som vi kommer överens om innan arbetet börjar",
+          "Alla verktyg med ett API eller webhooks",
+          "Grundläggande dokumentation",
+        ],
+        running: ["Beror på vilka verktyg som ingår; uppskattas i rapporten från din Health Check"],
       },
     ],
-    trust: ["Inga dolda avgifter", "30 dagars support efter leverans", "Grundläggande dokumentation ingår"],
+    footnote:
+      "* AI-uppskattningarna bygger på Anthropics listpriser (oktober 2026) för Claude Haiku 5.5 (0,10 / 0,50 USD per miljon input-/output-tokens) och Claude Sonnet 5.5 (2 / 10 USD) och utgår från cirka 20 000 input- och 1 000 output-tokens per konversation och 1 500 / 100 per ärende. Andra leverantörer och modeller kostar olika mycket, och leverantörerna kan ändra sina priser.",
+    trust: ["Ingen månadsavgift till mig", "30 dagars support efter leverans", "Grundläggande dokumentation ingår"],
+    healthCheck: {
+      title: "Kostnadsfri Health Check",
+      text: "Ett samtal på 30 minuter om din supportuppsättning, följt av en skriftlig rapport: vad du ska automatisera först, vilket paket som passar, det fasta priset och tidsplanen samt de uppskattade driftskostnaderna per månad.",
+      cta: "Boka din Health Check",
+      price: "Gratis",
+    },
+  },
+  data: {
+    eyebrow: "Dina data",
+    title: "Dina data och GDPR",
+    intro: "Du väljer var din automatisering körs. Det kommer vi överens om i din Health Check, innan något byggs.",
+    options: [
+      {
+        title: "I dina egna konton (standard)",
+        points: [
+          "Byggs i din helpdesk, din arbetsyta för automatisering och ditt konto hos AI-leverantören",
+          "Kunddata stannar i system som du kontrollerar, under dina egna avtal med de leverantörerna",
+          "Min åtkomst gäller bara under bygget och tas bort efter överlämningen",
+          "Du äger varje arbetsflöde, prompt och API-nyckel",
+        ],
+      },
+      {
+        title: "Driftas av mig, med PUB-avtal",
+        points: [
+          "Jag kör automatiseringen på konton som jag hanterar",
+          "Vi tecknar ett personuppgiftsbiträdesavtal (PUB-avtal) enligt artikel 28 i GDPR innan några personuppgifter behandlas",
+          "Varje underbiträde, till exempel automatiseringsplattformen, AI-leverantören och hostingen, anges i avtalet",
+          "När avtalet upphör raderas eller återlämnas uppgifterna, så som artikel 28 kräver",
+        ],
+      },
+    ],
+    note: "Det här beskriver hur projekten sätts upp. Det är inte juridisk rådgivning.",
   },
   reviews: {
     eyebrow: "Kundomdömen",
@@ -208,11 +283,11 @@ const sv: Dictionary = {
       },
       {
         q: "Kan du integrera ett specifikt verktyg?",
-        a: "Om det har ett API eller stöd för webhooks är svaret nästan säkert ja. Ta upp det under genomlysningen så bekräftar jag.",
+        a: "Om det har ett API eller stöd för webhooks är svaret nästan säkert ja. Ta upp det i din Health Check så bekräftar jag.",
       },
       {
-        q: "Vad händer egentligen under den kostnadsfria genomlysningen?",
-        a: "30 minuter. Vi går igenom din nuvarande uppsättning, var det skaver och var automatisering faktiskt skulle göra skillnad. Du går därifrån med 2–3 konkreta rekommendationer, en ungefärlig omfattning och ett prisintervall. Ingen säljpresentation. Ingen press.",
+        q: "Vad händer egentligen under en kostnadsfri Health Check?",
+        a: "Ett samtal på 30 minuter om din nuvarande uppsättning, var det skaver och var automatisering faktiskt skulle göra skillnad. Efteråt får du en skriftlig rapport med 2–3 konkreta rekommendationer, det paket och fasta pris som passar och de uppskattade driftskostnaderna per månad. Ingen säljpresentation. Ingen press.",
       },
       {
         q: "Hur lång tid tar ett typiskt projekt?",
@@ -222,9 +297,9 @@ const sv: Dictionary = {
   },
   contact: {
     eyebrow: "Låt oss prata",
-    title: "Boka en kostnadsfri supportgenomlysning på 30 minuter",
-    intro: "Boka ett samtal på 30 minuter. Vi tittar på vad som bromsar ditt team och tar reda på var vi ska börja.",
-    cta: "Boka kostnadsfri genomlysning",
+    title: "Få en kostnadsfri Health Check av din support",
+    intro: "Ett samtal på 30 minuter, sedan en skriftlig rapport. Vi tittar på vad som bromsar ditt team och tar reda på var vi ska börja.",
+    cta: "Boka kostnadsfri Health Check",
     linkedin: "Kontakta mig på LinkedIn",
     email: "E-post",
     upwork: "Omdömen på Upwork",
@@ -250,9 +325,9 @@ const sv: Dictionary = {
     accept: "Acceptera",
   },
   booking: {
-    title: "Boka en kostnadsfri supportanalys",
+    title: "Boka en kostnadsfri Health Check",
     description:
-      "Lämna dina uppgifter så hör jag av mig för att boka ett samtal på 30 minuter. Inga förpliktelser, ingen säljpitch.",
+      "Lämna dina uppgifter så hör jag av mig för att boka ett samtal på 30 minuter. Efteråt får du en skriftlig rapport. Inga förpliktelser, ingen säljpitch.",
     fullName: "Fullständigt namn",
     fullNamePlaceholder: "Anna Andersson",
     email: "Jobbmejl",
@@ -269,7 +344,7 @@ const sv: Dictionary = {
     telegramPlaceholder: "https://t.me/anvandarnamn eller @anvandarnamn",
     submitCalendar: "Fortsätt till kalendern",
     submitting: "Skickar...",
-    submit: "Boka kostnadsfri supportanalys",
+    submit: "Boka kostnadsfri Health Check",
     sendFailed: "Förfrågan kunde inte skickas",
     networkError: "Nätverksfel eller servern går inte att nå.",
     sent: "Förfrågan skickad! Jag hör av mig inom 24 timmar.",
@@ -298,8 +373,8 @@ const sv: Dictionary = {
     faqShort: "FAQ",
     ctaTitle: "Vill du ha det här på plats i ditt team?",
     ctaText:
-      "Boka en kostnadsfri genomlysning på 30 minuter. Du får 2–3 konkreta rekommendationer, en ungefärlig omfattning och ett prisintervall – ingen säljpitch.",
-    ctaBook: "Boka kostnadsfri genomlysning",
+      "Boka en kostnadsfri Health Check: ett samtal på 30 minuter och en skriftlig rapport med 2–3 konkreta rekommendationer, ett fast pris och uppskattade driftskostnader. Ingen säljpitch.",
+    ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
     sources: "Källor",
     onThisPage: "På den här sidan",
