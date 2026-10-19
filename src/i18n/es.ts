@@ -28,8 +28,7 @@ const es: Dictionary = {
     titleBefore: "Chatbots con IA, bots de voz y ",
     titleHighlight: "automatización de tickets",
     titleAfter: " para equipos de soporte",
-    intro:
-      "Conecto la IA al helpdesk que ya usas: responde las preguntas repetitivas, envía cada ticket a la cola correcta y entrega los informes que tu equipo prepara a mano. Menos tareas manuales, primeras respuestas más rápidas y sin cambiar de plataforma.",
+    intro: "Integrado en el helpdesk que ya usas. Precios fijos, sin cambiar de plataforma.",
     ctaBook: "Reserva un Health Check gratuito",
     ctaUpwork: "Reseñas en Upwork",
     highlights: ["Funciona con tu helpdesk actual", "En marcha en 1–3 semanas", "30 días de soporte incluidos"],
@@ -42,27 +41,24 @@ const es: Dictionary = {
       {
         title: "Chatbots y bots de voz de soporte",
         description:
-          "Atiende los mensajes de primer contacto y las llamadas entrantes. Cualifica la solicitud, responde lo que puede y traspasa lo que no, de forma limpia. Un filtro delante de tu equipo, no un sustituto.",
+          "Responde los mensajes y las llamadas habituales y pasa el resto a tu equipo.",
       },
       {
         title: "Enrutamiento y categorización de tickets",
         description:
-          "Cada ticket se etiqueta, se prioriza y se asigna en cuanto llega, según lo que realmente dice. Sin clasificar a mano y sin tickets parados en la cola equivocada.",
+          "Cada ticket nuevo etiquetado, priorizado y asignado automáticamente.",
       },
       {
         title: "Informes",
         description:
-          "Los informes que tu equipo saca a mano cada semana se generan y se envían automáticamente. El formato adecuado, a las personas adecuadas, en el momento adecuado. Se acabó extraer datos a mano.",
+          "Los informes que tu equipo prepara a mano, enviados automáticamente.",
       },
       {
         title: "Solución a medida",
         description:
-          "¿Necesitas algo concreto que no encaja en una plantilla? Defino el alcance y lo construyo. Si se puede automatizar, encontraremos la forma.",
+          "¿Algo concreto? Defino el alcance y lo construyo.",
       },
     ],
-    previous: "Servicio anterior",
-    next: "Servicio siguiente",
-    show: "Mostrar {title}",
   },
   fit: {
     eyebrow: "¿Encajamos?",
@@ -70,17 +66,15 @@ const es: Dictionary = {
     goodTitle: "Encaja bien",
     notTitle: "No encaja",
     good: [
-      "Tu equipo de soporte hace un trabajo repetitivo y predecible que aparece todos los días",
-      "Usas Zendesk, Freshdesk, Jira o algo similar, y quieres automatización por encima, no sustituirlo",
-      "Quieres informes claros sin que nadie tenga que extraer datos a mano cada semana",
-      "Tus herramientas no se comunican entre sí y por eso se te escapan tickets",
-      "Quieres saber exactamente qué vas a recibir antes de pagar nada",
+      "Trabajo de soporte repetitivo a diario",
+      "Usas Zendesk, Freshdesk, Jira o similar",
+      "Informes que aún se sacan a mano",
+      "Herramientas que no se comunican entre sí",
     ],
     not: [
-      "Necesitas un responsable de soporte a tiempo completo que lleve las operaciones del día a día",
-      "Quieres una sola herramienta que lo haga todo: entrada, resolución, escalado, informes, absolutamente todo",
-      "Tienes previsto sustituir todo tu stack de soporte y empezar de cero",
-      "Crees que la IA puede sustituir por completo a tu equipo de soporte",
+      "Necesitas un responsable de soporte a tiempo completo",
+      "Quieres sustituir todo tu stack de soporte",
+      "Esperas que la IA sustituya a tu equipo",
     ],
   },
   whyMe: {
@@ -88,41 +82,32 @@ const es: Dictionary = {
     title: "Hecho por alguien que ha trabajado en soporte",
     items: [
       {
-        title: "He trabajado en soporte, no solo cerca de él",
-        description:
-          "He gestionado tickets, he hecho informes a mano y he lidiado con flujos de trabajo que se sostenían a base de copiar y pegar y buenas intenciones. Sé lo que de verdad frena a los equipos porque he estado en ese lado.",
+        title: "He trabajado en soporte",
+        description: "He gestionado tickets y hecho informes a mano, así que sé lo que frena a los equipos.",
       },
       {
-        title: "Hecho para aguantar, no para lucirse en una demo",
-        description:
-          "Cada automatización incluye gestión de errores, pruebas de casos límite y monitorización. Si ocurre algo inesperado, falla de forma controlada y avisa a la persona adecuada; no se rompe en silencio.",
+        title: "Hecho para aguantar",
+        description: "Gestión de errores, pruebas de casos límite y monitorización en cada proyecto.",
       },
       {
-        title: "Al terminar, todo es tuyo",
-        description:
-          "Documentación completa. Traspaso claro. Sin herramientas propietarias a las que solo yo pueda acceder. Tu equipo puede mantener y ampliar lo que construyo sin tener que llamarme.",
+        title: "Todo es tuyo",
+        description: "Documentación completa y traspaso. Sin ataduras.",
       },
       {
-        title: "Comunicación directa, siempre",
-        description:
-          "Te diré si algo no merece la pena automatizarlo. Te diré si tu presupuesto no encaja con el alcance. No te daré la razón para luego facturarte algo que no va a cambiar nada.",
+        title: "Respuestas directas",
+        description: "Si algo no merece la pena automatizarlo, te lo diré.",
       },
     ],
-    previous: "Motivo anterior",
-    next: "Motivo siguiente",
-    show: "Mostrar {title}",
   },
   pricing: {
     eyebrow: "Precios",
     title: "Paquetes de automatización del soporte a precio fijo",
-    intro: "Un precio por paquete, que pagas una sola vez. Sin iguala. ¿No sabes cuál te encaja? Empieza con el Health Check gratuito.",
+    intro: "Un precio, un solo pago. Sin iguala.",
     oneTimeFee: "pago único",
     cta: "Empezar",
     from: "desde {price}",
     delivery: "Entrega",
     deliveryTime: "1–3 semanas",
-    support: "Soporte",
-    supportTime: "30 días",
     included: "Qué incluye",
     running: "Costes mensuales de funcionamiento",
     runningNote: "Los cobran los proveedores de las herramientas. No se incluyen en el precio del paquete.",
@@ -132,11 +117,9 @@ const es: Dictionary = {
         name: "Starter Chat Bot",
         description: "Responde las preguntas habituales en 1–2 canales y pasa el resto a tu equipo.",
         included: [
-          "Chatbot en 1–2 canales: web, WhatsApp, Telegram, Messenger o Instagram",
-          "Responde tus preguntas frecuentes y gestiona las solicitudes habituales",
-          "Recoge la información básica del cliente",
-          "Pasa el resto a tu equipo con contexto",
-          "Documentación básica",
+          "1–2 canales: web, WhatsApp, Telegram, Messenger o Instagram",
+          "Responde preguntas frecuentes y recoge datos del cliente",
+          "Pasa el resto a tu equipo",
         ],
         running: [
           "Uso de IA, facturado por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
@@ -148,11 +131,9 @@ const es: Dictionary = {
         name: "Voice Bot",
         description: "Atiende las llamadas entrantes, hace el triaje y las pasa a tu equipo.",
         included: [
-          "Agente de voz para llamadas entrantes con conversación natural",
-          "Triaje de cada llamada",
-          "Traspaso limpio a tu equipo",
+          "Atiende las llamadas entrantes",
+          "Triaje y traspaso limpio a tu equipo",
           "Conectado a tu helpdesk",
-          "Documentación básica",
         ],
         running: [
           "Tarifas por minuto de la plataforma de voz, p. ej., Retell AI desde 0,07 $ por minuto, más el modelo de IA y la línea telefónica",
@@ -163,11 +144,9 @@ const es: Dictionary = {
         name: "Standard Chat Bot",
         description: "Gestiona conversaciones más complejas en 3–5 canales.",
         included: [
-          "Chatbot en 3–5 canales",
-          "Conversaciones de varios pasos con una lógica más inteligente",
-          "Traspasos más fluidos a tu equipo",
-          "Conectado a tu helpdesk",
-          "Documentación básica",
+          "3–5 canales",
+          "Conversaciones de varios pasos",
+          "Traspaso a tu equipo, conectado a tu helpdesk",
         ],
         running: [
           "Uso de IA, facturado por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
@@ -179,10 +158,9 @@ const es: Dictionary = {
         name: "Ticket Routing & Categorization",
         description: "Cada ticket etiquetado, priorizado y asignado en cuanto llega.",
         included: [
-          "Clasificación con IA de cada ticket nuevo por tema y urgencia",
-          "Etiquetas, prioridad y asignación al grupo correcto",
-          "Funciona en Zendesk, Freshdesk o Jira Service Management",
-          "Documentación básica",
+          "La IA clasifica cada ticket nuevo por tema y urgencia",
+          "Pone etiquetas y prioridad, y lo asigna al grupo correcto",
+          "Zendesk, Freshdesk o Jira Service Management",
         ],
         running: [
           "Clasificación con IA, facturada por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
@@ -193,9 +171,8 @@ const es: Dictionary = {
         name: "Automated Reports",
         description: "Los informes que tu equipo prepara a mano, enviados automáticamente.",
         included: [
-          "Tus métricas clave de soporte, extraídas de tu helpdesk",
-          "Envío programado por correo electrónico o a Slack",
-          "Documentación básica",
+          "Métricas clave de soporte de tu helpdesk",
+          "Envío programado por correo o a Slack",
         ],
         running: [
           "Plataforma de automatización: n8n autoalojado (software gratuito; el servidor lo pagas tú), n8n Cloud desde 20 €/mes o Make desde 9 $/mes (ambos con facturación anual)",
@@ -206,20 +183,19 @@ const es: Dictionary = {
         name: "Custom Automation",
         description: "Diseñada en torno a tus flujos de trabajo, tus herramientas y tus requisitos.",
         included: [
-          "Definimos el alcance juntos en tu Health Check gratuito",
-          "Precio fijo y plazo acordados antes de empezar el trabajo",
+          "Alcance definido en tu Health Check gratuito",
+          "Precio fijo acordado antes de empezar",
           "Cualquier herramienta con API o webhooks",
-          "Documentación básica",
         ],
         running: ["Depende de las herramientas que intervengan; se estima en el informe de tu Health Check"],
       },
     ],
     footnote:
       "* Precios oficiales de Anthropic (octubre de 2026) para prompts de hasta 100.000 tokens; los prompts más largos cuestan 0,50 $ / 2,50 $. Otros proveedores y modelos tienen precios distintos, y los proveedores pueden cambiar sus precios.",
-    trust: ["Precio único, sin iguala", "30 días de soporte tras la entrega", "Documentación básica incluida"],
+    allPackages: "Todos los paquetes: 30 días de soporte tras la entrega y documentación básica.",
     healthCheck: {
       title: "Health Check gratuito",
-      text: "Una llamada de 30 minutos sobre tu configuración de soporte y, después, un informe por escrito: qué automatizar primero, qué paquete encaja, el precio fijo y el plazo, y los costes mensuales de funcionamiento estimados.",
+      text: "Una llamada de 30 minutos y, después, un informe por escrito: qué automatizar primero, qué paquete encaja y cuánto cuesta.",
       cta: "Reserva tu Health Check",
       price: "Gratis",
     },
@@ -227,24 +203,22 @@ const es: Dictionary = {
   data: {
     eyebrow: "Tus datos",
     title: "Tus datos y el RGPD",
-    intro: "Tú eliges dónde funciona tu automatización. Lo acordamos en tu Health Check, antes de construir nada.",
+    intro: "Tú eliges dónde funciona tu automatización.",
     options: [
       {
         title: "En tus propias cuentas (por defecto)",
         points: [
-          "Se construye dentro de tu helpdesk, tu espacio de trabajo de automatización y tu cuenta del proveedor de IA",
-          "Los datos de tus clientes se quedan en sistemas que controlas tú, bajo tus propios contratos con esos proveedores",
-          "Tú decides qué acceso me das y puedes retirarlo tras la entrega",
-          "Todos los flujos, prompts y claves de API son tuyos",
+          "Funciona en tus propias cuentas de helpdesk, automatización e IA",
+          "Los datos de tus clientes se quedan en sistemas que controlas tú",
+          "Todo es tuyo y tú controlas mi acceso",
         ],
       },
       {
         title: "Alojado por mí, con un DPA",
         points: [
-          "Ejecuto la automatización en cuentas que gestiono yo",
-          "Firmamos un contrato de encargo del tratamiento (DPA) conforme al art. 28 del RGPD antes de tratar ningún dato personal",
-          "No se recurre a ningún subencargado del tratamiento, como la plataforma de automatización, el proveedor de IA o el alojamiento, sin tu autorización por escrito (art. 28.2 del RGPD)",
-          "Cuando termina el contrato, los datos se suprimen o se devuelven, a tu elección (art. 28.3.g del RGPD)",
+          "Contrato de encargo del tratamiento (DPA, art. 28 del RGPD) firmado antes de tratar ningún dato personal",
+          "Subencargados del tratamiento solo con tu autorización por escrito",
+          "Al terminar, los datos se suprimen o se devuelven, a tu elección",
         ],
       },
     ],
@@ -253,16 +227,8 @@ const es: Dictionary = {
   reviews: {
     eyebrow: "Opiniones de clientes",
     title: "Reseñas verificadas en Upwork",
-    intro:
-      "Cada reseña de mi perfil de Upwork procede de un contrato real y pagado, así que puedes comprobar cómo fueron mis proyectos anteriores antes de reservar una llamada.",
-    readTitle: "Lee las reseñas de clientes",
-    readText:
-      "Consulta todas las valoraciones y opiniones escritas de mis clientes en mi perfil de Upwork.",
-    readCta: "Ver mi perfil de Upwork",
-    leaveTitle: "¿Has trabajado conmigo? Deja una reseña",
-    leaveText:
-      "Si hemos terminado un proyecto juntos, una breve reseña en Upwork ayuda a otros equipos de soporte a decidir con confianza. Solo son dos minutos. ¡Gracias!",
-    leaveCta: "Deja tu opinión en Upwork",
+    intro: "De contratos pagados en Upwork.",
+    leaveCta: "¿Has trabajado conmigo? Deja una reseña",
     quoted: "Reseñas citadas palabra por palabra de mi perfil de Upwork.",
     verify: "Verificar en Upwork",
     stars: "{rating} de 5 estrellas",
@@ -300,7 +266,7 @@ const es: Dictionary = {
   contact: {
     eyebrow: "Hablemos",
     title: "Pide un Health Check gratuito de tu soporte",
-    intro: "Una llamada de 30 minutos y, después, un informe por escrito. Veremos qué está frenando a tu equipo y decidiremos por dónde empezar.",
+    intro: "Una llamada de 30 minutos y, después, un informe por escrito.",
     cta: "Reserva un Health Check gratuito",
     linkedin: "Conecta en LinkedIn",
     email: "Correo electrónico",

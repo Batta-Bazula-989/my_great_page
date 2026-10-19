@@ -1,14 +1,18 @@
-import ServicesCarousel from "@/components/ServicesCarousel";
+import { BarChart3, Bot, GitBranch, Wrench } from "lucide-react";
+import CardGridSection from "@/components/CardGridSection";
+import { useDict } from "@/i18n";
+
+const icons = [Bot, GitBranch, BarChart3, Wrench];
 
 const SolutionSection = () => {
+  const t = useDict().services;
   return (
-    <section id="services" aria-labelledby="services-title" className="relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-      <div className="relative z-10">
-        <ServicesCarousel />
-      </div>
-    </section>
+    <CardGridSection
+      id="services"
+      eyebrow={t.eyebrow}
+      title={t.title}
+      items={t.items.map((item, i) => ({ ...item, icon: icons[i] }))}
+    />
   );
 };
 

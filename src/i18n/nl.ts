@@ -28,8 +28,7 @@ const nl: Dictionary = {
     titleBefore: "AI-chatbots, voicebots & ",
     titleHighlight: "ticketautomatisering",
     titleAfter: " voor supportteams",
-    intro:
-      "Ik koppel AI aan de helpdesk die je al gebruikt: hij beantwoordt terugkerende vragen, stuurt elk ticket naar de juiste wachtrij en levert de rapportages die je team nu met de hand maakt. Minder handwerk, snellere eerste reacties en geen overstap naar een ander platform.",
+    intro: "Ingebouwd in de helpdesk die je al gebruikt. Vaste prijzen, geen nieuw platform.",
     ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
     highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
@@ -42,27 +41,24 @@ const nl: Dictionary = {
       {
         title: "Chat- en voicebots voor support",
         description:
-          "Handelt eerste berichten en inkomende gesprekken af. Achterhaalt wat de klant nodig heeft, beantwoordt wat hij kan en draagt de rest netjes over. Een filter vóór je team, geen vervanging ervan.",
+          "Beantwoordt veelvoorkomende berichten en telefoontjes en geeft de rest door aan je team.",
       },
       {
         title: "Ticketroutering & categorisering",
         description:
-          "Elk ticket krijgt direct bij binnenkomst tags, een prioriteit en een behandelaar, op basis van wat er echt in staat. Geen handmatig sorteren, geen tickets die in de verkeerde wachtrij blijven liggen.",
+          "Elk nieuw ticket krijgt automatisch tags, een prioriteit en een behandelaar.",
       },
       {
         title: "Rapportages",
         description:
-          "De rapportages die je team elke week met de hand samenstelt, worden automatisch gemaakt en verstuurd. Het juiste formaat, de juiste mensen, het juiste moment. Nooit meer zelf data verzamelen.",
+          "De rapportages die je team nu met de hand maakt, automatisch verstuurd.",
       },
       {
         title: "Maatwerkoplossing",
         description:
-          "Iets specifieks dat niet in een standaardpakket past? Ik breng het in kaart en bouw het. Als het te automatiseren is, vinden we samen uit hoe.",
+          "Iets specifieks? Ik breng het in kaart en bouw het.",
       },
     ],
-    previous: "Vorige dienst",
-    next: "Volgende dienst",
-    show: "Toon {title}",
   },
   fit: {
     eyebrow: "Is dit een match?",
@@ -70,17 +66,15 @@ const nl: Dictionary = {
     goodTitle: "Goede match",
     notTitle: "Geen goede match",
     good: [
-      "Je supportteam doet repetitief, voorspelbaar werk dat elke dag opnieuw terugkomt",
-      "Je werkt met Zendesk, Freshdesk, Jira of iets vergelijkbaars en wilt daar automatisering bovenop, geen vervanging",
-      "Je wilt duidelijke rapportages zonder dat iemand elke week met de hand data verzamelt",
-      "Je tools praten niet met elkaar en daardoor raken tickets zoek",
-      "Je wilt precies weten wat je krijgt voordat je ergens voor betaalt",
+      "Elke dag repetitief supportwerk",
+      "Je gebruikt Zendesk, Freshdesk, Jira of iets vergelijkbaars",
+      "Rapportages die nog met de hand worden gemaakt",
+      "Tools die niet met elkaar praten",
     ],
     not: [
-      "Je hebt een fulltime supportmanager nodig die de dagelijkse gang van zaken regelt",
-      "Je wilt één tool die alles doet: intake, oplossing, escalatie, rapportage, alles",
-      "Je bent van plan je hele supportstack te vervangen en helemaal opnieuw te beginnen",
-      "Je denkt dat AI je supportteam volledig kan vervangen",
+      "Je hebt een fulltime supportmanager nodig",
+      "Je wilt je hele supportstack vervangen",
+      "Je verwacht dat AI je team vervangt",
     ],
   },
   whyMe: {
@@ -88,42 +82,32 @@ const nl: Dictionary = {
     title: "Gebouwd door iemand die zelf in support heeft gewerkt",
     items: [
       {
-        title: "Ik heb in support gewerkt, niet er alleen omheen",
-        description:
-          "Ik heb tickets afgehandeld, rapportages met de hand gemaakt en gewerkt met processen die aan elkaar hingen van copy-paste en hoop. Ik weet wat teams echt vertraagt, omdat ik zelf aan die kant heb gestaan.",
+        title: "Ik heb in support gewerkt",
+        description: "Ik heb tickets afgehandeld en rapportages met de hand gemaakt, dus ik weet wat teams vertraagt.",
       },
       {
-        title: "Gebouwd om stand te houden, niet om mooi te demonstreren",
-        description:
-          "Elke automatisering bevat foutafhandeling, tests op randgevallen en monitoring. Gebeurt er iets onverwachts, dan faalt hij netjes en waarschuwt hij de juiste persoon, in plaats van stilletjes kapot te gaan.",
+        title: "Gebouwd om stand te houden",
+        description: "Foutafhandeling, tests op randgevallen en monitoring in alles wat ik bouw.",
       },
       {
-        title: "Na afloop is alles van jou",
-        description:
-          "Volledige documentatie. Een duidelijke overdracht. Geen eigen tooling waar alleen ik bij kan. Je team kan onderhouden en uitbreiden wat ik bouw, zonder mij te hoeven bellen.",
+        title: "Alles is van jou",
+        description: "Volledige documentatie en overdracht. Je zit nergens aan vast.",
       },
       {
-        title: "Altijd eerlijke communicatie",
-        description:
-          "Ik zeg het als iets het automatiseren niet waard is. Ik zeg het als je budget niet past bij de scope. Ik ga niet knikken en je een factuur sturen voor iets dat niets oplevert.",
+        title: "Eerlijke antwoorden",
+        description: "Is iets het automatiseren niet waard, dan zeg ik dat.",
       },
     ],
-    previous: "Vorige reden",
-    next: "Volgende reden",
-    show: "Toon {title}",
   },
   pricing: {
     eyebrow: "Prijzen",
     title: "Pakketten voor supportautomatisering tegen een vaste prijs",
-    intro:
-      "Eén prijs per pakket, één keer betaald. Geen abonnement. Twijfel je welk pakket past? Begin met de gratis Health Check.",
+    intro: "Eén prijs, één keer betaald. Geen abonnement.",
     oneTimeFee: "eenmalig",
     cta: "Aan de slag",
     from: "vanaf {price}",
     delivery: "Oplevering",
     deliveryTime: "1–3 weken",
-    support: "Ondersteuning",
-    supportTime: "30 dagen",
     included: "Wat er inbegrepen is",
     running: "Lopende kosten per maand",
     runningNote: "Gefactureerd door de aanbieders van de tools. Niet inbegrepen in de pakketprijs.",
@@ -133,11 +117,9 @@ const nl: Dictionary = {
         name: "Starter Chat Bot",
         description: "Beantwoordt veelgestelde vragen op 1–2 kanalen en geeft de rest door aan je team.",
         included: [
-          "Chatbot op 1–2 kanalen: website, WhatsApp, Telegram, Messenger of Instagram",
-          "Beantwoordt je FAQ's en handelt veelvoorkomende verzoeken af",
-          "Verzamelt basisgegevens van klanten",
-          "Geeft de rest met context door aan je team",
-          "Basisdocumentatie",
+          "1–2 kanalen: website, WhatsApp, Telegram, Messenger of Instagram",
+          "Beantwoordt FAQ's en verzamelt klantgegevens",
+          "Geeft de rest door aan je team",
         ],
         running: [
           "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
@@ -149,11 +131,9 @@ const nl: Dictionary = {
         name: "Voice Bot",
         description: "Neemt inkomende gesprekken aan, doet de triage en draagt ze over aan je team.",
         included: [
-          "Voice-agent voor inkomende gesprekken, met natuurlijke conversatie",
-          "Triage van elk gesprek",
-          "Nette overdracht aan je team",
+          "Neemt inkomende gesprekken aan",
+          "Triage en nette overdracht aan je team",
           "Gekoppeld aan je helpdesk",
-          "Basisdocumentatie",
         ],
         running: [
           "Kosten per minuut van het voiceplatform, bijv. Retell AI vanaf $ 0,07 per minuut, plus het AI-model en de telefoonlijn",
@@ -164,11 +144,9 @@ const nl: Dictionary = {
         name: "Standard Chat Bot",
         description: "Handelt complexere gesprekken af op 3–5 kanalen.",
         included: [
-          "Chatbot op 3–5 kanalen",
-          "Gesprekken in meerdere stappen, met slimmere logica",
-          "Soepelere overdrachten aan je team",
-          "Gekoppeld aan je helpdesk",
-          "Basisdocumentatie",
+          "3–5 kanalen",
+          "Gesprekken in meerdere stappen",
+          "Overdracht aan je team, gekoppeld aan je helpdesk",
         ],
         running: [
           "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
@@ -180,10 +158,9 @@ const nl: Dictionary = {
         name: "Ticket Routing & Categorization",
         description: "Elk ticket krijgt direct bij binnenkomst tags, een prioriteit en een behandelaar.",
         included: [
-          "AI-classificatie van elk nieuw ticket op onderwerp en urgentie",
-          "Tags, prioriteit en toewijzing aan de juiste groep",
-          "Werkt in Zendesk, Freshdesk of Jira Service Management",
-          "Basisdocumentatie",
+          "AI sorteert elk nieuw ticket op onderwerp en urgentie",
+          "Zet tags en prioriteit en wijst de juiste groep toe",
+          "Zendesk, Freshdesk of Jira Service Management",
         ],
         running: [
           "AI-classificatie, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
@@ -194,9 +171,8 @@ const nl: Dictionary = {
         name: "Automated Reports",
         description: "De rapportages die je team nu met de hand maakt, automatisch verstuurd.",
         included: [
-          "Je belangrijkste supportmetrics, opgehaald uit je helpdesk",
-          "Volgens schema verstuurd per e-mail of naar Slack",
-          "Basisdocumentatie",
+          "Belangrijkste supportmetrics uit je helpdesk",
+          "Volgens schema verstuurd naar e-mail of Slack",
         ],
         running: [
           "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
@@ -207,20 +183,19 @@ const nl: Dictionary = {
         name: "Custom Automation",
         description: "Gebouwd rond je workflows, tools en eisen.",
         included: [
-          "Samen afgebakend in je gratis Health Check",
-          "Vaste prijs en planning afgesproken voordat het werk begint",
+          "Afgebakend in je gratis Health Check",
+          "Vaste prijs afgesproken voordat het werk begint",
           "Elke tool met een API of webhooks",
-          "Basisdocumentatie",
         ],
         running: ["Hangt af van de gebruikte tools; geschat in je Health Check-rapport"],
       },
     ],
     footnote:
       "* Lijstprijzen van Anthropic (oktober 2026) voor prompts tot 100.000 tokens; langere prompts kosten $ 0,50 / $ 2,50. Andere aanbieders en modellen hebben andere prijzen, en aanbieders kunnen hun prijzen wijzigen.",
-    trust: ["Eenmalige prijs, geen abonnement", "30 dagen ondersteuning na oplevering", "Basisdocumentatie inbegrepen"],
+    allPackages: "Elk pakket: 30 dagen ondersteuning na oplevering en basisdocumentatie.",
     healthCheck: {
       title: "Gratis Health Check",
-      text: "Een gesprek van 30 minuten over je supportopzet, gevolgd door een schriftelijk rapport: wat je het eerst automatiseert, welk pakket past, de vaste prijs en planning, en de geschatte lopende kosten per maand.",
+      text: "Een gesprek van 30 minuten, daarna een schriftelijk rapport: wat je het eerst automatiseert, welk pakket past en wat het kost.",
       cta: "Plan je Health Check",
       price: "Gratis",
     },
@@ -228,24 +203,22 @@ const nl: Dictionary = {
   data: {
     eyebrow: "Je gegevens",
     title: "Je gegevens en de AVG",
-    intro: "Jij kiest waar je automatisering draait. Dat spreken we af in je Health Check, voordat er iets wordt gebouwd.",
+    intro: "Jij kiest waar je automatisering draait.",
     options: [
       {
         title: "In je eigen accounts (standaard)",
         points: [
-          "Gebouwd in je eigen helpdesk, je automatiseringsomgeving en je account bij je AI-aanbieder",
-          "Klantgegevens blijven in systemen die jij beheert, onder je eigen contracten met die aanbieders",
-          "Jij bepaalt welke toegang ik krijg, en je kunt die na de overdracht intrekken",
-          "Elke workflow, prompt en API-sleutel is van jou",
+          "Draait in je eigen accounts voor helpdesk, automatisering en AI",
+          "Klantgegevens blijven in systemen die jij beheert",
+          "Alles is van jou en jij bepaalt welke toegang ik heb",
         ],
       },
       {
         title: "Gehost door mij, met een verwerkersovereenkomst",
         points: [
-          "Ik draai de automatisering op accounts die ik beheer",
-          "We sluiten een verwerkersovereenkomst (art. 28 AVG) voordat er persoonsgegevens worden verwerkt",
-          "Geen subverwerker, zoals het automatiseringsplatform, de AI-aanbieder of de hosting, wordt ingezet zonder je schriftelijke toestemming (art. 28 lid 2 AVG)",
-          "Na afloop van de overeenkomst worden de gegevens verwijderd of teruggegeven, naar jouw keuze (art. 28 lid 3 sub g AVG)",
+          "Verwerkersovereenkomst (art. 28 AVG) getekend voordat er persoonsgegevens worden verwerkt",
+          "Subverwerkers alleen met je schriftelijke toestemming",
+          "Na afloop worden de gegevens verwijderd of teruggegeven, jij kiest",
         ],
       },
     ],
@@ -254,16 +227,8 @@ const nl: Dictionary = {
   reviews: {
     eyebrow: "Feedback van klanten",
     title: "Geverifieerde reviews op Upwork",
-    intro:
-      "Elke review op mijn Upwork-profiel komt van een echte, betaalde opdracht. Zo kun je nagaan hoe mijn eerdere projecten zijn verlopen voordat je een gesprek plant.",
-    readTitle: "Lees reviews van klanten",
-    readText:
-      "Bekijk alle beoordelingen en geschreven feedback van mijn klanten op mijn Upwork-profiel.",
-    readCta: "Bekijk mijn Upwork-profiel",
-    leaveTitle: "Met mij gewerkt? Laat een review achter",
-    leaveText:
-      "Hebben we samen een project afgerond? Een korte review op Upwork helpt andere supportteams om met vertrouwen te kiezen. Het kost twee minuten. Dank je wel!",
-    leaveCta: "Laat feedback achter op Upwork",
+    intro: "Van betaalde opdrachten op Upwork.",
+    leaveCta: "Met mij gewerkt? Laat een review achter",
     quoted: "Beoordelingen woordelijk overgenomen van mijn Upwork-profiel.",
     verify: "Controleer op Upwork",
     stars: "{rating} van 5 sterren",
@@ -301,7 +266,7 @@ const nl: Dictionary = {
   contact: {
     eyebrow: "Laten we praten",
     title: "Vraag een gratis Health Check van je support aan",
-    intro: "Een gesprek van 30 minuten, daarna een schriftelijk rapport. We kijken wat je team vertraagt en bepalen waar we beginnen.",
+    intro: "Een gesprek van 30 minuten, daarna een schriftelijk rapport.",
     cta: "Plan een gratis Health Check",
     linkedin: "Connect op LinkedIn",
     email: "E-mail",

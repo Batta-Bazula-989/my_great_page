@@ -28,8 +28,7 @@ const de: Dictionary = {
     titleBefore: "KI-Chatbots, Voicebots & ",
     titleHighlight: "Ticket-Automatisierung",
     titleAfter: " für Support-Teams",
-    intro:
-      "Ich verbinde KI mit dem Helpdesk, den Sie bereits nutzen – sie beantwortet wiederkehrende Fragen, leitet jedes Ticket in die richtige Warteschlange und liefert die Reports, die Ihr Team bisher von Hand erstellt. Weniger manuelle Aufgaben, schnellere Erstantworten, kein Plattformwechsel.",
+    intro: "Integriert in den Helpdesk, den Sie bereits nutzen. Festpreise, kein Plattformwechsel.",
     ctaBook: "Kostenlosen Health Check buchen",
     ctaUpwork: "Bewertungen auf Upwork",
     highlights: ["Funktioniert mit Ihrem aktuellen Helpdesk", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
@@ -41,28 +40,21 @@ const de: Dictionary = {
     items: [
       {
         title: "Chat- & Voicebots für den Support",
-        description:
-          "Nimmt Erstnachrichten und eingehende Anrufe entgegen. Qualifiziert die Anfrage, beantwortet, was möglich ist, und übergibt den Rest – sauber. Ein Filter vor Ihrem Team, kein Ersatz dafür.",
+        description: "Beantwortet häufige Nachrichten und Anrufe und übergibt den Rest an Ihr Team.",
       },
       {
         title: "Ticket-Routing & Kategorisierung",
-        description:
-          "Jedes Ticket wird beim Eingang sofort getaggt, priorisiert und zugewiesen – auf Grundlage dessen, was tatsächlich darin steht. Kein manuelles Sortieren, keine Tickets in der falschen Warteschlange.",
+        description: "Jedes neue Ticket automatisch getaggt, priorisiert und zugewiesen.",
       },
       {
         title: "Reporting",
-        description:
-          "Die Reports, die Ihr Team jede Woche manuell zusammenstellt, werden automatisch erstellt und zugestellt. Im richtigen Format, an die richtigen Personen, zur richtigen Zeit. Nie mehr Daten zusammensuchen.",
+        description: "Die Reports, die Ihr Team von Hand erstellt, automatisch versendet.",
       },
       {
         title: "Individuelle Lösung",
-        description:
-          "Etwas Spezielles, das in keine Vorlage passt? Ich lege den Umfang fest und setze es um. Wenn es sich automatisieren lässt, finden wir einen Weg.",
+        description: "Etwas Spezielles? Ich plane und baue es.",
       },
     ],
-    previous: "Vorherige Leistung",
-    next: "Nächste Leistung",
-    show: "{title} anzeigen",
   },
   fit: {
     eyebrow: "Passt das zu Ihnen?",
@@ -70,17 +62,15 @@ const de: Dictionary = {
     goodTitle: "Passt gut",
     notTitle: "Passt nicht",
     good: [
-      "Ihr Support-Team erledigt wiederkehrende, vorhersehbare Aufgaben, die jeden einzelnen Tag anfallen",
-      "Sie nutzen Zendesk, Freshdesk, Jira oder Ähnliches – und möchten Automatisierung als Ergänzung, keinen Ersatz",
-      "Sie möchten klares Reporting, ohne dass jemand jede Woche manuell Daten zusammenträgt",
-      "Ihre Tools sind nicht miteinander verbunden, und deshalb gehen Tickets unter",
-      "Sie möchten genau wissen, was Sie bekommen, bevor Sie für irgendetwas bezahlen",
+      "Täglich wiederkehrende Support-Aufgaben",
+      "Sie nutzen Zendesk, Freshdesk, Jira oder Ähnliches",
+      "Reports werden noch von Hand erstellt",
+      "Tools, die nicht miteinander verbunden sind",
     ],
     not: [
-      "Sie brauchen einen Vollzeit-Support-Manager für das Tagesgeschäft",
-      "Sie möchten ein einziges Tool, das alles erledigt – Eingang, Lösung, Eskalation, Reporting, einfach alles",
-      "Sie planen, Ihren gesamten Support-Stack zu ersetzen und bei null anzufangen",
-      "Sie glauben, dass KI Ihr Support-Team vollständig ersetzen kann",
+      "Sie brauchen einen Vollzeit-Support-Manager",
+      "Sie möchten Ihren gesamten Support-Stack ersetzen",
+      "Sie erwarten, dass KI Ihr Team ersetzt",
     ],
   },
   whyMe: {
@@ -88,42 +78,32 @@ const de: Dictionary = {
     title: "Gebaut von jemandem, der selbst im Support gearbeitet hat",
     items: [
       {
-        title: "Ich habe im Support gearbeitet – nicht nur daneben",
-        description:
-          "Ich habe Tickets bearbeitet, Reports von Hand erstellt und mit Abläufen gekämpft, die nur von Copy-and-paste und Wunschdenken zusammengehalten wurden. Ich weiß, was Teams wirklich ausbremst, weil ich selbst auf dieser Seite stand.",
+        title: "Ich habe im Support gearbeitet",
+        description: "Ich habe Tickets bearbeitet und Reports von Hand erstellt. Daher weiß ich, was Teams ausbremst.",
       },
       {
-        title: "Gebaut für den Alltag, nicht für die Demo",
-        description:
-          "Jede Automatisierung umfasst Fehlerbehandlung, Tests von Grenzfällen und Monitoring. Wenn etwas Unerwartetes passiert, fängt sie den Fehler kontrolliert ab und alarmiert die richtige Person – statt einfach stillschweigend auszufallen.",
+        title: "Gebaut für den Alltag",
+        description: "Fehlerbehandlung, Grenzfall-Tests und Monitoring in jeder Lösung.",
       },
       {
-        title: "Am Ende gehört alles Ihnen",
-        description:
-          "Vollständige Dokumentation. Klare Übergabe. Keine proprietären Tools, auf die nur ich Zugriff habe. Ihr Team kann warten und erweitern, was ich baue, ohne mich anrufen zu müssen.",
+        title: "Alles gehört Ihnen",
+        description: "Vollständige Dokumentation und Übergabe. Keine Abhängigkeit.",
       },
       {
-        title: "Immer offene Kommunikation",
-        description:
-          "Ich sage Ihnen, wenn sich eine Automatisierung nicht lohnt. Ich sage Ihnen, wenn Ihr Budget nicht zum Umfang passt. Ich nicke nicht einfach ab und stelle Ihnen etwas in Rechnung, das nichts bewegt.",
+        title: "Klare Antworten",
+        description: "Wenn sich eine Automatisierung nicht lohnt, sage ich es Ihnen.",
       },
     ],
-    previous: "Vorheriger Grund",
-    next: "Nächster Grund",
-    show: "{title} anzeigen",
   },
   pricing: {
     eyebrow: "Preise",
     title: "Support-Automatisierungspakete zum Festpreis",
-    intro:
-      "Ein Preis pro Paket, einmal bezahlt. Keine laufende Pauschale. Nicht sicher, welches passt? Starten Sie mit dem kostenlosen Health Check.",
+    intro: "Ein Preis, einmal bezahlt. Keine laufende Pauschale.",
     oneTimeFee: "einmalig",
     cta: "Jetzt starten",
     from: "ab {price}",
     delivery: "Lieferzeit",
     deliveryTime: "1–3 Wochen",
-    support: "Support",
-    supportTime: "30 Tage",
     included: "Im Paket enthalten",
     running: "Laufende Kosten pro Monat",
     runningNote: "Berechnet von den Tool-Anbietern. Nicht im Paketpreis enthalten.",
@@ -133,11 +113,9 @@ const de: Dictionary = {
         name: "Starter Chat Bot",
         description: "Beantwortet häufige Fragen auf 1–2 Kanälen und übergibt den Rest an Ihr Team.",
         included: [
-          "Chatbot auf 1–2 Kanälen: Website, WhatsApp, Telegram, Messenger oder Instagram",
-          "Beantwortet Ihre FAQs und erledigt häufige Anfragen",
-          "Erfasst grundlegende Kundenangaben",
-          "Übergibt den Rest mit Kontext an Ihr Team",
-          "Basisdokumentation",
+          "1–2 Kanäle: Website, WhatsApp, Telegram, Messenger oder Instagram",
+          "Beantwortet FAQs und erfasst Kundenangaben",
+          "Übergibt den Rest an Ihr Team",
         ],
         running: [
           "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
@@ -149,11 +127,9 @@ const de: Dictionary = {
         name: "Voice Bot",
         description: "Nimmt eingehende Anrufe entgegen, triagiert sie und übergibt an Ihr Team.",
         included: [
-          "Voice-Agent für eingehende Anrufe mit natürlicher Gesprächsführung",
-          "Triage jedes Anrufs",
-          "Saubere Übergabe an Ihr Team",
+          "Nimmt eingehende Anrufe entgegen",
+          "Triage und saubere Übergabe an Ihr Team",
           "Angebunden an Ihren Helpdesk",
-          "Basisdokumentation",
         ],
         running: [
           "Minutenpreise der Voice-Plattform, z. B. Retell AI ab 0,07 $ pro Minute, plus KI-Modell und Telefonleitung",
@@ -164,11 +140,9 @@ const de: Dictionary = {
         name: "Standard Chat Bot",
         description: "Bewältigt komplexere Gespräche auf 3–5 Kanälen.",
         included: [
-          "Chatbot auf 3–5 Kanälen",
-          "Mehrstufige Gespräche mit intelligenterer Logik",
-          "Reibungslosere Übergaben an Ihr Team",
-          "Angebunden an Ihren Helpdesk",
-          "Basisdokumentation",
+          "3–5 Kanäle",
+          "Mehrstufige Gespräche",
+          "Übergabe an Ihr Team, angebunden an Ihren Helpdesk",
         ],
         running: [
           "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
@@ -180,10 +154,9 @@ const de: Dictionary = {
         name: "Ticket Routing & Categorization",
         description: "Jedes Ticket wird beim Eingang sofort getaggt, priorisiert und zugewiesen.",
         included: [
-          "KI-Klassifizierung jedes neuen Tickets nach Thema und Dringlichkeit",
-          "Tags, Priorität und Zuweisung an die richtige Gruppe",
-          "Funktioniert in Zendesk, Freshdesk oder Jira Service Management",
-          "Basisdokumentation",
+          "KI sortiert jedes neue Ticket nach Thema und Dringlichkeit",
+          "Setzt Tags und Priorität, weist die richtige Gruppe zu",
+          "Zendesk, Freshdesk oder Jira Service Management",
         ],
         running: [
           "KI-Klassifizierung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
@@ -194,9 +167,8 @@ const de: Dictionary = {
         name: "Automated Reports",
         description: "Die Reports, die Ihr Team von Hand erstellt, automatisch versendet.",
         included: [
-          "Ihre wichtigsten Support-Kennzahlen, abgerufen aus Ihrem Helpdesk",
-          "Geplanter Versand per E-Mail oder in Slack",
-          "Basisdokumentation",
+          "Wichtige Support-Kennzahlen aus Ihrem Helpdesk",
+          "Nach Zeitplan per E-Mail oder in Slack versendet",
         ],
         running: [
           "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
@@ -207,20 +179,19 @@ const de: Dictionary = {
         name: "Custom Automation",
         description: "Maßgeschneidert für Ihre Abläufe, Tools und Anforderungen.",
         included: [
-          "Umfang gemeinsam in Ihrem kostenlosen Health Check festgelegt",
-          "Festpreis und Zeitplan vor Arbeitsbeginn vereinbart",
+          "Umfang in Ihrem kostenlosen Health Check festgelegt",
+          "Festpreis vor Arbeitsbeginn vereinbart",
           "Jedes Tool mit API oder Webhooks",
-          "Basisdokumentation",
         ],
         running: ["Hängt von den beteiligten Tools ab; geschätzt in Ihrem Health-Check-Bericht"],
       },
     ],
     footnote:
       "* Listenpreise von Anthropic (Oktober 2026) für Prompts bis 100.000 Tokens; längere Prompts kosten 0,50 $ / 2,50 $. Andere Anbieter und Modelle haben andere Preise, und Anbieter können ihre Preise ändern.",
-    trust: ["Einmalpreis, keine laufende Pauschale", "30 Tage Support nach der Auslieferung", "Basisdokumentation inklusive"],
+    allPackages: "In jedem Paket: 30 Tage Support nach der Auslieferung und Basisdokumentation.",
     healthCheck: {
       title: "Kostenloser Health Check",
-      text: "Ein 30-minütiges Gespräch über Ihr Support-Setup, danach ein schriftlicher Bericht: was Sie zuerst automatisieren sollten, welches Paket passt, Festpreis und Zeitplan sowie die geschätzten laufenden Kosten pro Monat.",
+      text: "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht: was Sie zuerst automatisieren sollten, welches Paket passt und was es kostet.",
       cta: "Ihren Health Check buchen",
       price: "Kostenlos",
     },
@@ -228,25 +199,22 @@ const de: Dictionary = {
   data: {
     eyebrow: "Ihre Daten",
     title: "Ihre Daten und die DSGVO",
-    intro:
-      "Sie entscheiden, wo Ihre Automatisierung läuft. Das legen wir in Ihrem Health Check fest, bevor irgendetwas gebaut wird.",
+    intro: "Sie entscheiden, wo Ihre Automatisierung läuft.",
     options: [
       {
         title: "In Ihren eigenen Konten (Standard)",
         points: [
-          "Gebaut in Ihrem Helpdesk, Ihrem Automatisierungs-Workspace und Ihrem Konto beim KI-Anbieter",
-          "Kundendaten bleiben in Systemen, die Sie kontrollieren, im Rahmen Ihrer eigenen Verträge mit diesen Anbietern",
-          "Sie entscheiden, welchen Zugang ich bekomme, und können ihn nach der Übergabe entfernen",
-          "Jeder Workflow, jeder Prompt und jeder API-Schlüssel gehört Ihnen",
+          "Läuft in Ihren eigenen Helpdesk-, Automatisierungs- und KI-Konten",
+          "Kundendaten bleiben in Systemen, die Sie kontrollieren",
+          "Alles gehört Ihnen, und Sie steuern meinen Zugang",
         ],
       },
       {
         title: "Von mir gehostet, mit AVV",
         points: [
-          "Ich betreibe die Automatisierung auf Konten, die ich verwalte",
-          "Wir schließen einen Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO ab, bevor personenbezogene Daten verarbeitet werden",
-          "Kein Unterauftragsverarbeiter, etwa Automatisierungsplattform, KI-Anbieter oder Hosting, wird ohne Ihre schriftliche Genehmigung eingesetzt (Art. 28 Abs. 2 DSGVO)",
-          "Bei Vertragsende werden die Daten nach Ihrer Wahl gelöscht oder zurückgegeben (Art. 28 Abs. 3 lit. g DSGVO)",
+          "Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO, unterzeichnet, bevor personenbezogene Daten verarbeitet werden",
+          "Unterauftragsverarbeiter nur mit Ihrer schriftlichen Genehmigung",
+          "Bei Vertragsende werden die Daten nach Ihrer Wahl gelöscht oder zurückgegeben",
         ],
       },
     ],
@@ -255,16 +223,8 @@ const de: Dictionary = {
   reviews: {
     eyebrow: "Kundenfeedback",
     title: "Verifizierte Bewertungen auf Upwork",
-    intro:
-      "Jede Bewertung auf meinem Upwork-Profil stammt aus einem echten, bezahlten Auftrag – so können Sie prüfen, wie meine bisherigen Projekte gelaufen sind, bevor Sie ein Gespräch buchen.",
-    readTitle: "Kundenbewertungen lesen",
-    readText:
-      "Sehen Sie alle Bewertungen und das schriftliche Feedback meiner Kunden auf meinem Upwork-Profil.",
-    readCta: "Mein Upwork-Profil ansehen",
-    leaveTitle: "Schon mit mir gearbeitet? Hinterlassen Sie eine Bewertung",
-    leaveText:
-      "Wenn wir gemeinsam ein Projekt abgeschlossen haben, hilft eine kurze Bewertung auf Upwork anderen Support-Teams, sich mit Zuversicht zu entscheiden. Das dauert zwei Minuten – vielen Dank.",
-    leaveCta: "Feedback auf Upwork hinterlassen",
+    intro: "Aus bezahlten Aufträgen auf Upwork.",
+    leaveCta: "Schon mit mir gearbeitet? Bewertung abgeben",
     quoted: "Bewertungen wörtlich aus meinem Upwork-Profil zitiert.",
     verify: "Auf Upwork prüfen",
     stars: "{rating} von 5 Sternen",
@@ -302,8 +262,7 @@ const de: Dictionary = {
   contact: {
     eyebrow: "Sprechen wir",
     title: "Kostenloser Health Check für Ihren Support",
-    intro:
-      "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht. Wir schauen uns an, was Ihr Team ausbremst, und klären, wo wir am besten anfangen.",
+    intro: "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht.",
     cta: "Kostenlosen Health Check buchen",
     linkedin: "Auf LinkedIn vernetzen",
     email: "E-Mail",

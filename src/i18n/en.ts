@@ -60,9 +60,6 @@ const en = {
           "Something specific? I scope it and build it.",
       },
     ],
-    previous: "Previous service",
-    next: "Next service",
-    show: "Show {title}",
   },
   fit: {
     eyebrow: "Is This a Fit?",
@@ -102,9 +99,6 @@ const en = {
         description: "If something isn't worth automating, I'll tell you.",
       },
     ],
-    previous: "Previous reason",
-    next: "Next reason",
-    show: "Show {title}",
   },
   pricing: {
     eyebrow: "Pricing",

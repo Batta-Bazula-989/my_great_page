@@ -28,8 +28,7 @@ const sv: Dictionary = {
     titleBefore: "AI-chattbottar, röstbottar & ",
     titleHighlight: "ärendeautomatisering",
     titleAfter: " för supportteam",
-    intro:
-      "Jag kopplar AI till den helpdesk du redan använder – den besvarar återkommande frågor, skickar varje ärende till rätt kö och levererar de rapporter som ditt team i dag tar fram för hand. Färre manuella uppgifter, snabbare första svar, inget plattformsbyte.",
+    intro: "Inbyggt i den helpdesk du redan använder. Fasta priser, inget plattformsbyte.",
     ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
     highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
@@ -42,27 +41,24 @@ const sv: Dictionary = {
       {
         title: "Chatt- och röstbottar för support",
         description:
-          "Tar hand om första kontakten i meddelanden och inkommande samtal. Kvalificerar förfrågan, besvarar det den kan och lämnar över resten – på ett snyggt sätt. Ett filter framför ditt team, inte en ersättning för det.",
+          "Besvarar vanliga meddelanden och samtal och lämnar över resten till ditt team.",
       },
       {
         title: "Ärenderoutning och kategorisering",
         description:
-          "Varje ärende taggas, prioriteras och tilldelas i samma stund som det kommer in – utifrån vad det faktiskt står i det. Ingen manuell sortering, inga ärenden som blir liggande i fel kö.",
+          "Varje nytt ärende taggas, prioriteras och tilldelas automatiskt.",
       },
       {
         title: "Rapportering",
         description:
-          "De rapporter som ditt team tar fram manuellt varje vecka skapas och levereras automatiskt. Rätt format, rätt personer, rätt tid. Slut på att plocka ihop data.",
+          "De rapporter som ditt team tar fram för hand, skickade automatiskt.",
       },
       {
         title: "Skräddarsydd lösning",
         description:
-          "Något specifikt som inte passar in i en mall? Jag tar fram omfattningen och bygger det. Går det att automatisera listar vi ut hur.",
+          "Något specifikt? Jag tar fram omfattningen och bygger det.",
       },
     ],
-    previous: "Föregående tjänst",
-    next: "Nästa tjänst",
-    show: "Visa {title}",
   },
   fit: {
     eyebrow: "Passar det dig?",
@@ -70,17 +66,15 @@ const sv: Dictionary = {
     goodTitle: "Passar bra",
     notTitle: "Passar inte",
     good: [
-      "Ditt supportteam hanterar återkommande, förutsägbara uppgifter som dyker upp varenda dag",
-      "Du använder Zendesk, Freshdesk, Jira eller liknande – och vill ha automatisering ovanpå, inte en ersättning",
-      "Du vill ha tydlig rapportering utan att någon manuellt plockar fram data varje vecka",
-      "Dina verktyg pratar inte med varandra, och därför faller ärenden mellan stolarna",
-      "Du vill veta exakt vad du får innan du betalar för något",
+      "Återkommande supportarbete varje dag",
+      "Du använder Zendesk, Freshdesk, Jira eller liknande",
+      "Rapporter som fortfarande tas fram för hand",
+      "Verktyg som inte pratar med varandra",
     ],
     not: [
-      "Du behöver en supportchef på heltid som sköter den dagliga driften",
-      "Du vill att ett enda verktyg ska sköta allt – mottagning, lösning, eskalering, rapportering, precis allt",
-      "Du planerar att byta ut hela din supportstack och börja om från noll",
-      "Du tror att AI helt kan ersätta ditt supportteam",
+      "Du behöver en supportchef på heltid",
+      "Du vill byta ut hela din supportstack",
+      "Du förväntar dig att AI ska ersätta ditt team",
     ],
   },
   whyMe: {
@@ -88,42 +82,32 @@ const sv: Dictionary = {
     title: "Byggt av någon som själv har jobbat med support",
     items: [
       {
-        title: "Jag har jobbat i support – inte bara runt omkring",
-        description:
-          "Jag har hanterat ärenden, tagit fram rapporter manuellt och brottats med arbetsflöden som hölls ihop av copy-paste och önsketänkande. Jag vet vad som faktiskt bromsar team, eftersom jag själv har stått på den sidan.",
+        title: "Jag har jobbat i support",
+        description: "Jag har hanterat ärenden och tagit fram rapporter för hand, så jag vet vad som bromsar team.",
       },
       {
-        title: "Byggt för att hålla, inte för att imponera i en demo",
-        description:
-          "Varje automatisering har felhantering, tester av kantfall och övervakning. Om något oväntat händer hanteras felet kontrollerat och rätt person larmas – den slutar inte bara tyst att fungera.",
+        title: "Byggt för att hålla",
+        description: "Felhantering, tester av kantfall och övervakning i allt jag bygger.",
       },
       {
-        title: "Du äger allt när vi är klara",
-        description:
-          "Fullständig dokumentation. Tydlig överlämning. Inga proprietära verktyg som bara jag har tillgång till. Ditt team kan underhålla och bygga vidare på det jag bygger utan att behöva ringa mig.",
+        title: "Du äger allt",
+        description: "Fullständig dokumentation och överlämning. Ingen inlåsning.",
       },
       {
-        title: "Alltid rak kommunikation",
-        description:
-          "Jag säger till om något inte är värt att automatisera. Jag säger till om din budget inte räcker till omfattningen. Jag nickar inte bara och fakturerar dig för något som inte gör någon skillnad.",
+        title: "Raka svar",
+        description: "Om något inte är värt att automatisera säger jag det.",
       },
     ],
-    previous: "Föregående skäl",
-    next: "Nästa skäl",
-    show: "Visa {title}",
   },
   pricing: {
     eyebrow: "Priser",
     title: "Paket för supportautomatisering till fast pris",
-    intro:
-      "Ett pris per paket, som du betalar en gång. Inget löpande avtal. Osäker på vilket som passar? Börja med en kostnadsfri Health Check.",
+    intro: "Ett pris, betalas en gång. Inget löpande avtal.",
     oneTimeFee: "engångspris",
     cta: "Kom igång",
     from: "från {price}",
     delivery: "Leverans",
     deliveryTime: "1–3 veckor",
-    support: "Support",
-    supportTime: "30 dagar",
     included: "Det här ingår",
     running: "Driftskostnader per månad",
     runningNote: "Faktureras av verktygsleverantörerna. Ingår inte i paketpriset.",
@@ -133,11 +117,9 @@ const sv: Dictionary = {
         name: "Starter Chat Bot",
         description: "Besvarar vanliga frågor i 1–2 kanaler och lämnar över resten till ditt team.",
         included: [
-          "Chattbot i 1–2 kanaler: webbplats, WhatsApp, Telegram, Messenger eller Instagram",
-          "Besvarar dina FAQ och hanterar vanliga förfrågningar",
-          "Samlar in grundläggande kunduppgifter",
-          "Lämnar över resten till ditt team med kontext",
-          "Grundläggande dokumentation",
+          "1–2 kanaler: webbplats, WhatsApp, Telegram, Messenger eller Instagram",
+          "Besvarar vanliga frågor och samlar in kunduppgifter",
+          "Lämnar över resten till ditt team",
         ],
         running: [
           "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
@@ -149,11 +131,9 @@ const sv: Dictionary = {
         name: "Voice Bot",
         description: "Besvarar inkommande samtal, gör triage och lämnar över till ditt team.",
         included: [
-          "Röstagent för inkommande samtal med naturlig dialog",
-          "Triage av varje samtal",
-          "Smidig överlämning till ditt team",
+          "Besvarar inkommande samtal",
+          "Triage och smidig överlämning till ditt team",
           "Kopplad till din helpdesk",
-          "Grundläggande dokumentation",
         ],
         running: [
           "Minutavgifter till röstplattformen, t.ex. Retell AI från 0,07 USD per minut, plus AI-modellen och telefonlinjen",
@@ -164,11 +144,9 @@ const sv: Dictionary = {
         name: "Standard Chat Bot",
         description: "Hanterar mer komplexa konversationer i 3–5 kanaler.",
         included: [
-          "Chattbot i 3–5 kanaler",
-          "Konversationer i flera steg med smartare logik",
-          "Smidigare överlämningar till ditt team",
-          "Kopplad till din helpdesk",
-          "Grundläggande dokumentation",
+          "3–5 kanaler",
+          "Konversationer i flera steg",
+          "Överlämning till ditt team, kopplad till din helpdesk",
         ],
         running: [
           "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
@@ -180,10 +158,9 @@ const sv: Dictionary = {
         name: "Ticket Routing & Categorization",
         description: "Varje ärende taggas, prioriteras och tilldelas i samma stund som det kommer in.",
         included: [
-          "AI-klassificering av varje nytt ärende efter ämne och brådska",
-          "Taggar, prioritet och tilldelning till rätt grupp",
-          "Fungerar i Zendesk, Freshdesk eller Jira Service Management",
-          "Grundläggande dokumentation",
+          "AI sorterar varje nytt ärende efter ämne och brådska",
+          "Sätter taggar och prioritet, tilldelar rätt grupp",
+          "Zendesk, Freshdesk eller Jira Service Management",
         ],
         running: [
           "AI-klassificering, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
@@ -194,9 +171,8 @@ const sv: Dictionary = {
         name: "Automated Reports",
         description: "De rapporter som ditt team tar fram för hand, skickade automatiskt.",
         included: [
-          "Dina viktigaste supportnyckeltal, hämtade från din helpdesk",
-          "Schemalagt utskick till e-post eller Slack",
-          "Grundläggande dokumentation",
+          "Viktiga supportnyckeltal från din helpdesk",
+          "Skickas schemalagt till e-post eller Slack",
         ],
         running: [
           "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
@@ -207,20 +183,19 @@ const sv: Dictionary = {
         name: "Custom Automation",
         description: "Byggd kring dina arbetsflöden, verktyg och krav.",
         included: [
-          "Omfattningen tas fram tillsammans i din kostnadsfria Health Check",
-          "Fast pris och tidsplan som vi kommer överens om innan arbetet börjar",
+          "Omfattningen tas fram i din kostnadsfria Health Check",
+          "Fast pris som vi enas om innan arbetet börjar",
           "Alla verktyg med ett API eller webhooks",
-          "Grundläggande dokumentation",
         ],
         running: ["Beror på vilka verktyg som ingår; uppskattas i rapporten från din Health Check"],
       },
     ],
     footnote:
       "* Anthropics listpriser (oktober 2026) för promptar på upp till 100 000 tokens; längre promptar kostar 0,50 / 2,50 USD. Andra leverantörer och modeller prissätts annorlunda, och leverantörerna kan ändra sina priser.",
-    trust: ["Engångspris, inget löpande avtal", "30 dagars support efter leverans", "Grundläggande dokumentation ingår"],
+    allPackages: "Alla paket: 30 dagars support efter leverans och grundläggande dokumentation.",
     healthCheck: {
       title: "Kostnadsfri Health Check",
-      text: "Ett samtal på 30 minuter om din supportuppsättning, följt av en skriftlig rapport: vad du ska automatisera först, vilket paket som passar, det fasta priset och tidsplanen samt de uppskattade driftskostnaderna per månad.",
+      text: "Ett samtal på 30 minuter, sedan en skriftlig rapport: vad du ska automatisera först, vilket paket som passar och vad det kostar.",
       cta: "Boka din Health Check",
       price: "Gratis",
     },
@@ -228,24 +203,22 @@ const sv: Dictionary = {
   data: {
     eyebrow: "Dina data",
     title: "Dina data och GDPR",
-    intro: "Du väljer var din automatisering körs. Det kommer vi överens om i din Health Check, innan något byggs.",
+    intro: "Du väljer var din automatisering körs.",
     options: [
       {
         title: "I dina egna konton (standard)",
         points: [
-          "Byggs i din helpdesk, din arbetsyta för automatisering och ditt konto hos AI-leverantören",
-          "Kunddata stannar i system som du kontrollerar, under dina egna avtal med de leverantörerna",
-          "Du bestämmer vilken åtkomst jag får, och du kan ta bort den efter överlämningen",
-          "Du äger varje arbetsflöde, prompt och API-nyckel",
+          "Körs i dina egna konton för helpdesk, automatisering och AI",
+          "Kunddata stannar i system som du kontrollerar",
+          "Du äger allt och bestämmer över min åtkomst",
         ],
       },
       {
         title: "Driftas av mig, med PUB-avtal",
         points: [
-          "Jag kör automatiseringen på konton som jag hanterar",
-          "Vi tecknar ett personuppgiftsbiträdesavtal (PUB-avtal) enligt artikel 28 i GDPR innan några personuppgifter behandlas",
-          "Inget underbiträde, till exempel automatiseringsplattformen, AI-leverantören eller hostingen, anlitas utan ditt skriftliga godkännande (artikel 28.2 i GDPR)",
-          "När avtalet upphör raderas eller återlämnas uppgifterna, enligt ditt val (artikel 28.3 g i GDPR)",
+          "Personuppgiftsbiträdesavtal (PUB-avtal) enligt artikel 28 i GDPR tecknas innan några personuppgifter behandlas",
+          "Underbiträden anlitas bara med ditt skriftliga godkännande",
+          "Vid avslut raderas eller återlämnas uppgifterna, enligt ditt val",
         ],
       },
     ],
@@ -254,16 +227,8 @@ const sv: Dictionary = {
   reviews: {
     eyebrow: "Kundomdömen",
     title: "Verifierade omdömen på Upwork",
-    intro:
-      "Varje omdöme på min Upwork-profil kommer från ett riktigt, betalt uppdrag – så du kan kontrollera hur mina tidigare projekt har gått innan du bokar ett samtal.",
-    readTitle: "Läs kundomdömen",
-    readText:
-      "Se alla betyg och all skriftlig feedback från mina kunder på min Upwork-profil.",
-    readCta: "Visa min Upwork-profil",
-    leaveTitle: "Har du jobbat med mig? Lämna ett omdöme",
-    leaveText:
-      "Om vi har slutfört ett projekt tillsammans hjälper ett kort omdöme på Upwork andra supportteam att fatta beslut med trygghet. Det tar två minuter – tack!",
-    leaveCta: "Lämna feedback på Upwork",
+    intro: "Från betalda uppdrag på Upwork.",
+    leaveCta: "Har du jobbat med mig? Lämna ett omdöme",
     quoted: "Omdömen citerade ordagrant från min Upwork-profil.",
     verify: "Kontrollera på Upwork",
     stars: "{rating} av 5 stjärnor",
@@ -301,7 +266,7 @@ const sv: Dictionary = {
   contact: {
     eyebrow: "Låt oss prata",
     title: "Få en kostnadsfri Health Check av din support",
-    intro: "Ett samtal på 30 minuter, sedan en skriftlig rapport. Vi tittar på vad som bromsar ditt team och tar reda på var vi ska börja.",
+    intro: "Ett samtal på 30 minuter, sedan en skriftlig rapport.",
     cta: "Boka kostnadsfri Health Check",
     linkedin: "Kontakta mig på LinkedIn",
     email: "E-post",
