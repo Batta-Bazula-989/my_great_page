@@ -19,8 +19,10 @@ Rules
   2–3 recommendations, 24 hours, 1–2 / 3–5 channels…).
 - Keep unchanged: TascaLab, Roman Zakharenko, the email address, product names (Zendesk, Freshdesk, Jira,
   Slack, Make, n8n, Upwork, LinkedIn, Telegram, WhatsApp, Zoom, Google Meet), "FAQ" may be localized.
-- Prices stay in USD; write them in the target language's number style, e.g. de/es/it/nl "1.100 – 1.600 USD",
-  fr/pl/sv "1 100 – 1 600 USD". Keep the same ranges.
+- Package prices are not in the dictionaries: `src/lib/pricing.ts` holds them per currency and formats them.
+  Third-party prices in `pricing.plans[].running` and `pricing.footnote` (n8n, Make, Retell AI, Anthropic, Meta)
+  keep their published currency and amount; only the number style may follow the language.
+- "Health Check" stays in English, like the plan names.
 - Pricing plan names stay in English ("Starter Chat Bot", "Voice Bot", …) as in every other language.
 - `meta.homeTitle` ≤ 70 characters and ends with " | TascaLab"; `meta.homeDescription` 140–160 characters;
   `resources.metaTitle` ≤ 60 characters; `resources.metaDescription` 120–160 characters.

@@ -29,8 +29,10 @@ types in the same order), list items, table columns/rows, FAQs. The build fails 
   es "2 de agosto de 2026", it "2 agosto 2026", nl "2 augustus 2026", pl "2 sierpnia 2026", sv "2 augusti 2026").
 - Product UI labels, menu names, settings and button names (e.g. 'Notify webhook', 'Hours since',
   'HUMAN_AGENT', 'Get Started') stay in English, in quotes, as in the source.
-- Prices stay in USD, using the target language's number format, e.g. de/es/it/nl "1.100–1.600 USD",
-  fr/pl/sv "1 100–1 600 USD".
+- TascaLab's own prices are written as tokens such as `{{price:starter}}`, which become the package price in the
+  language's currency ("360 €", "ab 1.070 €"). Keep every token exactly, and write the sentence so it reads
+  naturally with a single price in its place. Other companies' prices stay as published.
+- The free call is the "free 30-minute Health Check call"; "Health Check" stays in English.
 - Official EU names in the target language: GDPR → de DSGVO, fr RGPD, es RGPD, it GDPR, nl AVG, pl RODO,
   sv GDPR (dataskyddsförordningen);
   "Regulation (EU) 2024/1689" → de "Verordnung (EU) 2024/1689", fr "règlement (UE) 2024/1689",

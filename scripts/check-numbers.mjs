@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const locale = process.argv[2];
 const outfile = path.join(os.tmpdir(), `check-numbers-${process.pid}-${Date.now()}.mjs`);
 await build({ entryPoints: [path.join(root, "src/content/index.ts")], bundle: true, platform: "node", format: "esm", outfile, logLevel: "error" });
-const { pagesByLocale, englishPage } = await import(pathToFileURL(outfile).href);
+const { rawPagesByLocale: pagesByLocale, englishPage } = await import(pathToFileURL(outfile).href);
 fs.rmSync(outfile, { force: true });
 
 // Text a reader sees, minus slugs/keys/URLs; numbers normalised ("1,000" / "1.000" / "1 000" → "1000").

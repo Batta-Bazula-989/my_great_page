@@ -4,7 +4,8 @@ import { StaticRouter } from "react-router-dom/server";
 import { AppRoutes } from "./routes";
 import { SITE_URL, pageByKey, pagesByLocale } from "./content";
 import type { Locale, TranslatedPage } from "./content/types";
-import { dictionaries } from "./i18n";
+import { dictionaries, format } from "./i18n";
+import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
 import { DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
 
 export { contentProblems } from "./content/validate";
@@ -35,18 +36,10 @@ const withXDefault = (alternates: { hreflang: string; href: string }[]) => {
 const business = { "@type": "ProfessionalService", "@id": `${SITE_URL}/#business`, name: "TascaLab", url: `${SITE_URL}/` };
 const author = { "@type": "Person", "@id": `${SITE_URL}/#founder`, name: "Roman Zakharenko" };
 
-// USD ranges in the same order as the pricing plans in the dictionaries.
-const PRICE_RANGES: [number, number][] = [
-  [350, 450],
-  [1100, 1600],
-  [500, 650],
-  [600, 950],
-  [500, 900],
-  [1200, 2000],
-];
-
 const homeJsonLd = (locale: Locale): object[] => {
   const t = dictionaries[locale];
+  const priceCurrency = CURRENCY[locale];
+  const lowest = Math.min(...PACKAGES.map((p) => p.prices[priceCurrency]));
   return [
     {
       "@context": "https://schema.org",
@@ -55,7 +48,7 @@ const homeJsonLd = (locale: Locale): object[] => {
       image: `${SITE_URL}/og-image.png`,
       description: t.meta.homeDescription,
       email: "romanzakharenko.r@gmail.com",
-      priceRange: "$350 - $2,000",
+      priceRange: format(t.pricing.from, { price: formatMoney(locale, lowest) }),
       areaServed: "Worldwide",
       founder: author,
       sameAs: [
@@ -66,16 +59,24 @@ const homeJsonLd = (locale: Locale): object[] => {
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: t.services.title,
-        itemListElement: t.pricing.plans.map((plan, i) => ({
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: plan.name },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "USD",
-            minPrice: PRICE_RANGES[i][0],
-            maxPrice: PRICE_RANGES[i][1],
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: t.pricing.healthCheck.title, description: t.pricing.healthCheck.text },
+            price: 0,
+            priceCurrency,
           },
-        })),
+          ...PACKAGES.map((pkg, i) => {
+            const amount = pkg.prices[priceCurrency];
+            return {
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: t.pricing.plans[i].name, description: t.pricing.plans[i].description },
+              ...(pkg.isMinimum
+                ? { priceSpecification: { "@type": "PriceSpecification", priceCurrency, minPrice: amount } }
+                : { price: amount, priceCurrency }),
+            };
+          }),
+        ],
       },
     },
     {

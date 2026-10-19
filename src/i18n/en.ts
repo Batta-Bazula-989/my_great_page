@@ -5,10 +5,10 @@ const en = {
   meta: {
     homeTitle: "AI Customer Support Automation — Chatbots, Voice Bots & Ticket Routing | TascaLab",
     homeDescription:
-      "Freelance customer support automation: AI chatbots, voice bots, Zendesk/Freshdesk/Jira ticket routing and automated reporting — built into the tools you already use. Fixed prices, free 30-min audit.",
+      "Customer support automation: AI chatbots, voice bots, ticket routing and automated reports for Zendesk, Freshdesk and Jira. Fixed prices, free Health Check.",
     noscriptHeading: "AI customer support automation — chatbots, voice bots & ticket routing",
     noscriptText:
-      "TascaLab builds AI chatbots, voice bots, ticket routing and automated reporting on top of Zendesk, Freshdesk, Jira and Slack. Email romanzakharenko.r@gmail.com to book a free 30-minute audit.",
+      "TascaLab builds AI chatbots, voice bots, ticket routing and automated reporting on top of Zendesk, Freshdesk, Jira and Slack. Email romanzakharenko.r@gmail.com to book a free Health Check.",
   },
   nav: {
     services: "What I Do",
@@ -18,7 +18,7 @@ const en = {
     reviews: "Reviews",
     faq: "FAQ",
     resources: "Resources",
-    cta: "Book a Free Audit",
+    cta: "Free Health Check",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     language: "Language",
@@ -31,7 +31,7 @@ const en = {
     titleAfter: " for support teams",
     intro:
       "I connect AI to the helpdesk you already use — answering repetitive questions, routing every ticket to the right queue, and delivering the reports your team builds by hand. Fewer manual tasks, faster first replies, no platform switch.",
-    ctaBook: "Book a Free Audit",
+    ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
     highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
     integratesWith: "Integrates with",
@@ -116,58 +116,140 @@ const en = {
   pricing: {
     eyebrow: "Pricing",
     title: "Fixed-price support automation packages",
-    intro: "One-time project fees. You know the price range before we start — final quote after a free audit.",
-    oneTimeFee: "one-time fee",
+    intro: "One price per package, paid once. No monthly fee from me. Not sure which fits? Start with the free Health Check.",
+    oneTimeFee: "one-time",
     cta: "Get Started",
-    // Same order as the plans in PricingSection; prices stay in USD.
+    from: "from {price}",
+    delivery: "Delivery",
+    deliveryDays: "{days} days",
+    deliveryFrom: "from {days} days",
+    support: "Support",
+    included: "What's included",
+    running: "Monthly running costs",
+    runningNote: "Paid to the tool providers, not to me.",
+    // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
         name: "Starter Chat Bot",
-        price: "$350 – $450",
-        description:
-          "Handles basic customer queries and FAQs across 1–2 channels. Perfect for small businesses getting started with automation.",
-        features: ["1–2 channels", "Answers FAQs, collects basic info, and handles common requests automatically"],
+        description: "Answers common questions on 1–2 channels and hands the rest to your team.",
+        included: [
+          "Chatbot on 1–2 channels: website, WhatsApp, Telegram, Messenger or Instagram",
+          "Answers your FAQs and handles common requests",
+          "Collects basic customer info",
+          "Hands the rest to your team with context",
+          "Basic documentation",
+        ],
+        running: [
+          "AI usage, billed by your AI provider: about $2.50–$50 per 1,000 conversations*",
+          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
+          "WhatsApp only: first 1,000 service messages a month free per number, then Meta's rates",
+        ],
       },
       {
         name: "Voice Bot",
-        price: "$1,100 – $1,600",
-        description: "For inbound phone calls.",
-        features: [
-          "Full voice agent for handling inbound calls with natural conversation, triage, and clean handover to your team",
+        description: "Answers inbound calls, triages them and hands over to your team.",
+        included: [
+          "Voice agent for inbound calls with natural conversation",
+          "Triage of every call",
+          "Clean handover to your team",
+          "Connected to your helpdesk",
+          "Basic documentation",
+        ],
+        running: [
+          "Voice platform per-minute fees, e.g. Retell AI from $0.07 per minute",
+          "A phone number from your telephony provider",
         ],
       },
       {
         name: "Standard Chat Bot",
-        price: "$500 – $650",
-        description:
-          "Advanced chatbot with multi-channel support, smarter responses, and better handling of customer interactions at scale.",
-        features: ["3–5 channels", "Handles more complex conversations with smarter logic and smoother handoffs to your team"],
+        description: "Handles more complex conversations across 3–5 channels.",
+        included: [
+          "Chatbot on 3–5 channels",
+          "Multi-step conversations with smarter logic",
+          "Smoother handoffs to your team",
+          "Connected to your helpdesk",
+          "Basic documentation",
+        ],
+        running: [
+          "AI usage, billed by your AI provider: about $2.50–$50 per 1,000 conversations*",
+          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
+          "WhatsApp only: first 1,000 service messages a month free per number, then Meta's rates",
+        ],
       },
       {
         name: "Ticket Routing & Categorization",
-        price: "$600 – $950",
-        description: "Automatic sorting and assigning of tickets.",
-        features: [
-          "Automatically tags, categorizes, and routes tickets to the right team, so nothing gets missed and response times stay fast.",
+        description: "Every ticket tagged, prioritized and assigned the moment it arrives.",
+        included: [
+          "AI classification of each new ticket by topic and urgency",
+          "Tags, priority and assignment to the right group",
+          "Works in Zendesk, Freshdesk or Jira Service Management",
+          "Basic documentation",
+        ],
+        running: [
+          "AI classification: about $0.20 per 1,000 tickets*",
+          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
         ],
       },
       {
         name: "Automated Reports",
-        price: "$500 – $900",
-        description: "Scheduled reports sent automatically.",
-        features: [
-          "Automated reports with your key business metrics delivered to email or Slack, so you stay informed without manual work.",
+        description: "The reports your team builds by hand, sent automatically.",
+        included: [
+          "Your key support metrics pulled from your helpdesk",
+          "Scheduled delivery to email or Slack",
+          "Basic documentation",
+        ],
+        running: [
+          "Automation platform: n8n self-hosted (free), n8n Cloud from €20/month or Make from $9/month",
+          "No AI fees unless you want AI-written summaries",
         ],
       },
       {
         name: "Custom Automation",
-        price: "$1,200 – $2,000",
-        description:
-          "Fully customized automation built around your workflows, tools, and unique business requirements.",
-        features: ["Fully customized automation built around your workflows, tools, and unique business requirements"],
+        description: "Built around your workflows, tools and requirements.",
+        included: [
+          "Scoped together in your free Health Check",
+          "Fixed price and timeline agreed before work starts",
+          "Any tool with an API or webhooks",
+          "Basic documentation",
+        ],
+        running: ["Depends on the tools involved; estimated in your Health Check report"],
       },
     ],
-    trust: ["No hidden fees", "30 days of support after delivery", "Basic documentation included"],
+    footnote:
+      "* AI estimates use Anthropic's list prices (October 2026) for Claude Haiku 5.5 ($0.10 / $0.50 per million input / output tokens) and Claude Sonnet 5.5 ($2 / $10), assuming about 20,000 input and 1,000 output tokens per conversation and 1,500 / 100 per ticket. Other providers and models cost differently, and providers can change their prices.",
+    trust: ["No monthly fee from me", "30 days of support after delivery", "Basic documentation included"],
+    healthCheck: {
+      title: "Free Health Check",
+      text: "A 30-minute call about your support setup, followed by a written report: what to automate first, which package fits, the fixed price and timeline, and the estimated monthly running costs.",
+      cta: "Book your Health Check",
+      price: "Free",
+    },
+  },
+  data: {
+    eyebrow: "Your Data",
+    title: "Your data and GDPR",
+    intro: "You choose where your automation runs. We agree on it in your Health Check, before anything is built.",
+    options: [
+      {
+        title: "In your own accounts (default)",
+        points: [
+          "Built inside your helpdesk, your automation workspace and your AI provider account",
+          "Customer data stays in systems you control, under your own contracts with those providers",
+          "My access is only for the build and is removed after handover",
+          "You own every workflow, prompt and API key",
+        ],
+      },
+      {
+        title: "Hosted by me, under a DPA",
+        points: [
+          "I run the automation on accounts I manage",
+          "We sign a data processing agreement (Art. 28 GDPR) before any personal data is processed",
+          "Every sub-processor, such as the automation platform, AI provider and hosting, is named in it",
+          "When the contract ends, the data is deleted or returned, as Art. 28 requires",
+        ],
+      },
+    ],
+    note: "This describes how projects are set up. It is not legal advice.",
   },
   reviews: {
     eyebrow: "Client Feedback",
@@ -201,11 +283,11 @@ const en = {
       },
       {
         q: "Can you integrate a specific tool?",
-        a: "If it has an API or webhook support, almost certainly. Bring it up on the audit call and I'll confirm.",
+        a: "If it has an API or webhook support, almost certainly. Bring it up in your Health Check and I'll confirm.",
       },
       {
-        q: "What actually happens in the free audit?",
-        a: "30 minutes. We look at your current setup, where the friction is, and where automation would actually make a difference. You leave with 2–3 concrete recommendations, a rough scope, and a price range. No sales deck. No pressure.",
+        q: "What actually happens in the free Health Check?",
+        a: "A 30-minute call about your current setup, where the friction is, and where automation would actually make a difference. Afterwards you get a written report with 2–3 concrete recommendations, the package and fixed price that fit, and the estimated monthly running costs. No sales deck. No pressure.",
       },
       {
         q: "How long does a typical project take?",
@@ -215,9 +297,9 @@ const en = {
   },
   contact: {
     eyebrow: "Let's Talk",
-    title: "Book a free 30-minute support audit",
-    intro: "Book a 30-minute call. We'll look at what's slowing your team down and figure out where to start.",
-    cta: "Book a Free Audit",
+    title: "Get a free support Health Check",
+    intro: "A 30-minute call, then a written report. We'll look at what's slowing your team down and figure out where to start.",
+    cta: "Book a Free Health Check",
     linkedin: "Connect on LinkedIn",
     email: "Email",
     upwork: "Upwork Reviews",
@@ -243,8 +325,8 @@ const en = {
     accept: "Accept",
   },
   booking: {
-    title: "Book a Free Support Review",
-    description: "Leave your details and I'll reach out to schedule a 30-minute call. No commitment, no pitch.",
+    title: "Book a Free Health Check",
+    description: "Leave your details and I'll reach out to schedule a 30-minute call. You get a written report afterwards. No commitment, no pitch.",
     fullName: "Full Name",
     fullNamePlaceholder: "Jane Smith",
     email: "Work Email",
@@ -261,7 +343,7 @@ const en = {
     telegramPlaceholder: "https://t.me/username or @username",
     submitCalendar: "Continue to Calendar",
     submitting: "Sending...",
-    submit: "Book Free Support Review",
+    submit: "Book Free Health Check",
     sendFailed: "Could not send request",
     networkError: "Network error or server not reachable.",
     sent: "Request sent! I'll be in touch within 24 hours.",
@@ -290,8 +372,8 @@ const en = {
     faqShort: "FAQ",
     ctaTitle: "Want this set up for your team?",
     ctaText:
-      "Book a free 30-minute audit. You get 2–3 concrete recommendations, a rough scope and a price range — no pitch.",
-    ctaBook: "Book a Free Audit",
+      "Book a free Health Check: a 30-minute call and a written report with 2–3 concrete recommendations, a fixed price and estimated running costs. No pitch.",
+    ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
     sources: "Sources",
     onThisPage: "On this page",

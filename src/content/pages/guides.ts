@@ -169,7 +169,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds support automations on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools) with APIs, webhooks, Make and n8n. Most setups take 1 to 3 weeks. Every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute audit call.",
+            text: "TascaLab builds support automations on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools) with APIs, webhooks, Make and n8n. Most setups take 1 to 3 weeks. Every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -371,7 +371,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds chat and voice bots on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools). Standard Chat Bot projects cost $500 to $650 and Voice Bot projects $1,100 to $1,600. Both include basic documentation and 30 days of post-launch support.",
+            text: "TascaLab builds chat and voice bots on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools). Standard Chat Bot projects cost {{price:standard}} and Voice Bot projects {{price:voice}}. Both include basic documentation and 30 days of post-launch support.",
           },
         ],
       },
@@ -551,7 +551,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds automations on top of Zendesk, Freshdesk, Jira, Slack and internal tools, using APIs, webhooks, Make and n8n. Every project includes basic documentation of what was built, which helps when you map data flows, plus 30 days of post-launch support. You can start with a free 30-minute audit call.",
+            text: "TascaLab builds automations on top of Zendesk, Freshdesk, Jira, Slack and internal tools, using APIs, webhooks, Make and n8n. Every project includes basic documentation of what was built, which helps when you map data flows, plus 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -732,7 +732,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds chat and voice bots on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack. Standard Chat Bot projects cost $500 to $650 and Voice Bot projects $1,100 to $1,600. Both include basic documentation and 30 days of post-launch support. You can start with a free 30-minute audit call.",
+            text: "TascaLab builds chat and voice bots on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack. Standard Chat Bot projects cost {{price:standard}} and Voice Bot projects {{price:voice}}. Both include basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -916,7 +916,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds Zendesk automations like this with n8n, Make, APIs and webhooks, on top of the tools you already use. Ticket Routing & Categorization projects cost $600 to $950, and Custom Automation projects $1,200 to $2,000. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute audit call.",
+            text: "TascaLab builds Zendesk automations like this with n8n, Make, APIs and webhooks, on top of the tools you already use. Ticket Routing & Categorization projects cost {{price:routing}}, and Custom Automation projects {{price:custom}}. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },

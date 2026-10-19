@@ -180,19 +180,19 @@ export const servicesPages: SeoPageContent[] = [
           {
             type: "table",
             caption: "TascaLab chatbot packages (one-time price)",
-            head: ["Package", "Scope", "Price (USD)"],
+            head: ["Package", "Scope", "Price"],
             rows: [
-              ["Starter Chat Bot", "1–2 channels, FAQs, basic info collection", "$350–$450"],
+              ["Starter Chat Bot", "1–2 channels, FAQs, basic info collection", "{{price:starter}}"],
               [
                 "Standard Chat Bot",
                 "3–5 channels, more complex conversations, smoother handoffs",
-                "$500–$650",
+                "{{price:standard}}",
               ],
             ],
           },
           {
             type: "p",
-            text: "Available channels: website, WhatsApp, Telegram, Facebook Messenger and Instagram, plus phone through the voice bot. Most setups take 1–3 weeks, and every project includes 30 days of post-launch support and basic documentation, with no hidden fees. A free 30-minute audit call is the starting point.",
+            text: "Available channels: website, WhatsApp, Telegram, Facebook Messenger and Instagram, plus phone through the voice bot. Most setups take 1–3 weeks, and every project includes 30 days of post-launch support and basic documentation, with no hidden fees. A free 30-minute Health Check call is the starting point.",
           },
         ],
       },
@@ -402,11 +402,11 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Voice Bot package covers inbound calls, triage and handover to your team, for a one-time price of $1,100–$1,600. The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
+            text: "TascaLab's Voice Bot package covers inbound calls, triage and handover to your team, for a one-time price of {{price:voice}}. The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
           },
           {
             type: "p",
-            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute audit call.",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -620,11 +620,11 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Ticket Routing & Categorization service ($600–$950 one-time) works on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
+            text: "TascaLab's Ticket Routing & Categorization service ({{price:routing}} one-time) works on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
           },
           {
             type: "p",
-            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and a free 30-minute audit call is a good place to map your current queue.",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and a free 30-minute Health Check call is a good place to map your current queue.",
           },
         ],
       },
@@ -862,11 +862,11 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Automated Reports service ($500–$900 one-time) delivers your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
+            text: "TascaLab's Automated Reports service ({{price:reports}} one-time) delivers your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
           },
           {
             type: "p",
-            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute audit call.",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -1073,11 +1073,11 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Ticket Routing & Categorization service ($600–$950 one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ($1,200–$2,000).",
+            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Ticket Routing & Categorization service ({{price:routing}} one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and a free 30-minute audit call is a good place to map your current email flow.",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and a free 30-minute Health Check call is a good place to map your current email flow.",
           },
         ],
       },
@@ -1311,11 +1311,11 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. The Starter Chat Bot ($350–$450 one-time) covers 1–2 channels and the Standard Chat Bot ($500–$650) covers 3–5, across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ($1,200–$2,000).",
+            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. The Starter Chat Bot ({{price:starter}} one-time) covers 1–2 channels and the Standard Chat Bot ({{price:standard}}) covers 3–5, across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
-            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute audit call.",
+            text: "Most setups take 1–3 weeks. Every project includes 30 days of post-launch support and basic documentation, with no hidden fees, and you can start with a free 30-minute Health Check call.",
           },
         ],
       },

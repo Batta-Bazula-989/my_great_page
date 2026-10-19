@@ -1,8 +1,11 @@
 // Content checks run at build time (scripts/prerender.mjs) and by scripts/check-content.mjs.
 // Translations must mirror the English page exactly in structure and sources, so a translation
 // can't silently drop or add a fact.
-import { englishPage, pagesByLocale } from "./index";
+import { englishPage, rawPagesByLocale as pagesByLocale } from "./index";
 import type { Block, Locale, TranslatedPage } from "./types";
+import { PACKAGES } from "@/lib/pricing";
+
+const priceTokens = (p: TranslatedPage) => (JSON.stringify(p).match(/\{\{price:\w+\}\}/g) ?? []).sort();
 
 const blockShape = (b: Block) => {
   switch (b.type) {
@@ -34,6 +37,9 @@ const pageProblems = (locale: Locale, p: TranslatedPage, slugs: Set<string>, key
   for (const r of p.related)
     if (!englishPage(r) || r === p.key) problems.push(`${where} bad related key: ${r} (use English slugs)`);
 
+  for (const token of priceTokens(p))
+    if (!PACKAGES.some((pkg) => token === `{{price:${pkg.id}}}`)) problems.push(`${where} unknown price token ${token}`);
+
   if (locale === "en") return problems;
 
   const en = englishPage(p.key);
@@ -48,6 +54,7 @@ const pageProblems = (locale: Locale, p: TranslatedPage, slugs: Set<string>, key
     p.sources.map((s) => s.url).join() === en.sources.map((s) => s.url).join(),
     "sources must have the same URLs in the same order as English",
   );
+  must(priceTokens(p).join() === priceTokens(en).join(), "price tokens must match English");
   must(p.sections.length === en.sections.length, `sections: ${p.sections.length}, English has ${en.sections.length}`);
   p.sections.forEach((s, i) => {
     const e = en.sections[i];

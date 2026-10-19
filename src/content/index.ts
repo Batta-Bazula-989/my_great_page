@@ -11,6 +11,7 @@ import * as it from "./pages/it";
 import * as nl from "./pages/nl";
 import * as pl from "./pages/pl";
 import * as sv from "./pages/sv";
+import { fillPrices } from "@/lib/pricing";
 
 export const SITE_URL = "https://www.tascalab.com";
 
@@ -33,7 +34,8 @@ const all = (m: LocaleModule): TranslatedPage[] => [
   ...m.guidePages,
 ];
 
-export const pagesByLocale: Record<Locale, TranslatedPage[]> = {
+// Pages as written, with {{price:<id>}} tokens. The content checks compare these across languages.
+export const rawPagesByLocale: Record<Locale, TranslatedPage[]> = {
   en: english,
   de: all(de),
   fr: all(fr),
@@ -43,6 +45,23 @@ export const pagesByLocale: Record<Locale, TranslatedPage[]> = {
   pl: all(pl),
   sv: all(sv),
 };
+
+const withPrices = <T,>(value: T, locale: Locale): T => {
+  if (typeof value === "string") return fillPrices(value, locale) as T;
+  if (Array.isArray(value)) return value.map((v) => withPrices(v, locale)) as T;
+  if (value && typeof value === "object")
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, withPrices(v, locale)])) as T;
+  return value;
+};
+
+// Pages as shown, with each price in the language's currency. Filled in on first use of each language.
+const filled: Partial<Record<Locale, TranslatedPage[]>> = {};
+export const pagesByLocale = {} as Record<Locale, TranslatedPage[]>;
+for (const locale of Object.keys(rawPagesByLocale) as Locale[])
+  Object.defineProperty(pagesByLocale, locale, {
+    enumerable: true,
+    get: () => (filled[locale] ??= withPrices(rawPagesByLocale[locale], locale)),
+  });
 
 // A page's English slug is its key; every translation of it shares that key.
 export const englishPage = (key: string) => english.find((p) => p.key === key);
