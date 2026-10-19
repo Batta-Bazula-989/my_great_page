@@ -115,7 +115,7 @@ const es: Dictionary = {
   pricing: {
     eyebrow: "Precios",
     title: "Paquetes de automatización del soporte a precio fijo",
-    intro: "Un precio por paquete, que pagas una sola vez. Sin cuota mensual por mi parte. ¿No sabes cuál te encaja? Empieza con el Health Check gratuito.",
+    intro: "Un precio por paquete, que pagas una sola vez. Sin iguala. ¿No sabes cuál te encaja? Empieza con el Health Check gratuito.",
     oneTimeFee: "pago único",
     cta: "Empezar",
     from: "desde {price}",
@@ -125,7 +125,7 @@ const es: Dictionary = {
     supportTime: "30 días",
     included: "Qué incluye",
     running: "Costes mensuales de funcionamiento",
-    runningNote: "Se pagan a los proveedores de las herramientas, no a mí.",
+    runningNote: "Los cobran los proveedores de las herramientas. No se incluyen en el precio del paquete.",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -139,9 +139,9 @@ const es: Dictionary = {
           "Documentación básica",
         ],
         running: [
-          "Uso de IA, facturado por tu proveedor de IA: unos 2,50–50 $ por cada 1.000 conversaciones*",
-          "Plataforma de automatización: n8n autoalojado (gratis), n8n Cloud desde 20 €/mes o Make desde 9 $/mes",
-          "Solo WhatsApp: los primeros 1.000 mensajes de servicio al mes son gratis por número; después, las tarifas de Meta",
+          "Uso de IA, facturado por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
+          "Plataforma de automatización: n8n autoalojado (software gratuito; el servidor lo pagas tú), n8n Cloud desde 20 €/mes o Make desde 9 $/mes (ambos con facturación anual)",
+          "Solo WhatsApp: desde el 1 de octubre de 2026, 1.000 mensajes de servicio gratis al mes por número de empresa; después, la tarifa por mensaje de Meta",
         ],
       },
       {
@@ -155,7 +155,7 @@ const es: Dictionary = {
           "Documentación básica",
         ],
         running: [
-          "Tarifas por minuto de la plataforma de voz, p. ej., Retell AI desde 0,07 $ por minuto",
+          "Tarifas por minuto de la plataforma de voz, p. ej., Retell AI desde 0,07 $ por minuto, más el modelo de IA y la línea telefónica",
           "Un número de teléfono de tu proveedor de telefonía",
         ],
       },
@@ -170,9 +170,9 @@ const es: Dictionary = {
           "Documentación básica",
         ],
         running: [
-          "Uso de IA, facturado por tu proveedor de IA: unos 2,50–50 $ por cada 1.000 conversaciones*",
-          "Plataforma de automatización: n8n autoalojado (gratis), n8n Cloud desde 20 €/mes o Make desde 9 $/mes",
-          "Solo WhatsApp: los primeros 1.000 mensajes de servicio al mes son gratis por número; después, las tarifas de Meta",
+          "Uso de IA, facturado por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
+          "Plataforma de automatización: n8n autoalojado (software gratuito; el servidor lo pagas tú), n8n Cloud desde 20 €/mes o Make desde 9 $/mes (ambos con facturación anual)",
+          "Solo WhatsApp: desde el 1 de octubre de 2026, 1.000 mensajes de servicio gratis al mes por número de empresa; después, la tarifa por mensaje de Meta",
         ],
       },
       {
@@ -185,8 +185,8 @@ const es: Dictionary = {
           "Documentación básica",
         ],
         running: [
-          "Clasificación con IA: unos 0,20 $ por cada 1.000 tickets*",
-          "Plataforma de automatización: n8n autoalojado (gratis), n8n Cloud desde 20 €/mes o Make desde 9 $/mes",
+          "Clasificación con IA, facturada por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
+          "Plataforma de automatización: n8n autoalojado (software gratuito; el servidor lo pagas tú), n8n Cloud desde 20 €/mes o Make desde 9 $/mes (ambos con facturación anual)",
         ],
       },
       {
@@ -198,7 +198,7 @@ const es: Dictionary = {
           "Documentación básica",
         ],
         running: [
-          "Plataforma de automatización: n8n autoalojado (gratis), n8n Cloud desde 20 €/mes o Make desde 9 $/mes",
+          "Plataforma de automatización: n8n autoalojado (software gratuito; el servidor lo pagas tú), n8n Cloud desde 20 €/mes o Make desde 9 $/mes (ambos con facturación anual)",
           "Sin costes de IA, salvo que quieras resúmenes redactados por IA",
         ],
       },
@@ -215,8 +215,8 @@ const es: Dictionary = {
       },
     ],
     footnote:
-      "* Las estimaciones de IA usan los precios oficiales de Anthropic (octubre de 2026) para Claude Haiku 5.5 (0,10 $ / 0,50 $ por millón de tokens de entrada / salida) y Claude Sonnet 5.5 (2 $ / 10 $), suponiendo unos 20.000 tokens de entrada y 1.000 de salida por conversación, y 1.500 / 100 por ticket. Otros proveedores y modelos tienen costes distintos, y los proveedores pueden cambiar sus precios.",
-    trust: ["Sin cuota mensual por mi parte", "30 días de soporte tras la entrega", "Documentación básica incluida"],
+      "* Precios oficiales de Anthropic (octubre de 2026) para prompts de hasta 100.000 tokens; los prompts más largos cuestan 0,50 $ / 2,50 $. Otros proveedores y modelos tienen precios distintos, y los proveedores pueden cambiar sus precios.",
+    trust: ["Precio único, sin iguala", "30 días de soporte tras la entrega", "Documentación básica incluida"],
     healthCheck: {
       title: "Health Check gratuito",
       text: "Una llamada de 30 minutos sobre tu configuración de soporte y, después, un informe por escrito: qué automatizar primero, qué paquete encaja, el precio fijo y el plazo, y los costes mensuales de funcionamiento estimados.",
@@ -234,7 +234,7 @@ const es: Dictionary = {
         points: [
           "Se construye dentro de tu helpdesk, tu espacio de trabajo de automatización y tu cuenta del proveedor de IA",
           "Los datos de tus clientes se quedan en sistemas que controlas tú, bajo tus propios contratos con esos proveedores",
-          "Mi acceso es solo para la implementación y se retira tras la entrega",
+          "Tú decides qué acceso me das y puedes retirarlo tras la entrega",
           "Todos los flujos, prompts y claves de API son tuyos",
         ],
       },
@@ -243,8 +243,8 @@ const es: Dictionary = {
         points: [
           "Ejecuto la automatización en cuentas que gestiono yo",
           "Firmamos un contrato de encargo del tratamiento (DPA) conforme al art. 28 del RGPD antes de tratar ningún dato personal",
-          "En él figura cada subencargado del tratamiento, como la plataforma de automatización, el proveedor de IA y el alojamiento",
-          "Cuando termina el contrato, los datos se suprimen o se devuelven, como exige el art. 28",
+          "No se recurre a ningún subencargado del tratamiento, como la plataforma de automatización, el proveedor de IA o el alojamiento, sin tu autorización por escrito (art. 28.2 del RGPD)",
+          "Cuando termina el contrato, los datos se suprimen o se devuelven, a tu elección (art. 28.3.g del RGPD)",
         ],
       },
     ],
