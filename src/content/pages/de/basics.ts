@@ -1104,7 +1104,7 @@ export const basicsPages: TranslatedPage[] = [
     primaryKeyword: "Omnichannel Kundenservice",
     title: "Omnichannel-Kundenservice: Was er in der Praxis bedeutet",
     description:
-      "Omnichannel-Kundenservice erklärt: Unterschied zu Multichannel, einheitlicher Arbeitsbereich für Agenten, Omnichannel-Routing, Fenster bei WhatsApp und Messenger.",
+      "Omnichannel-Kundenservice erklärt: Unterschied zu Multichannel, einheitlicher Agenten-Arbeitsplatz, Omnichannel-Routing, Fenster bei WhatsApp und Messenger.",
     h1: "Omnichannel-Kundenservice: was er bedeutet und wie er funktioniert",
     intro:
       "Omnichannel-Kundenservice bedeutet, dass jeder Kanal, über den ein Kunde Sie erreicht – etwa E-Mail, Chat, Telefon, WhatsApp oder Social Messaging –, mit einem einzigen Kundendatensatz und einem einzigen Gesprächsverlauf verbunden ist, den jeder Agent sehen kann. Multichannel-Support bietet dieselben Kanäle, betreibt sie aber getrennt, sodass Kunden sich bei jedem Kanalwechsel wiederholen müssen. Der Weg zu Omnichannel erfordert einen einheitlichen Arbeitsbereich für Agenten, ein Routing, das alle Kanäle als einen gemeinsamen Arbeitspool behandelt, und Workflows, die die eigenen Regeln jedes Kanals respektieren.",
