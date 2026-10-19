@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, ArrowUpRight, MessageSquareQuote, BadgeCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, ArrowUpRight } from "lucide-react";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { UPWORK_REVIEWS } from "@/content/reviews";
 import { format, useDict, useLocale } from "@/i18n";
@@ -64,8 +63,8 @@ const ReviewsSection = () => {
           ))}
         </div>
 
-        <p className="max-w-4xl mx-auto mt-4 mb-10 text-sm text-muted-foreground text-center">
-          {t.quoted}{" "}
+        <p className="max-w-4xl mx-auto mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <span>{t.quoted}</span>
           <a
             href={UPWORK_PROFILE_URL}
             target="_blank"
@@ -75,58 +74,16 @@ const ReviewsSection = () => {
             {t.verify}
             <ArrowUpRight className="w-3.5 h-3.5" aria-hidden />
           </a>
+          <a
+            href={UPWORK_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-primary hover:underline"
+          >
+            {t.leaveCta}
+            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden />
+          </a>
         </p>
-
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <motion.div
-            className="glass glass-hover rounded-[28px] p-8 flex flex-col"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-1 mb-5" aria-hidden>
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <h3 className="text-xl font-bold font-display mb-2 flex items-center gap-2">
-              <BadgeCheck className="w-5 h-5 text-primary" aria-hidden />
-              {t.readTitle}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
-              {t.readText}
-            </p>
-            <Button variant="hero" size="lg" className="rounded-full self-start" asChild>
-              <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                {t.readCta}
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            className="glass glass-hover rounded-[28px] p-8 flex flex-col"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-          >
-            <div className="w-12 h-12 rounded-2xl glass-chip flex items-center justify-center mb-5">
-              <MessageSquareQuote className="w-6 h-6 text-primary" aria-hidden />
-            </div>
-            <h3 className="text-xl font-bold font-display mb-2">{t.leaveTitle}</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
-              {t.leaveText}
-            </p>
-            <Button variant="glass" size="lg" className="rounded-full self-start" asChild>
-              <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                {t.leaveCta}
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </Button>
-          </motion.div>
-        </div>
       </div>
     </section>
   );

@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, ShieldCheck, Clock, FileText, CalendarClock, LifeBuoy, Receipt, Stethoscope } from "lucide-react";
+import { Check, CalendarClock, ChevronDown, Receipt, Stethoscope } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 import { useDict, useLocale } from "@/i18n";
 import en from "@/i18n/en";
 import { PACKAGES, packagePrice } from "@/lib/pricing";
-
-const trustIcons = [ShieldCheck, Clock, FileText];
 
 const PricingSection = () => {
   const t = useDict().pricing;
@@ -77,32 +75,17 @@ const PricingSection = () => {
                     <div className="font-bold font-display text-primary leading-none text-4xl">
                       {packagePrice(locale, pkg.id)}
                     </div>
-                    <p className="text-muted-foreground/70 mt-2 text-sm">{t.oneTimeFee}</p>
+                    <p className="mt-2 flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
+                      <span>{t.oneTimeFee}</span>
+                      <span aria-hidden>·</span>
+                      <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
+                      <span>
+                        {t.delivery} {t.deliveryTime}
+                      </span>
+                    </p>
                   </div>
 
-                  <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
-                    <div className="glass-chip rounded-xl px-3 py-2">
-                      <dt className="flex items-center gap-1.5 text-muted-foreground">
-                        <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
-                        {t.delivery}
-                      </dt>
-                      <dd className="font-semibold mt-0.5">
-                        {t.deliveryTime}
-                      </dd>
-                    </div>
-                    <div className="glass-chip rounded-xl px-3 py-2">
-                      <dt className="flex items-center gap-1.5 text-muted-foreground">
-                        <LifeBuoy className="w-3.5 h-3.5 text-primary" aria-hidden />
-                        {t.support}
-                      </dt>
-                      <dd className="font-semibold mt-0.5">{t.supportTime}</dd>
-                    </div>
-                  </dl>
-
-                  <div className="border-t border-border/40 my-5" />
-
-                  <p className="text-sm font-semibold text-foreground/90 mb-3">{t.included}</p>
-                  <ul className="space-y-2.5">
+                  <ul aria-label={t.included} className="mt-5 space-y-2.5 flex-1">
                     {plan.included.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-muted-foreground leading-relaxed">
                         <Check className="w-4 h-4 text-primary shrink-0 mt-1" aria-hidden />
@@ -111,18 +94,22 @@ const PricingSection = () => {
                     ))}
                   </ul>
 
-                  <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 flex-1">
-                    <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
+                  <details className="group mt-5 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                    <summary className="flex cursor-pointer list-none items-center gap-1.5 text-sm font-semibold text-foreground/90 [&::-webkit-details-marker]:hidden">
                       <Receipt className="w-4 h-4 text-primary" aria-hidden />
                       {t.running}
-                    </p>
-                    <p className="text-xs text-muted-foreground/80 mt-1">{t.runningNote}</p>
+                      <ChevronDown className="ml-auto w-4 h-4 transition-transform group-open:rotate-180" aria-hidden />
+                    </summary>
+                    <p className="text-xs text-muted-foreground/80 mt-2">{t.runningNote}</p>
                     <ul className="mt-3 space-y-2 text-sm text-muted-foreground leading-relaxed list-disc pl-4 marker:text-primary/70">
                       {plan.running.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  </div>
+                    {plan.running.some((item) => item.endsWith("*")) && (
+                      <p className="mt-3 text-xs text-muted-foreground/80 leading-relaxed">{t.footnote}</p>
+                    )}
+                  </details>
 
                   <button
                     onClick={() => book(en.pricing.plans[i].name)}
@@ -136,31 +123,7 @@ const PricingSection = () => {
           })}
         </div>
 
-        <p className="max-w-6xl mx-auto mt-6 text-xs text-muted-foreground/80 leading-relaxed">{t.footnote}</p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="mt-12 max-w-3xl mx-auto"
-        >
-          <div className="glass relative rounded-[28px] overflow-hidden px-5 py-4">
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {t.trust.map((text, i) => {
-                const Icon = trustIcons[i];
-                return (
-                  <div key={text} className="flex items-start gap-3">
-                    <div className="glass-chip w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon className="w-4 h-4 text-primary" aria-hidden />
-                    </div>
-                    <span className="text-foreground/90 font-medium leading-snug pt-1 text-lg">{text}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
+        <p className="max-w-6xl mx-auto mt-8 text-center text-muted-foreground">{t.allPackages}</p>
       </div>
 
       <BookingModal open={modalOpen} onOpenChange={setModalOpen} selectedPlan={selectedPlan} />
