@@ -770,4 +770,186 @@ export const channelPages: TranslatedPage[] = [
     ],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 5. Website chatbot
+  // ---------------------------------------------------------------------------
+  {
+    key: "website-chatbot-for-support",
+    slug: "website-chatbot-kundensupport",
+    category: "channels",
+    navLabel: "Website-Chatbot für den Support",
+    primaryKeyword: "Website Chatbot Kundensupport",
+    title: "Website-Chatbot für den Kundensupport: Setup und Übergabe",
+    description:
+      "Website-Chatbot für den Support planen: Helpdesk-Widgets wie Zendesk und Freshchat, Übergabe an Agenten, Abdeckung nach Feierabend und WCAG-Barrierefreiheit.",
+    h1: "Website-Chatbot für den Kundensupport: Widgets, Übergabe und Barrierefreiheit",
+    intro:
+      "Ein Website-Chatbot für den Kundensupport ist ein Chat-Widget auf Ihrer Website oder in Ihrem Help Center, in dem ein Bot häufige Fragen beantwortet, Angaben erfasst und das Gespräch an einen Live-Agenten übergibt, wenn er nicht weiterhelfen kann. Die meisten Helpdesks bringen ihr eigenes Widget mit; die eigentliche Arbeit liegt also in der Konfiguration der Bot-Abläufe, der Übergabe, des Verhaltens außerhalb der Geschäftszeiten und der Barrierefreiheit.",
+    keyFacts: [
+      "Das Messaging-Web-Widget von Zendesk wird installiert, indem ein Code-Snippet auf jeder Seite eingefügt wird, auf der es erscheinen soll.",
+      "Zendesk Messaging kann während und außerhalb der Geschäftszeiten unterschiedliche Antworten anzeigen.",
+      "KI-Agenten in Freshdesk lassen sich so einstellen, dass sie vor der Übergabe an einen Menschen Kundendaten erfassen.",
+      "WCAG 2.2 verlangt, dass alle Funktionen per Tastatur bedienbar sind (2.1.1, Stufe A).",
+      "Die W3C-Technik role=\"log\" ermöglicht es Screenreadern, neue Chatnachrichten anzukündigen, sobald sie eingehen.",
+    ],
+    sections: [
+      {
+        heading: "Natives Helpdesk-Widget oder ein eigenes?",
+        blocks: [
+          {
+            type: "p",
+            text: "Wenn Sie bereits einen Helpdesk nutzen, beginnen Sie mit dessen Widget. Chats landen in derselben Queue wie E-Mails und Social-Media-Nachrichten, Agenten antworten aus einem einzigen Workspace, und der Anbieter pflegt den Widget-Code.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk Web Widget (Messaging): Gehen Sie im Admin Center zu „Channels > Messaging and social > Messaging“, öffnen Sie das Widget und kopieren Sie den Code aus dem Abschnitt „Installation“. Fügen Sie ihn in den Quelltext jeder Seite ein, auf der das Widget erscheinen soll, und stellen Sie sicher, dass Ihre Firewall das Widget zulässt.",
+              "Freshchat-Web-Widget (Freshdesk): Kopieren Sie den Embed-Code aus den Einstellungen des Web-Chat-Kanals und fügen Sie ihn auf jeder Seite ein, auf der das Widget erscheinen soll. Freshworks dokumentiert außerdem die Installation auf WordPress, Shopify und Squarespace sowie in iOS- und Android-Apps.",
+            ],
+          },
+          {
+            type: "table",
+            caption: "Ein Widget auswählen",
+            head: ["Option", "Passt gut, wenn", "Worauf Sie achten sollten"],
+            rows: [
+              ["Natives Widget des Helpdesks", "Sie Chats, Tickets und Reporting an einem Ort haben möchten", "Gestaltung und Bot-Logik sind auf das beschränkt, was der Anbieter unterstützt"],
+              ["Natives Widget mit eigenem Bot", "Sie Logik oder Integrationen brauchen, die dem integrierten Bot fehlen", "Übergabe und Kontextweitergabe müssen angebunden und getestet werden"],
+              ["Komplett eigenes Widget", "Der Chat Teil der Oberfläche Ihres Produkts ist", "Sie sind selbst für Barrierefreiheit, Verfügbarkeit und die Integration auf Agentenseite verantwortlich"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Die Übergabe vom Bot an einen Menschen gestalten",
+        blocks: [
+          {
+            type: "p",
+            text: "An der Übergabe scheitern die meisten Website-Bots. Eine gute Übergabe bringt den Kunden zu einem Menschen, ohne dass er sich wiederholen muss. Beide großen Helpdesks unterstützen dieses Muster:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: Wenn Sie einem Messaging-Kanal einen KI-Agenten hinzufügen, ersetzen dessen eigene Antworten die Standard-Messaging-Antwort. Im Workflow-Rezept von Zendesk begrüßt der KI-Agent den Kunden, zeigt ein Formular an, um zu erfassen, was die Agenten brauchen, teilt dem Kunden mit, dass die Anfrage an das Team geht, und leitet das Gespräch dann an einen Agenten weiter, der benachrichtigt wird und die Angaben sieht, sobald er es annimmt. Das Rezept nutzt für angemeldete Kunden ein kürzeres Formular ohne Name und E-Mail-Adresse.",
+              "Freshchat und Freshdesk: Bot-Abläufe übergeben mit Aktionen wie „Assign to group“ oder „Make available for assignment“, und die Übergabeeinstellungen der KI-Agenten von Freshdesk enthalten eine Option, vor der Übergabe Kundendaten zu erfassen.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Entscheiden Sie anhand dessen, was Ihre Agenten zuerst fragen, welche Angaben Sie erfassen. Typische Felder sind Name und E-Mail-Adresse bei nicht angemeldeten Besuchern, eine Bestell- oder Kundennummer, die per Schaltfläche gewählte Art des Anliegens, eine kurze Beschreibung in den eigenen Worten des Kunden und die Seite, auf der er sich befand.",
+          },
+        ],
+      },
+      {
+        heading: "Abdeckung außerhalb der Geschäftszeiten",
+        blocks: [
+          {
+            type: "p",
+            text: "Ein Widget, das um 2 Uhr nachts verspricht: „Ein Agent ist gleich für Sie da“, schadet mehr als gar kein Chat. Planen Sie, was passiert, wenn niemand online ist:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Geschäftszeiten festlegen: Messaging-Kanäle in Zendesk können einen Geschäftszeitenplan nutzen und während und außerhalb dieser Zeiten unterschiedliche Antworten anzeigen.",
+              "Chats in Tickets umwandeln: Im Rezept von Zendesk eskaliert der KI-Agent während der Geschäftszeiten an einen Live-Agenten; außerhalb davon erfasst er die Angaben des Kunden und eskaliert die Anfrage als E-Mail-Ticket zur Nachbearbeitung.",
+              "Den Bot beantworten lassen, was er kann: FAQ-Antworten, Abfragen des Bestellstatus und Links ins Help Center funktionieren zu jeder Uhrzeit.",
+              "Sagen, wann Sie antworten: Nennen Sie dem Kunden Ihre Geschäftszeiten und wo die Antwort ankommen wird, etwa per E-Mail.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Grundlagen der Barrierefreiheit für Chat-Widgets",
+        blocks: [
+          {
+            type: "p",
+            text: "Ein Chat-Widget ist interaktiver Inhalt, der über Ihrer Website liegt, und muss daher dieselben Anforderungen an die Barrierefreiheit erfüllen wie der Rest der Seite. WCAG 2.2 ist die aktuelle Version des W3C, und diese Erfolgskriterien sind für Chats besonders relevant:",
+          },
+          {
+            type: "table",
+            caption: "WCAG-2.2-Kriterien, die Sie bei einem Chat-Widget prüfen sollten",
+            head: ["Kriterium", "Stufe", "Was es für ein Chat-Widget bedeutet"],
+            rows: [
+              ["2.1.1 Tastatur", "A", "Widget öffnen, tippen, Schaltflächen auswählen und schließen – alles funktioniert ohne Maus"],
+              ["2.4.7 Fokus sichtbar", "AA", "Nutzer sehen, welche Schaltfläche oder welches Feld den Tastaturfokus hat"],
+              ["2.4.11 Fokus nicht verdeckt (Minimum)", "AA", "Der Launcher oder das geöffnete Chatfenster verdeckt das fokussierte Element auf der Seite nicht vollständig"],
+              ["4.1.2 Name, Rolle, Wert", "A", "Eigene Schaltflächen, Menüs und der Launcher geben ihre Namen und Zustände an assistive Technologien weiter"],
+              ["4.1.3 Statusmeldungen", "AA", "Updates wie „Nachricht gesendet“ werden angekündigt, ohne den Fokus zu verschieben"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Für das Gespräch selbst kennzeichnet die W3C-Technik ARIA23 den Chatverlauf mit role=\"log\": Neue Nachrichten werden am Ende des Bereichs angefügt, und Screenreader kündigen sie an, sobald sie erscheinen. Testen Sie bei einem Widget eines Anbieters Ihre eigene Konfiguration mit Tastatur und Screenreader, denn eigene Farben und Bot-Inhalte können trotzdem Probleme verursachen.",
+          },
+        ],
+      },
+      {
+        heading: "Wie TascaLab helfen kann",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab richtet Website-Chatbots auf dem Helpdesk ein, den Sie bereits nutzen, etwa Zendesk oder Freshdesk, oder bindet einen eigenen Bot über APIs, Webhooks und Make oder n8n an Jira, Slack oder interne Tools an. Ein Starter Chat Bot (350–450 USD) deckt ein oder zwei Kanäle mit FAQs und einfacher Erfassung von Informationen ab; ein Standard Chat Bot (500–650 USD) deckt drei bis fünf Kanäle mit komplexeren Gesprächen und reibungsloseren Übergaben ab. Jedes Projekt umfasst 30 Tage Support nach dem Launch und eine Basisdokumentation, ohne versteckte Kosten, und die meisten Setups dauern 1–3 Wochen. Starten Sie mit einem kostenlosen 30-minütigen Audit-Gespräch.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Brauche ich ein separates Chatbot-Tool, wenn mein Helpdesk ein Widget hat?",
+        a: "Nicht unbedingt. Sowohl Zendesk als auch Freshdesk ermöglichen es, einen Bot oder KI-Agenten an das jeweilige Web-Widget anzubinden. Ein separates Tool ist sinnvoll, wenn Sie Logik oder Integrationen brauchen, die der integrierte Bot nicht bietet.",
+      },
+      {
+        q: "Was sollte der Bot erfassen, bevor er an einen Agenten übergibt?",
+        a: "Das, was Ihre Agenten zuerst fragen: meist Kontaktdaten bei anonymen Besuchern, eine Bestell- oder Kundennummer, die Art des Anliegens und eine kurze Beschreibung. Zendesk und Freshdesk unterstützen beide das Erfassen von Angaben vor der Übergabe.",
+      },
+      {
+        q: "Was sollte ein Website-Chatbot außerhalb der Geschäftszeiten tun?",
+        a: "Beantworten, was er kann, Ihre Geschäftszeiten erklären und den Rest in ein Ticket umwandeln. Das dokumentierte Rezept von Zendesk erfasst außerhalb der Geschäftszeiten die Angaben des Kunden und eskaliert die Anfrage als E-Mail-Ticket.",
+      },
+      {
+        q: "Welcher Standard für Barrierefreiheit gilt für ein Chat-Widget?",
+        a: "WCAG 2.2 ist die aktuelle Version des W3C. Bedienbarkeit per Tastatur (2.1.1), sichtbarer Fokus (2.4.7), Namen und Rollen für Bedienelemente (4.1.2) und Statusmeldungen (4.1.3) sind für Chats besonders relevant.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Installing the Web Widget for messaging",
+        url: "https://support.zendesk.com/hc/en-us/articles/4500748175258-Installing-the-Web-Widget-for-messaging",
+      },
+      {
+        label: "Zendesk Help Center — Configuring messaging responses and business hours",
+        url: "https://support.zendesk.com/hc/en-us/articles/4500737327258-Configuring-messaging-responses-and-business-hours",
+      },
+      {
+        label: "Zendesk Help Center — Workflow recipe: Using an AI agent to collect customer info and immediately escalate to a human agent",
+        url: "https://support.zendesk.com/hc/en-us/articles/10412442245914-Workflow-recipe-Using-an-AI-agent-to-collect-customer-info-and-immediately-escalate-to-a-human-agent",
+      },
+      {
+        label: "Freshworks Support — Install Freshchat on your web/apps",
+        url: "https://crmsupport.freshworks.com/support/solutions/articles/50000004353-embed-the-freshchat-widget-on-your-website",
+      },
+      {
+        label: "Freshworks Support — Gracefully handover conversations from bots to your Freshchat agents",
+        url: "https://crmsupport.freshworks.com/support/solutions/articles/50000004659-assigning-bot-conversations-to-your-agents",
+      },
+      {
+        label: "Freshdesk Support — Configure handover settings for AI Agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000012026-configure-handover-settings-for-ai-agents",
+      },
+      {
+        label: "W3C — Web Content Accessibility Guidelines (WCAG) 2.2",
+        url: "https://www.w3.org/TR/WCAG22/",
+      },
+      {
+        label: "W3C — ARIA23: Using role=log to identify sequential information updates",
+        url: "https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "chatbot-to-human-handoff",
+      "freshdesk-automation",
+    ],
+    updated: "2026-10-19",
+  },
 ];

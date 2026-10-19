@@ -1092,4 +1092,209 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 6. Omnichannel customer support
+  // ---------------------------------------------------------------------------
+  {
+    key: "omnichannel-customer-support",
+    slug: "omnichannel-klantenservice",
+    category: "basics",
+    navLabel: "Omnichannel klantenservice",
+    primaryKeyword: "omnichannel klantenservice",
+    title: "Omnichannel klantenservice: wat het in de praktijk betekent",
+    description:
+      "Omnichannel klantenservice: het verschil met multichannel, een centrale agentwerkplek, omnichannel routing en de berichtvensters van WhatsApp en Messenger.",
+    h1: "Omnichannel klantenservice: wat het betekent en hoe het werkt",
+    intro:
+      "Omnichannel klantenservice betekent dat elk kanaal waarlangs een klant je bereikt, zoals e-mail, chat, telefoon, WhatsApp of social messaging, gekoppeld is aan één klantrecord en één gespreksgeschiedenis die elke agent kan zien. Multichannel support biedt dezelfde kanalen, maar beheert ze los van elkaar, zodat klanten zich bij elke kanaalwissel moeten herhalen. Om omnichannel te werken, heb je een centrale werkplek voor agents nodig, routing die alle kanalen als één werkvoorraad behandelt, en workflows die de eigen regels van elk kanaal respecteren.",
+    keyFacts: [
+      "Freshworks beschrijft multichannel support als onafhankelijke kanalen die elk zelfstandig werken; bij omnichannel support zijn ze met elkaar verbonden.",
+      "In de Zendesk Agent Workspace kan één ticketgesprek e-mail, chat en spraak bevatten.",
+      "De omnichannel routing van Zendesk wijst e-mail-, messaging- en beltickets toe op basis van de status en vrije capaciteit van agents.",
+      "Op WhatsApp zijn vrije antwoorden alleen toegestaan binnen een klantenservicevenster van 24 uur; daarna kunnen alleen templates worden verstuurd.",
+      "Volgens een Gartner-enquête die in juli 2025 werd gepubliceerd, begint slechts 22% van de klanten in de eigen kanalen van een bedrijf, blijft daar en lost er het probleem volledig op.",
+    ],
+    sections: [
+      {
+        heading: "Omnichannel vs. multichannel support",
+        blocks: [
+          {
+            type: "p",
+            text: "Beide modellen bieden meerdere kanalen. Het verschil is of die kanalen context delen. Freshworks definieert multichannel support als het aanbieden van meerdere onafhankelijke kanalen die elk zelfstandig werken, en merkt op dat er doorgaans per kanaal een eigen team voor nodig is. Omnichannelsystemen zorgen er daarentegen voor dat alle kanalen met elkaar verbonden zijn. Zendesk trekt dezelfde grens: bij multichannel support gaan gesprekken niet mee van het ene kanaal naar het volgende, terwijl omnichannel support interacties verbindt tot één doorlopend gesprek en agents een volledig beeld geeft van de geschiedenis van de klant.",
+          },
+          {
+            type: "table",
+            caption: "Multichannel vs. omnichannel klantenservice",
+            head: ["Aspect", "Multichannel", "Omnichannel"],
+            rows: [
+              ["Kanalen", "Meerdere kanalen, elk met een eigen tool of inbox", "Meerdere kanalen die in één helpdesk uitkomen"],
+              ["Klantgeschiedenis", "Blijft in het kanaal waar ze plaatsvond", "Eén geschiedenis over alle kanalen, zichtbaar voor elke agent"],
+              ["Van kanaal wisselen", "De klant begint opnieuw en herhaalt gegevens", "De agent gaat verder waar de vorige interactie ophield"],
+              ["Teamopzet", "Vaak een eigen team per kanaal", "Een gedeelde wachtrij, met agents die op meerdere kanalen werken"],
+              ["Routing", "Per kanaal, vaak handmatig", "Eén routingconfiguratie op basis van status, capaciteit en skills"],
+              ["Rapportage", "Aparte cijfers per kanaal", "Rapportage per klant en per probleem over alle kanalen heen"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Een kanaal toevoegen maakt je nog niet omnichannel. Als WhatsApp-berichten in een aparte app terechtkomen die je e-mailagents niet kunnen zien, heb je er gewoon een silo bij. En klanten wisselen echt van kanaal: een Gartner-enquête onder 5.801 klanten, gepubliceerd in juli 2025, liet zien dat slechts 22% in de eigen kanalen van een bedrijf begint, daar blijft en er het probleem volledig oplost, en dat 51% van de serviceklantreizen nu begint op platforms van derden zoals Google, YouTube en ChatGPT.",
+          },
+        ],
+      },
+      {
+        heading: "Een centrale agentwerkplek en gedeelde geschiedenis",
+        blocks: [
+          {
+            type: "p",
+            text: "De kern van omnichannel support is één plek waar agents elk gesprek zien en beantwoorden. In de Zendesk Agent Workspace kunnen ticketgesprekken e-mail, chat en spraak bevatten, en agents kunnen ook social- en webberichten ontvangen en beantwoorden. Het eigen voorbeeld van Zendesk is een ticket dat begon als livechat en per e-mail verderging, vastgelegd als één doorlopend gesprek. Klantcontext, inclusief de interactiegeschiedenis, staat naast het gesprek, en agents kunnen vanuit hetzelfde scherm helpcenterartikelen zoeken en citeren.",
+          },
+          {
+            type: "p",
+            text: "Welke helpdesk je ook gebruikt, een werkende omnichannelopzet heeft dezelfde mogelijkheden nodig:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Eén klantrecord dat e-mailadressen, telefoonnummers en messaging-ID's koppelt, zodat een WhatsApp-bericht en een e-mail van dezelfde persoon in dezelfde geschiedenis terechtkomen.",
+              "Gespreksgeschiedenis uit elk kanaal op het ticket, inclusief het botgesprek dat vóór een overdracht plaatsvond.",
+              "De mogelijkheid om via een ander kanaal te antwoorden wanneer het oorspronkelijke kanaal geen antwoord meer toestaat.",
+              "Gedeelde tags, velden en macro's, zodat rapportage op elk kanaal op dezelfde manier werkt.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Identiteitskoppeling is waar veel opzetten misgaan. Als je telefoonsysteem, WhatsApp-nummer en e-mailinbox niet naar hetzelfde klantrecord verwijzen, zien agents nog steeds fragmenten, alleen in één venster.",
+          },
+        ],
+      },
+      {
+        heading: "Omnichannel routing",
+        blocks: [
+          {
+            type: "p",
+            text: "Routing bepaalt welke agent welk gesprek krijgt. De omnichannel routing van Zendesk stuurt nieuwe en open tickets uit e-mail, telefoongesprekken en messaging naar agents op basis van hun beschikbaarheid en capaciteit. In plaats van per kanaal een status in te stellen, stellen agents één centrale status in voor e-mail, voice en messaging. Voor messaging en telefoongesprekken moet de agent online zijn, en elke agent heeft vrije capaciteit nodig, wat betekent dat er minder open tickets aan hem zijn toegewezen dan zijn maximum voor dat kanaal.",
+          },
+          {
+            type: "p",
+            text: "Standaard gaat een ticket naar de agent met de meeste vrije capaciteit voor dat kanaal, en bij een gelijke stand naar de agent die het langst geen ticket uit dat kanaal heeft gehad. Je kunt in plaats daarvan overschakelen op round robin, en focus mode inschakelen zodat een agent niet tegelijk messaginggesprekken en telefoongesprekken krijgt. Afhankelijk van je Zendesk-abonnement kan routing ook rekening houden met de tijd tot een SLA-overschrijding, de ticketprioriteit en de skills van agents.",
+          },
+          {
+            type: "p",
+            text: "Het nut van routing over kanalen heen in plaats van per kanaal is gedeelde capaciteit: een agent die aan de telefoon zit, moet geen nieuwe chat aangeboden krijgen, en een agent met weinig open e-mails kan meer werk aannemen.",
+          },
+        ],
+      },
+      {
+        heading: "Kanaalregels: berichtvensters op WhatsApp en Messenger",
+        blocks: [
+          {
+            type: "p",
+            text: "Omnichannel maakt kanalen niet identiek. Messagingplatforms stellen regels over wanneer een bedrijf mag antwoorden, en je workflows moeten die respecteren.",
+          },
+          {
+            type: "table",
+            caption: "Berichtvensters op WhatsApp en Facebook Messenger",
+            head: ["Kanaal", "Antwoordvenster", "Nadat het venster sluit"],
+            rows: [
+              [
+                "WhatsApp Business Platform",
+                "Een klantenservicevenster van 24 uur start wanneer de klant je een bericht stuurt of belt, en begint opnieuw bij elk nieuw bericht of gesprek. Binnen dat venster kun je vrije serviceberichten versturen zonder voorafgaande goedkeuring.",
+                "Alleen vooraf goedgekeurde templateberichten kunnen worden verstuurd. Vrije berichten kunnen alleen een reactie op gebruikers zijn en geen gesprek starten.",
+              ],
+              [
+                "Facebook Messenger",
+                "Het standaard berichtvenster is 24 uur na het laatste bericht van de persoon.",
+                "Met de Human Agent-tag kan een persoon binnen 7 dagen na het bericht van de klant antwoorden. Je app moet goedgekeurd zijn om de tag te gebruiken, en geautomatiseerde berichten zijn er niet mee toegestaan.",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Deze regels bepalen je workflow. Als een agent een WhatsApp-gesprek oppakt meer dan 24 uur na het laatste bericht van de klant, is een vrij antwoord niet mogelijk: je hebt een goedgekeurde template nodig, of je stapt over op een ander kanaal zoals e-mail. Ook bots hebben ermee te maken, omdat de Human Agent-tag van Messenger alleen voor menselijke antwoorden is. Raadpleeg de actuele documentatie van Meta voordat je een opzet rond deze limieten ontwerpt, want Meta werkt zijn messagingbeleid en prijzen bij.",
+          },
+        ],
+      },
+      {
+        heading: "Zo stap je over van multichannel naar omnichannel",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Maak een lijst van elk kanaal dat klanten nu gebruiken en waar elk kanaal terechtkomt: welke tool, welk team, welke inbox.",
+              "Breng de kanalen samen in één helpdesk, via native integraties waar die bestaan en via API's of webhooks waar dat niet zo is.",
+              "Bepaal hoe je identiteiten over kanalen heen koppelt, bijvoorbeeld op e-mailadres en telefoonnummer, en hoe je dubbele records samenvoegt.",
+              "Richt één routingconfiguratie in met capaciteit per kanaal, in plaats van aparte wachtrijen per team.",
+              "Zorg dat overdrachten van bot naar mens het volledige gesprek en de klantgegevens in het ticket meenemen.",
+              "Voeg kanaalspecifieke regels toe, zoals templateantwoorden op WhatsApp na 24 uur en verschillende SLA-doelen voor live- en asynchrone kanalen.",
+              "Rapporteer per klant en per probleem over alle kanalen heen, niet alleen per kanaal.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Hoe TascaLab kan helpen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab koppelt kanalen aan de helpdesk die je al gebruikt, zoals Zendesk of Freshdesk, met API's, webhooks en Make of n8n. Een Standard Chat Bot (500–650 USD, eenmalig) dekt 3–5 kanalen, zoals je website, WhatsApp, Telegram, Facebook Messenger en Instagram, en Ticket Routing & Categorization (600–950 USD) sorteert binnenkomende gesprekken in de juiste wachtrij. Elk project omvat basisdocumentatie, 30 dagen ondersteuning na livegang en geen verborgen kosten, en de meeste implementaties duren 1–3 weken. In een gratis auditgesprek van 30 minuten worden je huidige kanalen in kaart gebracht voordat er iets wordt gebouwd.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat is het verschil tussen omnichannel en multichannel support?",
+        a: "Multichannel support biedt meerdere kanalen die onafhankelijk van elkaar werken, dus de geschiedenis blijft binnen elk kanaal. Omnichannel support verbindt de kanalen, zodat agents één klantgeschiedenis zien en klanten van kanaal kunnen wisselen zonder zich te herhalen.",
+      },
+      {
+        q: "Wat is omnichannel routing in Zendesk?",
+        a: "Een routingsysteem dat e-mail-, messaging- en beltickets aan agents toewijst op basis van één centrale agentstatus en vrije capaciteit per kanaal. Standaard krijgt de agent met de meeste vrije capaciteit voor dat kanaal het ticket.",
+      },
+      {
+        q: "Kan ik een WhatsApp-klant na 24 uur nog antwoorden?",
+        a: "Niet met een vrij bericht. Zodra het klantenservicevenster van 24 uur sluit, kunnen alleen vooraf goedgekeurde templateberichten worden verstuurd. Een nieuw bericht of gesprek van de klant opent een nieuw venster.",
+      },
+      {
+        q: "Hoe lang kan een menselijke agent op Facebook Messenger antwoorden?",
+        a: "Het standaard berichtvenster is 24 uur. Met de Human Agent-tag, waarvoor goedkeuring van de app nodig is, kan een menselijke agent binnen 7 dagen na het bericht van de klant antwoorden. De tag kan niet worden gebruikt voor geautomatiseerde berichten.",
+      },
+    ],
+    sources: [
+      {
+        label: "Freshworks — Omnichannel vs Multichannel: Key Service Differences",
+        url: "https://www.freshworks.com/explore-cx/omnichannel-vs-multichannel-support/",
+      },
+      {
+        label: "Zendesk — What is omnichannel customer service?",
+        url: "https://www.zendesk.com/blog/customer-service/support/omnichannel-really-means/",
+      },
+      {
+        label: "Zendesk Help Center — About the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408821259930-About-the-Zendesk-Agent-Workspace",
+      },
+      {
+        label: "Zendesk Help Center — About omnichannel routing",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409149119514-About-omnichannel-routing",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Service messages",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Template fundamentals",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform Send API reference",
+        url: "https://developers.facebook.com/docs/messenger-platform/reference/send-api/",
+      },
+      {
+        label: "Gartner — Survey Finds More Than Half of Customer Service Journeys Now Start on Third-Party Platforms (July 2025)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2025-07-23-gartner-survey-finds-more-than-half-of-customer-service-journeys-now-start-on-third-party-platforms",
+      },
+    ],
+    related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
 ];

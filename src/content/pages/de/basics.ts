@@ -858,4 +858,238 @@ export const basicsPages: TranslatedPage[] = [
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 5. Ticket deflection
+  // ---------------------------------------------------------------------------
+  {
+    key: "ticket-deflection",
+    slug: "ticket-deflection-definition-messung",
+    category: "basics",
+    navLabel: "Ticket Deflection",
+    primaryKeyword: "Ticket Deflection",
+    title: "Ticket Deflection: Definition, Messung und Grenzen",
+    description:
+      "Ticket Deflection erklärt: welche Self-Service-Kanäle Tickets abfangen, wie Zendesk, Freshdesk und Intercom sie messen und warum Abbrüche die Quote aufblähen.",
+    h1: "Ticket Deflection: was sie ist und wie Sie sie ehrlich messen",
+    intro:
+      "Von Ticket Deflection spricht man, wenn ein Kunde seine Frage per Self-Service klärt, etwa über einen Help-Center-Artikel oder einen KI-Agenten, statt ein Ticket für Ihr Team zu erstellen. Helpdesk-Anbieter messen sie sehr unterschiedlich, und die meisten ihrer Messgrößen zählen auch Kunden als abgefangen, die einfach gegangen sind, ohne um Hilfe zu bitten. Eine Deflection-Rate ist erst dann nützlich, wenn Sie genau wissen, was sie zählt und welche Anfragen überhaupt niemals abgefangen werden sollten.",
+    keyFacts: [
+      "Der Self-Service-Score von Zendesk, auch Ticket Deflection Ratio genannt, vergleicht die Nutzung des Help Centers mit den im selben Zeitraum erstellten Tickets.",
+      "Zendesk erfasst eine angenommene Deflection (assumed deflection), wenn ein Help-Center-Besucher kein Ticket einreicht, aber auch nie bestätigt, eine Antwort gefunden zu haben.",
+      "In den AI-Agent-Berichten von Zendesk gilt jedes Gespräch, das nicht in einer Eskalation endet, als abgefangen (deflected).",
+      "Intercom erfasst eine angenommene Lösung (assumed resolution), wenn ein Kunde nach der letzten Antwort von Fin geht, ohne um weitere Hilfe zu bitten.",
+      "Laut einer im August 2024 veröffentlichten Gartner-Umfrage werden nur 14 % der Kundenservice-Anliegen vollständig im Self-Service gelöst.",
+    ],
+    sections: [
+      {
+        heading: "Wo Deflection stattfindet: Self-Service-Kanäle",
+        blocks: [
+          {
+            type: "p",
+            text: "Deflection findet überall dort statt, wo ein Kunde eine Antwort finden kann, bevor er einen Agenten erreicht. Jeder Kanal fängt Anfragen auf andere Weise ab und hinterlässt andere Spuren in Ihren Daten; es hilft also zu wissen, was Sie für jeden einzelnen tatsächlich messen können.",
+          },
+          {
+            type: "table",
+            caption: "Self-Service-Kanäle, die Tickets abfangen",
+            head: ["Kanal", "Wie er Tickets abfängt", "Was Sie messen können"],
+            rows: [
+              [
+                "Help Center oder Wissensdatenbank",
+                "Kunden suchen oder stöbern in Artikeln, bevor sie Sie kontaktieren",
+                "Help-Center-Sitzungen oder -Nutzer im Vergleich zu erstellten Tickets; Artikelaufrufe und -bewertungen",
+              ],
+              [
+                "Artikelvorschläge im Kontaktformular",
+                "Das Anfrageformular schlägt Artikel vor, während der Kunde das Problem beschreibt",
+                "Zendesk erfasst eine bestätigte Deflection, wenn ein vorgeschlagener Artikel ausgewählt und in dieser Sitzung kein Ticket eingereicht wird",
+              ],
+              [
+                "KI-Agent oder Chatbot",
+                "Beantwortet Fragen in Chat, Messaging oder E-Mail und eskaliert an einen Menschen, wenn er nicht helfen kann",
+                "Gespräche, die ohne Eskalation endeten, und idealerweise vom Kunden bestätigte Lösungen",
+              ],
+              [
+                "In-Product- oder kontextbezogene Hilfe",
+                "Ein Hilfe-Widget zeigt Artikel passend zur Seite oder Funktion, die der Kunde gerade nutzt",
+                "Öffnungen des Widgets, Artikelaufrufe und über das Widget eingereichte Kontaktformulare",
+              ],
+              [
+                "Community-Forum",
+                "Kunden antworten einander, und beantwortete Threads helfen auch späteren Besuchern",
+                "Schwer direkt mit Tickets zu verknüpfen; meist als Threads mit akzeptierter Antwort erfasst",
+              ],
+            ],
+          },
+          {
+            type: "note",
+            text: "Deflection ist eine Nebenwirkung guten Self-Services, kein Ziel an sich. Ein Kunde, der in zwei Minuten eine richtige Antwort bekommt, ist ein Gewinn. Ein Kunde, der aufgibt, ist es nicht – auch wenn viele Berichte beide gleich zählen.",
+          },
+        ],
+      },
+      {
+        heading: "Wie Anbieter Deflection definieren und messen",
+        blocks: [
+          {
+            type: "p",
+            text: "Eine gemeinsame Definition gibt es nicht. Jeder Helpdesk zählt etwas leicht anderes; deshalb lassen sich Deflection-Raten aus zwei Tools oder aus den Fallstudien zweier Anbieter nicht direkt vergleichen.",
+          },
+          {
+            type: "table",
+            caption: "Wie Helpdesk-Anbieter Deflection definieren",
+            head: ["Anbieter und Kennzahl", "Was zählt", "Worauf Sie achten sollten"],
+            rows: [
+              [
+                "Self-Service-Score von Zendesk (auch Self-Service Ratio oder Ticket Deflection Ratio genannt)",
+                "Nutzung des Help Centers im Vergleich zu den im selben Zeitraum erstellten Tickets. Im Knowledge-Reporting von Zendesk ist die Self-Service Ratio die Zahl der Help-Center-Sitzungen geteilt durch die eingereichten Tickets",
+                "Es ist ein Verhältnis, keine Zahl gelöster Probleme, und die Deflection-Berichte von Zendesk erfassen nur Tickets, die über das Anfrageformular des Help Centers eingereicht wurden",
+              ],
+              [
+                "Bestätigte und angenommene Deflection bei Zendesk",
+                "Bestätigt: Der Besucher hat im Anfrageformular einen vorgeschlagenen Artikel ausgewählt und in dieser Sitzung kein Ticket eingereicht. Angenommen: Der Besucher hat das Help Center genutzt und kein Ticket eingereicht, aber nicht bestätigt, dass er eine Antwort gefunden hat",
+                "Angenommene Deflection ist ein Schluss aus Schweigen",
+              ],
+              [
+                "Deflection-Rate der AI agents von Zendesk",
+                "Jedes Gespräch, das nicht in einer Eskalation endet, einschließlich fehlgeschlagener Eskalationen und Gespräche ohne Status",
+                "Zendesk weist daneben strengere Messgrößen aus: vom AI agent bearbeitete Gespräche (AI agent-handled) und von einem LLM verifizierte automatisierte Lösungen",
+              ],
+              [
+                "Deflection-Rate der AI Agents von Freshdesk",
+                "Der Anteil der Gespräche zu einem Thema, die der AI Agent ohne menschliches Eingreifen gelöst hat",
+                "Der Deflection-Trend des Email AI Agent zählt auch Tickets, die ein menschlicher Agent geschlossen hat, nachdem der Kunde eine Antwort gelesen und nicht geantwortet hat",
+              ],
+              [
+                "Intercom Fin Resolution",
+                "Nach der letzten Antwort von Fin bestätigt der Kunde entweder, dass sie geholfen hat (bestätigte Lösung), oder er geht, ohne um weitere Hilfe zu bitten (angenommene Lösung)",
+                "Kommt der Kunde für weitere Hilfe in das Gespräch zurück, wird die Lösung wieder abgezogen",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Zwei Muster fallen auf. Erstens werten die breitesten Kennzahlen – etwa die AI-Agent-Deflection-Rate von Zendesk, angenommene Deflections und die angenommenen Lösungen von Intercom – Schweigen als Erfolg. Zweitens ergänzen die strengeren Kennzahlen eine Form der Verifizierung: Zendesk zählt eine automatisierte Lösung nur, wenn eine LLM-Prüfung bestätigt, dass die Anfrage ohne Menschen gelöst wurde, und Gespräche, die diese Prüfung nicht bestehen, verbrauchen keine automatisierte Lösung.",
+          },
+        ],
+      },
+      {
+        heading: "Das Problem abgebrochener Sitzungen",
+        blocks: [
+          {
+            type: "p",
+            text: "Die meisten Deflection-Kennzahlen können einen Kunden, der die Antwort gefunden hat, nicht von einem unterscheiden, der aufgegeben hat. Ein Besucher, der einen Artikel liest, ihn nicht versteht und Sie dann anruft, ist im Help-Center-Bericht eine angenommene Deflection und in der Telefon-Warteschlange ein Ticket. Ein Chat, der endet, weil der Kunde den Tab geschlossen hat, sieht genauso aus wie einer, der endete, weil das Problem gelöst war. Zendesk weist darauf hin, dass selbst die strengere Kategorie AI agent-handled Gespräche enthalten kann, in denen Kunden vor der Eskalation abgesprungen sind oder mit der Lösung unzufrieden waren.",
+          },
+          {
+            type: "p",
+            text: "Der tatsächliche Self-Service-Erfolg ist meist geringer, als Dashboards vermuten lassen. In einer Gartner-Umfrage unter 5.728 Kunden, veröffentlicht im August 2024, wurden nur 14 % der Kundenservice-Anliegen vollständig im Self-Service gelöst – und selbst bei Anliegen, die Kunden als sehr einfach beschrieben, nur 36 %.",
+          },
+          {
+            type: "p",
+            text: "So bleiben Ihre Deflection-Zahlen ehrlich:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Weisen Sie bestätigte und angenommene Deflections getrennt aus und betrachten Sie die angenommene Zahl als Obergrenze.",
+              "Erfassen Sie Wiederholungskontakte. Ein Kunde, der sich einen Tag nach einer abgefangenen Sitzung über einen anderen Kanal meldet, wurde nicht abgefangen.",
+              "Beobachten Sie die Kontakte pro Kunde oder pro Bestellung. Steigt die Deflection, sinken aber die Kontakte pro Kunde nicht, existiert die Deflection nur auf dem Papier.",
+              "Lesen Sie jeden Monat eine Stichprobe von Bot-Transkripten, die als abgefangen gelten, um zu sehen, wie die Gespräche wirklich geendet haben.",
+              "Kombinieren Sie Deflection mit einer Qualitätskennzahl, etwa CSAT für Bot-Gespräche oder wiedereröffnete Tickets.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Was nicht abgefangen werden sollte",
+        blocks: [
+          {
+            type: "p",
+            text: "Manche Anfragen sollten so schnell wie möglich einen Menschen erreichen, auch wenn ein Bot technisch antworten könnte. Sie abzufangen spart ein Ticket und kostet Sie einen Kunden.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Kunden, die ausdrücklich nach einem Menschen fragen. Machen Sie diesen Weg sichtbar, statt ihn hinter mehreren gescheiterten Bot-Runden zu verstecken.",
+              "Sicherheitsprobleme wie kompromittierte Konten, Betrugsverdacht oder unerwartete Abbuchungen.",
+              "Abrechnungsstreitigkeiten, Erstattungen und Kündigungen, bei denen eine falsche oder hinhaltende Antwort direkte Kosten verursacht.",
+              "Beschwerden und Eskalationen, vor allem wiederholte Kontakte zum selben Problem.",
+              "Rechtliche und datenschutzbezogene Anfragen, etwa Anträge auf Auskunft über oder Löschung von personenbezogenen Daten, die eine dokumentierte Antwort erfordern.",
+              "Dringende oder sicherheitskritische Anliegen sowie Kunden, die belastet oder schutzbedürftig wirken.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Kunden erwarten diesen Ausweg. In einer Gartner-Umfrage unter 3.566 Kunden, durchgeführt im Februar und März 2026 und veröffentlicht im August 2026, gaben 87 % an, dass Unternehmen, die GenAI im Kundenservice einsetzen, Zugang zu einem menschlichen Agenten bieten müssen. Gartner rät in derselben Mitteilung, GenAI nicht zum verpflichtenden ersten Schritt zu machen und eine Lösung nur dann zu versuchen, wenn die Konfidenz hoch ist – mit einem klaren Weg zu einem Menschen.",
+          },
+          {
+            type: "p",
+            text: "In der Praxis bedeutet das: Routing-Regeln, die diese Anfragen direkt in die richtige Warteschlange schicken, und eine Übergabe vom Bot an einen Menschen, die das gesamte Gespräch mitliefert, damit der Kunde nichts wiederholen muss.",
+          },
+        ],
+      },
+      {
+        heading: "Wie TascaLab helfen kann",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab baut KI-Chatbots, die häufige Fragen auf Ihrer Website, in WhatsApp, Telegram, Facebook Messenger oder Instagram beantworten und alles andere an Ihr Team in Zendesk, Freshdesk oder Ihren bestehenden Tools übergeben. Ein Starter Chat Bot kostet 350–450 USD und ein Standard Chat Bot für 3–5 Kanäle 500–650 USD, jeweils einmalig. Automated Reports (500–900 USD) können Deflection zusammen mit Wiederholungskontakten und Wiedereröffnungen erfassen, sodass Sie den tatsächlichen Effekt sehen. Jedes Projekt umfasst eine Basisdokumentation, 30 Tage Support nach dem Launch und keine versteckten Kosten, und die meisten Setups dauern 1–3 Wochen. Ein kostenloser 30-minütiger Audit-Call ist ein guter Rahmen, um zu entscheiden, was automatisiert wird und was menschlich bleibt.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Was ist der Unterschied zwischen Ticket Deflection und Ticket-Lösung?",
+        a: "Deflection bedeutet, dass der Kunde kein Ticket erstellt oder keinen Agenten erreicht hat; Lösung bedeutet, dass das Problem tatsächlich gelöst wurde. Die AI-Agent-Deflection-Rate von Zendesk zählt jedes Gespräch, das nicht in einer Eskalation endete, während die automatisierten Lösungen zusätzlich eine LLM-Prüfung erfordern, die bestätigt, dass die Anfrage gelöst wurde.",
+      },
+      {
+        q: "Was ist eine angenommene Deflection (assumed deflection) in Zendesk?",
+        a: "Eine Help-Center-Sitzung, in der der Besucher weder um Hilfe gebeten noch ein Ticket eingereicht, aber auch nicht bestätigt hat, dass er eine Antwort gefunden hat. Eine bestätigte Deflection setzt voraus, dass der Besucher im Anfrageformular einen vorgeschlagenen Artikel auswählt und in dieser Sitzung anschließend kein Ticket einreicht.",
+      },
+      {
+        q: "Wie berechnet Zendesk die Self-Service Ratio?",
+        a: "Sie vergleicht die Nutzung des Help Centers mit den Tickets im selben Zeitraum. Im Knowledge-Reporting von Zendesk ist die Self-Service Ratio die Zahl der Help-Center-Sitzungen geteilt durch die eingereichten Tickets, und die Deflection-Berichte erfassen nur Tickets, die über das Anfrageformular des Help Centers eingereicht wurden.",
+      },
+      {
+        q: "Zählt Intercom ein Fin-Gespräch als gelöst, wenn der Kunde einfach geht?",
+        a: "Ja. Verlässt der Kunde das Gespräch nach der letzten Antwort von Fin, ohne weitere Hilfe anzufordern, erfasst Intercom eine angenommene Lösung (assumed resolution). Bestätigt der Kunde, dass die Antwort geholfen hat, ist es eine bestätigte Lösung (confirmed resolution).",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Getting started with self-service, Part 6: Tracking essential self-service metrics",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408894139930-Getting-started-with-self-service-Part-6-Tracking-essential-self-service-metrics",
+      },
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Knowledge",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155064090-Metrics-and-attributes-for-Zendesk-Knowledge",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the difference between deflection, AI agent-handled, automated resolution, and custom resolution rates",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756478106-Understanding-the-difference-between-deflection-AI-agent-handled-automated-resolution-and-custom-resolution-rates",
+      },
+      {
+        label: "Freshdesk Support — Monitor and Analyze AI Agent Performance Metrics in Freshdesk",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011716-monitor-ai-agent-performance",
+      },
+      {
+        label: "Freshdesk Support — Manage, Test & Troubleshoot Your Email AI Agent",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011217-use-and-manage-the-email-ai-agent",
+      },
+      {
+        label: "Intercom Help — Fin AI Agent outcomes",
+        url: "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+      },
+      {
+        label: "Gartner — Survey Finds Only 14% of Customer Service Issues Are Fully Resolved in Self-Service (August 2024)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service",
+      },
+      {
+        label: "Gartner — Survey Finds 87% of Customers Say Companies Using GenAI for Customer Service Must Provide Access to a Human Agent (August 2026)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2026-08-04-gartner-survey-finds-87-percent-of-customers-say-companies-using-genai-for-customer-service-must-provide-access-to-a-human-agent0",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
+    updated: "2026-10-19",
+  },
 ];
