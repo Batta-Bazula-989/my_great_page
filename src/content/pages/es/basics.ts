@@ -858,4 +858,238 @@ export const basicsPages: TranslatedPage[] = [
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 5. Ticket deflection
+  // ---------------------------------------------------------------------------
+  {
+    key: "ticket-deflection",
+    slug: "deflexion-de-tickets",
+    category: "basics",
+    navLabel: "Deflexión de tickets",
+    primaryKeyword: "deflexión de tickets",
+    title: "Deflexión de tickets: definición, medición y límites",
+    description:
+      "Deflexión de tickets: qué canales de autoservicio la generan, cómo la miden Zendesk, Freshdesk e Intercom y por qué las sesiones abandonadas inflan la tasa.",
+    h1: "Deflexión de tickets: qué es y cómo medirla con honestidad",
+    intro:
+      "La deflexión de tickets se produce cuando un cliente resuelve su duda mediante autoservicio, como un artículo del centro de ayuda o un agente de IA, en lugar de crear un ticket para tu equipo. Los proveedores de helpdesk la miden de formas muy distintas, y la mayoría de sus métricas cuentan como deflexión a los clientes que simplemente se fueron sin pedir ayuda. Una tasa de deflexión solo es útil cuando sabes exactamente qué cuenta y qué solicitudes no deberían desviarse nunca.",
+    keyFacts: [
+      "El 'self-service score' de Zendesk, también llamado 'ticket deflection ratio', compara el uso del centro de ayuda con los tickets creados en el mismo periodo.",
+      "Zendesk registra una deflexión supuesta (assumed deflection) cuando un visitante del centro de ayuda no envía ningún ticket pero nunca confirma que encontró una respuesta.",
+      "En los informes de agentes de IA de Zendesk, cualquier conversación que no termina en escalado cuenta como deflexión.",
+      "Intercom registra una resolución supuesta cuando el cliente se va tras la última respuesta de Fin sin pedir más ayuda.",
+      "Una encuesta de Gartner publicada en agosto de 2024 concluyó que solo el 14% de los problemas de atención al cliente se resuelven por completo mediante autoservicio.",
+    ],
+    sections: [
+      {
+        heading: "Dónde se produce la deflexión: canales de autoservicio",
+        blocks: [
+          {
+            type: "p",
+            text: "La deflexión se produce allí donde un cliente puede encontrar una respuesta antes de llegar a un agente. Cada canal la genera de una forma distinta y deja un rastro distinto en tus datos, así que conviene saber qué puedes medir realmente en cada uno.",
+          },
+          {
+            type: "table",
+            caption: "Canales de autoservicio que generan deflexión de tickets",
+            head: ["Canal", "Cómo genera deflexión", "Qué puedes medir"],
+            rows: [
+              [
+                "Centro de ayuda o base de conocimiento",
+                "Los clientes buscan o consultan artículos antes de contactar contigo",
+                "Sesiones o usuarios del centro de ayuda frente a tickets creados; visitas y votos de los artículos",
+              ],
+              [
+                "Sugerencias de artículos en el formulario de contacto",
+                "El formulario de solicitud sugiere artículos mientras el cliente describe el problema",
+                "Zendesk registra una deflexión confirmada cuando se selecciona un artículo sugerido y no se envía ningún ticket en esa sesión",
+              ],
+              [
+                "Agente de IA o chatbot",
+                "Responde preguntas por chat, mensajería o correo, y escala a una persona cuando no puede ayudar",
+                "Conversaciones que terminaron sin escalado e, idealmente, resoluciones confirmadas por el cliente",
+              ],
+              [
+                "Ayuda contextual o dentro del producto",
+                "Un widget de ayuda muestra artículos relacionados con la página o la función que está usando el cliente",
+                "Aperturas del widget, visitas a artículos y envíos del formulario de contacto desde el widget",
+              ],
+              [
+                "Foro de la comunidad",
+                "Los clientes se responden entre sí, y los hilos respondidos siguen ayudando a visitantes posteriores",
+                "Difícil de vincular directamente con los tickets; normalmente se mide como hilos con una respuesta aceptada",
+              ],
+            ],
+          },
+          {
+            type: "note",
+            text: "La deflexión es un efecto secundario de un buen autoservicio, no un objetivo en sí misma. Un cliente que obtiene una respuesta correcta en dos minutos es un éxito. Un cliente que se rinde no lo es, aunque muchos informes cuenten ambos casos igual.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo definen y miden la deflexión los proveedores",
+        blocks: [
+          {
+            type: "p",
+            text: "No existe una definición común. Cada helpdesk cuenta algo ligeramente distinto, y por eso las tasas de deflexión de dos herramientas, o de los casos de éxito de dos proveedores, no se pueden comparar directamente.",
+          },
+          {
+            type: "table",
+            caption: "Cómo definen la deflexión los proveedores de helpdesk",
+            head: ["Proveedor y métrica", "Qué cuenta", "Qué vigilar"],
+            rows: [
+              [
+                "'Self-service score' de Zendesk (también llamado 'self-service ratio' o 'ticket deflection ratio')",
+                "El uso del centro de ayuda frente a los tickets creados en el mismo periodo. En los informes de Knowledge de Zendesk, el 'self-service ratio' son las sesiones del centro de ayuda divididas entre los tickets enviados",
+                "Es una proporción, no un recuento de problemas resueltos, y los informes de deflexión de Zendesk solo registran los tickets enviados a través del formulario de solicitud del centro de ayuda",
+              ],
+              [
+                "Deflexión confirmada y supuesta en Zendesk",
+                "Confirmada: el visitante seleccionó un artículo sugerido en el formulario de solicitud y no envió ningún ticket en esa sesión. Supuesta: el visitante usó el centro de ayuda y no envió ningún ticket, pero no confirmó que encontrara una respuesta",
+                "La deflexión supuesta es una deducción a partir del silencio",
+              ],
+              [
+                "Tasa de deflexión del agente de IA de Zendesk",
+                "Cualquier conversación que no termina en escalado, incluidos los escalados fallidos y las conversaciones sin estado",
+                "Zendesk muestra a su lado métricas más estrictas: conversaciones 'AI agent-handled' y resoluciones automatizadas verificadas por un LLM",
+              ],
+              [
+                "Tasa de deflexión del agente de IA de Freshdesk",
+                "El porcentaje de conversaciones de un tema que el agente de IA resolvió sin intervención humana",
+                "La tendencia de deflexión del Email AI Agent también cuenta los tickets que un agente humano cerró después de que el cliente leyera una respuesta y no contestara",
+              ],
+              [
+                "Resolución de Fin en Intercom",
+                "Tras la última respuesta de Fin, el cliente confirma que le ayudó (resolución confirmada) o se va sin pedir más ayuda (resolución supuesta)",
+                "Si el cliente vuelve a la conversación para pedir más ayuda, la resolución se descuenta",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Destacan dos patrones. Primero, las métricas más amplias, como la tasa de deflexión del agente de IA de Zendesk, las deflexiones supuestas y las resoluciones supuestas de Intercom, cuentan el silencio como éxito. Segundo, las métricas más estrictas añaden algún tipo de verificación: Zendesk solo cuenta una resolución automatizada cuando una comprobación con un LLM confirma que la solicitud se resolvió sin intervención humana, y las conversaciones que no superan esa comprobación no consumen una resolución automatizada.",
+          },
+        ],
+      },
+      {
+        heading: "El problema de las sesiones abandonadas",
+        blocks: [
+          {
+            type: "p",
+            text: "La mayoría de las métricas de deflexión no distinguen a un cliente que encontró la respuesta de otro que se rindió. Un visitante que lee un artículo, no lo entiende y luego te llama por teléfono es una deflexión supuesta en el informe del centro de ayuda y un ticket en la cola telefónica. Un chat que termina porque el cliente cerró la pestaña parece igual que uno que terminó porque se resolvió el problema. Zendesk señala que incluso su categoría más estricta, 'AI agent-handled', puede incluir conversaciones en las que los clientes abandonaron antes de escalar o no quedaron satisfechos con la resolución.",
+          },
+          {
+            type: "p",
+            text: "El éxito real del autoservicio suele ser menor de lo que sugieren los paneles. En una encuesta de Gartner a 5.728 clientes, publicada en agosto de 2024, solo el 14% de los problemas de atención al cliente se resolvieron por completo mediante autoservicio, y solo el 36% incluso cuando los clientes describían el problema como muy sencillo.",
+          },
+          {
+            type: "p",
+            text: "Para que tus cifras de deflexión sean honestas:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Informa por separado de las deflexiones confirmadas y las supuestas, y trata la cifra supuesta como un límite superior.",
+              "Registra los contactos repetidos. Un cliente que te contacta por otro canal un día después de una sesión con deflexión no fue desviado.",
+              "Vigila los contactos por cliente o por pedido. Si la deflexión sube pero los contactos por cliente no bajan, la deflexión solo existe sobre el papel.",
+              "Lee cada mes una muestra de transcripciones de bots con deflexión para ver cómo terminaron realmente las conversaciones.",
+              "Combina la deflexión con una métrica de calidad, como el CSAT de las conversaciones con el bot o los tickets reabiertos.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Qué no se debe desviar",
+        blocks: [
+          {
+            type: "p",
+            text: "Algunas solicitudes deberían llegar a una persona lo antes posible, aunque técnicamente un bot pudiera responder. Desviarlas te ahorra un ticket y te cuesta un cliente.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Clientes que piden expresamente hablar con una persona. Haz visible esa vía en lugar de esconderla tras varios turnos fallidos del bot.",
+              "Problemas de seguridad, como cuentas comprometidas, sospechas de fraude o cargos inesperados.",
+              "Disputas de facturación, reembolsos y cancelaciones, en los que una respuesta errónea o dilatoria tiene un coste directo.",
+              "Quejas y escalados, sobre todo los contactos repetidos por el mismo problema.",
+              "Solicitudes legales y de protección de datos, como las de acceso o supresión de datos personales, que necesitan una respuesta documentada.",
+              "Problemas urgentes o relacionados con la seguridad física, y clientes que parecen angustiados o vulnerables.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Los clientes esperan esa vía de escape. En una encuesta de Gartner a 3.566 clientes, realizada en febrero y marzo de 2026 y publicada en agosto de 2026, el 87% afirmó que las empresas que usan IA generativa (GenAI) en la atención al cliente deben ofrecer acceso a un agente humano. El consejo de Gartner en ese mismo comunicado es no hacer de la IA generativa un primer paso obligatorio e intentar la resolución solo cuando la confianza sea alta, con una vía clara hacia una persona.",
+          },
+          {
+            type: "p",
+            text: "En la práctica, eso significa reglas de enrutamiento que envíen estas solicitudes directamente a la cola correcta, y un traspaso de bot a humano que transmita la conversación completa para que el cliente no tenga que repetir nada.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab crea chatbots con IA que responden a las preguntas frecuentes en tu web, WhatsApp, Telegram, Facebook Messenger o Instagram y pasan todo lo demás a tu equipo en Zendesk, Freshdesk o tus herramientas actuales. Un Starter Chat Bot cuesta 350–450 USD y un Standard Chat Bot que cubre 3–5 canales cuesta 500–650 USD, como proyecto puntual. Automated Reports (500–900 USD) puede medir la deflexión junto con los contactos repetidos y las reaperturas, para que veas el efecto real. Todos los proyectos incluyen documentación básica, 30 días de soporte tras el lanzamiento y ningún coste oculto, y la mayoría de las implementaciones llevan 1–3 semanas. Una llamada de auditoría gratuita de 30 minutos es un buen punto de partida para decidir qué automatizar y qué dejar en manos de personas.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Qué diferencia hay entre deflexión y resolución de tickets?",
+        a: "Deflexión significa que el cliente no creó un ticket ni llegó a un agente; resolución significa que el problema se resolvió de verdad. La tasa de deflexión del agente de IA de Zendesk cuenta cualquier conversación que no terminó en escalado, mientras que sus resoluciones automatizadas exigen además una comprobación con un LLM que confirme que la solicitud se resolvió.",
+      },
+      {
+        q: "¿Qué es una deflexión supuesta en Zendesk?",
+        a: "Una sesión del centro de ayuda en la que el visitante no pidió ayuda ni envió un ticket, pero tampoco confirmó que encontrara una respuesta. Una deflexión confirmada exige que el visitante seleccione un artículo sugerido en el formulario de solicitud y que después no envíe ningún ticket en esa sesión.",
+      },
+      {
+        q: "¿Cómo calcula Zendesk el 'self-service ratio'?",
+        a: "Compara el uso del centro de ayuda con los tickets del mismo periodo. En los informes de Knowledge de Zendesk, el 'self-service ratio' son las sesiones del centro de ayuda divididas entre los tickets enviados, y los informes de deflexión solo registran los tickets enviados a través del formulario de solicitud del centro de ayuda.",
+      },
+      {
+        q: "¿Intercom cuenta una conversación con Fin como resuelta si el cliente simplemente se va?",
+        a: "Sí. Si el cliente sale tras la última respuesta de Fin sin pedir más ayuda, Intercom registra una resolución supuesta. Si el cliente confirma que la respuesta le ayudó, es una resolución confirmada.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Getting started with self-service, Part 6: Tracking essential self-service metrics",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408894139930-Getting-started-with-self-service-Part-6-Tracking-essential-self-service-metrics",
+      },
+      {
+        label: "Zendesk Help Center — Metrics and attributes for Zendesk Knowledge",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409155064090-Metrics-and-attributes-for-Zendesk-Knowledge",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the difference between deflection, AI agent-handled, automated resolution, and custom resolution rates",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756478106-Understanding-the-difference-between-deflection-AI-agent-handled-automated-resolution-and-custom-resolution-rates",
+      },
+      {
+        label: "Freshdesk Support — Monitor and Analyze AI Agent Performance Metrics in Freshdesk",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011716-monitor-ai-agent-performance",
+      },
+      {
+        label: "Freshdesk Support — Manage, Test & Troubleshoot Your Email AI Agent",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011217-use-and-manage-the-email-ai-agent",
+      },
+      {
+        label: "Intercom Help — Fin AI Agent outcomes",
+        url: "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+      },
+      {
+        label: "Gartner — Survey Finds Only 14% of Customer Service Issues Are Fully Resolved in Self-Service (August 2024)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service",
+      },
+      {
+        label: "Gartner — Survey Finds 87% of Customers Say Companies Using GenAI for Customer Service Must Provide Access to a Human Agent (August 2026)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2026-08-04-gartner-survey-finds-87-percent-of-customers-say-companies-using-genai-for-customer-service-must-provide-access-to-a-human-agent0",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
+    updated: "2026-10-19",
+  },
 ];

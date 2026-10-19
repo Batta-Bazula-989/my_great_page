@@ -4,7 +4,7 @@ const de: Dictionary = {
   meta: {
     homeTitle: "KI-Chatbots, Voicebots & Ticket-Routing im Kundenservice | TascaLab",
     homeDescription:
-      "Freelancer für Support-Automatisierung: KI-Chatbots, Voicebots, Ticket-Routing für Zendesk/Freshdesk/Jira, Reports – in Ihren Tools. Festpreise, 30-Min.-Audit gratis.",
+      "KI-Chatbots, Voicebots, Ticket-Routing für Zendesk/Freshdesk/Jira und automatisierte Reports vom Freelancer – in Ihren Tools. Festpreise, gratis 30-Min.-Audit.",
     noscriptHeading: "KI-Automatisierung für den Kundenservice – Chatbots, Voicebots & Ticket-Routing",
     noscriptText:
       "TascaLab baut KI-Chatbots, Voicebots, Ticket-Routing und automatisierte Reports auf Basis von Zendesk, Freshdesk, Jira und Slack. Schreiben Sie an romanzakharenko.r@gmail.com, um ein kostenloses 30-minütiges Audit zu buchen.",
@@ -311,7 +311,7 @@ const de: Dictionary = {
   resources: {
     metaTitle: "Ressourcen zur Kundensupport-Automatisierung | TascaLab",
     metaDescription:
-      "Ratgeber zu KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk- und Jira-Automatisierung, WhatsApp- und Telegram-Bots, Support-Kennzahlen, SLAs und EU-Regeln.",
+      "Ratgeber: KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk- und Jira-Automatisierung, WhatsApp- und Telegram-Bots, Support-Kennzahlen, SLAs, EU-Regeln.",
     eyebrow: "Ressourcen",
     title: "Ressourcen zur Kundensupport-Automatisierung",
     intro:
