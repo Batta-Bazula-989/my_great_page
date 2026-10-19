@@ -42,7 +42,7 @@ export interface SeoPageContent {
   updated: string; // ISO date the facts were checked
 }
 
-export type Locale = "en" | "de" | "fr" | "es" | "it" | "nl";
+export type Locale = "en" | "de" | "fr" | "es" | "it" | "nl" | "pl" | "sv";
 
 // A page in a non-English locale. `key` is the English page's slug and links all translations together;
 // `slug` is the localized URL slug. `related` keeps English keys.

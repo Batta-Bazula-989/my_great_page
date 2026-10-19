@@ -15,6 +15,8 @@ export const LOCALES: LocaleInfo[] = [
   { code: "es", name: "Español", dateLocale: "es-ES", ogLocale: "es_ES" },
   { code: "it", name: "Italiano", dateLocale: "it-IT", ogLocale: "it_IT" },
   { code: "nl", name: "Nederlands", dateLocale: "nl-NL", ogLocale: "nl_NL" },
+  { code: "pl", name: "Polski", dateLocale: "pl-PL", ogLocale: "pl_PL" },
+  { code: "sv", name: "Svenska", dateLocale: "sv-SE", ogLocale: "sv_SE" },
 ];
 
 export const DEFAULT_LOCALE: Locale = "en";

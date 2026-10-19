@@ -7,9 +7,11 @@ import fr from "./fr";
 import es from "./es";
 import it from "./it";
 import nl from "./nl";
+import pl from "./pl";
+import sv from "./sv";
 import { DEFAULT_LOCALE } from "./config";
 
-export const dictionaries: Record<Locale, Dictionary> = { en, de, fr, es, it, nl };
+export const dictionaries: Record<Locale, Dictionary> = { en, de, fr, es, it, nl, pl, sv };
 
 // Set per language by the route layout in routes.tsx.
 export const LocaleContext = createContext<Locale>(DEFAULT_LOCALE);

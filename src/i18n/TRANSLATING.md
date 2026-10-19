@@ -20,13 +20,14 @@ Rules
 - Keep unchanged: TascaLab, Roman Zakharenko, the email address, product names (Zendesk, Freshdesk, Jira,
   Slack, Make, n8n, Upwork, LinkedIn, Telegram, WhatsApp, Zoom, Google Meet), "FAQ" may be localized.
 - Prices stay in USD; write them in the target language's number style, e.g. de/es/it/nl "1.100 – 1.600 USD",
-  fr "1 100 – 1 600 USD". Keep the same ranges.
+  fr/pl/sv "1 100 – 1 600 USD". Keep the same ranges.
+- Pricing plan names stay in English ("Starter Chat Bot", "Voice Bot", …) as in every other language.
 - `meta.homeTitle` ≤ 70 characters and ends with " | TascaLab"; `meta.homeDescription` 140–160 characters;
   `resources.metaTitle` ≤ 60 characters; `resources.metaDescription` 120–160 characters.
 - `hero.titleBefore` + `hero.titleHighlight` + `hero.titleAfter` are rendered back to back (the middle part is
   highlighted). Reorder words as the language needs; keep the spaces at the joins; any part may be "".
 - Placeholders in the booking form (name, email, company) should look natural for the country.
-- Voice: plain and direct. Address: de "Sie", fr "vous", es "tú", it "tu", nl "je".
+- Voice: plain and direct. Address: de "Sie", fr "vous", es "tú", it "tu", nl "je", pl "Ty", sv "du".
 - Category labels should match the menu names used in that language's landing pages
   (see `src/content/pages/<locale>/` if present).
 - Valid TypeScript: straight double quotes for strings, escape inner `"` as `\"`.

@@ -9,6 +9,8 @@ import * as fr from "./pages/fr";
 import * as es from "./pages/es";
 import * as it from "./pages/it";
 import * as nl from "./pages/nl";
+import * as pl from "./pages/pl";
+import * as sv from "./pages/sv";
 
 export const SITE_URL = "https://tascalab.com";
 
@@ -38,6 +40,8 @@ export const pagesByLocale: Record<Locale, TranslatedPage[]> = {
   es: all(es),
   it: all(it),
   nl: all(nl),
+  pl: all(pl),
+  sv: all(sv),
 };
 
 // A page's English slug is its key; every translation of it shares that key.
