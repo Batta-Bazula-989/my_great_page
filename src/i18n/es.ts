@@ -121,14 +121,14 @@ const es: Dictionary = {
     // Same order as the plans in PricingSection; prices stay in USD.
     plans: [
       {
-        name: "Chatbot básico",
+        name: "Starter Chat Bot",
         price: "350 – 450 USD",
         description:
           "Atiende consultas básicas de clientes y preguntas frecuentes en 1–2 canales. Perfecto para pequeñas empresas que empiezan con la automatización.",
         features: ["1–2 canales", "Responde preguntas frecuentes, recoge información básica y gestiona automáticamente las solicitudes habituales"],
       },
       {
-        name: "Bot de voz",
+        name: "Voice Bot",
         price: "1.100 – 1.600 USD",
         description: "Para llamadas telefónicas entrantes.",
         features: [
@@ -136,14 +136,14 @@ const es: Dictionary = {
         ],
       },
       {
-        name: "Chatbot estándar",
+        name: "Standard Chat Bot",
         price: "500 – 650 USD",
         description:
           "Chatbot avanzado con soporte multicanal, respuestas más inteligentes y mejor gestión de las interacciones con clientes a gran escala.",
         features: ["3–5 canales", "Gestiona conversaciones más complejas con una lógica más inteligente y traspasos más fluidos a tu equipo"],
       },
       {
-        name: "Enrutamiento y categorización de tickets",
+        name: "Ticket Routing & Categorization",
         price: "600 – 950 USD",
         description: "Clasificación y asignación automáticas de tickets.",
         features: [
@@ -151,7 +151,7 @@ const es: Dictionary = {
         ],
       },
       {
-        name: "Informes automáticos",
+        name: "Automated Reports",
         price: "500 – 900 USD",
         description: "Informes programados que se envían automáticamente.",
         features: [
@@ -159,7 +159,7 @@ const es: Dictionary = {
         ],
       },
       {
-        name: "Automatización a medida",
+        name: "Custom Automation",
         price: "1.200 – 2.000 USD",
         description:
           "Automatización totalmente personalizada, diseñada en torno a tus flujos de trabajo, tus herramientas y los requisitos específicos de tu negocio.",

@@ -1092,4 +1092,209 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 6. Omnichannel customer support
+  // ---------------------------------------------------------------------------
+  {
+    key: "omnichannel-customer-support",
+    slug: "atencion-al-cliente-omnicanal",
+    category: "basics",
+    navLabel: "Atención al cliente omnicanal",
+    primaryKeyword: "atención al cliente omnicanal",
+    title: "Atención al cliente omnicanal: qué significa en la práctica",
+    description:
+      "Atención al cliente omnicanal: en qué se diferencia de la multicanal, espacios de trabajo unificados, enrutamiento omnicanal y ventanas de WhatsApp y Messenger.",
+    h1: "Atención al cliente omnicanal: qué significa y cómo funciona",
+    intro:
+      "La atención al cliente omnicanal significa que todos los canales que usa un cliente para contactar contigo, como el correo electrónico, el chat, el teléfono, WhatsApp o la mensajería en redes sociales, están conectados a una única ficha de cliente y a un único historial de conversación que cualquier agente puede ver. La atención multicanal ofrece los mismos canales, pero los gestiona por separado, así que los clientes tienen que repetirse cada vez que cambian de canal. Llegar a la omnicanalidad requiere un espacio de trabajo unificado para los agentes, un enrutamiento que trate todos los canales como un único volumen de trabajo y flujos que respeten las reglas propias de cada canal.",
+    keyFacts: [
+      "Freshworks describe la atención multicanal como canales independientes que funcionan cada uno de forma autónoma; en la atención omnicanal están interconectados.",
+      "En el Zendesk Agent Workspace, una misma conversación de ticket puede incluir correo electrónico, chat y voz.",
+      "El enrutamiento omnicanal de Zendesk asigna tickets de correo, mensajería y llamadas según el estado del agente y su capacidad libre.",
+      "En WhatsApp, las respuestas libres solo se permiten dentro de una ventana de atención al cliente de 24 horas; después, solo se pueden enviar plantillas.",
+      "Una encuesta de Gartner publicada en julio de 2025 concluyó que solo el 22% de los clientes empiezan, se mantienen y resuelven su problema íntegramente en los canales propios de la empresa.",
+    ],
+    sections: [
+      {
+        heading: "Atención omnicanal frente a multicanal",
+        blocks: [
+          {
+            type: "p",
+            text: "Ambos modelos ofrecen varios canales. La diferencia está en si esos canales comparten contexto. Freshworks define la atención multicanal como la oferta de varios canales independientes, cada uno funcionando de forma autónoma, y señala que suele implicar equipos dedicados para cada canal. Los sistemas omnicanal, en cambio, garantizan que todos los canales estén interconectados. Zendesk traza la misma línea: en la atención multicanal, las conversaciones no pasan de un canal al siguiente, mientras que la atención omnicanal conecta las interacciones en una única conversación continua y da a los agentes una visión completa del historial del cliente.",
+          },
+          {
+            type: "table",
+            caption: "Atención al cliente multicanal frente a omnicanal",
+            head: ["Aspecto", "Multicanal", "Omnicanal"],
+            rows: [
+              ["Canales", "Varios canales, cada uno con su propia herramienta o bandeja", "Varios canales que alimentan un único helpdesk"],
+              ["Historial del cliente", "Se queda en el canal donde ocurrió", "Un solo historial para todos los canales, visible para todos los agentes"],
+              ["Cambio de canal", "El cliente empieza de cero y repite los datos", "El agente retoma la conversación donde la dejó la última interacción"],
+              ["Organización del equipo", "A menudo, un equipo dedicado por canal", "Una cola compartida, con agentes que trabajan varios canales"],
+              ["Enrutamiento", "Por canal, a menudo manual", "Una única configuración de enrutamiento basada en estado, capacidad y habilidades"],
+              ["Informes", "Cifras separadas por canal", "Informes por cliente y por incidencia en todos los canales"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Añadir un canal no te convierte en omnicanal. Si los mensajes de WhatsApp llegan a una app separada que tus agentes de correo no pueden ver, tienes un silo más. Y los clientes sí se mueven entre canales: una encuesta de Gartner a 5.801 clientes, publicada en julio de 2025, concluyó que solo el 22% empiezan, se mantienen y resuelven su problema íntegramente en los canales propios de la empresa, y que el 51% de los recorridos de atención empiezan ya en plataformas de terceros como Google, YouTube y ChatGPT.",
+          },
+        ],
+      },
+      {
+        heading: "Un espacio de trabajo unificado y un historial compartido",
+        blocks: [
+          {
+            type: "p",
+            text: "El núcleo de la atención omnicanal es un único lugar donde los agentes ven y responden todas las conversaciones. En el Zendesk Agent Workspace, las conversaciones de ticket pueden incluir correo electrónico, chat y voz, y los agentes también pueden recibir y responder mensajes de redes sociales y de la web. El ejemplo del propio Zendesk es un ticket que empezó como chat en directo y continuó por correo, recogido como un único flujo de conversación. El contexto del cliente, incluido el historial de interacciones, aparece junto a la conversación, y los agentes pueden buscar y citar artículos del centro de ayuda desde la misma pantalla.",
+          },
+          {
+            type: "p",
+            text: "Uses el helpdesk que uses, una configuración omnicanal que funcione necesita las mismas capacidades:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Una única ficha de cliente que vincule direcciones de correo, números de teléfono e ID de mensajería, para que un mensaje de WhatsApp y un correo de la misma persona acaben en el mismo historial.",
+              "El historial de conversación de todos los canales en el ticket, incluida la conversación con el bot previa al traspaso.",
+              "La opción de responder por otro canal cuando el original ya no permite responder.",
+              "Etiquetas, campos y macros compartidos, para que los informes funcionen igual en todos los canales.",
+            ],
+          },
+          {
+            type: "note",
+            text: "La identificación de clientes es donde fallan muchas configuraciones. Si tu centralita, tu número de WhatsApp y tu bandeja de correo no apuntan a la misma ficha de cliente, los agentes siguen viendo fragmentos, solo que en una sola ventana.",
+          },
+        ],
+      },
+      {
+        heading: "Enrutamiento omnicanal",
+        blocks: [
+          {
+            type: "p",
+            text: "El enrutamiento decide qué agente recibe cada conversación. El enrutamiento omnicanal de Zendesk envía los tickets nuevos y abiertos de correo, llamadas y mensajería a los agentes según su disponibilidad y capacidad. En lugar de fijar un estado para cada canal, los agentes fijan un único estado unificado para correo, voz y mensajería. Para la mensajería y las llamadas, el agente tiene que estar conectado, y todos los agentes necesitan capacidad libre, es decir, tener asignados menos tickets abiertos que su máximo para ese canal.",
+          },
+          {
+            type: "p",
+            text: "Por defecto, un ticket va al agente con más capacidad libre para ese canal y, en caso de empate, al agente que lleva más tiempo sin recibir un ticket de ese canal. Puedes cambiar a round robin y activar el modo de concentración (focus mode) para que un agente no reciba conversaciones de mensajería y llamadas a la vez. Según tu plan de Zendesk, el enrutamiento también puede tener en cuenta el tiempo hasta el incumplimiento del SLA, la prioridad del ticket y las habilidades de los agentes.",
+          },
+          {
+            type: "p",
+            text: "La ventaja de enrutar entre canales en lugar de por canal es la capacidad compartida: a un agente que está en una llamada no se le debería ofrecer un chat nuevo, y un agente con pocos correos abiertos puede asumir más trabajo.",
+          },
+        ],
+      },
+      {
+        heading: "Reglas de cada canal: ventanas de mensajería en WhatsApp y Messenger",
+        blocks: [
+          {
+            type: "p",
+            text: "La omnicanalidad no hace que los canales sean idénticos. Las plataformas de mensajería fijan reglas sobre cuándo puede responder una empresa, y tus flujos de trabajo tienen que respetarlas.",
+          },
+          {
+            type: "table",
+            caption: "Ventanas de mensajería en WhatsApp y Facebook Messenger",
+            head: ["Canal", "Ventana de respuesta", "Cuando se cierra la ventana"],
+            rows: [
+              [
+                "WhatsApp Business Platform",
+                "Una ventana de atención al cliente de 24 horas empieza cuando el cliente te escribe o te llama, y se reinicia con cada nuevo mensaje o llamada. Dentro de ella, puedes enviar mensajes de servicio libres sin aprobación previa.",
+                "Solo se pueden enviar mensajes de plantilla aprobados previamente. Los mensajes libres solo pueden responder a usuarios, no iniciar una conversación.",
+              ],
+              [
+                "Facebook Messenger",
+                "La ventana de mensajería estándar es de 24 horas desde el último mensaje de la persona.",
+                "Con la etiqueta 'Human Agent', una persona puede responder en los 7 días siguientes al mensaje del cliente. Tu app debe estar aprobada para usar la etiqueta, y no se permiten mensajes automatizados con ella.",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Estas reglas condicionan tu flujo de trabajo. Si un agente retoma una conversación de WhatsApp más de 24 horas después del último mensaje del cliente, no puede enviar una respuesta libre: necesitas una plantilla aprobada o pasar a otro canal, como el correo electrónico. Los bots también se ven afectados, porque la etiqueta 'Human Agent' de Messenger es solo para respuestas humanas. Consulta la documentación vigente de Meta antes de diseñar en torno a estos límites, porque Meta actualiza sus políticas de mensajería y sus precios.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo pasar de multicanal a omnicanal",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Haz una lista de todos los canales que usan hoy los clientes y de adónde llega cada uno: qué herramienta, qué equipo, qué bandeja.",
+              "Reúne los canales en un único helpdesk, mediante integraciones nativas donde existan y APIs o webhooks donde no.",
+              "Decide cómo identificas a los clientes entre canales, por ejemplo por dirección de correo y número de teléfono, y cómo fusionas los duplicados.",
+              "Configura un único enrutamiento con capacidad por canal, en lugar de colas separadas por equipo.",
+              "Haz que los traspasos de bot a humano lleven al ticket la conversación completa y los datos del cliente.",
+              "Añade reglas específicas de cada canal, como respuestas con plantilla en WhatsApp pasadas 24 horas y objetivos de SLA distintos para los canales en directo y los asíncronos.",
+              "Elabora informes por cliente y por incidencia en todos los canales, no solo por canal.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Cómo puede ayudarte TascaLab",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab conecta canales con el helpdesk que ya usas, como Zendesk o Freshdesk, mediante APIs, webhooks y Make o n8n. Un Standard Chat Bot (500–650 USD, proyecto puntual) cubre 3–5 canales, como tu web, WhatsApp, Telegram, Facebook Messenger e Instagram, y Ticket Routing & Categorization (600–950 USD) clasifica las conversaciones entrantes en la cola correcta. Todos los proyectos incluyen documentación básica, 30 días de soporte tras el lanzamiento y ningún coste oculto, y la mayoría de las implementaciones llevan 1–3 semanas. Una llamada de auditoría gratuita de 30 minutos permite mapear tus canales actuales antes de construir nada.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Qué diferencia hay entre la atención omnicanal y la multicanal?",
+        a: "La atención multicanal ofrece varios canales que funcionan de forma independiente, así que el historial se queda dentro de cada canal. La atención omnicanal conecta los canales, de modo que los agentes ven un único historial del cliente y los clientes pueden cambiar de canal sin repetirse.",
+      },
+      {
+        q: "¿Qué es el enrutamiento omnicanal de Zendesk?",
+        a: "Un sistema de enrutamiento que asigna tickets de correo, mensajería y llamadas a los agentes según un único estado unificado del agente y su capacidad libre por canal. Por defecto, el ticket lo recibe el agente con más capacidad libre para ese canal.",
+      },
+      {
+        q: "¿Puedo responder a un cliente de WhatsApp pasadas 24 horas?",
+        a: "No con un mensaje libre. Cuando se cierra la ventana de atención al cliente de 24 horas, solo se pueden enviar mensajes de plantilla aprobados previamente. Un nuevo mensaje o llamada del cliente abre una nueva ventana.",
+      },
+      {
+        q: "¿Cuánto tiempo tiene un agente humano para responder en Facebook Messenger?",
+        a: "La ventana de mensajería estándar es de 24 horas. Con la etiqueta 'Human Agent', que requiere la aprobación de la app, un agente humano puede responder en los 7 días siguientes al mensaje del cliente. La etiqueta no se puede usar para mensajes automatizados.",
+      },
+    ],
+    sources: [
+      {
+        label: "Freshworks — Omnichannel vs Multichannel: Key Service Differences",
+        url: "https://www.freshworks.com/explore-cx/omnichannel-vs-multichannel-support/",
+      },
+      {
+        label: "Zendesk — What is omnichannel customer service?",
+        url: "https://www.zendesk.com/blog/customer-service/support/omnichannel-really-means/",
+      },
+      {
+        label: "Zendesk Help Center — About the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408821259930-About-the-Zendesk-Agent-Workspace",
+      },
+      {
+        label: "Zendesk Help Center — About omnichannel routing",
+        url: "https://support.zendesk.com/hc/en-us/articles/4409149119514-About-omnichannel-routing",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Service messages",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages",
+      },
+      {
+        label: "Meta for Developers — WhatsApp Business Platform: Template fundamentals",
+        url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform Send API reference",
+        url: "https://developers.facebook.com/docs/messenger-platform/reference/send-api/",
+      },
+      {
+        label: "Gartner — Survey Finds More Than Half of Customer Service Journeys Now Start on Third-Party Platforms (July 2025)",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2025-07-23-gartner-survey-finds-more-than-half-of-customer-service-journeys-now-start-on-third-party-platforms",
+      },
+    ],
+    related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
+    updated: "2026-10-19",
+  },
 ];

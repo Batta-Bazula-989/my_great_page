@@ -209,4 +209,192 @@ export const channelPages: TranslatedPage[] = [
     ],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 2. Telegram
+  // ---------------------------------------------------------------------------
+  {
+    key: "telegram-support-bot",
+    slug: "bot-telegram-support-client",
+    category: "channels",
+    navLabel: "Bot Telegram pour le support",
+    primaryKeyword: "bot Telegram support client",
+    title: "Bot Telegram de support : Bot API, webhooks et transfert",
+    description:
+      "Mettre en service un bot Telegram de support : BotFather, webhooks vs long polling, claviers inline, mode confidentialité, limites d'envoi et transfert.",
+    h1: "Bot Telegram de support : fonctionnement et mise en place",
+    intro:
+      "Un bot Telegram de support est un programme connecté à la Telegram Bot API. Vous l'enregistrez auprès de @BotFather, recevez un jeton (token), et votre code reçoit les messages des clients via un webhook ou du long polling. Les bots Telegram ne peuvent pas démarrer de conversation : chaque parcours de support commence donc lorsqu'un client ouvre votre bot et appuie sur « Start ».",
+    keyFacts: [
+      "Vous créez un bot et obtenez son jeton d'authentification en envoyant un message à @BotFather.",
+      "Les mises à jour arrivent via getUpdates ou via un webhook ; les deux méthodes s'excluent mutuellement.",
+      "Telegram conserve les mises à jour non distribuées pendant 24 heures au maximum.",
+      "Les bots ne peuvent pas écrire en premier aux utilisateurs ; l'utilisateur doit envoyer un message au bot ou l'ajouter à un groupe.",
+      "Les webhooks ne fonctionnent que sur les ports 443, 80, 88 et 8443.",
+    ],
+    sections: [
+      {
+        heading: "Comment fonctionne un bot Telegram de support",
+        blocks: [
+          {
+            type: "p",
+            text: "Vous créez un bot en envoyant un message à @BotFather dans Telegram, qui l'enregistre et vous fournit un jeton d'authentification. Votre code utilise ce jeton pour appeler la Bot API en HTTPS. Le jeton authentifie uniquement votre code ; il ne donne pas au bot la permission d'écrire à qui que ce soit.",
+          },
+          {
+            type: "p",
+            text: "Les bots ne peuvent pas démarrer de conversation. Un utilisateur doit d'abord écrire au bot ou l'ajouter à un groupe. Chaque bot dispose d'un lien de la forme t.me/ suivi du nom d'utilisateur du bot, qui ouvre une discussion avec lui, et la première fois qu'une personne ouvre cette discussion, elle voit un bouton « Start » qui envoie la commande /start. Enregistrez à ce moment-là le chat ID de l'utilisateur : vous en aurez besoin pour lui envoyer tout message ultérieur, comme une mise à jour de ticket.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Le client clique sur votre lien t.me sur votre site web ou dans un e-mail et appuie sur « Start ».",
+              "Le bot l'accueille et affiche un court menu des sujets courants.",
+              "Les questions simples obtiennent une réponse immédiate ; pour tout le reste, le bot collecte les informations (numéro de commande, description, captures d'écran).",
+              "Le bot crée un ticket dans votre helpdesk et indique au client la suite.",
+              "Lorsqu'un agent répond dans le helpdesk, la réponse est renvoyée dans la même discussion Telegram.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Webhooks ou long polling",
+        blocks: [
+          {
+            type: "p",
+            text: "La Bot API propose deux façons, mutuellement exclusives, de recevoir les mises à jour : la méthode getUpdates (long polling) et les webhooks. Tant qu'un webhook est défini, getUpdates ne fonctionne pas. Dans les deux cas, Telegram conserve les mises à jour que vous n'avez pas reçues pendant 24 heures au maximum : un bot hors ligne pendant une journée perd donc des messages.",
+          },
+          {
+            type: "table",
+            caption: "Choisir comment votre bot reçoit les messages",
+            head: ["", "getUpdates (long polling)", "Webhook (setWebhook)"],
+            rows: [
+              ["Fonctionnement", "Votre serveur demande à Telegram les nouvelles mises à jour", "Telegram envoie chaque mise à jour à votre URL HTTPS"],
+              ["Hébergement", "N'importe quel serveur capable d'émettre des requêtes sortantes", "Un endpoint HTTPS public sur le port 443, 80, 88 ou 8443"],
+              ["Vérification de l'expéditeur", "Inutile, c'est votre serveur qui émet les requêtes", "Définissez un secret_token ; Telegram le renvoie dans l'en-tête X-Telegram-Bot-Api-Secret-Token"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Pour repasser d'un webhook au polling, supprimez le webhook avec deleteWebhook ou en appelant setWebhook avec une URL vide. Les deux méthodes acceptent drop_pending_updates si vous voulez supprimer les mises à jour en attente lorsque vous changez de configuration.",
+          },
+        ],
+      },
+      {
+        heading: "Boutons et menus pour les parcours de support",
+        blocks: [
+          {
+            type: "p",
+            text: "Les bots de support fonctionnent mieux avec des boutons qu'avec du texte libre. Les claviers de réponse personnalisés (custom reply keyboards) remplacent le clavier de l'utilisateur par des réponses prédéfinies, et appuyer sur l'une d'elles envoie ce texte dans la discussion. Les claviers inline associent des boutons à un message précis et ne publient rien dans la discussion lorsqu'on appuie dessus. Un bouton inline peut ouvrir une URL ou envoyer à votre bot des données de callback de 1 à 64 octets.",
+          },
+          {
+            type: "p",
+            text: "Deux détails piègent les nouveaux bots. Après qu'un utilisateur a appuyé sur un bouton de callback, les clients Telegram affichent un indicateur de progression jusqu'à ce que votre bot appelle answerCallbackQuery : répondez donc à chaque callback, même sans texte. Et pour les menus en plusieurs étapes, modifiez le message existant avec de nouveaux boutons au lieu d'envoyer un nouveau message à chaque fois ; la modification fonctionne pour les messages dotés d'un clavier inline.",
+          },
+        ],
+      },
+      {
+        heading: "Groupes, mode confidentialité et limites d'envoi",
+        blocks: [
+          {
+            type: "p",
+            text: "Les bots ajoutés à des groupes fonctionnent par défaut en mode confidentialité (privacy mode). Dans ce mode, un bot reçoit les commandes qui lui sont adressées, les réponses à ses propres messages, les messages envoyés via le bot et les messages de service, mais pas les échanges ordinaires du groupe. Les bots administrateurs d'un groupe reçoivent tous les messages, et vous pouvez désactiver le mode confidentialité avec /setprivacy dans @BotFather, même si Telegram ne le recommande qu'en cas de nécessité absolue. Les messages des discussions privées avec le bot lui parviennent toujours.",
+          },
+          {
+            type: "table",
+            caption: "Limites approximatives selon la FAQ Bots de Telegram",
+            head: ["Où", "Recommandation"],
+            rows: [
+              ["Une seule discussion", "Évitez plus d'un message par seconde ; de courtes rafales peuvent passer avant l'apparition d'erreurs 429"],
+              ["Un groupe", "Pas plus de 20 messages par minute"],
+              ["Notifications en masse", "Environ 30 messages par seconde, tous utilisateurs confondus, sauf si vous activez les diffusions payantes (paid broadcasts)"],
+            ],
+          },
+          {
+            type: "p",
+            text: "La FAQ de Telegram présente ces chiffres comme approximatifs : prévoyez donc des nouvelles tentatives en cas d'erreur 429 plutôt que de vous fier à des valeurs exactes. Pour un bot de support, ils comptent surtout lorsque vous notifiez de nombreux clients à la fois, par exemple lors d'une panne. Avec le long polling, passez aussi le paramètre offset à getUpdates : les mises à jour jusqu'à cet ID sont marquées comme confirmées et ne seront plus renvoyées.",
+          },
+        ],
+      },
+      {
+        heading: "Transfert vers le helpdesk et Telegram Business",
+        blocks: [
+          {
+            type: "p",
+            text: "Pour le transfert du bot vers un humain, le schéma habituel consiste à ce que le bot ouvre un ticket et relaie les réponses des agents dans la discussion. Zendesk prend en charge Telegram comme canal Sunshine Conversations dans l'Agent Workspace, ce qui nécessite Suite Professional ou supérieur. Les messages deviennent des tickets, et la réponse d'un agent dans Zendesk apparaît dans l'application de messagerie du client.",
+          },
+          {
+            type: "p",
+            text: "Telegram Business est une option distincte pour les petites équipes qui répondent aux clients depuis leur propre compte Telegram. Le titulaire du compte peut connecter un seul bot business à la fois, choisir les discussions auxquelles il a accès, et le laisser traiter les messages entrants et, lorsque c'est autorisé, répondre en son nom.",
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab construit des bots Telegram de support qui se connectent aux outils que vous utilisez déjà, comme Zendesk, Freshdesk, Jira, Slack ou des systèmes internes, via des API, des webhooks et Make ou n8n. Un Starter Chat Bot (350–450 USD) couvre un ou deux canaux avec FAQ et collecte d'informations de base, ce qui convient à Telegram associé à un widget sur votre site web. Chaque projet inclut 30 jours de support après le lancement et une documentation de base, et la plupart des mises en place prennent 1 à 3 semaines. Vous pouvez commencer par un appel d'audit gratuit de 30 minutes.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Un bot Telegram peut-il écrire en premier aux clients ?",
+        a: "Non. Un utilisateur doit écrire au bot ou l'ajouter à un groupe avant que le bot puisse lui écrire. Enregistrez le chat ID au premier contact pour pouvoir envoyer des mises à jour plus tard.",
+      },
+      {
+        q: "Faut-il utiliser des webhooks ou getUpdates ?",
+        a: "Les deux fonctionnent, mais pas en même temps. Les webhooks envoient chaque mise à jour à votre endpoint HTTPS, tandis que le long polling ne nécessite que des requêtes sortantes et est plus simple pendant le développement.",
+      },
+      {
+        q: "Pourquoi mon bot ne voit-il pas les messages d'un groupe ?",
+        a: "Les bots fonctionnent par défaut en mode confidentialité et ne voient que les messages qui leur sont destinés. Faites du bot un administrateur du groupe, ou désactivez le mode confidentialité avec /setprivacy dans @BotFather et ajoutez de nouveau le bot au groupe.",
+      },
+      {
+        q: "Zendesk prend-il en charge Telegram ?",
+        a: "Oui, en tant que canal Sunshine Conversations dans l'Agent Workspace, pour lequel Zendesk indique qu'il faut Suite Professional ou supérieur. Les messages arrivent sous forme de tickets et les réponses des agents repartent vers Telegram.",
+      },
+    ],
+    sources: [
+      {
+        label: "Telegram — Bots: An introduction for developers",
+        url: "https://core.telegram.org/bots",
+      },
+      {
+        label: "Telegram — Telegram Bot API",
+        url: "https://core.telegram.org/bots/api",
+      },
+      {
+        label: "Telegram — From BotFather to 'Hello World'",
+        url: "https://core.telegram.org/bots/tutorial",
+      },
+      {
+        label: "Telegram — Marvin's Marvellous Guide to All Things Webhook",
+        url: "https://core.telegram.org/bots/webhooks",
+      },
+      {
+        label: "Telegram — Telegram Bot Features",
+        url: "https://core.telegram.org/bots/features",
+      },
+      {
+        label: "Telegram — Bots FAQ",
+        url: "https://core.telegram.org/bots/faq",
+      },
+      {
+        label: "Telegram — Connected business bots",
+        url: "https://core.telegram.org/api/bots/connected-business-bots",
+      },
+      {
+        label: "Zendesk Help Center — Adding Sunshine Conversations channels to the Zendesk Agent Workspace",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836484378-Adding-Sunshine-Conversations-channels-to-the-Zendesk-Agent-Workspace",
+      },
+    ],
+    related: [
+      "ai-chatbot-for-customer-support",
+      "slack-support-automation",
+      "n8n-vs-make-vs-zapier",
+    ],
+    updated: "2026-10-19",
+  },
 ];

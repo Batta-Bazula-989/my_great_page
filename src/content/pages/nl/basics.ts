@@ -219,4 +219,212 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 2. Chatbot to human handoff
+  // ---------------------------------------------------------------------------
+  {
+    key: "chatbot-to-human-handoff",
+    slug: "chatbot-overdracht-naar-medewerker",
+    category: "basics",
+    navLabel: "Overdracht chatbot naar medewerker",
+    primaryKeyword: "chatbot overdracht naar medewerker",
+    title: "Chatbot-overdracht naar medewerker: triggers, context, opzet",
+    description:
+      "Chatbot-overdracht naar medewerker: wanneer escaleren, welke context doorgeven, opvang buiten kantooruren, en hoe Zendesk, Freshdesk en Messenger het doen.",
+    h1: "Chatbot-overdracht naar medewerker: escaleren zonder de klant te verliezen",
+    intro:
+      "Een overdracht van chatbot naar medewerker is het moment waarop een bot stopt met het afhandelen van een gesprek en het, met de geschiedenis en alle verzamelde gegevens, doorzet naar een menselijke agent of wachtrij. Een goede overdracht gebeurt op het juiste moment, neemt de context mee zodat de klant zich niet hoeft te herhalen, en werkt ook als er niemand online is. Deze gids behandelt de triggers, de context die je doorgeeft en hoe Zendesk, Freshdesk en Messenger het implementeren.",
+    keyFacts: [
+      "Volgens Zendesk moet een AI-agent een vraag mogelijk overdragen aan een mens wanneer die complex, urgent of gevoelig is.",
+      "Freshdesk AI Agents kunnen automatisch overdragen wanneer een klant triggerzinnen gebruikt die jij definieert, zoals vragen naar een agent.",
+      "Als in Dialogflow CX geen enkele intent de classificatiedrempel haalt, wordt een no-match-event geactiveerd in plaats van een match.",
+      "Op Messenger bepaalt het handover protocol welke app eigenaar is van een gespreksthread; Meta is voor Instagram overgestapt op Conversation Routing.",
+    ],
+    sections: [
+      {
+        heading: "Wat een overdracht van chatbot naar mens is",
+        blocks: [
+          {
+            type: "p",
+            text: "Een overdracht, ook wel escalatie of transfer genoemd, verplaatst het eigenaarschap van een gesprek van de automatisering naar een persoon. Afhankelijk van het kanaal is het resultaat een livechat die aan een agent is toegewezen, een gesprek dat in een wachtrij staat, of een ticket dat een agent later oppakt. Bij de AI-agents van Zendesk bouw je dit met escalatieblokken in de dialoogbuilder, die bepalen hoe een vraag naar een mens gaat wanneer de AI-agent die niet kan oplossen.",
+          },
+          {
+            type: "p",
+            text: "Overdrachten zijn er in twee vormen. Bij een synchrone overdracht blijft de klant in hetzelfde livegesprek en sluit er een agent aan. Bij een asynchrone overdracht wordt een ticket aangemaakt zodat een agent later kan antwoorden; dat is de gebruikelijke terugvaloptie als er niemand beschikbaar is. Zendesk documenteert beide, inclusief een workflow voor asynchrone ticketescalaties waarmee klanten een bericht kunnen achterlaten wanneer je team niet beschikbaar is.",
+          },
+        ],
+      },
+      {
+        heading: "Wanneer de bot moet overdragen",
+        blocks: [
+          {
+            type: "table",
+            caption: "Veelvoorkomende triggers voor een chatbotoverdracht",
+            head: ["Trigger", "Hoe het eruitziet", "Hoe het wordt herkend"],
+            rows: [
+              [
+                "Klant vraagt om een mens",
+                "Agent, ik wil een mens spreken, dit helpt niet",
+                "Freshdesk AI Agents dragen automatisch over bij triggerzinnen die je opgeeft, zoals een verzoek om een agent te spreken",
+              ],
+              [
+                "Lage zekerheid of geen match",
+                "De bot kan niet bepalen wat de klant wil",
+                "Dialogflow CX activeert een no-match-event wanneer geen enkele intent de classificatiedrempel haalt; gebruik die fallback om een mens aan te bieden",
+              ],
+              [
+                "Gevoelig of urgent onderwerp",
+                "Klachten, mislukte betalingen, beveiliging, juridische of veiligheidskwesties",
+                "Zendesk noemt complexe, urgente of gevoelige vragen als redenen om over te dragen; de voorbeeldtriggerzinnen van Freshdesk omvatten een melding van een mislukte betaling",
+              ],
+              [
+                "Herhaald falen",
+                "De klant herformuleert dezelfde vraag of de bot draait in een lus",
+                "Tel de fallback-antwoorden in de sessie en escaleer na een vast aantal",
+              ],
+              [
+                "Bedrijfsregel",
+                "VIP-account, hoge orderwaarde, lopend incident",
+                "Zoek klantgegevens via een API op voordat de bot antwoordt en stuur die klanten direct naar een mens",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Zekerheid (confidence) is de trigger die teams het vaakst impliciet laten. In Dialogflow CX wordt de intent met de hoogste score alleen als match teruggegeven als de confidence score groter dan of gelijk aan de classificatiedrempel is; anders wordt een no-match-event aangeroepen. Behandel dat event als signaal: stel één verduidelijkende vraag en draag over als het opnieuw gebeurt.",
+          },
+          {
+            type: "p",
+            text: "Zendesk adviseert ook om escalatie alleen aan te bieden wanneer de AI-agent de klant niet naar selfservicebronnen kan leiden. Zo houd je agents vrij voor echte problemen, maar verberg de optie niet. Een klant die expliciet om een mens vraagt, moet er een krijgen, of een duidelijk antwoord over wanneer dat gebeurt.",
+          },
+        ],
+      },
+      {
+        heading: "Geef de context door, niet alleen de klant",
+        blocks: [
+          {
+            type: "p",
+            text: "Een overdracht die het gesprek laat vallen, dwingt de klant om opnieuw te beginnen. De legacy-stap Transfer to agent van Zendesk maakt bijvoorbeeld een ticket aan met de gespreksgeschiedenis van de klant, die de klant niet ziet, en kan tags aan dat ticket toevoegen voor routing. Freshdesk AI Agents kunnen vóór de overdracht gegevens verzamelen, zoals een klant-ID, referentienummer of ordernummer, wanneer het verzamelen van eigenschappen is ingeschakeld in zowel de instellingen voor gespreksgedrag als die voor overdracht.",
+          },
+          {
+            type: "p",
+            text: "De agent moet minimaal het volgende ontvangen:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Het volledige transcript, inclusief wat de bot al heeft voorgesteld",
+              "De reden van de overdracht: verzoek van de klant, geen match, gevoelig onderwerp of bedrijfsregel",
+              "Identiteitsgegevens zoals naam, e-mailadres of account-ID, en of die zijn geverifieerd",
+              "Gestructureerde velden die de bot heeft verzameld, zoals ordernummer of product",
+              "Tags of een categorie, zodat routingregels het gesprek naar de juiste groep sturen",
+            ],
+          },
+          {
+            type: "p",
+            text: "Schep in hetzelfde bericht de verwachtingen van de klant: vertel dat een persoon het overneemt en ongeveer wanneer de klant iets terughoort.",
+          },
+        ],
+      },
+      {
+        heading: "Hoe Zendesk, Freshdesk en Messenger overdracht implementeren",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk: escalatieblokken in de dialoogbuilder van de AI-agent bepalen waar een gesprek heen gaat wanneer de AI-agent het niet kan oplossen, bijvoorbeeld door het door te sturen naar een agent. Een beschikbaarheidsblok kan kantooruren of de beschikbaarheid van agents controleren voordat de escalatie wordt uitgevoerd.",
+              "Freshdesk: in de overdrachtsinstellingen van de AI Agent schakel je Transfer conversation in, geef je de triggerzinnen op die een automatische overdracht moeten veroorzaken, en kun je de AI Agent eerst klantgegevens laten verzamelen.",
+              "Messenger: wanneer meer dan één app de berichten van een Facebook-pagina afhandelt, zoals je bot en een livechat-inbox, bepaalt het handover protocol van Meta welke app eigenaar is van de thread. De webhook messaging_handovers meldt events voor pass thread control, take thread control, request thread control en app roles. Een pass_thread_control-event bevat de app-ID's van de vorige en de nieuwe eigenaar plus een metadata-string die in het API-request is ingesteld: een handige plek voor de reden van de overdracht.",
+              "Instagram: volgens de changelog van Meta wordt het handover protocol voor Instagram niet meer ondersteund en zijn alle bedrijven gemigreerd naar Conversation Routing, waarmee je bepaalt welke partners op een bepaald moment klantgesprekken beheren. Meta beschrijft Conversation Routing als achterwaarts compatibel met de meeste API's van het handover protocol.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Afhandeling buiten kantooruren",
+        blocks: [
+          {
+            type: "p",
+            text: "Een bot die een mens belooft terwijl er niemand online is, is erger dan helemaal geen overdracht. Controleer eerst de beschikbaarheid en kies daarna een terugvaloptie:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk: een beschikbaarheidsblok controleert kantooruren of de beschikbaarheid van agents. In een synchroon kanaal zoals messaging stelt Zendesk voor om buiten de werktijden van agents in plaats daarvan via e-mail te escaleren, en met de workflow voor asynchrone ticketescalatie kunnen klanten een bericht achterlaten dat later door een mens wordt opgevolgd.",
+              "Freshdesk: met de optie Transfer outside business hours kies je een schema met kantooruren, draag je het gesprek over aan een agent of een groep, en schrijf je het bericht dat de klant ziet.",
+              "Elk platform: maak een ticket aan met het transcript, vertel wanneer het team terug is, en laat de bot intussen selfservicevragen blijven beantwoorden.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Test het pad buiten kantooruren apart. Dat is de tak die het makkelijkst ongemerkt kapotgaat, omdat er niemand van het team online is wanneer hij draait.",
+          },
+        ],
+      },
+      {
+        heading: "Hoe TascaLab kan helpen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bouwt chatbots met overdracht naar je bestaande helpdesk of Slack: een Starter Chat Bot (350–450 USD) of een Standard Chat Bot (500–650 USD), gekoppeld via API's, webhooks en Make of n8n. Elk project omvat basisdocumentatie en 30 dagen ondersteuning na livegang, zonder verborgen kosten, en de meeste implementaties duren 1–3 weken. Een gratis auditgesprek van 30 minuten is een goed moment om je overdrachtstriggers in kaart te brengen.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wanneer moet een chatbot overdragen aan een mens?",
+        a: "Wanneer de klant om een persoon vraagt, wanneer de bot het verzoek niet met voldoende zekerheid kan matchen, en wanneer het onderwerp complex, urgent of gevoelig is; zo beschrijft Zendesk vragen die een menselijke agent nodig hebben.",
+      },
+      {
+        q: "Hoe voorkom ik dat klanten zich na een overdracht moeten herhalen?",
+        a: "Geef het transcript, de reden van de overdracht en alle gegevens die de bot heeft verzameld door aan het ticket of de chat. De legacy-overdrachtsstap van Zendesk voegt de gespreksgeschiedenis toe aan het ticket, en Freshdesk AI Agents kunnen vóór de overdracht gegevens zoals een ordernummer verzamelen.",
+      },
+      {
+        q: "Wat is het handover protocol van Messenger?",
+        a: "Dat is het mechanisme van Meta om te bepalen welke app eigenaar is van een Messenger-gespreksthread wanneer meerdere apps dezelfde pagina bedienen. Apps geven threadcontrole door, nemen die over of vragen erom, en de webhook messaging_handovers meldt die events.",
+      },
+      {
+        q: "Wat gebeurt er als een klant buiten kantooruren om een mens vraagt?",
+        a: "Controleer de beschikbaarheid voordat je escaleert. Met zowel Zendesk als Freshdesk kun je overdrachten buiten kantooruren anders afhandelen, bijvoorbeeld door een ticket aan te maken voor latere opvolging en een bericht te tonen over wanneer het team beschikbaar is.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Configuring escalation strategies and flows for AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756604186-Configuring-escalation-strategies-and-flows-for-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Workflow recipe: Configuring asynchronous ticket escalations for messaging AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/11285019603098-Workflow-recipe-Configuring-asynchronous-ticket-escalations-for-messaging-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the step types for AI agent answers (Legacy)",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836323738-Understanding-the-step-types-for-AI-agent-answers-Legacy",
+      },
+      {
+        label: "Freshdesk Support — Configure handover settings for AI Agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000012026-configure-handover-settings-for-ai-agents",
+      },
+      {
+        label: "Freshdesk Support — Configure conversation behaviour for AI agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011713-configure-conversation-behaviour-for-ai-agent",
+      },
+      {
+        label: "Meta for Developers — messaging_handovers webhook event reference",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/webhooks/webhook-events/messaging_handovers",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform changelog",
+        url: "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      },
+      {
+        label: "Google Cloud — Dialogflow CX intents",
+        url: "https://docs.cloud.google.com/dialogflow/cx/docs/concept/intent",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
+    updated: "2026-10-19",
+  },
 ];

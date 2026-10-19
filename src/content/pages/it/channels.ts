@@ -12,7 +12,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "bot WhatsApp per assistenza clienti",
     title: "Bot WhatsApp per assistenza clienti: regole e configurazione",
     description:
-      "Come funziona un bot WhatsApp per l'assistenza clienti: Business Platform o app, finestra di 24 ore, template, opt-in, costi di base e collegamento all'helpdesk.",
+      "Come funziona un bot WhatsApp per l'assistenza clienti: Business Platform o app, finestra di 24 ore, template, opt-in, prezzi e collegamento all'helpdesk.",
     h1: "Bot WhatsApp per l'assistenza clienti: come funziona e cosa consente Meta",
     intro:
       "Un bot WhatsApp per l'assistenza clienti gira sulla WhatsApp Business Platform (Cloud API), non sull'app gratuita WhatsApp Business. Può rispondere liberamente per 24 ore dopo ogni messaggio del cliente; trascorso quel tempo, puoi raggiungere il cliente solo con un template approvato in anticipo. Costruisci il bot attorno a questa finestra, al tuo processo di opt-in e a un passaggio pulito verso il tuo helpdesk.",
@@ -221,7 +221,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "bot Telegram per assistenza clienti",
     title: "Bot Telegram per l'assistenza: Bot API, webhook e passaggio",
     description:
-      "Come gestire un bot Telegram per l'assistenza: BotFather, webhook o long polling, tastiere inline, privacy mode nei gruppi, limiti di invio e passaggio all'helpdesk.",
+      "Bot Telegram per l'assistenza: BotFather, webhook o long polling, tastiere inline, privacy mode nei gruppi, limiti di invio e passaggio all'helpdesk.",
     h1: "Bot Telegram per l'assistenza clienti: come funziona e come configurarlo",
     intro:
       "Un bot Telegram per l'assistenza è un programma collegato alla Telegram Bot API. Lo registri con @BotFather, ricevi un token e il tuo codice riceve i messaggi dei clienti tramite un webhook o il long polling. I bot di Telegram non possono avviare conversazioni, quindi ogni flusso di assistenza inizia quando un cliente apre il tuo bot e tocca Start.",
@@ -409,7 +409,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "bot Facebook Messenger per servizio clienti",
     title: "Bot Facebook Messenger per servizio clienti: regole e setup",
     description:
-      "Come funziona un bot Facebook Messenger per il servizio clienti: webhook, finestra di 24 ore, tag HUMAN_AGENT, passaggio agli operatori e policy di Meta sui bot.",
+      "Come funziona un bot Facebook Messenger per il servizio clienti: webhook, finestra di 24 ore, tag HUMAN_AGENT, passaggio agli operatori e policy Meta sui bot.",
     h1: "Bot Facebook Messenger per il servizio clienti: finestre, tag e passaggio all'operatore",
     intro:
       "Un bot Facebook Messenger per il servizio clienti si collega alla tua Pagina Facebook tramite la Messenger Platform di Meta: i messaggi in arrivo raggiungono il tuo server tramite webhook e il bot risponde tramite la Send API. Puoi rispondere per 24 ore dopo ogni messaggio del cliente, e un operatore umano può rispondere fino a 7 giorni dopo con il tag HUMAN_AGENT, una volta che la tua app è stata approvata per usarlo.",
@@ -782,7 +782,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "chatbot sito web assistenza clienti",
     title: "Chatbot sito web per l'assistenza clienti: setup e passaggio",
     description:
-      "Pianifica un chatbot sul sito per l'assistenza clienti: widget come Zendesk e Freshchat, passaggio dal bot all'operatore, copertura fuori orario e accessibilità WCAG.",
+      "Chatbot sul sito per l'assistenza clienti: widget come Zendesk e Freshchat, passaggio dal bot all'operatore, copertura fuori orario e accessibilità WCAG.",
     h1: "Chatbot sul sito web per l'assistenza clienti: widget, passaggio all'operatore e accessibilità",
     intro:
       "Un chatbot sul sito web per l'assistenza clienti è un widget di chat sul tuo sito o nel tuo help center in cui un bot risponde alle domande comuni, raccoglie i dati e passa la conversazione a un operatore dal vivo quando non può aiutare. La maggior parte degli helpdesk fornisce un proprio widget, quindi il vero lavoro consiste nel configurare i flussi del bot, il passaggio all'operatore, il comportamento fuori orario e l'accessibilità.",
@@ -964,7 +964,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "automazione SMS per assistenza clienti",
     title: "Automazione SMS per assistenza clienti: webhook, 10DLC, STOP",
     description:
-      "Come funziona l'automazione SMS per l'assistenza: webhook in entrata, A2P 10DLC e verifica toll-free, opt-out con STOP, limiti dei segmenti e ticket nell'helpdesk.",
+      "Automazione SMS per l'assistenza: webhook in entrata, A2P 10DLC e verifica toll-free, opt-out con STOP, limiti dei segmenti e ticket nell'helpdesk.",
     h1: "Automazione SMS per l'assistenza clienti: come funziona e cosa configurare",
     intro:
       "L'automazione SMS per l'assistenza clienti collega un numero di telefono aziendale a un codice che legge gli SMS in arrivo, risponde alle domande semplici e trasforma tutto il resto in ticket. Con un provider come Twilio Programmable Messaging, ogni SMS in arrivo viene inviato al tuo webhook e il tuo codice risponde tramite l'API. Negli Stati Uniti devi anche registrare il numero e rispettare gli opt-out con STOP, altrimenti i tuoi messaggi vengono bloccati.",
@@ -1159,7 +1159,7 @@ export const channelPages: TranslatedPage[] = [
     primaryKeyword: "chatbot Viber per assistenza clienti",
     title: "Chatbot Viber per l'assistenza clienti: Bot API e regole",
     description:
-      "Come funziona un chatbot Viber per l'assistenza: token di autenticazione, set_webhook, eventi di callback, a chi può scrivere il bot, tastiere e passaggio all'helpdesk.",
+      "Come funziona un chatbot Viber per l'assistenza: token di autenticazione, set_webhook, callback, a chi può scrivere il bot, tastiere e passaggio all'helpdesk.",
     h1: "Chatbot Viber per l'assistenza clienti: come funziona e come configurarlo",
     intro:
       "Un chatbot Viber per l'assistenza clienti è un account bot collegato alla Viber REST Bot API. Il tuo server registra un webhook con set_webhook, riceve callback quando i clienti aprono la chat o inviano messaggi e risponde con send_message usando il token di autenticazione del bot. I bot Viber possono continuare a scrivere solo agli utenti iscritti, quindi ogni conversazione di assistenza parte dal cliente.",

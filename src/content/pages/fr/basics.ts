@@ -219,4 +219,212 @@ export const basicsPages: TranslatedPage[] = [
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
     updated: "2026-10-19",
   },
+
+  // ---------------------------------------------------------------------------
+  // 2. Chatbot to human handoff
+  // ---------------------------------------------------------------------------
+  {
+    key: "chatbot-to-human-handoff",
+    slug: "transfert-chatbot-agent-humain",
+    category: "basics",
+    navLabel: "Transfert chatbot vers humain",
+    primaryKeyword: "transfert chatbot vers agent humain",
+    title: "Transfert chatbot vers humain : déclencheurs et contexte",
+    description:
+      "Transfert du chatbot vers un humain : quand escalader, quel contexte transmettre, que faire hors horaires, et comment Zendesk, Freshdesk et Messenger le gèrent.",
+    h1: "Transfert du chatbot vers un humain : escalader sans perdre le client",
+    intro:
+      "Le transfert d'un chatbot vers un humain est le moment où un bot cesse de gérer une conversation et la transmet, avec son historique et les informations qu'il a recueillies, à un agent humain ou à une file d'attente. Un bon transfert se déclenche au bon moment, transporte le contexte pour que le client n'ait pas à se répéter, et fonctionne même quand personne n'est en ligne. Ce guide couvre les déclencheurs, le contexte à transmettre et la façon dont Zendesk, Freshdesk et Messenger le mettent en œuvre.",
+    keyFacts: [
+      "Selon Zendesk, un agent IA peut devoir transférer une demande à un humain lorsqu'elle est complexe, urgente ou sensible.",
+      "Les AI Agents de Freshdesk peuvent transférer automatiquement lorsqu'un client utilise des phrases déclencheuses que vous définissez, comme demander un agent.",
+      "Dans Dialogflow CX, si aucun intent n'atteint le seuil de classification, un événement no-match se déclenche au lieu d'une correspondance.",
+      "Sur Messenger, le handover protocol décide quelle app possède un fil de conversation ; Meta a fait passer Instagram au Conversation Routing.",
+    ],
+    sections: [
+      {
+        heading: "Qu'est-ce que le transfert d'un chatbot vers un humain",
+        blocks: [
+          {
+            type: "p",
+            text: "Un transfert, aussi appelé escalade ou handoff, fait passer la responsabilité d'une conversation de l'automatisation à une personne. Selon le canal, le résultat est un chat en direct attribué à un agent, une conversation en attente dans une file ou un ticket qu'un agent prendra plus tard. Dans les agents IA de Zendesk, vous le construisez avec des blocs d'escalade dans le dialogue builder, qui définissent comment une demande passe à un humain quand l'agent IA ne peut pas la résoudre.",
+          },
+          {
+            type: "p",
+            text: "Les transferts prennent deux formes. Dans un transfert synchrone, le client reste dans la même conversation en direct et un agent la rejoint. Dans un transfert asynchrone, un ticket est créé pour qu'un agent réponde plus tard, ce qui est la solution de repli habituelle quand personne n'est disponible. Zendesk documente les deux, y compris un workflow d'escalade asynchrone par ticket qui permet aux clients de laisser un message quand votre équipe n'est pas disponible.",
+          },
+        ],
+      },
+      {
+        heading: "Quand le bot doit passer la main",
+        blocks: [
+          {
+            type: "table",
+            caption: "Déclencheurs courants de transfert d'un chatbot",
+            head: ["Déclencheur", "À quoi il ressemble", "Comment il est détecté"],
+            rows: [
+              [
+                "Le client demande un humain",
+                "Agent, parler à une personne, ça ne m'aide pas",
+                "Les AI Agents de Freshdesk transfèrent automatiquement sur les phrases déclencheuses que vous listez, comme une demande de parler à un agent",
+              ],
+              [
+                "Confiance faible ou aucune correspondance",
+                "Le bot ne comprend pas ce que veut le client",
+                "Dialogflow CX déclenche un événement no-match quand aucun intent n'atteint le seuil de classification ; utilisez ce repli pour proposer une personne",
+              ],
+              [
+                "Sujet sensible ou urgent",
+                "Réclamations, paiements échoués, sécurité, questions juridiques ou de sûreté",
+                "Zendesk cite les demandes complexes, urgentes ou sensibles comme motifs de transfert ; parmi les exemples de phrases déclencheuses de Freshdesk figure le signalement d'un paiement échoué",
+              ],
+              [
+                "Échecs répétés",
+                "Le client reformule la même question ou le bot tourne en boucle",
+                "Comptez les réponses de repli dans la session et escaladez au-delà d'un nombre défini",
+              ],
+              [
+                "Règle métier",
+                "Compte VIP, commande de montant élevé, incident en cours",
+                "Récupérez les données client via une API avant que le bot ne réponde et envoyez directement ces clients à une personne",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "La confiance est le déclencheur que les équipes laissent le plus souvent implicite. Dans Dialogflow CX, l'intent au score le plus élevé n'est renvoyé comme correspondance que si son score de confiance est supérieur ou égal au seuil de classification ; sinon, un événement no-match est invoqué. Traitez cet événement comme un signal : posez une question de clarification, et transférez si cela se reproduit.",
+          },
+          {
+            type: "p",
+            text: "Zendesk conseille aussi de ne proposer l'escalade que lorsque l'agent IA ne peut pas orienter le client vers des ressources en self-service. Cela réserve les agents aux vrais problèmes, mais ne cachez pas l'option. Un client qui demande explicitement une personne doit l'obtenir, ou recevoir une réponse claire sur le moment où ce sera le cas.",
+          },
+        ],
+      },
+      {
+        heading: "Transmettez le contexte, pas seulement le client",
+        blocks: [
+          {
+            type: "p",
+            text: "Un transfert qui perd la conversation oblige le client à tout recommencer. L'étape legacy « Transfer to agent » de Zendesk, par exemple, crée un ticket qui inclut l'historique de la conversation du client, que celui-ci ne voit pas, et peut ajouter des tags à ce ticket pour le routage. Les AI Agents de Freshdesk peuvent recueillir des informations comme un identifiant client, un numéro de référence ou un numéro de commande avant le transfert, lorsque la collecte de propriétés est activée à la fois dans les paramètres de comportement de conversation et dans ceux de transfert.",
+          },
+          {
+            type: "p",
+            text: "L'agent doit recevoir au minimum :",
+          },
+          {
+            type: "ul",
+            items: [
+              "La transcription complète, y compris ce que le bot a déjà suggéré",
+              "La raison du transfert : demande du client, absence de correspondance, sujet sensible ou règle métier",
+              "Les informations d'identité comme le nom, l'e-mail ou l'identifiant de compte, et si elles ont été vérifiées",
+              "Les champs structurés recueillis par le bot, comme le numéro de commande ou le produit",
+              "Des tags ou une catégorie, pour que les règles de routage envoient la conversation au bon groupe",
+            ],
+          },
+          {
+            type: "p",
+            text: "Fixez les attentes du client dans le même message : dites-lui qu'une personne prend le relais et dans quel délai approximatif il aura une réponse.",
+          },
+        ],
+      },
+      {
+        heading: "Comment Zendesk, Freshdesk et Messenger mettent en œuvre le transfert",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Zendesk : les blocs d'escalade du dialogue builder de l'agent IA décident où va une conversation quand l'agent IA ne peut pas la résoudre, par exemple en la transmettant à un agent. Un bloc de disponibilité peut vérifier les horaires d'ouverture ou la disponibilité des agents avant l'exécution de l'escalade.",
+              "Freshdesk : dans les paramètres de transfert (handover) de l'AI Agent, vous activez « Transfer conversation », listez les phrases déclencheuses qui doivent provoquer un transfert automatique et pouvez faire recueillir d'abord les informations du client par l'AI Agent.",
+              "Messenger : quand plusieurs apps gèrent les messages d'une Page Facebook, comme votre bot et une boîte de réception de chat en direct, le handover protocol de Meta décide quelle app possède le fil. Le webhook messaging_handovers signale les événements pass thread control, take thread control, request thread control et app role. Un événement pass_thread_control inclut les ID de l'app propriétaire précédente et de la nouvelle, ainsi qu'une chaîne metadata définie dans la requête API, un emplacement pratique pour indiquer la raison du transfert.",
+              "Instagram : selon le changelog de Meta, le handover protocol n'est plus pris en charge pour Instagram et toutes les entreprises ont été migrées vers Conversation Routing, qui permet de définir quels partenaires contrôlent les conversations clients à un moment donné. Meta présente Conversation Routing comme rétrocompatible avec la plupart des API du handover protocol.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Gestion en dehors des heures d'ouverture",
+        blocks: [
+          {
+            type: "p",
+            text: "Un bot qui promet un humain alors que personne n'est en ligne est pire que l'absence de transfert. Vérifiez d'abord la disponibilité, puis choisissez une solution de repli :",
+          },
+          {
+            type: "ul",
+            items: [
+              "Zendesk : un bloc de disponibilité vérifie les horaires d'ouverture ou la disponibilité des agents. Dans un canal synchrone comme la messagerie, Zendesk suggère d'escalader plutôt par e-mail en dehors des heures de travail des agents, et son workflow d'escalade asynchrone par ticket permet aux clients de laisser un message auquel un humain donnera suite plus tard.",
+              "Freshdesk : l'option « Transfer outside business hours » vous permet de choisir un planning d'horaires d'ouverture, de transférer la conversation à un agent ou à un groupe, et de rédiger le message que voit le client.",
+              "Toute plateforme : créez un ticket avec la transcription, indiquez quand l'équipe sera de retour et laissez le bot continuer à répondre aux questions de self-service en attendant.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Testez séparément le parcours hors horaires. C'est la branche la plus susceptible de tomber en panne sans que personne ne s'en aperçoive, car personne dans l'équipe n'est en ligne quand elle s'exécute.",
+          },
+        ],
+      },
+      {
+        heading: "Comment TascaLab peut vous aider",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab construit des chatbots avec transfert vers votre helpdesk existant ou Slack : un Starter Chat Bot (350–450 USD) ou un Standard Chat Bot (500–650 USD), connectés via des API, des webhooks et Make ou n8n. Chaque projet comprend une documentation de base et 30 jours de support après le lancement, sans frais cachés, et la plupart des mises en place prennent 1 à 3 semaines. Un appel d'audit gratuit de 30 minutes est un bon moyen de cartographier vos déclencheurs de transfert.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Quand un chatbot doit-il passer la main à un humain ?",
+        a: "Quand le client demande une personne, quand le bot ne parvient pas à identifier la demande avec une confiance suffisante, et quand le sujet est complexe, urgent ou sensible, ce qui correspond à la façon dont Zendesk décrit les demandes qui nécessitent un agent humain.",
+      },
+      {
+        q: "Comment éviter que les clients se répètent après un transfert ?",
+        a: "Transmettez la transcription, la raison du transfert et toutes les informations recueillies par le bot dans le ticket ou le chat. L'étape de transfert legacy de Zendesk ajoute l'historique de la conversation au ticket, et les AI Agents de Freshdesk peuvent recueillir des informations comme un numéro de commande avant le transfert.",
+      },
+      {
+        q: "Qu'est-ce que le handover protocol de Messenger ?",
+        a: "C'est le mécanisme de Meta qui décide quelle app possède un fil de conversation Messenger quand plusieurs apps servent la même Page. Les apps cèdent, prennent et demandent le contrôle du fil, et le webhook messaging_handovers signale ces événements.",
+      },
+      {
+        q: "Que se passe-t-il si un client demande un humain en dehors des heures d'ouverture ?",
+        a: "Vérifiez la disponibilité avant d'escalader. Zendesk et Freshdesk vous permettent tous deux de traiter différemment les transferts hors horaires, par exemple en créant un ticket pour un suivi ultérieur et en affichant un message indiquant quand l'équipe est disponible.",
+      },
+    ],
+    sources: [
+      {
+        label: "Zendesk Help Center — Configuring escalation strategies and flows for AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/8357756604186-Configuring-escalation-strategies-and-flows-for-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Workflow recipe: Configuring asynchronous ticket escalations for messaging AI agents",
+        url: "https://support.zendesk.com/hc/en-us/articles/11285019603098-Workflow-recipe-Configuring-asynchronous-ticket-escalations-for-messaging-AI-agents",
+      },
+      {
+        label: "Zendesk Help Center — Understanding the step types for AI agent answers (Legacy)",
+        url: "https://support.zendesk.com/hc/en-us/articles/4408836323738-Understanding-the-step-types-for-AI-agent-answers-Legacy",
+      },
+      {
+        label: "Freshdesk Support — Configure handover settings for AI Agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000012026-configure-handover-settings-for-ai-agents",
+      },
+      {
+        label: "Freshdesk Support — Configure conversation behaviour for AI agents",
+        url: "https://support.freshdesk.com/support/solutions/articles/50000011713-configure-conversation-behaviour-for-ai-agent",
+      },
+      {
+        label: "Meta for Developers — messaging_handovers webhook event reference",
+        url: "https://developers.facebook.com/documentation/business-messaging/messenger-platform/webhooks/webhook-events/messaging_handovers",
+      },
+      {
+        label: "Meta for Developers — Messenger Platform changelog",
+        url: "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      },
+      {
+        label: "Google Cloud — Dialogflow CX intents",
+        url: "https://docs.cloud.google.com/dialogflow/cx/docs/concept/intent",
+      },
+    ],
+    related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
+    updated: "2026-10-19",
+  },
 ];
