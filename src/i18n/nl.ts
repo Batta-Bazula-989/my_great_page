@@ -255,15 +255,18 @@ const nl: Dictionary = {
     eyebrow: "Feedback van klanten",
     title: "Geverifieerde reviews op Upwork",
     intro:
-      "Elke review op mijn Upwork-profiel komt van een echte, betaalde opdracht. Zo zie je precies hoe eerdere projecten voor supportautomatisering zijn verlopen voordat je een gesprek plant.",
+      "Elke review op mijn Upwork-profiel komt van een echte, betaalde opdracht. Zo kun je nagaan hoe mijn eerdere projecten zijn verlopen voordat je een gesprek plant.",
     readTitle: "Lees reviews van klanten",
     readText:
-      "Bekijk beoordelingen, Job Success Score en geschreven feedback van teams voor wie ik chatbots, ticketroutering en automatische rapportages heb gebouwd.",
+      "Bekijk alle beoordelingen en geschreven feedback van mijn klanten op mijn Upwork-profiel.",
     readCta: "Bekijk mijn Upwork-profiel",
     leaveTitle: "Met mij gewerkt? Laat een review achter",
     leaveText:
       "Hebben we samen een project afgerond? Een korte review op Upwork helpt andere supportteams om met vertrouwen te kiezen. Het kost twee minuten. Dank je wel!",
     leaveCta: "Laat feedback achter op Upwork",
+    quoted: "Beoordelingen woordelijk overgenomen van mijn Upwork-profiel.",
+    verify: "Controleer op Upwork",
+    stars: "{rating} van 5 sterren",
   },
   faq: {
     eyebrow: "FAQ",

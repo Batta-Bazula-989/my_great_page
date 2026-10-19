@@ -254,15 +254,18 @@ const es: Dictionary = {
     eyebrow: "Opiniones de clientes",
     title: "Reseñas verificadas en Upwork",
     intro:
-      "Cada reseña de mi perfil de Upwork procede de un contrato real y pagado, así que puedes ver exactamente cómo fueron otros proyectos de automatización del soporte antes de reservar una llamada.",
+      "Cada reseña de mi perfil de Upwork procede de un contrato real y pagado, así que puedes comprobar cómo fueron mis proyectos anteriores antes de reservar una llamada.",
     readTitle: "Lee las reseñas de clientes",
     readText:
-      "Consulta las valoraciones, la puntuación de éxito en los trabajos y las opiniones escritas de equipos para los que he creado chatbots, enrutamiento de tickets y automatizaciones de informes.",
+      "Consulta todas las valoraciones y opiniones escritas de mis clientes en mi perfil de Upwork.",
     readCta: "Ver mi perfil de Upwork",
     leaveTitle: "¿Has trabajado conmigo? Deja una reseña",
     leaveText:
       "Si hemos terminado un proyecto juntos, una breve reseña en Upwork ayuda a otros equipos de soporte a decidir con confianza. Solo son dos minutos. ¡Gracias!",
     leaveCta: "Deja tu opinión en Upwork",
+    quoted: "Reseñas citadas palabra por palabra de mi perfil de Upwork.",
+    verify: "Verificar en Upwork",
+    stars: "{rating} de 5 estrellas",
   },
   faq: {
     eyebrow: "FAQ",

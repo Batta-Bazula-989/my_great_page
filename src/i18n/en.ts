@@ -255,15 +255,18 @@ const en = {
     eyebrow: "Client Feedback",
     title: "Verified reviews on Upwork",
     intro:
-      "Every review on my Upwork profile comes from a real, paid contract — so you can see exactly how past support-automation projects went before you book a call.",
+      "Every review on my Upwork profile comes from a real, paid contract, so you can check how my past projects went before you book a call.",
     readTitle: "Read client reviews",
     readText:
-      "See ratings, job success score, and written feedback from teams I've built chatbots, ticket routing, and reporting automations for.",
+      "See all ratings and written feedback from my clients on my Upwork profile.",
     readCta: "View my Upwork profile",
     leaveTitle: "Worked with me? Leave a review",
     leaveText:
       "If we've finished a project together, a short review on Upwork helps other support teams decide with confidence. It takes two minutes — thank you.",
     leaveCta: "Leave feedback on Upwork",
+    quoted: "Reviews quoted word for word from my Upwork profile.",
+    verify: "Verify on Upwork",
+    stars: "{rating} out of 5 stars",
   },
   faq: {
     eyebrow: "FAQ",

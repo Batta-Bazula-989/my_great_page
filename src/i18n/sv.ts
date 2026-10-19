@@ -255,15 +255,18 @@ const sv: Dictionary = {
     eyebrow: "Kundomdömen",
     title: "Verifierade omdömen på Upwork",
     intro:
-      "Varje omdöme på min Upwork-profil kommer från ett riktigt, betalt uppdrag – så du kan se exakt hur tidigare projekt inom supportautomatisering har gått innan du bokar ett samtal.",
+      "Varje omdöme på min Upwork-profil kommer från ett riktigt, betalt uppdrag – så du kan kontrollera hur mina tidigare projekt har gått innan du bokar ett samtal.",
     readTitle: "Läs kundomdömen",
     readText:
-      "Se betyg, Job Success Score och skriftlig feedback från team som jag har byggt chattbottar, ärenderoutning och rapportautomatiseringar åt.",
+      "Se alla betyg och all skriftlig feedback från mina kunder på min Upwork-profil.",
     readCta: "Visa min Upwork-profil",
     leaveTitle: "Har du jobbat med mig? Lämna ett omdöme",
     leaveText:
       "Om vi har slutfört ett projekt tillsammans hjälper ett kort omdöme på Upwork andra supportteam att fatta beslut med trygghet. Det tar två minuter – tack!",
     leaveCta: "Lämna feedback på Upwork",
+    quoted: "Omdömen citerade ordagrant från min Upwork-profil.",
+    verify: "Kontrollera på Upwork",
+    stars: "{rating} av 5 stjärnor",
   },
   faq: {
     eyebrow: "FAQ",
