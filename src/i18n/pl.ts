@@ -3,12 +3,9 @@ import tools from "./tools/pl";
 
 const pl: Dictionary = {
   meta: {
-    homeTitle: "Obsługa klienta z AI: chatboty, voiceboty, routing zgłoszeń | TascaLab",
+    homeTitle: "Chatboty AI, voiceboty i automatyzacja zgłoszeń | TascaLab",
     homeDescription:
       "Automatyzacja obsługi klienta: chatboty AI, voiceboty, routing zgłoszeń i automatyczne raporty w Zendesk, Freshdesk i Jira. Stałe ceny, bezpłatny Health Check.",
-    noscriptHeading: "Automatyzacja obsługi klienta z AI – chatboty, voiceboty i routing zgłoszeń",
-    noscriptText:
-      "TascaLab tworzy chatboty AI, voiceboty, routing zgłoszeń i automatyczne raporty w oparciu o Zendesk, Freshdesk, Jira i Slack. Napisz na romanzakharenko.r@gmail.com, aby umówić bezpłatny Health Check.",
   },
   nav: {
     services: "Co robię",

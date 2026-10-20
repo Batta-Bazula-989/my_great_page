@@ -3,12 +3,9 @@ import tools from "./tools/nl";
 
 const nl: Dictionary = {
   meta: {
-    homeTitle: "AI-klantenservice: chatbots, voicebots & ticketroutering | TascaLab",
+    homeTitle: "AI-chatbots, voicebots & ticketautomatisering | TascaLab",
     homeDescription:
       "Supportautomatisering: AI-chatbots, voicebots, ticketroutering en automatische rapportages voor Zendesk, Freshdesk en Jira. Vaste prijzen, gratis Health Check.",
-    noscriptHeading: "AI-automatisering voor klantenservice — chatbots, voicebots & ticketroutering",
-    noscriptText:
-      "TascaLab bouwt AI-chatbots, voicebots, ticketroutering en automatische rapportages bovenop Zendesk, Freshdesk, Jira en Slack. Mail naar romanzakharenko.r@gmail.com om een gratis Health Check te plannen.",
   },
   nav: {
     services: "Wat ik doe",

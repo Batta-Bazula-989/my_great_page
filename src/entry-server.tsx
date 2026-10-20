@@ -22,8 +22,9 @@ export interface PrerenderRoute {
   jsonLd: object[];
   alternates: { hreflang: string; href: string }[];
   lastmod?: string;
-  render: boolean; // false: head only (the homepage animates in on the client)
-  noscript?: { heading: string; text: string };
+  ogType: "website" | "article";
+  changefreq: "weekly" | "monthly"; // sitemap hints
+  priority: string;
 }
 
 const url = (path: string) => `${SITE_URL}${path}`;
@@ -204,8 +205,9 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     description: t.meta.homeDescription,
     jsonLd: homeJsonLd(locale),
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code)) }))),
-    render: false,
-    noscript: { heading: t.meta.noscriptHeading, text: t.meta.noscriptText },
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "1.0",
   };
 
   const resources: PrerenderRoute = {
@@ -215,7 +217,9 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     title: t.resources.metaTitle,
     description: t.resources.metaDescription,
     lastmod: latest(locale),
-    render: true,
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.8",
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code, "resources")) }))),
     jsonLd: [
       {
@@ -241,7 +245,9 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     title: page.title,
     description: page.description,
     lastmod: page.updated,
-    render: true,
+    ogType: "article",
+    changefreq: "monthly",
+    priority: "0.7",
     jsonLd: pageJsonLd(locale, page),
     alternates: withXDefault(
       LOCALES.flatMap((l) => {
@@ -258,7 +264,9 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     title: t.tools.hub.metaTitle,
     description: t.tools.hub.metaDescription,
     lastmod: Object.values(TOOL_UPDATED).sort().at(-1),
-    render: true,
+    ogType: "website",
+    changefreq: "weekly",
+    priority: "0.8",
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolsPath(l.code)) }))),
     jsonLd: [
       {
@@ -280,7 +288,9 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     title: t.tools[id].metaTitle,
     description: t.tools[id].metaDescription,
     lastmod: TOOL_UPDATED[id],
-    render: true,
+    ogType: "website",
+    changefreq: "monthly",
+    priority: "0.8",
     jsonLd: toolJsonLd(locale, id),
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolPath(l.code, id)) }))),
   }));
@@ -311,7 +321,9 @@ for (const [path, title, description] of [
     description,
     jsonLd: [],
     alternates: [],
-    render: true,
+    ogType: "website",
+    changefreq: "monthly",
+    priority: "0.3",
   });
 }
 

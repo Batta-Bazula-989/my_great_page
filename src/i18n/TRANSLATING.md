@@ -24,7 +24,7 @@ Rules
   keep their published currency and amount; only the number style may follow the language.
 - "Health Check" stays in English, like the plan names.
 - Pricing plan names stay in English ("Starter Chat Bot", "Voice Bot", …) as in every other language.
-- `meta.homeTitle` ≤ 70 characters and ends with " | TascaLab"; `meta.homeDescription` 140–160 characters;
+- `meta.homeTitle` ≤ 60 characters, ends with " | TascaLab" and matches the hero H1; `meta.homeDescription` 140–160 characters;
   `resources.metaTitle` ≤ 60 characters; `resources.metaDescription` 120–160 characters.
 - `hero.titleBefore` + `hero.titleHighlight` + `hero.titleAfter` are rendered back to back (the middle part is
   highlighted). Reorder words as the language needs; keep the spaces at the joins; any part may be "".

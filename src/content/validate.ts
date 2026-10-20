@@ -87,7 +87,14 @@ const toolProblems = (locale: Locale): string[] => {
 
 export const contentProblems = (only?: Locale): string[] => {
   const problems: string[] = [];
-  for (const locale of Object.keys(pagesByLocale) as Locale[]) if (!only || locale === only) problems.push(...toolProblems(locale));
+  for (const locale of Object.keys(pagesByLocale) as Locale[]) {
+    if (only && locale !== only) continue;
+    problems.push(...toolProblems(locale));
+    const meta = dictionaries[locale].meta;
+    if (meta.homeTitle.length > 60) problems.push(`[${locale}/home] title is ${meta.homeTitle.length} chars (max 60)`);
+    if (meta.homeDescription.length < 120 || meta.homeDescription.length > 160)
+      problems.push(`[${locale}/home] description is ${meta.homeDescription.length} chars (want 120–160)`);
+  }
   for (const locale of Object.keys(pagesByLocale) as Locale[]) {
     if (only && locale !== only) continue;
     const slugs = new Set<string>();

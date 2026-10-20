@@ -1,6 +1,6 @@
 // Writes a static HTML file for every route in every language (dist/<slug>.html, dist/de/<slug>.html,
-// dist/de/index.html, …) with its own <html lang>, title, description, canonical, hreflang alternates,
-// social tags and JSON-LD, then regenerates the sitemap.
+// dist/de/index.html, …) with its full content, its own <html lang>, title, description, canonical,
+// hreflang alternates, social tags and JSON-LD, then regenerates the sitemap.
 // Runs after `vite build` and `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
 import fs from "node:fs";
 import path from "node:path";
@@ -58,7 +58,7 @@ for (const route of routes) {
     ].join("\n    "),
     "canonical",
   );
-  html = meta(html, "property", "og:type", route.render ? "article" : "website");
+  html = meta(html, "property", "og:type", route.ogType);
   html = meta(html, "property", "og:locale", route.ogLocale);
   html = meta(html, "property", "og:url", url);
   html = meta(html, "property", "og:title", route.title);
@@ -72,18 +72,9 @@ for (const route of routes) {
     "JSON-LD",
   );
 
-  if (route.render) {
-    // The real content replaces the homepage's <noscript> summary.
-    html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
-    html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(route.path)}</div>`, "#root");
-  } else if (route.noscript) {
-    html = replaceOnce(
-      html,
-      /<noscript>\s*<h1>[\s\S]*?<\/noscript>/,
-      `<noscript>\n  <h1>${escapeText(route.noscript.heading)}</h1>\n  <p>${escapeText(route.noscript.text)}</p>\n</noscript>`,
-      "noscript summary",
-    );
-  }
+  // The real content replaces the <noscript> summary that the template keeps for the dev server.
+  html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
+  html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(route.path)}</div>`, "#root");
 
   const out = path.join(dist, route.file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -102,12 +93,11 @@ const urlEntry = ({ loc, lastmod, changefreq, priority, alternates = [] }) =>
     "  </url>",
   ].join("\n");
 
-const LEGAL = ["/privacy", "/terms"];
 const entries = routes.map((r) => ({
   loc: `${SITE_URL}${r.path}`,
   lastmod: r.lastmod,
-  changefreq: r.render ? "monthly" : "weekly",
-  priority: !r.render ? "1.0" : LEGAL.includes(r.path) ? "0.3" : r.path.endsWith("/resources") || /\/tools\//.test(r.path) ? "0.8" : "0.7",
+  changefreq: r.changefreq,
+  priority: r.priority,
   alternates: r.alternates,
 }));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

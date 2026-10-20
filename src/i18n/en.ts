@@ -5,12 +5,9 @@ import tools from "./tools/en";
 
 const en = {
   meta: {
-    homeTitle: "AI Customer Support Automation — Chatbots, Voice Bots & Ticket Routing | TascaLab",
+    homeTitle: "AI Chatbots, Voice Bots & Ticket Automation | TascaLab",
     homeDescription:
       "Customer support automation: AI chatbots, voice bots, ticket routing and automated reports for Zendesk, Freshdesk and Jira. Fixed prices, free Health Check.",
-    noscriptHeading: "AI customer support automation — chatbots, voice bots & ticket routing",
-    noscriptText:
-      "TascaLab builds AI chatbots, voice bots, ticket routing and automated reporting on top of Zendesk, Freshdesk, Jira and Slack. Email romanzakharenko.r@gmail.com to book a free Health Check.",
   },
   nav: {
     services: "What I Do",

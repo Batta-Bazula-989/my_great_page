@@ -3,12 +3,9 @@ import tools from "./tools/de";
 
 const de: Dictionary = {
   meta: {
-    homeTitle: "KI-Chatbots, Voicebots & Ticket-Routing im Kundenservice | TascaLab",
+    homeTitle: "KI-Chatbots, Voicebots & Ticket-Automatisierung | TascaLab",
     homeDescription:
       "Support-Automatisierung: KI-Chatbots, Voicebots, Ticket-Routing und automatische Reports für Zendesk, Freshdesk und Jira. Festpreise, kostenloser Health Check.",
-    noscriptHeading: "KI-Automatisierung für den Kundenservice – Chatbots, Voicebots & Ticket-Routing",
-    noscriptText:
-      "TascaLab baut KI-Chatbots, Voicebots, Ticket-Routing und automatisierte Reports auf Basis von Zendesk, Freshdesk, Jira und Slack. Schreiben Sie an romanzakharenko.r@gmail.com, um einen kostenlosen Health Check zu buchen.",
   },
   nav: {
     services: "Leistungen",

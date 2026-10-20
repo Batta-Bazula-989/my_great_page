@@ -3,12 +3,9 @@ import tools from "./tools/es";
 
 const es: Dictionary = {
   meta: {
-    homeTitle: "Atención al cliente con IA: chatbots, bots de voz y tickets | TascaLab",
+    homeTitle: "Chatbots IA, bots de voz y tickets automatizados | TascaLab",
     homeDescription:
       "Automatiza tu soporte: chatbots con IA, bots de voz, enrutamiento de tickets e informes en Zendesk, Freshdesk y Jira. Precios fijos y Health Check gratis.",
-    noscriptHeading: "Automatización de la atención al cliente con IA: chatbots, bots de voz y enrutamiento de tickets",
-    noscriptText:
-      "TascaLab crea chatbots con IA, bots de voz, enrutamiento de tickets e informes automáticos sobre Zendesk, Freshdesk, Jira y Slack. Escribe a romanzakharenko.r@gmail.com para reservar un Health Check gratuito.",
   },
   nav: {
     services: "Qué hago",

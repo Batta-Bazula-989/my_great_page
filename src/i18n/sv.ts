@@ -3,12 +3,9 @@ import tools from "./tools/sv";
 
 const sv: Dictionary = {
   meta: {
-    homeTitle: "AI-chattbottar, röstbottar & ärenderoutning för kundtjänst | TascaLab",
+    homeTitle: "AI-chattbottar, röstbottar & ärendeautomatisering | TascaLab",
     homeDescription:
       "Kundtjänstautomatisering: AI-chattbottar, röstbottar, ärenderoutning och automatiska rapporter i Zendesk, Freshdesk och Jira. Fast pris, gratis Health Check.",
-    noscriptHeading: "AI-automatisering av kundtjänst – chattbottar, röstbottar & ärenderoutning",
-    noscriptText:
-      "TascaLab bygger AI-chattbottar, röstbottar, ärenderoutning och automatiserad rapportering ovanpå Zendesk, Freshdesk, Jira och Slack. Mejla romanzakharenko.r@gmail.com för att boka en kostnadsfri Health Check.",
   },
   nav: {
     services: "Tjänster",
