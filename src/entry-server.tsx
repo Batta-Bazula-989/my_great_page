@@ -327,6 +327,16 @@ for (const [path, title, description] of [
   });
 }
 
+// One "page not found" page per language. The server sends it with a 404 status; it is not in the sitemap.
+export const notFoundPages = LOCALES.map(({ code: locale }) => ({
+  path: localePath(locale, "404"),
+  file: fileFor(locale, "404.html"),
+  htmlLang: locale,
+  ogLocale: localeInfo(locale).ogLocale,
+  title: `${dictionaries[locale].notFound.title} | TascaLab`,
+  description: dictionaries[locale].notFound.text,
+}));
+
 export const render = (path: string) =>
   renderToString(
     <StaticRouter location={path}>

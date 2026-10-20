@@ -15,13 +15,22 @@ if (template.includes('hreflang="x-default"')) {
   console.error("prerender: dist/index.html is already pre-rendered — run `npm run build` instead of re-running this script.");
   process.exit(1);
 }
-const { render, routes, contentProblems } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
+const { render, routes, notFoundPages, contentProblems } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
 
 const problems = contentProblems();
 if (problems.length) {
   console.error(`prerender: ${problems.length} content problem(s):\n  ${problems.join("\n  ")}`);
   process.exit(1);
 }
+
+// Inline the site stylesheet (about 13 KB gzipped) so the first paint doesn't wait for a CSS request.
+const cssLink = template.match(/<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/);
+if (!cssLink) {
+  console.error("prerender: could not find the stylesheet link in dist/index.html");
+  process.exit(1);
+}
+const inlineCss = (html) =>
+  html.replace(cssLink[0], () => `<style>${fs.readFileSync(path.join(dist, cssLink[1]), "utf8").replace(/<\/style/gi, "<\\/style")}</style>`);
 
 const escapeAttr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const escapeText = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -78,7 +87,24 @@ for (const route of routes) {
 
   const out = path.join(dist, route.file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, html);
+  fs.writeFileSync(out, inlineCss(html));
+}
+
+// 404 pages: same shell, marked noindex, no canonical or language alternates, no structured data.
+for (const page of notFoundPages) {
+  let html = template;
+  html = replaceOnce(html, /<html lang="[^"]*">/, `<html lang="${page.htmlLang}">`, "<html lang>");
+  html = replaceOnce(html, /<title>[\s\S]*?<\/title>/, `<title>${escapeText(page.title)}</title>`, "<title>");
+  html = meta(html, "name", "description", page.description);
+  html = meta(html, "name", "robots", "noindex, follow");
+  html = replaceOnce(html, /\s*<link rel="canonical" href="[^"]*" \/>/, "", "canonical");
+  html = meta(html, "property", "og:locale", page.ogLocale);
+  html = replaceOnce(html, /\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/, "", "JSON-LD");
+  html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
+  html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(page.path)}</div>`, "#root");
+  const out = path.join(dist, page.file);
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, inlineCss(html));
 }
 
 // Sitemap: every URL, each with its language alternates.
@@ -109,4 +135,4 @@ fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 // Keep the committed copy in public/ in sync with the generated one.
 fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
 
-console.log(`prerender: wrote ${routes.length} pages and sitemap.xml (${entries.length} URLs)`);
+console.log(`prerender: wrote ${routes.length} pages, ${notFoundPages.length} 404 pages and sitemap.xml (${entries.length} URLs)`);

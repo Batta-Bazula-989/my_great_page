@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import Anthropic from "@anthropic-ai/sdk";
@@ -131,15 +132,58 @@ Main issue: ${main_issue}${additional_notes ? `\nAdditional context: ${additiona
   }
 });
 
-// Serve static files from dist directory
 const distPath = path.join(__dirname, "..", "dist");
-// extensions: serve pre-rendered SEO pages (dist/<slug>.html) at /<slug>
+
+// One address per page: https://www.tascalab.com, no ".html", no "index.html", and a trailing slash
+// only on folder pages (/de/, /tools/). Every other variant gets a permanent redirect.
+const CANONICAL_HOST = "www.tascalab.com";
+const PRODUCTION_HOSTS = new Set([CANONICAL_HOST, "tascalab.com"]);
+const LOCALE_PREFIX = /^\/(de|fr|es|it|nl|pl|sv)(?=\/|$)/;
+
+const exists = (relative) => !relative.includes("..") && fs.existsSync(path.join(distPath, relative));
+
+const canonicalPath = (p) => {
+  if (p.endsWith("/index.html")) return p.slice(0, -"index.html".length);
+  if (p.endsWith(".html")) return p.slice(0, -".html".length);
+  if (!p.endsWith("/") && exists(`${p}/index.html`)) return `${p}/`;
+  if (p.length > 1 && p.endsWith("/") && !exists(`${p}index.html`) && exists(`${p.slice(0, -1)}.html`)) return p.slice(0, -1);
+  return p;
+};
+
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/") || (req.method !== "GET" && req.method !== "HEAD")) return next();
+  const host = (req.headers.host || "").split(":")[0].toLowerCase();
+  // Behind Cloudflare, cf-visitor carries the scheme the visitor used; x-forwarded-proto may be the proxy's.
+  let scheme = req.headers["x-forwarded-proto"]?.split(",")[0];
+  try {
+    scheme = JSON.parse(req.headers["cf-visitor"] || "{}").scheme || scheme;
+  } catch {
+    // keep x-forwarded-proto
+  }
+  const production = PRODUCTION_HOSTS.has(host) || host.endsWith(".up.railway.app");
+  const target = canonicalPath(req.path);
+  const query = req.originalUrl.slice(req.path.length);
+  if (production && (host !== CANONICAL_HOST || scheme === "http")) {
+    return res.redirect(301, `https://${CANONICAL_HOST}${target}${query}`);
+  }
+  if (target !== req.path) return res.redirect(301, `${target}${query}`);
+  next();
+});
+
+// /404 and /<lang>/404 are the error pages themselves, not pages to serve with a 200 status.
+app.use((req, res, next) => (/^(\/[a-z]{2})?\/404$/.test(req.path) ? notFound(req, res) : next()));
+
+// Pre-rendered pages: dist/<slug>.html is served at /<slug>, dist/de/index.html at /de/.
 app.use(express.static(distPath, { extensions: ["html"] }));
 
-// Serve index.html for all other routes (SPA fallback)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
-});
+// Everything else is a real 404, with the "page not found" page in the visitor's language.
+function notFound(req, res) {
+  const locale = req.path.match(LOCALE_PREFIX)?.[1];
+  const page = path.join(distPath, locale ? `${locale}/404.html` : "404.html");
+  if (req.path.startsWith("/api/") || !fs.existsSync(page)) return res.status(404).json({ error: "Not found" });
+  res.status(404).sendFile(page);
+}
+app.use(notFound);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

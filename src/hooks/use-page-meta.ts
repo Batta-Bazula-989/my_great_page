@@ -9,6 +9,8 @@ const setMeta = (selector: string, attr: string, value: string) => {
 // The pre-rendered HTML already carries the same values for crawlers.
 export const usePageMeta = (title: string, description: string, path: string) => {
   useEffect(() => {
+    // Unknown pages render <NotFound />, which sets its own title; leave the head alone.
+    if (!title) return;
     const url = `${SITE_URL}${path}`;
     document.title = title;
     setMeta('meta[name="description"]', "content", description);
