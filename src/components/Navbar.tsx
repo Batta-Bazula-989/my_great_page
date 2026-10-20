@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { LanguageList, LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ToolsList, ToolsMenu } from "@/components/ToolsMenu";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
 
@@ -13,7 +14,6 @@ const Navbar = () => {
   const home = localePath(locale);
   const navLinks = [
     { href: `${home}#services`, label: t.nav.services },
-    { href: `${home}#fit`, label: t.nav.fit },
     { href: `${home}#why-me`, label: t.nav.whyMe },
     { href: `${home}#pricing`, label: t.nav.pricing },
     { href: `${home}#reviews`, label: t.nav.reviews },
@@ -59,6 +59,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <ToolsMenu />
             <LanguageSwitcher />
             <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
               <a href={`${home}#contact`}>{t.nav.cta}</a>
@@ -109,6 +110,7 @@ const Navbar = () => {
                     <a href={`${home}#contact`} onClick={() => setIsMobileMenuOpen(false)}>{t.nav.cta}</a>
                   </Button>
                 </motion.div>
+                <ToolsList onPick={() => setIsMobileMenuOpen(false)} />
                 <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
               </div>
             </motion.div>

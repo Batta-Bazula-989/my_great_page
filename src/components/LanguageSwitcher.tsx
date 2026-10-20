@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import { getSeoPage, pageByKey } from "@/content";
 import type { Locale } from "@/content/types";
 import { DEFAULT_LOCALE, LOCALES, localeFromPath, localeInfo, localePath } from "@/i18n/config";
-import { useDict } from "@/i18n";
+import { dictionaries, useDict } from "@/i18n";
+import { toolBySlug, toolPath, toolsPath } from "@/tools/registry";
 
 // Path of the page being viewed, in another language: same page if it has a translation,
 // otherwise that language's homepage (e.g. Privacy and Terms are English only).
@@ -19,6 +20,11 @@ const useAlternatePath = () => {
   return (target: Locale) => {
     if (rest === "") return localePath(target);
     if (rest === "resources") return localePath(target, "resources");
+    const [first, second] = rest.split("/");
+    if (first === dictionaries[current].tools.hub.slug) {
+      const tool = toolBySlug(current, second);
+      return tool ? toolPath(target, tool) : toolsPath(target);
+    }
     const page = getSeoPage(current, rest);
     const translated = page && pageByKey(target, page.key);
     return translated ? localePath(target, translated.slug) : localePath(target);

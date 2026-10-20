@@ -6,7 +6,9 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import SeoPage from "./pages/SeoPage";
 import Resources from "./pages/Resources";
-import { LocaleContext } from "@/i18n";
+import ToolsHub from "./pages/ToolsHub";
+import ToolPage from "./pages/ToolPage";
+import { LocaleContext, dictionaries } from "@/i18n";
 import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
 import type { Locale } from "@/content/types";
 
@@ -30,6 +32,8 @@ export const AppRoutes = () => (
       <Route key={code} path={code === DEFAULT_LOCALE ? "/" : `/${code}`} element={<LocaleLayout locale={code} />}>
         <Route index element={<Index />} />
         <Route path="resources" element={<Resources />} />
+        <Route path={dictionaries[code].tools.hub.slug} element={<ToolsHub />} />
+        <Route path={`${dictionaries[code].tools.hub.slug}/:toolSlug`} element={<ToolPage />} />
         <Route path=":slug" element={<SeoPage />} />
       </Route>
     ))}

@@ -1,4 +1,5 @@
 import type { Dictionary } from "./en";
+import tools from "./tools/sv";
 
 const sv: Dictionary = {
   meta: {
@@ -11,7 +12,6 @@ const sv: Dictionary = {
   },
   nav: {
     services: "Tjänster",
-    fit: "Passar det?",
     whyMe: "Varför jag?",
     pricing: "Priser",
     reviews: "Omdömen",
@@ -363,6 +363,7 @@ const sv: Dictionary = {
     text: "Den här sidan finns inte eller har flyttats.",
     back: "Tillbaka till startsidan",
   },
+  tools,
 };
 
 export default sv;

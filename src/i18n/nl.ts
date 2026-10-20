@@ -1,4 +1,5 @@
 import type { Dictionary } from "./en";
+import tools from "./tools/nl";
 
 const nl: Dictionary = {
   meta: {
@@ -11,7 +12,6 @@ const nl: Dictionary = {
   },
   nav: {
     services: "Wat ik doe",
-    fit: "Een match?",
     whyMe: "Waarom ik?",
     pricing: "Prijzen",
     reviews: "Reviews",
@@ -363,6 +363,7 @@ const nl: Dictionary = {
     text: "Deze pagina bestaat niet of is verplaatst.",
     back: "Terug naar home",
   },
+  tools,
 };
 
 export default nl;

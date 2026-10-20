@@ -5,6 +5,7 @@ import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { CATEGORY_IDS, pagesInCategory } from "@/content";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
+import { TOOL_IDS, toolPath } from "@/tools/registry";
 
 // Only one menu open at a time. `name` gives this natively in current browsers;
 // the toggle handler covers browsers that don't support grouped <details> yet.
@@ -24,7 +25,7 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-white/10">
       <nav aria-label={t.footer.resourcesNav} className="container px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-2">
           {CATEGORY_IDS.map((id) => (
             <details key={id} name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary [&::-webkit-details-marker]:hidden">
@@ -42,6 +43,21 @@ const Footer = () => {
               </ul>
             </details>
           ))}
+          <details name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary [&::-webkit-details-marker]:hidden">
+              {t.tools.menu}
+              <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
+            </summary>
+            <ul className="mt-2 space-y-2 pb-2">
+              {TOOL_IDS.map((id) => (
+                <li key={id}>
+                  <Link to={toolPath(locale, id)} className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                    {t.tools[id].navLabel}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
       </nav>
 

@@ -4,6 +4,8 @@
 import { englishPage, rawPagesByLocale as pagesByLocale } from "./index";
 import type { Block, Locale, TranslatedPage } from "./types";
 import { PACKAGES } from "@/lib/pricing";
+import { dictionaries } from "@/i18n";
+import { TOOL_IDS } from "@/tools/registry";
 
 const priceTokens = (p: TranslatedPage) => (JSON.stringify(p).match(/\{\{price:\w+\}\}/g) ?? []).sort();
 
@@ -66,8 +68,26 @@ const pageProblems = (locale: Locale, p: TranslatedPage, slugs: Set<string>, key
   return problems;
 };
 
+// Tool pages: URL-safe, unique slugs and search-snippet-sized titles and descriptions in every language.
+const toolProblems = (locale: Locale): string[] => {
+  const problems: string[] = [];
+  const t = dictionaries[locale].tools;
+  const slugs = new Set<string>();
+  for (const page of [t.hub, ...TOOL_IDS.map((id) => t[id])]) {
+    const where = `[${locale}/tools/${page.slug}]`;
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(page.slug)) problems.push(`${where} slug must be lowercase ASCII kebab-case`);
+    if (slugs.has(page.slug)) problems.push(`${where} duplicate slug`);
+    slugs.add(page.slug);
+    if (page.metaTitle.length > 60) problems.push(`${where} metaTitle is ${page.metaTitle.length} chars (max 60)`);
+    if (page.metaDescription.length < 120 || page.metaDescription.length > 160)
+      problems.push(`${where} metaDescription is ${page.metaDescription.length} chars (want 120–160)`);
+  }
+  return problems;
+};
+
 export const contentProblems = (only?: Locale): string[] => {
   const problems: string[] = [];
+  for (const locale of Object.keys(pagesByLocale) as Locale[]) if (!only || locale === only) problems.push(...toolProblems(locale));
   for (const locale of Object.keys(pagesByLocale) as Locale[]) {
     if (only && locale !== only) continue;
     const slugs = new Set<string>();

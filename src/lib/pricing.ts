@@ -38,6 +38,12 @@ export const CURRENCY: Record<Locale, Currency> = {
 
 export const packageById = (id: PackageId) => PACKAGES.find((p) => p.id === id)!;
 
+// ECB reference rates of 16 October 2026: units of each currency per 1 EUR.
+export const ECB_RATES: Record<Currency, number> = { EUR: 1, USD: 1.1253, PLN: 4.37, SEK: 11.145 };
+export const ECB_RATES_DATE = "2026-10-16";
+
+export const convert = (amount: number, from: Currency, to: Currency) => (amount / ECB_RATES[from]) * ECB_RATES[to];
+
 export const formatMoney = (locale: Locale, amount: number) =>
   new Intl.NumberFormat(localeInfo(locale).dateLocale, {
     style: "currency",

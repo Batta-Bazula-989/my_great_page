@@ -6,6 +6,7 @@ import { SITE_URL, pageByKey, pagesByLocale } from "./content";
 import type { Locale, TranslatedPage } from "./content/types";
 import { dictionaries, format } from "./i18n";
 import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
+import { TOOL_IDS, TOOL_UPDATED, toolPath, toolsPath, type ToolId } from "./tools/registry";
 import { DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
 
 export { contentProblems } from "./content/validate";
@@ -147,6 +148,47 @@ const pageJsonLd = (locale: Locale, page: TranslatedPage): object[] => {
   ];
 };
 
+const toolJsonLd = (locale: Locale, id: ToolId): object[] => {
+  const t = dictionaries[locale];
+  const tool = t.tools[id];
+  const path = toolPath(locale, id);
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: tool.h1,
+      description: tool.metaDescription,
+      url: url(path),
+      inLanguage: locale,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Any",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: 0, priceCurrency: CURRENCY[locale] },
+      dateModified: TOOL_UPDATED[id],
+      publisher: business,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: t.seo.home, item: url(localePath(locale)) },
+        { "@type": "ListItem", position: 2, name: t.tools.menu, item: url(toolsPath(locale)) },
+        { "@type": "ListItem", position: 3, name: tool.navLabel, item: url(path) },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: locale,
+      mainEntity: tool.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+};
+
 const latest = (locale: Locale) => pagesByLocale[locale].map((p) => p.updated).sort().at(-1);
 
 export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
@@ -209,7 +251,41 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ),
   }));
 
-  return [home, resources, ...pages];
+  const toolsHub: PrerenderRoute = {
+    ...base,
+    path: toolsPath(locale),
+    file: fileFor(locale, `${t.tools.hub.slug}/index.html`),
+    title: t.tools.hub.metaTitle,
+    description: t.tools.hub.metaDescription,
+    lastmod: Object.values(TOOL_UPDATED).sort().at(-1),
+    render: true,
+    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolsPath(l.code)) }))),
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: t.tools.hub.title,
+        inLanguage: locale,
+        url: url(toolsPath(locale)),
+        publisher: business,
+        hasPart: TOOL_IDS.map((id) => ({ "@type": "WebApplication", name: t.tools[id].h1, url: url(toolPath(locale, id)) })),
+      },
+    ],
+  };
+
+  const tools: PrerenderRoute[] = TOOL_IDS.map((id) => ({
+    ...base,
+    path: toolPath(locale, id),
+    file: fileFor(locale, `${t.tools.hub.slug}/${t.tools[id].slug}.html`),
+    title: t.tools[id].metaTitle,
+    description: t.tools[id].metaDescription,
+    lastmod: TOOL_UPDATED[id],
+    render: true,
+    jsonLd: toolJsonLd(locale, id),
+    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolPath(l.code, id)) }))),
+  }));
+
+  return [home, resources, toolsHub, ...tools, ...pages];
 });
 
 // Privacy and Terms are English only; pre-rendering them gives each its own canonical URL and title.

@@ -1,4 +1,5 @@
 import type { Dictionary } from "./en";
+import tools from "./tools/fr";
 
 const fr: Dictionary = {
   meta: {
@@ -11,7 +12,6 @@ const fr: Dictionary = {
   },
   nav: {
     services: "Ce que je fais",
-    fit: "Pour vous ?",
     whyMe: "Pourquoi moi ?",
     pricing: "Tarifs",
     reviews: "Avis",
@@ -363,6 +363,7 @@ const fr: Dictionary = {
     text: "Cette page n'existe pas ou a été déplacée.",
     back: "Retour à l'accueil",
   },
+  tools,
 };
 
 export default fr;

@@ -107,7 +107,7 @@ const entries = routes.map((r) => ({
   loc: `${SITE_URL}${r.path}`,
   lastmod: r.lastmod,
   changefreq: r.render ? "monthly" : "weekly",
-  priority: !r.render ? "1.0" : LEGAL.includes(r.path) ? "0.3" : r.path.endsWith("/resources") ? "0.8" : "0.7",
+  priority: !r.render ? "1.0" : LEGAL.includes(r.path) ? "0.3" : r.path.endsWith("/resources") || /\/tools\//.test(r.path) ? "0.8" : "0.7",
   alternates: r.alternates,
 }));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

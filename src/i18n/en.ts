@@ -1,6 +1,8 @@
 // Every user-facing UI string on the site. Other languages (de.ts, fr.ts, …) mirror this shape exactly.
 // "{name}"-style placeholders are filled in by format().
 
+import tools from "./tools/en";
+
 const en = {
   meta: {
     homeTitle: "AI Customer Support Automation — Chatbots, Voice Bots & Ticket Routing | TascaLab",
@@ -12,7 +14,6 @@ const en = {
   },
   nav: {
     services: "What I Do",
-    fit: "A Fit?",
     whyMe: "Why Me?",
     pricing: "Prices",
     reviews: "Reviews",
@@ -363,6 +364,7 @@ const en = {
     text: "This page doesn't exist or has moved.",
     back: "Return to Home",
   },
+  tools,
 };
 
 export type Dictionary = typeof en;
