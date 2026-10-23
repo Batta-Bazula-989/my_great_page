@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T08:40:17.850Z",
+  "title": "Design System: TascaLab",
+  "extensions": {
+    "colorMeta": {
+      "handoff-aqua": {
+        "role": "primary",
+        "displayName": "Handoff Aqua",
+        "canonical": "hsl(175 80% 50%)",
+        "tonalRamp": [
+          "#001713",
+          "#00362d",
+          "#00554a",
+          "#007569",
+          "#009a8c",
+          "#00c1b1",
+          "#22e8d7",
+          "#5ffffc"
+        ]
+      },
+      "handoff-aqua-deep": {
+        "role": "primary",
+        "displayName": "Handoff Aqua Deep",
+        "canonical": "hsl(175 70% 40%)",
+        "tonalRamp": [
+          "#001612",
+          "#00332c",
+          "#005149",
+          "#007167",
+          "#00958a",
+          "#36bbaf",
+          "#65e3d5",
+          "#8cfffa"
+        ]
+      },
+      "relay-cyan": {
+        "role": "primary",
+        "displayName": "Relay Cyan",
+        "canonical": "hsl(195 80% 45%)",
+        "tonalRamp": [
+          "#000b33",
+          "#002a52",
+          "#004973",
+          "#006994",
+          "#008dba",
+          "#36b3e2",
+          "#65daff",
+          "#8bffff"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "hsl(220 20% 6%)",
+        "tonalRamp": [
+          "#090b0f",
+          "#222429",
+          "#3d4045",
+          "#5b5e63",
+          "#7d8086",
+          "#a2a5ab",
+          "#c7cbd1",
+          "#ebeff5"
+        ]
+      },
+      "console-slate": {
+        "role": "neutral",
+        "displayName": "Console Slate",
+        "canonical": "hsl(220 18% 10%)",
+        "tonalRamp": [
+          "#080b11",
+          "#21242b",
+          "#3c4047",
+          "#5a5e65",
+          "#7c8088",
+          "#a0a5ad",
+          "#c6cbd3",
+          "#eaeff8"
+        ]
+      },
+      "panel-graphite": {
+        "role": "neutral",
+        "displayName": "Panel Graphite",
+        "canonical": "hsl(220 15% 15%)",
+        "tonalRamp": [
+          "#080b12",
+          "#20242c",
+          "#3c4048",
+          "#595e67",
+          "#7c808a",
+          "#a0a5af",
+          "#c5cbd5",
+          "#e9eff9"
+        ]
+      },
+      "muted-steel": {
+        "role": "neutral",
+        "displayName": "Muted Steel",
+        "canonical": "hsl(220 15% 18%)",
+        "tonalRamp": [
+          "#070b13",
+          "#20242d",
+          "#3b404a",
+          "#585e68",
+          "#7b808b",
+          "#9fa5b0",
+          "#c5cbd7",
+          "#e8effb"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "hsl(220 15% 20%)",
+        "tonalRamp": [
+          "#070b14",
+          "#1f242e",
+          "#3a404a",
+          "#585e69",
+          "#7a808c",
+          "#9ea5b1",
+          "#c4cbd8",
+          "#e8effc"
+        ]
+      },
+      "frost-white": {
+        "role": "neutral",
+        "displayName": "Frost White",
+        "canonical": "hsl(210 20% 95%)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3e4042",
+          "#5c5e60",
+          "#7e8083",
+          "#a2a5a7",
+          "#c8cbcd",
+          "#eceff1"
+        ]
+      },
+      "fog-grey": {
+        "role": "neutral",
+        "displayName": "Fog Grey",
+        "canonical": "hsl(210 15% 55%)",
+        "tonalRamp": [
+          "#020c18",
+          "#172533",
+          "#324150",
+          "#4f6070",
+          "#718293",
+          "#95a7b9",
+          "#bbcddf",
+          "#def1ff"
+        ]
+      },
+      "alert-red": {
+        "role": "error",
+        "displayName": "Alert Red",
+        "canonical": "hsl(0 84.2% 60.2%)",
+        "tonalRamp": [
+          "#300000",
+          "#590000",
+          "#840000",
+          "#b20019",
+          "#e23639",
+          "#ff6862",
+          "#ff9990",
+          "#ffc5bb"
+        ]
+      },
+      "glass-edge": {
+        "role": "neutral",
+        "displayName": "Glass Edge",
+        "canonical": "hsl(210 40% 98% / 0.12)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4041",
+          "#5c5e5f",
+          "#7f8082",
+          "#a3a5a7",
+          "#c9cbcd",
+          "#edeff1"
+        ]
+      },
+      "nav-glass": {
+        "role": "neutral",
+        "displayName": "Nav Glass",
+        "canonical": "hsl(220 20% 8% / 0.72)",
+        "tonalRamp": [
+          "#090b10",
+          "#21242a",
+          "#3d4046",
+          "#5a5e65",
+          "#7d8088",
+          "#a1a5ac",
+          "#c7cbd3",
+          "#eaeff7"
+        ]
+      },
+      "bloom-violet": {
+        "role": "ambient",
+        "displayName": "Bloom Violet",
+        "canonical": "hsl(260 80% 65%)",
+        "tonalRamp": [
+          "#15003a",
+          "#2e0063",
+          "#4b1b8f",
+          "#6a38be",
+          "#8c5deb",
+          "#af86ff",
+          "#d3b2ff",
+          "#f6daff"
+        ]
+      },
+      "bloom-cyan": {
+        "role": "ambient",
+        "displayName": "Bloom Cyan",
+        "canonical": "hsl(195 85% 55%)",
+        "tonalRamp": [
+          "#000b34",
+          "#002a55",
+          "#004a75",
+          "#006a97",
+          "#008ebd",
+          "#19b4e5",
+          "#55dcff",
+          "#7effff"
+        ]
+      },
+      "bloom-magenta": {
+        "role": "ambient",
+        "displayName": "Bloom Magenta",
+        "canonical": "hsl(320 70% 60%)",
+        "tonalRamp": [
+          "#280018",
+          "#4e0036",
+          "#760057",
+          "#a11179",
+          "#cc3e9f",
+          "#f46ac4",
+          "#ff9ae7",
+          "#ffc5ff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only; 2.25rem → 3rem (768px) → 3.75rem (1024px)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section title; 1.875rem → 2.6rem (768px)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card, package and panel headings."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Package prices in Handoff Aqua."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, list items, answers."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "One intro paragraph under a section title, max 672px."
+      },
+      "label": {
+        "displayName": "Label / Eyebrow",
+        "purpose": "Uppercase aqua section label above every title."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Hero-size button text; nav-size buttons use 14px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-highlight",
+        "value": "inset 0 1px 0 hsl(0 0% 100% / 0.18), inset 0 -1px 0 hsl(0 0% 100% / 0.04)",
+        "purpose": "Light catching the top edge of every glass surface and chip."
+      },
+      {
+        "name": "glass-shadow",
+        "value": "0 10px 40px -10px hsl(220 40% 2% / 0.6)",
+        "purpose": "The single resting shadow under glass panels and cards."
+      },
+      {
+        "name": "hover-glow",
+        "value": "0 0 28px hsl(175 80% 50% / 0.15)",
+        "purpose": "Response on a hovered glass card or FAQ item, with the border shifting to aqua 35%."
+      },
+      {
+        "name": "action-glow",
+        "value": "0 0 60px hsl(175 80% 50% / 0.2)",
+        "purpose": "Halo on a hovered aqua button."
+      },
+      {
+        "name": "status-dot",
+        "value": "0 0 8px hsl(175 80% 50%)",
+        "purpose": "The hero status dot; the one glow at rest."
+      },
+      {
+        "name": "nav-frost",
+        "value": "backdrop-filter: blur(20px) saturate(170%)",
+        "purpose": "Navigation only; no other surface blurs live content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-glass",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Glass card hover transitions, 300ms."
+      },
+      {
+        "name": "ease-hero",
+        "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "purpose": "Hero entrance: 20px fade-up, 0.5s, 80ms stagger."
+      },
+      {
+        "name": "reveal",
+        "value": "ease-out 0.35–0.5s, 16–32px rise, 60–100ms stagger, once",
+        "purpose": "Sections and cards entering the viewport."
+      },
+      {
+        "name": "button-press",
+        "value": "scale 1.05 on hover, 0.95 when pressed, 300ms",
+        "purpose": "Primary and glass buttons."
+      },
+      {
+        "name": "accordion",
+        "value": "0.2s ease-out",
+        "purpose": "FAQ open and close."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1400px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid Handoff Aqua pill; reserved for booking the Health Check.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/></svg>Book a Free Health Check</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;height:56px;padding:0 40px;border:0;border-radius:9999px;background:hsl(var(--primary));color:hsl(var(--primary-foreground));font-family:var(--font-body);font-size:18px;font-weight:600;cursor:pointer;transition:all .3s;}.ds-btn-primary:hover{box-shadow:0 0 60px hsl(175 80% 50% / 0.2);transform:scale(1.05);}.ds-btn-primary:active{transform:scale(.95);}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--background)),0 0 0 4px hsl(var(--ring));}"
+    },
+    {
+      "name": "Glass Button",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "Secondary pill on glass, e.g. Reviews on Upwork.",
+      "html": "<a class=\"ds-btn-glass\" href=\"#\"><span class=\"ds-btn-glass-star\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg></span>Reviews on Upwork<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-glass{display:inline-flex;align-items:center;gap:8px;height:56px;padding:0 40px;border-radius:9999px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight),var(--glass-shadow);color:hsl(var(--foreground));font-family:var(--font-body);font-size:18px;font-weight:600;text-decoration:none;transition:all .3s;}.ds-btn-glass-star{display:inline-flex;color:hsl(var(--primary));}.ds-btn-glass:hover{background:hsl(0 0% 100% / 0.1);transform:scale(1.05);}.ds-btn-glass:active{transform:scale(.95);}.ds-btn-glass:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--background)),0 0 0 4px hsl(var(--ring));}"
+    },
+    {
+      "name": "Package Button",
+      "kind": "button",
+      "refersTo": "button-package",
+      "description": "Full-width outlined chip pill at the foot of a pricing card; fills aqua on hover.",
+      "html": "<button class=\"ds-btn-package\">Get Started</button>",
+      "css": ".ds-btn-package{width:100%;max-width:280px;padding:12px 0;border-radius:9999px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight);color:hsl(var(--primary));font-family:var(--font-body);font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;}.ds-btn-package:hover{background:hsl(var(--primary));color:hsl(var(--primary-foreground));border-color:hsl(var(--primary));}.ds-btn-package:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--background)),0 0 0 4px hsl(var(--ring));}"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Glass chip used for the hero label and the Integrates-with tool row.",
+      "html": "<span class=\"ds-chip\"><span class=\"ds-chip-dot\"></span>Support automation that actually holds up</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:9999px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight);color:hsl(var(--foreground) / 0.8);font-family:var(--font-body);font-size:14px;}.ds-chip-dot{width:8px;height:8px;border-radius:9999px;background:hsl(var(--primary));box-shadow:0 0 8px hsl(var(--primary));}"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card-service",
+      "description": "Glass card with an icon tile; glows aqua on hover.",
+      "html": "<div class=\"ds-card-service\" tabindex=\"0\"><div class=\"ds-card-service-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 8V4H8\"/><rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\"/><path d=\"M2 14h2\"/><path d=\"M20 14h2\"/><path d=\"M15 13v2\"/><path d=\"M9 13v2\"/></svg></div><h3 class=\"ds-card-service-title\">Support chat &amp; voice bots</h3><p class=\"ds-card-service-text\">Answers common messages and calls, then hands the rest to your team.</p></div>",
+      "css": ".ds-card-service{max-width:280px;padding:24px;border-radius:24px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight),var(--glass-shadow);transition:transform .3s cubic-bezier(0.32,0.72,0,1),border-color .3s ease,box-shadow .3s ease;}.ds-card-service:hover,.ds-card-service:focus-visible{outline:none;border-color:hsl(var(--primary) / 0.35);box-shadow:var(--glass-highlight),0 0 28px hsl(var(--primary) / 0.15),var(--glass-shadow);}.ds-card-service-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:hsl(var(--primary));background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight);}.ds-card-service-title{margin:0 0 8px;font-family:var(--font-display);font-size:18px;font-weight:700;color:hsl(var(--foreground));}.ds-card-service-text{margin:0;font-family:var(--font-body);font-size:16px;line-height:1.625;color:hsl(var(--muted-foreground));}"
+    },
+    {
+      "name": "Pricing Card",
+      "kind": "custom",
+      "refersTo": "card-glass",
+      "description": "Signature package card: name, price, included list, running-costs disclosure, package button.",
+      "html": "<div class=\"ds-price-card\"><h3 class=\"ds-price-name\">Starter Chat Bot</h3><p class=\"ds-price-desc\">Answers common questions on 1–2 channels and hands the rest to your team.</p><div class=\"ds-price-amount\">$400</div><p class=\"ds-price-meta\">one-time · Delivery 1–3 weeks</p><ul class=\"ds-price-list\"><li><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span>Answers FAQs and collects customer info</span></li><li><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span>Hands the rest to your team</span></li></ul><details class=\"ds-price-running\"><summary>Monthly running costs<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary><p>Charged by the tool providers. Not included in the package price.</p></details><button class=\"ds-price-btn\">Get Started</button></div>",
+      "css": ".ds-price-card{max-width:340px;padding:28px;border-radius:28px;display:flex;flex-direction:column;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight),var(--glass-shadow);transition:transform .3s cubic-bezier(0.32,0.72,0,1),border-color .3s ease,box-shadow .3s ease;}.ds-price-card:hover{transform:translateY(-6px);border-color:hsl(var(--primary) / 0.35);box-shadow:var(--glass-highlight),0 0 28px hsl(var(--primary) / 0.15),var(--glass-shadow);}.ds-price-name{margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;color:hsl(var(--foreground));}.ds-price-desc{margin:8px 0 0;font-family:var(--font-body);line-height:1.625;color:hsl(var(--muted-foreground));}.ds-price-amount{margin-top:20px;font-family:var(--font-display);font-size:36px;font-weight:700;line-height:1;color:hsl(var(--primary));}.ds-price-meta{margin:8px 0 0;font-family:var(--font-body);font-size:14px;color:hsl(var(--muted-foreground));}.ds-price-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;}.ds-price-list li{display:flex;gap:10px;align-items:flex-start;font-family:var(--font-body);line-height:1.625;color:hsl(var(--muted-foreground));}.ds-price-list svg{flex-shrink:0;margin-top:4px;color:hsl(var(--primary));}.ds-price-running{margin-top:20px;padding:12px 16px;border-radius:16px;border:1px solid hsl(0 0% 100% / 0.1);background:hsl(0 0% 100% / 0.03);}.ds-price-running summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;font-family:var(--font-body);font-size:14px;font-weight:600;color:hsl(var(--foreground) / 0.9);}.ds-price-running summary::-webkit-details-marker{display:none;}.ds-price-running summary svg{transition:transform .2s;}.ds-price-running[open] summary svg{transform:rotate(180deg);}.ds-price-running p{margin:8px 0 0;font-family:var(--font-body);font-size:12px;color:hsl(var(--muted-foreground) / 0.8);}.ds-price-btn{margin-top:24px;width:100%;padding:12px 0;border-radius:9999px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight);color:hsl(var(--primary));font-family:var(--font-body);font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;}.ds-price-btn:hover{background:hsl(var(--primary));color:hsl(var(--primary-foreground));border-color:hsl(var(--primary));}.ds-price-btn:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--background)),0 0 0 4px hsl(var(--ring));}"
+    },
+    {
+      "name": "Calculator Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Glass-world text field with label, unit suffix and hint.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-tickets\">Tickets per month</label><div class=\"ds-field-wrap\"><input class=\"ds-field-input\" id=\"ds-tickets\" type=\"number\" value=\"2500\"><span class=\"ds-field-suffix\">/mo</span></div><p class=\"ds-field-hint\">All channels combined.</p></div>",
+      "css": ".ds-field{max-width:320px;font-family:var(--font-body);}.ds-field-label{display:block;margin-bottom:6px;font-size:14px;font-weight:500;color:hsl(var(--foreground) / 0.85);}.ds-field-wrap{position:relative;}.ds-field-input{width:100%;box-sizing:border-box;padding:10px 56px 10px 12px;border-radius:12px;border:1px solid hsl(0 0% 100% / 0.1);background:hsl(0 0% 100% / 0.04);color:hsl(var(--foreground));font:inherit;font-size:16px;outline:none;transition:border-color .15s,box-shadow .15s;}.ds-field-input:focus{border-color:hsl(var(--primary) / 0.6);box-shadow:0 0 0 2px hsl(var(--primary) / 0.2);}.ds-field-suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:14px;color:hsl(var(--muted-foreground));pointer-events:none;}.ds-field-hint{margin:6px 0 0;font-size:12px;line-height:1.625;color:hsl(var(--muted-foreground));}"
+    },
+    {
+      "name": "Navigation Capsule",
+      "kind": "nav",
+      "refersTo": "nav-capsule",
+      "description": "Floating frosted capsule: logo, links, primary pill. The only live backdrop blur.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-logo\" href=\"#\">TascaLab</a><div class=\"ds-nav-links\"><a href=\"#\">What I Do</a><a href=\"#\">Prices</a><a href=\"#\">FAQ</a></div><a class=\"ds-nav-cta\" href=\"#\">Free Health Check</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:56px;padding:0 16px;border-radius:22px;background:hsl(220 20% 8% / 0.72);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight),var(--glass-shadow);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);font-family:var(--font-body);}.ds-nav-logo{font-family:var(--font-display);font-weight:600;color:hsl(var(--foreground));text-decoration:none;}.ds-nav-links{display:flex;gap:20px;}.ds-nav-links a{color:hsl(var(--muted-foreground));font-weight:500;text-decoration:none;transition:color .15s;}.ds-nav-links a:hover{color:hsl(var(--foreground));}.ds-nav-links a:focus-visible,.ds-nav-logo:focus-visible{outline:2px solid hsl(var(--ring));outline-offset:2px;border-radius:4px;}.ds-nav-cta{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:9999px;background:hsl(var(--primary));color:hsl(var(--primary-foreground));font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;}.ds-nav-cta:hover{box-shadow:0 0 60px hsl(175 80% 50% / 0.2);transform:scale(1.05);}.ds-nav-cta:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--background)),0 0 0 4px hsl(var(--ring));}"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Signature header: aqua uppercase eyebrow, Space Grotesk title, optional lead, fading aqua hairline above.",
+      "html": "<header class=\"ds-section-head\"><span class=\"ds-eyebrow\">Pricing</span><h2 class=\"ds-section-title\">Fixed-price support automation packages</h2><p class=\"ds-section-lead\">One price, paid once. No retainer.</p></header>",
+      "css": ".ds-section-head{position:relative;padding-top:40px;text-align:center;}.ds-section-head::before{content:\"\";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,hsl(var(--primary) / 0.5),transparent);}.ds-eyebrow{display:block;margin-bottom:12px;font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:hsl(var(--primary));}.ds-section-title{margin:0;font-family:var(--font-display);font-size:clamp(1.875rem,4vw,2.6rem);font-weight:700;line-height:1.25;letter-spacing:-0.025em;color:hsl(var(--foreground));}.ds-section-lead{max-width:42rem;margin:16px auto 0;font-family:var(--font-body);font-size:18px;line-height:1.625;color:hsl(var(--muted-foreground));}"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Glass disclosure with a Space Grotesk question and Fog Grey answer.",
+      "html": "<details class=\"ds-faq\"><summary>What actually happens in the free Health Check?<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary><p>A 30-minute call about your current setup, then a written report with 2–3 concrete recommendations.</p></details>",
+      "css": ".ds-faq{max-width:640px;padding:0 24px;border-radius:16px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-highlight),var(--glass-shadow);transition:transform .3s cubic-bezier(0.32,0.72,0,1),border-color .3s ease,box-shadow .3s ease;}.ds-faq:hover{border-color:hsl(var(--primary) / 0.35);box-shadow:var(--glass-highlight),0 0 28px hsl(var(--primary) / 0.15),var(--glass-shadow);}.ds-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;cursor:pointer;list-style:none;font-family:var(--font-display);font-size:16px;font-weight:500;color:hsl(var(--foreground));}.ds-faq summary::-webkit-details-marker{display:none;}.ds-faq summary svg{flex-shrink:0;transition:transform .2s;}.ds-faq[open] summary svg{transform:rotate(180deg);}.ds-faq summary:focus-visible{outline:2px solid hsl(var(--ring));outline-offset:2px;border-radius:8px;}.ds-faq p{margin:0;padding-bottom:16px;font-family:var(--font-body);line-height:1.625;color:hsl(var(--muted-foreground));}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Glass Switchboard",
+    "overview": "The board is dark and the panels are clear. A single aqua signal shows where things go. The site behaves the way good support routing should: every message lands in the right place, nothing gets lost, and nothing calls attention to itself. Content sits on translucent glass panels over a near-black blue canvas. Four soft color fields drift behind the glass so it has something to refract. Against that quiet backdrop, one color (Handoff Aqua) marks what matters: the price, the icon, the section label, the button that books the Health Check.\n\nThe mood is **calm, precise and trustworthy**. The glass and glow create atmosphere and are never a spectacle. Surfaces are generous and soft (pill buttons, 24–32px corners, gentle lift on hover), but the typography is exact: Space Grotesk headings in tight tracking, Outfit body text at a relaxed 1.625 line height, and uppercase aqua labels spaced at 0.2em. Density is low. Sections are centered, headers stack label, title, then lead paragraph, and grids are capped at 1152px so nothing sprawls.\n\nThe system speaks for one person, and shows him. Roman's face and name appear in the hero, the founder panel, the contact panel and the booking dialog. The system never needs logo walls, stock imagery or invented proof to feel credible. Its credibility comes from legibility: clear prices, clear packages, clear running costs, all on panels that look as calm as a well-run queue. The one place the switchboard is literally drawn is the process line: a single aqua line running through five stops, from the free Health Check to 30 days of support.",
+    "keyCharacteristics": [
+      "Dark night-ink canvas with fixed ambient color fields behind it",
+      "Liquid-glass panels: tinted translucent fill, 1px frosted edge, inner top highlight, deep soft shadow",
+      "One accent color (Handoff Aqua), used for signals and actions, never for paragraphs",
+      "Space Grotesk for headings and numbers, Outfit for reading",
+      "Pill-shaped actions and large-radius containers that grow rounder as they grow larger",
+      "Motion is a soft fade-up on reveal and a small lift on hover; glow appears only as a response"
+    ],
+    "rules": [
+      {
+        "name": "The Handoff Rule",
+        "body": "Handoff Aqua marks what to act on or read first: a price, an icon, a label, the booking button. Paragraph text is never aqua.",
+        "section": "colors"
+      },
+      {
+        "name": "The Backdrop-Only Rule",
+        "body": "Violet, magenta and the cyan bloom live only in the fixed backdrop. They never touch text, borders, icons or controls.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Gradient Rule",
+        "body": "Aqua-to-cyan gradient text marks at most one phrase per section (today: the hero's highlighted words and the \"Good Fit\" heading). It is never used for body copy, buttons or whole headings.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Space Grotesk is for headings, prices and numbers (calculator outputs use tabular figures). Outfit is for everything people read. Never set a paragraph in Space Grotesk or a heading in Outfit.",
+        "section": "typography"
+      },
+      {
+        "name": "The Eyebrow Rule",
+        "body": "Every homepage and index section opens with the same three-step header, centered: an aqua uppercase label, then the headline, then an optional lead. The `Section` component (`src/components/Section.tsx`) renders it. Do not invent new header shapes per section.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow-Is-a-Response Rule",
+        "body": "Surfaces are calm at rest, and aqua glow appears only on hover or focus. The single exception is the small glowing status dot in the hero label.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Live Blur Rule",
+        "body": "Only floating chrome (the navigation and the phone booking bar) uses `backdrop-filter`. Every other surface imitates frosted glass with a tinted gradient.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Pebble Rule",
+        "body": "A larger container gets a larger radius: 12px for a tile, 16px for an inline block, 24–28px for a card, 32px for a panel. Never put a sharp-cornered box on the glass.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** put content on glass: the white 10% to 3.5% fill, the 1px Glass Edge, the top highlight, and the glass shadow. Use the stronger tint only for the one hero-level panel in view.",
+      "**Do** keep Handoff Aqua for signals: labels, icons, prices, ratings, links, focus rings and the booking pill.",
+      "**Do** keep solid aqua pills for booking the Health Check, plus the submit and accept actions that complete a step. Package buttons stay outlined until hover, and secondary actions are glass.",
+      "**Do** open every section with the Section Header (aqua label, then Space Grotesk title, then optional lead) and the fading aqua hairline.",
+      "**Do** scale corner radius with container size: 12, 16, 24–28 and 32px. Every action is a pill.",
+      "**Do** reveal below-the-fold content with `Reveal` (a soft fade-up: 24px of travel, 0.45s ease-out, 60–100ms stagger, played once). It renders everything visible on first paint and only hides elements that start below the viewport after hydration. The hero uses the CSS `.animate-rise` stagger (20px, 0.5s, 80ms steps) so the pre-rendered page shows before JavaScript loads. The glass hover easing is `cubic-bezier(0.32, 0.72, 0, 1)` over 300ms.",
+      "**Do** honor `prefers-reduced-motion`. The CSS animation utilities switch off, `Reveal` skips its animation, and `MotionConfig reducedMotion=\"user\"` covers the remaining framer-motion movement.",
+      "**Do** keep Roman visible wherever the visitor decides: the hero call note, the founder panel, the contact panel and the booking dialog all carry his face. Use `roman-avatar.jpg` (112px square) for avatars and `roman-portrait.jpg` (560×700) for the panel, never the 343 KB, 1066×1600 original.",
+      "**Do** make every booking action a `BookingButton`, so they all open the one shared dialog.",
+      "**Do** keep touch targets at least 44px: menu rows, standalone links, the menu button and form fields.",
+      "**Do** design for the longest locale. German, Dutch and Polish strings run long, so buttons must wrap or shrink gracefully, and the six-link nav needs the full 1280px before it can show inline."
+    ],
+    "donts": [
+      "**Don't** put violet, magenta or bloom cyan on text, borders, icons or controls. They belong only to the backdrop.",
+      "**Don't** make anything glow at rest. Glow is a hover or focus response (the hero status dot is the one exception).",
+      "**Don't** add `backdrop-filter` to cards or panels. Only floating chrome (the navigation and the phone booking bar) blurs.",
+      "**Don't** hide server-rendered content with framer-motion `initial={{ opacity: 0 }}`. The pages are pre-rendered, and that ships invisible HTML until JavaScript loads. Use `Reveal` or the CSS entrance instead.",
+      "**Don't** report booking outcomes in toasts. Sending, failure and success all live inside the dialog, next to the form.",
+      "**Don't** nest bordered boxes inside cards. Separate sub-sections with a hairline.",
+      "**Don't** fade small text: fine print stays at full Fog Grey (12–14px), and leads on glass panels use Frost White 75–80%, because Fog Grey drops to about 3.9:1 on the lighter glass.",
+      "**Don't** use gradient text on more than one phrase per section, and never on a full headline, button or paragraph.",
+      "**Don't** use pure black, pure white or flat grey borders on glass. The canvas is Night Ink, text is Frost White, and glass edges are frosted white at 12%.",
+      "**Don't** put sharp or small-radius boxes on the glass canvas, and don't make an action rectangular.",
+      "**Don't** revive the unused legacy utilities: `.card-hover-glow`, which hard-codes `rgb(47, 52, 63) !important`, plus `.bg-gradient-hero`, `.animate-float` and the Vite boilerplate in `src/App.css`.",
+      "**Don't** add a second accent hue for emphasis. If something needs more weight, use size, weight or the stronger glass, not a new color."
+    ]
+  }
+}
