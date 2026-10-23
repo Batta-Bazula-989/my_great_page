@@ -105,7 +105,7 @@ const fr: Dictionary = {
   whyMe: {
     eyebrow: "Pourquoi travailler avec moi",
     title: "Conçu par quelqu'un qui a travaillé dans le support",
-    role: "Ingénieur en automatisation du support client",
+    role: "Spécialiste de l'automatisation IA",
     linkedin: "Mon parcours sur LinkedIn",
     items: [
       {

@@ -105,7 +105,7 @@ const nl: Dictionary = {
   whyMe: {
     eyebrow: "Waarom met mij werken",
     title: "Gebouwd door iemand die zelf in support heeft gewerkt",
-    role: "Engineer voor klantenservice-automatisering",
+    role: "Specialist in AI-automatisering",
     linkedin: "Mijn achtergrond op LinkedIn",
     items: [
       {

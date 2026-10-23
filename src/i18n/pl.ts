@@ -101,7 +101,7 @@ const pl: Dictionary = {
   whyMe: {
     eyebrow: "Dlaczego warto ze mną współpracować",
     title: "Zbudowane przez kogoś, kto sam pracował w obsłudze klienta",
-    role: "Inżynier automatyzacji obsługi klienta",
+    role: "Specjalista ds. automatyzacji AI",
     linkedin: "Moje doświadczenie na LinkedIn",
     items: [
       {

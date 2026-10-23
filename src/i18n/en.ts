@@ -108,7 +108,7 @@ const en = {
   whyMe: {
     eyebrow: "Why Work With Me",
     title: "Built by someone who's worked in support",
-    role: "Customer support automation engineer",
+    role: "AI automation specialist",
     linkedin: "My background on LinkedIn",
     items: [
       {
