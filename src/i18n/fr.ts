@@ -19,13 +19,15 @@ const fr: Dictionary = {
     closeMenu: "Fermer le menu",
     language: "Langue",
     logoAlt: "Logo TascaLab",
+    skipToContent: "Aller au contenu",
   },
   hero: {
     eyebrow: "Une automatisation du support qui tient vraiment la route",
     titleBefore: "Chatbots IA, callbots et ",
     titleHighlight: "automatisation des tickets",
     titleAfter: " pour les équipes support",
-    intro: "Intégré au helpdesk que vous utilisez déjà. Prix fixes, sans changer de plateforme.",
+    intro: "Je suis Roman. Je les construis moi-même, à un prix fixe à partir de {price}, payé une seule fois.",
+    callNote: "Health Check gratuit : un appel de 30 minutes avec moi, puis un rapport écrit.",
     ctaBook: "Réserver un Health Check gratuit",
     ctaUpwork: "Avis sur Upwork",
     highlights: ["Fonctionne avec votre helpdesk actuel", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
@@ -57,6 +59,32 @@ const fr: Dictionary = {
       },
     ],
   },
+  process: {
+    eyebrow: "Comment ça marche",
+    title: "Du premier appel à une automatisation qui fonctionne",
+    steps: [
+      {
+        title: "Health Check gratuit",
+        description: "Un appel de 30 minutes sur votre configuration et les endroits où l'automatisation serait utile.",
+      },
+      {
+        title: "Rapport écrit",
+        description: "2 à 3 recommandations, l'offre qui vous convient et son prix fixe.",
+      },
+      {
+        title: "Prix fixe convenu",
+        description: "Convenu avant le début des travaux. Payé une seule fois, sans abonnement.",
+      },
+      {
+        title: "Réalisé en 1 à 3 semaines",
+        description: "Intégré à votre helpdesk et exécuté dans vos propres comptes.",
+      },
+      {
+        title: "30 jours de support",
+        description: "Si quelque chose casse après le lancement, je le répare.",
+      },
+    ],
+  },
   fit: {
     eyebrow: "Est-ce pour vous ?",
     title: "À qui s'adresse cette automatisation du support",
@@ -77,6 +105,8 @@ const fr: Dictionary = {
   whyMe: {
     eyebrow: "Pourquoi travailler avec moi",
     title: "Conçu par quelqu'un qui a travaillé dans le support",
+    role: "Ingénieur en automatisation du support client",
+    linkedin: "Mon parcours sur LinkedIn",
     items: [
       {
         title: "J'ai travaillé dans le support",
@@ -101,13 +131,21 @@ const fr: Dictionary = {
     title: "Offres d'automatisation du support à prix fixe",
     intro: "Un prix, payé une seule fois. Sans abonnement.",
     oneTimeFee: "paiement unique",
-    cta: "Commencer",
+    cta: "En parler lors d'un Health Check",
     from: "à partir de {price}",
     delivery: "Livraison",
     deliveryTime: "1 à 3 semaines",
     included: "Ce qui est inclus",
+    groups: {
+      chat: "Chatbots et callbots",
+      tickets: "Tickets et rapports",
+      custom: "Projets sur mesure",
+    },
     running: "Coûts mensuels de fonctionnement",
+    showRunning: "Afficher les coûts mensuels de fonctionnement",
+    hideRunning: "Masquer les coûts mensuels de fonctionnement",
     runningNote: "Facturés par les fournisseurs des outils. Non inclus dans le prix de l'offre.",
+    estimate: "Estimez les vôtres avec mes calculateurs gratuits :",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -225,7 +263,6 @@ const fr: Dictionary = {
     eyebrow: "Avis clients",
     title: "Avis vérifiés sur Upwork",
     intro: "Issus de contrats payés sur Upwork.",
-    leaveCta: "Vous avez travaillé avec moi ? Laissez un avis",
     quoted: "Avis cités mot pour mot depuis mon profil Upwork.",
     verify: "Vérifier sur Upwork",
     stars: "{rating} sur 5 étoiles",
@@ -284,7 +321,7 @@ const fr: Dictionary = {
     guides: { label: "Guides et conformité", blurb: "Comparatifs d'outils et règles européennes pour les bots de support." },
   },
   cookie: {
-    text: "Nous utilisons des cookies de mesure d'audience et de mesure publicitaire pour comprendre comment les visiteurs trouvent et utilisent ce site.",
+    text: "J'utilise des cookies de mesure d'audience et de mesure publicitaire pour comprendre comment les visiteurs trouvent et utilisent ce site.",
     privacy: "Politique de confidentialité",
     decline: "Refuser",
     accept: "Accepter",
@@ -292,7 +329,9 @@ const fr: Dictionary = {
   booking: {
     title: "Réservez un Health Check gratuit",
     description:
-      "Laissez vos coordonnées et je vous recontacterai pour planifier un appel de 30 minutes. Vous recevrez ensuite un rapport écrit. Sans engagement, sans argumentaire commercial.",
+      "Un appel de 30 minutes avec moi, Roman, puis un rapport écrit. Sans engagement, sans argumentaire commercial.",
+    about: "Objet : {topic}",
+    close: "Fermer",
     fullName: "Nom complet",
     fullNamePlaceholder: "Marie Dupont",
     email: "E-mail professionnel",
@@ -308,16 +347,21 @@ const fr: Dictionary = {
     telegram: "Lien ou nom d'utilisateur Telegram",
     telegramPlaceholder: "https://t.me/pseudo ou @pseudo",
     submitCalendar: "Continuer vers l'agenda",
-    submitting: "Envoi en cours...",
+    submitting: "Envoi en cours…",
     submit: "Réserver mon Health Check gratuit",
-    sendFailed: "Impossible d'envoyer la demande",
-    networkError: "Erreur réseau ou serveur injoignable.",
-    sent: "Demande envoyée ! Je vous recontacte sous 24 heures.",
+    nextCalendar: "Ensuite, vous choisissez un créneau dans mon agenda.",
+    nextContact: "Je vous contacterai sous 24 heures pour convenir d'un créneau.",
+    sendFailed: "Votre demande n'a pas abouti",
+    networkError: "Veuillez réessayer dans un instant ou me contacter directement :",
+    sentTitle: "Demande envoyée",
+    sentCalendar: "Choisissez maintenant un créneau qui vous convient dans mon agenda.",
+    openCalendar: "Ouvrir mon agenda",
+    sent: "Je vous recontacterai sous 24 heures pour convenir d'un créneau.",
     errors: {
       nameRequired: "Le nom complet est obligatoire",
       nameShort: "Le nom complet doit comporter au moins 2 caractères",
       nameLong: "Le nom complet doit comporter moins de 50 caractères",
-      nameChars: "Le nom complet ne peut contenir que des lettres, des espaces, des traits d'union et des apostrophes",
+      nameChars: "Le nom complet ne peut contenir que des lettres, des espaces, des points, des traits d'union et des apostrophes",
       emailRequired: "L'e-mail professionnel est obligatoire",
       emailInvalid: "Veuillez saisir une adresse e-mail valide",
       companyLength: "Le nom de l'entreprise doit comporter entre 2 et 50 caractères",

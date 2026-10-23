@@ -1,91 +1,89 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { Calendar, Star, ArrowUpRight, ShieldCheck, Clock, Plug } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import BookingModal from "@/components/BookingModal";
+import BookingButton from "@/components/BookingButton";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
-import { useDict } from "@/i18n";
+import { CURRENCY, PACKAGES, formatMoney } from "@/lib/pricing";
+import { keepShortWords } from "@/lib/typography";
+import { format, useDict, useLocale } from "@/i18n";
+import avatar from "@/assets/roman-avatar.jpg";
 
 const tools = ["Zendesk", "Freshdesk", "Jira", "Slack", "WhatsApp", "Telegram"];
 
 const highlightIcons = [Plug, Clock, ShieldCheck];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] },
-  }),
-};
+// Staggered CSS entrance (see .animate-rise): the pre-rendered hero is visible before any JavaScript runs.
+const rise = (step: number) => ({ "--rise-delay": `${step * 80}ms` }) as CSSProperties;
 
 const HeroSection = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
   const t = useDict().hero;
+  const locale = useLocale();
+  const tidy = (text: string) => keepShortWords(text, locale);
+  const lowestPrice = formatMoney(locale, Math.min(...PACKAGES.map((p) => p.prices[CURRENCY[locale]])));
 
   return (
-    <header className="relative min-h-[92svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <header id="hero" className="relative min-h-[92svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
       <div className="container relative z-10 px-4">
-        <div className="glass-panel mx-auto max-w-4xl rounded-[32px] px-6 py-10 md:px-14 md:py-14 text-center">
-          <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="glass-chip mx-auto mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/80"
+        <div className="glass-panel mx-auto max-w-4xl rounded-[32px] px-5 py-10 sm:px-8 md:px-14 md:py-14 text-center">
+          <p
+            className="animate-rise glass-chip mx-auto mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/80 text-balance"
+            style={rise(0)}
           >
-            <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
             {t.eyebrow}
-          </motion.p>
+          </p>
 
-          <motion.h1
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight"
+          <h1
+            className="animate-rise text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight"
+            style={rise(1)}
           >
-            {t.titleBefore}
-            <span className="text-gradient">{t.titleHighlight}</span>
-            {t.titleAfter}
-          </motion.h1>
+            {tidy(t.titleBefore)}
+            <span className="text-gradient">{tidy(t.titleHighlight)}</span>
+            {tidy(t.titleAfter)}
+          </h1>
 
-          <motion.p
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-muted-foreground text-base md:text-lg max-w-2xl mt-5 mx-auto leading-relaxed"
+          <p
+            className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-5 mx-auto leading-relaxed text-pretty"
+            style={rise(2)}
           >
-            {t.intro}
-          </motion.p>
+            {tidy(format(t.intro, { price: lowestPrice }))}
+          </p>
 
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
-          >
-            <Button variant="hero" size="xl" className="rounded-full" onClick={() => setBookingOpen(true)}>
-              <Calendar className="w-5 h-5" />
-              {t.ctaBook}
-            </Button>
-            <Button variant="glass" size="xl" className="rounded-full" asChild>
-              <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                <Star className="w-5 h-5 text-primary" />
+          <div className="animate-rise mt-8 flex flex-col items-center gap-5" style={rise(3)}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-x-7 gap-y-4">
+              <BookingButton
+                variant="hero"
+                size="xl"
+                className="h-auto min-h-14 max-w-full rounded-full px-6 py-3 text-base whitespace-normal text-center sm:px-10 sm:text-lg"
+              >
+                <Calendar className="w-5 h-5" aria-hidden />
+                {t.ctaBook}
+              </BookingButton>
+              <a
+                href={UPWORK_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 font-semibold text-foreground/85 underline-offset-4 transition-colors hover:text-primary hover:underline"
+              >
+                <Star className="w-4 h-4 fill-primary text-primary" aria-hidden />
                 {t.ctaUpwork}
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" aria-hidden />
               </a>
-            </Button>
-          </motion.div>
+            </div>
+            <p className="flex items-center gap-3 text-left text-sm text-foreground/80 max-w-lg">
+              <img
+                src={avatar}
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 shrink-0 rounded-full border border-white/15 object-cover"
+              />
+              <span className="text-pretty">{tidy(t.callNote)}</span>
+            </p>
+          </div>
 
-          <motion.ul
-            custom={4}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-foreground/75"
+          <ul
+            className="animate-rise mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-white/10 pt-6 text-sm text-foreground/80"
+            style={rise(4)}
           >
             {t.highlights.map((text, i) => {
               const Icon = highlightIcons[i];
@@ -96,30 +94,22 @@ const HeroSection = () => {
                 </li>
               );
             })}
-          </motion.ul>
+          </ul>
         </div>
 
-        <motion.div
-          custom={5}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-8 text-center"
-        >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-3">
-            {t.integratesWith}
-          </p>
-          <ul className="flex flex-wrap justify-center gap-2.5">
-            {tools.map((tool) => (
-              <li key={tool} className="glass-chip rounded-full px-4 py-1.5 text-sm text-foreground/80">
+        <div className="animate-rise mt-8 text-center" style={rise(5)}>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">{t.integratesWith}</p>
+          {/* Plain text, not chips: these are tools the work plugs into, not buttons */}
+          <ul className="mx-auto flex max-w-2xl flex-wrap justify-center gap-x-1 gap-y-1 text-sm font-medium text-foreground/75">
+            {tools.map((tool, i) => (
+              <li key={tool} className="flex items-center gap-1">
+                {i > 0 && <span className="px-1.5 text-primary/60" aria-hidden>·</span>}
                 {tool}
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
       </div>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </header>
   );
 };

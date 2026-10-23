@@ -8,6 +8,7 @@ import SeoPage from "./pages/SeoPage";
 import Resources from "./pages/Resources";
 import ToolsHub from "./pages/ToolsHub";
 import ToolPage from "./pages/ToolPage";
+import BookingProvider from "@/components/BookingProvider";
 import { LocaleContext, dictionaries } from "@/i18n";
 import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
 import type { Locale } from "@/content/types";
@@ -19,7 +20,9 @@ const LocaleLayout = ({ locale }: { locale: Locale }) => {
 
   return (
     <LocaleContext.Provider value={locale}>
-      <Outlet />
+      <BookingProvider>
+        <Outlet />
+      </BookingProvider>
     </LocaleContext.Provider>
   );
 };

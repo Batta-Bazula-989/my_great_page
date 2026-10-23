@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { dictionaries } from "@/i18n";
 import { localeFromPath } from "@/i18n/config";
-
-const STORAGE_KEY = "cookie_consent";
+import { CONSENT_EVENT, CONSENT_STORAGE_KEY } from "@/lib/consent";
 
 declare global {
   interface Window {
@@ -31,7 +30,7 @@ const CookieConsent = () => {
   const t = dictionaries[localeFromPath(useLocation().pathname)].cookie;
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
     if (!stored) {
       setVisible(true);
     } else if (stored === "granted") {
@@ -39,24 +38,23 @@ const CookieConsent = () => {
     }
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem(STORAGE_KEY, "granted");
-    updateConsent(true);
+  const decide = (granted: boolean) => {
+    localStorage.setItem(CONSENT_STORAGE_KEY, granted ? "granted" : "denied");
+    updateConsent(granted);
     setVisible(false);
-  };
-
-  const handleDecline = () => {
-    localStorage.setItem(STORAGE_KEY, "denied");
-    updateConsent(false);
-    setVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   };
 
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95">
-      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-        <p className="text-sm text-muted-foreground">
+    <div
+      role="region"
+      aria-label={t.privacy}
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-background/95 pb-[env(safe-area-inset-bottom)]"
+    >
+      <div className="mx-auto flex max-w-6xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-4">
+        <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm sm:max-w-[75ch]">
           {t.text}{" "}
           <a
             href="/privacy"
@@ -66,10 +64,15 @@ const CookieConsent = () => {
           </a>
         </p>
         <div className="flex shrink-0 gap-2">
-          <Button variant="outline" size="sm" onClick={handleDecline}>
+          <Button variant="outline" size="sm" className="h-10 flex-1 rounded-full px-5 sm:flex-none" onClick={() => decide(false)}>
             {t.decline}
           </Button>
-          <Button variant="hero" size="sm" onClick={handleAccept}>
+          <Button
+            variant="hero"
+            size="sm"
+            className="h-10 flex-1 rounded-full px-5 hover:scale-100 sm:flex-none"
+            onClick={() => decide(true)}
+          >
             {t.accept}
           </Button>
         </div>

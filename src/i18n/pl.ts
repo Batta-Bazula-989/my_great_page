@@ -19,13 +19,15 @@ const pl: Dictionary = {
     closeMenu: "Zamknij menu",
     language: "Język",
     logoAlt: "Logo TascaLab",
+    skipToContent: "Przejdź do treści",
   },
   hero: {
     eyebrow: "Automatyzacja obsługi klienta, która sprawdza się w praktyce",
     titleBefore: "Chatboty AI, voiceboty i ",
     titleHighlight: "automatyzacja zgłoszeń",
     titleAfter: " dla zespołów obsługi klienta",
-    intro: "Działa w helpdesku, którego już używasz. Stałe ceny, bez zmiany platformy.",
+    intro: "Jestem Roman. Buduję je sam, w stałej cenie od {price}, płatnej jednorazowo.",
+    callNote: "Bezpłatny Health Check: 30-minutowa rozmowa ze mną, a potem pisemny raport.",
     ctaBook: "Umów bezpłatny Health Check",
     ctaUpwork: "Opinie na Upwork",
     highlights: ["Działa z Twoim obecnym helpdeskiem", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
@@ -53,6 +55,32 @@ const pl: Dictionary = {
       },
     ],
   },
+  process: {
+    eyebrow: "Jak to działa",
+    title: "Od pierwszej rozmowy do działającej automatyzacji",
+    steps: [
+      {
+        title: "Bezpłatny Health Check",
+        description: "30-minutowa rozmowa o Twojej konfiguracji i o tym, gdzie automatyzacja mogłaby pomóc.",
+      },
+      {
+        title: "Pisemny raport",
+        description: "2–3 rekomendacje, dopasowany pakiet i jego stała cena.",
+      },
+      {
+        title: "Uzgodniona stała cena",
+        description: "Ustalona przed rozpoczęciem jakichkolwiek prac. Płatna jednorazowo, bez abonamentu.",
+      },
+      {
+        title: "Realizacja w 1–3 tygodnie",
+        description: "Działa w Twoim helpdesku, na Twoich własnych kontach.",
+      },
+      {
+        title: "30 dni wsparcia",
+        description: "Jeśli po uruchomieniu coś się zepsuje, naprawiam to.",
+      },
+    ],
+  },
   fit: {
     eyebrow: "Czy to dla Ciebie?",
     title: "Dla kogo jest ta automatyzacja obsługi klienta",
@@ -73,6 +101,8 @@ const pl: Dictionary = {
   whyMe: {
     eyebrow: "Dlaczego warto ze mną współpracować",
     title: "Zbudowane przez kogoś, kto sam pracował w obsłudze klienta",
+    role: "Inżynier automatyzacji obsługi klienta",
+    linkedin: "Moje doświadczenie na LinkedIn",
     items: [
       {
         title: "Pracowałem w obsłudze klienta",
@@ -97,13 +127,21 @@ const pl: Dictionary = {
     title: "Pakiety automatyzacji obsługi klienta w stałej cenie",
     intro: "Jedna cena, płatna jednorazowo. Bez abonamentu.",
     oneTimeFee: "jednorazowo",
-    cta: "Rozpocznij",
+    cta: "Zapytaj o to podczas Health Check",
     from: "od {price}",
     delivery: "Czas realizacji",
     deliveryTime: "1–3 tygodnie",
     included: "Co obejmuje pakiet",
+    groups: {
+      chat: "Chatboty i voiceboty",
+      tickets: "Zgłoszenia i raporty",
+      custom: "Rozwiązania na miarę",
+    },
     running: "Miesięczne koszty bieżące",
+    showRunning: "Pokaż miesięczne koszty bieżące",
+    hideRunning: "Ukryj miesięczne koszty bieżące",
     runningNote: "Naliczane przez dostawców narzędzi. Nie są wliczone w cenę pakietu.",
+    estimate: "Oszacuj swoje koszty za pomocą moich bezpłatnych kalkulatorów:",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -221,7 +259,6 @@ const pl: Dictionary = {
     eyebrow: "Opinie klientów",
     title: "Zweryfikowane opinie na Upwork",
     intro: "Z opłaconych zleceń na Upwork.",
-    leaveCta: "Współpracowaliśmy? Zostaw opinię",
     quoted: "Opinie cytowane dosłownie z mojego profilu na Upwork.",
     verify: "Sprawdź na Upwork",
     stars: "{rating} na 5 gwiazdek",
@@ -280,15 +317,16 @@ const pl: Dictionary = {
     guides: { label: "Poradniki i zgodność", blurb: "Porównania narzędzi i przepisy UE dotyczące botów obsługi klienta." },
   },
   cookie: {
-    text: "Używamy plików cookie do analityki i pomiaru reklam, aby zrozumieć, jak odwiedzający znajdują tę stronę i z niej korzystają.",
+    text: "Używam plików cookie do analityki i pomiaru reklam, aby zrozumieć, jak odwiedzający znajdują tę stronę i z niej korzystają.",
     privacy: "Polityka prywatności",
     decline: "Odrzuć",
     accept: "Akceptuj",
   },
   booking: {
     title: "Umów bezpłatny Health Check",
-    description:
-      "Zostaw swoje dane, a odezwę się, aby umówić 30-minutową rozmowę. Po niej otrzymasz pisemny raport. Bez zobowiązań, bez nachalnej sprzedaży.",
+    description: "30-minutowa rozmowa ze mną, Romanem, a potem pisemny raport. Bez zobowiązań, bez nachalnej sprzedaży.",
+    about: "Temat: {topic}",
+    close: "Zamknij",
     fullName: "Imię i nazwisko",
     fullNamePlaceholder: "Anna Kowalska",
     email: "Służbowy e-mail",
@@ -304,16 +342,21 @@ const pl: Dictionary = {
     telegram: "Link lub nazwa użytkownika (Telegram)",
     telegramPlaceholder: "https://t.me/uzytkownik lub @uzytkownik",
     submitCalendar: "Przejdź do kalendarza",
-    submitting: "Wysyłanie...",
+    submitting: "Wysyłanie…",
     submit: "Umów bezpłatny Health Check",
-    sendFailed: "Nie udało się wysłać formularza",
-    networkError: "Błąd sieci lub serwer jest niedostępny.",
-    sent: "Formularz wysłany! Odezwę się w ciągu 24 godzin.",
+    nextCalendar: "Następnie wybierzesz termin w moim kalendarzu.",
+    nextContact: "Skontaktuję się z Tobą w ciągu 24 godzin, aby ustalić termin.",
+    sendFailed: "Nie udało się wysłać zgłoszenia",
+    networkError: "Spróbuj ponownie za chwilę lub skontaktuj się ze mną bezpośrednio:",
+    sentTitle: "Zgłoszenie wysłane",
+    sentCalendar: "Teraz wybierz dogodny termin w moim kalendarzu.",
+    openCalendar: "Otwórz mój kalendarz",
+    sent: "Odezwę się w ciągu 24 godzin, aby ustalić termin.",
     errors: {
       nameRequired: "Imię i nazwisko są wymagane",
       nameShort: "Imię i nazwisko muszą mieć co najmniej 2 znaki",
       nameLong: "Imię i nazwisko muszą mieć mniej niż 50 znaków",
-      nameChars: "Imię i nazwisko mogą zawierać tylko litery, spacje, łączniki i apostrofy",
+      nameChars: "Imię i nazwisko mogą zawierać tylko litery, spacje, kropki, łączniki i apostrofy",
       emailRequired: "Służbowy e-mail jest wymagany",
       emailInvalid: "Podaj prawidłowy adres e-mail",
       companyLength: "Nazwa firmy musi mieć od 2 do 50 znaków",

@@ -83,6 +83,18 @@ html {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    caret-color: hsl(var(--primary));
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  /* One focus ring for every control, including plain <button>/<a>/<summary> without their own ring utilities */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 
   /* Soft colour fields behind the page so the glass has something to refract */
@@ -104,6 +116,7 @@ html {
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    text-wrap: balance;
   }
 }
 
@@ -158,6 +171,12 @@ html {
   .animate-fade-up-delay-3 {
     animation: fade-up 0.8s ease-out 0.3s forwards;
     opacity: 0;
+  }
+
+  /* Hero entrance. Pure CSS so the pre-rendered page is visible before JavaScript loads;
+     stagger with style={{ "--rise-delay": "80ms" }}. */
+  .animate-rise {
+    animation: rise 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--rise-delay, 0ms) both;
   }
 
   /* Glass surfaces sit on a smooth gradient, where a live backdrop blur looks identical to none but costs a
@@ -249,6 +268,17 @@ html {
   }
 }
 
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -256,6 +286,7 @@ html {
 
   .animate-float,
   .animate-pulse-glow,
+  .animate-rise,
   .animate-fade-up,
   .animate-fade-up-delay-1,
   .animate-fade-up-delay-2,

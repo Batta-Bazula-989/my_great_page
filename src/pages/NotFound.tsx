@@ -27,7 +27,7 @@ const NotFound = () => {
   return (
     <LocaleContext.Provider value={locale}>
       <Navbar />
-      <main className="pt-32 pb-20">
+      <main id="main" tabIndex={-1} className="outline-none pt-32 pb-20">
         <div className="container px-4 max-w-3xl text-center">
           <p className="font-display text-7xl md:text-8xl font-bold text-primary">404</p>
           <h1 className="mt-4 text-3xl md:text-4xl font-bold font-display">{t.notFound.title}</h1>

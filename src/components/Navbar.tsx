@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Calendar, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import BookingButton from "@/components/BookingButton";
 import { LanguageList, LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ToolsList, ToolsMenu } from "@/components/ToolsMenu";
+import { useBooking } from "@/hooks/use-booking";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
 
 const Navbar = () => {
   const t = useDict();
   const locale = useLocale();
+  const booking = useBooking();
   const home = localePath(locale);
   const navLinks = [
     { href: `${home}#services`, label: t.nav.services },
@@ -31,22 +34,38 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Opens the booking dialog where there is one (every language layout); elsewhere links to the contact section.
+  const cta = (className: string, label: string) =>
+    booking ? (
+      <BookingButton variant="hero" size="sm" className={className}>
+        {label}
+      </BookingButton>
+    ) : (
+      <Button variant="hero" size="sm" className={className} asChild>
+        <a href={`${home}#contact`}>{label}</a>
+      </Button>
+    );
+
   return (
-    <nav
-      aria-label="Main"
-      className="fixed top-3 left-0 right-0 z-50 px-3"
-    >
+    <nav aria-label="Main" className="fixed top-3 left-0 right-0 z-50 px-3">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-0 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2.5 focus:font-semibold focus:text-primary-foreground"
+      >
+        {t.nav.skipToContent}
+      </a>
       <div
-        className={`container max-w-6xl px-4 rounded-[22px] border transition-all duration-300 ${
+        className={`container max-w-6xl px-3 sm:px-4 rounded-[22px] border transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
             ? "glass-nav"
             : "border-transparent"
         }`}
       >
-        <div className="flex items-center justify-between h-14">
-          <Link to={home} className="flex items-center gap-2 font-display font-semibold">
+        <div className="flex items-center justify-between gap-3 h-14">
+          <Link to={home} className="flex min-h-11 items-center gap-2 font-display font-semibold">
             <img src="/favicon.svg" alt={t.nav.logoAlt} width={32} height={32} className="h-8 w-8" />
-            <span>TascaLab</span>
+            {/* The wordmark gives way to the booking pill on the narrowest phones; the logo stays */}
+            <span className="hidden min-[380px]:inline">TascaLab</span>
           </Link>
 
           <div className="hidden xl:flex items-center gap-5 whitespace-nowrap">
@@ -61,19 +80,25 @@ const Navbar = () => {
             ))}
             <ToolsMenu />
             <LanguageSwitcher />
-            <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-              <a href={`${home}#contact`}>{t.nav.cta}</a>
-            </Button>
+            {cta("rounded-full px-4", t.nav.cta)}
           </div>
 
-          <div className="xl:hidden">
+          <div className="flex items-center gap-1 xl:hidden">
+            {/* Always-visible booking on smaller screens; "Health Check" stays English in every language */}
+            {booking ? (
+              <BookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 hover:scale-100">
+                <Calendar className="h-4 w-4" aria-hidden />
+                Health Check
+              </BookingButton>
+            ) : null}
             <button
-              className="p-2"
+              className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10"
               aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-6 h-6" aria-hidden /> : <Menu className="w-6 h-6" aria-hidden />}
             </button>
           </div>
         </div>
@@ -81,18 +106,20 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
+              id="mobile-menu"
               className="xl:hidden border-t border-white/10 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             >
-              <div className="flex flex-col gap-4 py-4">
+              {/* The menu can be taller than a phone screen, so it scrolls inside the fixed bar */}
+              <div className="flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto overscroll-contain py-3">
                 {navLinks.map((link, i) => (
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                    className="flex min-h-11 items-center text-muted-foreground hover:text-foreground transition-colors font-medium"
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -101,17 +128,13 @@ const Navbar = () => {
                     {link.label}
                   </motion.a>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.05 + 0.05 }}
-                >
-                  <Button variant="hero" size="sm" className="rounded-full px-4" asChild>
-                    <a href={`${home}#contact`} onClick={() => setIsMobileMenuOpen(false)}>{t.nav.cta}</a>
-                  </Button>
-                </motion.div>
-                <ToolsList onPick={() => setIsMobileMenuOpen(false)} />
-                <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
+                {!booking && (
+                  <div className="py-2">{cta("rounded-full px-4", t.nav.cta)}</div>
+                )}
+                <div className="mt-2 space-y-4 border-t border-white/10 pt-4">
+                  <ToolsList onPick={() => setIsMobileMenuOpen(false)} />
+                  <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
+                </div>
               </div>
             </motion.div>
           )}

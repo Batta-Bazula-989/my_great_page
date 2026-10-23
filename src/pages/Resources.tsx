@@ -15,7 +15,7 @@ const Resources = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-28 pb-16">
+      <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4 max-w-6xl">
           <header className="glass-panel rounded-[32px] p-6 md:p-10 mb-12 text-center">
             <span className="section-eyebrow">{t.resources.eyebrow}</span>

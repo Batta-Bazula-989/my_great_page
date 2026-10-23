@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { AlertCircle, ArrowUpRight, CheckCircle2, ChevronDown, Mail, Send } from "lucide-react";
+import { z } from "zod";
 import { getStoredUtms } from "@/utils/utm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,22 +32,27 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { ChevronDown } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
-import { useDict, useLocale } from "@/i18n";
+import { format, useDict, useLocale } from "@/i18n";
 import type { Dictionary } from "@/i18n/en";
+import type { BookingTopic } from "@/hooks/use-booking";
+import { EMAIL, TELEGRAM_URL } from "@/lib/links";
+import { cn } from "@/lib/utils";
+import avatar from "@/assets/roman-avatar.jpg";
 
 interface BookingModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  selectedPlan?: string;
+  topic?: BookingTopic;
+  returnFocusTo?: RefObject<HTMLElement | null>;
 }
 
-// Letters in any script (José, Müller, Zoë), spaces, hyphens and apostrophes.
-const NAME_PATTERN = /^[\p{L}\s'’-]+$/u;
+const CALENDLY_URL = "https://calendly.com/romanzakharenko-r";
+
+// Letters in any script (José, Müller, Zoë), spaces, periods (Jr., J. Smith), hyphens and apostrophes.
+const NAME_PATTERN = /^[\p{L}\s.'’-]+$/u;
 
 type BookingErrors = Dictionary["booking"]["errors"];
+type Field = "fullName" | "email" | "companyName" | "phone" | "telegram";
 
 const nameSchema = (e: BookingErrors) =>
   z.string().trim()
@@ -59,20 +66,27 @@ const emailSchema = (e: BookingErrors) =>
     .min(1, e.emailRequired)
     .email(e.emailInvalid);
 
-const makeSchema = (e: BookingErrors) =>
-  z.object({
-    fullName: nameSchema(e),
-    email: emailSchema(e),
-    companyName: z.string().trim()
-      .optional()
-      .refine((val) => {
-        if (!val || val.length === 0) return true;
-        return val.length >= 2 && val.length <= 50;
-      }, e.companyLength),
-    meetingMethod: z.string().optional(),
-    phone: z.string().trim().optional(),
-    telegram: z.string().trim().optional(),
-  });
+const companySchema = (e: BookingErrors) =>
+  z.string().trim().refine((val) => val.length === 0 || (val.length >= 2 && val.length <= 50), e.companyLength);
+
+const phoneSchema = (e: BookingErrors) =>
+  z.string().trim()
+    .min(1, e.phoneRequired)
+    .regex(/^[\d\s().-]*$/, e.phoneChars)
+    .refine((val) => {
+      const digits = val.replace(/\D/g, "");
+      return digits.length >= 6 && digits.length <= 15;
+    }, e.phoneDigits);
+
+// Accepts "@username", "username", "t.me/username", "https://www.t.me/username" and "telegram.me/username".
+const telegramUsername = (val: string) =>
+  val.trim().replace(/^(https?:\/\/)?(www\.)?(t|telegram)\.me\//i, "").replace(/^@/, "").replace(/\/+$/, "");
+
+const telegramSchema = (e: BookingErrors) =>
+  z.string().trim()
+    .min(1, e.telegramRequired)
+    // Telegram usernames are 5-32 characters, letters, digits and underscores
+    .refine((val) => /^[a-zA-Z0-9_]{5,32}$/.test(telegramUsername(val)), e.telegramInvalid);
 
 // Country code dropdown: flag + code display, name/code for search
 const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
@@ -133,38 +147,21 @@ const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
   { code: "995", flag: "🇬🇪", name: "Georgia" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
-const makePhoneSchema = (e: BookingErrors) => z.object({
-  phone: z.string().trim()
-    .min(1, e.phoneRequired)
-    .regex(/^[\d\s().-]*$/, e.phoneChars)
-    .refine((val) => {
-      const digits = val.replace(/\D/g, "");
-      return digits.length >= 6 && digits.length <= 15;
-    }, e.phoneDigits),
-});
+// Glass-world field (same look as the calculator fields), 44px tall for touch.
+const fieldClass =
+  "h-11 rounded-xl border-white/10 bg-white/[0.04] text-base md:text-sm focus-visible:border-primary/60 focus-visible:ring-primary/25 focus-visible:ring-offset-0";
 
-const makeTelegramSchema = (e: BookingErrors) => z.object({
-  telegram: z.string().trim()
-    .min(1, e.telegramRequired)
-    .refine((val) => {
-      // Normalize the input: remove protocol, t.me/, and @ prefix
-      let normalized = val.trim();
-      normalized = normalized.replace(/^https?:\/\//, '');
-      normalized = normalized.replace(/^t\.me\//, '');
-      normalized = normalized.replace(/^@/, '');
-      
-      // Telegram usernames are 5-32 characters, alphanumeric and underscores only
-      const telegramPattern = /^[a-zA-Z0-9_]{5,32}$/;
-      return telegramPattern.test(normalized);
-    }, e.telegramInvalid),
-});
-
-const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) => {
-  const { toast } = useToast();
+const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModalProps) => {
   const locale = useLocale();
   const t = useDict().booking;
-  const { schema, phoneSchema, telegramSchema } = useMemo(
-    () => ({ schema: makeSchema(t.errors), phoneSchema: makePhoneSchema(t.errors), telegramSchema: makeTelegramSchema(t.errors) }),
+  const schemas = useMemo(
+    () => ({
+      fullName: nameSchema(t.errors),
+      email: emailSchema(t.errors),
+      companyName: companySchema(t.errors),
+      phone: phoneSchema(t.errors),
+      telegram: telegramSchema(t.errors),
+    }),
     [t],
   );
   const meetingMethods = [
@@ -174,148 +171,105 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
     { value: "whatsapp", label: "WhatsApp" },
     { value: "telegram", label: "Telegram" },
   ];
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [companyName, setCompanyName] = useState("");
+  const [values, setValues] = useState<Record<Field, string>>({
+    fullName: "",
+    email: "",
+    companyName: "",
+    phone: "",
+    telegram: "",
+  });
   const [meetingMethod, setMeetingMethod] = useState("zoom");
   const [phoneCountryCode, setPhoneCountryCode] = useState("1");
   const [phoneCountryOpen, setPhoneCountryOpen] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [telegram, setTelegram] = useState("");
-  const [errors, setErrors] = useState<{ 
-    fullName?: string; 
-    email?: string; 
-    companyName?: string;
-    meetingMethod?: string;
-    phone?: string;
-    telegram?: string;
-  }>({});
-  const [touched, setTouched] = useState<{
-    fullName?: boolean;
-    email?: boolean;
-    companyName?: boolean;
-    phone?: boolean;
-    telegram?: boolean;
-  }>({});
+  const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
+  // After the first submit attempt, empty required fields are flagged as soon as they're left.
+  const [attempted, setAttempted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sendFailed, setSendFailed] = useState(false);
+  const [sent, setSent] = useState<{ calendarUrl?: string } | null>(null);
+  const successActionRef = useRef<HTMLElement>(null);
 
+  // The submit button disappears with the form, so hand focus to the next step.
+  useEffect(() => {
+    if (sent) successActionRef.current?.focus();
+  }, [sent]);
+
+  const usesCalendar = meetingMethod === "zoom" || meetingMethod === "google-meet";
   const needsPhone = meetingMethod === "phone" || meetingMethod === "whatsapp";
   const needsTelegram = meetingMethod === "telegram";
+  const activeFields: Field[] = [
+    "fullName",
+    "email",
+    "companyName",
+    ...(needsPhone ? (["phone"] as const) : []),
+    ...(needsTelegram ? (["telegram"] as const) : []),
+  ];
 
-  // Validate individual field
-  const validateField = (fieldName: keyof typeof errors, value: string) => {
-    if (fieldName === "fullName") {
-      const result = nameSchema(t.errors).safeParse(value);
-      if (!result.success) {
-        return result.error.errors[0]?.message || "";
-      }
-    } else if (fieldName === "email") {
-      const result = emailSchema(t.errors).safeParse(value);
-      if (!result.success) {
-        return result.error.errors[0]?.message || "";
-      }
-    } else if (fieldName === "companyName" && value.trim()) {
-      const result = z.string().trim()
-        .min(2, t.errors.companyLength)
-        .max(50, t.errors.companyLength)
-        .safeParse(value);
-      if (!result.success) {
-        return result.error.errors[0]?.message || "";
-      }
-    } else if (fieldName === "phone" && needsPhone) {
-      const result = phoneSchema.safeParse({ phone: value });
-      if (!result.success) {
-        return result.error.errors[0]?.message || "";
-      }
-    } else if (fieldName === "telegram" && needsTelegram) {
-      const result = telegramSchema.safeParse({ telegram: value });
-      if (!result.success) {
-        return result.error.errors[0]?.message || "";
-      }
-    }
-    return "";
+  const validate = (field: Field, value: string) => {
+    const result = schemas[field].safeParse(value);
+    return result.success ? undefined : result.error.errors[0]?.message;
   };
 
-  const handleBlur = (fieldName: keyof typeof errors) => {
-    setTouched(prev => ({ ...prev, [fieldName]: true }));
-    let value = "";
-    if (fieldName === "fullName") value = fullName;
-    else if (fieldName === "email") value = email;
-    else if (fieldName === "companyName") value = companyName;
-    else if (fieldName === "phone") value = phone;
-    else if (fieldName === "telegram") value = telegram;
+  const setValue = (field: Field, value: string) => {
+    setValues((prev) => ({ ...prev, [field]: value }));
+    // Once a field shows an error, re-check it while the visitor fixes it.
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: validate(field, value) }));
+  };
 
-    const error = validateField(fieldName, value);
-    setErrors(prev => ({ ...prev, [fieldName]: error || undefined }));
+  const handleBlur = (field: Field) => {
+    // Tabbing through empty fields shouldn't paint the form red before the first submit.
+    if (!values[field].trim() && !attempted) return;
+    setErrors((prev) => ({ ...prev, [field]: validate(field, values[field]) }));
+  };
+
+  const resetForm = () => {
+    setValues({ fullName: "", email: "", companyName: "", phone: "", telegram: "" });
+    setMeetingMethod("zoom");
+    setPhoneCountryCode("1");
+    setErrors({});
+    setAttempted(false);
+    setSendFailed(false);
+    setSent(null);
+  };
+
+  const handleOpenChange = (next: boolean) => {
+    onOpenChange(next);
+    // Start fresh after a successful booking; otherwise keep what the visitor typed.
+    if (!next && sent) setTimeout(resetForm, 200);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({});
-    setTouched({ fullName: true, email: true, companyName: true, phone: true, telegram: true });
+    setAttempted(true);
+    setSendFailed(false);
 
-    // Validate main form
-    const result = schema.safeParse({ 
-      fullName, 
-      email, 
-      companyName, 
-      meetingMethod,
-      phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
-      telegram: needsTelegram ? telegram : undefined,
-    });
-
-    if (!result.success) {
-      const fieldErrors: typeof errors = {};
-      result.error.errors.forEach((err) => {
-        const field = err.path[0] as keyof typeof errors;
-        fieldErrors[field] = err.message;
-      });
-      setErrors(fieldErrors);
+    const nextErrors: Partial<Record<Field, string>> = {};
+    for (const field of activeFields) nextErrors[field] = validate(field, values[field]);
+    setErrors(nextErrors);
+    const firstInvalid = activeFields.find((field) => nextErrors[field]);
+    if (firstInvalid) {
+      document.getElementById(firstInvalid)?.focus();
       return;
     }
 
-    // Validate phone if needed (national number only; country from dropdown)
-    if (needsPhone) {
-      const phoneResult = phoneSchema.safeParse({ phone });
-      if (!phoneResult.success) {
-        phoneResult.error.errors.forEach((err) => {
-          if (err.path[0] === "phone") {
-            setErrors(prev => ({ ...prev, phone: err.message }));
-          }
-        });
-        return;
-      }
-    }
-
-    // Validate telegram if needed
-    if (needsTelegram) {
-      const telegramResult = telegramSchema.safeParse({ telegram });
-      if (!telegramResult.success) {
-        telegramResult.error.errors.forEach((err) => {
-          if (err.path[0] === "telegram") {
-            setErrors(prev => ({ ...prev, telegram: err.message }));
-          }
-        });
-        return;
-      }
-    }
-
     setIsSubmitting(true);
+    const fullName = values.fullName.trim();
+    const email = values.email.trim();
+    const companyName = values.companyName.trim();
 
     const apiBase = (import.meta as unknown as { env?: { VITE_API_URL?: string } }).env?.VITE_API_URL ?? "";
-    let bookingSent: boolean;
     try {
       const res = await fetch(`${apiBase}/api/booking`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: fullName.trim(),
-          email: email.trim(),
-          companyName: companyName.trim() || undefined,
+          fullName,
+          email,
+          companyName: companyName || undefined,
           meetingMethod,
-          phone: needsPhone ? `+${phoneCountryCode} ${phone.trim()}`.trim() : undefined,
-          telegram: needsTelegram ? telegram.trim() : undefined,
-          selectedPlan: selectedPlan || undefined,
+          phone: needsPhone ? `+${phoneCountryCode} ${values.phone.trim()}` : undefined,
+          telegram: needsTelegram ? values.telegram.trim() : undefined,
+          selectedPlan: topic?.lead,
           language: locale,
           ...getStoredUtms(),
         }),
@@ -325,295 +279,312 @@ const BookingModal = ({ open, onOpenChange, selectedPlan }: BookingModalProps) =
         const msg = (data as { error?: string })?.error || res.statusText;
         throw new Error(`${msg} (${res.status})`);
       }
-      bookingSent = true;
 
       // Fire conversion event — picked up by GTM → GA4 / Google Ads
       window.dataLayer?.push({
         event: "booking_submitted",
         meeting_method: meetingMethod,
-        selected_plan: selectedPlan || "none",
+        selected_plan: topic?.lead || "none",
       });
     } catch (err) {
       console.error("Booking notify failed:", err);
-      const message = err instanceof Error ? err.message : t.networkError;
-      toast({
-        variant: "destructive",
-        title: t.sendFailed,
-        description: message,
-      });
+      setSendFailed(true);
       setIsSubmitting(false);
       return;
     }
 
-    if (!bookingSent) return;
-
-    if (meetingMethod === "zoom" || meetingMethod === "google-meet") {
-      const calendlyUrl = `https://calendly.com/romanzakharenko-r`;
-      const params = new URLSearchParams();
-      if (fullName) params.append("name", fullName);
-      if (email) params.append("email", email);
-      if (companyName) params.append("a1", companyName);
-      window.open(calendlyUrl + (params.toString() ? `?${params.toString()}` : ""), "_blank");
-    } else {
-      toast({ title: t.sent });
-    }
-
-    setFullName("");
-    setEmail("");
-    setCompanyName("");
-    setMeetingMethod("zoom");
-    setPhoneCountryCode("1");
-    setPhone("");
-    setTelegram("");
-    setErrors({});
-    setTouched({});
     setIsSubmitting(false);
-    onOpenChange(false);
+    if (usesCalendar) {
+      // A link the visitor clicks, not window.open after an await, which Safari blocks as a pop-up.
+      const params = new URLSearchParams({ name: fullName, email });
+      if (companyName) params.append("a1", companyName);
+      setSent({ calendarUrl: `${CALENDLY_URL}?${params.toString()}` });
+    } else {
+      setSent({});
+    }
   };
 
   const handleMeetingMethodChange = (value: string) => {
     setMeetingMethod(value);
-    // Clear phone field and errors when switching away from phone/whatsapp
+    // Drop the contact field that no longer applies, and its error.
     if (value !== "phone" && value !== "whatsapp") {
-      setPhoneCountryCode("1");
-      setPhone("");
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors.phone;
-        return newErrors;
-      });
+      setValues((prev) => ({ ...prev, phone: "" }));
+      setErrors((prev) => ({ ...prev, phone: undefined }));
     }
-    // Clear telegram field and errors when switching away from telegram
     if (value !== "telegram") {
-      setTelegram("");
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors.telegram;
-        return newErrors;
-      });
+      setValues((prev) => ({ ...prev, telegram: "" }));
+      setErrors((prev) => ({ ...prev, telegram: undefined }));
     }
   };
 
+  // Label, input wiring and error message for one text field.
+  const fieldProps = (field: Field) => ({
+    id: field,
+    value: values[field],
+    onBlur: () => handleBlur(field),
+    "aria-invalid": errors[field] ? true : undefined,
+    "aria-describedby": errors[field] ? `${field}-error` : undefined,
+    className: cn(fieldClass, errors[field] && "border-destructive focus-visible:border-destructive"),
+  });
+
+  const fieldError = (field: Field) =>
+    errors[field] ? (
+      <p id={`${field}-error`} className="text-sm text-destructive">
+        {errors[field]}
+      </p>
+    ) : null;
+
+  const required = <span className="text-destructive ml-1" aria-hidden>*</span>;
+
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-background border-border p-5 gap-2">
-        <DialogHeader>
-          <DialogTitle className="font-display text-base">{t.title}</DialogTitle>
-          <DialogDescription className="text-xs text-muted-foreground">
-            {t.description}
-          </DialogDescription>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogContent
+        closeLabel={t.close}
+        className="max-w-md gap-0 p-5 sm:p-7"
+        onCloseAutoFocus={(e) => {
+          const trigger = returnFocusTo?.current;
+          if (trigger?.isConnected) {
+            e.preventDefault();
+            trigger.focus();
+          }
+        }}
+      >
+        <DialogHeader className="flex-row items-center gap-3 space-y-0 pr-10 text-left">
+          <img
+            src={avatar}
+            alt=""
+            width={48}
+            height={48}
+            className="h-12 w-12 shrink-0 rounded-full border border-white/15 object-cover"
+          />
+          <div className="min-w-0 space-y-1">
+            <DialogTitle className="font-display text-xl font-bold leading-tight">
+              {sent ? t.sentTitle : t.title}
+            </DialogTitle>
+            <DialogDescription className="text-sm text-foreground/75 leading-snug">
+              {t.description}
+            </DialogDescription>
+          </div>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-3 mt-1" autoComplete="off">
-          <div className="space-y-1.5">
-            <Label htmlFor="fullName">
-              {t.fullName}<span className="text-destructive ml-1">*</span>
-            </Label>
-            <Input
-              id="fullName"
-              value={fullName}
-              onChange={(e) => {
-                setFullName(e.target.value);
-                if (touched.fullName) {
-                  const error = validateField("fullName", e.target.value);
-                  setErrors(prev => ({ ...prev, fullName: error || undefined }));
-                }
-              }}
-              onBlur={() => handleBlur("fullName")}
-              placeholder={t.fullNamePlaceholder}
-              maxLength={50}
-              className={errors.fullName ? "border-destructive" : ""}
-            />
-            {errors.fullName && (
-              <p className="text-sm text-destructive">{errors.fullName}</p>
-            )}
-          </div>
 
-          <div className="space-y-1.5">
-            <Label htmlFor="email">
-              {t.email}<span className="text-destructive ml-1">*</span>
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                if (touched.email) {
-                  const error = validateField("email", e.target.value);
-                  setErrors(prev => ({ ...prev, email: error || undefined }));
-                }
-              }}
-              onBlur={() => handleBlur("email")}
-              placeholder={t.emailPlaceholder}
-              className={errors.email ? "border-destructive" : ""}
-            />
-            {errors.email && (
-              <p className="text-sm text-destructive">{errors.email}</p>
-            )}
-          </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="companyName">{t.company}</Label>
-            <Input
-              id="companyName"
-              value={companyName}
-              onChange={(e) => {
-                setCompanyName(e.target.value);
-                if (touched.companyName && e.target.value.trim()) {
-                  const error = validateField("companyName", e.target.value);
-                  setErrors(prev => ({ ...prev, companyName: error || undefined }));
-                } else if (touched.companyName) {
-                  setErrors(prev => {
-                    const newErrors = { ...prev };
-                    delete newErrors.companyName;
-                    return newErrors;
-                  });
-                }
-              }}
-              onBlur={() => handleBlur("companyName")}
-              placeholder={t.companyPlaceholder}
-              maxLength={100}
-              autoComplete="off"
-              className={errors.companyName ? "border-destructive" : ""}
-            />
-            {errors.companyName && (
-              <p className="text-sm text-destructive">{errors.companyName}</p>
-            )}
-          </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="meetingMethod">{t.meetingMethod}</Label>
-            <Select value={meetingMethod} onValueChange={handleMeetingMethodChange}>
-              <SelectTrigger 
-                id="meetingMethod"
-                className={errors.meetingMethod ? "border-destructive" : ""}
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-background border-border z-50">
-                {meetingMethods.map((method) => (
-                  <SelectItem key={method.value} value={method.value}>
-                    {method.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.meetingMethod && (
-              <p className="text-sm text-destructive">{errors.meetingMethod}</p>
-            )}
-          </div>
-
-          {needsPhone && (
-            <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-              <Label htmlFor="phone">
-                {t.phone}<span className="text-destructive ml-1">*</span>
-              </Label>
-              <div className="flex gap-2">
-                <Popover open={phoneCountryOpen} onOpenChange={setPhoneCountryOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={phoneCountryOpen}
-                      className="w-[100px] shrink-0 justify-between font-normal"
-                      id="phone-country"
-                    >
-                      {(() => {
-                        const opt = PHONE_COUNTRY_OPTIONS.find((o) => o.code === phoneCountryCode);
-                        return opt ? `${opt.flag} +${opt.code}` : "+1";
-                      })()}
-                      <ChevronDown className="ml-1 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[260px] p-0" align="start">
-                    <Command>
-                      <CommandInput placeholder={t.searchCountry} />
-                      <CommandList>
-                        <CommandEmpty>{t.noCountry}</CommandEmpty>
-                        <CommandGroup>
-                          {PHONE_COUNTRY_OPTIONS.map((opt) => (
-                            <CommandItem
-                              key={opt.code}
-                              value={`${opt.name} +${opt.code} ${opt.code}`}
-                              onSelect={() => {
-                                setPhoneCountryCode(opt.code);
-                                setPhoneCountryOpen(false);
-                              }}
-                            >
-                              <span className="mr-2">{opt.flag}</span>
-                              <span>+{opt.code}</span>
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => {
-                    const cleaned = e.target.value.replace(/[^0-9\s().-]/g, "");
-                    setPhone(cleaned);
-                    if (touched.phone) {
-                      const error = validateField("phone", cleaned);
-                      setErrors(prev => ({ ...prev, phone: error || undefined }));
-                    }
-                  }}
-                  onBlur={() => handleBlur("phone")}
-                  placeholder={t.phonePlaceholder}
-                  maxLength={15}
-                  className={`flex-1 min-w-0 ${errors.phone ? "border-destructive" : ""}`}
-                />
-              </div>
-              {errors.phone && (
-                <p className="text-sm text-destructive">{errors.phone}</p>
-              )}
+        {sent ? (
+          <div className="mt-6 space-y-5" role="status">
+            <div className="flex items-start gap-3 rounded-2xl border border-primary/30 bg-primary/10 p-4">
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+              <p className="text-foreground/90 leading-relaxed">{sent.calendarUrl ? t.sentCalendar : t.sent}</p>
             </div>
-          )}
+            {sent.calendarUrl ? (
+              <Button variant="hero" size="lg" className="w-full rounded-full hover:scale-100 active:scale-[0.98]" asChild>
+                <a
+                  ref={successActionRef as RefObject<HTMLAnchorElement>}
+                  href={sent.calendarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.openCalendar}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden />
+                </a>
+              </Button>
+            ) : (
+              <Button
+                variant="glass"
+                size="lg"
+                className="w-full rounded-full hover:scale-100 active:scale-[0.98]"
+                ref={successActionRef as RefObject<HTMLButtonElement>}
+                onClick={() => handleOpenChange(false)}
+              >
+                {t.close}
+              </Button>
+            )}
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-4">
+            {topic?.label && (
+              <p className="glass-chip inline-flex max-w-full items-center rounded-full px-3 py-1 text-sm text-foreground/85">
+                <span className="truncate">{format(t.about, { topic: topic.label })}</span>
+              </p>
+            )}
 
-          {needsTelegram && (
-            <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-              <Label htmlFor="telegram">
-                {t.telegram}<span className="text-destructive ml-1">*</span>
+            <div className="space-y-1.5">
+              <Label htmlFor="fullName">
+                {t.fullName}
+                {required}
               </Label>
               <Input
-                id="telegram"
-                type="text"
-                value={telegram}
-                onChange={(e) => {
-                  setTelegram(e.target.value);
-                  if (touched.telegram) {
-                    const error = validateField("telegram", e.target.value);
-                    setErrors(prev => ({ ...prev, telegram: error || undefined }));
-                  }
-                }}
-                onBlur={() => handleBlur("telegram")}
-                placeholder={t.telegramPlaceholder}
+                {...fieldProps("fullName")}
+                onChange={(e) => setValue("fullName", e.target.value)}
+                placeholder={t.fullNamePlaceholder}
+                autoComplete="name"
                 maxLength={50}
-                className={errors.telegram ? "border-destructive" : ""}
               />
-              {errors.telegram && (
-                <p className="text-sm text-destructive">{errors.telegram}</p>
-              )}
+              {fieldError("fullName")}
             </div>
-          )}
 
-          <Button
-            type="submit"
-            variant="hero"
-            className="w-full mt-2"
-            disabled={isSubmitting}
-          >
-            {meetingMethod === "zoom" || meetingMethod === "google-meet" 
-              ? t.submitCalendar
-              : isSubmitting
-              ? t.submitting
-              : t.submit}
-          </Button>
-        </form>
+            <div className="space-y-1.5">
+              <Label htmlFor="email">
+                {t.email}
+                {required}
+              </Label>
+              <Input
+                {...fieldProps("email")}
+                type="email"
+                inputMode="email"
+                onChange={(e) => setValue("email", e.target.value)}
+                placeholder={t.emailPlaceholder}
+                autoComplete="email"
+              />
+              {fieldError("email")}
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="companyName">{t.company}</Label>
+              <Input
+                {...fieldProps("companyName")}
+                onChange={(e) => setValue("companyName", e.target.value)}
+                placeholder={t.companyPlaceholder}
+                autoComplete="organization"
+                maxLength={50}
+              />
+              {fieldError("companyName")}
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="meetingMethod">{t.meetingMethod}</Label>
+              <Select value={meetingMethod} onValueChange={handleMeetingMethodChange}>
+                <SelectTrigger id="meetingMethod" className={fieldClass}>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="z-50 rounded-xl border-white/10 bg-card">
+                  {meetingMethods.map((method) => (
+                    <SelectItem key={method.value} value={method.value} className="py-2.5">
+                      {method.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {needsPhone && (
+              <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2">
+                <Label htmlFor="phone">
+                  {t.phone}
+                  {required}
+                </Label>
+                <div className="flex gap-2">
+                  <Popover open={phoneCountryOpen} onOpenChange={setPhoneCountryOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={phoneCountryOpen}
+                        aria-label={t.searchCountry}
+                        className={cn(fieldClass, "w-[104px] shrink-0 justify-between px-3 font-normal hover:bg-white/[0.08]")}
+                      >
+                        {(() => {
+                          const opt = PHONE_COUNTRY_OPTIONS.find((o) => o.code === phoneCountryCode);
+                          return opt ? `${opt.flag} +${opt.code}` : "+1";
+                        })()}
+                        <ChevronDown className="ml-1 h-4 w-4 shrink-0 opacity-60" aria-hidden />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[280px] rounded-xl border-white/10 bg-card p-0" align="start">
+                      <Command>
+                        <CommandInput placeholder={t.searchCountry} />
+                        <CommandList>
+                          <CommandEmpty>{t.noCountry}</CommandEmpty>
+                          <CommandGroup>
+                            {PHONE_COUNTRY_OPTIONS.map((opt) => (
+                              <CommandItem
+                                key={opt.code}
+                                value={`${opt.name} +${opt.code} ${opt.code}`}
+                                onSelect={() => {
+                                  setPhoneCountryCode(opt.code);
+                                  setPhoneCountryOpen(false);
+                                }}
+                                className="gap-2 py-2"
+                              >
+                                <span aria-hidden>{opt.flag}</span>
+                                <span className="flex-1 truncate">{opt.name}</span>
+                                <span className="tabular-nums text-muted-foreground">+{opt.code}</span>
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                  <Input
+                    {...fieldProps("phone")}
+                    type="tel"
+                    inputMode="tel"
+                    onChange={(e) => setValue("phone", e.target.value.replace(/[^0-9\s().-]/g, ""))}
+                    placeholder={t.phonePlaceholder}
+                    autoComplete="tel-national"
+                    maxLength={20}
+                    className={cn(fieldProps("phone").className, "min-w-0 flex-1")}
+                  />
+                </div>
+                {fieldError("phone")}
+              </div>
+            )}
+
+            {needsTelegram && (
+              <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2">
+                <Label htmlFor="telegram">
+                  {t.telegram}
+                  {required}
+                </Label>
+                <Input
+                  {...fieldProps("telegram")}
+                  onChange={(e) => setValue("telegram", e.target.value)}
+                  placeholder={t.telegramPlaceholder}
+                  autoComplete="off"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  maxLength={60}
+                />
+                {fieldError("telegram")}
+              </div>
+            )}
+
+            {sendFailed && (
+              <div role="alert" className="flex items-start gap-3 rounded-2xl border border-destructive/40 bg-destructive/10 p-4">
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" aria-hidden />
+                <div className="min-w-0 space-y-2 text-sm">
+                  <p className="font-semibold text-foreground">{t.sendFailed}</p>
+                  <p className="text-foreground/80">{t.networkError}</p>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1">
+                    <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-1.5 text-primary underline-offset-4 hover:underline break-all">
+                      <Mail className="h-4 w-4 shrink-0" aria-hidden />
+                      {EMAIL}
+                    </a>
+                    <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-primary underline-offset-4 hover:underline">
+                      <Send className="h-4 w-4 shrink-0" aria-hidden />
+                      Telegram
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-2 pt-1">
+              <Button
+                type="submit"
+                variant="hero"
+                size="lg"
+                className="w-full rounded-full hover:scale-100 active:scale-[0.98]"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting || undefined}
+              >
+                {isSubmitting ? t.submitting : usesCalendar ? t.submitCalendar : t.submit}
+              </Button>
+              <p className="text-center text-sm text-muted-foreground">
+                {usesCalendar ? t.nextCalendar : t.nextContact}
+              </p>
+            </div>
+          </form>
+        )}
       </DialogContent>
     </Dialog>
   );

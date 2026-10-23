@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Calendar, ChevronDown, ChevronRight, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BookingModal from "@/components/BookingModal";
+import BookingButton from "@/components/BookingButton";
 import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
 import AiAgentCostCalculator from "@/components/tools/AiAgentCostCalculator";
@@ -25,7 +24,6 @@ const ToolPage = () => {
   const locale = useLocale();
   const d = useDict();
   const id = toolBySlug(locale, toolSlug);
-  const [bookingOpen, setBookingOpen] = useState(false);
   const tool = id ? d.tools[id] : undefined;
 
   usePageMeta(tool?.metaTitle ?? "", tool?.metaDescription ?? "", id ? toolPath(locale, id) : "");
@@ -39,7 +37,7 @@ const ToolPage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-28 pb-16">
+      <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4">
           <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto mb-6 text-sm text-muted-foreground">
             <ol className="flex flex-wrap items-center gap-1.5">
@@ -107,10 +105,10 @@ const ToolPage = () => {
             <section aria-labelledby="tool-cta" className="glass-panel rounded-[32px] p-6 md:p-10 text-center">
               <h2 id="tool-cta" className="font-display text-2xl md:text-3xl font-bold tracking-tight">{d.tools.common.ctaTitle}</h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">{d.tools.common.ctaText}</p>
-              <Button variant="hero" size="lg" className="rounded-full mt-6" onClick={() => setBookingOpen(true)}>
-                <Calendar className="w-5 h-5" />
+              <BookingButton variant="hero" size="lg" className="rounded-full mt-6" topic={{ lead: `Free tool: ${id}` }}>
+                <Calendar className="w-5 h-5" aria-hidden />
                 {d.tools.common.ctaBook}
-              </Button>
+              </BookingButton>
             </section>
 
             {TOOL_SOURCES[id].length > 0 && (
@@ -149,7 +147,6 @@ const ToolPage = () => {
         </div>
       </main>
       <Footer />
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} selectedPlan={`Free tool: ${id}`} />
     </>
   );
 };

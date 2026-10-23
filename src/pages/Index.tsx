@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SolutionSection from "@/components/SolutionSection";
+import ProcessSection from "@/components/ProcessSection";
 import WhoForSection from "@/components/WhoForSection";
 import WhyMeSection from "@/components/WhyMeSection";
 import PricingSection from "@/components/PricingSection";
@@ -8,6 +9,7 @@ import DataSection from "@/components/DataSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
+import MobileBookingBar from "@/components/MobileBookingBar";
 import Footer from "@/components/Footer";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useDict, useLocale } from "@/i18n";
@@ -20,9 +22,10 @@ const Index = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main" tabIndex={-1} className="outline-none">
         <HeroSection />
         <SolutionSection />
+        <ProcessSection />
         <WhoForSection />
         <WhyMeSection />
         <PricingSection />
@@ -32,6 +35,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <MobileBookingBar />
     </>
   );
 };

@@ -14,7 +14,7 @@ const ToolsHub = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-28 pb-16">
+      <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4">
           <header className="max-w-3xl mx-auto text-center mb-12">
             <span className="section-eyebrow">{t.hub.eyebrow}</span>

@@ -6,6 +6,7 @@ import { CATEGORY_IDS, pagesInCategory } from "@/content";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
 import { TOOL_IDS, toolPath } from "@/tools/registry";
+import { useBooking } from "@/hooks/use-booking";
 
 // Only one menu open at a time. `name` gives this natively in current browsers;
 // the toggle handler covers browsers that don't support grouped <details> yet.
@@ -18,9 +19,14 @@ const closeOtherMenus = (e: SyntheticEvent<HTMLDetailsElement>) => {
     .forEach((d) => d !== opened && (d.open = false));
 };
 
+// Frost White headings: aqua is kept for links and actions (DESIGN.md, the Handoff Rule).
+const summaryClass =
+  "flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-foreground/85 transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden";
+
 const Footer = () => {
   const locale = useLocale();
   const t = useDict();
+  const booking = useBooking();
 
   return (
     <footer className="w-full border-t border-white/10">
@@ -28,7 +34,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-2">
           {CATEGORY_IDS.map((id) => (
             <details key={id} name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary [&::-webkit-details-marker]:hidden">
+              <summary className={summaryClass}>
                 {t.categories[id].label}
                 <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
               </summary>
@@ -44,7 +50,7 @@ const Footer = () => {
             </details>
           ))}
           <details name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary [&::-webkit-details-marker]:hidden">
+            <summary className={summaryClass}>
               {t.tools.menu}
               <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
             </summary>
@@ -62,8 +68,20 @@ const Footer = () => {
       </nav>
 
       <div className="border-t border-white/10 py-5">
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-foreground/50">
-          <span>© {new Date().getFullYear()} TascaLab</span>
+        <div className="container px-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-foreground/70">
+          <span>© {new Date().getFullYear()} TascaLab · Roman Zakharenko</span>
+          {booking && (
+            <>
+              <span aria-hidden>·</span>
+              <button
+                type="button"
+                onClick={(e) => booking.openBooking(undefined, e.currentTarget)}
+                className="font-medium text-primary underline-offset-4 hover:underline"
+              >
+                {t.hero.ctaBook}
+              </button>
+            </>
+          )}
           <span aria-hidden>·</span>
           <Link to={localePath(locale, "resources")} className="hover:text-primary transition-colors">{t.footer.allResources}</Link>
           <span aria-hidden>·</span>

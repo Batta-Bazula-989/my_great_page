@@ -19,13 +19,15 @@ const nl: Dictionary = {
     closeMenu: "Menu sluiten",
     language: "Taal",
     logoAlt: "Logo van TascaLab",
+    skipToContent: "Ga naar de inhoud",
   },
   hero: {
     eyebrow: "Supportautomatisering die echt standhoudt",
     titleBefore: "AI-chatbots, voicebots & ",
     titleHighlight: "ticketautomatisering",
     titleAfter: " voor supportteams",
-    intro: "Ingebouwd in de helpdesk die je al gebruikt. Vaste prijzen, geen nieuw platform.",
+    intro: "Ik ben Roman. Ik bouw ze zelf, voor een vaste prijs vanaf {price}, één keer betaald.",
+    callNote: "Gratis Health Check: een gesprek van 30 minuten met mij, daarna een schriftelijk rapport.",
     ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
     highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
@@ -57,6 +59,32 @@ const nl: Dictionary = {
       },
     ],
   },
+  process: {
+    eyebrow: "Zo werkt het",
+    title: "Van eerste gesprek tot werkende automatisering",
+    steps: [
+      {
+        title: "Gratis Health Check",
+        description: "Een gesprek van 30 minuten over je opzet en waar automatisering zou helpen.",
+      },
+      {
+        title: "Schriftelijk rapport",
+        description: "2–3 aanbevelingen, het pakket dat past en de vaste prijs ervan.",
+      },
+      {
+        title: "Vaste prijs afgesproken",
+        description: "Afgesproken voordat het werk begint. Eén keer betaald, geen abonnement.",
+      },
+      {
+        title: "Gebouwd in 1–3 weken",
+        description: "Ingebouwd in je helpdesk en draaiend in je eigen accounts.",
+      },
+      {
+        title: "30 dagen ondersteuning",
+        description: "Gaat er na de livegang iets kapot, dan los ik het op.",
+      },
+    ],
+  },
   fit: {
     eyebrow: "Is dit een match?",
     title: "Voor wie deze supportautomatisering is",
@@ -77,6 +105,8 @@ const nl: Dictionary = {
   whyMe: {
     eyebrow: "Waarom met mij werken",
     title: "Gebouwd door iemand die zelf in support heeft gewerkt",
+    role: "Engineer voor klantenservice-automatisering",
+    linkedin: "Mijn achtergrond op LinkedIn",
     items: [
       {
         title: "Ik heb in support gewerkt",
@@ -101,13 +131,21 @@ const nl: Dictionary = {
     title: "Pakketten voor supportautomatisering tegen een vaste prijs",
     intro: "Eén prijs, één keer betaald. Geen abonnement.",
     oneTimeFee: "eenmalig",
-    cta: "Aan de slag",
+    cta: "Vraag ernaar in een Health Check",
     from: "vanaf {price}",
     delivery: "Oplevering",
     deliveryTime: "1–3 weken",
     included: "Wat er inbegrepen is",
+    groups: {
+      chat: "Chat- en voicebots",
+      tickets: "Tickets & rapportages",
+      custom: "Maatwerk",
+    },
     running: "Lopende kosten per maand",
+    showRunning: "Toon lopende kosten per maand",
+    hideRunning: "Verberg lopende kosten per maand",
     runningNote: "Gefactureerd door de aanbieders van de tools. Niet inbegrepen in de pakketprijs.",
+    estimate: "Schat je eigen kosten met mijn gratis calculators:",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -225,7 +263,6 @@ const nl: Dictionary = {
     eyebrow: "Feedback van klanten",
     title: "Geverifieerde reviews op Upwork",
     intro: "Van betaalde opdrachten op Upwork.",
-    leaveCta: "Met mij gewerkt? Laat een review achter",
     quoted: "Beoordelingen woordelijk overgenomen van mijn Upwork-profiel.",
     verify: "Controleer op Upwork",
     stars: "{rating} van 5 sterren",
@@ -284,15 +321,16 @@ const nl: Dictionary = {
     guides: { label: "Gidsen & compliance", blurb: "Vergelijkingen van tools en EU-regels voor supportbots." },
   },
   cookie: {
-    text: "We gebruiken cookies voor analyse en advertentiemeting, zodat we begrijpen hoe bezoekers deze site vinden en gebruiken.",
+    text: "Ik gebruik cookies voor analyse en advertentiemeting, zodat ik begrijp hoe bezoekers deze site vinden en gebruiken.",
     privacy: "Privacybeleid",
     decline: "Weigeren",
     accept: "Accepteren",
   },
   booking: {
     title: "Plan een gratis Health Check",
-    description:
-      "Laat je gegevens achter, dan neem ik contact op om een gesprek van 30 minuten in te plannen. Daarna krijg je een schriftelijk rapport. Geen verplichtingen, geen verkooppraatje.",
+    description: "Een gesprek van 30 minuten met mij, Roman, daarna een schriftelijk rapport. Geen verplichtingen, geen verkooppraatje.",
+    about: "Onderwerp: {topic}",
+    close: "Sluiten",
     fullName: "Volledige naam",
     fullNamePlaceholder: "Sanne de Vries",
     email: "Zakelijk e-mailadres",
@@ -308,16 +346,21 @@ const nl: Dictionary = {
     telegram: "Telegram-link of gebruikersnaam",
     telegramPlaceholder: "https://t.me/gebruikersnaam of @gebruikersnaam",
     submitCalendar: "Verder naar agenda",
-    submitting: "Bezig met versturen...",
+    submitting: "Bezig met versturen…",
     submit: "Plan gratis Health Check",
-    sendFailed: "Aanvraag kon niet worden verstuurd",
-    networkError: "Netwerkfout of server niet bereikbaar.",
-    sent: "Aanvraag verstuurd! Ik neem binnen 24 uur contact op.",
+    nextCalendar: "Daarna kies je een tijd in mijn agenda.",
+    nextContact: "Ik neem binnen 24 uur contact met je op om een tijd af te spreken.",
+    sendFailed: "Je aanvraag kon niet worden verstuurd",
+    networkError: "Probeer het zo nog eens, of neem direct contact met me op:",
+    sentTitle: "Aanvraag verstuurd",
+    sentCalendar: "Kies nu in mijn agenda een tijd die je uitkomt.",
+    openCalendar: "Open mijn agenda",
+    sent: "Ik laat binnen 24 uur van me horen om een tijd af te spreken.",
     errors: {
       nameRequired: "Volledige naam is verplicht",
       nameShort: "Volledige naam moet minstens 2 tekens lang zijn",
       nameLong: "Volledige naam moet korter zijn dan 50 tekens",
-      nameChars: "Volledige naam mag alleen letters, spaties, koppeltekens en apostrofs bevatten",
+      nameChars: "Volledige naam mag alleen letters, spaties, punten, koppeltekens en apostrofs bevatten",
       emailRequired: "Zakelijk e-mailadres is verplicht",
       emailInvalid: "Vul een geldig e-mailadres in",
       companyLength: "Bedrijfsnaam moet tussen 2 en 50 tekens lang zijn",

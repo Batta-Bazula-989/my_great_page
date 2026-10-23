@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowUpRight, Calendar, ChevronDown, ChevronRight, Info, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BookingModal from "@/components/BookingModal";
+import BookingButton from "@/components/BookingButton";
 import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
 import { getSeoPage, headingId, pageByKey } from "@/content";
@@ -79,7 +78,6 @@ const SeoPage = () => {
   const locale = useLocale();
   const t = useDict();
   const page = getSeoPage(locale, slug);
-  const [bookingOpen, setBookingOpen] = useState(false);
 
   usePageMeta(page?.title ?? "", page?.description ?? "", localePath(locale, page?.slug ?? ""));
 
@@ -91,7 +89,7 @@ const SeoPage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-28 pb-16">
+      <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4">
           <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto mb-6 text-sm text-muted-foreground">
             <ol className="flex flex-wrap items-center gap-1.5">
@@ -170,10 +168,10 @@ const SeoPage = () => {
                     {t.seo.ctaText}
                   </p>
                   <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button variant="hero" size="lg" className="rounded-full" onClick={() => setBookingOpen(true)}>
-                      <Calendar className="w-5 h-5" />
+                    <BookingButton variant="hero" size="lg" className="rounded-full">
+                      <Calendar className="w-5 h-5" aria-hidden />
                       {t.seo.ctaBook}
-                    </Button>
+                    </BookingButton>
                     <Button variant="glass" size="lg" className="rounded-full" asChild>
                       <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
                         <Star className="w-5 h-5 text-primary" />
@@ -234,7 +232,6 @@ const SeoPage = () => {
         </div>
       </main>
       <Footer />
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </>
   );
 };

@@ -19,13 +19,15 @@ const sv: Dictionary = {
     closeMenu: "Stäng menyn",
     language: "Språk",
     logoAlt: "TascaLab-logotyp",
+    skipToContent: "Hoppa till innehållet",
   },
   hero: {
     eyebrow: "Supportautomatisering som faktiskt håller",
     titleBefore: "AI-chattbottar, röstbottar & ",
     titleHighlight: "ärendeautomatisering",
     titleAfter: " för supportteam",
-    intro: "Inbyggt i den helpdesk du redan använder. Fasta priser, inget plattformsbyte.",
+    intro: "Jag heter Roman. Jag bygger dem själv, till ett fast pris från {price} som betalas en gång.",
+    callNote: "Kostnadsfri Health Check: ett samtal på 30 minuter med mig, sedan en skriftlig rapport.",
     ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
     highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
@@ -57,6 +59,32 @@ const sv: Dictionary = {
       },
     ],
   },
+  process: {
+    eyebrow: "Så fungerar det",
+    title: "Från första samtalet till en fungerande automatisering",
+    steps: [
+      {
+        title: "Kostnadsfri Health Check",
+        description: "Ett samtal på 30 minuter om din uppsättning och var automatisering skulle hjälpa.",
+      },
+      {
+        title: "Skriftlig rapport",
+        description: "2–3 rekommendationer, det paket som passar och dess fasta pris.",
+      },
+      {
+        title: "Fast pris överenskommet",
+        description: "Vi enas om det innan något arbete börjar. Betalas en gång, inget löpande avtal.",
+      },
+      {
+        title: "Byggt på 1–3 veckor",
+        description: "Inbyggt i din helpdesk och körs i dina egna konton.",
+      },
+      {
+        title: "30 dagars support",
+        description: "Om något slutar fungera efter lanseringen fixar jag det.",
+      },
+    ],
+  },
   fit: {
     eyebrow: "Passar det dig?",
     title: "Vem den här supportautomatiseringen passar för",
@@ -77,6 +105,8 @@ const sv: Dictionary = {
   whyMe: {
     eyebrow: "Varför jobba med mig",
     title: "Byggt av någon som själv har jobbat med support",
+    role: "Ingenjör inom kundtjänstautomatisering",
+    linkedin: "Min bakgrund på LinkedIn",
     items: [
       {
         title: "Jag har jobbat i support",
@@ -101,13 +131,21 @@ const sv: Dictionary = {
     title: "Paket för supportautomatisering till fast pris",
     intro: "Ett pris, betalas en gång. Inget löpande avtal.",
     oneTimeFee: "engångspris",
-    cta: "Kom igång",
+    cta: "Fråga om det här i en Health Check",
     from: "från {price}",
     delivery: "Leverans",
     deliveryTime: "1–3 veckor",
     included: "Det här ingår",
+    groups: {
+      chat: "Chatt- och röstbottar",
+      tickets: "Ärenden och rapporter",
+      custom: "Skräddarsydda lösningar",
+    },
     running: "Driftskostnader per månad",
+    showRunning: "Visa driftskostnader per månad",
+    hideRunning: "Dölj driftskostnader per månad",
     runningNote: "Faktureras av verktygsleverantörerna. Ingår inte i paketpriset.",
+    estimate: "Uppskatta dina kostnader med mina gratis kalkylatorer:",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -225,7 +263,6 @@ const sv: Dictionary = {
     eyebrow: "Kundomdömen",
     title: "Verifierade omdömen på Upwork",
     intro: "Från betalda uppdrag på Upwork.",
-    leaveCta: "Har du jobbat med mig? Lämna ett omdöme",
     quoted: "Omdömen citerade ordagrant från min Upwork-profil.",
     verify: "Kontrollera på Upwork",
     stars: "{rating} av 5 stjärnor",
@@ -284,15 +321,16 @@ const sv: Dictionary = {
     guides: { label: "Guider & regelefterlevnad", blurb: "Verktygsjämförelser och EU-regler för supportbottar." },
   },
   cookie: {
-    text: "Vi använder cookies för analys och annonsmätning för att förstå hur besökare hittar och använder webbplatsen.",
+    text: "Jag använder cookies för analys och annonsmätning för att förstå hur besökare hittar och använder den här webbplatsen.",
     privacy: "Integritetspolicy",
     decline: "Avböj",
     accept: "Acceptera",
   },
   booking: {
     title: "Boka en kostnadsfri Health Check",
-    description:
-      "Lämna dina uppgifter så hör jag av mig för att boka ett samtal på 30 minuter. Efteråt får du en skriftlig rapport. Inga förpliktelser, ingen säljpitch.",
+    description: "Ett samtal på 30 minuter med mig, Roman, sedan en skriftlig rapport. Inga förpliktelser, ingen säljpitch.",
+    about: "Ämne: {topic}",
+    close: "Stäng",
     fullName: "Fullständigt namn",
     fullNamePlaceholder: "Anna Andersson",
     email: "Jobbmejl",
@@ -308,16 +346,21 @@ const sv: Dictionary = {
     telegram: "Telegram-länk eller användarnamn",
     telegramPlaceholder: "https://t.me/anvandarnamn eller @anvandarnamn",
     submitCalendar: "Fortsätt till kalendern",
-    submitting: "Skickar...",
+    submitting: "Skickar…",
     submit: "Boka kostnadsfri Health Check",
-    sendFailed: "Förfrågan kunde inte skickas",
-    networkError: "Nätverksfel eller servern går inte att nå.",
-    sent: "Förfrågan skickad! Jag hör av mig inom 24 timmar.",
+    nextCalendar: "Sedan väljer du en tid i min kalender.",
+    nextContact: "Jag kontaktar dig inom 24 timmar för att komma överens om en tid.",
+    sendFailed: "Din förfrågan gick inte igenom",
+    networkError: "Försök igen om en stund, eller kontakta mig direkt:",
+    sentTitle: "Förfrågan skickad",
+    sentCalendar: "Välj nu en tid som passar dig i min kalender.",
+    openCalendar: "Öppna min kalender",
+    sent: "Jag hör av mig inom 24 timmar för att komma överens om en tid.",
     errors: {
       nameRequired: "Fullständigt namn krävs",
       nameShort: "Fullständigt namn måste vara minst 2 tecken",
       nameLong: "Fullständigt namn måste vara kortare än 50 tecken",
-      nameChars: "Fullständigt namn får bara innehålla bokstäver, mellanslag, bindestreck och apostrofer",
+      nameChars: "Fullständigt namn får bara innehålla bokstäver, mellanslag, punkter, bindestreck och apostrofer",
       emailRequired: "Jobbmejl krävs",
       emailInvalid: "Ange en giltig e-postadress",
       companyLength: "Företagsnamnet måste vara mellan 2 och 50 tecken",

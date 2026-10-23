@@ -21,13 +21,16 @@ const en = {
     closeMenu: "Close menu",
     language: "Language",
     logoAlt: "TascaLab logo",
+    skipToContent: "Skip to content",
   },
   hero: {
     eyebrow: "Support automation that actually holds up",
     titleBefore: "AI chatbots, voice bots & ",
     titleHighlight: "ticket automation",
     titleAfter: " for support teams",
-    intro: "Built into the helpdesk you already use. Fixed prices, no platform switch.",
+    // {price} is the lowest package price in the visitor's currency, e.g. "$400".
+    intro: "I'm Roman. I build them myself, at a fixed price from {price}, paid once.",
+    callNote: "Free Health Check: a 30-minute call with me, then a written report.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
     highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
@@ -59,6 +62,32 @@ const en = {
       },
     ],
   },
+  process: {
+    eyebrow: "How It Works",
+    title: "From first call to a working automation",
+    steps: [
+      {
+        title: "Free Health Check",
+        description: "A 30-minute call about your setup and where automation would help.",
+      },
+      {
+        title: "Written report",
+        description: "2–3 recommendations, the package that fits and its fixed price.",
+      },
+      {
+        title: "Fixed price agreed",
+        description: "Agreed before any work starts. Paid once, no retainer.",
+      },
+      {
+        title: "Built in 1–3 weeks",
+        description: "Inside your helpdesk, running in your own accounts.",
+      },
+      {
+        title: "30 days of support",
+        description: "If something breaks after launch, I fix it.",
+      },
+    ],
+  },
   fit: {
     eyebrow: "Is This a Fit?",
     title: "Who this support automation is for",
@@ -79,6 +108,8 @@ const en = {
   whyMe: {
     eyebrow: "Why Work With Me",
     title: "Built by someone who's worked in support",
+    role: "Customer support automation engineer",
+    linkedin: "My background on LinkedIn",
     items: [
       {
         title: "I've worked in support",
@@ -103,13 +134,21 @@ const en = {
     title: "Fixed-price support automation packages",
     intro: "One price, paid once. No retainer.",
     oneTimeFee: "one-time",
-    cta: "Get Started",
+    cta: "Ask about this in a Health Check",
     from: "from {price}",
     delivery: "Delivery",
     deliveryTime: "1–3 weeks",
     included: "What's included",
+    groups: {
+      chat: "Chat & voice bots",
+      tickets: "Tickets & reports",
+      custom: "Custom work",
+    },
     running: "Monthly running costs",
+    showRunning: "Show monthly running costs",
+    hideRunning: "Hide monthly running costs",
     runningNote: "Charged by the tool providers. Not included in the package price.",
+    estimate: "Estimate yours with my free calculators:",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
@@ -227,7 +266,6 @@ const en = {
     eyebrow: "Client Feedback",
     title: "Verified reviews on Upwork",
     intro: "From paid contracts on Upwork.",
-    leaveCta: "Worked with me? Leave a review",
     quoted: "Reviews quoted word for word from my Upwork profile.",
     verify: "Verify on Upwork",
     stars: "{rating} out of 5 stars",
@@ -286,14 +324,16 @@ const en = {
     guides: { label: "Guides & Compliance", blurb: "Tool comparisons and EU rules for support bots." },
   },
   cookie: {
-    text: "We use cookies for analytics and ad measurement to understand how visitors find and use this site.",
+    text: "I use cookies for analytics and ad measurement to understand how visitors find and use this site.",
     privacy: "Privacy Policy",
     decline: "Decline",
     accept: "Accept",
   },
   booking: {
     title: "Book a Free Health Check",
-    description: "Leave your details and I'll reach out to schedule a 30-minute call. You get a written report afterwards. No commitment, no pitch.",
+    description: "A 30-minute call with me, Roman, then a written report. No commitment, no pitch.",
+    about: "About: {topic}",
+    close: "Close",
     fullName: "Full Name",
     fullNamePlaceholder: "Jane Smith",
     email: "Work Email",
@@ -309,16 +349,21 @@ const en = {
     telegram: "Telegram Link or Username",
     telegramPlaceholder: "https://t.me/username or @username",
     submitCalendar: "Continue to Calendar",
-    submitting: "Sending...",
+    submitting: "Sending…",
     submit: "Book Free Health Check",
-    sendFailed: "Could not send request",
-    networkError: "Network error or server not reachable.",
-    sent: "Request sent! I'll be in touch within 24 hours.",
+    nextCalendar: "Next, you pick a time in my calendar.",
+    nextContact: "I'll contact you within 24 hours to agree on a time.",
+    sendFailed: "Your request didn't go through",
+    networkError: "Please try again in a moment, or contact me directly:",
+    sentTitle: "Request sent",
+    sentCalendar: "Now pick a time that suits you in my calendar.",
+    openCalendar: "Open my calendar",
+    sent: "I'll be in touch within 24 hours to agree on a time.",
     errors: {
       nameRequired: "Full Name is required",
       nameShort: "Full Name must be at least 2 characters",
       nameLong: "Full Name must be less than 50 characters",
-      nameChars: "Full Name can only contain letters, spaces, hyphens, and apostrophes",
+      nameChars: "Full Name can only contain letters, spaces, periods, hyphens and apostrophes",
       emailRequired: "Work Email is required",
       emailInvalid: "Please enter a valid email address",
       companyLength: "Company Name must be between 2 and 50 characters",
