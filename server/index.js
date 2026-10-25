@@ -4,14 +4,14 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import Anthropic from "@anthropic-ai/sdk";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+// A booking is a few hundred bytes; the 100 KB default only helps someone flooding us.
+app.use(express.json({ limit: "10kb" }));
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -33,17 +33,53 @@ app.get("/api/health", (_req, res) => {
   });
 });
 
+// A script could otherwise flood the Telegram chat with fake leads, and once Telegram rate-limits
+// the bot, real visitors' bookings fail. Counted per visitor IP, in memory (one server instance).
+const BOOKING_LIMIT = 5;
+const BOOKING_WINDOW_MS = 10 * 60 * 1000;
+const bookingsByIp = new Map();
+
+function bookingAllowed(ip) {
+  const now = Date.now();
+  const entry = bookingsByIp.get(ip);
+  if (!entry || now - entry.start >= BOOKING_WINDOW_MS) {
+    bookingsByIp.set(ip, { start: now, count: 1 });
+    return true;
+  }
+  entry.count += 1;
+  return entry.count <= BOOKING_LIMIT;
+}
+
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of bookingsByIp) {
+    if (now - entry.start >= BOOKING_WINDOW_MS) bookingsByIp.delete(ip);
+  }
+}, BOOKING_WINDOW_MS).unref();
+
+// Behind Cloudflare, cf-connecting-ip is the visitor; req.ip would be the proxy in front of us.
+const clientIp = (req) => req.headers["cf-connecting-ip"] || req.ip;
+
+// Visitor-typed text: every whitespace run, newlines included, becomes one space (a newline could fake
+// extra lines in the message), and the length is capped.
+const oneLine = (value) => String(value ?? "").replace(/\s+/g, " ").trim().slice(0, 200);
+
 app.post("/api/booking", async (req, res) => {
-  console.log("Booking request received:", req.body?.email || "(no email)");
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-    console.error("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID");
-    return res.status(500).json({ ok: false, error: "Server not configured" });
+  if (!bookingAllowed(clientIp(req))) {
+    return res.status(429).json({ ok: false, error: "Too many requests" });
   }
 
   const {
     fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan, language,
     utm_source, utm_medium, utm_campaign,
-  } = req.body || {};
+  } = Object.fromEntries(Object.entries(req.body || {}).map(([key, value]) => [key, oneLine(value)]));
+
+  console.log("Booking request received:", email || "(no email)");
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.error("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID");
+    return res.status(500).json({ ok: false, error: "Server not configured" });
+  }
+
   const lines = [
     "📅 New Free Health Check booking",
     "",
@@ -86,52 +122,6 @@ app.post("/api/booking", async (req, res) => {
   }
 });
 
-app.post("/api/generate-plan", async (req, res) => {
-  const { service, tool, main_issue, additional_notes } = req.body || {};
-
-  if (!service || !tool || !main_issue) {
-    return res.status(400).json({ error: "Missing required fields" });
-  }
-
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    console.error("ANTHROPIC_API_KEY not set");
-    return res.status(500).json({ error: "AI service not configured" });
-  }
-
-  const client = new Anthropic({ apiKey });
-
-  const systemPrompt = `You are a support operations automation specialist with deep expertise in helpdesk tools, workflow automation, and operational efficiency.
-
-Your role: Given structured input about a company's support setup, produce a concise, practical automation plan.
-
-Rules:
-- Stay strictly within the domain of support operations automation (routing, reporting, bots, monitoring, integrations).
-- Do not give generic AI or software development advice.
-- Be direct and specific — no marketing language, no padding, no bullet points, no headers.
-- Write plain prose only, 6–8 sentences maximum.
-- Cover: brief acknowledgment of the issue, specific automation steps, tools or integrations involved, and the expected operational impact.`;
-
-  const userMessage = `Service needed: ${service}
-Tool / system: ${tool}
-Main issue: ${main_issue}${additional_notes ? `\nAdditional context: ${additional_notes}` : ""}`;
-
-  try {
-    const message = await client.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 400,
-      system: systemPrompt,
-      messages: [{ role: "user", content: userMessage }],
-    });
-
-    const summary = message.content[0]?.type === "text" ? message.content[0].text : "";
-    return res.json({ summary });
-  } catch (err) {
-    console.error("Anthropic API error:", err);
-    return res.status(502).json({ error: "AI request failed" });
-  }
-});
-
 const distPath = path.join(__dirname, "..", "dist");
 
 // One address per page: https://www.tascalab.com, no ".html", no "index.html", and a trailing slash
@@ -161,7 +151,8 @@ app.use((req, res, next) => {
     // keep x-forwarded-proto
   }
   const production = PRODUCTION_HOSTS.has(host) || host.endsWith(".up.railway.app");
-  const target = canonicalPath(req.path);
+  // One leading slash only: a Location of "//evil.example/x" would send the visitor to evil.example.
+  const target = canonicalPath(req.path).replace(/^[\/\\]+/, "/");
   const query = req.originalUrl.slice(req.path.length);
   if (production && (host !== CANONICAL_HOST || scheme === "http")) {
     return res.redirect(301, `https://${CANONICAL_HOST}${target}${query}`);
