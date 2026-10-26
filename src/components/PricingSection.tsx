@@ -1,28 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Check, CalendarClock, ChevronDown, Receipt, Stethoscope } from "lucide-react";
+import { Check, CalendarClock, Stethoscope } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { useDict, useLocale } from "@/i18n";
 import en from "@/i18n/en";
 import { PACKAGES, packagePrice, type PackageId } from "@/lib/pricing";
-import { toolPath } from "@/tools/registry";
 import { cn } from "@/lib/utils";
 
-// Packages grouped by the job they do, cheapest first within each group.
-const GROUPS: { key: "chat" | "tickets" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
-  { key: "chat", ids: ["starter", "standard", "voice"], span: "lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
-  { key: "tickets", ids: ["reports", "routing"], span: "md:col-span-2", cols: "md:grid-cols-2" },
-  { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-1", cols: "md:grid-cols-2 lg:grid-cols-1" },
+// Packages grouped by the job they do. Three cards to a row on wide screens, so every card is the same width.
+const GROUPS: { key: "log" | "capture" | "move"; ids: PackageId[] }[] = [
+  { key: "log", ids: ["replyLogging", "callLogging", "meetingNotes"] },
+  { key: "capture", ids: ["inboxLinkedin", "visitors", "cleanup"] },
+  { key: "move", ids: ["migration", "custom"] },
 ];
 
 const PricingSection = () => {
-  const dict = useDict();
-  const t = dict.pricing;
+  const t = useDict().pricing;
   const locale = useLocale();
-  // One switch for every card, so running costs can be compared side by side and rows stay even.
-  const [showRunning, setShowRunning] = useState(false);
 
   const planIndex = (id: PackageId) => PACKAGES.findIndex((p) => p.id === id);
 
@@ -50,41 +44,18 @@ const PricingSection = () => {
         </div>
       </Reveal>
 
-      <div className="max-w-6xl mx-auto mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <button
-          type="button"
-          onClick={() => setShowRunning((v) => !v)}
-          aria-expanded={showRunning}
-          className="glass-chip inline-flex min-h-11 items-center gap-2 self-start rounded-full px-5 py-2 text-sm font-semibold text-foreground/90 transition-colors hover:border-primary/40 hover:text-foreground"
-        >
-          <Receipt className="w-4 h-4 text-primary" aria-hidden />
-          {showRunning ? t.hideRunning : t.showRunning}
-          <ChevronDown className={cn("w-4 h-4 transition-transform", showRunning && "rotate-180")} aria-hidden />
-        </button>
-        <p className="text-sm text-muted-foreground">
-          {t.estimate}{" "}
-          <Link to={toolPath(locale, "aiAgent")} className="font-medium text-primary underline-offset-4 hover:underline">
-            {dict.tools.aiAgent.navLabel}
-          </Link>
-          <span aria-hidden> · </span>
-          <Link to={toolPath(locale, "whatsapp")} className="font-medium text-primary underline-offset-4 hover:underline">
-            {dict.tools.whatsapp.navLabel}
-          </Link>
-        </p>
-      </div>
-      {showRunning && <p className="max-w-6xl mx-auto -mt-4 mb-8 text-sm text-muted-foreground">{t.runningNote}</p>}
-
-      <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto space-y-10">
         {GROUPS.map((group) => (
-          <div key={group.key} className={group.span}>
+          <div key={group.key}>
             <h3 className="mb-4 flex items-center gap-4 font-display text-lg font-semibold text-foreground/90">
               {t.groups[group.key]}
               <span className="h-px flex-1 bg-white/10" aria-hidden />
             </h3>
-            <div className={cn("grid grid-cols-1 gap-6", group.cols)}>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {group.ids.map((id, i) => {
                 const index = planIndex(id);
                 const plan = t.plans[index];
+                const price = packagePrice(locale, id);
                 return (
                   <Reveal key={id} delay={i * 0.06} className="h-full">
                     <article className="glass glass-hover h-full rounded-[28px] p-7 flex flex-col hover:-translate-y-1.5">
@@ -92,16 +63,19 @@ const PricingSection = () => {
                       <p className="text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
 
                       <div className="mt-5">
-                        <div className="font-bold font-display text-primary leading-none text-4xl tabular-nums">
-                          {packagePrice(locale, id)}
+                        <div
+                          className={cn(
+                            "font-bold font-display text-primary",
+                            price ? "leading-none text-4xl tabular-nums" : "leading-snug text-xl text-balance",
+                          )}
+                        >
+                          {price ?? t.noPrice}
                         </div>
                         <p className="mt-2 flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
                           <span>{t.oneTimeFee}</span>
                           <span aria-hidden>·</span>
                           <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
-                          <span>
-                            {t.delivery} {t.deliveryTime}
-                          </span>
+                          <span>{plan.delivery}</span>
                         </p>
                       </div>
 
@@ -114,24 +88,10 @@ const PricingSection = () => {
                         ))}
                       </ul>
 
-                      {showRunning && (
-                        <div className="mt-5 border-t border-white/10 pt-4 animate-in fade-in">
-                          <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
-                            <Receipt className="w-4 h-4 text-primary" aria-hidden />
-                            {t.running}
-                          </p>
-                          <ul className="mt-2 space-y-2 text-sm text-muted-foreground leading-relaxed list-disc pl-4 marker:text-primary/70">
-                            {plan.running.map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
                       <BookingButton
                         variant="package"
                         className="mt-6 h-auto min-h-12 w-full rounded-full px-5 py-3 whitespace-normal text-center"
-                        topic={{ lead: en.pricing.plans[index].name, label: `${plan.name} · ${packagePrice(locale, id)}` }}
+                        topic={{ lead: en.pricing.plans[index].name, label: price ? `${plan.name} · ${price}` : plan.name }}
                       >
                         {t.cta}
                       </BookingButton>
@@ -144,7 +104,6 @@ const PricingSection = () => {
         ))}
       </div>
 
-      {showRunning && <p className="max-w-6xl mx-auto mt-8 text-sm text-muted-foreground leading-relaxed">{t.footnote}</p>}
       <p className="max-w-6xl mx-auto mt-8 text-center text-foreground/80">{t.allPackages}</p>
     </Section>
   );

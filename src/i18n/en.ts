@@ -24,41 +24,51 @@ const en = {
     skipToContent: "Skip to content",
   },
   hero: {
-    eyebrow: "Support automation that actually holds up",
-    titleBefore: "AI chatbots, voice bots & ",
-    titleHighlight: "ticket automation",
-    titleAfter: " for support teams",
-    // {price} is the lowest package price in the visitor's currency, e.g. "$400".
-    intro: "I'm Roman. I build them myself, at a fixed price from {price}, paid once.",
-    callNote: "Free Health Check: a 30-minute call with me, then a written report.",
+    eyebrow: "CRM and sales automation that holds up",
+    titleBefore: "Every reply, call and meeting logged on the ",
+    titleHighlight: "right deal",
+    titleAfter: "",
+    intro:
+      "I'm Roman. I connect your CRM to lemlist, Aircall, Gmail, LinkedIn and your meeting notes, so nobody has to copy them in by hand. Fixed price, paid once.",
+    callNote: "Free Health Check: a 30 minute call with me, then a written report.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
-    highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
+    highlights: ["Works with your current CRM", "Live in 1 to 3 weeks", "30 days of support included"],
     integratesWith: "Integrates with",
   },
   services: {
     eyebrow: "What I Do",
-    title: "Customer support automation services",
+    title: "CRM and sales automation services",
+    // Same order as the cards' links in src/components/SolutionSection.tsx.
     items: [
       {
-        title: "Support chat & voice bots",
+        title: "Replies into your CRM",
         description:
-          "Answers common messages and calls, then hands the rest to your team.",
+          "Every lemlist email and LinkedIn reply creates or updates the company, person and deal. AI marks how warm the reply is. Alerts in Slack or WhatsApp if you want them.",
       },
       {
-        title: "Ticket routing & categorization",
+        title: "Calls and meetings into your CRM",
         description:
-          "Every new ticket tagged, prioritized and assigned automatically.",
+          "Aircall calls and transcripts, plus Fireflies and Granola notes, logged on the deal. Internal meetings are skipped.",
       },
       {
-        title: "Reporting",
+        title: "Inbox and LinkedIn into your CRM",
+        description: "Customer emails from Gmail and LinkedIn messages matched to the right person and deal.",
+      },
+      {
+        title: "Lead capture",
         description:
-          "The reports your team builds by hand, sent automatically.",
+          "Website visitors identified with RB2B, scored against your ICP and added to HubSpot, with a weekly recap. HubSpot tasks sent straight to lemlist campaigns.",
+      },
+      {
+        title: "CRM cleanup and migrations",
+        description:
+          "People linked to the right deals, with missing emails, phones and LinkedIn profiles filled in from Apollo. Workflows moved off tools that shut down, like Relay.app, and data moved between CRMs.",
       },
       {
         title: "Custom solution",
         description:
-          "Something specific? I scope it and build it.",
+          "Something specific? I scope it and build it. Past examples: order emails into Notion, LinkedIn profiles into slide decks, a fulfilment center dashboard.",
       },
     ],
   },
@@ -68,19 +78,19 @@ const en = {
     steps: [
       {
         title: "Free Health Check",
-        description: "A 30-minute call about your setup and where automation would help.",
+        description: "A 30 minute call about your CRM, your sales tools and where automation would help.",
       },
       {
         title: "Written report",
-        description: "2–3 recommendations, the package that fits and its fixed price.",
+        description: "2 to 3 recommendations, the package that fits and its fixed price.",
       },
       {
         title: "Fixed price agreed",
         description: "Agreed before any work starts. Paid once, no retainer.",
       },
       {
-        title: "Built in 1–3 weeks",
-        description: "Inside your helpdesk, running in your own accounts.",
+        title: "Built in 1 to 3 weeks",
+        description: "Inside your CRM and tools, running in your own accounts.",
       },
       {
         title: "30 days of support",
@@ -90,38 +100,38 @@ const en = {
   },
   fit: {
     eyebrow: "Is This a Fit?",
-    title: "Who this support automation is for",
+    title: "Who this is for",
     goodTitle: "Good Fit",
     notTitle: "Not the Right Fit",
     good: [
-      "Repetitive support work every day",
-      "You use Zendesk, Freshdesk, Jira or similar",
-      "Reports still pulled by hand",
-      "Tools that don't talk to each other",
+      "Reps copy replies, calls or meeting notes into the CRM by hand",
+      "You use Attio or HubSpot with lemlist, Aircall, Fireflies, Granola or similar",
+      "People and companies are missing from deals",
+      "Your sales tools don't talk to each other",
     ],
     not: [
-      "You need a full-time support manager",
-      "You want to replace your whole support stack",
-      "You expect AI to replace your team",
+      "You need a full time RevOps hire",
+      "You want to replace your whole sales stack",
+      "You expect AI to replace your sales team",
     ],
   },
   whyMe: {
     eyebrow: "Why Work With Me",
-    title: "Built by someone who's worked in support",
-    role: "AI Automation Specialist",
+    title: "Built by an engineer who has done support",
+    role: "CRM and Sales Automation",
     linkedin: "My background on LinkedIn",
     items: [
       {
-        title: "I've worked in support",
-        description: "I've handled tickets and built reports by hand, so I know what slows teams down.",
+        title: "Engineer first",
+        description: "I started in Java test automation and Scala development, so I build workflows like software.",
       },
       {
         title: "Built to hold up",
-        description: "Error handling, edge-case testing and monitoring in every build.",
+        description: "Deduplication, retries, error handling and alerts in every build.",
       },
       {
         title: "You own everything",
-        description: "Full documentation and handover. No lock-in.",
+        description: "It runs in your accounts, with documentation and handover. No lock in.",
       },
       {
         title: "Straight answers",
@@ -129,111 +139,115 @@ const en = {
       },
     ],
   },
+  recentWork: {
+    eyebrow: "Recent Work",
+    title: "What I've built lately",
+    seeAll: "See all work",
+  },
   pricing: {
     eyebrow: "Pricing",
-    title: "Fixed-price support automation packages",
+    title: "Fixed price CRM automation packages",
     intro: "One price, paid once. No retainer.",
-    oneTimeFee: "one-time",
+    oneTimeFee: "paid once",
+    // Shown in the price slot until a package has a confirmed price.
+    noPrice: "Fixed price after your Health Check",
     cta: "Ask about this in a Health Check",
     from: "from {price}",
-    delivery: "Delivery",
-    deliveryTime: "1–3 weeks",
     included: "What's included",
     groups: {
-      chat: "Chat & voice bots",
-      tickets: "Tickets & reports",
-      custom: "Custom work",
+      log: "Log sales activity",
+      capture: "Capture and clean",
+      move: "Move and custom",
     },
-    running: "Monthly running costs",
-    showRunning: "Show monthly running costs",
-    hideRunning: "Hide monthly running costs",
-    runningNote: "Charged by the tool providers. Not included in the package price.",
-    estimate: "Estimate yours with my free calculators:",
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
       {
-        name: "Starter Chat Bot",
-        description: "Answers common questions on 1–2 channels and hands the rest to your team.",
+        name: "Reply Logging",
+        description: "lemlist email and LinkedIn replies logged on the right deal in your CRM.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
-          "1–2 channels: website, WhatsApp, Telegram, Messenger or Instagram",
-          "Answers FAQs and collects customer info",
-          "Hands the rest to your team",
-        ],
-        running: [
-          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
-          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
-          "WhatsApp only: from 1 October 2026, 1,000 free service messages a month per business number, then Meta's per-message rate",
+          "Finds or creates the company, person and deal",
+          "AI tags each reply as interested, basic reply or not interested",
+          "Existing deals get a note, nothing is overwritten",
+          "Optional alert in Slack or WhatsApp",
         ],
       },
       {
-        name: "Voice Bot",
-        description: "Answers inbound calls, triages them and hands over to your team.",
+        name: "Call Logging",
+        description: "Aircall calls and transcripts on the right deal.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
-          "Answers inbound calls",
-          "Triage and clean handover to your team",
-          "Connected to your helpdesk",
-        ],
-        running: [
-          "Voice platform per-minute fees, e.g. Retell AI from $0.07 per minute, plus the AI model and phone line",
-          "A phone number from your telephony provider",
+          "A call note on the deal when each call ends",
+          "The full transcript added when Aircall finishes it (needs Aircall's AI Assist)",
+          "For Attio or HubSpot",
         ],
       },
       {
-        name: "Standard Chat Bot",
-        description: "Handles more complex conversations across 3–5 channels.",
+        name: "Meeting Notes Logging",
+        description: "Fireflies or Granola notes on the right deal or company.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
-          "3–5 channels",
-          "Multi-step conversations",
-          "Handoff to your team, connected to your helpdesk",
-        ],
-        running: [
-          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
-          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
-          "WhatsApp only: from 1 October 2026, 1,000 free service messages a month per business number, then Meta's per-message rate",
+          "Matched to the company, people and deal by email domain",
+          "Internal meetings skipped",
+          "Notes already logged are never added twice",
         ],
       },
       {
-        name: "Ticket Routing & Categorization",
-        description: "Every ticket tagged, prioritized and assigned the moment it arrives.",
+        name: "Inbox and LinkedIn Logging",
+        description: "Customer emails from Gmail and LinkedIn messages in your CRM.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
-          "AI sorts each new ticket by topic and urgency",
-          "Sets tags and priority, assigns the right group",
-          "Zendesk, Freshdesk or Jira Service Management",
-        ],
-        running: [
-          "AI classification, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
-          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+          "Emails sorted by AI and matched to the person and deal",
+          "LinkedIn messages filtered to prospects only",
+          "Slack alert for new conversations",
         ],
       },
       {
-        name: "Automated Reports",
-        description: "The reports your team builds by hand, sent automatically.",
+        name: "Website Visitor Capture",
+        description: "RB2B website visitors scored and added to HubSpot.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
-          "Key support metrics from your helpdesk",
-          "Sent to email or Slack on a schedule",
+          "Each visitor scored against your ICP",
+          "Known leads logged in HubSpot and a Google Sheet",
+          "New contact and company created above your score threshold",
+          "Weekly recap email ranked by ICP score",
         ],
-        running: [
-          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
-          "No AI fees unless you want AI-written summaries",
+      },
+      {
+        name: "CRM Cleanup Sweep",
+        description: "A daily job that keeps people, companies and deals connected.",
+        delivery: "Delivery 1 to 3 weeks",
+        included: [
+          "Links the right company people to each open deal",
+          "Fills missing email, phone and LinkedIn from Apollo",
+          "Runs within your CRM's rate limits",
+        ],
+      },
+      {
+        name: "Migration",
+        description: "Off Relay.app, or from one CRM to another.",
+        delivery: "Scoped in your Health Check",
+        included: [
+          "Inventory of every workflow, ranked by priority",
+          "The workflows that matter rebuilt in n8n",
+          "Stage and field mapping between CRMs",
         ],
       },
       {
         name: "Custom Automation",
         description: "Built around your workflows, tools and requirements.",
+        delivery: "Delivery 1 to 3 weeks",
         included: [
           "Scoped in your free Health Check",
           "Fixed price agreed before work starts",
           "Any tool with an API or webhooks",
         ],
-        running: ["Depends on the tools involved; estimated in your Health Check report"],
       },
     ],
-    footnote:
-      "* Anthropic's list prices (October 2026) for prompts up to 100,000 tokens; longer prompts cost $0.50 / $2.50. Other providers and models are priced differently, and providers can change their prices.",
     allPackages: "Every package: 30 days of support after delivery and basic documentation.",
     healthCheck: {
       title: "Free Health Check",
-      text: "A 30-minute call, then a written report: what to automate first, which package fits and what it costs.",
+      text: "A 30 minute call, then a written report: what to automate first, which package fits and what it costs.",
       cta: "Book your Health Check",
       price: "Free",
     },
@@ -246,7 +260,7 @@ const en = {
       {
         title: "In your own accounts (default)",
         points: [
-          "Runs in your own helpdesk, automation and AI accounts",
+          "Runs in your own CRM, automation and AI accounts",
           "Customer data stays in systems you control",
           "You own everything and control my access",
         ],
@@ -275,35 +289,39 @@ const en = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do I need to switch my support tools?",
-        a: "No. I work with whatever you're already using — Zendesk, Freshdesk, Jira, Slack, internal tools. The goal is to connect and improve what you have, not replace it.",
+        q: "Do I need to switch CRM?",
+        a: "No. I build inside the CRM you already use, like Attio or HubSpot. If a tool has an API or webhooks, I can usually connect it.",
+      },
+      {
+        q: "Will this create duplicate people or deals?",
+        a: "No. Before writing anything, the automation looks for the existing company, person and deal and updates those. It also keeps track of what it has already logged, so the same reply, call or note isn't added twice.",
       },
       {
         q: "What if something breaks after launch?",
-        a: "Every project includes 30 days of post-launch support. If something breaks in that window, I fix it. I build on standard integrations — APIs, webhooks, Make/n8n — not fragile custom hacks that only work in one environment.",
+        a: "You get 30 days of support after delivery. Builds also send an alert when an API call fails, so problems don't go unnoticed.",
       },
       {
         q: "Can my team maintain this after you're done?",
-        a: "Yes. I document everything clearly — the logic, the flow, the edge cases. You're not locked in. Ongoing support is available but optional.",
+        a: "Yes. It runs in your own n8n or Make account, with documentation and a handover call.",
       },
       {
-        q: "Can you integrate a specific tool?",
-        a: "If it has an API or webhook support, almost certainly. Bring it up in your Health Check and I'll confirm.",
+        q: "Is logging LinkedIn messages safe for my account?",
+        a: "LinkedIn doesn't offer an inbox API for this, so tools like Unipile work through your logged in session, and that carries a risk of account restrictions. I'll explain the options and the risk in the Health Check, and you decide.",
       },
       {
         q: "What actually happens in the free Health Check?",
-        a: "A 30-minute call about your current setup, where the friction is, and where automation would actually make a difference. Afterwards you get a written report with 2–3 concrete recommendations, the package and fixed price that fit, and the estimated monthly running costs. No sales deck. No pressure.",
+        a: "A 30 minute call about your CRM and sales tools. Then you get a written report with 2 to 3 recommendations, the package that fits and its fixed price. No commitment.",
       },
       {
         q: "How long does a typical project take?",
-        a: "Most setups take 1–3 weeks depending on complexity and how quickly we can align on requirements. I'll give you a realistic timeline upfront — not an optimistic one.",
+        a: "1 to 3 weeks from the agreed scope to a working automation.",
       },
     ],
   },
   contact: {
     eyebrow: "Let's Talk",
-    title: "Get a free support Health Check",
-    intro: "A 30-minute call, then a written report.",
+    title: "Get a free CRM Health Check",
+    intro: "A 30 minute call, then a written report.",
     cta: "Book a Free Health Check",
     linkedin: "Connect on LinkedIn",
     email: "Email",
@@ -331,7 +349,7 @@ const en = {
   },
   booking: {
     title: "Book a Free Health Check",
-    description: "A 30-minute call with me, Roman, then a written report. No commitment, no pitch.",
+    description: "A 30 minute call with me, Roman, then a written report. No commitment, no pitch.",
     about: "About: {topic}",
     close: "Close",
     fullName: "Full Name",
@@ -340,6 +358,10 @@ const en = {
     emailPlaceholder: "jane@company.com",
     company: "Company Name",
     companyPlaceholder: "Acme Inc.",
+    crm: "Which CRM do you use?",
+    crmPlaceholder: "Choose one",
+    crmOther: "Other",
+    crmNone: "None yet",
     meetingMethod: "Preferred Meeting Method",
     methodPhone: "Phone",
     phone: "Phone Number",
@@ -369,7 +391,7 @@ const en = {
       companyLength: "Company Name must be between 2 and 50 characters",
       phoneRequired: "Phone number is required",
       phoneChars: "Use only digits, spaces, dots, dashes, parentheses",
-      phoneDigits: "Phone number must be 6–15 digits",
+      phoneDigits: "Phone number must be 6 to 15 digits",
       telegramRequired: "Telegram link or username is required",
       telegramInvalid:
         "Please enter a valid Telegram link (e.g., https://t.me/username) or username (e.g., @username)",
@@ -384,12 +406,35 @@ const en = {
     faqShort: "FAQ",
     ctaTitle: "Want this set up for your team?",
     ctaText:
-      "Book a free Health Check: a 30-minute call and a written report with 2–3 concrete recommendations, a fixed price and estimated running costs. No pitch.",
+      "Book a free Health Check: a 30 minute call, then a written report with 2 to 3 recommendations, the package that fits and its fixed price. No pitch.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
     sources: "Sources",
     onThisPage: "On this page",
     related: "Related",
+  },
+  work: {
+    metaTitle: "Recent Work: CRM and Sales Automation Builds | TascaLab",
+    metaDescription:
+      "Real CRM and sales automation builds: lemlist replies, Aircall calls and meeting notes logged in Attio and HubSpot, plus migrations and ops tools.",
+    label: "Work",
+    title: "Recent work",
+    intro:
+      "Real builds for real clients. Each page shows what the client needed, what I built and which tools it runs on. Client names are left out unless the client agreed to be named.",
+    smallerTitle: "Smaller builds",
+    smaller: [
+      "lemlist reply alerts posted in a Slack channel for a team that doesn't use a CRM.",
+      "lemlist reply alerts sent to WhatsApp, with email and LinkedIn replies told apart.",
+      "Diagnosed why enriched leads took 1 to 2 minutes to reach Attio from Apollo's Chrome extension: the delay was on Apollo's side, not the Attio write.",
+    ],
+    client: "Client",
+    needed: "What they needed",
+    built: "What I built",
+    tools: "Tools",
+    status: "Status",
+    fromBuilds: "From my builds",
+    fromBuildsIntro: "What I found on this build:",
+    readCase: "Read the case study",
   },
   resources: {
     metaTitle: "Customer Support Automation Resources | TascaLab",

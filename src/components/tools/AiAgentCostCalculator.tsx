@@ -3,12 +3,10 @@ import { Sparkles } from "lucide-react";
 import { Field, NumberInput, Panel, RangeInput, Select } from "./fields";
 import { format, useDict, useLocale } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
-import { CURRENCY, convert, formatMoney, packageById, type PackageId } from "@/lib/pricing";
+import { CURRENCY, convert, formatMoney, supportPackageById, type SupportPackageId } from "@/lib/pricing";
 import { PLATFORMS, TOKEN_EXAMPLE, VENDORS, buildMonthly, paybackMonth, type PlatformId } from "@/tools/aiAgentCost";
 
-const BUILD_PACKAGES: PackageId[] = ["starter", "standard"];
-// Index of each package in the dictionaries' pricing.plans (same order as PACKAGES).
-const PLAN_INDEX: Record<string, number> = { starter: 0, standard: 2 };
+const BUILD_PACKAGES: SupportPackageId[] = ["starter", "standard"];
 
 const AiAgentCostCalculator = () => {
   const d = useDict();
@@ -20,7 +18,7 @@ const AiAgentCostCalculator = () => {
   const [conversations, setConversations] = useState(2000);
   const [resolution, setResolution] = useState(50);
   const [actions, setActions] = useState(3);
-  const [pkg, setPkg] = useState<PackageId>("standard");
+  const [pkg, setPkg] = useState<SupportPackageId>("standard");
   const [platform, setPlatform] = useState<PlatformId>("n8nCloud");
   const [inputTokens, setInputTokens] = useState(TOKEN_EXAMPLE.input);
   const [outputTokens, setOutputTokens] = useState(TOKEN_EXAMPLE.output);
@@ -30,7 +28,7 @@ const AiAgentCostCalculator = () => {
 
   const result = useMemo(() => {
     const volume = { conversations, resolutionRate: resolution / 100, actionsPerConversation: actions };
-    const oneTime = packageById(pkg).prices[currency];
+    const oneTime = supportPackageById(pkg).prices[currency];
     const buildPerMonth = buildMonthly(volume, { inputTokens, outputTokens, platform }, currency);
     const vendors = VENDORS.map((v) => {
       const monthly = convert(v.monthlyUsd(volume), "USD", currency);
@@ -42,7 +40,7 @@ const AiAgentCostCalculator = () => {
     return { oneTime, buildPerMonth, buildYear, vendors, max, fastest };
   }, [conversations, resolution, actions, pkg, platform, inputTokens, outputTokens, currency]);
 
-  const planName = d.pricing.plans[PLAN_INDEX[pkg]].name;
+  const planName = supportPackageById(pkg).name;
 
   return (
     <div className="grid gap-5 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
@@ -64,13 +62,13 @@ const AiAgentCostCalculator = () => {
         <Panel title={t.inputs.buildTitle}>
           <div className="space-y-5">
             <Field label={t.inputs.package} htmlFor="ai-package">
-              <Select<PackageId>
+              <Select<SupportPackageId>
                 id="ai-package"
                 value={pkg}
                 onChange={setPkg}
                 options={BUILD_PACKAGES.map((id) => ({
                   value: id,
-                  label: `${d.pricing.plans[PLAN_INDEX[id]].name} · ${money(packageById(id).prices[currency])}`,
+                  label: `${supportPackageById(id).name} · ${money(supportPackageById(id).prices[currency])}`,
                 }))}
               />
             </Field>

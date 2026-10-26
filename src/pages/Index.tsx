@@ -4,6 +4,7 @@ import SolutionSection from "@/components/SolutionSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhoForSection from "@/components/WhoForSection";
 import WhyMeSection from "@/components/WhyMeSection";
+import RecentWorkSection from "@/components/RecentWorkSection";
 import PricingSection from "@/components/PricingSection";
 import DataSection from "@/components/DataSection";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -28,6 +29,7 @@ const Index = () => {
         <ProcessSection />
         <WhoForSection />
         <WhyMeSection />
+        <RecentWorkSection />
         <PricingSection />
         <DataSection />
         <ReviewsSection />

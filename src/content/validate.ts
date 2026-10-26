@@ -3,7 +3,7 @@
 // can't silently drop or add a fact.
 import { englishPage, rawPagesByLocale as pagesByLocale } from "./index";
 import type { Block, Locale, TranslatedPage } from "./types";
-import { PACKAGES } from "@/lib/pricing";
+import { SUPPORT_PACKAGES } from "@/lib/pricing";
 import { dictionaries } from "@/i18n";
 import { TOOL_IDS } from "@/tools/registry";
 
@@ -40,7 +40,7 @@ const pageProblems = (locale: Locale, p: TranslatedPage, slugs: Set<string>, key
     if (!englishPage(r) || r === p.key) problems.push(`${where} bad related key: ${r} (use English slugs)`);
 
   for (const token of priceTokens(p))
-    if (!PACKAGES.some((pkg) => token === `{{price:${pkg.id}}}`)) problems.push(`${where} unknown price token ${token}`);
+    if (!SUPPORT_PACKAGES.some((pkg) => token === `{{price:${pkg.id}}}`)) problems.push(`${where} unknown price token ${token}`);
 
   if (locale === "en") return problems;
 

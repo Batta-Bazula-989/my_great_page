@@ -1,6 +1,7 @@
-import type { Dictionary } from "./en";
+import en, { type Dictionary } from "./en";
 import tools from "./tools/de";
 
+// Sections set to en.<key> are new English copy (CRM repositioning), waiting for translation.
 const de: Dictionary = {
   meta: {
     homeTitle: "KI-Chatbots, Voicebots & Ticket-Automatisierung | TascaLab",
@@ -21,240 +22,15 @@ const de: Dictionary = {
     logoAlt: "TascaLab-Logo",
     skipToContent: "Zum Inhalt springen",
   },
-  hero: {
-    eyebrow: "Support-Automatisierung, die im Alltag wirklich hält",
-    titleBefore: "KI-Chatbots, Voicebots & ",
-    titleHighlight: "Ticket-Automatisierung",
-    titleAfter: " für Support-Teams",
-    intro: "Ich bin Roman. Ich baue sie selbst, zum Festpreis ab {price}, einmal bezahlt.",
-    callNote: "Kostenloser Health Check: ein 30-minütiges Gespräch mit mir, danach ein schriftlicher Bericht.",
-    ctaBook: "Kostenlosen Health Check buchen",
-    ctaUpwork: "Bewertungen auf Upwork",
-    highlights: ["Funktioniert mit Ihrem aktuellen Helpdesk", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
-    integratesWith: "Integriert mit",
-  },
-  services: {
-    eyebrow: "Leistungen",
-    title: "Leistungen rund um die Kundensupport-Automatisierung",
-    items: [
-      {
-        title: "Chat- & Voicebots für den Support",
-        description: "Beantwortet häufige Nachrichten und Anrufe und übergibt den Rest an Ihr Team.",
-      },
-      {
-        title: "Ticket-Routing & Kategorisierung",
-        description: "Jedes neue Ticket automatisch getaggt, priorisiert und zugewiesen.",
-      },
-      {
-        title: "Reporting",
-        description: "Die Reports, die Ihr Team von Hand erstellt, automatisch versendet.",
-      },
-      {
-        title: "Individuelle Lösung",
-        description: "Etwas Spezielles? Ich plane und baue es.",
-      },
-    ],
-  },
-  process: {
-    eyebrow: "So läuft es ab",
-    title: "Vom ersten Gespräch zur funktionierenden Automatisierung",
-    steps: [
-      {
-        title: "Kostenloser Health Check",
-        description: "Ein 30-minütiges Gespräch über Ihr Setup und darüber, wo Automatisierung helfen würde.",
-      },
-      {
-        title: "Schriftlicher Bericht",
-        description: "2–3 Empfehlungen, das passende Paket und sein Festpreis.",
-      },
-      {
-        title: "Festpreis vereinbart",
-        description: "Vereinbart, bevor die Arbeit beginnt. Einmal bezahlt, keine laufende Pauschale.",
-      },
-      {
-        title: "Umgesetzt in 1–3 Wochen",
-        description: "In Ihrem Helpdesk, betrieben in Ihren eigenen Konten.",
-      },
-      {
-        title: "30 Tage Support",
-        description: "Fällt nach dem Launch etwas aus, behebe ich es.",
-      },
-    ],
-  },
-  fit: {
-    eyebrow: "Passt das zu Ihnen?",
-    title: "Für wen sich diese Support-Automatisierung eignet",
-    goodTitle: "Passt gut",
-    notTitle: "Passt nicht",
-    good: [
-      "Täglich wiederkehrende Support-Aufgaben",
-      "Sie nutzen Zendesk, Freshdesk, Jira oder Ähnliches",
-      "Reports werden noch von Hand erstellt",
-      "Tools, die nicht miteinander verbunden sind",
-    ],
-    not: [
-      "Sie brauchen einen Vollzeit-Support-Manager",
-      "Sie möchten Ihren gesamten Support-Stack ersetzen",
-      "Sie erwarten, dass KI Ihr Team ersetzt",
-    ],
-  },
-  whyMe: {
-    eyebrow: "Warum mit mir arbeiten",
-    title: "Gebaut von jemandem, der selbst im Support gearbeitet hat",
-    role: "Spezialist für KI-Automatisierung",
-    linkedin: "Mein Werdegang auf LinkedIn",
-    items: [
-      {
-        title: "Ich habe im Support gearbeitet",
-        description: "Ich habe Tickets bearbeitet und Reports von Hand erstellt. Daher weiß ich, was Teams ausbremst.",
-      },
-      {
-        title: "Gebaut für den Alltag",
-        description: "Fehlerbehandlung, Grenzfall-Tests und Monitoring in jeder Lösung.",
-      },
-      {
-        title: "Alles gehört Ihnen",
-        description: "Vollständige Dokumentation und Übergabe. Keine Abhängigkeit.",
-      },
-      {
-        title: "Klare Antworten",
-        description: "Wenn sich eine Automatisierung nicht lohnt, sage ich es Ihnen.",
-      },
-    ],
-  },
-  pricing: {
-    eyebrow: "Preise",
-    title: "Support-Automatisierungspakete zum Festpreis",
-    intro: "Ein Preis, einmal bezahlt. Keine laufende Pauschale.",
-    oneTimeFee: "einmalig",
-    cta: "Im Health Check ansprechen",
-    from: "ab {price}",
-    delivery: "Lieferzeit",
-    deliveryTime: "1–3 Wochen",
-    included: "Im Paket enthalten",
-    groups: {
-      chat: "Chat- & Voicebots",
-      tickets: "Tickets & Reports",
-      custom: "Individuelle Lösungen",
-    },
-    running: "Laufende Kosten pro Monat",
-    showRunning: "Laufende Kosten pro Monat anzeigen",
-    hideRunning: "Laufende Kosten pro Monat ausblenden",
-    runningNote: "Berechnet von den Tool-Anbietern. Nicht im Paketpreis enthalten.",
-    estimate: "Schätzen Sie Ihre Kosten mit meinen kostenlosen Rechnern:",
-    // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
-    plans: [
-      {
-        name: "Starter Chat Bot",
-        description: "Beantwortet häufige Fragen auf 1–2 Kanälen und übergibt den Rest an Ihr Team.",
-        included: [
-          "1–2 Kanäle: Website, WhatsApp, Telegram, Messenger oder Instagram",
-          "Beantwortet FAQs und erfasst Kundenangaben",
-          "Übergibt den Rest an Ihr Team",
-        ],
-        running: [
-          "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
-          "Nur bei WhatsApp: Ab 1. Oktober 2026 sind 1.000 Service-Nachrichten pro Monat und Business-Nummer kostenlos, danach gilt der Preis von Meta pro Nachricht",
-        ],
-      },
-      {
-        name: "Voice Bot",
-        description: "Nimmt eingehende Anrufe entgegen, triagiert sie und übergibt an Ihr Team.",
-        included: [
-          "Nimmt eingehende Anrufe entgegen",
-          "Triage und saubere Übergabe an Ihr Team",
-          "Angebunden an Ihren Helpdesk",
-        ],
-        running: [
-          "Minutenpreise der Voice-Plattform, z. B. Retell AI ab 0,07 $ pro Minute, plus KI-Modell und Telefonleitung",
-          "Eine Telefonnummer von Ihrem Telefonieanbieter",
-        ],
-      },
-      {
-        name: "Standard Chat Bot",
-        description: "Bewältigt komplexere Gespräche auf 3–5 Kanälen.",
-        included: [
-          "3–5 Kanäle",
-          "Mehrstufige Gespräche",
-          "Übergabe an Ihr Team, angebunden an Ihren Helpdesk",
-        ],
-        running: [
-          "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
-          "Nur bei WhatsApp: Ab 1. Oktober 2026 sind 1.000 Service-Nachrichten pro Monat und Business-Nummer kostenlos, danach gilt der Preis von Meta pro Nachricht",
-        ],
-      },
-      {
-        name: "Ticket Routing & Categorization",
-        description: "Jedes Ticket wird beim Eingang sofort getaggt, priorisiert und zugewiesen.",
-        included: [
-          "KI sortiert jedes neue Ticket nach Thema und Dringlichkeit",
-          "Setzt Tags und Priorität, weist die richtige Gruppe zu",
-          "Zendesk, Freshdesk oder Jira Service Management",
-        ],
-        running: [
-          "KI-Klassifizierung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
-        ],
-      },
-      {
-        name: "Automated Reports",
-        description: "Die Reports, die Ihr Team von Hand erstellt, automatisch versendet.",
-        included: [
-          "Wichtige Support-Kennzahlen aus Ihrem Helpdesk",
-          "Nach Zeitplan per E-Mail oder in Slack versendet",
-        ],
-        running: [
-          "Automatisierungsplattform: n8n selbst gehostet (kostenlose Software; Sie zahlen für den Server), n8n Cloud ab 20 €/Monat oder Make ab 9 $/Monat (jeweils bei jährlicher Abrechnung)",
-          "Keine KI-Kosten, es sei denn, Sie möchten von KI geschriebene Zusammenfassungen",
-        ],
-      },
-      {
-        name: "Custom Automation",
-        description: "Maßgeschneidert für Ihre Abläufe, Tools und Anforderungen.",
-        included: [
-          "Umfang in Ihrem kostenlosen Health Check festgelegt",
-          "Festpreis vor Arbeitsbeginn vereinbart",
-          "Jedes Tool mit API oder Webhooks",
-        ],
-        running: ["Hängt von den beteiligten Tools ab; geschätzt in Ihrem Health-Check-Bericht"],
-      },
-    ],
-    footnote:
-      "* Listenpreise von Anthropic (Oktober 2026) für Prompts bis 100.000 Tokens; längere Prompts kosten 0,50 $ / 2,50 $. Andere Anbieter und Modelle haben andere Preise, und Anbieter können ihre Preise ändern.",
-    allPackages: "In jedem Paket: 30 Tage Support nach der Auslieferung und Basisdokumentation.",
-    healthCheck: {
-      title: "Kostenloser Health Check",
-      text: "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht: was Sie zuerst automatisieren sollten, welches Paket passt und was es kostet.",
-      cta: "Ihren Health Check buchen",
-      price: "Kostenlos",
-    },
-  },
-  data: {
-    eyebrow: "Ihre Daten",
-    title: "Ihre Daten und die DSGVO",
-    intro: "Sie entscheiden, wo Ihre Automatisierung läuft.",
-    options: [
-      {
-        title: "In Ihren eigenen Konten (Standard)",
-        points: [
-          "Läuft in Ihren eigenen Helpdesk-, Automatisierungs- und KI-Konten",
-          "Kundendaten bleiben in Systemen, die Sie kontrollieren",
-          "Alles gehört Ihnen, und Sie steuern meinen Zugang",
-        ],
-      },
-      {
-        title: "Von mir gehostet, mit AVV",
-        points: [
-          "Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO, unterzeichnet, bevor personenbezogene Daten verarbeitet werden",
-          "Unterauftragsverarbeiter nur mit Ihrer schriftlichen Genehmigung",
-          "Bei Vertragsende werden die Daten nach Ihrer Wahl gelöscht oder zurückgegeben",
-        ],
-      },
-    ],
-    note: "Dies beschreibt, wie Projekte aufgesetzt werden. Es ist keine Rechtsberatung.",
-  },
+  hero: en.hero,
+  services: en.services,
+  process: en.process,
+  fit: en.fit,
+  whyMe: en.whyMe,
+  recentWork: en.recentWork,
+  // "from" also prices the old packages quoted on the guide pages.
+  pricing: { ...en.pricing, from: "ab {price}" },
+  data: en.data,
   reviews: {
     eyebrow: "Kundenfeedback",
     title: "Verifizierte Bewertungen auf Upwork",
@@ -263,45 +39,8 @@ const de: Dictionary = {
     verify: "Auf Upwork prüfen",
     stars: "{rating} von 5 Sternen",
   },
-  faq: {
-    eyebrow: "FAQ",
-    title: "Häufig gestellte Fragen",
-    items: [
-      {
-        q: "Muss ich meine Support-Tools wechseln?",
-        a: "Nein. Ich arbeite mit dem, was Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack, interne Tools. Ziel ist es, Ihre vorhandenen Systeme zu verbinden und zu verbessern, nicht sie zu ersetzen.",
-      },
-      {
-        q: "Was passiert, wenn nach dem Launch etwas nicht mehr funktioniert?",
-        a: "Jedes Projekt umfasst 30 Tage Support nach dem Launch. Wenn in diesem Zeitraum etwas ausfällt, behebe ich es. Ich setze auf Standardintegrationen – APIs, Webhooks, Make/n8n – statt auf fragile Speziallösungen, die nur in einer einzigen Umgebung funktionieren.",
-      },
-      {
-        q: "Kann mein Team das selbst warten, wenn Sie fertig sind?",
-        a: "Ja. Ich dokumentiere alles verständlich – die Logik, den Ablauf, die Grenzfälle. Sie sind nicht an mich gebunden. Laufender Support ist verfügbar, aber optional.",
-      },
-      {
-        q: "Können Sie ein bestimmtes Tool integrieren?",
-        a: "Wenn es eine API oder Webhooks unterstützt, mit ziemlicher Sicherheit. Sprechen Sie es in Ihrem Health Check an, dann bestätige ich es Ihnen.",
-      },
-      {
-        q: "Was passiert eigentlich im kostenlosen Health Check?",
-        a: "Ein 30-minütiges Gespräch über Ihr aktuelles Setup: wo es hakt und wo Automatisierung wirklich etwas bewirken würde. Danach erhalten Sie einen schriftlichen Bericht mit 2–3 konkreten Empfehlungen, dem passenden Paket samt Festpreis und den geschätzten laufenden Kosten pro Monat. Keine Verkaufspräsentation. Kein Druck.",
-      },
-      {
-        q: "Wie lange dauert ein typisches Projekt?",
-        a: "Die meisten Setups dauern 1–3 Wochen, je nach Komplexität und je nachdem, wie schnell wir uns auf die Anforderungen einigen. Ich nenne Ihnen vorab einen realistischen Zeitplan – keinen optimistischen.",
-      },
-    ],
-  },
-  contact: {
-    eyebrow: "Sprechen wir",
-    title: "Kostenloser Health Check für Ihren Support",
-    intro: "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht.",
-    cta: "Kostenlosen Health Check buchen",
-    linkedin: "Auf LinkedIn vernetzen",
-    email: "E-Mail",
-    upwork: "Upwork-Bewertungen",
-  },
+  faq: en.faq,
+  contact: en.contact,
   footer: {
     resourcesNav: "Ressourcen",
     allResources: "Alle Ressourcen",
@@ -333,6 +72,10 @@ const de: Dictionary = {
     emailPlaceholder: "erika@firma.de",
     company: "Firmenname",
     companyPlaceholder: "Muster GmbH",
+    crm: "Welches CRM nutzen Sie?",
+    crmPlaceholder: "Bitte wählen",
+    crmOther: "Anderes",
+    crmNone: "Noch keins",
     meetingMethod: "Bevorzugte Gesprächsart",
     methodPhone: "Telefon",
     phone: "Telefonnummer",
@@ -384,6 +127,7 @@ const de: Dictionary = {
     onThisPage: "Auf dieser Seite",
     related: "Verwandte Themen",
   },
+  work: en.work,
   resources: {
     metaTitle: "Ressourcen zur Kundensupport-Automatisierung | TascaLab",
     metaDescription:

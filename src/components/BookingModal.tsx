@@ -178,6 +178,16 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
     phone: "",
     telegram: "",
   });
+  // Optional; the value sent is the English name.
+  const crmOptions = [
+    { value: "Attio", label: "Attio" },
+    { value: "HubSpot", label: "HubSpot" },
+    { value: "Pipedrive", label: "Pipedrive" },
+    { value: "Salesforce", label: "Salesforce" },
+    { value: "Other", label: t.crmOther },
+    { value: "None yet", label: t.crmNone },
+  ];
+  const [crm, setCrm] = useState("");
   const [meetingMethod, setMeetingMethod] = useState("zoom");
   const [phoneCountryCode, setPhoneCountryCode] = useState("1");
   const [phoneCountryOpen, setPhoneCountryOpen] = useState(false);
@@ -224,6 +234,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
 
   const resetForm = () => {
     setValues({ fullName: "", email: "", companyName: "", phone: "", telegram: "" });
+    setCrm("");
     setMeetingMethod("zoom");
     setPhoneCountryCode("1");
     setErrors({});
@@ -266,6 +277,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
           fullName,
           email,
           companyName: companyName || undefined,
+          crm: crm || undefined,
           meetingMethod,
           phone: needsPhone ? `+${phoneCountryCode} ${values.phone.trim()}` : undefined,
           telegram: needsTelegram ? values.telegram.trim() : undefined,
@@ -446,6 +458,22 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                 maxLength={50}
               />
               {fieldError("companyName")}
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="crm">{t.crm}</Label>
+              <Select value={crm} onValueChange={setCrm}>
+                <SelectTrigger id="crm" className={cn(fieldClass, !crm && "text-muted-foreground")}>
+                  <SelectValue placeholder={t.crmPlaceholder} />
+                </SelectTrigger>
+                <SelectContent className="z-50 rounded-xl border-white/10 bg-card">
+                  {crmOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value} className="py-2.5">
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-1.5">

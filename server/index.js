@@ -70,7 +70,7 @@ app.post("/api/booking", async (req, res) => {
   }
 
   const {
-    fullName, email, companyName, meetingMethod, phone, telegram, selectedPlan, language,
+    fullName, email, companyName, crm, meetingMethod, phone, telegram, selectedPlan, language,
     utm_source, utm_medium, utm_campaign,
   } = Object.fromEntries(Object.entries(req.body || {}).map(([key, value]) => [key, oneLine(value)]));
 
@@ -86,6 +86,7 @@ app.post("/api/booking", async (req, res) => {
     `Name: ${fullName || "—"}`,
     `Email: ${email || "—"}`,
     `Company: ${companyName || "—"}`,
+    `CRM: ${crm || "—"}`,
     `Meeting method: ${meetingMethod || "—"}`,
   ];
   if (selectedPlan) lines.push(`Selected plan: ${selectedPlan}`);

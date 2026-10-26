@@ -2,12 +2,11 @@ import type { CSSProperties } from "react";
 import { Calendar, Star, ArrowUpRight, ShieldCheck, Clock, Plug } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
-import { CURRENCY, PACKAGES, formatMoney } from "@/lib/pricing";
 import { keepShortWords } from "@/lib/typography";
-import { format, useDict, useLocale } from "@/i18n";
+import { useDict, useLocale } from "@/i18n";
 import avatar from "@/assets/roman-avatar.jpg";
 
-const tools = ["Zendesk", "Freshdesk", "Jira", "Slack", "WhatsApp", "Telegram"];
+const tools = ["Attio", "HubSpot", "lemlist", "Aircall", "Fireflies", "Granola", "Gmail", "Slack", "Apollo", "RB2B", "n8n", "Make"];
 
 const highlightIcons = [Plug, Clock, ShieldCheck];
 
@@ -18,7 +17,6 @@ const HeroSection = () => {
   const t = useDict().hero;
   const locale = useLocale();
   const tidy = (text: string) => keepShortWords(text, locale);
-  const lowestPrice = formatMoney(locale, Math.min(...PACKAGES.map((p) => p.prices[CURRENCY[locale]])));
 
   return (
     <header id="hero" className="relative min-h-[92svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
@@ -45,7 +43,7 @@ const HeroSection = () => {
             className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-5 mx-auto leading-relaxed text-pretty"
             style={rise(2)}
           >
-            {tidy(format(t.intro, { price: lowestPrice }))}
+            {tidy(t.intro)}
           </p>
 
           <div className="animate-rise mt-8 flex flex-col items-center gap-5" style={rise(3)}>

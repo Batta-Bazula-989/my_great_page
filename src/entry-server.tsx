@@ -6,6 +6,7 @@ import { SITE_URL, pageByKey, pagesByLocale } from "./content";
 import type { Locale, TranslatedPage } from "./content/types";
 import { dictionaries, format } from "./i18n";
 import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
+import { WORK_LOCALES, caseStudies, workPath } from "./content/work";
 import { TOOL_IDS, TOOL_UPDATED, toolPath, toolsPath, type ToolId } from "./tools/registry";
 import { DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
 
@@ -41,7 +42,8 @@ const author = { "@type": "Person", "@id": `${SITE_URL}/#founder`, name: "Roman 
 const homeJsonLd = (locale: Locale): object[] => {
   const t = dictionaries[locale];
   const priceCurrency = CURRENCY[locale];
-  const lowest = Math.min(...PACKAGES.map((p) => p.prices[priceCurrency]));
+  // Packages without a confirmed price are listed without one.
+  const prices = PACKAGES.flatMap((p) => (p.prices ? [p.prices[priceCurrency]] : []));
   return [
     {
       "@context": "https://schema.org",
@@ -50,7 +52,7 @@ const homeJsonLd = (locale: Locale): object[] => {
       image: `${SITE_URL}/og-image.png`,
       description: t.meta.homeDescription,
       email: "romanzakharenko.r@gmail.com",
-      priceRange: format(t.pricing.from, { price: formatMoney(locale, lowest) }),
+      ...(prices.length && { priceRange: format(t.pricing.from, { price: formatMoney(locale, Math.min(...prices)) }) }),
       areaServed: "Worldwide",
       founder: author,
       sameAs: [
@@ -69,13 +71,15 @@ const homeJsonLd = (locale: Locale): object[] => {
             priceCurrency,
           },
           ...PACKAGES.map((pkg, i) => {
-            const amount = pkg.prices[priceCurrency];
+            const amount = pkg.prices?.[priceCurrency];
             return {
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: t.pricing.plans[i].name, description: t.pricing.plans[i].description },
-              ...(pkg.isMinimum
-                ? { priceSpecification: { "@type": "PriceSpecification", priceCurrency, minPrice: amount } }
-                : { price: amount, priceCurrency }),
+              ...(amount === undefined
+                ? {}
+                : pkg.isMinimum
+                  ? { priceSpecification: { "@type": "PriceSpecification", priceCurrency, minPrice: amount } }
+                  : { price: amount, priceCurrency }),
             };
           }),
         ],
@@ -295,7 +299,73 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolPath(l.code, id)) }))),
   }));
 
-  return [home, resources, toolsHub, ...tools, ...pages];
+  const workPages: PrerenderRoute[] = WORK_LOCALES.includes(locale)
+    ? [
+        {
+          ...base,
+          path: workPath(locale),
+          file: fileFor(locale, "work/index.html"),
+          title: t.work.metaTitle,
+          description: t.work.metaDescription,
+          lastmod: caseStudies.map((c) => c.updated).sort().at(-1),
+          ogType: "website",
+          changefreq: "monthly",
+          priority: "0.8",
+          alternates: [],
+          jsonLd: [
+            {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: t.work.title,
+              inLanguage: locale,
+              url: url(workPath(locale)),
+              publisher: business,
+              hasPart: caseStudies.map((c) => ({ "@type": "Article", headline: c.h1, url: url(workPath(locale, c.slug)) })),
+            },
+          ],
+        },
+        ...caseStudies.map(
+          (c): PrerenderRoute => ({
+            ...base,
+            path: workPath(locale, c.slug),
+            file: fileFor(locale, `work/${c.slug}.html`),
+            title: c.title,
+            description: c.description,
+            lastmod: c.updated,
+            ogType: "article",
+            changefreq: "monthly",
+            priority: "0.7",
+            alternates: [],
+            jsonLd: [
+              {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: c.h1,
+                description: c.description,
+                inLanguage: locale,
+                url: url(workPath(locale, c.slug)),
+                mainEntityOfPage: url(workPath(locale, c.slug)),
+                dateModified: c.updated,
+                author,
+                publisher: business,
+                image: `${SITE_URL}/og-image.png`,
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: t.seo.home, item: url(localePath(locale)) },
+                  { "@type": "ListItem", position: 2, name: t.work.label, item: url(workPath(locale)) },
+                  { "@type": "ListItem", position: 3, name: c.h1, item: url(workPath(locale, c.slug)) },
+                ],
+              },
+            ],
+          }),
+        ),
+      ]
+    : [];
+
+  return [home, resources, toolsHub, ...tools, ...workPages, ...pages];
 });
 
 // Privacy and Terms are English only; pre-rendering them gives each its own canonical URL and title.

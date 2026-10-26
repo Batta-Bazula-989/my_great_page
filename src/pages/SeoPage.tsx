@@ -1,24 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowUpRight, Calendar, ChevronDown, ChevronRight, Info, Star } from "lucide-react";
+import { ChevronDown, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BookingButton from "@/components/BookingButton";
-import { Button } from "@/components/ui/button";
+import { GuideBreadcrumb, GuideCta, OnThisPage, RelatedCards } from "@/components/GuideLayout";
+import { formatDate } from "@/lib/utils";
 import NotFound from "@/pages/NotFound";
 import { getSeoPage, headingId, pageByKey } from "@/content";
 import type { Block } from "@/content/types";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { useDict, useLocale } from "@/i18n";
 import { localeInfo, localePath } from "@/i18n/config";
-
-const formatDate = (iso: string, dateLocale: string) =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString(dateLocale, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
 
 const ContentBlock = ({ block }: { block: Block }) => {
   switch (block.type) {
@@ -91,19 +82,13 @@ const SeoPage = () => {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4">
-          <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto mb-6 text-sm text-muted-foreground">
-            <ol className="flex flex-wrap items-center gap-1.5">
-              <li>
-                <Link to={localePath(locale)} className="hover:text-primary transition-colors">{t.seo.home}</Link>
-              </li>
-              <ChevronRight className="w-3.5 h-3.5" aria-hidden />
-              <li>
-                <Link to={`${localePath(locale, "resources")}#${page.category}`} className="hover:text-primary transition-colors">{category}</Link>
-              </li>
-              <ChevronRight className="w-3.5 h-3.5" aria-hidden />
-              <li aria-current="page" className="text-foreground/80">{page.navLabel}</li>
-            </ol>
-          </nav>
+          <GuideBreadcrumb
+            items={[
+              { label: t.seo.home, to: localePath(locale) },
+              { label: category, to: `${localePath(locale, "resources")}#${page.category}` },
+              { label: page.navLabel },
+            ]}
+          />
 
           <div className="max-w-5xl mx-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px]">
             <article className="min-w-0">
@@ -160,27 +145,7 @@ const SeoPage = () => {
                   </div>
                 </section>
 
-                <section aria-labelledby="get-it-built" className="glass-panel rounded-[32px] p-6 md:p-10 text-center">
-                  <h2 id="get-it-built" className="font-display text-2xl md:text-3xl font-bold tracking-tight">
-                    {t.seo.ctaTitle}
-                  </h2>
-                  <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                    {t.seo.ctaText}
-                  </p>
-                  <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                    <BookingButton variant="hero" size="lg" className="rounded-full">
-                      <Calendar className="w-5 h-5" aria-hidden />
-                      {t.seo.ctaBook}
-                    </BookingButton>
-                    <Button variant="glass" size="lg" className="rounded-full" asChild>
-                      <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                        <Star className="w-5 h-5 text-primary" />
-                        {t.seo.ctaUpwork}
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </section>
+                <GuideCta />
 
                 <section aria-labelledby="sources">
                   <h2 id="sources" className="font-display text-xl font-bold mb-4">{t.seo.sources}</h2>
@@ -197,38 +162,22 @@ const SeoPage = () => {
               </div>
             </article>
 
-            <aside className="hidden lg:block">
-              <nav aria-label={t.seo.onThisPage} className="glass sticky top-28 rounded-2xl p-5 text-sm">
-                <p className="font-display font-semibold mb-3">{t.seo.onThisPage}</p>
-                <ul className="space-y-2">
-                  {page.sections.map((section) => (
-                    <li key={section.heading}>
-                      <a href={`#${headingId(section.heading)}`} className="text-muted-foreground hover:text-primary transition-colors">
-                        {section.heading}
-                      </a>
-                    </li>
-                  ))}
-                  <li>
-                    <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">{t.seo.faqShort}</a>
-                  </li>
-                </ul>
-              </nav>
-            </aside>
+            <OnThisPage
+              links={[
+                ...page.sections.map((section) => ({ id: headingId(section.heading), label: section.heading })),
+                { id: "faq", label: t.seo.faqShort },
+              ]}
+            />
           </div>
 
-          {related.length > 0 && (
-            <section aria-labelledby="related" className="max-w-5xl mx-auto mt-16">
-              <h2 id="related" className="font-display text-2xl font-bold mb-5">{t.seo.related}</h2>
-              <div className="grid gap-4 md:grid-cols-3">
-                {related.map((r) => (
-                  <Link key={r.key} to={localePath(locale, r.slug)} className="glass glass-hover rounded-2xl p-5 block">
-                    <span className="text-xs uppercase tracking-[0.18em] text-primary">{t.categories[r.category].label}</span>
-                    <span className="mt-2 block font-display font-semibold">{r.h1}</span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
+          <RelatedCards
+            items={related.map((r) => ({
+              key: r.key,
+              to: localePath(locale, r.slug),
+              label: t.categories[r.category].label,
+              title: r.h1,
+            }))}
+          />
         </div>
       </main>
       <Footer />
