@@ -154,65 +154,8 @@ const en = {
     cta: "Ask about this in a Health Check",
     from: "from {price}",
     included: "What's included",
-    groups: {
-      log: "Log sales activity",
-      capture: "Capture and clean",
-      move: "Move and custom",
-    },
     // Same order as PACKAGES in src/lib/pricing.ts. Names stay in English in every language.
     plans: [
-      {
-        name: "Reply Logging",
-        description: "lemlist email and LinkedIn replies logged on the right deal in your CRM.",
-        delivery: "Delivery 1 to 3 weeks",
-        included: [
-          "Finds or creates the company, person and deal",
-          "AI tags each reply as interested, basic reply or not interested",
-          "Existing deals get a note, nothing is overwritten",
-          "Optional alert in Slack or WhatsApp",
-        ],
-      },
-      {
-        name: "Call Logging",
-        description: "Aircall calls and transcripts on the right deal.",
-        delivery: "Delivery 1 to 3 weeks",
-        included: [
-          "A call note on the deal when each call ends",
-          "The full transcript added when Aircall finishes it (needs Aircall's AI Assist)",
-          "For Attio or HubSpot",
-        ],
-      },
-      {
-        name: "Meeting Notes Logging",
-        description: "Fireflies or Granola notes on the right deal or company.",
-        delivery: "Delivery 1 to 3 weeks",
-        included: [
-          "Matched to the company, people and deal by email domain",
-          "Internal meetings skipped",
-          "Notes already logged are never added twice",
-        ],
-      },
-      {
-        name: "Inbox and LinkedIn Logging",
-        description: "Customer emails from Gmail and LinkedIn messages in your CRM.",
-        delivery: "Delivery 1 to 3 weeks",
-        included: [
-          "Emails sorted by AI and matched to the person and deal",
-          "LinkedIn messages filtered to prospects only",
-          "Slack alert for new conversations",
-        ],
-      },
-      {
-        name: "Website Visitor Capture",
-        description: "RB2B website visitors scored and added to HubSpot.",
-        delivery: "Delivery 1 to 3 weeks",
-        included: [
-          "Each visitor scored against your ICP",
-          "Known leads logged in HubSpot and a Google Sheet",
-          "New contact and company created above your score threshold",
-          "Weekly recap email ranked by ICP score",
-        ],
-      },
       {
         name: "CRM Cleanup Sweep",
         description: "A daily job that keeps people, companies and deals connected.",
@@ -224,22 +167,13 @@ const en = {
         ],
       },
       {
-        name: "Migration",
-        description: "Off Relay.app, or from one CRM to another.",
-        delivery: "Scoped in your Health Check",
-        included: [
-          "Inventory of every workflow, ranked by priority",
-          "The workflows that matter rebuilt in n8n",
-          "Stage and field mapping between CRMs",
-        ],
-      },
-      {
         name: "Custom Automation",
         description: "Built around your workflows, tools and requirements.",
         delivery: "Delivery 1 to 3 weeks",
         included: [
-          "Scoped in your free Health Check",
-          "Fixed price agreed before work starts",
+          "Replies, calls and meeting notes logged on the right deal",
+          "Gmail and LinkedIn messages, website visitors, migrations",
+          "Scoped in your free Health Check, fixed price agreed before work starts",
           "Any tool with an API or webhooks",
         ],
       },

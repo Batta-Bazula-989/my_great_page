@@ -8,15 +8,7 @@ import { localeInfo } from "@/i18n/config";
 export type Currency = "USD" | "EUR" | "PLN" | "SEK";
 
 // The CRM and sales automation packages on the homepage.
-export type PackageId =
-  | "replyLogging"
-  | "callLogging"
-  | "meetingNotes"
-  | "inboxLinkedin"
-  | "visitors"
-  | "cleanup"
-  | "migration"
-  | "custom";
+export type PackageId = "cleanup" | "custom";
 
 export interface Package {
   id: PackageId;
@@ -28,13 +20,7 @@ export interface Package {
 
 // Same order as `pricing.plans` in the dictionaries.
 export const PACKAGES: Package[] = [
-  { id: "replyLogging" },
-  { id: "callLogging" },
-  { id: "meetingNotes" },
-  { id: "inboxLinkedin" },
-  { id: "visitors" },
   { id: "cleanup" },
-  { id: "migration", isMinimum: true },
   { id: "custom", isMinimum: true },
 ];
 

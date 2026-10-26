@@ -4,21 +4,12 @@ import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { useDict, useLocale } from "@/i18n";
 import en from "@/i18n/en";
-import { PACKAGES, packagePrice, type PackageId } from "@/lib/pricing";
+import { PACKAGES, packagePrice } from "@/lib/pricing";
 import { cn } from "@/lib/utils";
-
-// Packages grouped by the job they do. Three cards to a row on wide screens, so every card is the same width.
-const GROUPS: { key: "log" | "capture" | "move"; ids: PackageId[] }[] = [
-  { key: "log", ids: ["replyLogging", "callLogging", "meetingNotes"] },
-  { key: "capture", ids: ["inboxLinkedin", "visitors", "cleanup"] },
-  { key: "move", ids: ["migration", "custom"] },
-];
 
 const PricingSection = () => {
   const t = useDict().pricing;
   const locale = useLocale();
-
-  const planIndex = (id: PackageId) => PACKAGES.findIndex((p) => p.id === id);
 
   return (
     <Section id="pricing" eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
@@ -44,64 +35,53 @@ const PricingSection = () => {
         </div>
       </Reveal>
 
-      <div className="max-w-6xl mx-auto space-y-10">
-        {GROUPS.map((group) => (
-          <div key={group.key}>
-            <h3 className="mb-4 flex items-center gap-4 font-display text-lg font-semibold text-foreground/90">
-              {t.groups[group.key]}
-              <span className="h-px flex-1 bg-white/10" aria-hidden />
-            </h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {group.ids.map((id, i) => {
-                const index = planIndex(id);
-                const plan = t.plans[index];
-                const price = packagePrice(locale, id);
-                return (
-                  <Reveal key={id} delay={i * 0.06} className="h-full">
-                    <article className="glass glass-hover h-full rounded-[28px] p-7 flex flex-col hover:-translate-y-1.5">
-                      <h4 className="font-bold font-display text-foreground text-xl">{plan.name}</h4>
-                      <p className="text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-6xl mx-auto">
+        {PACKAGES.map(({ id }, index) => {
+          const plan = t.plans[index];
+          const price = packagePrice(locale, id);
+          return (
+            <Reveal key={id} delay={index * 0.06} className="h-full">
+              <article className="glass glass-hover h-full rounded-[28px] p-7 flex flex-col hover:-translate-y-1.5">
+                <h3 className="font-bold font-display text-foreground text-xl">{plan.name}</h3>
+                <p className="text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
 
-                      <div className="mt-5">
-                        <div
-                          className={cn(
-                            "font-bold font-display text-primary",
-                            price ? "leading-none text-4xl tabular-nums" : "leading-snug text-xl text-balance",
-                          )}
-                        >
-                          {price ?? t.noPrice}
-                        </div>
-                        <p className="mt-2 flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
-                          <span>{t.oneTimeFee}</span>
-                          <span aria-hidden>·</span>
-                          <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
-                          <span>{plan.delivery}</span>
-                        </p>
-                      </div>
+                <div className="mt-5">
+                  <div
+                    className={cn(
+                      "font-bold font-display text-primary",
+                      price ? "leading-none text-4xl tabular-nums" : "leading-snug text-xl text-balance",
+                    )}
+                  >
+                    {price ?? t.noPrice}
+                  </div>
+                  <p className="mt-2 flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
+                    <span>{t.oneTimeFee}</span>
+                    <span aria-hidden>·</span>
+                    <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
+                    <span>{plan.delivery}</span>
+                  </p>
+                </div>
 
-                      <ul aria-label={t.included} className="mt-5 space-y-2.5 flex-1">
-                        {plan.included.map((item) => (
-                          <li key={item} className="flex items-start gap-2.5 text-foreground/85 leading-relaxed">
-                            <Check className="w-4 h-4 text-primary shrink-0 mt-1" aria-hidden />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                <ul aria-label={t.included} className="mt-5 space-y-2.5 flex-1">
+                  {plan.included.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-foreground/85 leading-relaxed">
+                      <Check className="w-4 h-4 text-primary shrink-0 mt-1" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                      <BookingButton
-                        variant="package"
-                        className="mt-6 h-auto min-h-12 w-full rounded-full px-5 py-3 whitespace-normal text-center"
-                        topic={{ lead: en.pricing.plans[index].name, label: price ? `${plan.name} · ${price}` : plan.name }}
-                      >
-                        {t.cta}
-                      </BookingButton>
-                    </article>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+                <BookingButton
+                  variant="package"
+                  className="mt-6 h-auto min-h-12 w-full rounded-full px-5 py-3 whitespace-normal text-center"
+                  topic={{ lead: en.pricing.plans[index].name, label: price ? `${plan.name} · ${price}` : plan.name }}
+                >
+                  {t.cta}
+                </BookingButton>
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
 
       <p className="max-w-6xl mx-auto mt-8 text-center text-foreground/80">{t.allPackages}</p>
