@@ -391,6 +391,9 @@ const pl: Dictionary = {
       "Poradniki: chatboty AI w obsłudze klienta, routing zgłoszeń, automatyzacja Zendesk, Freshdesk i Jira, boty WhatsApp i Telegram, wskaźniki, SLA i przepisy UE.",
     title: "Blog o automatyzacji obsługi klienta",
     readArticle: "Przeczytaj artykuł",
+    all: "Wszystkie",
+    minRead: "{n} min czytania",
+    filterLabel: "Filtruj artykuły według tematu",
   },
   notFound: {
     title: "Nie znaleziono strony",

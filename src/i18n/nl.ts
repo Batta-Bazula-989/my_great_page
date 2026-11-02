@@ -395,6 +395,9 @@ const nl: Dictionary = {
       "Gidsen over AI-supportchatbots, ticketroutering, automatisering in Zendesk, Freshdesk en Jira, WhatsApp- en Telegrambots, supportmetrics, SLA's en EU-regels.",
     title: "Blog over klantenservice automatiseren",
     readArticle: "Lees het artikel",
+    all: "Alle",
+    minRead: "{n} min leestijd",
+    filterLabel: "Artikelen filteren op onderwerp",
   },
   notFound: {
     title: "Pagina niet gevonden",

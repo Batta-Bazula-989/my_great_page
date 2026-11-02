@@ -11,14 +11,8 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { useDict, useLocale } from "@/i18n";
 import { BLOG_PATH, localeInfo, localePath } from "@/i18n/config";
+import { formatDate, readingMinutes } from "@/lib/blog";
 
-const formatDate = (iso: string, dateLocale: string) =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString(dateLocale, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
 
 const ContentBlock = ({ block }: { block: Block }) => {
   switch (block.type) {
@@ -113,6 +107,8 @@ const SeoPage = () => {
                 <p className="mt-3 text-sm text-muted-foreground">
                   {t.seo.byline} · {t.seo.factsChecked}{" "}
                   <time dateTime={page.updated}>{formatDate(page.updated, localeInfo(locale).dateLocale)}</time>
+                  {" · "}
+                  {t.blog.minRead.replace("{n}", String(readingMinutes(page)))}
                 </p>
                 <p className="mt-6 text-lg text-foreground/85 leading-relaxed">{page.intro}</p>
               </header>

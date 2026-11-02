@@ -396,6 +396,9 @@ const fr: Dictionary = {
       "Guides : chatbots IA de support, routage des tickets, automatisation Zendesk, Freshdesk et Jira, bots WhatsApp et Telegram, indicateurs, SLA et règles de l'UE.",
     title: "Blog sur l'automatisation du support client",
     readArticle: "Lire l'article",
+    all: "Tous",
+    minRead: "{n} min de lecture",
+    filterLabel: "Filtrer les articles par thème",
   },
   notFound: {
     title: "Page introuvable",

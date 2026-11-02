@@ -391,6 +391,9 @@ const de: Dictionary = {
       "Ratgeber: KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk- und Jira-Automatisierung, WhatsApp- und Telegram-Bots, Support-Kennzahlen, SLAs, EU-Regeln.",
     title: "Blog zur Kundensupport-Automatisierung",
     readArticle: "Artikel lesen",
+    all: "Alle",
+    minRead: "{n} Min. Lesezeit",
+    filterLabel: "Artikel nach Thema filtern",
   },
   notFound: {
     title: "Seite nicht gefunden",

@@ -395,6 +395,9 @@ const sv: Dictionary = {
       "Guider om AI-chattbottar, ärenderoutning, automatisering i Zendesk, Freshdesk och Jira, WhatsApp- och Telegram-bottar, supportnyckeltal, SLA:er och EU-regler.",
     title: "Blogg om automatisering av kundtjänst",
     readArticle: "Läs artikeln",
+    all: "Alla",
+    minRead: "{n} min läsning",
+    filterLabel: "Filtrera artiklar efter ämne",
   },
   notFound: {
     title: "Sidan hittades inte",

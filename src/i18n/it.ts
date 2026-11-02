@@ -396,6 +396,9 @@ const it: Dictionary = {
       "Guide su chatbot AI per l'assistenza, smistamento dei ticket, automazione di Zendesk, Freshdesk e Jira, bot WhatsApp e Telegram, metriche, SLA e regole UE.",
     title: "Blog sull'automazione dell'assistenza clienti",
     readArticle: "Leggi l'articolo",
+    all: "Tutti",
+    minRead: "{n} min di lettura",
+    filterLabel: "Filtra gli articoli per argomento",
   },
   notFound: {
     title: "Pagina non trovata",

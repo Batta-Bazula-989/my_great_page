@@ -398,6 +398,9 @@ const en = {
       "Guides to AI support chatbots, ticket routing, Zendesk, Freshdesk and Jira automation, WhatsApp and Telegram bots, support metrics, SLAs and EU rules.",
     title: "Customer support automation blog",
     readArticle: "Read article",
+    all: "All",
+    minRead: "{n} min read",
+    filterLabel: "Filter articles by topic",
   },
   notFound: {
     title: "Page not found",
