@@ -394,10 +394,7 @@ const it: Dictionary = {
     metaTitle: "Blog sull'automazione dell'assistenza clienti | TascaLab",
     metaDescription:
       "Guide su chatbot AI per l'assistenza, smistamento dei ticket, automazione di Zendesk, Freshdesk e Jira, bot WhatsApp e Telegram, metriche, SLA e regole UE.",
-    eyebrow: "Blog",
     title: "Blog sull'automazione dell'assistenza clienti",
-    intro:
-      "Articoli verificati su bot di assistenza, smistamento dei ticket, automazione dell'helpdesk e del CRM, metriche del supporto e regole UE che si applicano. Ogni articolo elenca le fonti ufficiali su cui si basa.",
     readArticle: "Leggi l'articolo",
   },
   notFound: {

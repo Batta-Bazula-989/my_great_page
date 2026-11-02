@@ -396,10 +396,7 @@ const en = {
     metaTitle: "Customer Support Automation Blog | TascaLab",
     metaDescription:
       "Guides to AI support chatbots, ticket routing, Zendesk, Freshdesk and Jira automation, WhatsApp and Telegram bots, support metrics, SLAs and EU rules.",
-    eyebrow: "Blog",
     title: "Customer support automation blog",
-    intro:
-      "Fact-checked articles on support bots, ticket routing, helpdesk and CRM automation, support metrics and the EU rules that apply to them. Every article lists the official sources it is based on.",
     readArticle: "Read article",
   },
   notFound: {

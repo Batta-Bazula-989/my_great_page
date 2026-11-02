@@ -394,10 +394,7 @@ const fr: Dictionary = {
     metaTitle: "Blog sur l'automatisation du support client | TascaLab",
     metaDescription:
       "Guides : chatbots IA de support, routage des tickets, automatisation Zendesk, Freshdesk et Jira, bots WhatsApp et Telegram, indicateurs, SLA et règles de l'UE.",
-    eyebrow: "Blog",
     title: "Blog sur l'automatisation du support client",
-    intro:
-      "Des articles vérifiés sur les bots de support, le routage des tickets, l'automatisation des helpdesks et des CRM, les indicateurs de support et les règles européennes qui s'y appliquent. Chaque article cite les sources officielles sur lesquelles il s'appuie.",
     readArticle: "Lire l'article",
   },
   notFound: {

@@ -389,10 +389,7 @@ const pl: Dictionary = {
     metaTitle: "Blog o automatyzacji obsługi klienta | TascaLab",
     metaDescription:
       "Poradniki: chatboty AI w obsłudze klienta, routing zgłoszeń, automatyzacja Zendesk, Freshdesk i Jira, boty WhatsApp i Telegram, wskaźniki, SLA i przepisy UE.",
-    eyebrow: "Blog",
     title: "Blog o automatyzacji obsługi klienta",
-    intro:
-      "Sprawdzone pod kątem faktów artykuły o botach obsługi klienta, routingu zgłoszeń, automatyzacji helpdesku i CRM, wskaźnikach obsługi klienta i przepisach UE, które ich dotyczą. Każdy artykuł podaje oficjalne źródła, na których się opiera.",
     readArticle: "Przeczytaj artykuł",
   },
   notFound: {

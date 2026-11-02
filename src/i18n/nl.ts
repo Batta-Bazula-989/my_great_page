@@ -393,10 +393,7 @@ const nl: Dictionary = {
     metaTitle: "Blog over klantenservice automatiseren | TascaLab",
     metaDescription:
       "Gidsen over AI-supportchatbots, ticketroutering, automatisering in Zendesk, Freshdesk en Jira, WhatsApp- en Telegrambots, supportmetrics, SLA's en EU-regels.",
-    eyebrow: "Blog",
     title: "Blog over klantenservice automatiseren",
-    intro:
-      "Gecontroleerde artikelen over supportbots, ticketroutering, helpdesk- en CRM-automatisering, supportmetrics en de EU-regels die daarvoor gelden. Elk artikel vermeldt de officiële bronnen waarop het is gebaseerd.",
     readArticle: "Lees het artikel",
   },
   notFound: {

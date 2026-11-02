@@ -393,10 +393,7 @@ const sv: Dictionary = {
     metaTitle: "Blogg om automatisering av kundtjänst | TascaLab",
     metaDescription:
       "Guider om AI-chattbottar, ärenderoutning, automatisering i Zendesk, Freshdesk och Jira, WhatsApp- och Telegram-bottar, supportnyckeltal, SLA:er och EU-regler.",
-    eyebrow: "Blogg",
     title: "Blogg om automatisering av kundtjänst",
-    intro:
-      "Faktagranskade artiklar om supportbottar, ärenderoutning, helpdesk- och CRM-automatisering, supportnyckeltal och de EU-regler som gäller för dem. Varje artikel listar de officiella källor den bygger på.",
     readArticle: "Läs artikeln",
   },
   notFound: {

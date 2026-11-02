@@ -17,13 +17,7 @@ const Blog = () => {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4 max-w-6xl">
-          <header className="glass-panel rounded-[32px] p-6 md:p-10 mb-12 text-center">
-            <span className="section-eyebrow">{t.blog.eyebrow}</span>
-            <h1 className="text-3xl md:text-5xl font-bold font-display leading-tight tracking-tight">
-              {t.blog.title}
-            </h1>
-            <p className="mt-5 text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">{t.blog.intro}</p>
-          </header>
+          <h1 className="sr-only">{t.blog.title}</h1>
 
           <div className="space-y-14">
             {CATEGORY_IDS.map((id) => (
