@@ -203,7 +203,7 @@ A near-monochrome night palette with a single luminous aqua signal and backgroun
 
 ### Hierarchy
 - **Display** (700, 2.1rem → 2.25rem at 640px → 3rem at 768px → 3.75rem at 1024px, line-height 1.08, tracking −0.025em): the hero H1 only. One phrase may take the gradient. The 2.1rem phone step exists for the long German and Polish headlines.
-- **Headline** (700, 1.875rem → 2.6rem at 768px, line-height 1.25, tight tracking): every section title (`.section-title`). Page H1s on resource and tool pages use 1.875rem → 3rem.
+- **Headline** (700, 1.875rem → 2.6rem at 768px, line-height 1.25, tight tracking): every section title (`.section-title`). Page H1s on blog and tool pages use 1.875rem → 3rem.
 - **Title** (700, 1.125–1.25rem, line-height ~1.4): card, package and panel headings. FAQ questions drop to 1rem in Space Grotesk at medium weight.
 - **Price** (700, 2.25rem, line-height 1, Space Grotesk, Handoff Aqua): package prices. The Health Check's "Free" uses 1.875rem.
 - **Lead** (400, 1.125rem, line-height 1.625, Fog Grey): one intro paragraph under a section title, capped at 672px (`max-w-2xl`).
@@ -237,7 +237,7 @@ The page is a single centered column of sections on Tailwind's 4px spacing scale
   - Fit and Reviews: 1 column, 2 from 768px, 24–32px gap
   - Cards in a row match height (`h-full`)
 - **Hero:** at least 92% of the small-viewport height, vertically centered, with one large glass panel and an "Integrates with" chip row underneath.
-- **Reading pages** (resources, guides): an article column plus a 240px sticky sidebar from 1024px, inside a 1024px frame. Each one opens with a glass header panel.
+- **Reading pages** (blog index, articles): an article column plus a 240px sticky sidebar from 1024px, inside a 1024px frame. Each one opens with a glass header panel.
 - **Fixed navigation:** the nav floats 12px from the top. Scroll padding is 5rem so anchor targets clear it. All six links appear only from 1280px. Below that they collapse into a menu, and a "Health Check" booking pill stays visible next to the menu button.
 - **Phone booking bar:** below 768px on the homepage, a floating booking pill appears at the bottom once the hero has scrolled away, and hides again at the contact section. It waits for the cookie choice, so the two bars never stack.
 - **Breakpoints** (Tailwind defaults): 640, 768, 1024, 1280, and 1400px (container maximum).

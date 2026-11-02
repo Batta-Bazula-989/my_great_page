@@ -13,7 +13,7 @@ const pl: Dictionary = {
     pricing: "Ceny",
     reviews: "Opinie",
     faq: "FAQ",
-    resources: "Materiały",
+    blog: "Blog",
     cta: "Bezpłatny Health Check",
     openMenu: "Otwórz menu",
     closeMenu: "Zamknij menu",
@@ -303,8 +303,8 @@ const pl: Dictionary = {
     upwork: "Opinie na Upwork",
   },
   footer: {
-    resourcesNav: "Materiały",
-    allResources: "Wszystkie materiały",
+    blogNav: "Blog",
+    allPosts: "Wszystkie artykuły",
     upworkReviews: "Opinie na Upwork",
     privacy: "Polityka prywatności",
     terms: "Regulamin",
@@ -315,6 +315,7 @@ const pl: Dictionary = {
     channels: { label: "Według kanału", blurb: "Boty obsługi klienta tam, skąd piszą Twoi klienci." },
     basics: { label: "Podstawy", blurb: "Definicje, wskaźniki i zasady przekazywania rozmów." },
     guides: { label: "Poradniki i zgodność", blurb: "Porównania narzędzi i przepisy UE dotyczące botów obsługi klienta." },
+    crm: { label: "Automatyzacja CRM", blurb: "Workflowy, webhooki i API w Attio i HubSpot." },
   },
   cookie: {
     text: "Używam plików cookie do analityki i pomiaru reklam, aby zrozumieć, jak odwiedzający znajdują tę stronę i z niej korzystają.",
@@ -384,15 +385,15 @@ const pl: Dictionary = {
     onThisPage: "Na tej stronie",
     related: "Powiązane",
   },
-  resources: {
-    metaTitle: "Materiały o automatyzacji obsługi klienta | TascaLab",
+  blog: {
+    metaTitle: "Blog o automatyzacji obsługi klienta | TascaLab",
     metaDescription:
       "Poradniki: chatboty AI w obsłudze klienta, routing zgłoszeń, automatyzacja Zendesk, Freshdesk i Jira, boty WhatsApp i Telegram, wskaźniki, SLA i przepisy UE.",
-    eyebrow: "Materiały",
-    title: "Materiały o automatyzacji obsługi klienta",
+    eyebrow: "Blog",
+    title: "Blog o automatyzacji obsługi klienta",
     intro:
-      "Sprawdzone pod kątem faktów poradniki o botach obsługi klienta, routingu zgłoszeń, automatyzacji helpdesku, wskaźnikach obsługi klienta i przepisach UE, które ich dotyczą. Każda strona podaje oficjalne źródła, na których się opiera.",
-    readGuide: "Przeczytaj poradnik",
+      "Sprawdzone pod kątem faktów artykuły o botach obsługi klienta, routingu zgłoszeń, automatyzacji helpdesku i CRM, wskaźnikach obsługi klienta i przepisach UE, które ich dotyczą. Każdy artykuł podaje oficjalne źródła, na których się opiera.",
+    readArticle: "Przeczytaj artykuł",
   },
   notFound: {
     title: "Nie znaleziono strony",

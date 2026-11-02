@@ -13,7 +13,7 @@ const sv: Dictionary = {
     pricing: "Priser",
     reviews: "Omdömen",
     faq: "FAQ",
-    resources: "Resurser",
+    blog: "Blogg",
     cta: "Kostnadsfri Health Check",
     openMenu: "Öppna menyn",
     closeMenu: "Stäng menyn",
@@ -307,8 +307,8 @@ const sv: Dictionary = {
     upwork: "Omdömen på Upwork",
   },
   footer: {
-    resourcesNav: "Resurser",
-    allResources: "Alla resurser",
+    blogNav: "Blogg",
+    allPosts: "Alla artiklar",
     upworkReviews: "Omdömen på Upwork",
     privacy: "Integritetspolicy",
     terms: "Användarvillkor",
@@ -319,6 +319,7 @@ const sv: Dictionary = {
     channels: { label: "Efter kanal", blurb: "Supportbottar för de kanaler dina kunder skriver i." },
     basics: { label: "Grunderna", blurb: "Definitioner, nyckeltal och hur överlämningar fungerar." },
     guides: { label: "Guider & regelefterlevnad", blurb: "Verktygsjämförelser och EU-regler för supportbottar." },
+    crm: { label: "CRM-automatisering", blurb: "Arbetsflöden, webhooks och API:er i Attio och HubSpot." },
   },
   cookie: {
     text: "Jag använder cookies för analys och annonsmätning för att förstå hur besökare hittar och använder den här webbplatsen.",
@@ -388,15 +389,15 @@ const sv: Dictionary = {
     onThisPage: "På den här sidan",
     related: "Relaterat",
   },
-  resources: {
-    metaTitle: "Resurser för automatisering av kundtjänst | TascaLab",
+  blog: {
+    metaTitle: "Blogg om automatisering av kundtjänst | TascaLab",
     metaDescription:
       "Guider om AI-chattbottar, ärenderoutning, automatisering i Zendesk, Freshdesk och Jira, WhatsApp- och Telegram-bottar, supportnyckeltal, SLA:er och EU-regler.",
-    eyebrow: "Resurser",
-    title: "Resurser för automatisering av kundtjänst",
+    eyebrow: "Blogg",
+    title: "Blogg om automatisering av kundtjänst",
     intro:
-      "Faktagranskade guider om supportbottar, ärenderoutning, helpdesk-automatisering, supportnyckeltal och de EU-regler som gäller för dem. Varje sida listar de officiella källor den bygger på.",
-    readGuide: "Läs guiden",
+      "Faktagranskade artiklar om supportbottar, ärenderoutning, helpdesk- och CRM-automatisering, supportnyckeltal och de EU-regler som gäller för dem. Varje artikel listar de officiella källor den bygger på.",
+    readArticle: "Läs artikeln",
   },
   notFound: {
     title: "Sidan hittades inte",

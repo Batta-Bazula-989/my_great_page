@@ -15,7 +15,7 @@ const en = {
     pricing: "Prices",
     reviews: "Reviews",
     faq: "FAQ",
-    resources: "Resources",
+    blog: "Blog",
     cta: "Free Health Check",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -310,8 +310,8 @@ const en = {
     upwork: "Upwork Reviews",
   },
   footer: {
-    resourcesNav: "Resources",
-    allResources: "All Resources",
+    blogNav: "Blog",
+    allPosts: "All Articles",
     upworkReviews: "Upwork Reviews",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
@@ -322,6 +322,7 @@ const en = {
     channels: { label: "By Channel", blurb: "Support bots for the places your customers write from." },
     basics: { label: "Learn the Basics", blurb: "Definitions, metrics and how handoffs work." },
     guides: { label: "Guides & Compliance", blurb: "Tool comparisons and EU rules for support bots." },
+    crm: { label: "CRM Automation", blurb: "Workflows, webhooks and APIs in Attio and HubSpot." },
   },
   cookie: {
     text: "I use cookies for analytics and ad measurement to understand how visitors find and use this site.",
@@ -391,15 +392,15 @@ const en = {
     onThisPage: "On this page",
     related: "Related",
   },
-  resources: {
-    metaTitle: "Customer Support Automation Resources | TascaLab",
+  blog: {
+    metaTitle: "Customer Support Automation Blog | TascaLab",
     metaDescription:
       "Guides to AI support chatbots, ticket routing, Zendesk, Freshdesk and Jira automation, WhatsApp and Telegram bots, support metrics, SLAs and EU rules.",
-    eyebrow: "Resources",
-    title: "Customer support automation resources",
+    eyebrow: "Blog",
+    title: "Customer support automation blog",
     intro:
-      "Fact-checked guides on support bots, ticket routing, helpdesk automation, support metrics and the EU rules that apply to them. Every page lists the official sources it is based on.",
-    readGuide: "Read guide",
+      "Fact-checked articles on support bots, ticket routing, helpdesk and CRM automation, support metrics and the EU rules that apply to them. Every article lists the official sources it is based on.",
+    readArticle: "Read article",
   },
   notFound: {
     title: "Page not found",

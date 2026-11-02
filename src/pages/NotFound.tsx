@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, Calculator, CalendarCheck, Home } from "lucide-re
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LocaleContext, dictionaries } from "@/i18n";
-import { localeFromPath, localePath } from "@/i18n/config";
+import { BLOG_PATH, localeFromPath, localePath } from "@/i18n/config";
 import { toolsPath } from "@/tools/registry";
 
 // Shown for any unknown address. The server returns it with a 404 status (dist/404.html, dist/<lang>/404.html).
@@ -20,7 +20,7 @@ const NotFound = () => {
   const links = [
     { to: localePath(locale), label: t.notFound.back, icon: Home },
     { to: toolsPath(locale), label: t.tools.hub.title, icon: Calculator },
-    { to: localePath(locale, "resources"), label: t.resources.title, icon: BookOpen },
+    { to: localePath(locale, BLOG_PATH), label: t.blog.title, icon: BookOpen },
     { to: `${localePath(locale)}#contact`, label: t.nav.cta, icon: CalendarCheck },
   ];
 

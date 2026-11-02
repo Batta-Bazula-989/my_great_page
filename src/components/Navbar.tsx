@@ -8,7 +8,7 @@ import { LanguageList, LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ToolsList, ToolsMenu } from "@/components/ToolsMenu";
 import { useBooking } from "@/hooks/use-booking";
 import { useDict, useLocale } from "@/i18n";
-import { localePath } from "@/i18n/config";
+import { BLOG_PATH, localePath } from "@/i18n/config";
 
 const Navbar = () => {
   const t = useDict();
@@ -21,7 +21,7 @@ const Navbar = () => {
     { href: `${home}#pricing`, label: t.nav.pricing },
     { href: `${home}#reviews`, label: t.nav.reviews },
     { href: `${home}#faq`, label: t.nav.faq },
-    { href: localePath(locale, "resources"), label: t.nav.resources },
+    { href: localePath(locale, BLOG_PATH), label: t.nav.blog },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

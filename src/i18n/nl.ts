@@ -13,7 +13,7 @@ const nl: Dictionary = {
     pricing: "Prijzen",
     reviews: "Reviews",
     faq: "FAQ",
-    resources: "Gidsen",
+    blog: "Blog",
     cta: "Gratis Health Check",
     openMenu: "Menu openen",
     closeMenu: "Menu sluiten",
@@ -307,8 +307,8 @@ const nl: Dictionary = {
     upwork: "Reviews op Upwork",
   },
   footer: {
-    resourcesNav: "Gidsen",
-    allResources: "Alle gidsen",
+    blogNav: "Blog",
+    allPosts: "Alle artikelen",
     upworkReviews: "Reviews op Upwork",
     privacy: "Privacybeleid",
     terms: "Servicevoorwaarden",
@@ -319,6 +319,7 @@ const nl: Dictionary = {
     channels: { label: "Per kanaal", blurb: "Supportbots voor de kanalen waarlangs je klanten je berichten sturen." },
     basics: { label: "De basis", blurb: "Definities, metrics en hoe overdrachten werken." },
     guides: { label: "Gidsen & compliance", blurb: "Vergelijkingen van tools en EU-regels voor supportbots." },
+    crm: { label: "CRM-automatisering", blurb: "Workflows, webhooks en API's in Attio en HubSpot." },
   },
   cookie: {
     text: "Ik gebruik cookies voor analyse en advertentiemeting, zodat ik begrijp hoe bezoekers deze site vinden en gebruiken.",
@@ -388,15 +389,15 @@ const nl: Dictionary = {
     onThisPage: "Op deze pagina",
     related: "Gerelateerd",
   },
-  resources: {
-    metaTitle: "Gidsen over klantenservice automatiseren | TascaLab",
+  blog: {
+    metaTitle: "Blog over klantenservice automatiseren | TascaLab",
     metaDescription:
       "Gidsen over AI-supportchatbots, ticketroutering, automatisering in Zendesk, Freshdesk en Jira, WhatsApp- en Telegrambots, supportmetrics, SLA's en EU-regels.",
-    eyebrow: "Gidsen",
-    title: "Gidsen over klantenservice automatiseren",
+    eyebrow: "Blog",
+    title: "Blog over klantenservice automatiseren",
     intro:
-      "Gecontroleerde gidsen over supportbots, ticketroutering, helpdeskautomatisering, supportmetrics en de EU-regels die daarvoor gelden. Elke pagina vermeldt de officiële bronnen waarop hij is gebaseerd.",
-    readGuide: "Lees de gids",
+      "Gecontroleerde artikelen over supportbots, ticketroutering, helpdesk- en CRM-automatisering, supportmetrics en de EU-regels die daarvoor gelden. Elk artikel vermeldt de officiële bronnen waarop het is gebaseerd.",
+    readArticle: "Lees het artikel",
   },
   notFound: {
     title: "Pagina niet gevonden",

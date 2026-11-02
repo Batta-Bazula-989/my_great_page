@@ -5,12 +5,12 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import SeoPage from "./pages/SeoPage";
-import Resources from "./pages/Resources";
+import Blog from "./pages/Blog";
 import ToolsHub from "./pages/ToolsHub";
 import ToolPage from "./pages/ToolPage";
 import BookingProvider from "@/components/BookingProvider";
 import { LocaleContext, dictionaries } from "@/i18n";
-import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
+import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
 import type { Locale } from "@/content/types";
 
 const LocaleLayout = ({ locale }: { locale: Locale }) => {
@@ -34,7 +34,7 @@ export const AppRoutes = () => (
     {LOCALES.map(({ code }) => (
       <Route key={code} path={code === DEFAULT_LOCALE ? "/" : `/${code}`} element={<LocaleLayout locale={code} />}>
         <Route index element={<Index />} />
-        <Route path="resources" element={<Resources />} />
+        <Route path={BLOG_PATH} element={<Blog />} />
         <Route path={dictionaries[code].tools.hub.slug} element={<ToolsHub />} />
         <Route path={`${dictionaries[code].tools.hub.slug}/:toolSlug`} element={<ToolPage />} />
         <Route path=":slug" element={<SeoPage />} />

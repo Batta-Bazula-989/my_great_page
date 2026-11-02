@@ -15,17 +15,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -540,6 +540,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/attio-workflows-automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/attio-vs-hubspot-automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/de/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -554,17 +584,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/de/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/de/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1079,6 +1109,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/de/attio-workflows-automatisierung</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/de/attio-vs-hubspot-automatisierung</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/fr/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -1093,17 +1153,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/fr/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/fr/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1618,6 +1678,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/fr/workflows-attio-automatisation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/fr/attio-vs-hubspot-automatisation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/es/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -1632,17 +1722,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/es/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/es/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2157,6 +2247,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/es/automatizacion-workflows-attio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/es/attio-vs-hubspot-automatizacion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/it/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -2171,17 +2291,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/it/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/it/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2696,6 +2816,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/it/automazione-workflow-attio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/it/attio-vs-hubspot-automazione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/nl/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -2710,17 +2860,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/nl/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/nl/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3235,6 +3385,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/nl/attio-workflows-automatisering</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/nl/attio-vs-hubspot-automatisering</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/pl/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -3249,17 +3429,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/pl/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/pl/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3774,6 +3954,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tascalab.com/pl/automatyzacja-attio-workflows</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tascalab.com/sv/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/" />
@@ -3788,17 +3998,17 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tascalab.com/sv/resources</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/resources" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/resources" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/resources" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/resources" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/resources" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/resources" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/resources" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/resources" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/resources" />
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://www.tascalab.com/sv/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4309,6 +4519,36 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/sv/attio-workflows-automatisering</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-workflows-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-workflows-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/workflows-attio-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/automatizacion-workflows-attio" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/automazione-workflow-attio" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/sv/attio-vs-hubspot-automatisering</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/attio-vs-hubspot-automatisierung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/attio-vs-hubspot-automatisation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/attio-vs-hubspot-automatizacion" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/attio-vs-hubspot-automazione" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

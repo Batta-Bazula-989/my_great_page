@@ -13,7 +13,7 @@ const es: Dictionary = {
     pricing: "Precios",
     reviews: "Reseñas",
     faq: "FAQ",
-    resources: "Recursos",
+    blog: "Blog",
     cta: "Health Check gratuito",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
@@ -307,8 +307,8 @@ const es: Dictionary = {
     upwork: "Reseñas en Upwork",
   },
   footer: {
-    resourcesNav: "Recursos",
-    allResources: "Todos los recursos",
+    blogNav: "Blog",
+    allPosts: "Todos los artículos",
     upworkReviews: "Reseñas en Upwork",
     privacy: "Política de privacidad",
     terms: "Condiciones del servicio",
@@ -319,6 +319,7 @@ const es: Dictionary = {
     channels: { label: "Por canal", blurb: "Bots de soporte para los canales desde los que te escriben tus clientes." },
     basics: { label: "Conceptos básicos", blurb: "Definiciones, métricas y cómo funcionan los traspasos." },
     guides: { label: "Guías y normativa", blurb: "Comparativas de herramientas y normas de la UE para bots de soporte." },
+    crm: { label: "Automatización del CRM", blurb: "Workflows, webhooks y API en Attio y HubSpot." },
   },
   cookie: {
     text: "Uso cookies de analítica y de medición publicitaria para entender cómo llegan los visitantes a este sitio y cómo lo usan.",
@@ -388,15 +389,15 @@ const es: Dictionary = {
     onThisPage: "En esta página",
     related: "Relacionado",
   },
-  resources: {
-    metaTitle: "Recursos de automatización del soporte | TascaLab",
+  blog: {
+    metaTitle: "Blog de automatización del soporte | TascaLab",
     metaDescription:
       "Guías sobre chatbots de soporte con IA, enrutamiento de tickets, Zendesk, Freshdesk y Jira, bots de WhatsApp y Telegram, métricas, SLA y normas de la UE.",
-    eyebrow: "Recursos",
-    title: "Recursos sobre automatización de la atención al cliente",
+    eyebrow: "Blog",
+    title: "Blog sobre automatización de la atención al cliente",
     intro:
-      "Guías verificadas sobre bots de soporte, enrutamiento de tickets, automatización del helpdesk, métricas de soporte y las normas de la UE que se les aplican. Cada página indica las fuentes oficiales en las que se basa.",
-    readGuide: "Leer guía",
+      "Artículos verificados sobre bots de soporte, enrutamiento de tickets, automatización del helpdesk y del CRM, métricas de soporte y las normas de la UE que se les aplican. Cada artículo indica las fuentes oficiales en las que se basa.",
+    readArticle: "Leer artículo",
   },
   notFound: {
     title: "Página no encontrada",

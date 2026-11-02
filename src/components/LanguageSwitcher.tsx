@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { getSeoPage, pageByKey } from "@/content";
 import type { Locale } from "@/content/types";
-import { DEFAULT_LOCALE, LOCALES, localeFromPath, localeInfo, localePath } from "@/i18n/config";
+import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, localeFromPath, localeInfo, localePath } from "@/i18n/config";
 import { dictionaries, useDict } from "@/i18n";
 import { toolBySlug, toolPath, toolsPath } from "@/tools/registry";
 
@@ -19,7 +19,7 @@ const useAlternatePath = () => {
 
   return (target: Locale) => {
     if (rest === "") return localePath(target);
-    if (rest === "resources") return localePath(target, "resources");
+    if (rest === BLOG_PATH) return localePath(target, BLOG_PATH);
     const [first, second] = rest.split("/");
     if (first === dictionaries[current].tools.hub.slug) {
       const tool = toolBySlug(current, second);

@@ -21,6 +21,9 @@ export const LOCALES: LocaleInfo[] = [
 
 export const DEFAULT_LOCALE: Locale = "en";
 
+// The article index, at /blog and /<locale>/blog. It was /resources until November 2026; the server redirects the old URLs.
+export const BLOG_PATH = "blog";
+
 export const localeInfo = (code: Locale) => LOCALES.find((l) => l.code === code)!;
 
 // "/" + optional locale prefix + path. Locale homes end with a slash (/de/) so static hosting

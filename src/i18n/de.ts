@@ -13,7 +13,7 @@ const de: Dictionary = {
     pricing: "Preise",
     reviews: "Bewertungen",
     faq: "FAQ",
-    resources: "Ressourcen",
+    blog: "Blog",
     cta: "Kostenloser Health Check",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
@@ -303,8 +303,8 @@ const de: Dictionary = {
     upwork: "Upwork-Bewertungen",
   },
   footer: {
-    resourcesNav: "Ressourcen",
-    allResources: "Alle Ressourcen",
+    blogNav: "Blog",
+    allPosts: "Alle Artikel",
     upworkReviews: "Upwork-Bewertungen",
     privacy: "Datenschutzerklärung",
     terms: "Nutzungsbedingungen",
@@ -315,6 +315,7 @@ const de: Dictionary = {
     channels: { label: "Nach Kanal", blurb: "Support-Bots für die Kanäle, über die Ihre Kunden schreiben." },
     basics: { label: "Grundlagen", blurb: "Definitionen, Kennzahlen und wie Übergaben funktionieren." },
     guides: { label: "Ratgeber & Compliance", blurb: "Tool-Vergleiche und EU-Regeln für Support-Bots." },
+    crm: { label: "CRM-Automatisierung", blurb: "Workflows, Webhooks und APIs in Attio und HubSpot." },
   },
   cookie: {
     text: "Ich verwende Cookies für Analysen und Anzeigenmessung, um zu verstehen, wie Besucher diese Website finden und nutzen.",
@@ -384,15 +385,15 @@ const de: Dictionary = {
     onThisPage: "Auf dieser Seite",
     related: "Verwandte Themen",
   },
-  resources: {
-    metaTitle: "Ressourcen zur Kundensupport-Automatisierung | TascaLab",
+  blog: {
+    metaTitle: "Blog zur Kundensupport-Automatisierung | TascaLab",
     metaDescription:
       "Ratgeber: KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk- und Jira-Automatisierung, WhatsApp- und Telegram-Bots, Support-Kennzahlen, SLAs, EU-Regeln.",
-    eyebrow: "Ressourcen",
-    title: "Ressourcen zur Kundensupport-Automatisierung",
+    eyebrow: "Blog",
+    title: "Blog zur Kundensupport-Automatisierung",
     intro:
-      "Faktengeprüfte Ratgeber zu Support-Bots, Ticket-Routing, Helpdesk-Automatisierung, Support-Kennzahlen und den EU-Regeln, die dafür gelten. Jede Seite nennt die offiziellen Quellen, auf denen sie beruht.",
-    readGuide: "Ratgeber lesen",
+      "Faktengeprüfte Artikel zu Support-Bots, Ticket-Routing, Helpdesk- und CRM-Automatisierung, Support-Kennzahlen und den EU-Regeln, die dafür gelten. Jeder Artikel nennt die offiziellen Quellen, auf denen er beruht.",
+    readArticle: "Artikel lesen",
   },
   notFound: {
     title: "Seite nicht gefunden",

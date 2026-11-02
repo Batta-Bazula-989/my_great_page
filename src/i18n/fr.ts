@@ -13,7 +13,7 @@ const fr: Dictionary = {
     pricing: "Tarifs",
     reviews: "Avis",
     faq: "FAQ",
-    resources: "Ressources",
+    blog: "Blog",
     cta: "Health Check gratuit",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
@@ -307,8 +307,8 @@ const fr: Dictionary = {
     upwork: "Avis Upwork",
   },
   footer: {
-    resourcesNav: "Ressources",
-    allResources: "Toutes les ressources",
+    blogNav: "Blog",
+    allPosts: "Tous les articles",
     upworkReviews: "Avis Upwork",
     privacy: "Politique de confidentialité",
     terms: "Conditions d'utilisation",
@@ -319,6 +319,7 @@ const fr: Dictionary = {
     channels: { label: "Par canal", blurb: "Des bots de support là où vos clients vous écrivent." },
     basics: { label: "Les bases", blurb: "Définitions, indicateurs et fonctionnement des transferts." },
     guides: { label: "Guides et conformité", blurb: "Comparatifs d'outils et règles européennes pour les bots de support." },
+    crm: { label: "Automatisation CRM", blurb: "Workflows, webhooks et API dans Attio et HubSpot." },
   },
   cookie: {
     text: "J'utilise des cookies de mesure d'audience et de mesure publicitaire pour comprendre comment les visiteurs trouvent et utilisent ce site.",
@@ -389,15 +390,15 @@ const fr: Dictionary = {
     onThisPage: "Sur cette page",
     related: "Voir aussi",
   },
-  resources: {
-    metaTitle: "Ressources sur l'automatisation du support client | TascaLab",
+  blog: {
+    metaTitle: "Blog sur l'automatisation du support client | TascaLab",
     metaDescription:
       "Guides : chatbots IA de support, routage des tickets, automatisation Zendesk, Freshdesk et Jira, bots WhatsApp et Telegram, indicateurs, SLA et règles de l'UE.",
-    eyebrow: "Ressources",
-    title: "Ressources sur l'automatisation du support client",
+    eyebrow: "Blog",
+    title: "Blog sur l'automatisation du support client",
     intro:
-      "Des guides vérifiés sur les bots de support, le routage des tickets, l'automatisation des helpdesks, les indicateurs de support et les règles européennes qui s'y appliquent. Chaque page cite les sources officielles sur lesquelles elle s'appuie.",
-    readGuide: "Lire le guide",
+      "Des articles vérifiés sur les bots de support, le routage des tickets, l'automatisation des helpdesks et des CRM, les indicateurs de support et les règles européennes qui s'y appliquent. Chaque article cite les sources officielles sur lesquelles il s'appuie.",
+    readArticle: "Lire l'article",
   },
   notFound: {
     title: "Page introuvable",

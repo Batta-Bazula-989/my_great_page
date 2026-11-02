@@ -25,7 +25,7 @@ Every call to action on the site leads to the free **Health Check**: a 30-minute
 
 Two supporting surfaces bring in search traffic and lead back to the Health Check:
 
-- Fact-checked resource guides covering services, helpdesks, channels, basics, and guides and compliance
+- Fact-checked blog articles (at `/blog`, formerly `/resources`) covering services, helpdesks, channels, basics, guides and compliance, and CRM automation (Attio, HubSpot)
 - Free calculators for AI support agent cost, WhatsApp Business cost and SLAs
 
 ## Positioning
@@ -39,7 +39,7 @@ Two supporting surfaces bring in search traffic and lead back to the Health Chec
 
 ## Operating Context
 
-- **Buyer path:** visitors arrive from search (resource pages and calculators), paid ads (GTM, UTM capture in `src/utils/utm.ts`), Upwork and LinkedIn. They land on the homepage or a resource page and open the booking modal, which asks for name, work email, company, and preferred meeting method (Zoom by default, or Google Meet, phone, WhatsApp, Telegram). People who choose Zoom or Google Meet then go on to Calendly to pick a time. The lead goes to Roman's Telegram via `server/index.js`. After that come the call, the written report, a fixed-price package, delivery in 1–3 weeks, and 30 days of support.
+- **Buyer path:** visitors arrive from search (blog articles and calculators), paid ads (GTM, UTM capture in `src/utils/utm.ts`), Upwork and LinkedIn. They land on the homepage or a blog article and open the booking modal, which asks for name, work email, company, and preferred meeting method (Zoom by default, or Google Meet, phone, WhatsApp, Telegram). People who choose Zoom or Google Meet then go on to Calendly to pick a time. The lead goes to Roman's Telegram via `server/index.js`. After that come the call, the written report, a fixed-price package, delivery in 1–3 weeks, and 30 days of support.
 - **Tools in the client's world:** Zendesk, Freshdesk, Jira Service Management, Slack, n8n (self-hosted or cloud), Make, AI providers (Anthropic Claude is quoted), Retell AI for voice, WhatsApp, Telegram, Messenger and Instagram.
 - **EU buyers check GDPR before buying.** There are two setups:
   - Runs in the client's own accounts (the default)

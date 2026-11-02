@@ -158,6 +158,9 @@ app.use((req, res, next) => {
     return res.redirect(301, `https://${CANONICAL_HOST}${target}${query}`);
   }
   if (target !== req.path) return res.redirect(301, `${target}${query}`);
+  // The article index moved from /resources to /blog in November 2026.
+  const moved = req.path.match(/^(\/(?:de|fr|es|it|nl|pl|sv))?\/resources\/?$/);
+  if (moved) return res.redirect(301, `${moved[1] ?? ""}/blog${query}`);
   next();
 });
 

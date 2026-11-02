@@ -1,7 +1,7 @@
 // Shape of the SEO landing/guide pages. Content lives in src/content/pages/*.ts,
 // is rendered by src/pages/SeoPage.tsx and pre-rendered to static HTML at build time.
 
-export type CategoryId = "services" | "helpdesks" | "channels" | "basics" | "guides";
+export type CategoryId = "services" | "helpdesks" | "channels" | "basics" | "guides" | "crm";
 
 export type Block =
   | { type: "p"; text: string }

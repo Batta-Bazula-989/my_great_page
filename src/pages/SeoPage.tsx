@@ -10,7 +10,7 @@ import type { Block } from "@/content/types";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { useDict, useLocale } from "@/i18n";
-import { localeInfo, localePath } from "@/i18n/config";
+import { BLOG_PATH, localeInfo, localePath } from "@/i18n/config";
 
 const formatDate = (iso: string, dateLocale: string) =>
   new Date(`${iso}T00:00:00Z`).toLocaleDateString(dateLocale, {
@@ -98,7 +98,7 @@ const SeoPage = () => {
               </li>
               <ChevronRight className="w-3.5 h-3.5" aria-hidden />
               <li>
-                <Link to={`${localePath(locale, "resources")}#${page.category}`} className="hover:text-primary transition-colors">{category}</Link>
+                <Link to={`${localePath(locale, BLOG_PATH)}#${page.category}`} className="hover:text-primary transition-colors">{category}</Link>
               </li>
               <ChevronRight className="w-3.5 h-3.5" aria-hidden />
               <li aria-current="page" className="text-foreground/80">{page.navLabel}</li>

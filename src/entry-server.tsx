@@ -7,7 +7,7 @@ import type { Locale, TranslatedPage } from "./content/types";
 import { dictionaries, format } from "./i18n";
 import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
 import { TOOL_IDS, TOOL_UPDATED, toolPath, toolsPath, type ToolId } from "./tools/registry";
-import { DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
+import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
 
 export { contentProblems } from "./content/validate";
 
@@ -131,7 +131,7 @@ const pageJsonLd = (locale: Locale, page: TranslatedPage): object[] => {
           "@type": "ListItem",
           position: 2,
           name: t.categories[page.category].label,
-          item: `${url(localePath(locale, "resources"))}#${page.category}`,
+          item: `${url(localePath(locale, BLOG_PATH))}#${page.category}`,
         },
         { "@type": "ListItem", position: 3, name: page.navLabel, item: url(path) },
       ],
@@ -210,24 +210,24 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     priority: "1.0",
   };
 
-  const resources: PrerenderRoute = {
+  const blog: PrerenderRoute = {
     ...base,
-    path: localePath(locale, "resources"),
-    file: fileFor(locale, "resources.html"),
-    title: t.resources.metaTitle,
-    description: t.resources.metaDescription,
+    path: localePath(locale, BLOG_PATH),
+    file: fileFor(locale, `${BLOG_PATH}.html`),
+    title: t.blog.metaTitle,
+    description: t.blog.metaDescription,
     lastmod: latest(locale),
     ogType: "website",
     changefreq: "weekly",
     priority: "0.8",
-    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code, "resources")) }))),
+    alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code, BLOG_PATH)) }))),
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: t.resources.title,
+        name: t.blog.title,
         inLanguage: locale,
-        url: url(localePath(locale, "resources")),
+        url: url(localePath(locale, BLOG_PATH)),
         publisher: business,
         hasPart: pagesByLocale[locale].map((p) => ({
           "@type": "Article",
@@ -295,7 +295,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolPath(l.code, id)) }))),
   }));
 
-  return [home, resources, toolsHub, ...tools, ...pages];
+  return [home, blog, toolsHub, ...tools, ...pages];
 });
 
 // Privacy and Terms are English only; pre-rendering them gives each its own canonical URL and title.

@@ -4,6 +4,7 @@ import { helpdeskPages } from "./pages/helpdesks";
 import { channelPages } from "./pages/channels";
 import { basicsPages } from "./pages/basics";
 import { guidePages } from "./pages/guides";
+import { crmPages } from "./pages/crm";
 import * as de from "./pages/de";
 import * as fr from "./pages/fr";
 import * as es from "./pages/es";
@@ -15,7 +16,7 @@ import { fillPrices } from "@/lib/pricing";
 
 export const SITE_URL = "https://www.tascalab.com";
 
-export const CATEGORY_IDS: CategoryId[] = ["services", "helpdesks", "channels", "basics", "guides"];
+export const CATEGORY_IDS: CategoryId[] = ["services", "helpdesks", "channels", "basics", "guides", "crm"];
 
 const english: TranslatedPage[] = [
   ...servicesPages,
@@ -23,6 +24,7 @@ const english: TranslatedPage[] = [
   ...channelPages,
   ...basicsPages,
   ...guidePages,
+  ...crmPages,
 ].map((p: SeoPageContent) => ({ ...p, key: p.slug }));
 
 type LocaleModule = typeof de;
@@ -32,6 +34,7 @@ const all = (m: LocaleModule): TranslatedPage[] => [
   ...m.channelPages,
   ...m.basicsPages,
   ...m.guidePages,
+  ...m.crmPages,
 ];
 
 // Pages as written, with {{price:<id>}} tokens. The content checks compare these across languages.

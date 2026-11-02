@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { CATEGORY_IDS, pagesInCategory } from "@/content";
 import { useDict, useLocale } from "@/i18n";
-import { localePath } from "@/i18n/config";
+import { BLOG_PATH, localePath } from "@/i18n/config";
 import { TOOL_IDS, toolPath } from "@/tools/registry";
 import { useBooking } from "@/hooks/use-booking";
 
@@ -30,10 +30,10 @@ const Footer = () => {
 
   return (
     <footer className="w-full border-t border-white/10">
-      <nav aria-label={t.footer.resourcesNav} className="container px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-2">
+      <nav aria-label={t.footer.blogNav} className="container px-4 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-2">
           {CATEGORY_IDS.map((id) => (
-            <details key={id} name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
+            <details key={id} name="footer-blog" onToggle={closeOtherMenus} className="group py-2">
               <summary className={summaryClass}>
                 {t.categories[id].label}
                 <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
@@ -49,7 +49,7 @@ const Footer = () => {
               </ul>
             </details>
           ))}
-          <details name="footer-resources" onToggle={closeOtherMenus} className="group py-2">
+          <details name="footer-blog" onToggle={closeOtherMenus} className="group py-2">
             <summary className={summaryClass}>
               {t.tools.menu}
               <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
@@ -83,7 +83,7 @@ const Footer = () => {
             </>
           )}
           <span aria-hidden>·</span>
-          <Link to={localePath(locale, "resources")} className="hover:text-primary transition-colors">{t.footer.allResources}</Link>
+          <Link to={localePath(locale, BLOG_PATH)} className="hover:text-primary transition-colors">{t.footer.allPosts}</Link>
           <span aria-hidden>·</span>
           <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t.footer.upworkReviews}</a>
           <span aria-hidden>·</span>

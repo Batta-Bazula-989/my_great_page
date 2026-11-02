@@ -13,7 +13,7 @@ const it: Dictionary = {
     pricing: "Prezzi",
     reviews: "Recensioni",
     faq: "FAQ",
-    resources: "Risorse",
+    blog: "Blog",
     cta: "Health Check gratuito",
     openMenu: "Apri il menu",
     closeMenu: "Chiudi il menu",
@@ -307,8 +307,8 @@ const it: Dictionary = {
     upwork: "Recensioni su Upwork",
   },
   footer: {
-    resourcesNav: "Risorse",
-    allResources: "Tutte le risorse",
+    blogNav: "Blog",
+    allPosts: "Tutti gli articoli",
     upworkReviews: "Recensioni su Upwork",
     privacy: "Informativa sulla privacy",
     terms: "Termini di servizio",
@@ -319,6 +319,7 @@ const it: Dictionary = {
     channels: { label: "Per canale", blurb: "Bot di assistenza per i canali da cui ti scrivono i clienti." },
     basics: { label: "Nozioni di base", blurb: "Definizioni, metriche e come funziona il passaggio all'operatore." },
     guides: { label: "Guide e conformità", blurb: "Confronti tra strumenti e regole UE per i bot di assistenza." },
+    crm: { label: "Automazione CRM", blurb: "Workflow, webhook e API in Attio e HubSpot." },
   },
   cookie: {
     text: "Uso i cookie per l'analisi e la misurazione degli annunci, per capire come i visitatori trovano e usano questo sito.",
@@ -389,15 +390,15 @@ const it: Dictionary = {
     onThisPage: "In questa pagina",
     related: "Pagine correlate",
   },
-  resources: {
-    metaTitle: "Risorse sull'automazione dell'assistenza clienti | TascaLab",
+  blog: {
+    metaTitle: "Blog sull'automazione dell'assistenza clienti | TascaLab",
     metaDescription:
       "Guide su chatbot AI per l'assistenza, smistamento dei ticket, automazione di Zendesk, Freshdesk e Jira, bot WhatsApp e Telegram, metriche, SLA e regole UE.",
-    eyebrow: "Risorse",
-    title: "Risorse sull'automazione dell'assistenza clienti",
+    eyebrow: "Blog",
+    title: "Blog sull'automazione dell'assistenza clienti",
     intro:
-      "Guide verificate su bot di assistenza, smistamento dei ticket, automazione dell'helpdesk, metriche del supporto e regole UE che si applicano. Ogni pagina elenca le fonti ufficiali su cui si basa.",
-    readGuide: "Leggi la guida",
+      "Articoli verificati su bot di assistenza, smistamento dei ticket, automazione dell'helpdesk e del CRM, metriche del supporto e regole UE che si applicano. Ogni articolo elenca le fonti ufficiali su cui si basa.",
+    readArticle: "Leggi l'articolo",
   },
   notFound: {
     title: "Pagina non trovata",
