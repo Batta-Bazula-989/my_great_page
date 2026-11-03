@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Webhooks regelen de terugweg. Een Zendesk-trigger kan via een 'Notify webhook'-actie een extern endpoint aanroepen — bijvoorbeeld om de bot te laten weten dat een medewerker het ticket heeft opgelost, zodat hij de cirkel op het oorspronkelijke kanaal kan sluiten.",
+            text: "Webhooks regelen de terugweg. Een Zendesk-trigger kan via een 'Notify by > Active webhook'-actie een extern endpoint aanroepen — bijvoorbeeld om de bot te laten weten dat een medewerker het ticket heeft opgelost, zodat hij de cirkel op het oorspronkelijke kanaal kan sluiten.",
           },
           {
             type: "note",
@@ -801,7 +801,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Twee details in Zendesk zetten mensen vaak op het verkeerde been: ontvangers worden gegroepeerd op taal en tijdzone, met één e-mail per groep, en als een dashboard de hele vorige dag moet beslaan, raadt Zendesk aan het in te plannen om 2.00 uur 's nachts of later.",
+            text: "Twee details in Zendesk zetten mensen vaak op het verkeerde been: ontvangers worden gegroepeerd op taal en tijdzone, met één e-mail per groep, en als een dashboard de hele vorige dag moet beslaan, raadt Zendesk aan het in te plannen om 2 uur 's nachts of later.",
           },
           {
             type: "p",

@@ -119,7 +119,7 @@ export const basicsPages: TranslatedPage[] = [
           {
             type: "ul",
             items: [
-              "Zendesk: crei un webhook nell'Admin Center, poi lo colleghi a un trigger o a un'automazione con l'azione Notify webhook. Il corpo della richiesta può essere JSON, XML o form-encoded e i segnaposto inseriscono i dati del ticket.",
+              "Zendesk: crei un webhook nell'Admin Center, poi lo colleghi a un trigger o a un'automazione con l'azione Notify by > Active webhook. Il corpo della richiesta può essere JSON, XML o form-encoded e i segnaposto inseriscono i dati del ticket.",
               "Freshdesk: le regole di automazione che girano alla creazione o all'aggiornamento dei ticket possono usare l'azione Trigger webhook con GET, POST, PUT, PATCH o DELETE e segnaposto come {{ticket.id}}. I webhook non riusciti vengono ritentati ogni 30 minuti, fino a 48 chiamate.",
               "Jira: l'azione di automazione Send web request chiama un altro sistema quando una regola viene eseguita e può attendere la risposta, così i passaggi successivi possono usare i dati restituiti.",
             ],

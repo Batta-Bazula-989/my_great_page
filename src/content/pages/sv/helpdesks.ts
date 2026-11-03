@@ -127,7 +127,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "När en regel behöver meddela ett annat system något använder du en webhook. Du skapar den i Admin Center och väljer anslutningstyp: Zendesk-händelser, eller trigger eller automatisering. En webhook kan använda den ena eller den andra, inte båda, och du kan inte ändra anslutningsmetoden i efterhand. I en trigger eller automatisering lägger du till åtgärden 'Notify webhook', väljer webhooken och anger payloaden. Anropets body kan vara JSON, XML eller formulärkodad, och payloaden får inte överstiga 16 000 tecken. Varje webhook har alternativet Test webhook så att du kan kontrollera anropet innan det tas i drift.",
+            text: "När en regel behöver meddela ett annat system något använder du en webhook. Du skapar den i Admin Center och väljer anslutningstyp: Zendesk-händelser, eller trigger eller automatisering. En webhook kan använda den ena eller den andra, inte båda, och du kan inte ändra anslutningsmetoden i efterhand. I en trigger eller automatisering lägger du till åtgärden 'Notify by > Active webhook', väljer webhooken och anger payloaden. Anropets body kan vara JSON, XML eller formulärkodad, och payloaden får inte överstiga 16 000 tecken. Varje webhook har alternativet Test webhook så att du kan kontrollera anropet innan det tas i drift.",
           },
           {
             type: "p",
@@ -173,7 +173,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Kan en trigger i Zendesk anropa ett externt system?",
-        a: "Ja. Skapa en webhook som är kopplad till triggers och automatiseringar och lägg sedan till åtgärden 'Notify webhook' i triggern, med den payload du vill skicka.",
+        a: "Ja. Skapa en webhook som är kopplad till triggers och automatiseringar och lägg sedan till åtgärden 'Notify by > Active webhook' i triggern, med den payload du vill skicka.",
       },
       {
         q: "Påverkar triggerkategorier i vilken ordning triggrarna körs?",

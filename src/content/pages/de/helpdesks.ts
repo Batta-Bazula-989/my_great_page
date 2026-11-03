@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Wenn eine Regel einem anderen System etwas mitteilen muss, verwenden Sie einen Webhook. Sie legen ihn im Admin Center an und wählen seinen Verbindungstyp: Zendesk-Ereignisse oder Trigger bzw. Automation. Ein Webhook kann nur eine dieser Varianten nutzen, nicht beide, und die Verbindungsmethode lässt sich später nicht ändern. Fügen Sie in einem Trigger oder einer Automation die Aktion 'Notify webhook' hinzu, wählen Sie den Webhook aus und geben Sie die Payload ein. Request-Bodys können JSON, XML oder formularcodiert sein, und die Payload darf 16.000 Zeichen nicht überschreiten. Jeder Webhook hat eine Option 'Test webhook', mit der Sie die Anfrage prüfen können, bevor sie live geht.",
+            text: "Wenn eine Regel einem anderen System etwas mitteilen muss, verwenden Sie einen Webhook. Sie legen ihn im Admin Center an und wählen seinen Verbindungstyp: Zendesk-Ereignisse oder Trigger bzw. Automation. Ein Webhook kann nur eine dieser Varianten nutzen, nicht beide, und die Verbindungsmethode lässt sich später nicht ändern. Fügen Sie in einem Trigger oder einer Automation die Aktion 'Notify by > Active webhook' hinzu, wählen Sie den Webhook aus und geben Sie die Payload ein. Request-Bodys können JSON, XML oder formularcodiert sein, und die Payload darf 16.000 Zeichen nicht überschreiten. Jeder Webhook hat eine Option 'Test webhook', mit der Sie die Anfrage prüfen können, bevor sie live geht.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Kann ein Zendesk-Trigger ein externes System aufrufen?",
-        a: "Ja. Legen Sie einen Webhook an, der mit Triggern und Automationen verbunden ist, und fügen Sie dem Trigger dann die Aktion 'Notify webhook' mit der Payload hinzu, die Sie senden möchten.",
+        a: "Ja. Legen Sie einen Webhook an, der mit Triggern und Automationen verbunden ist, und fügen Sie dem Trigger dann die Aktion 'Notify by > Active webhook' mit der Payload hinzu, die Sie senden möchten.",
       },
       {
         q: "Ändern Trigger-Kategorien die Reihenfolge, in der Trigger laufen?",

@@ -15,7 +15,7 @@ export const crmPages: TranslatedPage[] = [
       "Attio automatiserar CRM-arbete med arbetsflöden (workflows). Ett arbetsflöde startar från ett triggerblock och kör en kedja av åtgärdsblock, till exempel att uppdatera en post, skapa en uppgift, skicka ett Slack-meddelande eller göra ett HTTP-anrop. Körningar av arbetsflöden förbrukar arbetsytans credits, och allt annat kopplas in via Attios REST API och webhooks.",
     keyFacts: [
       "Ett arbetsflöde i Attio byggs av ett triggerblock, som startar det, och åtgärdsblock, som utför arbetet.",
-      "Arbetsflöden förbrukar arbetsytans credits. De flesta block förbrukar en credit, och ett block som misslyckas, plus alla block efter det, förbrukar inga.",
+      "Triggers, logik och datauppslag är gratis. Block som skriver data, anropar externa system eller använder AI förbrukar arbetsytans credits, de flesta en credit per körning.",
       "Attios REST API tillåter 100 läsanrop och 25 skrivanrop per sekund. Över gränsen returneras HTTP 429 med en Retry-After-header.",
       "Attio signerar webhooks med en HMAC-SHA256 av begärans body, som skickas i headern Attio-Signature.",
     ],
@@ -38,7 +38,7 @@ export const crmPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Attios hjälpcenter ger följande exempel på åtgärdsblock: uppdatera en post, skapa en uppgift, skicka ett Slack-meddelande, lägga till någon i en sekvens och göra ett HTTP-anrop. Du kan också beskriva ett arbetsflöde med vanliga ord och låta Ask Attio bygga det. Appar som byggs med Attio SDK kan lägga till egna block, som då visas i blockväljaren bredvid de inbyggda.",
+            text: "Attios hjälpcenter ger följande exempel på åtgärdsblock: uppdatera en post, skapa en uppgift, skicka ett Slack-meddelande, lägga till någon i en sekvens och göra ett HTTP-anrop. Blocket 'Execute code' kör din egen JavaScript-kod som ett steg, med en tidsgräns på 100 sekunder. Du kan också beskriva ett arbetsflöde med vanliga ord och låta Ask Attio bygga det. Appar som byggs med Attio SDK kan lägga till egna block, som då visas i blockväljaren bredvid de inbyggda.",
           },
           {
             type: "note",
@@ -51,20 +51,20 @@ export const crmPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Körningar av arbetsflöden och AI-funktioner drar från arbetsytans gemensamma credits. Attios faktureringsdokumentation beskriver hur de räknas:",
+            text: "Körningar av arbetsflöden drar från arbetsytans gemensamma credits, inte från licensernas credits (seat credits). Attios hjälpcenter beskriver hur de räknas i de nya arbetsflödena:",
           },
           {
             type: "ul",
             items: [
-              "De flesta block i arbetsflöden förbrukar en credit varje gång de körs.",
-              "Credits debiteras bara för block som faktiskt körs. Om en körning misslyckas halvvägs förbrukar det misslyckade blocket och alla block efter det inga credits.",
-              "Omräkning av AI-attribut förbrukar också credits.",
-              "Administratörer kan se förbrukningen av credits per arbetsflöde i Workspace settings.",
+              "Triggers, logik och datauppslag är gratis. Credits förbrukas bara när ett block skriver data, skickar eller tar emot något externt eller använder AI.",
+              "Skrivningar till poster, uppgifter, tillägg i sekvenser, HTTP-anrop och integrationsblock kostar 1 credit per körning. AI-block och 'Execute code' har varierande kostnad.",
+              "Bara den väg som en körning tar debiteras. Om en körning misslyckas halvvägs förbrukar det misslyckade blocket och alla block efter det inga credits, men block som kördes före felet debiteras.",
+              "Att bygga ett arbetsflöde med Ask Attio förbrukar licensernas credits (seat credits), inte arbetsytans gemensamma credits.",
             ],
           },
           {
             type: "p",
-            text: "Antalet credits som ingår skiljer sig mellan planerna, och Attio har ändrat sina planer tidigare. Kontrollera den aktuella tilldelningen på Attios prissida och uppskatta förbrukningen som antalet block per körning gånger det antal körningar du räknar med per månad.",
+            text: "Per november 2026 ingår 250 credits för arbetsytan per månad i Attios Free, 1 500 i Plus och 10 000 i Pro. Planerna ändras, så kontrollera Attios prissida och uppskatta sedan förbrukningen som antalet block som förbrukar credits per körning gånger det antal körningar du räknar med per månad.",
           },
         ],
       },
@@ -130,7 +130,7 @@ export const crmPages: TranslatedPage[] = [
       },
       {
         q: "Kostar arbetsflöden i Attio credits?",
-        a: "Ja. Körningar av arbetsflöden förbrukar arbetsytans gemensamma credits. De flesta block förbrukar en credit per körning, och block som misslyckas eller aldrig körs förbrukar inga. Hur många credits som ingår beror på din plan.",
+        a: "Ja, för block som skriver data, anropar externa system eller använder AI. De flesta av dem kostar en credit per körning, medan triggers, logik och datauppslag är gratis. Per november 2026 ingår 250 credits för arbetsytan per månad i Free, 1 500 i Plus och 10 000 i Pro.",
       },
       {
         q: "Vilka anropsgränser har Attios API?",
@@ -142,10 +142,11 @@ export const crmPages: TranslatedPage[] = [
       },
     ],
     sources: [
-      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/overview-of-workflows" },
+      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/getting-started-with-workflows" },
       { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
       { label: "Attio Help — Create a workflow", url: "https://attio.com/help/reference/automations/workflows/create-a-workflow" },
-      { label: "Attio Help — Automations billing", url: "https://attio.com/help/reference/automations/automations-billing" },
+      { label: "Attio Help — Manage workspace and seat credits", url: "https://attio.com/help/reference/workspace-settings-billing/manage-workspace-and-seat-credits" },
+      { label: "Attio Help — Migrate your legacy workflows", url: "https://attio.com/help/reference/automations/workflows/migrate-your-legacy-workflows" },
       { label: "Attio Docs — Rate limiting", url: "https://docs.attio.com/rest-api/guides/rate-limiting" },
       { label: "Attio Docs — Authentication", url: "https://docs.attio.com/rest-api/guides/authentication" },
       { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
@@ -155,7 +156,7 @@ export const crmPages: TranslatedPage[] = [
       { label: "Zapier — Attio and Zendesk integrations", url: "https://zapier.com/apps/attio/integrations/zendesk" },
     ],
     related: ["attio-vs-hubspot-automation", "n8n-vs-make-vs-zapier", "slack-support-automation"],
-    updated: "2026-11-02",
+    updated: "2026-11-03",
   },
   {
     key: "attio-vs-hubspot-automation",
@@ -171,8 +172,8 @@ export const crmPages: TranslatedPage[] = [
       "Både Attio och HubSpot automatiserar CRM-arbete med visuella arbetsflöden, men de begränsar dem på olika sätt. HubSpot inkluderar arbetsflöden bara i Professional- och Enterprise-utgåvorna och sätter ett tak för hur många du kan skapa, medan Attio mäter körningar av arbetsflöden med arbetsytans credits. Deras API:er och webhooks skiljer sig också åt i anropsgränser och i hur du verifierar ett anrop.",
     keyFacts: [
       "Arbetsflöden i HubSpot kräver en Professional- eller Enterprise-prenumeration. Marketing, Sales eller Service Hub Professional tillåter upp till 300 arbetsflöden, och Enterprise upp till 1 000.",
-      "Attio mäter arbetsflöden med arbetsytans credits. De flesta block förbrukar en credit per körning.",
-      "Custom code-åtgärder i HubSpot måste bli klara inom 20 sekunder och kan använda upp till 128 MB minne.",
+      "Attio mäter arbetsflöden med arbetsytans credits. Triggers, logik och uppslag är gratis, och de flesta block som skriver data eller anropar externt förbrukar en credit per körning.",
+      "Custom code-åtgärder i HubSpot måste bli klara inom 20 sekunder och kan använda upp till 128 MB minne. Attios block 'Execute code' har en tidsgräns på 100 sekunder.",
       "Attios API tillåter 100 läsningar och 25 skrivningar per sekund. Privata appar i HubSpot på Professional eller Enterprise får 190 anrop per 10 sekunder.",
       "HubSpot signerar webhooks med X-HubSpot-Signature-v3. Attio använder headern Attio-Signature.",
     ],
@@ -185,9 +186,9 @@ export const crmPages: TranslatedPage[] = [
             caption: "Attio vs HubSpot automatisering (leverantörernas dokumentation, kontrollerad i november 2026)",
             head: ["Fråga", "Attio", "HubSpot"],
             rows: [
-              ["Hur användningen begränsas", "Körningar av arbetsflöden förbrukar arbetsytans credits. De flesta block förbrukar en credit.", "Professional eller Enterprise krävs. Ett tak för antalet arbetsflöden per utgåva."],
+              ["Hur användningen begränsas", "Arbetsytans credits. Triggers, logik och uppslag är gratis, och de flesta block som skriver eller anropar externt förbrukar en credit.", "Professional eller Enterprise krävs. Ett tak för antalet arbetsflöden per utgåva."],
               ["Triggers", "Triggers för poster, listor, uppgifter och verktyg (utility), bland annat ett schema, en webhook och en manuell körning", "Registreringstriggers (enrollment triggers) baserade på filter, händelser, schema och webhooks"],
-              ["Anropa ett annat system", "HTTP request-blocket. Appar kan lägga till egna block.", "Åtgärderna 'Send a webhook' och 'Custom code', i Data Hub Professional och Enterprise"],
+              ["Anropa ett annat system och kod", "HTTP request-blocket, och blocket 'Execute code' för JavaScript. Appar kan lägga till egna block.", "Åtgärderna 'Send a webhook' och 'Custom code', i Data Hub Professional och Enterprise"],
               ["Slack", "Block för Slack-meddelanden, med Attios Slack-app", "Åtgärd för Slack-aviseringar, med Slack-integrationen installerad"],
               ["Anropsgräns för API", "100 läsningar och 25 skrivningar per sekund", "Privata appar: 100 per 10 sekunder på Free och Starter, 190 på Professional och Enterprise, plus en daglig gräns"],
               ["Webhook-signatur", "HMAC-SHA256 av bodyn, hex-kodad, i Attio-Signature", "HMAC-SHA256 av metod, URI, body och tidsstämpel, base64-kodad, i X-HubSpot-Signature-v3"],
@@ -217,7 +218,7 @@ export const crmPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Två åtgärder är viktigast för integrationer: 'Send a webhook' och 'Custom code'. HubSpot listar båda för Data Hub Professional och Enterprise, hubben som tidigare hette Operations Hub. Custom code-åtgärder kör Node.js eller Python, måste bli klara inom 20 sekunder och kan använda upp till 128 MB minne, så långa jobb hör hemma i ett externt verktyg som n8n.",
+            text: "Två åtgärder är viktigast för integrationer: 'Send a webhook' och 'Custom code'. HubSpot listar båda för Data Hub Professional och Enterprise, hubben som tidigare hette Operations Hub. Custom code-åtgärder kör Node.js som standard, eller Python i beta, måste bli klara inom 20 sekunder och kan använda upp till 128 MB minne, så långa jobb hör hemma i ett externt verktyg som n8n.",
           },
         ],
       },
@@ -226,11 +227,11 @@ export const crmPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Attio mäter arbetsflöden efter användning. Körningar drar från arbetsytans gemensamma credits, de flesta block förbrukar en credit, och block som misslyckas eller aldrig körs förbrukar inga. Administratörer kan se förbrukningen av credits per arbetsflöde i Workspace settings. Hur många credits som ingår skiljer sig mellan planerna, så kontrollera Attios prissida och uppskatta block per körning gånger körningar per månad.",
+            text: "Attio mäter arbetsflöden efter användning. Körningar drar från arbetsytans gemensamma credits. Triggers, logik och datauppslag är gratis, och block som skriver data, anropar externa system eller använder AI förbrukar credits, de flesta en per körning. Per november 2026 ingår 250 credits för arbetsytan per månad i Free, 1 500 i Plus och 10 000 i Pro.",
           },
           {
             type: "p",
-            text: "För att nå ett annat system från ett arbetsflöde i Attio använder du HTTP request-blocket, eller bygger en app med Attio SDK som lägger till egna block i arbetsflöden.",
+            text: "För att nå ett annat system från ett arbetsflöde i Attio använder du HTTP request-blocket. Blocket 'Execute code' kör din egen JavaScript-kod med en tidsgräns på 100 sekunder och en varierande kostnad i credits, och appar som byggs med Attio SDK kan lägga till egna block i arbetsflöden.",
           },
         ],
       },
@@ -259,7 +260,7 @@ export const crmPages: TranslatedPage[] = [
             items: [
               "Om ditt supportteam redan arbetar i HubSpots helpdesk finns ärenden, SLA:er och arbetsflöden för ärenden i samma konto som CRM:et, och arbetsflöden ingår från Professional.",
               "Om du använder Attio som CRM och en separat helpdesk kopplar du ihop dem via API:erna och webhooks med n8n, Make eller Zapier, som har en officiell Attio-app.",
-              "Om dina automatiseringar anropar andra system, budgetera för Data Hub Professional i HubSpot, eller planera utifrån HTTP request-blocket i Attio.",
+              "Om dina automatiseringar anropar andra system, budgetera för Data Hub Professional i HubSpot, eller planera utifrån blocken HTTP request och 'Execute code' i Attio.",
               "Om volymerna är höga, jämför API-gränserna ovan med din högsta ärendevolym innan du bestämmer var logiken ska köras.",
             ],
           },
@@ -282,11 +283,11 @@ export const crmPages: TranslatedPage[] = [
       },
       {
         q: "Hur begränsar Attio arbetsflöden?",
-        a: "Med arbetsytans credits. Körningar av arbetsflöden drar från arbetsytans gemensamma credits, de flesta block förbrukar en credit per körning, och hur många credits som ingår beror på din plan.",
+        a: "Med arbetsytans credits. Triggers, logik och uppslag är gratis, och de flesta block som skriver data eller anropar externa system förbrukar en credit per körning. AI- och kodblock varierar. Hur många credits som ingår beror på din plan.",
       },
       {
         q: "Kan jag köra egen kod i arbetsflöden i HubSpot eller Attio?",
-        a: "HubSpot har åtgärden 'Custom code' i Data Hub Professional och Enterprise, som kör Node.js eller Python inom 20 sekunder och 128 MB minne. Attio erbjuder ett HTTP request-block, och appar som byggs med dess SDK kan lägga till egna block.",
+        a: "HubSpot har åtgärden 'Custom code' i Data Hub Professional och Enterprise, som kör Node.js, eller Python i beta, inom 20 sekunder och 128 MB minne. Attio har blocket 'Execute code', som kör JavaScript med en tidsgräns på 100 sekunder, och appar som byggs med dess SDK kan lägga till egna block.",
       },
       {
         q: "Hur verifierar jag webhooks från HubSpot och Attio?",
@@ -303,12 +304,178 @@ export const crmPages: TranslatedPage[] = [
       { label: "HubSpot Developers — Validating requests", url: "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/request-validation" },
       { label: "HubSpot — Fall 2025 Spotlight", url: "https://www.hubspot.com/company-news/fall-2025-spotlight" },
       { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
-      { label: "Attio Help — Automations billing", url: "https://attio.com/help/reference/automations/automations-billing" },
+      { label: "Attio Help — Manage workspace and seat credits", url: "https://attio.com/help/reference/workspace-settings-billing/manage-workspace-and-seat-credits" },
+      { label: "Attio Help — Migrate your legacy workflows", url: "https://attio.com/help/reference/automations/workflows/migrate-your-legacy-workflows" },
       { label: "Attio Docs — Rate limiting", url: "https://docs.attio.com/rest-api/guides/rate-limiting" },
       { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
       { label: "Attio Help — Zapier app", url: "https://attio.com/help/reference/apps/zapier-app" },
     ],
     related: ["attio-workflows-automation", "hubspot-service-hub-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-11-02",
+    updated: "2026-11-03",
+  },
+  {
+    key: "hubspot-zendesk-integration",
+    slug: "hubspot-zendesk-integration",
+    category: "crm",
+    navLabel: "HubSpot Zendesk-integration",
+    primaryKeyword: "HubSpot Zendesk-integration",
+    title: "HubSpot Zendesk-integration: vad som synkas och dina val",
+    description:
+      "HubSpot Zendesk-integration: vad gratisappen Zendesk for HubSpot synkar och inte, action flows, appar för tvåvägssynk och egna lösningar med båda API:erna.",
+    h1: "HubSpot Zendesk-integration: vad som synkas, vad som inte gör det och dina alternativ",
+    intro:
+      "Zendesks egen HubSpot-integration är gratis och snabb att koppla in, men den skickar bara ärendehändelser åt ett håll, från Zendesk till en kontakts tidslinje i HubSpot. Om du behöver mer kan action flows i Zendesk skapa och uppdatera poster i HubSpot, appar på Marketplace erbjuder tvåvägssynk, och en egen lösning med webhooks och båda API:erna kan flytta exakt den data du väljer.",
+    keyFacts: [
+      "Integrationen Zendesk Support for HubSpot är enkelriktad: ärendeinformation flödar från Zendesk till HubSpot.",
+      "Den skapar tre triggers i Zendesk, för nya ärenden, lösta ärenden och CSAT-betyg, plus en webhook som heter HubSpot Integration.",
+      "Ärenden visas bara på kontaktens tidslinje i HubSpot, inte på företag eller affärer (deals), och bara användarens mejladress synkas.",
+      "Action flows i Zendesk har HubSpot-åtgärder som skapar, uppdaterar och slår upp kontakter, företag, affärer och ärenden.",
+      "Zendesk slutade utfärda nya API-tokens den 27 oktober 2026, så egna lösningar bör använda OAuth.",
+    ],
+    sections: [
+      {
+        heading: "Fyra sätt att koppla ihop HubSpot och Zendesk",
+        blocks: [
+          {
+            type: "table",
+            caption: "Alternativ för att integrera HubSpot och Zendesk (leverantörernas dokumentation och listningar, kontrollerad i november 2026)",
+            head: ["Alternativ", "Riktning", "Vad som flyttas"],
+            rows: [
+              ["Zendesk Support for HubSpot", "Bara från Zendesk till HubSpot", "Händelser för nya ärenden, lösta ärenden och CSAT-betyg, som skickas till kontaktens tidslinje"],
+              ["Action flows i Zendesk med HubSpot-åtgärder", "Från Zendesk till HubSpot, steg för steg", "Skapar, uppdaterar och slår upp kontakter, företag, affärer och ärenden"],
+              ["Appar på Marketplace", "Beror på appen, vissa är tvåvägs", "Det som appen stöder, till exempel kontakter eller affärer"],
+              ["Egen lösning med webhooks och båda API:erna", "Åt båda hållen", "Exakt de fält och händelser du väljer"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Börja med frågan som ditt team försöker besvara. Om säljare och kontoansvariga bara behöver se en kontakts supporthistorik i HubSpot kan den kostnadsfria integrationen räcka. Om ärenden behöver ändra data i HubSpot, till exempel en företagsegenskap eller ett affärsstadium (deal stage), behöver du action flows, en app eller en egen lösning.",
+          },
+        ],
+      },
+      {
+        heading: "Så ställer du in den kostnadsfria integrationen Zendesk Support for HubSpot",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Öppna integrationens installationssida och ange din Zendesk-subdomän.",
+              "Godkänn anslutningen i både Zendesk och HubSpot.",
+              "Zendesk skapar tre triggers, för nya ärenden, lösta ärenden och CSAT-betyg, och en webhook som heter HubSpot Integration.",
+              "Redigera villkoren i de triggarna om du bara vill att vissa ärenden ska nå HubSpot.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Zendesk dokumenterar några begränsningar. Integrationen är enkelriktad, från Zendesk till HubSpot. Bara användarens mejladress synkas, inte för- eller efternamnet. Ärenden visas bara på kontaktens tidslinje, inte på företags- eller affärsposter. Du kan ändra vilka ärenden som skickas genom att redigera villkoren i triggarna, men du kan inte ändra JSON-payloaden. För att stänga av integrationen inaktiverar du de tre triggarna.",
+          },
+          {
+            type: "note",
+            text: "Testa inte webhooken HubSpot Integration från Admin Center. Zendesk varnar för att det kan skicka ogiltig JSON och koppla från integrationen. Testa i stället genom att skapa eller lösa ett riktigt testärende.",
+          },
+        ],
+      },
+      {
+        heading: "Action flows i Zendesk med HubSpot-åtgärder",
+        blocks: [
+          {
+            type: "p",
+            text: "Action flows är Zendesks verktyg för att bygga automatiseringar i flera steg som når externa system. HubSpot-kopplingen (connector) lägger till de här åtgärderna:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Skapa och uppdatera kontakter, företag, affärer och ärenden i HubSpot.",
+              "Slå upp kontakter, företag, affärer och ärenden, och slå upp användare.",
+              "Slå upp en kontakt via Contact ID eller mejladress. Om du anger båda har Contact ID företräde.",
+              "Anslut med OAuth 2.0 från 'External actions' i stegets sidopanel. Zendesk rekommenderar ett dedikerat tjänstekonto och förnyar tokens automatiskt.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Action flows förbrukar action credits. Zendesk anger 100 000 åtgärder per månad för Suite Professional och 225 000 för Suite Enterprise, skickar ett mejl vid 80 % och 100 % av tilldelningen och säljer fler i enheter om 100 000. Administratörer kan se förbrukningen i Admin Center under Account, sedan Usage och sedan Summary. Tilldelningar och vilka planer som har funktionen ändras, så kontrollera dem i ditt eget konto innan du bygger på action flows.",
+          },
+        ],
+      },
+      {
+        heading: "Appar för tvåvägssynk",
+        blocks: [
+          {
+            type: "p",
+            text: "Zendesk Marketplace listar appen Data sync by HubSpot, som den beskriver som en dubbelriktad synk i realtid mellan HubSpot och Zendesk. För att installera den krävs en Super Admin i HubSpot eller en användare med behörighet för App Marketplace, som anger Zendesk-subdomänen, godkänner anslutningen och väljer vad som ska synkas. Tredjepartsappar som HubSpot CRM Connect lägger till egna funktioner. Listningar på Marketplace är marknadsföringssidor, så kontrollera på appens inställningsskärm vilka poster och fält den faktiskt synkar innan du förlitar dig på den.",
+          },
+          {
+            type: "p",
+            text: "HubSpots dokumentation om datasynk förklarar hur tvåvägssynkar matchar poster: som standard matchas kontakter via mejladress och företag via namn eller domän, och bara kontakter med en giltig mejladress synkas. Rensa bort dubbletter av kontakter och saknade mejladresser innan du aktiverar en tvåvägssynk, annars kopierar synken röran till båda verktygen.",
+          },
+        ],
+      },
+      {
+        heading: "Egna lösningar med webhooks och båda API:erna",
+        blocks: [
+          {
+            type: "p",
+            text: "En egen lösning ger dig full kontroll, till exempel att visa öppna ärenden på företagsposter i HubSpot, vilket den kostnadsfria integrationen inte klarar. Här är ett vanligt mönster, beskrivet steg för steg. Det är ingen fallstudie från TascaLab.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Trigger: en trigger i Zendesk med åtgärden Notify by > Active webhook skickar ärende-ID:t och beställarens mejladress till n8n eller Make när ett ärende skapas eller byter status.",
+              "Verifiera: arbetsflödet kontrollerar headern X-Zendesk-Webhook-Signature, så att bara äkta anrop från Zendesk behandlas.",
+              "Slå upp: det hittar kontakten i HubSpot via mejladressen genom CRM-API:et, och sedan det företag som kontakten är associerad med.",
+              "Uppdatera: det skriver antalet ärenden eller den senaste statusen till en företagsegenskap, som listor, rapporter och arbetsflöden i HubSpot kan använda.",
+              "Hantera fel: det väntar och försöker igen vid HTTP 429, eftersom både Zendesk och HubSpot begränsar API-anrop.",
+            ],
+          },
+          {
+            type: "p",
+            text: "För den andra riktningen kan ett arbetsflöde i HubSpot anropa din endpoint med åtgärden 'Send a webhook', som HubSpot listar för Data Hub Professional och Enterprise och som bara accepterar HTTPS-URL:er. På Zendesk-sidan använder du OAuth i stället för API-tokens. Zendesk slutade låta befintliga konton skapa nya API-tokens den 27 oktober 2026, och alla API-tokens slutar fungera den 30 april 2027. OAuth-klienter som skapats den 30 april 2026 eller senare får åtkomsttokens som som standard går ut efter 30 minuter, så integrationen behöver hantera refresh tokens.",
+          },
+        ],
+      },
+      {
+        heading: "Så får du det byggt",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab kopplar ihop Zendesk och HubSpot via API:er, webhooks, n8n och Make, ovanpå de verktyg du redan använder. Projekt med Custom Automation kostar {{price:custom}}. De flesta upplägg tar 1 till 3 veckor, och varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Är HubSpot Zendesk-integrationen tvåvägs?",
+        a: "Inte den kostnadsfria integrationen Zendesk Support for HubSpot. Den är enkelriktad och skickar ärendeinformation från Zendesk till kontaktens tidslinje i HubSpot. För tvåvägssynk använder du en app från Marketplace, till exempel Data sync by HubSpot, eller en egen lösning.",
+      },
+      {
+        q: "Kan jag se Zendesk-ärenden på företag eller affärer i HubSpot?",
+        a: "Inte med den kostnadsfria integrationen, som bara visar ärenden på kontaktens tidslinje. Det går med en egen lösning som skriver ärendedata till egenskaper på företag eller affärer via HubSpots API.",
+      },
+      {
+        q: "Varför kopplades min HubSpot-integration från när jag testade dess webhook?",
+        a: "Zendesk varnar för att test av webhooken HubSpot Integration från Admin Center kan skicka ogiltig JSON och koppla från integrationen. Testa med ett riktigt ärende i stället.",
+      },
+      {
+        q: "Kan jag fortfarande använda en API-token från Zendesk för en HubSpot-integration?",
+        a: "Bara en som du redan har. Zendesk slutade utfärda nya API-tokens den 27 oktober 2026, inaktiverar tokens som inte används på 30 dagar och stänger av alla API-tokens den 30 april 2027. Använd OAuth för nya integrationer.",
+      },
+    ],
+    sources: [
+      { label: "Zendesk Help — Setting up the Zendesk Support for HubSpot integration", url: "https://support.zendesk.com/hc/en-us/articles/4408884090650-Setting-up-the-Zendesk-Support-for-HubSpot-integration" },
+      { label: "Zendesk Help — Using HubSpot actions in action flows", url: "https://support.zendesk.com/hc/en-us/articles/10917655354138-Using-HubSpot-actions-in-action-flows" },
+      { label: "Zendesk Help — Monitoring the usage of action credits and action flow activity", url: "https://support.zendesk.com/hc/en-us/articles/10149993578522-Monitoring-the-usage-of-action-credits-and-action-flow-activity" },
+      { label: "Zendesk Marketplace — Data sync by HubSpot", url: "https://www.zendesk.com/marketplace/apps/support/431348/data-sync-by-hubspot/" },
+      { label: "Zendesk Marketplace — HubSpot CRM Connect", url: "https://www.zendesk.com/marketplace/apps/support/959977/hubspot-crm-connect/" },
+      { label: "HubSpot Knowledge Base — Connect and use HubSpot data sync", url: "https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync" },
+      { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
+      { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
+      { label: "HubSpot Knowledge Base — Use webhooks with HubSpot workflows", url: "https://knowledge.hubspot.com/workflows/how-do-i-use-webhooks-with-hubspot-workflows" },
+      { label: "HubSpot Knowledge Base — Choose your workflow actions", url: "https://knowledge.hubspot.com/workflows/choose-your-workflow-actions" },
+      { label: "Zendesk Help — Announcing the removal of API tokens as an authentication method for API requests", url: "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests" },
+      { label: "Zendesk Developer Docs — Working with OAuth refresh tokens", url: "https://developer.zendesk.com/documentation/api-basics/authentication/refresh-token/" },
+    ],
+    related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
+    updated: "2026-11-03",
   },
 ];

@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Los webhooks se encargan del camino de vuelta. Un disparador de Zendesk puede llamar a un endpoint externo mediante una acción «Notify webhook»; por ejemplo, para avisar al bot de que un agente ha resuelto el ticket y que así pueda cerrar el ciclo en el canal original.",
+            text: "Los webhooks se encargan del camino de vuelta. Un disparador de Zendesk puede llamar a un endpoint externo mediante una acción «Notify by > Active webhook»; por ejemplo, para avisar al bot de que un agente ha resuelto el ticket y que así pueda cerrar el ciclo en el canal original.",
           },
           {
             type: "note",
@@ -801,7 +801,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Hay dos detalles de Zendesk que suelen pillar desprevenido a más de uno: los destinatarios se agrupan por idioma y zona horaria, con un email por grupo, y si un dashboard debe cubrir todo el día anterior, Zendesk aconseja programarlo para las 2:00 de la madrugada o más tarde.",
+            text: "Hay dos detalles de Zendesk que suelen pillar desprevenido a más de uno: los destinatarios se agrupan por idioma y zona horaria, con un email por grupo, y si un dashboard debe cubrir todo el día anterior, Zendesk aconseja programarlo para las 2 de la madrugada o más tarde.",
           },
           {
             type: "p",

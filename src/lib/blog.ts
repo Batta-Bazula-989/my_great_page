@@ -34,11 +34,11 @@ export const readingMinutes = (page: TranslatedPage) => {
   return Math.max(1, Math.round(text.split(/\s+/).filter(Boolean).length / WORDS_PER_MINUTE));
 };
 
-// Newest first; articles checked on the same day keep their order within the category list.
+// Newest first. On the same date, the article added to the content files last comes first.
 export const newestFirst = (pages: TranslatedPage[]) =>
   pages
     .map((page, i) => ({ page, i }))
-    .sort((a, b) => b.page.updated.localeCompare(a.page.updated) || a.i - b.i)
+    .sort((a, b) => b.page.updated.localeCompare(a.page.updated) || b.i - a.i)
     .map(({ page }) => page);
 
 export const isCategory = (value: string, ids: CategoryId[]): value is CategoryId => (ids as string[]).includes(value);

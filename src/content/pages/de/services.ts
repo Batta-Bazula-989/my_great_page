@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Webhooks übernehmen den Rückweg. Ein Zendesk-Trigger kann über die Aktion „Notify webhook“ einen externen Endpunkt aufrufen – etwa um dem Bot mitzuteilen, dass ein Agent das Ticket gelöst hat, damit er den Vorgang im ursprünglichen Kanal abschließen kann.",
+            text: "Webhooks übernehmen den Rückweg. Ein Zendesk-Trigger kann über die Aktion „Notify by > Active webhook“ einen externen Endpunkt aufrufen – etwa um dem Bot mitzuteilen, dass ein Agent das Ticket gelöst hat, damit er den Vorgang im ursprünglichen Kanal abschließen kann.",
           },
           {
             type: "note",

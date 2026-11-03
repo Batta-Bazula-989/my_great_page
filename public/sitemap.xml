@@ -25,7 +25,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -535,7 +535,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -550,7 +550,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -565,7 +565,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/hubspot-zendesk-integration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -594,7 +609,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1104,7 +1119,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1119,7 +1134,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1134,7 +1149,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1163,7 +1193,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1673,7 +1703,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1688,7 +1718,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1703,7 +1733,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/fr/integration-hubspot-zendesk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1732,7 +1777,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2242,7 +2287,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2257,7 +2302,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2272,7 +2317,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/es/integracion-hubspot-zendesk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2301,7 +2361,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2811,7 +2871,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2826,7 +2886,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2841,7 +2901,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/it/integrazione-hubspot-zendesk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2870,7 +2945,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3380,7 +3455,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3395,7 +3470,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3410,7 +3485,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/nl/hubspot-zendesk-koppeling</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3439,7 +3529,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3949,7 +4039,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3964,7 +4054,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3979,7 +4069,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/pl/integracja-hubspot-zendesk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4008,7 +4113,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4518,7 +4623,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-n8n-zendesk" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/n8n-zendesk-integration-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/n8n-zendesk-integration" />
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4533,7 +4638,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/automatyzacja-attio-workflows" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-workflows-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-workflows-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4548,7 +4653,22 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/attio-vs-hubspot-automatyzacja" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/attio-vs-hubspot-automatisering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/attio-vs-hubspot-automation" />
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/sv/hubspot-zendesk-integration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/hubspot-zendesk-integration-anleitung" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/integration-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/integracion-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/integrazione-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/hubspot-zendesk-koppeling" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/integracja-hubspot-zendesk" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/hubspot-zendesk-integration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/hubspot-zendesk-integration" />
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

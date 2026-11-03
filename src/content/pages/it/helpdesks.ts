@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Quando una regola deve comunicare qualcosa a un altro sistema, usa un webhook. Lo crei nell'Admin Center e scegli il tipo di connessione: eventi Zendesk, oppure trigger o automazione. Un webhook può usarne uno solo, non entrambi, e il metodo di connessione non si può cambiare in seguito. In un trigger o in un'automazione, aggiungi l'azione 'Notify webhook', seleziona il webhook e inserisci il payload. Il corpo della richiesta può essere JSON, XML o form-encoded e il payload non può superare i 16.000 caratteri. Ogni webhook ha un'opzione Test webhook per verificare la richiesta prima che vada in produzione.",
+            text: "Quando una regola deve comunicare qualcosa a un altro sistema, usa un webhook. Lo crei nell'Admin Center e scegli il tipo di connessione: eventi Zendesk, oppure trigger o automazione. Un webhook può usarne uno solo, non entrambi, e il metodo di connessione non si può cambiare in seguito. In un trigger o in un'automazione, aggiungi l'azione 'Notify by > Active webhook', seleziona il webhook e inserisci il payload. Il corpo della richiesta può essere JSON, XML o form-encoded e il payload non può superare i 16.000 caratteri. Ogni webhook ha un'opzione Test webhook per verificare la richiesta prima che vada in produzione.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Un trigger Zendesk può chiamare un sistema esterno?",
-        a: "Sì. Crea un webhook collegato a trigger e automazioni, poi aggiungi al trigger l'azione 'Notify webhook' con il payload che vuoi inviare.",
+        a: "Sì. Crea un webhook collegato a trigger e automazioni, poi aggiungi al trigger l'azione 'Notify by > Active webhook' con il payload che vuoi inviare.",
       },
       {
         q: "Le categorie di trigger cambiano l'ordine di esecuzione dei trigger?",

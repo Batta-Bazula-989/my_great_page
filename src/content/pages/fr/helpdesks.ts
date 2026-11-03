@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Quand une règle doit transmettre une information à un autre système, utilisez un webhook. Vous le créez dans l'Admin Center et choisissez son type de connexion : événements Zendesk, ou déclencheur ou automatisation. Un webhook ne peut utiliser que l'un des deux, et la méthode de connexion ne peut pas être modifiée par la suite. Dans un déclencheur ou une automatisation, ajoutez l'action « Notify webhook », sélectionnez le webhook et saisissez la charge utile (payload). Le corps des requêtes peut être en JSON, en XML ou encodé comme un formulaire, et la charge utile ne peut pas dépasser 16 000 caractères. Chaque webhook dispose d'une option « Test webhook » pour vérifier la requête avant la mise en production.",
+            text: "Quand une règle doit transmettre une information à un autre système, utilisez un webhook. Vous le créez dans l'Admin Center et choisissez son type de connexion : événements Zendesk, ou déclencheur ou automatisation. Un webhook ne peut utiliser que l'un des deux, et la méthode de connexion ne peut pas être modifiée par la suite. Dans un déclencheur ou une automatisation, ajoutez l'action « Notify by > Active webhook », sélectionnez le webhook et saisissez la charge utile (payload). Le corps des requêtes peut être en JSON, en XML ou encodé comme un formulaire, et la charge utile ne peut pas dépasser 16 000 caractères. Chaque webhook dispose d'une option « Test webhook » pour vérifier la requête avant la mise en production.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Un déclencheur Zendesk peut-il appeler un système externe ?",
-        a: "Oui. Créez un webhook connecté aux déclencheurs et automatisations, puis ajoutez au déclencheur l'action « Notify webhook » avec la charge utile à envoyer.",
+        a: "Oui. Créez un webhook connecté aux déclencheurs et automatisations, puis ajoutez au déclencheur l'action « Notify by > Active webhook » avec la charge utile à envoyer.",
       },
       {
         q: "Les catégories de déclencheurs changent-elles l'ordre d'exécution ?",

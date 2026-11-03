@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Webhooki obsługują drogę powrotną. Wyzwalacz (trigger) w Zendesku może wywołać zewnętrzny endpoint przez akcję „Notify webhook” — na przykład, aby poinformować bota, że konsultant rozwiązał zgłoszenie, dzięki czemu bot może domknąć sprawę w pierwotnym kanale.",
+            text: "Webhooki obsługują drogę powrotną. Wyzwalacz (trigger) w Zendesku może wywołać zewnętrzny endpoint przez akcję „Notify by > Active webhook” — na przykład, aby poinformować bota, że konsultant rozwiązał zgłoszenie, dzięki czemu bot może domknąć sprawę w pierwotnym kanale.",
           },
           {
             type: "note",
@@ -801,7 +801,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Dwa szczegóły Zendeska często zaskakują: odbiorcy są grupowani według języka i strefy czasowej, a do każdej grupy wysyłany jest jeden e-mail; jeśli dashboard ma obejmować cały poprzedni dzień, Zendesk radzi zaplanować wysyłkę na 2:00 lub później.",
+            text: "Dwa szczegóły Zendeska często zaskakują: odbiorcy są grupowani według języka i strefy czasowej, a do każdej grupy wysyłany jest jeden e-mail; jeśli dashboard ma obejmować cały poprzedni dzień, Zendesk radzi zaplanować wysyłkę na godzinę 2 w nocy lub później.",
           },
           {
             type: "p",

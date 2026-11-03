@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "I webhook gestiscono il percorso di ritorno. Un trigger di Zendesk può chiamare un endpoint esterno tramite un'azione Notify webhook, per esempio per comunicare al bot che un operatore ha risolto il ticket, così che possa chiudere il cerchio sul canale originale.",
+            text: "I webhook gestiscono il percorso di ritorno. Un trigger di Zendesk può chiamare un endpoint esterno tramite un'azione Notify by > Active webhook, per esempio per comunicare al bot che un operatore ha risolto il ticket, così che possa chiudere il cerchio sul canale originale.",
           },
           {
             type: "note",
@@ -801,7 +801,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Due dettagli di Zendesk traggono spesso in inganno: i destinatari vengono raggruppati per lingua e fuso orario, con un'email inviata a ciascun gruppo, e se una dashboard deve coprire l'intera giornata precedente, Zendesk consiglia di pianificarla per le 2:00 o più tardi.",
+            text: "Due dettagli di Zendesk traggono spesso in inganno: i destinatari vengono raggruppati per lingua e fuso orario, con un'email inviata a ciascun gruppo, e se una dashboard deve coprire l'intera giornata precedente, Zendesk consiglia di pianificarla per le 2 di notte o più tardi.",
           },
           {
             type: "p",

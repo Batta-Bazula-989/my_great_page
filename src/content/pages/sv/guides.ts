@@ -783,14 +783,14 @@ export const guidePages: TranslatedPage[] = [
     primaryKeyword: "n8n Zendesk-integration",
     title: "n8n Zendesk-integration: noder, triggers och webhooks",
     description:
-      "Guide till n8n Zendesk-integration: Zendesk-nodens operationer, Zendesk Trigger, API-token eller OAuth2, webhooks, anropsgränser och ett exempelarbetsflöde.",
+      "Guide till n8n Zendesk-integration: Zendesk-nodens operationer, Zendesk Trigger, OAuth2 och slutet för API-tokens, webhooks, anropsgränser, ett exempel.",
     h1: "n8n Zendesk-integration: noder, inloggningsuppgifter och exempelarbetsflöden",
     intro:
-      "n8n kopplas till Zendesk via två inbyggda noder. Zendesk-noden arbetar med ärenden, ärendefält, användare och organisationer, och Zendesk Trigger-noden startar ett arbetsflöde när något händer i Zendesk. Båda använder samma inloggningsuppgifter (credential), en API-token eller OAuth2. Om du hellre vill behålla reglerna i Zendesk kan du i stället rikta en Zendesk-webhook mot en Webhook-nod i n8n och utlösa den från en trigger i Zendesk.",
+      "n8n kopplas till Zendesk via två inbyggda noder. Zendesk-noden arbetar med ärenden, ärendefält, användare och organisationer, och Zendesk Trigger-noden startar ett arbetsflöde när något händer i Zendesk. Båda använder samma inloggningsuppgifter (credential). Använd OAuth2 för nya upplägg: Zendesk slutade utfärda nya API-tokens den 27 oktober 2026, och alla API-tokens slutar fungera den 30 april 2027. Om du hellre vill behålla reglerna i Zendesk kan du i stället rikta en Zendesk-webhook mot en Webhook-nod i n8n och utlösa den från en trigger i Zendesk.",
     keyFacts: [
       "Zendesk-noden i n8n har fyra resurser: Ticket, Ticket Field, User och Organization.",
       "Om du sätter taggar med nodens operation Update Ticket ersätts hela tagglistan. Taggar som du utelämnar tas bort.",
-      "n8n:s Zendesk-credential stöder en API-token (subdomän, inloggningsmejl och token) eller OAuth2.",
+      "n8n:s Zendesk-credential stöder OAuth2 eller en API-token, men Zendesk slutade utfärda nya API-tokens den 27 oktober 2026 och stänger av alla den 30 april 2027.",
       "Zendesk signerar webhook-anrop med headrarna X-Zendesk-Webhook-Signature och X-Zendesk-Webhook-Signature-Timestamp.",
       "API-gränserna för Zendesk Suite sträcker sig från 200 anrop per minut på Team till 2 500 på Enterprise Plus.",
     ],
@@ -828,13 +828,13 @@ export const guidePages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Noderna Zendesk och Zendesk Trigger använder samma credential, och n8n stöder två sätt att autentisera. Båda kräver din subdomän, som är delen av din Zendesk-URL mellan https:// och .zendesk.com.",
+            text: "Noderna Zendesk och Zendesk Trigger använder samma credential, och n8n stöder två sätt att autentisera. Båda kräver din subdomän, som är delen av din Zendesk-URL mellan https:// och .zendesk.com. Zendesk fasar ut API-tokens, så OAuth2 är det du ska välja för allt nytt.",
           },
           {
             type: "ul",
             items: [
-              "API-token: i Zendesk Admin Center öppnar du Apps and integrations och sedan APIs, och aktiverar tokenåtkomst för Zendesk API. Lägg till en token med en beskrivning och kopiera den. I n8n anger du subdomänen, mejladressen du loggar in i Zendesk med och token.",
               "OAuth2: i Zendesk Admin Center skapar du en OAuth-klient under Apps and integrations och sedan APIs. Klistra in n8n:s OAuth-callback-URL i klientens fält för omdirigerings-URL. Kopiera klientens unika identifierare till Client ID i n8n och dess hemlighet till Client Secret, lägg till subdomänen, spara och anslut ditt Zendesk-konto.",
+              "API-token (bara befintliga tokens): konton som skapats den 28 juli 2026 eller senare kan inte använda API-tokens, och sedan den 27 oktober 2026 kan inget konto skapa nya. En token som du redan har fungerar till den 30 april 2027, om den inte står oanvänd i 30 dagar, vilket inaktiverar den. I n8n anges den tillsammans med subdomänen och mejladressen du loggar in i Zendesk med. Planera övergången till OAuth2 före april 2027.",
             ],
           },
         ],
@@ -848,14 +848,14 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Alternativet är att bygga kopplingen själv. I Zendesk Admin Center går du till Apps and integrations och sedan Webhooks, skapar en webhook, väljer Trigger or Automation som anslutningsmetod och riktar den mot Production URL för en Webhook-nod i n8n. Lägg sedan till åtgärden Notify webhook i en trigger eller automatisering i Zendesk och skriv payloaden, som inte får överstiga 16 000 tecken. På så sätt ligger villkoren kvar i Zendesks affärsregler och du kan välja exakt vilka fält som ska skickas.",
+            text: "Alternativet är att bygga kopplingen själv. I Zendesk Admin Center går du till Apps and integrations och sedan Webhooks, skapar en webhook, väljer Trigger or Automation som anslutningsmetod och riktar den mot Production URL för en Webhook-nod i n8n. Lägg sedan till åtgärden Notify by > Active webhook i en trigger eller automatisering i Zendesk och skriv payloaden, som inte får överstiga 16 000 tecken. På så sätt ligger villkoren kvar i Zendesks affärsregler och du kan välja exakt vilka fält som ska skickas.",
           },
           {
             type: "table",
             caption: "Två sätt att starta ett arbetsflöde i n8n från Zendesk",
             head: ["Fråga", "Zendesk Trigger-nod", "Zendesk-webhook + Webhook-nod i n8n"],
             rows: [
-              ["Var villkoren finns", "I noden, i n8n", "I en trigger eller automatisering i Zendesk med åtgärden Notify webhook"],
+              ["Var villkoren finns", "I noden, i n8n", "I en trigger eller automatisering i Zendesk med åtgärden Notify by > Active webhook"],
               ["Vad n8n tar emot", "De händelsedata som noden tillhandahåller", "Den payload du skriver i triggeråtgärden, upp till 16 000 tecken"],
               ["Zendesk-credential", "Behövs för själva triggern", "Behövs bara för senare steg som anropar Zendesk"],
               ["Testning", "Kör noden i editorn, som i exemplet i n8n:s dokumentation", "Använd Webhook-nodens Test URL, som lyssnar i 120 sekunder, och byt sedan till Production URL"],
@@ -937,7 +937,7 @@ export const guidePages: TranslatedPage[] = [
       },
       {
         q: "Vilka autentiseringsmetoder stöder n8n:s Zendesk-credential?",
-        a: "En API-token, som anges tillsammans med din subdomän och mejladressen du loggar in med, eller OAuth2, med klient-ID och hemlighet från en OAuth-klient som du skapar i Zendesk.",
+        a: "OAuth2, med klient-ID och hemlighet från en OAuth-klient som du skapar i Zendesk, eller en befintlig API-token tillsammans med din subdomän och ditt inloggningsmejl. Zendesk utfärdar inte längre nya API-tokens och stänger av alla den 30 april 2027, så använd OAuth2.",
       },
       {
         q: "Hur kontrollerar jag att ett webhook-anrop kom från Zendesk?",
@@ -959,8 +959,10 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
       { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
       { label: "Zendesk Developer Docs — Rate limits", url: "https://developer.zendesk.com/api-reference/introduction/rate-limits/" },
+      { label: "Zendesk Help — Announcing the removal of API tokens as an authentication method for API requests", url: "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests" },
+      { label: "Zendesk Developer Docs — Migrating from API tokens to OAuth access tokens", url: "https://developer.zendesk.com/documentation/authentication/oauth-migration/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-03",
   },
 ];

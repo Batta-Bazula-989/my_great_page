@@ -119,7 +119,7 @@ export const basicsPages: TranslatedPage[] = [
           {
             type: "ul",
             items: [
-              "Zendesk: tworzysz webhook w Admin Center, a potem podpinasz go do triggera lub automatyzacji akcją 'Notify webhook'. Treść żądania może mieć format JSON, XML lub form-encoded, a placeholdery wstawiają dane zgłoszenia.",
+              "Zendesk: tworzysz webhook w Admin Center, a potem podpinasz go do triggera lub automatyzacji akcją 'Notify by > Active webhook'. Treść żądania może mieć format JSON, XML lub form-encoded, a placeholdery wstawiają dane zgłoszenia.",
               "Freshdesk: reguły automatyzacji działające przy tworzeniu lub aktualizacji zgłoszeń mogą używać akcji 'Trigger webhook' z metodami GET, POST, PUT, PATCH lub DELETE i placeholderami takimi jak {{ticket.id}}. Nieudane webhooki są ponawiane co 30 minut, maksymalnie do 48 wywołań.",
               "Jira: akcja automatyzacji 'Send web request' wywołuje inny system, gdy reguła się uruchamia, i może czekać na odpowiedź, aby dalsze kroki mogły wykorzystać zwrócone dane.",
             ],

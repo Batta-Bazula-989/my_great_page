@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Gdy reguła ma przekazać informację innemu systemowi, użyj webhooka. Tworzysz go w Admin Center i wybierasz typ połączenia: zdarzenia Zendesk albo trigger lub automatyzacja. Webhook może korzystać z jednego z nich, nie z obu, a metody połączenia nie da się później zmienić. W triggerze lub automatyzacji dodaj akcję 'Notify webhook', wybierz webhook i wpisz payload. Treść żądania może mieć format JSON, XML lub form-encoded, a payload nie może przekraczać 16 000 znaków. Każdy webhook ma opcję 'Test webhook', która pozwala sprawdzić żądanie przed uruchomieniem na produkcji.",
+            text: "Gdy reguła ma przekazać informację innemu systemowi, użyj webhooka. Tworzysz go w Admin Center i wybierasz typ połączenia: zdarzenia Zendesk albo trigger lub automatyzacja. Webhook może korzystać z jednego z nich, nie z obu, a metody połączenia nie da się później zmienić. W triggerze lub automatyzacji dodaj akcję 'Notify by > Active webhook', wybierz webhook i wpisz payload. Treść żądania może mieć format JSON, XML lub form-encoded, a payload nie może przekraczać 16 000 znaków. Każdy webhook ma opcję 'Test webhook', która pozwala sprawdzić żądanie przed uruchomieniem na produkcji.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Czy trigger Zendesk może wywołać system zewnętrzny?",
-        a: "Tak. Utwórz webhook połączony z triggerami i automatyzacjami, a następnie dodaj do triggera akcję 'Notify webhook' z payloadem, który chcesz wysłać.",
+        a: "Tak. Utwórz webhook połączony z triggerami i automatyzacjami, a następnie dodaj do triggera akcję 'Notify by > Active webhook' z payloadem, który chcesz wysłać.",
       },
       {
         q: "Czy kategorie triggerów zmieniają kolejność ich działania?",

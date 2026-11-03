@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Moet een regel iets doorgeven aan een ander systeem, gebruik dan een webhook. Je maakt die aan in Admin Center en kiest het verbindingstype: Zendesk-events, of trigger of automatisering. Een webhook kan een van beide gebruiken, niet allebei, en de verbindingsmethode kun je later niet meer wijzigen. Voeg in een trigger of automatisering de actie 'Notify webhook' toe, selecteer de webhook en vul de payload in. Request bodies kunnen JSON, XML of form-encoded zijn, en de payload mag niet langer zijn dan 16.000 tekens. Elke webhook heeft een optie Test webhook om het request te controleren voordat het live gaat.",
+            text: "Moet een regel iets doorgeven aan een ander systeem, gebruik dan een webhook. Je maakt die aan in Admin Center en kiest het verbindingstype: Zendesk-events, of trigger of automatisering. Een webhook kan een van beide gebruiken, niet allebei, en de verbindingsmethode kun je later niet meer wijzigen. Voeg in een trigger of automatisering de actie 'Notify by > Active webhook' toe, selecteer de webhook en vul de payload in. Request bodies kunnen JSON, XML of form-encoded zijn, en de payload mag niet langer zijn dan 16.000 tekens. Elke webhook heeft een optie Test webhook om het request te controleren voordat het live gaat.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "Kan een Zendesk-trigger een extern systeem aanroepen?",
-        a: "Ja. Maak een webhook aan die aan triggers en automatiseringen is gekoppeld en voeg daarna de actie 'Notify webhook' toe aan de trigger, met de payload die je wilt versturen.",
+        a: "Ja. Maak een webhook aan die aan triggers en automatiseringen is gekoppeld en voeg daarna de actie 'Notify by > Active webhook' toe aan de trigger, met de payload die je wilt versturen.",
       },
       {
         q: "Veranderen triggercategorieën de volgorde waarin triggers draaien?",

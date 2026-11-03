@@ -129,7 +129,7 @@ export const helpdeskPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "When a rule needs to tell another system something, use a webhook. You create it in Admin Center and pick its connection type: Zendesk events, or trigger or automation. A webhook can use one of those, not both, and you can't change the connection method later. In a trigger or automation, add the 'Notify webhook' action, select the webhook and enter the payload. Request bodies can be JSON, XML or form-encoded, and the payload can't exceed 16,000 characters. Each webhook has a Test webhook option for checking the request before it goes live.",
+            text: "When a rule needs to tell another system something, use a webhook. You create it in Admin Center and pick its connection type: Zendesk events, or trigger or automation. A webhook can use one of those, not both, and you can't change the connection method later. In a trigger or automation, add the 'Notify by > Active webhook' action, select the webhook and enter the payload. Request bodies can be JSON, XML or form-encoded, and the payload can't exceed 16,000 characters. Each webhook has a Test webhook option for checking the request before it goes live.",
           },
           {
             type: "p",
@@ -175,7 +175,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         q: "Can a Zendesk trigger call an external system?",
-        a: "Yes. Create a webhook connected to triggers and automations, then add the 'Notify webhook' action to the trigger with the payload you want to send.",
+        a: "Yes. Create a webhook connected to triggers and automations, then add the 'Notify by > Active webhook' action to the trigger with the payload you want to send.",
       },
       {
         q: "Do trigger categories change the order triggers run in?",

@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Webhooks sköter returvägen. En trigger i Zendesk kan anropa en extern endpoint via åtgärden ”Notify webhook” – till exempel för att meddela boten att en agent har löst ärendet, så att den kan knyta ihop säcken i den ursprungliga kanalen.",
+            text: "Webhooks sköter returvägen. En trigger i Zendesk kan anropa en extern endpoint via åtgärden ”Notify by > Active webhook” – till exempel för att meddela boten att en agent har löst ärendet, så att den kan knyta ihop säcken i den ursprungliga kanalen.",
           },
           {
             type: "note",

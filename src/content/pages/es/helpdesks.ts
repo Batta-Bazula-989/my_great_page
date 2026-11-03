@@ -130,7 +130,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Cuando una regla tiene que avisar a otro sistema, usa un webhook. Se crea en Admin Center y se elige su tipo de conexión: eventos de Zendesk, o trigger o automatización. Un webhook puede usar uno de los dos, no ambos, y el método de conexión no se puede cambiar después. En un trigger o una automatización, añade la acción 'Notify webhook', selecciona el webhook e introduce el payload. El cuerpo de la solicitud puede ser JSON, XML o form-encoded, y el payload no puede superar los 16.000 caracteres. Cada webhook tiene la opción 'Test webhook' para comprobar la solicitud antes de ponerlo en producción.",
+            text: "Cuando una regla tiene que avisar a otro sistema, usa un webhook. Se crea en Admin Center y se elige su tipo de conexión: eventos de Zendesk, o trigger o automatización. Un webhook puede usar uno de los dos, no ambos, y el método de conexión no se puede cambiar después. En un trigger o una automatización, añade la acción 'Notify by > Active webhook', selecciona el webhook e introduce el payload. El cuerpo de la solicitud puede ser JSON, XML o form-encoded, y el payload no puede superar los 16.000 caracteres. Cada webhook tiene la opción 'Test webhook' para comprobar la solicitud antes de ponerlo en producción.",
           },
           {
             type: "p",
@@ -176,7 +176,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
       {
         q: "¿Puede un trigger de Zendesk llamar a un sistema externo?",
-        a: "Sí. Crea un webhook conectado a triggers y automatizaciones y, después, añade al trigger la acción 'Notify webhook' con el payload que quieras enviar.",
+        a: "Sí. Crea un webhook conectado a triggers y automatizaciones y, después, añade al trigger la acción 'Notify by > Active webhook' con el payload que quieras enviar.",
       },
       {
         q: "¿Las categorías de triggers cambian el orden en que se ejecutan los triggers?",

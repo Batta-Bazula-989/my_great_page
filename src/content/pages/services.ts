@@ -149,7 +149,7 @@ export const servicesPages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "Webhooks handle the return trip. A Zendesk trigger can call an external endpoint through a Notify webhook action — for example, to tell the bot that an agent has solved the ticket so it can close the loop on the original channel.",
+            text: "Webhooks handle the return trip. A Zendesk trigger can call an external endpoint through a Notify by > Active webhook action — for example, to tell the bot that an agent has solved the ticket so it can close the loop on the original channel.",
           },
           {
             type: "note",

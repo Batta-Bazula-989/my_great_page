@@ -783,14 +783,14 @@ export const guidePages: TranslatedPage[] = [
     primaryKeyword: "integrazione n8n Zendesk",
     title: "Integrazione n8n Zendesk: nodi, trigger e webhook",
     description:
-      "Guida all'integrazione n8n Zendesk: operazioni del nodo Zendesk, Zendesk Trigger, credenziali API token o OAuth2, webhook, rate limit e un workflow di esempio.",
+      "Guida all'integrazione n8n Zendesk: operazioni del nodo Zendesk, Zendesk Trigger, credenziali OAuth2 e fine degli API token, webhook, rate limit, un esempio.",
     h1: "Integrazione n8n Zendesk: nodi, credenziali e workflow di esempio",
     intro:
-      "n8n si collega a Zendesk tramite due nodi integrati. Il nodo Zendesk lavora con ticket, campi dei ticket, utenti e organizzazioni, mentre il nodo Zendesk Trigger avvia un workflow quando succede qualcosa in Zendesk. Entrambi usano la stessa credenziale, un API token oppure OAuth2. Se preferisci tenere le regole in Zendesk, puoi invece indirizzare un webhook di Zendesk verso un nodo Webhook di n8n e attivarlo da un trigger di Zendesk.",
+      "n8n si collega a Zendesk tramite due nodi integrati. Il nodo Zendesk lavora con ticket, campi dei ticket, utenti e organizzazioni, mentre il nodo Zendesk Trigger avvia un workflow quando succede qualcosa in Zendesk. Entrambi usano la stessa credenziale. Per le nuove configurazioni usa OAuth2: Zendesk ha smesso di emettere nuovi API token il 27 ottobre 2026 e tutti gli API token smetteranno di funzionare il 30 aprile 2027. Se preferisci tenere le regole in Zendesk, puoi invece indirizzare un webhook di Zendesk verso un nodo Webhook di n8n e attivarlo da un trigger di Zendesk.",
     keyFacts: [
       "Il nodo Zendesk di n8n ha quattro risorse: Ticket, Ticket Field, User e Organization.",
       "Impostare i tag con l'operazione Update Ticket del nodo sostituisce l'intero elenco di tag. I tag che non includi vengono rimossi.",
-      "La credenziale Zendesk di n8n supporta un API token (sottodominio, email di accesso e token) oppure OAuth2.",
+      "La credenziale Zendesk di n8n supporta OAuth2 o un API token, ma Zendesk ha smesso di emettere nuovi API token il 27 ottobre 2026 e li disattiverà tutti il 30 aprile 2027.",
       "Zendesk firma le richieste webhook con gli header X-Zendesk-Webhook-Signature e X-Zendesk-Webhook-Signature-Timestamp.",
       "I limiti API di Zendesk Suite vanno da 200 richieste al minuto con Team a 2.500 con Enterprise Plus.",
     ],
@@ -828,13 +828,13 @@ export const guidePages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "I nodi Zendesk e Zendesk Trigger usano la stessa credenziale e n8n supporta due modalità di autenticazione. Entrambe richiedono il tuo sottodominio, cioè la parte dell'URL di Zendesk tra https:// e .zendesk.com.",
+            text: "I nodi Zendesk e Zendesk Trigger usano la stessa credenziale e n8n supporta due modalità di autenticazione. Entrambe richiedono il tuo sottodominio, cioè la parte dell'URL di Zendesk tra https:// e .zendesk.com. Zendesk sta dismettendo gli API token, quindi per qualsiasi nuova configurazione la scelta giusta è OAuth2.",
           },
           {
             type: "ul",
             items: [
-              "API token: nell'Admin Center di Zendesk apri Apps and integrations, poi APIs, e abilita l'accesso tramite token per la Zendesk API. Aggiungi un token con una descrizione e copialo. In n8n inserisci il sottodominio, l'indirizzo email che usi per accedere a Zendesk e il token.",
               "OAuth2: nell'Admin Center di Zendesk crea un client OAuth in Apps and integrations, poi APIs. Incolla l'URL di callback OAuth di n8n nel campo dell'URL di reindirizzamento del client. Copia l'identificativo univoco del client in Client ID in n8n e il suo secret in Client Secret, aggiungi il sottodominio, salva e collega il tuo account Zendesk.",
+              "API token (solo token esistenti): gli account creati a partire dal 28 luglio 2026 non possono usare gli API token, e dal 27 ottobre 2026 nessun account può crearne di nuovi. Un token che hai già continua a funzionare fino al 30 aprile 2027, a meno che non resti inutilizzato per 30 giorni, nel qual caso viene disattivato. In n8n si inserisce insieme al sottodominio e all'indirizzo email che usi per accedere a Zendesk. Pianifica il passaggio a OAuth2 prima di aprile 2027.",
             ],
           },
         ],
@@ -848,14 +848,14 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "L'alternativa è costruire tu stesso la connessione. Nell'Admin Center di Zendesk vai in Apps and integrations, poi Webhooks, crea un webhook, scegli Trigger o Automation come metodo di connessione e indirizzalo verso il Production URL di un nodo Webhook di n8n. Poi aggiungi l'azione Notify webhook a un trigger o a un'automazione di Zendesk e scrivi il payload, che non può superare i 16.000 caratteri. Così le condizioni restano nelle regole aziendali di Zendesk e puoi scegliere esattamente quali campi inviare.",
+            text: "L'alternativa è costruire tu stesso la connessione. Nell'Admin Center di Zendesk vai in Apps and integrations, poi Webhooks, crea un webhook, scegli Trigger o Automation come metodo di connessione e indirizzalo verso il Production URL di un nodo Webhook di n8n. Poi aggiungi l'azione Notify by > Active webhook a un trigger o a un'automazione di Zendesk e scrivi il payload, che non può superare i 16.000 caratteri. Così le condizioni restano nelle regole aziendali di Zendesk e puoi scegliere esattamente quali campi inviare.",
           },
           {
             type: "table",
             caption: "Due modi per avviare un workflow n8n da Zendesk",
             head: ["Domanda", "Nodo Zendesk Trigger", "Webhook di Zendesk + nodo Webhook di n8n"],
             rows: [
-              ["Dove stanno le condizioni", "Nel nodo, in n8n", "In un trigger o in un'automazione di Zendesk con l'azione Notify webhook"],
+              ["Dove stanno le condizioni", "Nel nodo, in n8n", "In un trigger o in un'automazione di Zendesk con l'azione Notify by > Active webhook"],
               ["Cosa riceve n8n", "I dati dell'evento forniti dal nodo", "Il payload che scrivi nell'azione del trigger, fino a 16.000 caratteri"],
               ["Credenziale Zendesk", "Necessaria per il trigger stesso", "Necessaria solo per i passaggi successivi che chiamano Zendesk"],
               ["Test", "Esegui il nodo nell'editor, come nell'esempio della documentazione di n8n", "Usa il Test URL del nodo Webhook, che resta in ascolto per 120 secondi, poi passa al Production URL"],
@@ -937,7 +937,7 @@ export const guidePages: TranslatedPage[] = [
       },
       {
         q: "Quali metodi di autenticazione supporta la credenziale Zendesk di n8n?",
-        a: "Un API token, inserito insieme al tuo sottodominio e all'email con cui accedi, oppure OAuth2, usando il client ID e il secret di un client OAuth che crei in Zendesk.",
+        a: "OAuth2, usando il client ID e il secret di un client OAuth che crei in Zendesk, oppure un API token esistente con il tuo sottodominio e l'email di accesso. Zendesk non emette più nuovi API token e li disattiverà tutti il 30 aprile 2027, quindi usa OAuth2.",
       },
       {
         q: "Come verifico che una richiesta webhook provenga da Zendesk?",
@@ -959,8 +959,10 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
       { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
       { label: "Zendesk Developer Docs — Rate limits", url: "https://developer.zendesk.com/api-reference/introduction/rate-limits/" },
+      { label: "Zendesk Help — Announcing the removal of API tokens as an authentication method for API requests", url: "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests" },
+      { label: "Zendesk Developer Docs — Migrating from API tokens to OAuth access tokens", url: "https://developer.zendesk.com/documentation/authentication/oauth-migration/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-03",
   },
 ];

@@ -119,7 +119,7 @@ export const basicsPages: TranslatedPage[] = [
           {
             type: "ul",
             items: [
-              "Zendesk: je maakt een webhook aan in Admin Center en koppelt die vervolgens aan een trigger of automatisering met de actie Notify webhook. De request body kan JSON, XML of form-encoded zijn, en placeholders voegen ticketgegevens in.",
+              "Zendesk: je maakt een webhook aan in Admin Center en koppelt die vervolgens aan een trigger of automatisering met de actie Notify by > Active webhook. De request body kan JSON, XML of form-encoded zijn, en placeholders voegen ticketgegevens in.",
               "Freshdesk: automatiseringsregels die draaien bij het aanmaken of bijwerken van tickets kunnen de actie Trigger webhook gebruiken met GET, POST, PUT, PATCH of DELETE en placeholders zoals {{ticket.id}}. Mislukte webhooks worden elke 30 minuten opnieuw geprobeerd, tot maximaal 48 calls.",
               "Jira: de automatiseringsactie Send web request roept een ander systeem aan wanneer een regel draait, en kan op de response wachten zodat latere stappen de teruggegeven gegevens kunnen gebruiken.",
             ],

@@ -27,7 +27,7 @@ types in the same order), list items, table columns/rows, FAQs. The build fails 
 - Keep every number, limit, date, article number, error code, product name and API/field name exactly.
   Write dates in the target language's format (e.g. de "2. August 2026", fr "2 août 2026",
   es "2 de agosto de 2026", it "2 agosto 2026", nl "2 augustus 2026", pl "2 sierpnia 2026", sv "2 augusti 2026").
-- Product UI labels, menu names, settings and button names (e.g. 'Notify webhook', 'Hours since',
+- Product UI labels, menu names, settings and button names (e.g. 'Notify by > Active webhook', 'Hours since',
   'HUMAN_AGENT', 'Get Started') stay in English, in quotes, as in the source.
 - TascaLab's own prices are written as tokens such as `{{price:starter}}`, which become the package price in the
   language's currency ("360 €", "ab 1.070 €"). Keep every token exactly, and write the sentence so it reads

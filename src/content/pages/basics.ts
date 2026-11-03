@@ -118,7 +118,7 @@ export const basicsPages: SeoPageContent[] = [
           {
             type: "ul",
             items: [
-              "Zendesk: you create a webhook in Admin Center, then attach it to a trigger or automation with the Notify webhook action. The request body can be JSON, XML or form-encoded, and placeholders insert ticket data.",
+              "Zendesk: you create a webhook in Admin Center, then attach it to a trigger or automation with the Notify by > Active webhook action. The request body can be JSON, XML or form-encoded, and placeholders insert ticket data.",
               "Freshdesk: automation rules that run on ticket creation or ticket updates can use the Trigger webhook action with GET, POST, PUT, PATCH or DELETE and placeholders such as {{ticket.id}}. Failed webhooks are retried every 30 minutes, up to 48 calls.",
               "Jira: the Send web request automation action calls another system when a rule runs, and can wait for the response so later steps can use the returned data.",
             ],

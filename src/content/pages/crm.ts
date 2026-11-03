@@ -14,7 +14,7 @@ export const crmPages: SeoPageContent[] = [
       "Attio automates CRM work with workflows. A workflow starts from a trigger block and runs a chain of action blocks, such as updating a record, creating a task, sending a Slack message or making an HTTP request. Workflow runs use workspace credits, and everything else connects through Attio's REST API and webhooks.",
     keyFacts: [
       "An Attio workflow is built from a trigger block, which starts it, and action blocks, which do the work.",
-      "Workflows use workspace credits. Most blocks use one credit, and a block that fails, plus every block after it, uses none.",
+      "Triggers, logic and data lookups are free. Blocks that write data, call outside systems or use AI use workspace credits, most of them one credit per run.",
       "Attio's REST API allows 100 read requests and 25 write requests per second. Over the limit it returns HTTP 429 with a Retry-After header.",
       "Attio signs webhooks with an HMAC-SHA256 of the request body, sent in the Attio-Signature header.",
     ],
@@ -37,7 +37,7 @@ export const crmPages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "Attio's help center gives updating a record, creating a task, sending a Slack message, enrolling someone in a sequence and making an HTTP request as examples of action blocks. You can also describe a workflow in plain language and let Ask Attio build it. Apps built with the Attio SDK can add their own blocks, which then appear in the block picker next to the built-in ones.",
+            text: "Attio's help center gives updating a record, creating a task, sending a Slack message, enrolling someone in a sequence and making an HTTP request as examples of action blocks. An 'Execute code' block runs your own JavaScript as a step, with a 100-second timeout. You can also describe a workflow in plain language and let Ask Attio build it. Apps built with the Attio SDK can add their own blocks, which then appear in the block picker next to the built-in ones.",
           },
           {
             type: "note",
@@ -50,20 +50,20 @@ export const crmPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "Workflow runs and AI features draw on the workspace's shared credits. Attio's billing docs describe how they are counted:",
+            text: "Workflow runs draw on the workspace's shared credits, not on seat credits. Attio's help center describes how they are counted in the new workflows:",
           },
           {
             type: "ul",
             items: [
-              "Most workflow blocks use one credit each time they run.",
-              "Credits are only charged for blocks that actually run. If a run fails partway, the failed block and every block after it use no credits.",
-              "Recalculating AI attributes also uses credits.",
-              "Admins can see credit usage per workflow in Workspace settings.",
+              "Triggers, logic and data lookups are free. Credits are only used when a block writes data, sends or receives something externally, or uses AI.",
+              "Record writes, tasks, sequence enrollment, HTTP requests and integration blocks cost 1 credit per run. AI blocks and 'Execute code' have variable costs.",
+              "Only the path a run takes is charged. If a run fails partway, the failed block and every block after it use no credits, but blocks that ran before the failure are charged.",
+              "Building a workflow with Ask Attio uses seat credits, not the shared workspace credits.",
             ],
           },
           {
             type: "p",
-            text: "The number of credits included differs by plan, and Attio has changed its plans before. Check the current allowance on Attio's pricing page and estimate usage from the number of blocks per run times your expected runs per month.",
+            text: "As of November 2026, Attio includes 250 workspace credits a month on Free, 1,500 on Plus and 10,000 on Pro. Plans change, so check Attio's pricing page, then estimate usage from the credit-using blocks per run times your expected runs per month.",
           },
         ],
       },
@@ -129,7 +129,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         q: "Do Attio workflows cost credits?",
-        a: "Yes. Workflow runs use the workspace's shared credits. Most blocks use one credit per run, and blocks that fail or never run use none. The number of credits included depends on your plan.",
+        a: "Yes, for blocks that write data, call outside systems or use AI. Most of those cost one credit per run, while triggers, logic and data lookups are free. As of November 2026, Free includes 250 workspace credits a month, Plus 1,500 and Pro 10,000.",
       },
       {
         q: "What are the Attio API rate limits?",
@@ -141,10 +141,11 @@ export const crmPages: SeoPageContent[] = [
       },
     ],
     sources: [
-      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/overview-of-workflows" },
+      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/getting-started-with-workflows" },
       { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
       { label: "Attio Help — Create a workflow", url: "https://attio.com/help/reference/automations/workflows/create-a-workflow" },
-      { label: "Attio Help — Automations billing", url: "https://attio.com/help/reference/automations/automations-billing" },
+      { label: "Attio Help — Manage workspace and seat credits", url: "https://attio.com/help/reference/workspace-settings-billing/manage-workspace-and-seat-credits" },
+      { label: "Attio Help — Migrate your legacy workflows", url: "https://attio.com/help/reference/automations/workflows/migrate-your-legacy-workflows" },
       { label: "Attio Docs — Rate limiting", url: "https://docs.attio.com/rest-api/guides/rate-limiting" },
       { label: "Attio Docs — Authentication", url: "https://docs.attio.com/rest-api/guides/authentication" },
       { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
@@ -154,7 +155,7 @@ export const crmPages: SeoPageContent[] = [
       { label: "Zapier — Attio and Zendesk integrations", url: "https://zapier.com/apps/attio/integrations/zendesk" },
     ],
     related: ["attio-vs-hubspot-automation", "n8n-vs-make-vs-zapier", "slack-support-automation"],
-    updated: "2026-11-02",
+    updated: "2026-11-03",
   },
   {
     slug: "attio-vs-hubspot-automation",
@@ -169,8 +170,8 @@ export const crmPages: SeoPageContent[] = [
       "Attio and HubSpot both automate CRM work with visual workflows, but they limit them differently. HubSpot includes workflows only in Professional and Enterprise editions and caps how many you can create, while Attio meters workflow runs with workspace credits. Their APIs and webhooks also differ in rate limits and in how you verify a request.",
     keyFacts: [
       "HubSpot workflows need a Professional or Enterprise subscription. Marketing, Sales or Service Hub Professional allows up to 300 workflows, and Enterprise up to 1,000.",
-      "Attio meters workflows with workspace credits. Most blocks use one credit per run.",
-      "HubSpot custom code actions must finish within 20 seconds and can use up to 128 MB of memory.",
+      "Attio meters workflows with workspace credits. Triggers, logic and lookups are free, and most blocks that write data or call out use one credit per run.",
+      "HubSpot custom code actions must finish within 20 seconds and can use up to 128 MB of memory. Attio's 'Execute code' block times out after 100 seconds.",
       "Attio's API allows 100 reads and 25 writes per second. HubSpot private apps on Professional or Enterprise get 190 requests per 10 seconds.",
       "HubSpot signs webhooks with X-HubSpot-Signature-v3. Attio uses the Attio-Signature header.",
     ],
@@ -183,9 +184,9 @@ export const crmPages: SeoPageContent[] = [
             caption: "Attio vs HubSpot automation (vendor docs, checked November 2026)",
             head: ["Question", "Attio", "HubSpot"],
             rows: [
-              ["How usage is limited", "Workflow runs use workspace credits. Most blocks use one credit.", "Professional or Enterprise required. A cap on the number of workflows per edition."],
+              ["How usage is limited", "Workspace credits. Triggers, logic and lookups are free, and most blocks that write or call out use one credit.", "Professional or Enterprise required. A cap on the number of workflows per edition."],
               ["Triggers", "Record, list, task and utility triggers, including a schedule, a webhook and a manual run", "Filter-, event-, schedule- and webhook-based enrollment triggers"],
-              ["Calling another system", "HTTP request block. Apps can add custom blocks.", "'Send a webhook' and 'Custom code' actions, in Data Hub Professional and Enterprise"],
+              ["Calling another system and code", "HTTP request block, and an 'Execute code' block for JavaScript. Apps can add custom blocks.", "'Send a webhook' and 'Custom code' actions, in Data Hub Professional and Enterprise"],
               ["Slack", "Slack message block, with Attio's Slack app", "Slack notification action, with the Slack integration installed"],
               ["API rate limit", "100 reads and 25 writes per second", "Private apps: 100 per 10 seconds on Free and Starter, 190 on Professional and Enterprise, plus a daily limit"],
               ["Webhook signature", "HMAC-SHA256 of the body, hex-encoded, in Attio-Signature", "HMAC-SHA256 of method, URI, body and timestamp, base64-encoded, in X-HubSpot-Signature-v3"],
@@ -215,7 +216,7 @@ export const crmPages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "Two actions matter most for integrations: 'Send a webhook' and 'Custom code'. HubSpot lists both for Data Hub Professional and Enterprise, the hub previously called Operations Hub. Custom code actions run Node.js or Python, must finish within 20 seconds and can use up to 128 MB of memory, so long jobs belong in an external tool such as n8n.",
+            text: "Two actions matter most for integrations: 'Send a webhook' and 'Custom code'. HubSpot lists both for Data Hub Professional and Enterprise, the hub previously called Operations Hub. Custom code actions run Node.js by default, or Python as a beta, must finish within 20 seconds and can use up to 128 MB of memory, so long jobs belong in an external tool such as n8n.",
           },
         ],
       },
@@ -224,11 +225,11 @@ export const crmPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "Attio meters workflows by usage. Runs draw on the workspace's shared credits, most blocks use one credit, and blocks that fail or never run use none. Admins can see credit usage per workflow in Workspace settings. The credits included differ by plan, so check Attio's pricing page and estimate blocks per run times runs per month.",
+            text: "Attio meters workflows by usage. Runs draw on the workspace's shared credits. Triggers, logic and data lookups are free, and blocks that write data, call outside systems or use AI use credits, most of them one per run. As of November 2026, Free includes 250 workspace credits a month, Plus 1,500 and Pro 10,000.",
           },
           {
             type: "p",
-            text: "To reach another system from an Attio workflow, use the HTTP request block, or build an app with the Attio SDK that adds its own workflow blocks.",
+            text: "To reach another system from an Attio workflow, use the HTTP request block. The 'Execute code' block runs your own JavaScript with a 100-second timeout and a variable credit cost, and apps built with the Attio SDK can add their own workflow blocks.",
           },
         ],
       },
@@ -257,7 +258,7 @@ export const crmPages: SeoPageContent[] = [
             items: [
               "If your support team already works in HubSpot's help desk, tickets, SLAs and ticket workflows live in the same account as the CRM, and workflows are included from Professional.",
               "If you use Attio as the CRM and a separate helpdesk, connect the two through the APIs and webhooks with n8n, Make or Zapier, which has an official Attio app.",
-              "If your automations call other systems, budget for Data Hub Professional in HubSpot, or plan around the HTTP request block in Attio.",
+              "If your automations call other systems, budget for Data Hub Professional in HubSpot, or plan around the HTTP request and 'Execute code' blocks in Attio.",
               "If volumes are high, check the API limits above against your peak ticket volume before you choose where the logic runs.",
             ],
           },
@@ -280,11 +281,11 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         q: "How does Attio limit workflows?",
-        a: "With workspace credits. Workflow runs draw on the workspace's shared credits, most blocks use one credit per run, and the credits included depend on your plan.",
+        a: "With workspace credits. Triggers, logic and lookups are free, and most blocks that write data or call outside systems use one credit per run. AI and code blocks vary. The credits included depend on your plan.",
       },
       {
         q: "Can I run custom code in HubSpot or Attio workflows?",
-        a: "HubSpot has a 'Custom code' action in Data Hub Professional and Enterprise that runs Node.js or Python, within 20 seconds and 128 MB of memory. Attio offers an HTTP request block, and apps built with its SDK can add custom blocks.",
+        a: "HubSpot has a 'Custom code' action in Data Hub Professional and Enterprise that runs Node.js, or Python as a beta, within 20 seconds and 128 MB of memory. Attio has an 'Execute code' block that runs JavaScript with a 100-second timeout, and apps built with its SDK can add custom blocks.",
       },
       {
         q: "How do I verify webhooks from HubSpot and Attio?",
@@ -301,12 +302,177 @@ export const crmPages: SeoPageContent[] = [
       { label: "HubSpot Developers — Validating requests", url: "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/request-validation" },
       { label: "HubSpot — Fall 2025 Spotlight", url: "https://www.hubspot.com/company-news/fall-2025-spotlight" },
       { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
-      { label: "Attio Help — Automations billing", url: "https://attio.com/help/reference/automations/automations-billing" },
+      { label: "Attio Help — Manage workspace and seat credits", url: "https://attio.com/help/reference/workspace-settings-billing/manage-workspace-and-seat-credits" },
+      { label: "Attio Help — Migrate your legacy workflows", url: "https://attio.com/help/reference/automations/workflows/migrate-your-legacy-workflows" },
       { label: "Attio Docs — Rate limiting", url: "https://docs.attio.com/rest-api/guides/rate-limiting" },
       { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
       { label: "Attio Help — Zapier app", url: "https://attio.com/help/reference/apps/zapier-app" },
     ],
     related: ["attio-workflows-automation", "hubspot-service-hub-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-11-02",
+    updated: "2026-11-03",
+  },
+  {
+    slug: "hubspot-zendesk-integration",
+    category: "crm",
+    navLabel: "HubSpot Zendesk integration",
+    primaryKeyword: "HubSpot Zendesk integration",
+    title: "HubSpot Zendesk Integration: What Syncs and Your Options",
+    description:
+      "HubSpot Zendesk integration guide: what the free Zendesk for HubSpot app syncs and doesn't, action flows, two-way sync apps and custom builds with both APIs.",
+    h1: "HubSpot Zendesk integration: what syncs, what doesn't and your options",
+    intro:
+      "Zendesk's own HubSpot integration is free and quick to connect, but it only sends ticket events one way, from Zendesk to a contact's timeline in HubSpot. If you need more, Zendesk action flows can create and update HubSpot records, Marketplace apps offer two-way sync, and a custom build with webhooks and both APIs can move exactly the data you choose.",
+    keyFacts: [
+      "The Zendesk Support for HubSpot integration is one-way: ticket information flows from Zendesk to HubSpot.",
+      "It creates three Zendesk triggers, for new tickets, solved tickets and CSAT ratings, plus a webhook called HubSpot Integration.",
+      "Tickets appear only on the HubSpot contact timeline, not on companies or deals, and only the user's email address is synced.",
+      "Zendesk action flows have HubSpot actions that create, update and look up contacts, companies, deals and tickets.",
+      "Zendesk stopped issuing new API tokens on October 27, 2026, so custom builds should use OAuth.",
+    ],
+    sections: [
+      {
+        heading: "Four ways to connect HubSpot and Zendesk",
+        blocks: [
+          {
+            type: "table",
+            caption: "HubSpot and Zendesk integration options (vendor docs and listings, checked November 2026)",
+            head: ["Option", "Direction", "What it moves"],
+            rows: [
+              ["Zendesk Support for HubSpot", "Zendesk to HubSpot only", "Events for new tickets, solved tickets and CSAT ratings, sent to the contact timeline"],
+              ["Zendesk action flows with HubSpot actions", "Zendesk to HubSpot, step by step", "Creates, updates and looks up contacts, companies, deals and tickets"],
+              ["Marketplace apps", "Depends on the app; some are two-way", "Whatever the app supports, such as contacts or deals"],
+              ["Custom build with webhooks and both APIs", "Either direction", "Exactly the fields and events you choose"],
+            ],
+          },
+          {
+            type: "p",
+            text: "Start with the question your team is trying to answer. If sales and account managers only need to see a contact's support history in HubSpot, the free integration may be enough. If tickets need to change HubSpot data, such as a company property or a deal stage, you need action flows, an app or a custom build.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up the free Zendesk Support for HubSpot integration",
+        blocks: [
+          {
+            type: "ol",
+            items: [
+              "Open the integration's install page and enter your Zendesk subdomain.",
+              "Authorize the connection in both Zendesk and HubSpot.",
+              "Zendesk creates three triggers, for new tickets, solved tickets and CSAT ratings, and a webhook called HubSpot Integration.",
+              "Edit the conditions of those triggers if you only want some tickets to reach HubSpot.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Zendesk documents a few limits. The integration is one-way, from Zendesk to HubSpot. Only the user's email address is synced, not the first or last name. Tickets are shown only on the contact timeline, not on company or deal records. You can change which tickets are sent by editing the trigger conditions, but you can't change the JSON payload. To turn the integration off, disable the three triggers.",
+          },
+          {
+            type: "note",
+            text: "Don't test the HubSpot Integration webhook from Admin Center. Zendesk warns that doing so can send invalid JSON and disconnect the integration. Test by creating or solving a real test ticket instead.",
+          },
+        ],
+      },
+      {
+        heading: "Zendesk action flows with HubSpot actions",
+        blocks: [
+          {
+            type: "p",
+            text: "Action flows are Zendesk's builder for multi-step automations that reach external systems. The HubSpot connector adds these actions:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Create and update contacts, companies, deals and tickets in HubSpot.",
+              "Look up contacts, companies, deals and tickets, and look up users.",
+              "Look up a contact by Contact ID or email. If you give both, Contact ID takes precedence.",
+              "Connect with OAuth 2.0 from 'External actions' in the step sidebar. Zendesk recommends a dedicated service account and refreshes tokens automatically.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Action flows use action credits. Zendesk lists 100,000 actions a month for Suite Professional and 225,000 for Suite Enterprise, sends an email at 80% and 100% of the allowance, and sells more in units of 100,000. Admins can see usage in Admin Center under Account, then Usage, then Summary. Allowances and plan availability change, so check them in your own account before you build on action flows.",
+          },
+        ],
+      },
+      {
+        heading: "Two-way sync apps",
+        blocks: [
+          {
+            type: "p",
+            text: "The Zendesk Marketplace lists a Data sync by HubSpot app that it describes as a bi-directional, real-time sync between HubSpot and Zendesk. Installing it needs a HubSpot Super Admin or a user with App Marketplace permissions, who enters the Zendesk subdomain, authorizes the connection and chooses what to sync. Third-party apps such as HubSpot CRM Connect add their own features. Marketplace listings are marketing pages, so check which records and fields an app really syncs on its setup screen before you rely on it.",
+          },
+          {
+            type: "p",
+            text: "HubSpot's data sync documentation explains how two-way syncs match records: by default, contacts are matched by email and companies by name or domain, and only contacts with a valid email address are synced. Clean up duplicate contacts and missing emails before you turn on a two-way sync, or the sync will copy the mess into both tools.",
+          },
+        ],
+      },
+      {
+        heading: "Custom builds with webhooks and both APIs",
+        blocks: [
+          {
+            type: "p",
+            text: "A custom build gives you full control, for example showing open tickets on HubSpot company records, which the free integration can't do. Here is a common pattern, described as steps. It isn't a TascaLab case study.",
+          },
+          {
+            type: "ol",
+            items: [
+              "Trigger: a Zendesk trigger with the Notify by > Active webhook action sends the ticket ID and requester email to n8n or Make when a ticket is created or its status changes.",
+              "Verify: the workflow checks the X-Zendesk-Webhook-Signature header, so only real Zendesk requests are processed.",
+              "Look up: it finds the HubSpot contact by email through the CRM API, then the company the contact is associated with.",
+              "Update: it writes the ticket count or latest status to a company property, which HubSpot lists, reports and workflows can use.",
+              "Handle errors: it waits and retries on HTTP 429, since both Zendesk and HubSpot limit API requests.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For the other direction, a HubSpot workflow can call your endpoint with the 'Send a webhook' action, which HubSpot lists for Data Hub Professional and Enterprise and which only accepts HTTPS URLs. On the Zendesk side, use OAuth rather than API tokens. Zendesk stopped letting existing accounts create new API tokens on October 27, 2026, and all API tokens stop working on April 30, 2027. OAuth clients created on or after April 30, 2026 get access tokens that expire after 30 minutes by default, so the integration needs refresh-token handling.",
+          },
+        ],
+      },
+      {
+        heading: "Getting this built",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab connects Zendesk and HubSpot through APIs, webhooks, n8n and Make, on top of the tools you already use. Custom Automation projects cost {{price:custom}}. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is the HubSpot Zendesk integration two-way?",
+        a: "Not the free Zendesk Support for HubSpot integration. It is one-way, sending ticket information from Zendesk to the HubSpot contact timeline. For two-way sync, use a Marketplace app such as Data sync by HubSpot, or a custom build.",
+      },
+      {
+        q: "Can I see Zendesk tickets on HubSpot companies or deals?",
+        a: "Not with the free integration, which only shows tickets on the contact timeline. You can do it with a custom build that writes ticket data to company or deal properties through the HubSpot API.",
+      },
+      {
+        q: "Why did my HubSpot integration disconnect after I tested its webhook?",
+        a: "Zendesk warns that testing the HubSpot Integration webhook from Admin Center can send invalid JSON and disconnect the integration. Test with a real ticket instead.",
+      },
+      {
+        q: "Can I still use a Zendesk API token for a HubSpot integration?",
+        a: "Only one you already have. Zendesk stopped issuing new API tokens on October 27, 2026, deactivates tokens that go unused for 30 days, and turns all API tokens off on April 30, 2027. Use OAuth for new integrations.",
+      },
+    ],
+    sources: [
+      { label: "Zendesk Help — Setting up the Zendesk Support for HubSpot integration", url: "https://support.zendesk.com/hc/en-us/articles/4408884090650-Setting-up-the-Zendesk-Support-for-HubSpot-integration" },
+      { label: "Zendesk Help — Using HubSpot actions in action flows", url: "https://support.zendesk.com/hc/en-us/articles/10917655354138-Using-HubSpot-actions-in-action-flows" },
+      { label: "Zendesk Help — Monitoring the usage of action credits and action flow activity", url: "https://support.zendesk.com/hc/en-us/articles/10149993578522-Monitoring-the-usage-of-action-credits-and-action-flow-activity" },
+      { label: "Zendesk Marketplace — Data sync by HubSpot", url: "https://www.zendesk.com/marketplace/apps/support/431348/data-sync-by-hubspot/" },
+      { label: "Zendesk Marketplace — HubSpot CRM Connect", url: "https://www.zendesk.com/marketplace/apps/support/959977/hubspot-crm-connect/" },
+      { label: "HubSpot Knowledge Base — Connect and use HubSpot data sync", url: "https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync" },
+      { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
+      { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
+      { label: "HubSpot Knowledge Base — Use webhooks with HubSpot workflows", url: "https://knowledge.hubspot.com/workflows/how-do-i-use-webhooks-with-hubspot-workflows" },
+      { label: "HubSpot Knowledge Base — Choose your workflow actions", url: "https://knowledge.hubspot.com/workflows/choose-your-workflow-actions" },
+      { label: "Zendesk Help — Announcing the removal of API tokens as an authentication method for API requests", url: "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests" },
+      { label: "Zendesk Developer Docs — Working with OAuth refresh tokens", url: "https://developer.zendesk.com/documentation/api-basics/authentication/refresh-token/" },
+    ],
+    related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
+    updated: "2026-11-03",
   },
 ];

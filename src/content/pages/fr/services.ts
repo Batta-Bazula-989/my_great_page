@@ -150,7 +150,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Les webhooks assurent le trajet retour. Un déclencheur Zendesk peut appeler un endpoint externe via une action « Notify webhook » — par exemple pour signaler au bot qu'un agent a résolu le ticket, afin qu'il puisse boucler la boucle sur le canal d'origine.",
+            text: "Les webhooks assurent le trajet retour. Un déclencheur Zendesk peut appeler un endpoint externe via une action « Notify by > Active webhook » — par exemple pour signaler au bot qu'un agent a résolu le ticket, afin qu'il puisse boucler la boucle sur le canal d'origine.",
           },
           {
             type: "note",

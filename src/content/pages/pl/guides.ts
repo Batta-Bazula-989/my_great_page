@@ -783,14 +783,14 @@ export const guidePages: TranslatedPage[] = [
     primaryKeyword: "integracja n8n Zendesk",
     title: "Integracja n8n z Zendesk: nody, triggery i webhooki",
     description:
-      "Integracja n8n z Zendesk: operacje node'a Zendesk, Zendesk Trigger, poświadczenia z tokenem API lub OAuth2, webhooki, limity zapytań i przykładowy workflow.",
+      "Integracja n8n z Zendesk: operacje node'a Zendesk, Zendesk Trigger, poświadczenia OAuth2 i koniec tokenów API, webhooki, limity zapytań i przykład.",
     h1: "Integracja n8n z Zendesk: nody, poświadczenia i przykładowe workflowy",
     intro:
-      "n8n łączy się z Zendesk przez dwa wbudowane nody. Node Zendesk działa na zgłoszeniach, polach zgłoszeń, użytkownikach i organizacjach, a node Zendesk Trigger uruchamia workflow, gdy coś wydarzy się w Zendesk. Oba korzystają z tych samych poświadczeń: tokena API lub OAuth2. Jeśli wolisz trzymać reguły w Zendesk, możesz zamiast tego skierować webhook Zendesk na node Webhook w n8n i uruchamiać go z triggera Zendesk.",
+      "n8n łączy się z Zendesk przez dwa wbudowane nody. Node Zendesk działa na zgłoszeniach, polach zgłoszeń, użytkownikach i organizacjach, a node Zendesk Trigger uruchamia workflow, gdy coś wydarzy się w Zendesk. Oba korzystają z tych samych poświadczeń. W nowych konfiguracjach używaj OAuth2: Zendesk przestał wydawać nowe tokeny API 27 października 2026, a 30 kwietnia 2027 wszystkie tokeny API przestaną działać. Jeśli wolisz trzymać reguły w Zendesk, możesz zamiast tego skierować webhook Zendesk na node Webhook w n8n i uruchamiać go z triggera Zendesk.",
     keyFacts: [
       "Node Zendesk w n8n ma cztery zasoby: Ticket, Ticket Field, User i Organization.",
       "Ustawianie tagów operacją Update Ticket w tym nodzie zastępuje całą listę tagów. Tagi, których nie podasz, zostaną usunięte.",
-      "Poświadczenia Zendesk w n8n obsługują token API (subdomena, e-mail logowania i token) lub OAuth2.",
+      "Poświadczenia Zendesk w n8n obsługują OAuth2 lub token API, ale Zendesk przestał wydawać nowe tokeny API 27 października 2026, a 30 kwietnia 2027 wyłączy wszystkie.",
       "Zendesk podpisuje żądania webhooków nagłówkami X-Zendesk-Webhook-Signature i X-Zendesk-Webhook-Signature-Timestamp.",
       "Limity API w Zendesk Suite wynoszą od 200 żądań na minutę w planie Team do 2 500 w planie Enterprise Plus.",
     ],
@@ -828,13 +828,13 @@ export const guidePages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Nody Zendesk i Zendesk Trigger korzystają z tych samych poświadczeń, a n8n obsługuje dwa sposoby uwierzytelniania. Oba wymagają Twojej subdomeny, czyli części adresu URL Zendesk między https:// a .zendesk.com.",
+            text: "Nody Zendesk i Zendesk Trigger korzystają z tych samych poświadczeń, a n8n obsługuje dwa sposoby uwierzytelniania. Oba wymagają Twojej subdomeny, czyli części adresu URL Zendesk między https:// a .zendesk.com. Zendesk wycofuje tokeny API, więc przy każdej nowej konfiguracji wybierz OAuth2.",
           },
           {
             type: "ul",
             items: [
-              "Token API: w Zendesk Admin Center otwórz Apps and integrations, a następnie APIs, i włącz dostęp przez token dla Zendesk API. Dodaj token z opisem i skopiuj go. W n8n wpisz subdomenę, adres e-mail, którym logujesz się do Zendesk, i token.",
               "OAuth2: w Zendesk Admin Center utwórz klienta OAuth w Apps and integrations, a następnie APIs. Wklej adres OAuth callback URL z n8n w pole redirect URL klienta. Skopiuj unikalny identyfikator klienta do pola Client ID w n8n, a jego sekret do Client Secret, dodaj subdomenę, zapisz i połącz swoje konto Zendesk.",
+              "Token API (tylko istniejące tokeny): konta utworzone 28 lipca 2026 lub później nie mogą używać tokenów API, a od 27 października 2026 żadne konto nie może tworzyć nowych. Token, który już masz, działa do 30 kwietnia 2027, chyba że przez 30 dni nie będzie używany – wtedy zostanie dezaktywowany. W n8n wpisuje się go razem z subdomeną i adresem e-mail, którym logujesz się do Zendesk. Zaplanuj przejście na OAuth2 przed kwietniem 2027.",
             ],
           },
         ],
@@ -848,14 +848,14 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Alternatywą jest samodzielne zbudowanie połączenia. W Zendesk Admin Center przejdź do Apps and integrations, a następnie Webhooks, utwórz webhook, wybierz Trigger or Automation jako metodę połączenia i skieruj go na Production URL node'a Webhook w n8n. Następnie dodaj akcję 'Notify webhook' do triggera lub automatyzacji Zendesk i napisz payload, który nie może przekraczać 16 000 znaków. Dzięki temu warunki pozostają w regułach biznesowych Zendesk, a Ty dokładnie wybierasz, które pola wysłać.",
+            text: "Alternatywą jest samodzielne zbudowanie połączenia. W Zendesk Admin Center przejdź do Apps and integrations, a następnie Webhooks, utwórz webhook, wybierz Trigger or Automation jako metodę połączenia i skieruj go na Production URL node'a Webhook w n8n. Następnie dodaj akcję 'Notify by > Active webhook' do triggera lub automatyzacji Zendesk i napisz payload, który nie może przekraczać 16 000 znaków. Dzięki temu warunki pozostają w regułach biznesowych Zendesk, a Ty dokładnie wybierasz, które pola wysłać.",
           },
           {
             type: "table",
             caption: "Dwa sposoby uruchomienia workflow n8n z Zendesk",
             head: ["Pytanie", "Node Zendesk Trigger", "Webhook Zendesk + node Webhook w n8n"],
             rows: [
-              ["Gdzie są warunki", "W nodzie, w n8n", "W triggerze lub automatyzacji Zendesk z akcją 'Notify webhook'"],
+              ["Gdzie są warunki", "W nodzie, w n8n", "W triggerze lub automatyzacji Zendesk z akcją 'Notify by > Active webhook'"],
               ["Co otrzymuje n8n", "Dane zdarzenia dostarczane przez node", "Payload, który piszesz w akcji triggera, do 16 000 znaków"],
               ["Poświadczenia Zendesk", "Potrzebne do samego triggera", "Potrzebne tylko w dalszych krokach, które wywołują Zendesk"],
               ["Testowanie", "Uruchom node w edytorze, jak w przykładzie z dokumentacji n8n", "Użyj Test URL node'a Webhook, który nasłuchuje przez 120 sekund, a potem przełącz się na Production URL"],
@@ -937,7 +937,7 @@ export const guidePages: TranslatedPage[] = [
       },
       {
         q: "Jakie metody uwierzytelniania obsługują poświadczenia Zendesk w n8n?",
-        a: "Token API, wpisywany razem z subdomeną i e-mailem, którym się logujesz, albo OAuth2 z użyciem client ID i sekretu klienta OAuth utworzonego w Zendesk.",
+        a: "OAuth2 z użyciem client ID i sekretu klienta OAuth utworzonego w Zendesk albo istniejący token API wraz z subdomeną i e-mailem logowania. Zendesk nie wydaje już nowych tokenów API i 30 kwietnia 2027 wyłączy wszystkie, więc używaj OAuth2.",
       },
       {
         q: "Jak sprawdzić, czy żądanie webhooka pochodzi z Zendesk?",
@@ -959,8 +959,10 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zendesk Help — Creating webhooks to interact with third-party systems", url: "https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-to-interact-with-third-party-systems" },
       { label: "Zendesk Developer Docs — Verifying webhook authenticity", url: "https://developer.zendesk.com/documentation/webhooks/verifying/" },
       { label: "Zendesk Developer Docs — Rate limits", url: "https://developer.zendesk.com/api-reference/introduction/rate-limits/" },
+      { label: "Zendesk Help — Announcing the removal of API tokens as an authentication method for API requests", url: "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests" },
+      { label: "Zendesk Developer Docs — Migrating from API tokens to OAuth access tokens", url: "https://developer.zendesk.com/documentation/authentication/oauth-migration/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-03",
   },
 ];
