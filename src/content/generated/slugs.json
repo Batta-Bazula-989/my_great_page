@@ -1,0 +1,384 @@
+{
+ "pages": {
+  "ai-chatbot-for-customer-support": {
+   "en": "ai-chatbot-for-customer-support",
+   "de": "ki-chatbot-kundenservice",
+   "fr": "chatbot-ia-service-client",
+   "es": "chatbot-ia-atencion-al-cliente",
+   "it": "chatbot-ai-assistenza-clienti",
+   "nl": "ai-chatbot-klantenservice",
+   "pl": "chatbot-ai-obsluga-klienta",
+   "sv": "ai-chattbot-kundtjanst"
+  },
+  "ai-voice-bot-for-customer-service": {
+   "en": "ai-voice-bot-for-customer-service",
+   "de": "ki-voicebot-kundenservice",
+   "fr": "callbot-ia-service-client",
+   "es": "bot-de-voz-ia-atencion-al-cliente",
+   "it": "voice-bot-ai-servizio-clienti",
+   "nl": "ai-voicebot-klantenservice",
+   "pl": "voicebot-ai-obsluga-klienta",
+   "sv": "ai-rostbot-kundtjanst"
+  },
+  "ticket-routing-automation": {
+   "en": "ticket-routing-automation",
+   "de": "ticket-routing-automatisieren",
+   "fr": "automatisation-routage-tickets",
+   "es": "enrutamiento-automatico-de-tickets",
+   "it": "smistamento-automatico-ticket",
+   "nl": "ticketroutering-automatiseren",
+   "pl": "automatyczny-routing-zgloszen",
+   "sv": "automatisk-arendefordelning"
+  },
+  "automated-support-reporting": {
+   "en": "automated-support-reporting",
+   "de": "support-reporting-automatisieren",
+   "fr": "reporting-automatise-service-client",
+   "es": "informes-automaticos-atencion-al-cliente",
+   "it": "report-automatici-assistenza-clienti",
+   "nl": "klantenservice-rapportages-automatiseren",
+   "pl": "automatyczne-raportowanie-obslugi-klienta",
+   "sv": "automatiserad-supportrapportering"
+  },
+  "customer-support-email-automation": {
+   "en": "customer-support-email-automation",
+   "de": "e-mail-automatisierung-kundenservice",
+   "fr": "automatisation-emails-service-client",
+   "es": "automatizacion-email-atencion-al-cliente",
+   "it": "automazione-email-assistenza-clienti",
+   "nl": "klantenservice-e-mail-automatiseren",
+   "pl": "automatyzacja-e-maili-obslugi-klienta",
+   "sv": "e-postautomatisering-kundtjanst"
+  },
+  "ai-knowledge-base-for-customer-support": {
+   "en": "ai-knowledge-base-for-customer-support",
+   "de": "ki-wissensdatenbank-kundenservice",
+   "fr": "base-de-connaissances-ia-service-client",
+   "es": "base-de-conocimiento-ia-atencion-al-cliente",
+   "it": "knowledge-base-ai-assistenza-clienti",
+   "nl": "ai-kennisbank-klantenservice",
+   "pl": "baza-wiedzy-ai-obsluga-klienta",
+   "sv": "ai-kunskapsbas-kundtjanst"
+  },
+  "zendesk-automation": {
+   "en": "zendesk-automation",
+   "de": "zendesk-automatisierung",
+   "fr": "automatisation-zendesk",
+   "es": "automatizacion-zendesk",
+   "it": "automazione-zendesk",
+   "nl": "zendesk-automatisering",
+   "pl": "automatyzacja-zendesk",
+   "sv": "zendesk-automatisering"
+  },
+  "freshdesk-automation": {
+   "en": "freshdesk-automation",
+   "de": "freshdesk-automatisierung",
+   "fr": "automatisation-freshdesk",
+   "es": "automatizacion-freshdesk",
+   "it": "automazione-freshdesk",
+   "nl": "freshdesk-automatisering",
+   "pl": "automatyzacja-freshdesk",
+   "sv": "freshdesk-automatisering"
+  },
+  "jira-service-management-automation": {
+   "en": "jira-service-management-automation",
+   "de": "jira-service-management-automatisierung",
+   "fr": "automatisation-jira-service-management",
+   "es": "automatizacion-jira-service-management",
+   "it": "automazione-jira-service-management",
+   "nl": "jira-service-management-automatisering",
+   "pl": "automatyzacja-jira-service-management",
+   "sv": "jira-service-management-automatisering"
+  },
+  "slack-support-automation": {
+   "en": "slack-support-automation",
+   "de": "slack-kundensupport-automatisierung",
+   "fr": "automatisation-support-client-slack",
+   "es": "automatizacion-atencion-cliente-slack",
+   "it": "automazione-assistenza-clienti-slack",
+   "nl": "klantenservice-automatiseren-slack",
+   "pl": "automatyzacja-obslugi-klienta-slack",
+   "sv": "slack-automatisering-kundtjanst"
+  },
+  "intercom-automation": {
+   "en": "intercom-automation",
+   "de": "intercom-automatisierung",
+   "fr": "automatisation-intercom",
+   "es": "automatizacion-intercom",
+   "it": "automazione-intercom",
+   "nl": "intercom-automatisering",
+   "pl": "automatyzacja-intercom",
+   "sv": "intercom-automatisering"
+  },
+  "hubspot-service-hub-automation": {
+   "en": "hubspot-service-hub-automation",
+   "de": "hubspot-service-hub-automatisierung",
+   "fr": "automatisation-hubspot-service-hub",
+   "es": "automatizacion-hubspot-service-hub",
+   "it": "automazione-hubspot-service-hub",
+   "nl": "hubspot-service-hub-automatisering",
+   "pl": "automatyzacja-hubspot-service-hub",
+   "sv": "hubspot-service-hub-automatisering"
+  },
+  "whatsapp-customer-support-bot": {
+   "en": "whatsapp-customer-support-bot",
+   "de": "whatsapp-bot-kundenservice",
+   "fr": "bot-whatsapp-service-client",
+   "es": "bot-whatsapp-atencion-al-cliente",
+   "it": "bot-whatsapp-assistenza-clienti",
+   "nl": "whatsapp-klantenservice-bot",
+   "pl": "bot-whatsapp-obsluga-klienta",
+   "sv": "whatsapp-bot-kundtjanst"
+  },
+  "telegram-support-bot": {
+   "en": "telegram-support-bot",
+   "de": "telegram-bot-kundensupport",
+   "fr": "bot-telegram-support-client",
+   "es": "bot-telegram-atencion-al-cliente",
+   "it": "bot-telegram-assistenza-clienti",
+   "nl": "telegram-klantenservice-bot",
+   "pl": "bot-telegram-obsluga-klienta",
+   "sv": "telegram-supportbot"
+  },
+  "facebook-messenger-bot-customer-service": {
+   "en": "facebook-messenger-bot-customer-service",
+   "de": "facebook-messenger-bot-kundenservice",
+   "fr": "bot-messenger-service-client",
+   "es": "bot-facebook-messenger-atencion-al-cliente",
+   "it": "bot-facebook-messenger-servizio-clienti",
+   "nl": "facebook-messenger-bot-klantenservice",
+   "pl": "bot-facebook-messenger-obsluga-klienta",
+   "sv": "facebook-messenger-bot-kundtjanst"
+  },
+  "instagram-dm-automation": {
+   "en": "instagram-dm-automation",
+   "de": "instagram-dm-automatisierung",
+   "fr": "automatisation-dm-instagram",
+   "es": "automatizacion-mensajes-directos-instagram",
+   "it": "automazione-dm-instagram",
+   "nl": "instagram-dm-automatiseren",
+   "pl": "automatyzacja-dm-instagram",
+   "sv": "instagram-dm-automatisering"
+  },
+  "website-chatbot-for-support": {
+   "en": "website-chatbot-for-support",
+   "de": "website-chatbot-kundensupport",
+   "fr": "chatbot-site-web-service-client",
+   "es": "chatbot-web-atencion-al-cliente",
+   "it": "chatbot-sito-web-assistenza-clienti",
+   "nl": "website-chatbot-klantenservice",
+   "pl": "chatbot-na-strone-obsluga-klienta",
+   "sv": "chattbot-webbplats-kundtjanst"
+  },
+  "sms-customer-support-automation": {
+   "en": "sms-customer-support-automation",
+   "de": "sms-automatisierung-kundenservice",
+   "fr": "automatisation-sms-service-client",
+   "es": "automatizacion-sms-atencion-al-cliente",
+   "it": "automazione-sms-assistenza-clienti",
+   "nl": "sms-klantenservice-automatiseren",
+   "pl": "automatyzacja-obslugi-klienta-sms",
+   "sv": "sms-automatisering-kundtjanst"
+  },
+  "viber-chatbot-for-customer-support": {
+   "en": "viber-chatbot-for-customer-support",
+   "de": "viber-chatbot-kundenservice",
+   "fr": "chatbot-viber-service-client",
+   "es": "chatbot-viber-atencion-al-cliente",
+   "it": "chatbot-viber-assistenza-clienti",
+   "nl": "viber-chatbot-klantenservice",
+   "pl": "chatbot-viber-obsluga-klienta",
+   "sv": "viber-chattbot-kundtjanst"
+  },
+  "what-is-customer-support-automation": {
+   "en": "what-is-customer-support-automation",
+   "de": "was-ist-kundensupport-automatisierung",
+   "fr": "automatisation-support-client-definition",
+   "es": "que-es-automatizacion-atencion-cliente",
+   "it": "cos-e-automazione-assistenza-clienti",
+   "nl": "wat-is-klantenservice-automatisering",
+   "pl": "czym-jest-automatyzacja-obslugi-klienta",
+   "sv": "vad-ar-automatisering-av-kundtjanst"
+  },
+  "chatbot-to-human-handoff": {
+   "en": "chatbot-to-human-handoff",
+   "de": "chatbot-uebergabe-an-mitarbeiter",
+   "fr": "transfert-chatbot-agent-humain",
+   "es": "traspaso-chatbot-a-agente-humano",
+   "it": "passaggio-chatbot-operatore-umano",
+   "nl": "chatbot-overdracht-naar-medewerker",
+   "pl": "przekazanie-rozmowy-z-chatbota-do-konsultanta",
+   "sv": "overlamning-fran-chattbot-till-manniska"
+  },
+  "customer-support-metrics": {
+   "en": "customer-support-metrics",
+   "de": "kundensupport-kennzahlen",
+   "fr": "kpi-support-client",
+   "es": "metricas-atencion-al-cliente",
+   "it": "metriche-assistenza-clienti",
+   "nl": "kpi-klantenservice",
+   "pl": "wskazniki-obslugi-klienta",
+   "sv": "nyckeltal-for-kundtjanst"
+  },
+  "sla-policies-explained": {
+   "en": "sla-policies-explained",
+   "de": "sla-richtlinien-kundensupport",
+   "fr": "politiques-sla-support-client",
+   "es": "politicas-sla-atencion-al-cliente",
+   "it": "policy-sla-assistenza-clienti",
+   "nl": "sla-beleid-klantenservice",
+   "pl": "polityki-sla-w-obsludze-klienta",
+   "sv": "sla-policyer-kundtjanst"
+  },
+  "ticket-deflection": {
+   "en": "ticket-deflection",
+   "de": "ticket-deflection-definition-messung",
+   "fr": "deflexion-tickets",
+   "es": "deflexion-de-tickets",
+   "it": "ticket-deflection-definizione-e-misurazione",
+   "nl": "ticket-deflection-uitgelegd",
+   "pl": "ticket-deflection-definicja-i-pomiar",
+   "sv": "arendeavledning"
+  },
+  "omnichannel-customer-support": {
+   "en": "omnichannel-customer-support",
+   "de": "omnichannel-kundenservice",
+   "fr": "support-client-omnicanal",
+   "es": "atencion-al-cliente-omnicanal",
+   "it": "assistenza-clienti-omnicanale",
+   "nl": "omnichannel-klantenservice",
+   "pl": "obsluga-klienta-omnichannel",
+   "sv": "omnikanal-kundtjanst"
+  },
+  "n8n-vs-make-vs-zapier": {
+   "en": "n8n-vs-make-vs-zapier",
+   "de": "n8n-vs-make-vs-zapier-vergleich",
+   "fr": "n8n-vs-make-vs-zapier-support-client",
+   "es": "n8n-vs-make-vs-zapier-automatizacion-soporte",
+   "it": "n8n-vs-make-vs-zapier-automazione-assistenza",
+   "nl": "n8n-vs-make-vs-zapier-supportautomatisering",
+   "pl": "n8n-vs-make-vs-zapier-porownanie",
+   "sv": "n8n-vs-make-vs-zapier-jamforelse"
+  },
+  "eu-ai-act-chatbot-rules": {
+   "en": "eu-ai-act-chatbot-rules",
+   "de": "eu-ai-act-chatbot-pflichten",
+   "fr": "ai-act-chatbots-article-50",
+   "es": "reglamento-ia-ue-chatbots",
+   "it": "ai-act-chatbot-obblighi-articolo-50",
+   "nl": "ai-verordening-chatbot-regels",
+   "pl": "ai-act-chatboty-obowiazki",
+   "sv": "ai-forordningen-chattbottar-artikel-50"
+  },
+  "gdpr-customer-support-automation": {
+   "en": "gdpr-customer-support-automation",
+   "de": "dsgvo-kundensupport-automatisierung",
+   "fr": "rgpd-automatisation-support-client",
+   "es": "rgpd-automatizacion-atencion-al-cliente",
+   "it": "gdpr-automazione-assistenza-clienti",
+   "nl": "avg-klantenservice-automatisering",
+   "pl": "rodo-automatyzacja-obslugi-klienta",
+   "sv": "gdpr-automatisering-kundtjanst"
+  },
+  "european-accessibility-act-customer-service": {
+   "en": "european-accessibility-act-customer-service",
+   "de": "european-accessibility-act-kundenservice",
+   "fr": "acte-europeen-accessibilite-service-client",
+   "es": "acta-europea-accesibilidad-atencion-al-cliente",
+   "it": "european-accessibility-act-assistenza-clienti",
+   "nl": "european-accessibility-act-klantenservice",
+   "pl": "europejski-akt-o-dostepnosci-obsluga-klienta",
+   "sv": "tillganglighetsdirektivet-kundtjanst"
+  },
+  "n8n-zendesk-integration": {
+   "en": "n8n-zendesk-integration",
+   "de": "n8n-zendesk-integration-anleitung",
+   "fr": "integration-n8n-zendesk",
+   "es": "integracion-n8n-zendesk",
+   "it": "integrazione-n8n-zendesk",
+   "nl": "n8n-zendesk-koppeling",
+   "pl": "integracja-n8n-zendesk",
+   "sv": "n8n-zendesk-integration-guide"
+  },
+  "attio-workflows-automation": {
+   "en": "attio-workflows-automation",
+   "de": "attio-workflows-automatisierung",
+   "fr": "workflows-attio-automatisation",
+   "es": "automatizacion-workflows-attio",
+   "it": "automazione-workflow-attio",
+   "nl": "attio-workflows-automatisering",
+   "pl": "automatyzacja-attio-workflows",
+   "sv": "attio-workflows-automatisering"
+  },
+  "attio-vs-hubspot-automation": {
+   "en": "attio-vs-hubspot-automation",
+   "de": "attio-vs-hubspot-automatisierung",
+   "fr": "attio-vs-hubspot-automatisation",
+   "es": "attio-vs-hubspot-automatizacion",
+   "it": "attio-vs-hubspot-automazione",
+   "nl": "attio-vs-hubspot-automatisering",
+   "pl": "attio-vs-hubspot-automatyzacja",
+   "sv": "attio-vs-hubspot-automatisering"
+  },
+  "hubspot-zendesk-integration": {
+   "en": "hubspot-zendesk-integration",
+   "de": "hubspot-zendesk-integration-anleitung",
+   "fr": "integration-hubspot-zendesk",
+   "es": "integracion-hubspot-zendesk",
+   "it": "integrazione-hubspot-zendesk",
+   "nl": "hubspot-zendesk-koppeling",
+   "pl": "integracja-hubspot-zendesk",
+   "sv": "hubspot-zendesk-integration"
+  }
+ },
+ "tools": {
+  "en": {
+   "hub": "tools",
+   "aiAgent": "ai-support-agent-cost-calculator",
+   "whatsapp": "whatsapp-business-cost-calculator",
+   "sla": "sla-calculator"
+  },
+  "de": {
+   "hub": "tools",
+   "aiAgent": "ki-support-agent-kostenrechner",
+   "whatsapp": "whatsapp-business-kostenrechner",
+   "sla": "sla-rechner"
+  },
+  "fr": {
+   "hub": "tools",
+   "aiAgent": "calculateur-cout-agent-ia-support",
+   "whatsapp": "calculateur-cout-whatsapp-business",
+   "sla": "calculateur-sla"
+  },
+  "es": {
+   "hub": "tools",
+   "aiAgent": "calculadora-coste-agente-ia-soporte",
+   "whatsapp": "calculadora-coste-whatsapp-business",
+   "sla": "calculadora-sla"
+  },
+  "it": {
+   "hub": "tools",
+   "aiAgent": "calcolatore-costo-agente-ai-assistenza",
+   "whatsapp": "calcolatore-costi-whatsapp-business",
+   "sla": "calcolatore-sla"
+  },
+  "nl": {
+   "hub": "tools",
+   "aiAgent": "ai-supportagent-kosten-calculator",
+   "whatsapp": "whatsapp-business-kosten-calculator",
+   "sla": "sla-calculator"
+  },
+  "pl": {
+   "hub": "tools",
+   "aiAgent": "kalkulator-kosztow-agenta-ai",
+   "whatsapp": "kalkulator-kosztow-whatsapp-business",
+   "sla": "kalkulator-sla"
+  },
+  "sv": {
+   "hub": "tools",
+   "aiAgent": "ai-supportagent-kostnadskalkylator",
+   "whatsapp": "whatsapp-business-kostnadskalkylator",
+   "sla": "sla-kalkylator"
+  }
+ }
+}

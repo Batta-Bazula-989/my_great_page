@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { motion, useAnimationControls, useInView, useReducedMotion } from "framer-motion";
+import { m, useAnimationControls, useInView, useReducedMotion } from "framer-motion";
 
 interface RevealProps {
   children: ReactNode;
@@ -36,9 +36,9 @@ const Reveal = ({ children, className, delay = 0, y = 24 }: RevealProps) => {
   }, [armed, inView, controls, delay]);
 
   return (
-    <motion.div ref={ref} animate={controls} className={className}>
+    <m.div ref={ref} animate={controls} className={className}>
       {children}
-    </motion.div>
+    </m.div>
   );
 };
 

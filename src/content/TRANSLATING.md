@@ -11,6 +11,7 @@ Target: `src/content/pages/<locale>/<category>.ts`, exporting the SAME variable 
 | `key` | The English page's `slug`, unchanged. Links translations together. |
 | `slug` | NEW localized URL slug: lowercase ASCII kebab-case, keyword-first in the target language, ≤ 60 chars, unique in the locale. Transliterate (German ä→ae, ö→oe, ü→ue, ß→ss; Swedish å→a, ä→a, ö→o; Polish ą→a, ć→c, ę→e, ł→l, ń→n, ó→o, ś→s, ź→z, ż→z; é→e, ñ→n, ç→c…). Keep product names (zendesk, n8n, whatsapp). |
 | `category`, `updated`, `related` | Copy unchanged (`related` keeps the English slugs). |
+| `published`, section `links` | Leave out. They are set on the English page only and every translation uses them automatically (the build fails if a translation sets them). |
 | `sources` | Copy unchanged — same labels, same URLs, same order (they name English documents). |
 | `primaryKeyword` | The natural search phrase a person in that country would type. |
 | `title` | ≤ 60 characters, keyword first. Rewrite concisely; do not add claims. |

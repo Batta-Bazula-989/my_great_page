@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, BookOpen, Calculator, CalendarCheck, Home } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { LocaleContext, dictionaries } from "@/i18n";
+import { LocaleContext, dictionary } from "@/i18n";
 import { BLOG_PATH, localeFromPath, localePath } from "@/i18n/config";
 import { toolsPath } from "@/tools/registry";
 
@@ -11,7 +11,7 @@ import { toolsPath } from "@/tools/registry";
 const NotFound = () => {
   const { pathname } = useLocation();
   const locale = localeFromPath(pathname);
-  const t = dictionaries[locale];
+  const t = dictionary(locale);
 
   useEffect(() => {
     document.title = `${t.notFound.title} | TascaLab`;

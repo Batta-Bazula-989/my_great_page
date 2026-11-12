@@ -1,13 +1,18 @@
 // Server entry used only at build time (scripts/prerender.mjs) to turn every language's pages into static HTML.
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
-import { AppRoutes } from "./routes";
-import { SITE_URL, pageByKey, pagesByLocale } from "./content";
+import { AppContent } from "./App";
+import { PAGE_FILES, pages as lazyPages, routeFor } from "./route-loading";
+import { SITE_URL, loadPageIndex } from "./content";
+import { englishPage, pageByKey, pagesByLocale, rawPagesByLocale } from "./content/all";
+import { contentModuleFile, seedPages } from "./content/load";
 import type { Locale, TranslatedPage } from "./content/types";
-import { dictionaries, format } from "./i18n";
+import { format } from "./i18n";
+import { dictionaries } from "./i18n/all";
 import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
 import { TOOL_IDS, TOOL_UPDATED, toolPath, toolsPath, type ToolId } from "./tools/registry";
 import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
+import portrait from "./assets/roman-portrait.jpg";
 
 export { contentProblems } from "./content/validate";
 
@@ -25,6 +30,7 @@ export interface PrerenderRoute {
   ogType: "website" | "article";
   changefreq: "weekly" | "monthly"; // sitemap hints
   priority: string;
+  modules: string[]; // source files the page loads on top of the main script, for <link rel="modulepreload">
 }
 
 const url = (path: string) => `${SITE_URL}${path}`;
@@ -36,7 +42,44 @@ const withXDefault = (alternates: { hreflang: string; href: string }[]) => {
 };
 
 const business = { "@type": "ProfessionalService", "@id": `${SITE_URL}/#business`, name: "TascaLab", url: `${SITE_URL}/` };
-const author = { "@type": "Person", "@id": `${SITE_URL}/#founder`, name: "Roman Zakharenko" };
+const author = { "@type": "Person", "@id": `${SITE_URL}/#founder`, name: "Roman Zakharenko", url: `${SITE_URL}/#why-me` };
+
+// The founder in full, on every homepage: who writes the articles and builds the work.
+const founder = (locale: Locale) => ({
+  "@context": "https://schema.org",
+  ...author,
+  jobTitle: dictionaries[locale].whyMe.role,
+  image: `${SITE_URL}${portrait}`,
+  worksFor: { "@id": business["@id"] },
+  knowsAbout: [
+    "Lead automation",
+    "CRM automation",
+    "Customer support automation",
+    "HubSpot",
+    "Attio",
+    "Zendesk",
+    "Freshdesk",
+    "Jira Service Management",
+    "Intercom",
+    "Slack",
+    "n8n",
+    "Make",
+    "AI chatbots",
+    "Voice bots",
+  ],
+  sameAs: ["https://www.upwork.com/freelancers/~01966ceb979589cb68"],
+});
+
+// Files each kind of page loads, so the pre-rendered HTML can ask for them right away.
+const languageModules = (locale: Locale) => [`src/i18n/${locale}.ts`, `src/content/generated/pages-${locale}.json`];
+const modulesFor = (path: string, page?: TranslatedPage) => {
+  const route = routeFor(path);
+  return [
+    ...languageModules(route.locale),
+    ...(route.page ? [PAGE_FILES[route.page]] : []),
+    ...(page ? [contentModuleFile(route.locale, page.category)] : []),
+  ];
+};
 
 const homeJsonLd = (locale: Locale): object[] => {
   const t = dictionaries[locale];
@@ -80,6 +123,7 @@ const homeJsonLd = (locale: Locale): object[] => {
         ],
       },
     },
+    founder(locale),
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -114,6 +158,7 @@ const pageJsonLd = (locale: Locale, page: TranslatedPage): object[] => {
       inLanguage: locale,
       url: url(path),
       mainEntityOfPage: url(path),
+      datePublished: englishPage(page.key)?.published ?? page.updated,
       dateModified: page.updated,
       author,
       publisher: business,
@@ -207,6 +252,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ogType: "website",
     changefreq: "weekly",
     priority: "1.0",
+    modules: modulesFor(localePath(locale)),
   };
 
   const blog: PrerenderRoute = {
@@ -219,6 +265,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ogType: "website",
     changefreq: "weekly",
     priority: "0.8",
+    modules: modulesFor(localePath(locale, BLOG_PATH)),
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(localePath(l.code, BLOG_PATH)) }))),
     jsonLd: [
       {
@@ -247,6 +294,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ogType: "article",
     changefreq: "monthly",
     priority: "0.7",
+    modules: modulesFor(localePath(locale, page.slug), page),
     jsonLd: pageJsonLd(locale, page),
     alternates: withXDefault(
       LOCALES.flatMap((l) => {
@@ -266,6 +314,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ogType: "website",
     changefreq: "weekly",
     priority: "0.8",
+    modules: modulesFor(toolsPath(locale)),
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolsPath(l.code)) }))),
     jsonLd: [
       {
@@ -290,6 +339,7 @@ export const routes: PrerenderRoute[] = LOCALES.flatMap(({ code: locale }) => {
     ogType: "website",
     changefreq: "monthly",
     priority: "0.8",
+    modules: modulesFor(toolPath(locale, id)),
     jsonLd: toolJsonLd(locale, id),
     alternates: withXDefault(LOCALES.map((l) => ({ hreflang: l.code, href: url(toolPath(l.code, id)) }))),
   }));
@@ -302,12 +352,12 @@ for (const [path, title, description] of [
   [
     "/privacy",
     "Privacy Policy | TascaLab",
-    "TascaLab privacy policy: what personal information the website and booking form collect, how it is used and disclosed, and how to contact us.",
+    "TascaLab privacy policy: what personal information the website and booking form collect, how it is used and disclosed, and who to contact about it.",
   ],
   [
     "/terms",
-    "Terms of Service | TascaLab",
-    "TascaLab terms of service: the terms that apply when you use the tascalab.com website and book or buy customer support automation services.",
+    "Terms & Conditions | TascaLab",
+    "TascaLab terms and conditions: the terms that apply when you use the tascalab.com website and book or buy lead, CRM or support automation services.",
   ],
 ] as const) {
   routes.push({
@@ -323,11 +373,13 @@ for (const [path, title, description] of [
     ogType: "website",
     changefreq: "monthly",
     priority: "0.3",
+    modules: modulesFor(path),
   });
 }
 
 // One "page not found" page per language. The server sends it with a 404 status; it is not in the sitemap.
 export const notFoundPages = LOCALES.map(({ code: locale }) => ({
+  modules: languageModules(locale),
   path: localePath(locale, "404"),
   file: fileFor(locale, "404.html"),
   htmlLang: locale,
@@ -336,9 +388,20 @@ export const notFoundPages = LOCALES.map(({ code: locale }) => ({
   description: dictionaries[locale].notFound.text,
 }));
 
+// Call once before render(): loads every page component and language index, and hands the article text
+// (already in memory here) to the loader, so rendering never waits on anything.
+export const prepare = async () => {
+  for (const { code } of LOCALES) seedPages(code, rawPagesByLocale[code]);
+  await Promise.all([
+    ...LOCALES.map(({ code }) => loadPageIndex(code)),
+    ...Object.values(lazyPages).map((page) => page.preload()),
+  ]);
+};
+
+// The same tree the browser renders (App.tsx), so it can hydrate this HTML without rebuilding it.
 export const render = (path: string) =>
   renderToString(
     <StaticRouter location={path}>
-      <AppRoutes />
+      <AppContent />
     </StaticRouter>,
   );

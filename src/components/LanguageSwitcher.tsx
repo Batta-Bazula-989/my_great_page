@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Globe } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { getSeoPage, pageByKey } from "@/content";
+import { getPageSummary, translatedSlug } from "@/content";
 import type { Locale } from "@/content/types";
 import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, localeFromPath, localeInfo, localePath } from "@/i18n/config";
-import { dictionaries, useDict } from "@/i18n";
-import { toolBySlug, toolPath, toolsPath } from "@/tools/registry";
+import { useDict } from "@/i18n";
+import { TOOL_SLUGS, toolBySlug, toolPath, toolsPath } from "@/tools/registry";
 
 // Path of the page being viewed, in another language: same page if it has a translation,
 // otherwise that language's homepage (e.g. Privacy and Terms are English only).
@@ -21,13 +21,13 @@ const useAlternatePath = () => {
     if (rest === "") return localePath(target);
     if (rest === BLOG_PATH) return localePath(target, BLOG_PATH);
     const [first, second] = rest.split("/");
-    if (first === dictionaries[current].tools.hub.slug) {
+    if (first === TOOL_SLUGS[current].hub) {
       const tool = toolBySlug(current, second);
       return tool ? toolPath(target, tool) : toolsPath(target);
     }
-    const page = getSeoPage(current, rest);
-    const translated = page && pageByKey(target, page.key);
-    return translated ? localePath(target, translated.slug) : localePath(target);
+    const page = getPageSummary(current, rest);
+    const translated = page && translatedSlug(page.key, target);
+    return translated ? localePath(target, translated) : localePath(target);
   };
 };
 

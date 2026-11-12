@@ -69,6 +69,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "The Attio API and webhooks",
+        links: ["attio-vs-hubspot-automation"],
         blocks: [
           {
             type: "p",
@@ -95,6 +96,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "Connecting Attio to your support tools",
+        links: ["n8n-vs-make-vs-zapier", "slack-support-automation"],
         blocks: [
           {
             type: "p",
@@ -156,6 +158,7 @@ export const crmPages: SeoPageContent[] = [
     ],
     related: ["attio-vs-hubspot-automation", "n8n-vs-make-vs-zapier", "slack-support-automation"],
     updated: "2026-11-03",
+    published: "2026-11-02",
   },
   {
     slug: "attio-vs-hubspot-automation",
@@ -196,6 +199,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "HubSpot workflows: editions and limits",
+        links: ["hubspot-service-hub-automation"],
         blocks: [
           {
             type: "p",
@@ -222,6 +226,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "Attio workflows: metered with credits",
+        links: ["attio-workflows-automation"],
         blocks: [
           {
             type: "p",
@@ -235,6 +240,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "APIs and webhooks for integrations",
+        links: ["hubspot-zendesk-integration"],
         blocks: [
           {
             type: "p",
@@ -310,6 +316,7 @@ export const crmPages: SeoPageContent[] = [
     ],
     related: ["attio-workflows-automation", "hubspot-service-hub-automation", "n8n-vs-make-vs-zapier"],
     updated: "2026-11-03",
+    published: "2026-11-02",
   },
   {
     slug: "hubspot-zendesk-integration",
@@ -332,6 +339,7 @@ export const crmPages: SeoPageContent[] = [
     sections: [
       {
         heading: "Four ways to connect HubSpot and Zendesk",
+        links: ["hubspot-service-hub-automation", "zendesk-automation"],
         blocks: [
           {
             type: "table",
@@ -409,6 +417,7 @@ export const crmPages: SeoPageContent[] = [
       },
       {
         heading: "Custom builds with webhooks and both APIs",
+        links: ["n8n-zendesk-integration", "n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -474,5 +483,6 @@ export const crmPages: SeoPageContent[] = [
     ],
     related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
     updated: "2026-11-03",
+    published: "2026-11-03",
   },
 ];

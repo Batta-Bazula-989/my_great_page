@@ -1,13 +1,12 @@
 import { Bot, CalendarClock, MessageCircle, type LucideIcon } from "lucide-react";
 import type { Locale } from "@/content/types";
-import { dictionaries } from "@/i18n";
+import slugMap from "@/content/generated/slugs.json";
 import { localePath } from "@/i18n/config";
+import { TOOL_IDS, type ToolId } from "./ids";
 import { AI_MODEL, PLATFORMS, TOKEN_EXAMPLE, VENDORS } from "./aiAgentCost";
 import { META_PRICING_URL, META_SERVICE_URL } from "./whatsapp";
 
-export type ToolId = "aiAgent" | "whatsapp" | "sla";
-
-export const TOOL_IDS: ToolId[] = ["aiAgent", "whatsapp", "sla"];
+export { TOOL_IDS, type ToolId };
 
 export const TOOL_ICONS: Record<ToolId, LucideIcon> = { aiAgent: Bot, whatsapp: MessageCircle, sla: CalendarClock };
 
@@ -35,10 +34,12 @@ export const TOOL_SOURCES: Record<ToolId, { label: string; url: string }[]> = {
   sla: [],
 };
 
-export const toolsPath = (locale: Locale) => localePath(locale, `${dictionaries[locale].tools.hub.slug}/`);
+// Tool URLs in every language, taken from the UI strings at build time (scripts/content-index.mjs),
+// so linking to another language doesn't need that language's strings.
+export const TOOL_SLUGS = slugMap.tools as Record<Locale, Record<ToolId | "hub", string>>;
 
-export const toolPath = (locale: Locale, id: ToolId) =>
-  localePath(locale, `${dictionaries[locale].tools.hub.slug}/${dictionaries[locale].tools[id].slug}`);
+export const toolsPath = (locale: Locale) => localePath(locale, `${TOOL_SLUGS[locale].hub}/`);
 
-export const toolBySlug = (locale: Locale, slug: string | undefined) =>
-  TOOL_IDS.find((id) => dictionaries[locale].tools[id].slug === slug);
+export const toolPath = (locale: Locale, id: ToolId) => localePath(locale, `${TOOL_SLUGS[locale].hub}/${TOOL_SLUGS[locale][id]}`);
+
+export const toolBySlug = (locale: Locale, slug: string | undefined) => TOOL_IDS.find((id) => TOOL_SLUGS[locale][id] === slug);

@@ -74,6 +74,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Hosting and licensing",
+        links: ["gdpr-customer-support-automation"],
         blocks: [
           {
             type: "p",
@@ -120,6 +121,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Zendesk, Freshdesk, Jira and Slack connectors",
+        links: ["n8n-zendesk-integration", "slack-support-automation"],
         blocks: [
           {
             type: "p",
@@ -218,6 +220,7 @@ export const guidePages: SeoPageContent[] = [
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "what-is-customer-support-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
   {
     slug: "eu-ai-act-chatbot-rules",
@@ -279,6 +282,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "How the disclosure duty maps to support automation",
+        links: ["ai-chatbot-for-customer-support", "ai-voice-bot-for-customer-service"],
         blocks: [
           {
             type: "p",
@@ -359,6 +363,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Building disclosure into a support bot",
+        links: ["gdpr-customer-support-automation"],
         blocks: [
           {
             type: "ul",
@@ -410,6 +415,7 @@ export const guidePages: SeoPageContent[] = [
     ],
     related: ["ai-chatbot-for-customer-support", "gdpr-customer-support-automation", "chatbot-to-human-handoff"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
   {
     slug: "gdpr-customer-support-automation",
@@ -451,6 +457,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "The GDPR articles that matter most for a support bot",
+        links: ["eu-ai-act-chatbot-rules"],
         blocks: [
           {
             type: "table",
@@ -520,6 +527,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Hosting, data location and retention settings",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -590,6 +598,7 @@ export const guidePages: SeoPageContent[] = [
     ],
     related: ["eu-ai-act-chatbot-rules", "ai-chatbot-for-customer-support", "n8n-vs-make-vs-zapier"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
   {
     slug: "european-accessibility-act-customer-service",
@@ -705,6 +714,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Practical guidance for chat widgets and support bots",
+        links: ["website-chatbot-for-support", "chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -770,6 +780,7 @@ export const guidePages: SeoPageContent[] = [
     ],
     related: ["website-chatbot-for-support", "eu-ai-act-chatbot-rules", "chatbot-to-human-handoff"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
   {
     slug: "n8n-zendesk-integration",
@@ -792,6 +803,7 @@ export const guidePages: SeoPageContent[] = [
     sections: [
       {
         heading: "What the n8n Zendesk node can do",
+        links: ["zendesk-automation"],
         blocks: [
           {
             type: "p",
@@ -868,6 +880,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Example workflow: classify new tickets and notify Slack",
+        links: ["ticket-routing-automation", "slack-support-automation"],
         blocks: [
           {
             type: "p",
@@ -892,6 +905,7 @@ export const guidePages: SeoPageContent[] = [
       },
       {
         heading: "Rate limits and where n8n runs",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -959,5 +973,6 @@ export const guidePages: SeoPageContent[] = [
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
     updated: "2026-11-03",
+    published: "2026-10-19",
   },
 ];

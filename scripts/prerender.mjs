@@ -4,10 +4,10 @@
 // Runs after `vite build` and `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.tascalab.com";
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
 // dist/index.html is rewritten below, so a second run would start from an already processed page.
@@ -15,13 +15,34 @@ if (template.includes('hreflang="x-default"')) {
   console.error("prerender: dist/index.html is already pre-rendered — run `npm run build` instead of re-running this script.");
   process.exit(1);
 }
-const { render, routes, notFoundPages, contentProblems } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
+const { render, prepare, routes, notFoundPages, contentProblems } = await import(
+  pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href
+);
 
 const problems = contentProblems();
 if (problems.length) {
   console.error(`prerender: ${problems.length} content problem(s):\n  ${problems.join("\n  ")}`);
   process.exit(1);
 }
+await prepare();
+
+// Each page loads a few files on top of the main script (its language's strings and page index, its page
+// component, an article's text). <link rel="modulepreload"> lets the browser fetch them in parallel with
+// the main script instead of after it. Vite's manifest maps source files to built files.
+const manifest = JSON.parse(fs.readFileSync(path.join(dist, ".vite", "manifest.json"), "utf8"));
+const missingModules = new Set();
+const preloadTags = (modules) => {
+  const files = new Set();
+  const add = (key) => {
+    const chunk = manifest[key];
+    if (!chunk) return missingModules.add(key);
+    if (files.has(chunk.file) || template.includes(`/${chunk.file}"`)) return;
+    files.add(chunk.file);
+    for (const imported of chunk.imports ?? []) add(imported);
+  };
+  modules.forEach(add);
+  return [...files].map((file) => `<link rel="modulepreload" crossorigin href="/${file}">`).join("\n    ");
+};
 
 // Inline the site stylesheet (about 13 KB gzipped) so the first paint doesn't wait for a CSS request.
 const cssLink = template.match(/<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/);
@@ -84,6 +105,7 @@ for (const route of routes) {
   // The real content replaces the <noscript> summary that the template keeps for the dev server.
   html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
   html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(route.path)}</div>`, "#root");
+  html = replaceOnce(html, "</head>", () => `  ${preloadTags(route.modules)}\n</head>`, "</head>");
 
   const out = path.join(dist, route.file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -102,6 +124,7 @@ for (const page of notFoundPages) {
   html = replaceOnce(html, /\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/, "", "JSON-LD");
   html = replaceOnce(html, /<noscript>\s*<h1>[\s\S]*?<\/noscript>\n?/, "", "noscript summary");
   html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${render(page.path)}</div>`, "#root");
+  html = replaceOnce(html, "</head>", () => `  ${preloadTags(page.modules)}\n</head>`, "</head>");
   const out = path.join(dist, page.file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, inlineCss(html));
@@ -134,5 +157,8 @@ ${entries.map(urlEntry).join("\n")}
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 // Keep the committed copy in public/ in sync with the generated one.
 fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sitemap);
+
+// A source file with no built file of its own (merged into another chunk) just isn't preloaded, but say so.
+if (missingModules.size) console.warn(`prerender: no built file to preload for ${[...missingModules].join(", ")}`);
 
 console.log(`prerender: wrote ${routes.length} pages, ${notFoundPages.length} 404 pages and sitemap.xml (${entries.length} URLs)`);

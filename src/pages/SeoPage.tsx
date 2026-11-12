@@ -1,17 +1,19 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowUpRight, Calendar, ChevronDown, ChevronRight, Info, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Calendar, ChevronDown, ChevronRight, Info, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
 import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
-import { getSeoPage, headingId, pageByKey } from "@/content";
-import type { Block } from "@/content/types";
+import { getPageSummary, headingId, pageByKey } from "@/content";
+import { useSeoPage } from "@/content/load";
+import type { Block, Locale } from "@/content/types";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { useDict, useLocale } from "@/i18n";
 import { BLOG_PATH, localeInfo, localePath } from "@/i18n/config";
-import { formatDate, readingMinutes } from "@/lib/blog";
+import { formatDate } from "@/lib/blog";
+import { TOOL_IDS, toolPath, type ToolId } from "@/tools/registry";
 
 
 const ContentBlock = ({ block }: { block: Block }) => {
@@ -67,15 +69,30 @@ const ContentBlock = ({ block }: { block: Block }) => {
   }
 };
 
+// A section's "Read next" link: another article (by English slug) or a calculator ("tool:<id>").
+const useSectionLink = (locale: Locale) => {
+  const t = useDict();
+  return (link: string) => {
+    if (link.startsWith("tool:")) {
+      const id = link.slice(5) as ToolId;
+      return TOOL_IDS.includes(id) ? { to: toolPath(locale, id), label: t.tools[id].navLabel } : undefined;
+    }
+    const target = pageByKey(locale, link);
+    return target ? { to: localePath(locale, target.slug), label: target.navLabel } : undefined;
+  };
+};
+
 const SeoPage = () => {
   const { slug } = useParams();
   const locale = useLocale();
   const t = useDict();
-  const page = getSeoPage(locale, slug);
+  const summary = getPageSummary(locale, slug);
+  const page = useSeoPage(locale, slug);
+  const sectionLink = useSectionLink(locale);
 
   usePageMeta(page?.title ?? "", page?.description ?? "", localePath(locale, page?.slug ?? ""));
 
-  if (!page) return <NotFound />;
+  if (!page || !summary) return <NotFound />;
 
   const category = t.categories[page.category].label;
   const related = page.related.map((key) => pageByKey(locale, key)).filter((p) => p !== undefined);
@@ -108,7 +125,7 @@ const SeoPage = () => {
                   {t.seo.byline} · {t.seo.factsChecked}{" "}
                   <time dateTime={page.updated}>{formatDate(page.updated, localeInfo(locale).dateLocale)}</time>
                   {" · "}
-                  {t.blog.minRead.replace("{n}", String(readingMinutes(page)))}
+                  {t.blog.minRead.replace("{n}", String(summary.minutes))}
                 </p>
                 <p className="mt-6 text-lg text-foreground/85 leading-relaxed">{page.intro}</p>
               </header>
@@ -126,18 +143,36 @@ const SeoPage = () => {
               </section>
 
               <div className="space-y-12">
-                {page.sections.map((section) => (
-                  <section key={section.heading} aria-labelledby={headingId(section.heading)} className="scroll-mt-28">
-                    <h2 id={headingId(section.heading)} className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
-                      {section.heading}
-                    </h2>
-                    <div className="space-y-4">
-                      {section.blocks.map((block, i) => (
-                        <ContentBlock key={i} block={block} />
-                      ))}
-                    </div>
-                  </section>
-                ))}
+                {page.sections.map((section, index) => {
+                  const links = (summary.sectionLinks[index] ?? []).map(sectionLink).filter((l) => l !== undefined);
+                  return (
+                    <section key={section.heading} aria-labelledby={headingId(section.heading)} className="scroll-mt-28">
+                      <h2 id={headingId(section.heading)} className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
+                        {section.heading}
+                      </h2>
+                      <div className="space-y-4">
+                        {section.blocks.map((block, i) => (
+                          <ContentBlock key={i} block={block} />
+                        ))}
+                        {links.length > 0 && (
+                          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+                            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t.seo.readNext}</span>
+                            {links.map((link) => (
+                              <Link
+                                key={link.to}
+                                to={link.to}
+                                className="group inline-flex items-center gap-1 font-medium text-primary underline-offset-4 hover:underline"
+                              >
+                                {link.label}
+                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                              </Link>
+                            ))}
+                          </p>
+                        )}
+                      </div>
+                    </section>
+                  );
+                })}
 
                 <section aria-labelledby="faq" className="scroll-mt-28">
                   <h2 id="faq" className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
@@ -176,6 +211,13 @@ const SeoPage = () => {
                       </a>
                     </Button>
                   </div>
+                  <Link
+                    to={`${localePath(locale)}#pricing`}
+                    className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                  >
+                    {t.seo.ctaPackages}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  </Link>
                 </section>
 
                 <section aria-labelledby="sources">

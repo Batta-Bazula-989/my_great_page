@@ -1,17 +1,14 @@
 import { useEffect } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
-import Index from "./pages/Index";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
-import SeoPage from "./pages/SeoPage";
-import Blog from "./pages/Blog";
-import ToolsHub from "./pages/ToolsHub";
-import ToolPage from "./pages/ToolPage";
 import BookingProvider from "@/components/BookingProvider";
-import { LocaleContext, dictionaries } from "@/i18n";
+import { LocaleContext } from "@/i18n";
 import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
 import type { Locale } from "@/content/types";
+import { TOOL_SLUGS } from "@/tools/registry";
+import { pages } from "./route-loading";
+
+const { Index, Blog, SeoPage, ToolsHub, ToolPage, Privacy, Terms } = pages;
 
 const LocaleLayout = ({ locale }: { locale: Locale }) => {
   useEffect(() => {
@@ -29,14 +26,15 @@ const LocaleLayout = ({ locale }: { locale: Locale }) => {
 
 // Shared by the browser app (App.tsx) and the build-time pre-renderer (entry-server.tsx).
 // English lives at the root, other languages under /<code>/. Privacy and Terms are English only.
+// Page components load on demand; route-loading.ts preloads the right one before the first render.
 export const AppRoutes = () => (
   <Routes>
     {LOCALES.map(({ code }) => (
       <Route key={code} path={code === DEFAULT_LOCALE ? "/" : `/${code}`} element={<LocaleLayout locale={code} />}>
         <Route index element={<Index />} />
         <Route path={BLOG_PATH} element={<Blog />} />
-        <Route path={dictionaries[code].tools.hub.slug} element={<ToolsHub />} />
-        <Route path={`${dictionaries[code].tools.hub.slug}/:toolSlug`} element={<ToolPage />} />
+        <Route path={TOOL_SLUGS[code].hub} element={<ToolsHub />} />
+        <Route path={`${TOOL_SLUGS[code].hub}/:toolSlug`} element={<ToolPage />} />
         <Route path=":slug" element={<SeoPage />} />
       </Route>
     ))}

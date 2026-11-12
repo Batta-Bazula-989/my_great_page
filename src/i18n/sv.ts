@@ -365,7 +365,7 @@ const sv: Dictionary = {
   },
   contact: {
     eyebrow: "Låt oss prata",
-    title: "Få en kostnadsfri Health Check av din support",
+    title: "Få en kostnadsfri Health Check",
     intro: "Ett samtal på 30 minuter, sedan en skriftlig rapport.",
     cta: "Boka kostnadsfri Health Check",
     email: "E-post",
@@ -453,12 +453,14 @@ const sv: Dictionary = {
     sources: "Källor",
     onThisPage: "På den här sidan",
     related: "Relaterat",
+    readNext: "Läs vidare",
+    ctaPackages: "Se paket och priser",
   },
   blog: {
-    metaTitle: "Blogg om automatisering av kundtjänst | TascaLab",
+    metaTitle: "Blogg om kundtjänst- och CRM-automatisering | TascaLab",
     metaDescription:
-      "Guider om AI-chattbottar, ärenderoutning, automatisering i Zendesk, Freshdesk och Jira, WhatsApp- och Telegram-bottar, supportnyckeltal, SLA:er och EU-regler.",
-    title: "Blogg om automatisering av kundtjänst",
+      "Guider om AI-chattbottar, ärenderoutning, automatisering i Zendesk, Freshdesk, Jira, HubSpot och Attio, WhatsApp- och Telegram-bottar, SLA:er och EU-regler.",
+    title: "Blogg om automatisering av kundtjänst och CRM",
     readArticle: "Läs artikeln",
     all: "Alla",
     minRead: "{n} min läsning",

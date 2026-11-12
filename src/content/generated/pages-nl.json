@@ -1,0 +1,814 @@
+[
+ {
+  "key": "ai-chatbot-for-customer-support",
+  "slug": "ai-chatbot-klantenservice",
+  "category": "services",
+  "navLabel": "AI-chatbot voor klantenservice",
+  "h1": "AI-chatbot voor klantenservice: wat hij doet en hoe hij koppelt met je helpdesk",
+  "description": "Hoe een AI-chatbot voor klantenservice FAQ's beantwoordt, gegevens verzamelt en doorzet naar medewerkers — en via de API koppelt met Zendesk of Freshdesk.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "AI-agents van Zendesk genereren antwoorden uit gekoppelde kennisbronnen en vallen terug op een standaardantwoord als er niets relevants wordt gevonden.",
+   "AI Agents van Freshdesk kunnen een gesprek automatisch overdragen aan een mens als de klant zinnen gebruikt die de beheerder heeft opgegeven.",
+   "Een externe bot in Zendesk-messaging draagt over door de controle door te geven aan de Agent Workspace, waardoor het gesprek kan worden toegewezen."
+  ],
+  "sectionLinks": {
+   "1": [
+    "chatbot-to-human-handoff"
+   ],
+   "2": [
+    "tool:aiAgent"
+   ],
+   "3": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "4": [
+    "eu-ai-act-chatbot-rules"
+   ]
+  }
+ },
+ {
+  "key": "ai-voice-bot-for-customer-service",
+  "slug": "ai-voicebot-klantenservice",
+  "category": "services",
+  "navLabel": "AI-voicebot voor telefonie",
+  "h1": "AI-voicebot voor klantenservice: zo werkt automatisering van inkomende gesprekken",
+  "description": "Zo werkt een AI-voicebot voor klantenservice: telefonie, spraak-naar-tekst, AI-logica en tekst-naar-spraak, plus doorverbinden, IVR vs. bot en FCC-regels.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Een traditionele IVR werkt met toetsaanslagen (DTMF); het Gather-verb van Twilio staat standaard op DTMF en moet worden ingesteld op spraak om bellers te transcriberen.",
+   "De bidirectionele Media Streams van Twilio versturen gespreksaudio als 8 kHz, eenkanaals mu-law, base64-gecodeerd via een WebSocket.",
+   "Met Zendesk kan een externe voice-AI-agent gesprekken eerst aannemen en via een SIP-IN-lijn escaleren naar een live medewerker."
+  ],
+  "sectionLinks": {
+   "2": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "eu-ai-act-chatbot-rules"
+   ]
+  }
+ },
+ {
+  "key": "ticket-routing-automation",
+  "slug": "ticketroutering-automatiseren",
+  "category": "services",
+  "navLabel": "Ticketroutering automatiseren",
+  "h1": "Ticketroutering automatiseren: methodes, tools en opzet",
+  "description": "Ticketroutering automatiseren: op regels, round-robin, op werklast en op vaardigheden, AI-triage, en hoe Zendesk, Freshdesk en Jira het aanpakken.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Omnichannel routing in Zendesk wijst standaard toe aan de medewerker met de meeste vrije capaciteit; round robin is de alternatieve methode.",
+   "De Omniroute-engine van Freshdesk zit achter de toewijzing van tickets via round-robin, op werklast en op vaardigheden.",
+   "De assign-actie van Jira automation kan werk verdelen op basis van gelijke werklast, round-robin of willekeurige selectie."
+  ],
+  "sectionLinks": {
+   "2": [
+    "zendesk-automation",
+    "freshdesk-automation",
+    "jira-service-management-automation"
+   ],
+   "3": [
+    "sla-policies-explained",
+    "n8n-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "automated-support-reporting",
+  "slug": "klantenservice-rapportages-automatiseren",
+  "category": "services",
+  "navLabel": "Supportrapportages automatiseren",
+  "h1": "Klantenservicerapportages automatiseren: metrics, planning en levering",
+  "description": "Klantenservicerapportages automatiseren: welke metrics je volgt en hoe je rapporten uit Zendesk, Freshdesk of Jira inplant naar e-mail, Slack of Google Sheets.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Zendesk Explore kan een gedeeld dashboard volgens een terugkerend schema mailen, in te stellen tot 12 maanden vooruit.",
+   "In Freshdesk Analytics kunnen aangepaste rapporten worden ingepland; standaardrapporten (curated reports) moeten eerst worden gekloond.",
+   "Met filterabonnementen in Jira worden opgeslagen zoekresultaten volgens schema gemaild, ook met timing op basis van cron; alleen de eerste 200 resultaten worden verstuurd."
+  ],
+  "sectionLinks": {
+   "0": [
+    "customer-support-metrics"
+   ],
+   "2": [
+    "slack-support-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "customer-support-email-automation",
+  "slug": "klantenservice-e-mail-automatiseren",
+  "category": "services",
+  "navLabel": "Support-e-mail automatiseren",
+  "h1": "Klantenservice-e-mail automatiseren: van inbox tot beantwoord ticket",
+  "description": "Klantenservice-e-mail automatiseren: stuur je supportadres door naar Zendesk of Freshdesk, stel SPF en DKIM in, en bevestig, routeer en escaleer e-mails.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Elk Zendesk-account heeft een systeemsupportadres in de vorm support@jouwsubdomein.zendesk.com.",
+   "Zendesk raadt automatisch doorsturen op het niveau van de mailserver aan, in plaats van doorsturen vanuit een e-mailprogramma.",
+   "Freshdesk zet doorgestuurde e-mail pas om in tickets zodra de doorstuurregel actief is; Gmail- en Microsoft 365-mailboxen kunnen ook rechtstreeks worden gekoppeld."
+  ],
+  "sectionLinks": {
+   "0": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "2": [
+    "ticket-routing-automation"
+   ],
+   "3": [
+    "ai-knowledge-base-for-customer-support"
+   ]
+  }
+ },
+ {
+  "key": "ai-knowledge-base-for-customer-support",
+  "slug": "ai-kennisbank-klantenservice",
+  "category": "services",
+  "navLabel": "AI-kennisbank voor support",
+  "h1": "AI-kennisbank voor klantenservice: hoe het werkt en hoe je er een opbouwt",
+  "description": "Hoe een AI-kennisbank voor klantenservice werkt, hoe je artikelen structureert in Zendesk, Freshdesk of Confluence, ze actueel houdt en deflectie meet.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Retrieval-augmented generation vindt relevante passages in je documenten en voegt ze toe aan de prompt, zodat het model antwoordt vanuit jouw content.",
+   "In een Zendesk-helpcenter staan artikelen in secties binnen categorieën; ze kunnen niet rechtstreeks in een categorie staan.",
+   "Freshdesk deelt zijn kennisbank in met categorieën, mappen en artikelen."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-chatbot-for-customer-support"
+   ],
+   "4": [
+    "ticket-deflection"
+   ]
+  }
+ },
+ {
+  "key": "zendesk-automation",
+  "slug": "zendesk-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Zendesk-automatisering",
+  "h1": "Zendesk-automatisering: triggers, automatiseringen, macro's en routing",
+  "description": "Zo werkt Zendesk-automatisering: triggers, automatiseringen en macro's, uurlijkse runs, triggervolgorde, omnichannel- en skillsrouting, webhooks en API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Tickettriggers draaien direct nadat een ticket is aangemaakt of bijgewerkt, in de volgorde waarin ze in de lijst staan.",
+   "Automatiseringen draaien eens per uur op niet-gesloten tickets, en elke automatisering kan per uur op maximaal 1.000 tickets acties uitvoeren.",
+   "Elke automatisering heeft een voorwaarde nodig die maar één keer waar is, of een actie die een voorwaarde tenietdoet; anders blijft ze afgaan."
+  ],
+  "sectionLinks": {
+   "3": [
+    "ticket-routing-automation"
+   ],
+   "4": [
+    "n8n-zendesk-integration",
+    "hubspot-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "freshdesk-automation",
+  "slug": "freshdesk-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Freshdesk-automatisering",
+  "h1": "Freshdesk-automatisering: regeltypes, toewijzing en webhooks",
+  "description": "Zo werkt Freshdesk-automatisering: regels voor Ticket Creation, Ticket Updates en Hourly Triggers, round-robin- en skill-based toewijzing, webhooks en API.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Freshdesk heeft drie typen automatiseringsregels: Ticket Creation, Ticket Updates en Hourly Triggers.",
+   "Hourly Triggers (voorheen Time Triggers) draaien elk uur, op kalenderuren, en alleen op tickets die in de afgelopen 30 dagen zijn bijgewerkt.",
+   "Ticket Creation-regels kunnen ofwel de eerste overeenkomende regel uitvoeren, ofwel alle overeenkomende regels."
+  ],
+  "sectionLinks": {
+   "2": [
+    "sla-policies-explained"
+   ],
+   "3": [
+    "ticket-routing-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "jira-service-management-automation",
+  "slug": "jira-service-management-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Jira Service Mgmt-automatisering",
+  "h1": "Jira Service Management-automatisering: zo werken flows, SLA's en webhooks",
+  "description": "Zo werkt Jira Service Management-automatisering: triggers, voorwaarden, acties, SLA- en goedkeuringstriggers, smart values, webhooks, queues en aanvraagtypen.",
+  "updated": "2026-10-19",
+  "minutes": 5,
+  "keyFacts": [
+   "Elke automatiseringsflow bestaat uit een trigger, optionele voorwaarden en een of meer acties, die van boven naar beneden worden uitgevoerd.",
+   "Jira Service Management voegt triggers toe zoals 'SLA threshold breached' en 'Approval required'.",
+   "De actie 'Send web request' roept externe systemen aan; met een incoming webhook-trigger kunnen externe systemen een flow starten."
+  ],
+  "sectionLinks": {
+   "1": [
+    "sla-policies-explained",
+    "tool:sla"
+   ],
+   "3": [
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "slack-support-automation",
+  "slug": "klantenservice-automatiseren-slack",
+  "category": "helpdesks",
+  "navLabel": "Support automatiseren in Slack",
+  "h1": "Klantenservice automatiseren met Slack: alerts, escalaties en klantkanalen",
+  "description": "Klantenservice automatiseren met Slack: escalatie-alerts, Workflow Builder, webhooks, Bolt-apps, Zendesk-, Freshdesk- en Jira-integraties, Slack Connect.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Workflows in Workflow Builder kunnen starten vanaf een link, een webhook, een schema, een geplaatst bericht, een emoji-reactie of iemand die lid wordt van een kanaal.",
+   "Een incoming webhook is een unieke URL die aan één kanaal is gekoppeld; je stuurt er met een POST een JSON-payload naartoe om een bericht te plaatsen.",
+   "Slack staat apps over het algemeen niet meer dan één bericht per seconde per kanaal toe."
+  ],
+  "sectionLinks": {
+   "1": [
+    "zendesk-automation",
+    "jira-service-management-automation"
+   ],
+   "3": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "intercom-automation",
+  "slug": "intercom-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Intercom-automatisering",
+  "h1": "Intercom-automatisering: Workflows, toewijzing, Fin en de API",
+  "description": "Intercom-automatisering: triggers, vertakkingen en acties in Workflows, toewijzing in de team-inbox, Fin AI Agent, Slack en Jira, webhooks en de REST API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Workflows bouw je in een visuele builder; ze kunnen klantgericht zijn of stil op de achtergrond voor teamleden draaien.",
+   "Met vertakkingen volgt een gesprek alleen het eerste overeenkomende pad; Apply rules voert elk overeenkomend pad uit.",
+   "Er kan maar één SLA op een gesprek worden toegepast; latere SLA-acties uit andere workflows worden genegeerd."
+  ],
+  "sectionLinks": {
+   "1": [
+    "ticket-routing-automation",
+    "sla-policies-explained"
+   ],
+   "2": [
+    "ai-chatbot-for-customer-support",
+    "tool:aiAgent"
+   ]
+  }
+ },
+ {
+  "key": "hubspot-service-hub-automation",
+  "slug": "hubspot-service-hub-automatisering",
+  "category": "helpdesks",
+  "navLabel": "HubSpot Service Hub-automatisering",
+  "h1": "HubSpot Service Hub-automatisering: helpdesk, tickets, workflows en de API",
+  "description": "HubSpot Service Hub-automatisering: helpdeskkanalen en routing, ticketpipelines en statussen, SLA-doelen, ticketworkflows, chatbots, webhooks en de API.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "Standaard maakt de helpdesk automatisch tickets aan vanuit elk kanaal dat je ermee verbindt.",
+   "De standaard Support Pipeline heeft vier ticketstatussen: New, Waiting on contact, Waiting on us en Closed.",
+   "SLA-doelen in de helpdesk kunnen de tijd tot het eerste antwoord, de tijd tot het volgende antwoord en de tijd tot sluiting meten."
+  ],
+  "sectionLinks": {
+   "2": [
+    "sla-policies-explained"
+   ],
+   "4": [
+    "hubspot-zendesk-integration",
+    "attio-vs-hubspot-automation"
+   ]
+  }
+ },
+ {
+  "key": "whatsapp-customer-support-bot",
+  "slug": "whatsapp-klantenservice-bot",
+  "category": "channels",
+  "navLabel": "WhatsApp-supportbot",
+  "h1": "WhatsApp-klantenservicebot: hoe hij werkt en wat Meta toestaat",
+  "description": "Zo werkt een WhatsApp-klantenservicebot: Business Platform vs app, het 24-uursvenster, templates, opt-in, prijsbasis en de koppeling met je helpdesk.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Als een klant je een bericht stuurt of belt, opent een klantenservicevenster van 24 uur dat bij elk nieuw bericht opnieuw begint.",
+   "Binnen het venster kun je vrije serviceberichten sturen zonder voorafgaande goedkeuring.",
+   "Buiten het venster zijn templates het enige berichttype dat je kunt versturen."
+  ],
+  "sectionLinks": {
+   "1": [
+    "facebook-messenger-bot-customer-service"
+   ],
+   "3": [
+    "tool:whatsapp"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "telegram-support-bot",
+  "slug": "telegram-klantenservice-bot",
+  "category": "channels",
+  "navLabel": "Telegram-supportbot",
+  "h1": "Telegram-klantenservicebot: hoe hij werkt en hoe je hem inricht",
+  "description": "Zo draai je een Telegram-supportbot: inrichting via BotFather, webhooks vs long polling, inline keyboards, privacy mode in groepen, limieten en overdracht.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Je maakt een bot aan en krijgt zijn authenticatietoken door @BotFather een bericht te sturen.",
+   "Updates komen binnen via getUpdates of een webhook; de twee methodes sluiten elkaar uit.",
+   "Telegram bewaart niet-afgeleverde updates niet langer dan 24 uur."
+  ],
+  "sectionLinks": {
+   "1": [
+    "n8n-vs-make-vs-zapier"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "facebook-messenger-bot-customer-service",
+  "slug": "facebook-messenger-bot-klantenservice",
+  "category": "channels",
+  "navLabel": "Messenger-bot voor klantenservice",
+  "h1": "Facebook Messenger-bot voor klantenservice: vensters, tags en overdracht",
+  "description": "Zo werkt een Facebook Messenger-bot voor klantenservice: webhooks, het 24-uursvenster, de tag HUMAN_AGENT, overdracht aan medewerkers en het botbeleid van Meta.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Met standaardberichten kun je antwoorden binnen 24 uur na het bericht van iemand.",
+   "De tag HUMAN_AGENT maakt menselijke antwoorden binnen 7 dagen mogelijk, na goedkeuring van de app.",
+   "Sinds 27 april 2026 geven de tags CONFIRMED_EVENT_UPDATE, ACCOUNT_UPDATE en POST_PURCHASE_UPDATE een foutmelding."
+  ],
+  "sectionLinks": {
+   "1": [
+    "whatsapp-customer-support-bot",
+    "instagram-dm-automation"
+   ],
+   "2": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "instagram-dm-automation",
+  "slug": "instagram-dm-automatiseren",
+  "category": "channels",
+  "navLabel": "Instagram-DM's automatiseren",
+  "h1": "Instagram-DM's automatiseren voor klantenservice",
+  "description": "Instagram-DM's automatiseren: regels voor professionele accounts, het 24-uursvenster, de human agent-tag, private replies op reacties en ice breakers.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "De messaging-API's van Instagram werken met professionele accounts (zakelijk of creator).",
+   "Je app kan een gebruiker pas een bericht sturen nadat die jou een bericht heeft gestuurd, en heeft dan 24 uur om te antwoorden.",
+   "De human agent-tag maakt antwoorden binnen 7 dagen mogelijk, na app review."
+  ],
+  "sectionLinks": {
+   "1": [
+    "facebook-messenger-bot-customer-service"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "website-chatbot-for-support",
+  "slug": "website-chatbot-klantenservice",
+  "category": "channels",
+  "navLabel": "Website-chatbot voor support",
+  "h1": "Website-chatbot voor klantenservice: widgets, overdracht en toegankelijkheid",
+  "description": "Plan een website-chatbot voor klantenservice: helpdeskwidgets zoals Zendesk en Freshchat, overdracht van bot naar medewerker, buiten kantooruren en WCAG.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "De messaging Web Widget van Zendesk installeer je door een codefragment toe te voegen aan elke pagina waarop hij moet verschijnen.",
+   "Zendesk-messaging kan verschillende antwoorden tonen binnen en buiten kantooruren.",
+   "AI-agents van Freshdesk kunnen zo worden ingesteld dat ze klantgegevens verzamelen voordat ze overdragen aan een mens."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-chatbot-for-customer-support",
+    "tool:aiAgent"
+   ],
+   "1": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "european-accessibility-act-customer-service"
+   ]
+  }
+ },
+ {
+  "key": "sms-customer-support-automation",
+  "slug": "sms-klantenservice-automatiseren",
+  "category": "channels",
+  "navLabel": "Sms-support automatiseren",
+  "h1": "Sms-klantenservice automatiseren: hoe het werkt en wat je moet inrichten",
+  "description": "Zo werkt geautomatiseerde sms-klantenservice: inkomende webhooks, A2P 10DLC en toll-free-verificatie, STOP-afmeldingen, segmentlimieten en helpdesktickets.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Twilio stuurt elke inkomende sms naar je webhook-URL met velden zoals From, To, Body en MessageSid.",
+   "Volgens Twilio behandelen Amerikaanse providers elk bericht dat via een platform als Twilio wordt verstuurd als application-to-person-verkeer (A2P).",
+   "Berichten van niet-geregistreerde Amerikaanse 10DLC-nummers worden geblokkeerd met foutcode 30034, ook terwijl de registratie nog loopt."
+  ],
+  "sectionLinks": {
+   "4": [
+    "omnichannel-customer-support",
+    "zendesk-automation"
+   ]
+  }
+ },
+ {
+  "key": "viber-chatbot-for-customer-support",
+  "slug": "viber-chatbot-klantenservice",
+  "category": "channels",
+  "navLabel": "Viber-chatbot voor support",
+  "h1": "Viber-chatbot voor klantenservice: hoe hij werkt en hoe je hem inricht",
+  "description": "Zo werkt een Viber-chatbot voor klantenservice: auth token, set_webhook, callbacks, wie de bot berichten mag sturen, keyboards en overdracht aan je helpdesk.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Elk API-verzoek bevat het authenticatietoken van de bot in de header X-Viber-Auth-Token.",
+   "Webhook-URL's moeten SSL gebruiken; Viber ondersteunt geen zelfondertekende certificaten.",
+   "De callbacks message, subscribed en unsubscribed zijn verplicht en kunnen niet worden uitgefilterd."
+  ],
+  "sectionLinks": {
+   "4": [
+    "chatbot-to-human-handoff",
+    "telegram-support-bot"
+   ]
+  }
+ },
+ {
+  "key": "what-is-customer-support-automation",
+  "slug": "wat-is-klantenservice-automatisering",
+  "category": "basics",
+  "navLabel": "Wat is supportautomatisering",
+  "h1": "Wat is klantenservice-automatisering?",
+  "description": "Klantenservice-automatisering: bots, routing, macro's, automatische antwoorden, SLA-timers, rapporten, wat menselijk blijft en hoe het in je helpdesk past.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Zendesk-triggers draaien direct nadat een ticket is aangemaakt of bijgewerkt; Zendesk-automatiseringen zijn tijdgebonden en draaien eens per uur.",
+   "Zendesk-macro's hebben geen voorwaarden: een agent bepaalt wanneer hij er een toepast.",
+   "Zendesk, Freshdesk en Jira-automatisering kunnen allemaal vanuit hun regels HTTP-requests naar andere systemen sturen."
+  ],
+  "sectionLinks": {
+   "1": [
+    "ai-chatbot-for-customer-support",
+    "ticket-routing-automation",
+    "automated-support-reporting"
+   ],
+   "2": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "chatbot-to-human-handoff",
+  "slug": "chatbot-overdracht-naar-medewerker",
+  "category": "basics",
+  "navLabel": "Overdracht chatbot naar medewerker",
+  "h1": "Chatbot-overdracht naar medewerker: escaleren zonder de klant te verliezen",
+  "description": "Chatbot-overdracht naar medewerker: wanneer escaleren, welke context doorgeven, opvang buiten kantooruren, en hoe Zendesk, Freshdesk en Messenger het doen.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Volgens Zendesk moet een AI-agent een vraag mogelijk overdragen aan een mens wanneer die complex, urgent of gevoelig is.",
+   "Freshdesk AI Agents kunnen automatisch overdragen wanneer een klant triggerzinnen gebruikt die jij definieert, zoals vragen naar een agent.",
+   "Als in Dialogflow CX geen enkele intent de classificatiedrempel haalt, wordt een no-match-event geactiveerd in plaats van een match."
+  ],
+  "sectionLinks": {
+   "3": [
+    "zendesk-automation",
+    "facebook-messenger-bot-customer-service"
+   ],
+   "4": [
+    "website-chatbot-for-support"
+   ]
+  }
+ },
+ {
+  "key": "customer-support-metrics",
+  "slug": "kpi-klantenservice",
+  "category": "basics",
+  "navLabel": "KPI's voor klantenservice",
+  "h1": "KPI's voor klantenservice: wat je meet en hoe je elke KPI berekent",
+  "description": "KPI's voor klantenservice uitgelegd: eerste reactietijd, oplossingstijd, FCR, heropeningen, CSAT, CES, NPS en backlog, en hoe je elke KPI echt berekent.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "De full resolution time van Zendesk loopt van het aanmaken van een ticket tot de meest recente oplossing, dus heropende tickets blijven meetellen.",
+   "Freshdesk telt een ticket alleen mee voor FCR als de klant na het eerste contact geen berichten meer heeft gestuurd.",
+   "NPS is het percentage promotors (scores 9–10) min het percentage criticasters (scores 0–6)."
+  ],
+  "sectionLinks": {
+   "1": [
+    "sla-policies-explained",
+    "tool:sla"
+   ],
+   "4": [
+    "automated-support-reporting"
+   ]
+  }
+ },
+ {
+  "key": "sla-policies-explained",
+  "slug": "sla-beleid-klantenservice",
+  "category": "basics",
+  "navLabel": "SLA-beleid uitgelegd",
+  "h1": "SLA-beleid in de klantenservice, uitgelegd",
+  "description": "SLA-beleid in de klantenservice: doelen voor eerste antwoord, volgend antwoord en oplossing, kantooruren vs. kalenderuren, pauzeren, alerts en helpdeskopzet.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Zendesk past het eerste SLA-beleid toe, van boven naar beneden in de lijst, waarvan de voorwaarden overeenkomen met het ticket.",
+   "In Zendesk pauzeert requester wait time in Pending, en agent work time in Pending en On-hold.",
+   "In Freshdesk kun je elke SLA berekenen in kantooruren of kalenderuren (24x7)."
+  ],
+  "sectionLinks": {
+   "2": [
+    "tool:sla"
+   ],
+   "4": [
+    "zendesk-automation",
+    "freshdesk-automation",
+    "jira-service-management-automation"
+   ]
+  }
+ },
+ {
+  "key": "ticket-deflection",
+  "slug": "ticket-deflection-uitgelegd",
+  "category": "basics",
+  "navLabel": "Ticket deflection",
+  "h1": "Ticket deflection: wat het is en hoe je het eerlijk meet",
+  "description": "Ticket deflection: welke selfservicekanalen tickets afvangen, hoe Zendesk, Freshdesk en Intercom het meten en waarom afgebroken sessies de score opblazen.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "De self-service score van Zendesk, ook wel ticket deflection ratio genoemd, vergelijkt het gebruik van het helpcenter met het aantal tickets dat in dezelfde periode is aangemaakt.",
+   "Zendesk registreert een aangenomen deflection wanneer een helpcenterbezoeker geen ticket indient, maar nooit bevestigt dat hij een antwoord heeft gevonden.",
+   "In de rapporten over AI-agents van Zendesk telt elk gesprek dat niet in een escalatie eindigt als afgevangen."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-knowledge-base-for-customer-support",
+    "ai-chatbot-for-customer-support"
+   ],
+   "3": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "omnichannel-customer-support",
+  "slug": "omnichannel-klantenservice",
+  "category": "basics",
+  "navLabel": "Omnichannel klantenservice",
+  "h1": "Omnichannel klantenservice: wat het betekent en hoe het werkt",
+  "description": "Omnichannel klantenservice: het verschil met multichannel, een centrale agentwerkplek, omnichannel routing en de berichtvensters van WhatsApp en Messenger.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Freshworks beschrijft multichannel support als onafhankelijke kanalen die elk zelfstandig werken; bij omnichannel support zijn ze met elkaar verbonden.",
+   "In de Zendesk Agent Workspace kan één ticketgesprek e-mail, chat en spraak bevatten.",
+   "De omnichannel routing van Zendesk wijst e-mail-, messaging- en beltickets toe op basis van de status en vrije capaciteit van agents."
+  ],
+  "sectionLinks": {
+   "2": [
+    "ticket-routing-automation"
+   ],
+   "3": [
+    "whatsapp-customer-support-bot",
+    "facebook-messenger-bot-customer-service"
+   ]
+  }
+ },
+ {
+  "key": "n8n-vs-make-vs-zapier",
+  "slug": "n8n-vs-make-vs-zapier-supportautomatisering",
+  "category": "guides",
+  "navLabel": "n8n vs Make vs Zapier",
+  "h1": "n8n vs Make vs Zapier voor supportautomatisering",
+  "description": "n8n vs Make vs Zapier voor supportautomatisering: licentie en hosting, hoe elk gebruik telt, connectors voor Zendesk, Freshdesk, Jira en Slack, webhooks, code.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "De self-hosted software van n8n valt onder de Sustainable Use License, een fair-code-licentie die n8n in 2022 heeft opgesteld. n8n noemt zichzelf niet open source.",
+   "Per oktober 2026 telt n8n executions (één run van een workflow), telt Make credits (operations 1:1 omgezet) en telt Zapier tasks (geslaagde actiestappen).",
+   "Triggers, Filter-stappen en Paths-stappen in Zapier verbruiken geen tasks. Triggermodules in Make verbruiken 1 credit per run, ook als ze geen nieuwe data vinden."
+  ],
+  "sectionLinks": {
+   "1": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "n8n-zendesk-integration",
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "eu-ai-act-chatbot-rules",
+  "slug": "ai-verordening-chatbot-regels",
+  "category": "guides",
+  "navLabel": "AI-verordening en chatbots",
+  "h1": "AI-verordening en chatbots: wat artikel 50 vereist en wanneer",
+  "description": "AI-verordening en chatbots: wat artikel 50 vereist, wie aanbieder of gebruiksverantwoordelijke is, datums en wat de Digital Omnibus van 2026 veranderde.",
+  "updated": "2026-10-19",
+  "minutes": 9,
+  "keyFacts": [
+   "Artikel 50(1): aanbieders moeten ervoor zorgen dat mensen worden geïnformeerd dat ze met een AI-systeem interageren, tenzij dit uit de context duidelijk is.",
+   "Artikel 50(5): de informatie moet op een duidelijke en herkenbare manier worden gegeven, uiterlijk bij de eerste interactie.",
+   "De AI-verordening is op 1 augustus 2024 in werking getreden. Artikel 50 is van toepassing vanaf 2 augustus 2026."
+  ],
+  "sectionLinks": {
+   "2": [
+    "ai-chatbot-for-customer-support",
+    "ai-voice-bot-for-customer-service"
+   ],
+   "5": [
+    "gdpr-customer-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "gdpr-customer-support-automation",
+  "slug": "avg-klantenservice-automatisering",
+  "category": "guides",
+  "navLabel": "AVG en supportautomatisering",
+  "h1": "AVG en klantenservice-automatisering: een praktische gids",
+  "description": "AVG en klantenservice-automatisering: grondslagen, dataminimalisatie, bewaartermijnen en verwerkersovereenkomsten, toegepast op chatbots en helpdeskworkflows.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "Artikel 5(1)(c): persoonsgegevens moeten toereikend zijn, ter zake dienend en beperkt tot wat noodzakelijk is voor de doeleinden.",
+   "Artikel 6(1) noemt zes grondslagen. Het Hof van Justitie van de EU beschouwt die lijst als uitputtend.",
+   "Artikel 28(3) vereist een bindende overeenkomst met elke verwerker, waarin onder meer staat dat die alleen handelt op basis van jouw gedocumenteerde instructies."
+  ],
+  "sectionLinks": {
+   "1": [
+    "eu-ai-act-chatbot-rules"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "european-accessibility-act-customer-service",
+  "slug": "european-accessibility-act-klantenservice",
+  "category": "guides",
+  "navLabel": "European Accessibility Act",
+  "h1": "European Accessibility Act en klantenservice: wat supportteams moeten weten",
+  "description": "European Accessibility Act: welke diensten eronder vallen, datums, de vrijstelling voor micro-ondernemingen en wat bijlage I van klantenservice vraagt.",
+  "updated": "2026-10-19",
+  "minutes": 9,
+  "keyFacts": [
+   "Artikel 31: lidstaten moesten hun nationale wetten uiterlijk 28 juni 2022 vaststellen en ze vanaf 28 juni 2025 toepassen.",
+   "Artikel 2(2) omvat diensten aan consumenten zoals elektronische communicatie, bankdiensten voor consumenten, e-books en e-commerce.",
+   "Artikel 4(5) stelt micro-ondernemingen die diensten verlenen vrij; artikel 3(23) definieert die als minder dan 10 personen met een omzet of balanstotaal van ten hoogste EUR 2 miljoen."
+  ],
+  "sectionLinks": {
+   "4": [
+    "website-chatbot-for-support",
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "n8n-zendesk-integration",
+  "slug": "n8n-zendesk-koppeling",
+  "category": "guides",
+  "navLabel": "n8n Zendesk-koppeling",
+  "h1": "n8n Zendesk-koppeling: nodes, credentials en voorbeeldworkflows",
+  "description": "n8n Zendesk-koppeling: bewerkingen van de Zendesk-node, de Zendesk Trigger, OAuth2-credentials, het einde van API-tokens, webhooks, rate limits, een voorbeeld.",
+  "updated": "2026-11-03",
+  "minutes": 9,
+  "keyFacts": [
+   "De n8n Zendesk-node heeft vier resources: Ticket, Ticket Field, User en Organization.",
+   "Tags instellen met de bewerking Update Ticket van de node vervangt de hele taglijst. Tags die je weglaat, worden verwijderd.",
+   "De Zendesk-credential van n8n ondersteunt OAuth2 of een API-token, maar Zendesk is op 27 oktober 2026 gestopt met het uitgeven van nieuwe API-tokens en schakelt ze op 30 april 2027 allemaal uit."
+  ],
+  "sectionLinks": {
+   "0": [
+    "zendesk-automation"
+   ],
+   "3": [
+    "ticket-routing-automation",
+    "slack-support-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "attio-workflows-automation",
+  "slug": "attio-workflows-automatisering",
+  "category": "crm",
+  "navLabel": "Attio-workflows",
+  "h1": "Attio-workflows: zo werkt CRM-automatisering in Attio",
+  "description": "Attio-workflows uitgelegd: trigger- en actieblokken, verbruik van workflowcredits, rate limits van de REST API, webhooksignaturen en koppelingen met support.",
+  "updated": "2026-11-03",
+  "minutes": 6,
+  "keyFacts": [
+   "Een Attio-workflow bestaat uit een triggerblok, dat de workflow start, en actieblokken, die het werk doen.",
+   "Triggers, logica en het opzoeken van gegevens zijn gratis. Blokken die gegevens schrijven, externe systemen aanroepen of AI gebruiken, verbruiken workspacecredits, de meeste één credit per run.",
+   "De REST API van Attio staat 100 leesrequests en 25 schrijfrequests per seconde toe. Boven de limiet geeft de API HTTP 429 terug met een Retry-After-header."
+  ],
+  "sectionLinks": {
+   "2": [
+    "attio-vs-hubspot-automation"
+   ],
+   "3": [
+    "n8n-vs-make-vs-zapier",
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "attio-vs-hubspot-automation",
+  "slug": "attio-vs-hubspot-automatisering",
+  "category": "crm",
+  "navLabel": "Attio vs HubSpot-automatisering",
+  "h1": "Attio vs HubSpot-automatisering: workflows, limieten, API en webhooks",
+  "description": "Attio vs HubSpot-automatisering: wie workflows krijgt, limieten en credits, triggers, code- en webhookstappen, API-limieten en controle van webhooksignaturen.",
+  "updated": "2026-11-03",
+  "minutes": 6,
+  "keyFacts": [
+   "HubSpot-workflows vereisen een Professional- of Enterprise-abonnement. Marketing, Sales of Service Hub Professional staat tot 300 workflows toe, en Enterprise tot 1.000.",
+   "Attio telt workflowgebruik in workspacecredits. Triggers, logica en opzoekacties zijn gratis, en de meeste blokken die gegevens schrijven of externe systemen aanroepen, verbruiken één credit per run.",
+   "Custom code-acties in HubSpot moeten binnen 20 seconden klaar zijn en kunnen tot 128 MB geheugen gebruiken. Het blok 'Execute code' van Attio krijgt na 100 seconden een timeout."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-service-hub-automation"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "hubspot-zendesk-integration",
+  "slug": "hubspot-zendesk-koppeling",
+  "category": "crm",
+  "navLabel": "HubSpot Zendesk-koppeling",
+  "h1": "HubSpot Zendesk-koppeling: wat synchroniseert, wat niet en je opties",
+  "description": "HubSpot Zendesk-koppeling: wat de gratis app Zendesk for HubSpot wel en niet synchroniseert, action flows, tweerichtingssync-apps en maatwerk met beide API's.",
+  "updated": "2026-11-03",
+  "minutes": 6,
+  "keyFacts": [
+   "De integratie Zendesk Support for HubSpot werkt in één richting: ticketinformatie gaat van Zendesk naar HubSpot.",
+   "Ze maakt drie Zendesk-triggers aan, voor nieuwe tickets, opgeloste tickets en CSAT-beoordelingen, plus een webhook met de naam HubSpot Integration.",
+   "Tickets verschijnen alleen op de contacttijdlijn in HubSpot, niet bij bedrijven of deals, en alleen het e-mailadres van de gebruiker wordt gesynchroniseerd."
+  ],
+  "sectionLinks": {
+   "0": [
+    "hubspot-service-hub-automation",
+    "zendesk-automation"
+   ],
+   "4": [
+    "n8n-zendesk-integration",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ }
+]

@@ -49,6 +49,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "The 24-hour customer service window",
+        links: ["facebook-messenger-bot-customer-service"],
         blocks: [
           {
             type: "p",
@@ -100,6 +101,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "How WhatsApp pricing works, without the rate card",
+        links: ["tool:whatsapp"],
         blocks: [
           {
             type: "p",
@@ -117,6 +119,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Connecting the bot to your helpdesk",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -207,6 +210,7 @@ export const channelPages: SeoPageContent[] = [
       "zendesk-automation",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -256,6 +260,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Webhooks vs long polling",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -315,6 +320,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Helpdesk handoff and Telegram Business",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -394,6 +400,7 @@ export const channelPages: SeoPageContent[] = [
       "n8n-vs-make-vs-zapier",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -444,6 +451,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "The 24-hour window and message tags",
+        links: ["whatsapp-customer-support-bot", "instagram-dm-automation"],
         blocks: [
           {
             type: "p",
@@ -467,6 +475,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Handing conversations from the bot to a person",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -590,6 +599,7 @@ export const channelPages: SeoPageContent[] = [
       "zendesk-automation",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -640,6 +650,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Messaging windows and the human agent tag",
+        links: ["facebook-messenger-bot-customer-service"],
         blocks: [
           {
             type: "p",
@@ -686,6 +697,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Handing DMs to a human",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -765,6 +777,7 @@ export const channelPages: SeoPageContent[] = [
       "ai-chatbot-for-customer-support",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -791,6 +804,7 @@ export const channelPages: SeoPageContent[] = [
     sections: [
       {
         heading: "Native helpdesk widget or a custom one?",
+        links: ["ai-chatbot-for-customer-support", "tool:aiAgent"],
         blocks: [
           {
             type: "p",
@@ -817,6 +831,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Designing the bot-to-human handoff",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -855,6 +870,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Accessibility basics for chat widgets",
+        links: ["european-accessibility-act-customer-service"],
         blocks: [
           {
             type: "p",
@@ -946,6 +962,7 @@ export const channelPages: SeoPageContent[] = [
       "freshdesk-automation",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -1057,6 +1074,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Connecting SMS to your helpdesk",
+        links: ["omnichannel-customer-support", "zendesk-automation"],
         blocks: [
           {
             type: "p",
@@ -1140,6 +1158,7 @@ export const channelPages: SeoPageContent[] = [
       "omnichannel-customer-support",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -1257,6 +1276,7 @@ export const channelPages: SeoPageContent[] = [
       },
       {
         heading: "Commercial terms and helpdesk handoff",
+        links: ["chatbot-to-human-handoff", "telegram-support-bot"],
         blocks: [
           {
             type: "p",
@@ -1332,5 +1352,6 @@ export const channelPages: SeoPageContent[] = [
       "chatbot-to-human-handoff",
     ],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 ];

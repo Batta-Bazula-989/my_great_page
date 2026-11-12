@@ -37,6 +37,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "The main types of support automation",
+        links: ["ai-chatbot-for-customer-support", "ticket-routing-automation", "automated-support-reporting"],
         blocks: [
           {
             type: "table",
@@ -87,6 +88,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "What should stay human",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -110,6 +112,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "How automation plugs into your helpdesk",
+        links: ["zendesk-automation", "freshdesk-automation"],
         blocks: [
           {
             type: "p",
@@ -140,6 +143,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "Where to start",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "ol",
@@ -217,6 +221,7 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -327,6 +332,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "How Zendesk, Freshdesk and Messenger implement handoff",
+        links: ["zendesk-automation", "facebook-messenger-bot-customer-service"],
         blocks: [
           {
             type: "ul",
@@ -341,6 +347,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "After-hours handling",
+        links: ["website-chatbot-for-support"],
         blocks: [
           {
             type: "p",
@@ -424,6 +431,7 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -507,6 +515,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "Speed: first response time and resolution time",
+        links: ["sla-policies-explained", "tool:sla"],
         blocks: [
           {
             type: "p",
@@ -558,6 +567,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "Workload: backlog, and keeping metrics honest",
+        links: ["automated-support-reporting"],
         blocks: [
           {
             type: "p",
@@ -642,6 +652,7 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -732,6 +743,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "When the clock runs: business hours, calendar hours and pausing",
+        links: ["tool:sla"],
         blocks: [
           {
             type: "p",
@@ -774,6 +786,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "How Zendesk, Freshdesk and Jira Service Management configure SLAs",
+        links: ["zendesk-automation", "freshdesk-automation", "jira-service-management-automation"],
         blocks: [
           {
             type: "ul",
@@ -853,6 +866,7 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -879,6 +893,7 @@ export const basicsPages: SeoPageContent[] = [
     sections: [
       {
         heading: "Where deflection happens: self-service channels",
+        links: ["ai-knowledge-base-for-customer-support", "ai-chatbot-for-customer-support"],
         blocks: [
           {
             type: "p",
@@ -996,6 +1011,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "What should not be deflected",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -1086,6 +1102,7 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -1164,6 +1181,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "Omnichannel routing",
+        links: ["ticket-routing-automation"],
         blocks: [
           {
             type: "p",
@@ -1181,6 +1199,7 @@ export const basicsPages: SeoPageContent[] = [
       },
       {
         heading: "Channel rules: messaging windows on WhatsApp and Messenger",
+        links: ["whatsapp-customer-support-bot", "facebook-messenger-bot-customer-service"],
         blocks: [
           {
             type: "p",
@@ -1290,5 +1309,6 @@ export const basicsPages: SeoPageContent[] = [
     ],
     related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 ];

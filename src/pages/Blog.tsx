@@ -3,17 +3,17 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CATEGORY_IDS, pagesByLocale } from "@/content";
-import type { CategoryId, TranslatedPage } from "@/content/types";
+import { CATEGORY_IDS, pageIndex } from "@/content";
+import type { CategoryId, PageSummary } from "@/content/types";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useDict, useLocale } from "@/i18n";
 import { BLOG_PATH, localeInfo, localePath } from "@/i18n/config";
-import { formatDate, isCategory, newestFirst, readingMinutes } from "@/lib/blog";
+import { formatDate, isCategory, newestFirst } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 type Filter = CategoryId | "all";
 
-const Meta = ({ page, className }: { page: TranslatedPage; className?: string }) => {
+const Meta = ({ page, className }: { page: PageSummary; className?: string }) => {
   const locale = useLocale();
   const t = useDict();
   return (
@@ -22,7 +22,7 @@ const Meta = ({ page, className }: { page: TranslatedPage; className?: string })
       <span className="text-muted-foreground">
         <time dateTime={page.updated}>{formatDate(page.updated, localeInfo(locale).dateLocale)}</time>
         {" · "}
-        {t.blog.minRead.replace("{n}", String(readingMinutes(page)))}
+        {t.blog.minRead.replace("{n}", String(page.minutes))}
       </span>
     </div>
   );
@@ -53,7 +53,7 @@ const Blog = () => {
     window.history.replaceState(window.history.state, "", url);
   };
 
-  const pages = newestFirst(pagesByLocale[locale].filter((p) => filter === "all" || p.category === filter));
+  const pages = newestFirst(pageIndex(locale).filter((p) => filter === "all" || p.category === filter));
   const [featured, ...rest] = pages;
   const filters: Filter[] = ["all", ...CATEGORY_IDS];
 

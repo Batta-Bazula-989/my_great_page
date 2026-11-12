@@ -13,6 +13,10 @@ export type Block =
 export interface Section {
   heading: string; // rendered as <h2>
   blocks: Block[];
+  // English pages only: other pages on this site to link from the end of this section. Each entry is an
+  // English page slug, or "tool:<id>" for a calculator (tool:aiAgent, tool:whatsapp, tool:sla). Translations
+  // get the same links in the same section automatically, with the link text in their language.
+  links?: string[];
 }
 
 export interface Source {
@@ -40,6 +44,8 @@ export interface SeoPageContent {
   sources: Source[]; // every external fact must be traceable to one of these
   related: string[]; // 3 slugs of other pages
   updated: string; // ISO date the facts were checked
+  // English pages only: ISO date the page first went live. Translations use the English page's date.
+  published?: string;
 }
 
 export type Locale = "en" | "de" | "fr" | "es" | "it" | "nl" | "pl" | "sv";
@@ -48,4 +54,20 @@ export type Locale = "en" | "de" | "fr" | "es" | "it" | "nl" | "pl" | "sv";
 // `slug` is the localized URL slug. `related` keeps English keys.
 export interface TranslatedPage extends SeoPageContent {
   key: string;
+}
+
+// What the footer, blog list, related cards and language switcher need about a page, without its body.
+// Generated at build time into src/content/generated/pages-<locale>.json (see scripts/content-index.mjs),
+// so the browser doesn't download every article to draw a menu.
+export interface PageSummary {
+  key: string;
+  slug: string;
+  category: CategoryId;
+  navLabel: string;
+  h1: string;
+  description: string;
+  updated: string;
+  minutes: number; // reading time
+  keyFacts: string[]; // the first three, for the featured card on the blog
+  sectionLinks: Record<number, string[]>; // section index → links (see Section.links)
 }

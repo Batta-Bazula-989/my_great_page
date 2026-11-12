@@ -368,7 +368,7 @@ const en = {
   },
   contact: {
     eyebrow: "Let's Talk",
-    title: "Get a free support Health Check",
+    title: "Get a free Health Check",
     intro: "A 30-minute call, then a written report.",
     cta: "Book a Free Health Check",
     email: "Email",
@@ -456,12 +456,14 @@ const en = {
     sources: "Sources",
     onThisPage: "On this page",
     related: "Related",
+    readNext: "Read next",
+    ctaPackages: "See packages and prices",
   },
   blog: {
-    metaTitle: "Customer Support Automation Blog | TascaLab",
+    metaTitle: "Support & CRM Automation Blog | TascaLab",
     metaDescription:
-      "Guides to AI support chatbots, ticket routing, Zendesk, Freshdesk and Jira automation, WhatsApp and Telegram bots, support metrics, SLAs and EU rules.",
-    title: "Customer support automation blog",
+      "Guides to AI support chatbots, ticket routing, Zendesk, Freshdesk, Jira, HubSpot and Attio automation, WhatsApp and Telegram bots, SLAs and EU rules.",
+    title: "Support and CRM automation blog",
     readArticle: "Read article",
     all: "All",
     minRead: "{n} min read",

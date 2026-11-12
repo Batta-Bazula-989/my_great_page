@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { Calendar, ChevronDown, ChevronRight, Info } from "lucide-react";
+import { ArrowRight, Calendar, ChevronDown, ChevronRight, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
@@ -109,6 +109,15 @@ const ToolPage = () => {
                 <Calendar className="w-5 h-5" aria-hidden />
                 {d.tools.common.ctaBook}
               </BookingButton>
+              <div>
+                <Link
+                  to={`${localePath(locale)}#pricing`}
+                  className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                >
+                  {d.seo.ctaPackages}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </Link>
+              </div>
             </section>
 
             {TOOL_SOURCES[id].length > 0 && (

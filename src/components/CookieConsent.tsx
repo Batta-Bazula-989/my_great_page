@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { dictionaries } from "@/i18n";
+import { dictionary } from "@/i18n";
 import { localeFromPath } from "@/i18n/config";
 import { CONSENT_EVENT, CONSENT_STORAGE_KEY } from "@/lib/consent";
 
@@ -27,7 +27,7 @@ function updateConsent(granted: boolean) {
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
   // Rendered outside the per-language layout, so the language comes from the URL.
-  const t = dictionaries[localeFromPath(useLocation().pathname)].cookie;
+  const t = dictionary(localeFromPath(useLocation().pathname)).cookie;
 
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_STORAGE_KEY);

@@ -365,7 +365,7 @@ const de: Dictionary = {
   },
   contact: {
     eyebrow: "Sprechen wir",
-    title: "Kostenloser Health Check für Ihren Support",
+    title: "Ihr kostenloser Health Check",
     intro: "Ein 30-minütiges Gespräch, danach ein schriftlicher Bericht.",
     cta: "Kostenlosen Health Check buchen",
     email: "E-Mail",
@@ -453,12 +453,14 @@ const de: Dictionary = {
     sources: "Quellen",
     onThisPage: "Auf dieser Seite",
     related: "Verwandte Themen",
+    readNext: "Weiterlesen",
+    ctaPackages: "Pakete und Preise ansehen",
   },
   blog: {
-    metaTitle: "Blog zur Kundensupport-Automatisierung | TascaLab",
+    metaTitle: "Blog zu Support- & CRM-Automatisierung | TascaLab",
     metaDescription:
-      "Ratgeber: KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk- und Jira-Automatisierung, WhatsApp- und Telegram-Bots, Support-Kennzahlen, SLAs, EU-Regeln.",
-    title: "Blog zur Kundensupport-Automatisierung",
+      "Ratgeber: KI-Support-Chatbots, Ticket-Routing, Zendesk-, Freshdesk-, Jira-, HubSpot- und Attio-Automatisierung, WhatsApp- und Telegram-Bots, SLAs, EU-Regeln.",
+    title: "Blog zu Support- und CRM-Automatisierung",
     readArticle: "Artikel lesen",
     all: "Alle",
     minRead: "{n} Min. Lesezeit",

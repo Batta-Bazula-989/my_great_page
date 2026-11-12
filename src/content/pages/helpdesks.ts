@@ -105,6 +105,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Routing options for incoming tickets",
+        links: ["ticket-routing-automation"],
         blocks: [
           {
             type: "p",
@@ -126,6 +127,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Webhooks and the Zendesk API",
+        links: ["n8n-zendesk-integration", "hubspot-zendesk-integration"],
         blocks: [
           {
             type: "p",
@@ -218,6 +220,7 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["ticket-routing-automation", "slack-support-automation", "sla-policies-explained"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -303,6 +306,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Hourly Triggers: time-based rules",
+        links: ["sla-policies-explained"],
         blocks: [
           {
             type: "p",
@@ -325,6 +329,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Automatic ticket assignment",
+        links: ["ticket-routing-automation"],
         blocks: [
           {
             type: "p",
@@ -346,6 +351,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Webhooks and the Freshdesk API",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -425,6 +431,7 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["ticket-routing-automation", "zendesk-automation", "n8n-vs-make-vs-zapier"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -486,6 +493,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Queues, request types and SLAs: what you automate around",
+        links: ["sla-policies-explained", "tool:sla"],
         blocks: [
           {
             type: "p",
@@ -520,6 +528,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Webhooks and external systems",
+        links: ["slack-support-automation"],
         blocks: [
           {
             type: "p",
@@ -621,6 +630,7 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "slack-support-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -683,6 +693,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Helpdesk to Slack integrations",
+        links: ["zendesk-automation", "jira-service-management-automation"],
         blocks: [
           {
             type: "p",
@@ -717,6 +728,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Incoming webhooks and Bolt apps",
+        links: ["n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -809,6 +821,7 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -875,6 +888,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Inbox automation: assignment, priority and SLAs",
+        links: ["ticket-routing-automation", "sla-policies-explained"],
         blocks: [
           {
             type: "p",
@@ -896,6 +910,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Fin AI Agent in your workflows",
+        links: ["ai-chatbot-for-customer-support", "tool:aiAgent"],
         blocks: [
           {
             type: "p",
@@ -1022,6 +1037,7 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ---------------------------------------------------------------------------
@@ -1121,6 +1137,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Ticket pipelines, statuses and SLA goals",
+        links: ["sla-policies-explained"],
         blocks: [
           {
             type: "p",
@@ -1171,6 +1188,7 @@ export const helpdeskPages: SeoPageContent[] = [
       },
       {
         heading: "Chatbots, webhooks and the HubSpot API",
+        links: ["hubspot-zendesk-integration", "attio-vs-hubspot-automation"],
         blocks: [
           {
             type: "p",
@@ -1254,5 +1272,6 @@ export const helpdeskPages: SeoPageContent[] = [
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 ];

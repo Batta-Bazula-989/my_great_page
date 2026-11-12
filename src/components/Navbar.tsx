@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Calendar, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -105,7 +105,7 @@ const Navbar = () => {
 
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
+            <m.div
               id="mobile-menu"
               className="xl:hidden border-t border-border overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
@@ -116,7 +116,7 @@ const Navbar = () => {
               {/* The menu can be taller than a phone screen, so it scrolls inside the fixed bar */}
               <div className="flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto overscroll-contain py-3">
                 {navLinks.map((link, i) => (
-                  <motion.a
+                  <m.a
                     key={link.href}
                     href={link.href}
                     className="flex min-h-11 items-center text-muted-foreground hover:text-foreground transition-colors font-medium"
@@ -126,7 +126,7 @@ const Navbar = () => {
                     transition={{ delay: i * 0.05 + 0.05 }}
                   >
                     {link.label}
-                  </motion.a>
+                  </m.a>
                 ))}
                 {!booking && (
                   <div className="py-2">{cta("rounded-full px-4", t.nav.cta)}</div>
@@ -136,7 +136,7 @@ const Navbar = () => {
                   <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

@@ -35,7 +35,7 @@ export const readingMinutes = (page: TranslatedPage) => {
 };
 
 // Newest first. On the same date, the article added to the content files last comes first.
-export const newestFirst = (pages: TranslatedPage[]) =>
+export const newestFirst = <T extends { updated: string }>(pages: T[]) =>
   pages
     .map((page, i) => ({ page, i }))
     .sort((a, b) => b.page.updated.localeCompare(a.page.updated) || b.i - a.i)

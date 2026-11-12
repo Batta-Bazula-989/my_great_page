@@ -1,0 +1,814 @@
+[
+ {
+  "key": "ai-chatbot-for-customer-support",
+  "slug": "ai-chattbot-kundtjanst",
+  "category": "services",
+  "navLabel": "AI-chattbot för support",
+  "h1": "AI-chattbot för kundtjänst: vad den gör och hur den kopplas till din helpdesk",
+  "description": "Så svarar en AI-chattbot för kundtjänst på vanliga frågor, samlar in uppgifter och lämnar över till agenter – och kopplas till Zendesk eller Freshdesk via API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Zendesks AI-agenter genererar svar från anslutna kunskapskällor och faller tillbaka på ett standardsvar när inget relevant hittas.",
+   "Freshdesks AI-agenter kan automatiskt föra över ett samtal till en person när kunden använder fraser som administratören har listat.",
+   "En tredjepartsbot i Zendesk Messaging lämnar över genom att överföra kontrollen till Agent Workspace, vilket gör att samtalet kan tilldelas en agent."
+  ],
+  "sectionLinks": {
+   "1": [
+    "chatbot-to-human-handoff"
+   ],
+   "2": [
+    "tool:aiAgent"
+   ],
+   "3": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "4": [
+    "eu-ai-act-chatbot-rules"
+   ]
+  }
+ },
+ {
+  "key": "ai-voice-bot-for-customer-service",
+  "slug": "ai-rostbot-kundtjanst",
+  "category": "services",
+  "navLabel": "AI-röstbot för telefonsupport",
+  "h1": "AI-röstbot för kundtjänst: så fungerar automatisering av inkommande samtal",
+  "description": "Så fungerar en AI-röstbot för kundtjänst: telefoni, tal till text, AI-logik och text till tal, plus överföring av samtal, IVR kontra bot och FCC:s regler.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "En traditionell IVR arbetar med knapptryckningar (DTMF); Twilios Gather-verb använder DTMF som standard och måste ställas in för att ta emot tal för att kunna transkribera den som ringer.",
+   "Twilios dubbelriktade Media Streams överför samtalsljudet som 8 kHz enkanaligt mu-law, base64-kodat över en WebSocket.",
+   "Zendesk låter en extern AI-röstagent svara på samtal först och eskalera till en agent i realtid via en SIP-IN-linje."
+  ],
+  "sectionLinks": {
+   "2": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "eu-ai-act-chatbot-rules"
+   ]
+  }
+ },
+ {
+  "key": "ticket-routing-automation",
+  "slug": "automatisk-arendefordelning",
+  "category": "services",
+  "navLabel": "Automatisk ärendefördelning",
+  "h1": "Automatisk ärendefördelning: metoder, verktyg och uppsättning",
+  "description": "Automatisk ärendefördelning förklarad: regelbaserad, round-robin-, belastnings- och kompetensbaserad routing, AI-triage och hur Zendesk, Freshdesk och Jira gör.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Zendesks omnikanalsrouting tilldelar som standard den agent som har mest ledig kapacitet; round robin är den alternativa metoden.",
+   "Freshdesks motor Omniroute driver tilldelningen av ärenden med round-robin, belastningsbaserad och kompetensbaserad fördelning.",
+   "Tilldelningsåtgärden i Jira-automatisering kan fördela arbete efter jämn arbetsbelastning, round-robin eller slumpmässigt urval."
+  ],
+  "sectionLinks": {
+   "2": [
+    "zendesk-automation",
+    "freshdesk-automation",
+    "jira-service-management-automation"
+   ],
+   "3": [
+    "sla-policies-explained",
+    "n8n-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "automated-support-reporting",
+  "slug": "automatiserad-supportrapportering",
+  "category": "services",
+  "navLabel": "Automatiserad supportrapportering",
+  "h1": "Automatiserad rapportering för kundtjänst: nyckeltal, scheman och leverans",
+  "description": "Automatiserad supportrapportering: nyckeltal att följa och schemalagda rapporter från Zendesk, Freshdesk eller Jira till e-post, Slack eller Google Sheets.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Zendesk Explore kan e-posta en delad dashboard enligt ett återkommande schema som ställs in upp till 12 månader framåt.",
+   "I Freshdesk Analytics kan anpassade rapporter schemaläggas; kurerade rapporter måste först klonas.",
+   "Filterprenumerationer i Jira e-postar sparade sökresultat enligt ett schema, även med cron-baserad tidsinställning; bara de första 200 resultaten skickas."
+  ],
+  "sectionLinks": {
+   "0": [
+    "customer-support-metrics"
+   ],
+   "2": [
+    "slack-support-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "customer-support-email-automation",
+  "slug": "e-postautomatisering-kundtjanst",
+  "category": "services",
+  "navLabel": "E-postautomatisering för support",
+  "h1": "E-postautomatisering för kundtjänst: från inkorg till besvarat ärende",
+  "description": "E-postautomatisering för kundtjänst: vidarebefordra supportadressen till Zendesk eller Freshdesk, ställ in SPF och DKIM, bekräfta, routa och eskalera e-post.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Varje Zendesk-konto har en systemadress för support i formatet support@yoursubdomain.zendesk.com.",
+   "Zendesk rekommenderar automatisk vidarebefordran på e-postservernivå snarare än vidarebefordran från en e-postklient.",
+   "Freshdesk gör vidarebefordrad e-post till ärenden först när regeln för vidarebefordran finns på plats; Gmail- och Microsoft 365-brevlådor kan också anslutas direkt."
+  ],
+  "sectionLinks": {
+   "0": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "2": [
+    "ticket-routing-automation"
+   ],
+   "3": [
+    "ai-knowledge-base-for-customer-support"
+   ]
+  }
+ },
+ {
+  "key": "ai-knowledge-base-for-customer-support",
+  "slug": "ai-kunskapsbas-kundtjanst",
+  "category": "services",
+  "navLabel": "AI-kunskapsbas för support",
+  "h1": "AI-kunskapsbas för kundtjänst: så fungerar den och så bygger du en",
+  "description": "Så fungerar en AI-kunskapsbas för kundtjänst: strukturera artiklar i Zendesk, Freshdesk eller Confluence, håll dem aktuella och mät avledda ärenden.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Retrieval-augmented generation hittar relevanta avsnitt i dina dokument och lägger till dem i prompten, så att modellen svarar utifrån ditt innehåll.",
+   "I ett hjälpcenter i Zendesk ligger artiklar i sektioner inuti kategorier; de kan inte ligga direkt i en kategori.",
+   "Freshdesk organiserar sin kunskapsbas i kategorier, mappar och artiklar."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-chatbot-for-customer-support"
+   ],
+   "4": [
+    "ticket-deflection"
+   ]
+  }
+ },
+ {
+  "key": "zendesk-automation",
+  "slug": "zendesk-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Zendesk-automatisering",
+  "h1": "Zendesk-automatisering: triggers, automatiseringar, makron och routning",
+  "description": "Så fungerar Zendesk-automatisering: triggers, automatiseringar och makron, körning varje timme, triggerordning, routning, webhooks och Zendesk API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Ärendetriggers körs direkt efter att ett ärende har skapats eller uppdaterats, i den ordning de står i listan.",
+   "Automatiseringar körs en gång i timmen på ärenden som inte är stängda, och var och en kan hantera upp till 1 000 ärenden per timme.",
+   "Varje automatisering behöver ett villkor som bara är sant en gång, eller en åtgärd som upphäver ett villkor, annars fortsätter den att köras."
+  ],
+  "sectionLinks": {
+   "3": [
+    "ticket-routing-automation"
+   ],
+   "4": [
+    "n8n-zendesk-integration",
+    "hubspot-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "freshdesk-automation",
+  "slug": "freshdesk-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Freshdesk-automatisering",
+  "h1": "Freshdesk-automatisering: regeltyper, tilldelning och webhooks",
+  "description": "Så fungerar Freshdesk-automatisering: Ticket Creation, Ticket Updates och Hourly Triggers, round-robin och kompetensbaserad tilldelning, webhooks och API.",
+  "updated": "2026-10-19",
+  "minutes": 5,
+  "keyFacts": [
+   "Freshdesk har tre typer av automatiseringsregler: Ticket Creation, Ticket Updates och Hourly Triggers.",
+   "Hourly Triggers (tidigare Time Triggers) körs varje timme, räknat i kalendertimmar, och bara på ärenden som uppdaterats under de senaste 30 dagarna.",
+   "Ticket Creation-regler kan köra antingen den första matchande regeln eller alla matchande regler."
+  ],
+  "sectionLinks": {
+   "2": [
+    "sla-policies-explained"
+   ],
+   "3": [
+    "ticket-routing-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "jira-service-management-automation",
+  "slug": "jira-service-management-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Jira Service Mgmt-automatisering",
+  "h1": "Jira Service Management-automatisering: så fungerar flöden, SLA och webhooks",
+  "description": "Automatisering i Jira Service Management: triggers, villkor och åtgärder, SLA- och godkännandetriggers, smarta värden, webhooks, köer och förfrågningstyper.",
+  "updated": "2026-10-19",
+  "minutes": 5,
+  "keyFacts": [
+   "Varje automatiseringsflöde består av en trigger, valfria villkor och en eller flera åtgärder, som körs uppifrån och ned.",
+   "Jira Service Management lägger till triggers som 'SLA threshold breached' och 'Approval required'.",
+   "Åtgärden 'Send web request' anropar externa system; en trigger för inkommande webhooks låter externa system starta ett flöde."
+  ],
+  "sectionLinks": {
+   "1": [
+    "sla-policies-explained",
+    "tool:sla"
+   ],
+   "3": [
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "slack-support-automation",
+  "slug": "slack-automatisering-kundtjanst",
+  "category": "helpdesks",
+  "navLabel": "Slack-automatisering för support",
+  "h1": "Slack-automatisering för kundtjänst: larm, eskaleringar och kundkanaler",
+  "description": "Slack-automatisering för kundtjänst: eskaleringslarm, Workflow Builder, inkommande webhooks, Bolt-appar, Zendesk, Freshdesk och Jira, Slack Connect.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Arbetsflöden i Workflow Builder kan starta från en länk, en webhook, ett schema, ett postat meddelande, en emojireaktion eller att någon går med i en kanal.",
+   "En inkommande webhook är en unik URL som är kopplad till en kanal; du skickar en JSON-payload till den med POST för att posta ett meddelande.",
+   "Slack tillåter generellt att appar postar högst ett meddelande per sekund och kanal."
+  ],
+  "sectionLinks": {
+   "1": [
+    "zendesk-automation",
+    "jira-service-management-automation"
+   ],
+   "3": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "intercom-automation",
+  "slug": "intercom-automatisering",
+  "category": "helpdesks",
+  "navLabel": "Intercom-automatisering",
+  "h1": "Intercom-automatisering: Workflows, tilldelning, Fin och API:et",
+  "description": "Så fungerar Intercom-automatisering: triggers, förgreningar och åtgärder i Workflows, tilldelning i teaminkorgar, Fin AI Agent, Slack, Jira, webhooks och API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Workflows byggs i en visuell byggare och kan vara kundriktade eller köras tyst i bakgrunden för teammedlemmar.",
+   "Med förgreningar följer en konversation bara den första matchande vägen; Apply rules kör alla vägar som matchar.",
+   "Bara en SLA kan tillämpas på en konversation; senare SLA-åtgärder från andra arbetsflöden ignoreras."
+  ],
+  "sectionLinks": {
+   "1": [
+    "ticket-routing-automation",
+    "sla-policies-explained"
+   ],
+   "2": [
+    "ai-chatbot-for-customer-support",
+    "tool:aiAgent"
+   ]
+  }
+ },
+ {
+  "key": "hubspot-service-hub-automation",
+  "slug": "hubspot-service-hub-automatisering",
+  "category": "helpdesks",
+  "navLabel": "HubSpot Service Hub-automatisering",
+  "h1": "HubSpot Service Hub-automatisering: help desk, ärenden, arbetsflöden och API:et",
+  "description": "HubSpot Service Hub-automatisering: help desk-kanaler och routning, ärendepipelines och statusar, SLA-mål, arbetsflöden, chattbottar, webhooks och API.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Som standard skapar help desk automatiskt ärenden från varje kanal du kopplar till den.",
+   "Standardpipelinen Support Pipeline har fyra ärendestatusar: New, Waiting on contact, Waiting on us och Closed.",
+   "SLA-mål i help desk kan mäta tid till första svar, tid till nästa svar och tid till stängning."
+  ],
+  "sectionLinks": {
+   "2": [
+    "sla-policies-explained"
+   ],
+   "4": [
+    "hubspot-zendesk-integration",
+    "attio-vs-hubspot-automation"
+   ]
+  }
+ },
+ {
+  "key": "whatsapp-customer-support-bot",
+  "slug": "whatsapp-bot-kundtjanst",
+  "category": "channels",
+  "navLabel": "WhatsApp-bot för support",
+  "h1": "WhatsApp-bot för kundtjänst: så fungerar den och vad Meta tillåter",
+  "description": "Så fungerar en WhatsApp-bot för kundtjänst: Business Platform kontra appen, 24-timmarsfönstret, mallar, opt-in, prissättning och koppling till din helpdesk.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "När en kund skickar ett meddelande eller ringer dig öppnas ett kundtjänstfönster på 24 timmar, som startar om vid varje nytt meddelande.",
+   "Inom fönstret kan du skicka fritt formulerade servicemeddelanden utan förhandsgodkännande.",
+   "Utanför fönstret är mallar den enda meddelandetyp du kan skicka."
+  ],
+  "sectionLinks": {
+   "1": [
+    "facebook-messenger-bot-customer-service"
+   ],
+   "3": [
+    "tool:whatsapp"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "telegram-support-bot",
+  "slug": "telegram-supportbot",
+  "category": "channels",
+  "navLabel": "Telegram-bot för support",
+  "h1": "Telegram-bot för support: så fungerar den och så sätter du upp den",
+  "description": "Så driver du en Telegram-bot för support: BotFather, webhooks kontra long polling, inline-tangentbord, sekretessläge i grupper, gränser och överlämning.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Du skapar en bot och får dess autentiseringstoken genom att skicka ett meddelande till @BotFather.",
+   "Uppdateringar kommer via getUpdates eller en webhook; de två metoderna utesluter varandra.",
+   "Telegram sparar uppdateringar som inte har levererats i högst 24 timmar."
+  ],
+  "sectionLinks": {
+   "1": [
+    "n8n-vs-make-vs-zapier"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "facebook-messenger-bot-customer-service",
+  "slug": "facebook-messenger-bot-kundtjanst",
+  "category": "channels",
+  "navLabel": "Messenger-bot för kundtjänst",
+  "h1": "Facebook Messenger-bot för kundtjänst: fönster, taggar och överlämning",
+  "description": "Så fungerar en Facebook Messenger-bot för kundtjänst: webhooks, 24-timmarsfönstret, taggen HUMAN_AGENT, överlämning till agenter och Metas regler för bottar.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Med standardmeddelanden kan du svara inom 24 timmar efter en persons meddelande.",
+   "Taggen HUMAN_AGENT tillåter svar från människor inom 7 dagar, efter att appen har godkänts.",
+   "Sedan 27 april 2026 returnerar taggarna CONFIRMED_EVENT_UPDATE, ACCOUNT_UPDATE och POST_PURCHASE_UPDATE ett fel."
+  ],
+  "sectionLinks": {
+   "1": [
+    "whatsapp-customer-support-bot",
+    "instagram-dm-automation"
+   ],
+   "2": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "instagram-dm-automation",
+  "slug": "instagram-dm-automatisering",
+  "category": "channels",
+  "navLabel": "Automatisering av Instagram-DM",
+  "h1": "Automatisera Instagram-DM i kundtjänsten",
+  "description": "Automatisering av Instagram-DM förklarad: krav på professionellt konto, 24-timmarsfönstret, taggen human agent, privata svar på kommentarer och ice breakers.",
+  "updated": "2026-10-19",
+  "minutes": 5,
+  "keyFacts": [
+   "Instagrams API:er för meddelanden fungerar med professionella konton (företags- eller kreatörskonton).",
+   "Din app kan bara skicka meddelanden till en användare efter att användaren har skrivit till dig, och har sedan 24 timmar på sig att svara.",
+   "Taggen human agent tillåter svar inom 7 dagar, efter appgranskning."
+  ],
+  "sectionLinks": {
+   "1": [
+    "facebook-messenger-bot-customer-service"
+   ],
+   "4": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "website-chatbot-for-support",
+  "slug": "chattbot-webbplats-kundtjanst",
+  "category": "channels",
+  "navLabel": "Chattbot på webbplatsen",
+  "h1": "Chattbot på webbplatsen för kundtjänst: widgetar, överlämning och tillgänglighet",
+  "description": "Planera en chattbot på webbplatsen för kundtjänst: widgetar från Zendesk och Freshchat, överlämning till agent, tid utanför öppettider och WCAG-tillgänglighet.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Zendesks Web Widget för meddelanden installeras genom att ett kodstycke läggs till på varje sida där den ska visas.",
+   "Zendesk Messaging kan visa olika svar under och utanför öppettiderna.",
+   "Freshdesks AI-agenter kan ställas in så att de samlar in kunduppgifter innan de för över till en människa."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-chatbot-for-customer-support",
+    "tool:aiAgent"
+   ],
+   "1": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "european-accessibility-act-customer-service"
+   ]
+  }
+ },
+ {
+  "key": "sms-customer-support-automation",
+  "slug": "sms-automatisering-kundtjanst",
+  "category": "channels",
+  "navLabel": "SMS-automatisering för support",
+  "h1": "SMS-automatisering för kundtjänst: så fungerar det och det här ska du ställa in",
+  "description": "Så fungerar SMS-automatisering för kundtjänst: inkommande webhooks, A2P 10DLC och Toll-Free Verification, avregistrering med STOP, segment och helpdeskärenden.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Twilio skickar varje inkommande sms till din webhook-URL med fält som From, To, Body och MessageSid.",
+   "Enligt Twilio behandlar amerikanska operatörer alla meddelanden som skickas från en plattform som Twilio som application-to-person-trafik (A2P).",
+   "Meddelanden från oregistrerade amerikanska 10DLC-nummer blockeras med felet 30034, även medan registreringen pågår."
+  ],
+  "sectionLinks": {
+   "4": [
+    "omnichannel-customer-support",
+    "zendesk-automation"
+   ]
+  }
+ },
+ {
+  "key": "viber-chatbot-for-customer-support",
+  "slug": "viber-chattbot-kundtjanst",
+  "category": "channels",
+  "navLabel": "Viber-chattbot för support",
+  "h1": "Viber-chattbot för kundtjänst: så fungerar den och så sätter du upp den",
+  "description": "Så fungerar en Viber-chattbot för kundtjänst: autentiseringstoken, set_webhook, callback-händelser, vem boten får skriva till, tangentbord och överlämning.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Varje API-anrop innehåller botens autentiseringstoken i headern X-Viber-Auth-Token.",
+   "Webhook-URL:er måste använda SSL; Viber stöder inte självsignerade certifikat.",
+   "Callbacks av typen message, subscribed och unsubscribed är obligatoriska och kan inte filtreras bort."
+  ],
+  "sectionLinks": {
+   "4": [
+    "chatbot-to-human-handoff",
+    "telegram-support-bot"
+   ]
+  }
+ },
+ {
+  "key": "what-is-customer-support-automation",
+  "slug": "vad-ar-automatisering-av-kundtjanst",
+  "category": "basics",
+  "navLabel": "Vad är supportautomatisering",
+  "h1": "Vad är automatisering av kundtjänst?",
+  "description": "Automatisering av kundtjänst: bottar, routning, makron, autosvar, SLA-timers och rapporter, vad som bör förbli mänskligt och hur det kopplas till din helpdesk.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Triggers i Zendesk körs direkt efter att ett ärende har skapats eller uppdaterats; automatiseringar i Zendesk är tidsbaserade och körs en gång i timmen.",
+   "Makron i Zendesk har inga villkor: en agent bestämmer när ett makro ska tillämpas.",
+   "Automatisering i Zendesk, Freshdesk och Jira kan alla skicka HTTP-anrop till andra system från sina regler."
+  ],
+  "sectionLinks": {
+   "1": [
+    "ai-chatbot-for-customer-support",
+    "ticket-routing-automation",
+    "automated-support-reporting"
+   ],
+   "2": [
+    "chatbot-to-human-handoff"
+   ],
+   "3": [
+    "zendesk-automation",
+    "freshdesk-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "chatbot-to-human-handoff",
+  "slug": "overlamning-fran-chattbot-till-manniska",
+  "category": "basics",
+  "navLabel": "Överlämning chattbot–människa",
+  "h1": "Överlämning från chattbot till människa: eskalera utan att tappa kunden",
+  "description": "Överlämning från chattbot till människa: när du eskalerar, kontext till agenten, reserv utanför kontorstid och hur Zendesk, Freshdesk och Messenger gör det.",
+  "updated": "2026-10-19",
+  "minutes": 6,
+  "keyFacts": [
+   "Zendesk skriver att en AI-agent kan behöva överföra en fråga till en människa när den är komplex, brådskande eller känslig.",
+   "AI Agents i Freshdesk kan överföra automatiskt när en kund använder triggerfraser som du definierar, till exempel ber om att få prata med en agent.",
+   "I Dialogflow CX utlöses en no-match-händelse i stället för en matchning om ingen intent når klassificeringströskeln."
+  ],
+  "sectionLinks": {
+   "3": [
+    "zendesk-automation",
+    "facebook-messenger-bot-customer-service"
+   ],
+   "4": [
+    "website-chatbot-for-support"
+   ]
+  }
+ },
+ {
+  "key": "customer-support-metrics",
+  "slug": "nyckeltal-for-kundtjanst",
+  "category": "basics",
+  "navLabel": "Nyckeltal för kundtjänst",
+  "h1": "Nyckeltal för kundtjänst: vad du ska mäta och hur varje mått beräknas",
+  "description": "Nyckeltal för kundtjänst: tid till första svar, lösningstid, FCR, återöppnade ärenden, CSAT, CES, NPS och backlog, och hur vart och ett faktiskt beräknas.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Zendesks fullständiga lösningstid (full resolution time) löper från att ärendet skapas till att det senast löstes, så återöppnade ärenden fortsätter att räknas.",
+   "Freshdesk räknar bara ett ärende till FCR om kunden inte skickade några fler meddelanden efter den första kontakten.",
+   "NPS är andelen promotorer (betyg 9–10) minus andelen kritiker (betyg 0–6)."
+  ],
+  "sectionLinks": {
+   "1": [
+    "sla-policies-explained",
+    "tool:sla"
+   ],
+   "4": [
+    "automated-support-reporting"
+   ]
+  }
+ },
+ {
+  "key": "sla-policies-explained",
+  "slug": "sla-policyer-kundtjanst",
+  "category": "basics",
+  "navLabel": "SLA-policyer förklarade",
+  "h1": "SLA-policyer i kundtjänst – så fungerar de",
+  "description": "SLA-policyer i kundtjänst: mål för första svar, nästa svar och lösning, kontorstid kontra kalendertimmar, paus, larm före överträdelse och upplägg i helpdesken.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Zendesk tillämpar den första SLA-policyn, räknat uppifrån i listan, vars villkor ärendet matchar.",
+   "I Zendesk pausas requester wait time i Pending, och agent work time pausas i Pending och On-hold.",
+   "Freshdesk låter dig beräkna varje SLA i kontorstid eller kalendertimmar (24x7)."
+  ],
+  "sectionLinks": {
+   "2": [
+    "tool:sla"
+   ],
+   "4": [
+    "zendesk-automation",
+    "freshdesk-automation",
+    "jira-service-management-automation"
+   ]
+  }
+ },
+ {
+  "key": "ticket-deflection",
+  "slug": "arendeavledning",
+  "category": "basics",
+  "navLabel": "Ärendeavledning",
+  "h1": "Ärendeavledning: vad det är och hur du mäter det ärligt",
+  "description": "Ärendeavledning: vilka självservicekanaler som avleder ärenden, hur Zendesk, Freshdesk och Intercom mäter det och varför avbrutna sessioner blåser upp siffran.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "Zendesks self-service score, även kallad ticket deflection ratio, jämför användningen av hjälpcentret med antalet ärenden som skapats under samma period.",
+   "Zendesk registrerar en antagen avledning (assumed deflection) när en besökare i hjälpcentret inte skickar in något ärende men heller aldrig bekräftar att hen hittade ett svar.",
+   "I Zendesks rapporter för AI-agenter räknas varje konversation som inte slutar i en eskalering som avledd."
+  ],
+  "sectionLinks": {
+   "0": [
+    "ai-knowledge-base-for-customer-support",
+    "ai-chatbot-for-customer-support"
+   ],
+   "3": [
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "omnichannel-customer-support",
+  "slug": "omnikanal-kundtjanst",
+  "category": "basics",
+  "navLabel": "Omnikanal kundtjänst",
+  "h1": "Omnikanal kundtjänst: vad det betyder och hur det fungerar",
+  "description": "Omnikanal kundtjänst förklarad: skillnaden mot flerkanal, samlade arbetsytor för agenter, omnikanalroutning och svarsfönster i WhatsApp och Messenger.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Freshworks beskriver flerkanalsupport som oberoende kanaler som var och en fungerar självständigt; i omnikanalsupport är de sammankopplade.",
+   "I Zendesk Agent Workspace kan en enda ärendekonversation omfatta mejl, chatt och röst.",
+   "Zendesks omnikanalroutning tilldelar mejl-, meddelande- och samtalsärenden utifrån agentens status och lediga kapacitet."
+  ],
+  "sectionLinks": {
+   "2": [
+    "ticket-routing-automation"
+   ],
+   "3": [
+    "whatsapp-customer-support-bot",
+    "facebook-messenger-bot-customer-service"
+   ]
+  }
+ },
+ {
+  "key": "n8n-vs-make-vs-zapier",
+  "slug": "n8n-vs-make-vs-zapier-jamforelse",
+  "category": "guides",
+  "navLabel": "n8n vs Make vs Zapier",
+  "h1": "n8n vs Make vs Zapier för supportautomatisering",
+  "description": "n8n vs Make vs Zapier för supportautomatisering: licens och hosting, hur användningen räknas, kopplingar till Zendesk, Freshdesk, Jira och Slack, webhooks, kod.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "n8n:s egenhostade programvara använder Sustainable Use License, en fair-code-licens som n8n skapade 2022. n8n kallar sig inte öppen källkod.",
+   "Per oktober 2026 räknar n8n executions (en körning av ett arbetsflöde), Make räknar credits (operations omräknade 1:1) och Zapier räknar tasks (lyckade åtgärdssteg).",
+   "Triggers, Filter-steg och Paths-steg i Zapier förbrukar inga tasks. Triggermoduler i Make förbrukar 1 credit per körning även när de inte hittar några nya data."
+  ],
+  "sectionLinks": {
+   "1": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "n8n-zendesk-integration",
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "eu-ai-act-chatbot-rules",
+  "slug": "ai-forordningen-chattbottar-artikel-50",
+  "category": "guides",
+  "navLabel": "AI-förordningen och chattbottar",
+  "h1": "AI-förordningen och chattbottar: vad artikel 50 kräver och när",
+  "description": "AI-förordningen och chattbottar: vad artikel 50 kräver, vem som är leverantör eller tillhandahållare, viktiga datum och vad Digital Omnibus on AI ändrade.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "Artikel 50.1: leverantörer måste se till att människor informeras om att de interagerar med ett AI-system, om det inte är uppenbart av sammanhanget.",
+   "Artikel 50.5: informationen måste ges på ett tydligt och urskiljbart sätt, senast vid den första interaktionen.",
+   "AI-förordningen trädde i kraft den 1 augusti 2024. Artikel 50 tillämpas från den 2 augusti 2026."
+  ],
+  "sectionLinks": {
+   "2": [
+    "ai-chatbot-for-customer-support",
+    "ai-voice-bot-for-customer-service"
+   ],
+   "5": [
+    "gdpr-customer-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "gdpr-customer-support-automation",
+  "slug": "gdpr-automatisering-kundtjanst",
+  "category": "guides",
+  "navLabel": "GDPR och supportautomatisering",
+  "h1": "GDPR och automatisering av kundtjänst: en praktisk guide",
+  "description": "GDPR och automatisering av kundtjänst: rättslig grund, uppgiftsminimering, lagringstid och biträdesavtal för chattbottar och arbetsflöden i helpdesken.",
+  "updated": "2026-10-19",
+  "minutes": 7,
+  "keyFacts": [
+   "Artikel 5.1 c: personuppgifter ska vara adekvata, relevanta och begränsade till vad som är nödvändigt för ändamålen.",
+   "Artikel 6.1 räknar upp sex rättsliga grunder. EU-domstolen betraktar listan som uttömmande.",
+   "Artikel 28.3 kräver ett bindande avtal med varje personuppgiftsbiträde, bland annat om att biträdet bara agerar enligt dina dokumenterade instruktioner."
+  ],
+  "sectionLinks": {
+   "1": [
+    "eu-ai-act-chatbot-rules"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "european-accessibility-act-customer-service",
+  "slug": "tillganglighetsdirektivet-kundtjanst",
+  "category": "guides",
+  "navLabel": "Tillgänglighetsdirektivet (EAA)",
+  "h1": "Tillgänglighetsdirektivet och kundtjänst: det här behöver supportteam veta",
+  "description": "Tillgänglighetsdirektivet (EAA) och kundtjänst: vilka tjänster som omfattas, viktiga datum, undantaget för mikroföretag och vad bilaga I kräver av supporten.",
+  "updated": "2026-10-19",
+  "minutes": 8,
+  "keyFacts": [
+   "Artikel 31: medlemsstaterna skulle anta sina nationella lagar senast den 28 juni 2022 och tillämpa dem från den 28 juni 2025.",
+   "Artikel 2.2 omfattar tjänster till konsumenter, till exempel elektronisk kommunikation, banktjänster för konsumenter, e-böcker och e-handel.",
+   "Artikel 4.5 undantar mikroföretag som tillhandahåller tjänster; artikel 3.23 definierar dem som företag med färre än 10 personer och en omsättning eller balansomslutning på högst 2 miljoner EUR."
+  ],
+  "sectionLinks": {
+   "4": [
+    "website-chatbot-for-support",
+    "chatbot-to-human-handoff"
+   ]
+  }
+ },
+ {
+  "key": "n8n-zendesk-integration",
+  "slug": "n8n-zendesk-integration-guide",
+  "category": "guides",
+  "navLabel": "n8n Zendesk-integration",
+  "h1": "n8n Zendesk-integration: noder, inloggningsuppgifter och exempelarbetsflöden",
+  "description": "Guide till n8n Zendesk-integration: Zendesk-nodens operationer, Zendesk Trigger, OAuth2 och slutet för API-tokens, webhooks, anropsgränser, ett exempel.",
+  "updated": "2026-11-03",
+  "minutes": 8,
+  "keyFacts": [
+   "Zendesk-noden i n8n har fyra resurser: Ticket, Ticket Field, User och Organization.",
+   "Om du sätter taggar med nodens operation Update Ticket ersätts hela tagglistan. Taggar som du utelämnar tas bort.",
+   "n8n:s Zendesk-credential stöder OAuth2 eller en API-token, men Zendesk slutade utfärda nya API-tokens den 27 oktober 2026 och stänger av alla den 30 april 2027."
+  ],
+  "sectionLinks": {
+   "0": [
+    "zendesk-automation"
+   ],
+   "3": [
+    "ticket-routing-automation",
+    "slack-support-automation"
+   ],
+   "4": [
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "attio-workflows-automation",
+  "slug": "attio-workflows-automatisering",
+  "category": "crm",
+  "navLabel": "Attio workflows",
+  "h1": "Attio workflows: så fungerar CRM-automatisering i Attio",
+  "description": "Attio workflows förklarat: trigger- och åtgärdsblock, hur credits förbrukas, anropsgränser i REST API:et, webhook-signaturer och kopplingar till support.",
+  "updated": "2026-11-03",
+  "minutes": 5,
+  "keyFacts": [
+   "Ett arbetsflöde i Attio byggs av ett triggerblock, som startar det, och åtgärdsblock, som utför arbetet.",
+   "Triggers, logik och datauppslag är gratis. Block som skriver data, anropar externa system eller använder AI förbrukar arbetsytans credits, de flesta en credit per körning.",
+   "Attios REST API tillåter 100 läsanrop och 25 skrivanrop per sekund. Över gränsen returneras HTTP 429 med en Retry-After-header."
+  ],
+  "sectionLinks": {
+   "2": [
+    "attio-vs-hubspot-automation"
+   ],
+   "3": [
+    "n8n-vs-make-vs-zapier",
+    "slack-support-automation"
+   ]
+  }
+ },
+ {
+  "key": "attio-vs-hubspot-automation",
+  "slug": "attio-vs-hubspot-automatisering",
+  "category": "crm",
+  "navLabel": "Attio vs HubSpot automatisering",
+  "h1": "Attio vs HubSpot automatisering: arbetsflöden, gränser, API och webhooks",
+  "description": "Attio vs HubSpot automatisering jämförd: vem som får arbetsflöden, gränser och credits, triggers, kod- och webhook-steg, API-anropsgränser och signaturkontroll.",
+  "updated": "2026-11-03",
+  "minutes": 6,
+  "keyFacts": [
+   "Arbetsflöden i HubSpot kräver en Professional- eller Enterprise-prenumeration. Marketing, Sales eller Service Hub Professional tillåter upp till 300 arbetsflöden, och Enterprise upp till 1 000.",
+   "Attio mäter arbetsflöden med arbetsytans credits. Triggers, logik och uppslag är gratis, och de flesta block som skriver data eller anropar externt förbrukar en credit per körning.",
+   "Custom code-åtgärder i HubSpot måste bli klara inom 20 sekunder och kan använda upp till 128 MB minne. Attios block 'Execute code' har en tidsgräns på 100 sekunder."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-service-hub-automation"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ]
+  }
+ },
+ {
+  "key": "hubspot-zendesk-integration",
+  "slug": "hubspot-zendesk-integration",
+  "category": "crm",
+  "navLabel": "HubSpot Zendesk-integration",
+  "h1": "HubSpot Zendesk-integration: vad som synkas, vad som inte gör det och dina alternativ",
+  "description": "HubSpot Zendesk-integration: vad gratisappen Zendesk for HubSpot synkar och inte, action flows, appar för tvåvägssynk och egna lösningar med båda API:erna.",
+  "updated": "2026-11-03",
+  "minutes": 6,
+  "keyFacts": [
+   "Integrationen Zendesk Support for HubSpot är enkelriktad: ärendeinformation flödar från Zendesk till HubSpot.",
+   "Den skapar tre triggers i Zendesk, för nya ärenden, lösta ärenden och CSAT-betyg, plus en webhook som heter HubSpot Integration.",
+   "Ärenden visas bara på kontaktens tidslinje i HubSpot, inte på företag eller affärer (deals), och bara användarens mejladress synkas."
+  ],
+  "sectionLinks": {
+   "0": [
+    "hubspot-service-hub-automation",
+    "zendesk-automation"
+   ],
+   "4": [
+    "n8n-zendesk-integration",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ }
+]

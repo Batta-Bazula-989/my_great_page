@@ -68,6 +68,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Handoff: the part customers judge the bot on",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -90,6 +91,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Native helpdesk bots vs. a custom bot",
+        links: ["tool:aiAgent"],
         blocks: [
           {
             type: "p",
@@ -135,6 +137,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "How a custom bot plugs into your helpdesk",
+        links: ["zendesk-automation", "freshdesk-automation"],
         blocks: [
           {
             type: "p",
@@ -159,6 +162,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Telling customers they're talking to a bot",
+        links: ["eu-ai-act-chatbot-rules"],
         blocks: [
           {
             type: "p",
@@ -251,6 +255,7 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["chatbot-to-human-handoff", "website-chatbot-for-support", "eu-ai-act-chatbot-rules"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -340,6 +345,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Handing the call to a person",
+        links: ["chatbot-to-human-handoff"],
         blocks: [
           {
             type: "p",
@@ -366,6 +372,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Regulation: what applies to voice bots",
+        links: ["eu-ai-act-chatbot-rules"],
         blocks: [
           {
             type: "p",
@@ -465,6 +472,7 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "eu-ai-act-chatbot-rules"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -558,6 +566,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "How Zendesk, Freshdesk and Jira Service Management do it",
+        links: ["zendesk-automation", "freshdesk-automation", "jira-service-management-automation"],
         blocks: [
           {
             type: "table",
@@ -597,6 +606,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Setting up routing that holds up",
+        links: ["sla-policies-explained", "n8n-zendesk-integration"],
         blocks: [
           {
             type: "ol",
@@ -683,6 +693,7 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["zendesk-automation", "freshdesk-automation", "sla-policies-explained"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -708,6 +719,7 @@ export const servicesPages: SeoPageContent[] = [
     sections: [
       {
         heading: "What support teams usually report",
+        links: ["customer-support-metrics"],
         blocks: [
           {
             type: "p",
@@ -807,6 +819,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Pulling data through APIs into Sheets, Slack or email",
+        links: ["slack-support-automation", "n8n-vs-make-vs-zapier"],
         blocks: [
           {
             type: "p",
@@ -925,6 +938,7 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -951,6 +965,7 @@ export const servicesPages: SeoPageContent[] = [
     sections: [
       {
         heading: "Step 1: Turn every support email into a ticket",
+        links: ["zendesk-automation", "freshdesk-automation"],
         blocks: [
           {
             type: "p",
@@ -1013,6 +1028,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Step 3: Acknowledge, sort and route on arrival",
+        links: ["ticket-routing-automation"],
         blocks: [
           {
             type: "p",
@@ -1043,6 +1059,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Step 4: Answer the simple ones, keep people on the rest",
+        links: ["ai-knowledge-base-for-customer-support"],
         blocks: [
           {
             type: "p",
@@ -1136,6 +1153,7 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1162,6 +1180,7 @@ export const servicesPages: SeoPageContent[] = [
     sections: [
       {
         heading: "How AI answers draw on your articles",
+        links: ["ai-chatbot-for-customer-support"],
         blocks: [
           {
             type: "p",
@@ -1267,6 +1286,7 @@ export const servicesPages: SeoPageContent[] = [
       },
       {
         heading: "Measure self-service",
+        links: ["ticket-deflection"],
         blocks: [
           {
             type: "p",
@@ -1374,5 +1394,6 @@ export const servicesPages: SeoPageContent[] = [
     ],
     related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
     updated: "2026-10-19",
+    published: "2026-10-19",
   },
 ];

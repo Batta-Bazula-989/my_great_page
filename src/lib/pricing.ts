@@ -2,7 +2,7 @@
 // Non-USD prices were converted from USD at the ECB reference rates of 16 October 2026
 // (1 EUR = 1.1253 USD = 4.37 PLN = 11.145 SEK) and rounded (EUR to 10, PLN to 50, SEK to 100).
 import type { Locale } from "@/content/types";
-import { dictionaries, format } from "@/i18n";
+import { dictionary, format } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
 
 export type Currency = "USD" | "EUR" | "PLN" | "SEK";
@@ -69,7 +69,7 @@ export const formatMoney = (locale: Locale, amount: number) =>
 export const packagePrice = (locale: Locale, id: PackageId) => {
   const pkg = packageById(id);
   const amount = formatMoney(locale, pkg.prices[CURRENCY[locale]]);
-  return pkg.isMinimum ? format(dictionaries[locale].pricing.from, { price: amount }) : amount;
+  return pkg.isMinimum ? format(dictionary(locale).pricing.from, { price: amount }) : amount;
 };
 
 // Landing-page copy refers to prices as {{price:<id>}} so every language always shows the current price.

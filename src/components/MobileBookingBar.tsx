@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Calendar } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 import { CONSENT_EVENT, consentDecided } from "@/lib/consent";
@@ -37,7 +37,7 @@ const MobileBookingBar = () => {
   return (
     <AnimatePresence>
       {inRange && consentDone && (
-        <motion.div
+        <m.div
           className="fixed inset-x-0 bottom-0 z-40 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
           initial={{ y: "120%" }}
           animate={{ y: 0 }}
@@ -50,7 +50,7 @@ const MobileBookingBar = () => {
               {t.ctaBook}
             </BookingButton>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

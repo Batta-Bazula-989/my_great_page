@@ -365,7 +365,7 @@ const pl: Dictionary = {
   },
   contact: {
     eyebrow: "Porozmawiajmy",
-    title: "Zamów bezpłatny Health Check obsługi klienta",
+    title: "Zamów bezpłatny Health Check",
     intro: "30-minutowa rozmowa, a potem pisemny raport.",
     cta: "Umów bezpłatny Health Check",
     email: "E-mail",
@@ -453,12 +453,14 @@ const pl: Dictionary = {
     sources: "Źródła",
     onThisPage: "Na tej stronie",
     related: "Powiązane",
+    readNext: "Czytaj dalej",
+    ctaPackages: "Zobacz pakiety i ceny",
   },
   blog: {
-    metaTitle: "Blog o automatyzacji obsługi klienta | TascaLab",
+    metaTitle: "Blog o automatyzacji obsługi klienta i CRM | TascaLab",
     metaDescription:
-      "Poradniki: chatboty AI w obsłudze klienta, routing zgłoszeń, automatyzacja Zendesk, Freshdesk i Jira, boty WhatsApp i Telegram, wskaźniki, SLA i przepisy UE.",
-    title: "Blog o automatyzacji obsługi klienta",
+      "Poradniki: chatboty AI w obsłudze klienta, routing zgłoszeń, automatyzacja Zendesk, Freshdesk, Jira, HubSpot i Attio, boty WhatsApp i Telegram, SLA, prawo UE.",
+    title: "Blog o automatyzacji obsługi klienta i CRM",
     readArticle: "Przeczytaj artykuł",
     all: "Wszystkie",
     minRead: "{n} min czytania",

@@ -365,7 +365,7 @@ const it: Dictionary = {
   },
   contact: {
     eyebrow: "Parliamone",
-    title: "Richiedi un Health Check gratuito della tua assistenza",
+    title: "Richiedi un Health Check gratuito",
     intro: "Una call di 30 minuti, poi un report scritto.",
     cta: "Prenota un Health Check gratuito",
     email: "Email",
@@ -454,12 +454,14 @@ const it: Dictionary = {
     sources: "Fonti",
     onThisPage: "In questa pagina",
     related: "Pagine correlate",
+    readNext: "Leggi anche",
+    ctaPackages: "Vedi pacchetti e prezzi",
   },
   blog: {
-    metaTitle: "Blog sull'automazione dell'assistenza clienti | TascaLab",
+    metaTitle: "Blog su automazione di assistenza e CRM | TascaLab",
     metaDescription:
-      "Guide su chatbot AI per l'assistenza, smistamento dei ticket, automazione di Zendesk, Freshdesk e Jira, bot WhatsApp e Telegram, metriche, SLA e regole UE.",
-    title: "Blog sull'automazione dell'assistenza clienti",
+      "Guide su chatbot AI per l'assistenza, smistamento ticket, automazione di Zendesk, Freshdesk, Jira, HubSpot e Attio, bot WhatsApp e Telegram, SLA e regole UE.",
+    title: "Blog sull'automazione di assistenza clienti e CRM",
     readArticle: "Leggi l'articolo",
     all: "Tutti",
     minRead: "{n} min di lettura",

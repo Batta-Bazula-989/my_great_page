@@ -365,7 +365,7 @@ const nl: Dictionary = {
   },
   contact: {
     eyebrow: "Laten we praten",
-    title: "Vraag een gratis Health Check van je support aan",
+    title: "Vraag een gratis Health Check aan",
     intro: "Een gesprek van 30 minuten, daarna een schriftelijk rapport.",
     cta: "Plan een gratis Health Check",
     email: "E-mail",
@@ -453,12 +453,14 @@ const nl: Dictionary = {
     sources: "Bronnen",
     onThisPage: "Op deze pagina",
     related: "Gerelateerd",
+    readNext: "Lees verder",
+    ctaPackages: "Bekijk pakketten en prijzen",
   },
   blog: {
-    metaTitle: "Blog over klantenservice automatiseren | TascaLab",
+    metaTitle: "Blog over support- en CRM-automatisering | TascaLab",
     metaDescription:
-      "Gidsen over AI-supportchatbots, ticketroutering, automatisering in Zendesk, Freshdesk en Jira, WhatsApp- en Telegrambots, supportmetrics, SLA's en EU-regels.",
-    title: "Blog over klantenservice automatiseren",
+      "Gidsen over AI-supportchatbots, ticketroutering, automatisering in Zendesk, Freshdesk, Jira, HubSpot en Attio, WhatsApp- en Telegrambots, SLA's en EU-regels.",
+    title: "Blog over support- en CRM-automatisering",
     readArticle: "Lees het artikel",
     all: "Alle",
     minRead: "{n} min leestijd",

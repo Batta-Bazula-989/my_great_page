@@ -4,12 +4,12 @@ import { build } from "esbuild";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const locale = process.argv[2];
 const outfile = path.join(os.tmpdir(), `check-numbers-${process.pid}-${Date.now()}.mjs`);
-await build({ entryPoints: [path.join(root, "src/content/index.ts")], bundle: true, platform: "node", format: "esm", outfile, logLevel: "error" });
+await build({ entryPoints: [path.join(root, "src/content/all.ts")], bundle: true, platform: "node", format: "esm", outfile, logLevel: "error" });
 const { rawPagesByLocale: pagesByLocale, englishPage } = await import(pathToFileURL(outfile).href);
 fs.rmSync(outfile, { force: true });
 

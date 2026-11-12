@@ -9,6 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
+app.disable("x-powered-by");
 app.use(cors());
 // A booking is a few hundred bytes; the 100 KB default only helps someone flooding us.
 app.use(express.json({ limit: "10kb" }));
@@ -166,6 +167,10 @@ app.use((req, res, next) => {
 
 // /404 and /<lang>/404 are the error pages themselves, not pages to serve with a 200 status.
 app.use((req, res, next) => (/^(\/[a-z]{2})?\/404$/.test(req.path) ? notFound(req, res) : next()));
+
+// Built scripts, styles and images: their file names change whenever their content does
+// (index-Bg0OMKWF.js), so browsers and Cloudflare can keep them for a year without asking again.
+app.use("/assets", express.static(path.join(distPath, "assets"), { immutable: true, maxAge: "1y", index: false }));
 
 // Pre-rendered pages: dist/<slug>.html is served at /<slug>, dist/de/index.html at /de/.
 app.use(express.static(distPath, { extensions: ["html"] }));

@@ -1,11 +1,11 @@
 // Content checks run at build time (scripts/prerender.mjs) and by scripts/check-content.mjs.
 // Translations must mirror the English page exactly in structure and sources, so a translation
 // can't silently drop or add a fact.
-import { englishPage, rawPagesByLocale as pagesByLocale } from "./index";
+import { englishPage, rawPagesByLocale as pagesByLocale } from "./all";
 import type { Block, Locale, TranslatedPage } from "./types";
 import { PACKAGES } from "@/lib/pricing";
-import { dictionaries } from "@/i18n";
-import { TOOL_IDS } from "@/tools/registry";
+import { dictionaries } from "@/i18n/all";
+import { TOOL_IDS } from "@/tools/ids";
 
 const priceTokens = (p: TranslatedPage) => (JSON.stringify(p).match(/\{\{price:\w+\}\}/g) ?? []).sort();
 
@@ -38,6 +38,21 @@ const pageProblems = (locale: Locale, p: TranslatedPage, slugs: Set<string>, key
   if (p.faqs.length === 0) problems.push(`${where} has no FAQs`);
   for (const r of p.related)
     if (!englishPage(r) || r === p.key) problems.push(`${where} bad related key: ${r} (use English slugs)`);
+
+  // Published dates and section links live on the English page; translations inherit both.
+  const sectionLinks = p.sections.flatMap((s) => s.links ?? []);
+  if (locale === "en") {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(p.published ?? ""))
+      problems.push(`${where} needs published: "YYYY-MM-DD" (the day the page first went live)`);
+    for (const link of sectionLinks) {
+      const tool = link.startsWith("tool:") ? link.slice(5) : null;
+      const ok = tool ? (TOOL_IDS as string[]).includes(tool) : !!englishPage(link) && link !== p.key;
+      if (!ok) problems.push(`${where} bad section link: ${link} (use an English slug or tool:${TOOL_IDS.join("|tool:")})`);
+    }
+  } else {
+    if (p.published) problems.push(`${where} remove published: translations use the English page's date`);
+    if (sectionLinks.length) problems.push(`${where} remove section links: translations use the English page's links`);
+  }
 
   for (const token of priceTokens(p))
     if (!PACKAGES.some((pkg) => token === `{{price:${pkg.id}}}`)) problems.push(`${where} unknown price token ${token}`);
