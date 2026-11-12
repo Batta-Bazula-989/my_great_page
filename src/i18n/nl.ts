@@ -31,7 +31,7 @@ const nl: Dictionary = {
     callNote: "Gratis Health Check: een gesprek van 30 minuten met mij, daarna een schriftelijk rapport.",
     ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
-    highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
+    highlights: ["Werkt met je huidige CRM of helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
     integratesWith: "Integreert met",
   },
   recentWork: {
@@ -104,7 +104,7 @@ const nl: Dictionary = {
       },
       {
         title: "Gebouwd in 1–3 weken",
-        description: "Ingebouwd in je helpdesk en draaiend in je eigen accounts.",
+        description: "Ingebouwd in je CRM of helpdesk en draaiend in je eigen accounts.",
       },
       {
         title: "30 dagen ondersteuning",
@@ -114,19 +114,19 @@ const nl: Dictionary = {
   },
   fit: {
     eyebrow: "Is dit een match?",
-    title: "Voor wie deze supportautomatisering is",
+    title: "Voor wie deze automatisering is",
     intro: "Meestal kleine B2B-teams met repetitief werk in hun dagelijkse tools.",
     goodTitle: "Goede match",
     notTitle: "Geen goede match",
     good: [
-      "Elke dag repetitief supportwerk",
-      "Je gebruikt Zendesk, Freshdesk, Jira of iets vergelijkbaars",
-      "Rapportages die nog met de hand worden gemaakt",
+      "Elke dag repetitief sales- of supportwerk",
+      "Je gebruikt HubSpot, Attio, Zendesk, Freshdesk of iets vergelijkbaars",
+      "Leads, reacties of rapportages die nog met de hand worden verwerkt",
       "Tools die niet met elkaar praten",
     ],
     not: [
       "Je hebt een fulltime supportmanager nodig",
-      "Je wilt je hele supportstack vervangen",
+      "Je wilt je hele toolstack vervangen",
       "Je verwacht dat AI je team vervangt",
     ],
   },
@@ -339,8 +339,8 @@ const nl: Dictionary = {
     title: "Veelgestelde vragen",
     items: [
       {
-        q: "Moet ik overstappen op andere supporttools?",
-        a: "Nee. Ik werk met wat je al gebruikt: Zendesk, Freshdesk, Jira, Slack, interne tools. Het doel is om te koppelen en te verbeteren wat je hebt, niet om het te vervangen.",
+        q: "Moet ik overstappen op een ander CRM of andere supporttools?",
+        a: "Nee. Ik werk met wat je al gebruikt: HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, interne tools. Het doel is om te koppelen en te verbeteren wat je hebt, niet om het te vervangen.",
       },
       {
         q: "Wat als er na de livegang iets kapotgaat?",
@@ -390,6 +390,7 @@ const nl: Dictionary = {
   cookie: {
     text: "Ik gebruik cookies voor analyse en advertentiemeting, zodat ik begrijp hoe bezoekers deze site vinden en gebruiken.",
     privacy: "Privacybeleid",
+    label: "Cookietoestemming",
     decline: "Weigeren",
     accept: "Accepteren",
   },
@@ -420,6 +421,7 @@ const nl: Dictionary = {
     sendFailed: "Je aanvraag kon niet worden verstuurd",
     networkError: "Probeer het zo nog eens, of neem direct contact met me op:",
     sentTitle: "Aanvraag verstuurd",
+    sentCalendarTitle: "Bijna klaar: kies een tijd",
     sentCalendar: "Kies nu in mijn agenda een tijd die je uitkomt.",
     openCalendar: "Open mijn agenda",
     sent: "Ik laat binnen 24 uur van me horen om een tijd af te spreken.",
@@ -446,7 +448,7 @@ const nl: Dictionary = {
     atAGlance: "In één oogopslag",
     faqTitle: "Veelgestelde vragen",
     faqShort: "FAQ",
-    ctaTitle: "Wil je dit laten opzetten voor je team?",
+    ctaTitle: "Weet je niet wat je als eerste moet automatiseren?",
     ctaText:
       "Plan een gratis Health Check: een gesprek van 30 minuten en een schriftelijk rapport met 2–3 concrete aanbevelingen, een vaste prijs en de geschatte lopende kosten. Geen verkooppraatje.",
     ctaBook: "Plan een gratis Health Check",

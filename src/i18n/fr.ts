@@ -31,7 +31,7 @@ const fr: Dictionary = {
     callNote: "Health Check gratuit : un appel de 30 minutes avec moi, puis un rapport écrit.",
     ctaBook: "Réserver un Health Check gratuit",
     ctaUpwork: "Avis sur Upwork",
-    highlights: ["Fonctionne avec votre helpdesk actuel", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
+    highlights: ["Fonctionne avec votre CRM ou helpdesk actuel", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
     integratesWith: "S'intègre avec",
   },
   recentWork: {
@@ -104,7 +104,7 @@ const fr: Dictionary = {
       },
       {
         title: "Réalisé en 1 à 3 semaines",
-        description: "Intégré à votre helpdesk et exécuté dans vos propres comptes.",
+        description: "Intégré à votre CRM ou helpdesk et exécuté dans vos propres comptes.",
       },
       {
         title: "30 jours de support",
@@ -114,19 +114,19 @@ const fr: Dictionary = {
   },
   fit: {
     eyebrow: "Est-ce pour vous ?",
-    title: "À qui s'adresse cette automatisation du support",
+    title: "À qui s'adresse cette automatisation",
     intro: "Le plus souvent de petites équipes B2B avec des tâches répétitives dans leurs outils du quotidien.",
     goodTitle: "C'est pour vous",
     notTitle: "Ce n'est pas pour vous",
     good: [
-      "Du travail de support répétitif, tous les jours",
-      "Vous utilisez Zendesk, Freshdesk, Jira ou un outil similaire",
-      "Des rapports encore extraits à la main",
+      "Du travail commercial ou de support répétitif, tous les jours",
+      "Vous utilisez HubSpot, Attio, Zendesk, Freshdesk ou un outil similaire",
+      "Des leads, réponses ou rapports encore traités à la main",
       "Des outils qui ne communiquent pas entre eux",
     ],
     not: [
       "Vous avez besoin d'un responsable support à temps plein",
-      "Vous voulez remplacer tous vos outils de support",
+      "Vous voulez remplacer tous vos outils",
       "Vous attendez de l'IA qu'elle remplace votre équipe",
     ],
   },
@@ -339,8 +339,8 @@ const fr: Dictionary = {
     title: "Questions fréquentes",
     items: [
       {
-        q: "Dois-je changer d'outils de support ?",
-        a: "Non. Je travaille avec ce que vous utilisez déjà — Zendesk, Freshdesk, Jira, Slack, outils internes. L'objectif est de connecter et d'améliorer ce que vous avez, pas de le remplacer.",
+        q: "Dois-je changer de CRM ou d'outils de support ?",
+        a: "Non. Je travaille avec ce que vous utilisez déjà — HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, outils internes. L'objectif est de connecter et d'améliorer ce que vous avez, pas de le remplacer.",
       },
       {
         q: "Et si quelque chose tombe en panne après le lancement ?",
@@ -390,6 +390,7 @@ const fr: Dictionary = {
   cookie: {
     text: "J'utilise des cookies de mesure d'audience et de mesure publicitaire pour comprendre comment les visiteurs trouvent et utilisent ce site.",
     privacy: "Politique de confidentialité",
+    label: "Consentement aux cookies",
     decline: "Refuser",
     accept: "Accepter",
   },
@@ -421,6 +422,7 @@ const fr: Dictionary = {
     sendFailed: "Votre demande n'a pas abouti",
     networkError: "Veuillez réessayer dans un instant ou me contacter directement :",
     sentTitle: "Demande envoyée",
+    sentCalendarTitle: "Presque terminé : choisissez un créneau",
     sentCalendar: "Choisissez maintenant un créneau qui vous convient dans mon agenda.",
     openCalendar: "Ouvrir mon agenda",
     sent: "Je vous recontacterai sous 24 heures pour convenir d'un créneau.",
@@ -447,7 +449,7 @@ const fr: Dictionary = {
     atAGlance: "En bref",
     faqTitle: "Questions fréquentes",
     faqShort: "FAQ",
-    ctaTitle: "Vous voulez mettre cela en place pour votre équipe ?",
+    ctaTitle: "Vous ne savez pas quoi automatiser en premier ?",
     ctaText:
       "Réservez un Health Check gratuit : un appel de 30 minutes et un rapport écrit avec 2 à 3 recommandations concrètes, un prix fixe et une estimation des coûts de fonctionnement. Sans argumentaire commercial.",
     ctaBook: "Réserver un Health Check gratuit",

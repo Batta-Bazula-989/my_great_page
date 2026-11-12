@@ -9,6 +9,8 @@ html {
 
 @layer base {
   :root {
+    color-scheme: light;
+
     /* Warm off-white canvas, near-black indigo ink */
     --background: 40 33% 97%;
     --foreground: 248 28% 12%;
@@ -36,7 +38,8 @@ html {
     --destructive-foreground: 0 0% 100%;
 
     --border: 248 22% 88%;
-    --input: 248 22% 85%;
+    /* Form-field boundary: ≥ 3:1 against white cards, the canvas and the tint (WCAG 1.4.11) */
+    --input: 248 16% 58%;
     --ring: 248 56% 40%;
 
     --radius: 0.75rem;
@@ -62,6 +65,8 @@ html {
     --glass-border: hsl(248 22% 88%);
     --glass-highlight: inset 0 1px 0 hsl(0 0% 100%);
     --glass-shadow: var(--shadow-card);
+    --chip-bg: hsl(248 38% 95%);
+    --chip-border: hsl(248 30% 88%);
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
@@ -80,6 +85,8 @@ html {
      from the visitor's system preference. Only the tokens change; components stay untouched. */
   @media (prefers-color-scheme: dark) {
     :root {
+      color-scheme: dark;
+
       --background: 248 30% 8%;
       --foreground: 240 30% 94%;
 
@@ -106,7 +113,7 @@ html {
       --destructive-foreground: 248 45% 10%;
 
       --border: 248 18% 24%;
-      --input: 248 18% 27%;
+      --input: 248 16% 48%;
       --ring: 248 90% 77%;
 
       --footer: 248 45% 9%;
@@ -124,6 +131,8 @@ html {
       --glass-bg: hsl(248 26% 12%);
       --glass-bg-strong: linear-gradient(160deg, hsl(248 26% 13%) 0%, hsl(248 30% 10%) 100%);
       --glass-border: hsl(248 18% 24%);
+      --chip-bg: hsl(248 24% 18%);
+      --chip-border: hsl(248 20% 28%);
 
       --sidebar-background: 248 26% 12%;
       --sidebar-foreground: 240 30% 94%;
@@ -158,6 +167,11 @@ html {
   :focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+
+  /* The footer is the one dark surface: the indigo ring would sit at 1.8:1 there */
+  footer :focus-visible {
+    outline-color: hsl(var(--footer-foreground));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -257,21 +271,16 @@ html {
       background: hsl(248 30% 9% / 0.82);
       border-color: hsl(248 18% 26% / 0.8);
     }
-
-    .glass-chip {
-      background: hsl(248 24% 18%);
-      border-color: hsl(248 20% 28%);
-    }
-
   }
 
   .glass-solid {
     box-shadow: var(--shadow-card-lg);
   }
 
+  /* Colors come from tokens so the dark values can't lose the cascade to this rule */
   .glass-chip {
-    background: hsl(248 38% 95%);
-    border: 1px solid hsl(248 30% 88%);
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
   }
 
   .glass-hover {

@@ -50,7 +50,7 @@ const CookieConsent = () => {
   return (
     <div
       role="region"
-      aria-label={t.privacy}
+      aria-label={t.label}
       className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)]"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-4">

@@ -20,6 +20,8 @@ const tools: ToolsDict = {
     faqTitle: "Häufig gestellte Fragen",
     sources: "Quellen",
     estimate: "Nur Schätzwerte, kein Angebot.",
+    max: "Maximum: {value}",
+    min: "Minimum: {value}",
     perMonth: "/Monat",
     ctaTitle: "Möchten Sie eine genaue Zahl für Ihr Team?",
     ctaText:
@@ -57,7 +59,7 @@ const tools: ToolsDict = {
         "Beispielwerte aus einem veröffentlichten Support-Gespräch mit 5 Nachrichten. Passen Sie sie an Ihren Bot an.",
     },
     results: {
-      title: "Geschätzte monatliche Kosten",
+      title: "Geschätzte Kosten",
       vendor: "Anbieter",
       monthly: "Pro Monat",
       year: "12 Monate",
@@ -65,8 +67,10 @@ const tools: ToolsDict = {
       buildLine: "{price} einmalig + {monthly}/Monat laufende Kosten",
       payback: "Günstiger als {vendor} ab Monat {months}",
       neverCheaper: "Bei diesem Volumen wird die Entwicklung innerhalb von 12 Monaten gegenüber keinem Anbieter günstiger.",
-      cheapest: "Am günstigsten",
+      cheapest: "Günstigster Anbieter",
       currencyNote: "Die Anbieterpreise sind USD-Listenpreise, umgerechnet zum EZB-Kurs vom 16. Oktober 2026.",
+      pricesAsOf: "Listenpreise der Anbieter, Stand {date}.",
+      empty: "Geben Sie Ihre KI-Gespräche pro Monat ein, um die Kosten zu vergleichen.",
     },
     units: {
       fin: "0,99 $ pro Ergebnis; mindestens 50 pro Monat mit einem anderen Helpdesk",

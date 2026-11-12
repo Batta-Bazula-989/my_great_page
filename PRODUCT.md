@@ -8,20 +8,27 @@ web
 
 ## Users
 
-Primary: heads of support or operations at small and mid-sized companies, mostly in the EU and US, whose teams already run on Zendesk, Freshdesk, Jira Service Management, Slack or similar tools. They are dealing with repetitive tickets, reports pulled by hand, and tools that don't talk to each other. They are deciding whether to buy a fixed-scope automation build from an outside specialist. They read the site in English or one of seven EU languages.
+Two buyers at small and mid-sized B2B companies, mostly in the EU and US. The homepage addresses both, **lead and CRM first** (decided 2026-11-12):
 
-Explicitly not the audience (the site says so): teams that need a full-time support manager, want to replace their whole support stack, or expect AI to replace their team.
+1. **Sales, RevOps or founder-led sales teams** whose leads and outreach replies are still logged and sorted by hand across a CRM (HubSpot, Attio) and outreach tools (e.g. Lemlist).
+2. **Heads of support or operations** whose teams run on Zendesk, Freshdesk, Jira Service Management, Slack or similar tools, dealing with repetitive tickets, reports pulled by hand, and tools that don't talk to each other.
+
+Both are deciding whether to buy a fixed-scope automation build from an outside specialist. They read the site in English or one of seven EU languages. Sections that apply to both (fit list, process, FAQ, hero highlights) name both worlds, e.g. "your current CRM or helpdesk".
+
+Explicitly not the audience (the site says so): teams that need a full-time support manager, want to replace their whole tool stack, or expect AI to replace their team.
 
 ## Product Purpose
 
-TascaLab is a one-person business run by Roman Zakharenko. It sells fixed-price customer-support automation:
+TascaLab is a one-person business run by Roman Zakharenko. It sells fixed-price lead, CRM and support automation:
 
+- AI lead capture and scoring, and outreach-reply handling logged to the right CRM records
+- CRM integrations (HubSpot, Attio) with the tools around them
 - AI chat bots and voice bots that answer common messages and calls and hand the rest to the team
 - AI ticket routing and categorization
 - Automated reporting
 - Custom integrations
 
-Every call to action on the site leads to the free **Health Check**: a 30-minute call, then a written report with 2–3 concrete recommendations, the package and fixed price that fit, and the estimated monthly running costs. The site succeeds when a qualified support lead books a Health Check. The Upwork profile is the secondary route, for verified reviews and for hiring through Upwork.
+Every call to action on the site leads to the free **Health Check**: a 30-minute call, then a written report with 2–3 concrete recommendations, the package and fixed price that fit, and the estimated monthly running costs. The site succeeds when a qualified sales or support lead books a Health Check. The Upwork profile is the secondary route, for verified reviews and for hiring through Upwork.
 
 Two supporting surfaces bring in search traffic and lead back to the Health Check:
 
@@ -30,7 +37,7 @@ Two supporting surfaces bring in search traffic and lead back to the Health Chec
 
 ## Positioning
 
-- **Works inside the existing helpdesk.** The client doesn't switch platforms or replace their stack.
+- **Works inside the existing CRM or helpdesk.** The client doesn't switch platforms or replace their stack.
 - **Fixed price, paid once, no retainer.** Prices are published openly.
 - **Built by someone who has worked in support,** who has handled tickets and built reports by hand.
 - **Honest scoping.** Roman says when something isn't worth automating. Automation handles the repetitive part and hands the rest to people. It is never framed as replacing the team.
@@ -40,7 +47,7 @@ Two supporting surfaces bring in search traffic and lead back to the Health Chec
 ## Operating Context
 
 - **Buyer path:** visitors arrive from search (blog articles and calculators), paid ads (GTM, UTM capture in `src/utils/utm.ts`), Upwork and LinkedIn. They land on the homepage or a blog article and open the booking modal, which asks for name, work email, company, and preferred meeting method (Zoom by default, or Google Meet, phone, WhatsApp, Telegram). People who choose Zoom or Google Meet then go on to Calendly to pick a time. The lead goes to Roman's Telegram via `server/index.js`. After that come the call, the written report, a fixed-price package, delivery in 1–3 weeks, and 30 days of support.
-- **Tools in the client's world:** Zendesk, Freshdesk, Jira Service Management, Slack, n8n (self-hosted or cloud), Make, AI providers (Anthropic Claude is quoted), Retell AI for voice, WhatsApp, Telegram, Messenger and Instagram.
+- **Tools in the client's world:** HubSpot, Attio, Lemlist, Zendesk, Freshdesk, Jira Service Management, Slack, n8n (self-hosted or cloud), Make, AI providers (Anthropic Claude is quoted), Retell AI for voice, WhatsApp, Telegram, Messenger and Instagram.
 - **EU buyers check GDPR before buying.** There are two setups:
   - Runs in the client's own accounts (the default)
   - Hosted by Roman under an Art. 28 data processing agreement
@@ -49,6 +56,17 @@ Two supporting surfaces bring in search traffic and lead back to the Health Chec
 
 - **Packages and prices:** the single source of truth is `src/lib/pricing.ts`.
 
+  Shown on the homepage (Lead & CRM group first):
+
+  | Package | Price |
+  |---|---|
+  | Lead Capture & Scoring (featured) | $700 |
+  | CRM Integration | $900 |
+  | Support Automation | from $400 |
+  | Custom Automation | from $1,200 |
+
+  Still quoted in blog articles through `{{price:<id>}}` tokens, no longer shown on the homepage:
+
   | Package | Price |
   |---|---|
   | Starter Chat Bot | $400 |
@@ -56,7 +74,6 @@ Two supporting surfaces bring in search traffic and lead back to the Health Chec
   | Standard Chat Bot | $575 |
   | Ticket Routing & Categorization | $775 |
   | Automated Reports | $700 |
-  | Custom Automation | from $1,200 |
 
   - Prices are shown in USD (en), EUR (de, fr, es, it, nl), PLN (pl) and SEK (sv), converted at the ECB rates of 16 October 2026.
   - Every package includes 30 days of support after delivery and basic documentation. Delivery takes 1–3 weeks.

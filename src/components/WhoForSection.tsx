@@ -10,7 +10,7 @@ const WhoForSection = () => {
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
         <Reveal className="h-full">
           <div className="glass glass-hover h-full p-7 md:p-8 rounded-[28px] hover:-translate-y-1">
-            <h3 className="text-xl font-bold font-display mb-6 text-gradient">{t.goodTitle}</h3>
+            <h3 className="text-xl font-bold font-display mb-6 text-primary">{t.goodTitle}</h3>
             <ul className="space-y-4">
               {t.good.map((item) => (
                 <li key={item} className="flex items-start gap-3">

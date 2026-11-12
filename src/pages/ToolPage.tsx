@@ -3,11 +3,11 @@ import { ArrowRight, Calendar, ChevronDown, ChevronRight, Info } from "lucide-re
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
-import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
 import AiAgentCostCalculator from "@/components/tools/AiAgentCostCalculator";
 import WhatsAppCostCalculator from "@/components/tools/WhatsAppCostCalculator";
 import SlaCalculator from "@/components/tools/SlaCalculator";
+import { linkClass } from "@/components/tools/fields";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
@@ -18,6 +18,9 @@ const CALCULATORS: Record<ToolId, () => JSX.Element> = {
   whatsapp: WhatsAppCostCalculator,
   sla: SlaCalculator,
 };
+
+// "Estimates only, not a quote." belongs to the cost calculators, not the SLA date maths.
+const COST_TOOLS: ToolId[] = ["aiAgent", "whatsapp"];
 
 const ToolPage = () => {
   const { toolSlug } = useParams();
@@ -66,10 +69,12 @@ const ToolPage = () => {
 
           <section aria-label={tool.h1} className="max-w-6xl mx-auto">
             <Calculator />
-            <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-              <Info className="w-3.5 h-3.5 text-primary" aria-hidden />
-              {d.tools.common.estimate}
-            </p>
+            {COST_TOOLS.includes(id) && (
+              <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+                <Info className="w-3.5 h-3.5 shrink-0 text-primary" aria-hidden />
+                {d.tools.common.estimate}
+              </p>
+            )}
           </section>
 
           <div className="max-w-3xl mx-auto mt-16 space-y-12">
@@ -105,7 +110,12 @@ const ToolPage = () => {
             <section aria-labelledby="tool-cta" className="glass-panel rounded-[32px] p-6 md:p-10 text-center">
               <h2 id="tool-cta" className="font-display text-2xl md:text-3xl font-bold tracking-tight">{d.tools.common.ctaTitle}</h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">{d.tools.common.ctaText}</p>
-              <BookingButton variant="hero" size="lg" className="rounded-full mt-6" topic={{ lead: `Free tool: ${id}` }}>
+              <BookingButton
+                variant="hero"
+                size="lg"
+                className="rounded-full mt-6 h-auto min-h-12 max-w-full whitespace-normal px-6 py-3 text-center sm:px-8"
+                topic={{ lead: `Free tool: ${id}` }}
+              >
                 <Calendar className="w-5 h-5" aria-hidden />
                 {d.tools.common.ctaBook}
               </BookingButton>
@@ -126,7 +136,7 @@ const ToolPage = () => {
                 <ol className="list-decimal pl-5 space-y-2 text-sm text-muted-foreground marker:text-primary">
                   {TOOL_SOURCES[id].map((source) => (
                     <li key={source.url}>
-                      <a href={source.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline-offset-4 hover:underline break-words">
+                      <a href={source.url} target="_blank" rel="noopener noreferrer" className={`${linkClass} break-words`}>
                         {source.label}
                       </a>
                     </li>

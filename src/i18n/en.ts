@@ -34,7 +34,7 @@ const en = {
     callNote: "Free Health Check: a 30-minute call with me, then a written report.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
-    highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
+    highlights: ["Works with your current CRM or helpdesk", "Live in 1–3 weeks", "30 days of support included"],
     integratesWith: "Integrates with",
   },
   recentWork: {
@@ -107,7 +107,7 @@ const en = {
       },
       {
         title: "Built in 1–3 weeks",
-        description: "Inside your helpdesk, running in your own accounts.",
+        description: "Inside your CRM or helpdesk, running in your own accounts.",
       },
       {
         title: "30 days of support",
@@ -117,19 +117,19 @@ const en = {
   },
   fit: {
     eyebrow: "Is This a Fit?",
-    title: "Who this support automation is for",
+    title: "Who this automation is for",
     intro: "Usually small B2B teams with repetitive work in their day-to-day tools.",
     goodTitle: "Good Fit",
     notTitle: "Not the Right Fit",
     good: [
-      "Repetitive support work every day",
-      "You use Zendesk, Freshdesk, Jira or similar",
-      "Reports still pulled by hand",
+      "Repetitive sales or support work every day",
+      "You use HubSpot, Attio, Zendesk, Freshdesk or similar",
+      "Leads, replies or reports still handled by hand",
       "Tools that don't talk to each other",
     ],
     not: [
       "You need a full-time support manager",
-      "You want to replace your whole support stack",
+      "You want to replace your whole tool stack",
       "You expect AI to replace your team",
     ],
   },
@@ -342,8 +342,8 @@ const en = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do I need to switch my support tools?",
-        a: "No. I work with whatever you're already using — Zendesk, Freshdesk, Jira, Slack, internal tools. The goal is to connect and improve what you have, not replace it.",
+        q: "Do I need to switch my CRM or support tools?",
+        a: "No. I work with whatever you're already using — HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, internal tools. The goal is to connect and improve what you have, not replace it.",
       },
       {
         q: "What if something breaks after launch?",
@@ -393,6 +393,7 @@ const en = {
   cookie: {
     text: "I use cookies for analytics and ad measurement to understand how visitors find and use this site.",
     privacy: "Privacy Policy",
+    label: "Cookie consent",
     decline: "Decline",
     accept: "Accept",
   },
@@ -423,6 +424,7 @@ const en = {
     sendFailed: "Your request didn't go through",
     networkError: "Please try again in a moment, or contact me directly:",
     sentTitle: "Request sent",
+    sentCalendarTitle: "Almost done: pick a time",
     sentCalendar: "Now pick a time that suits you in my calendar.",
     openCalendar: "Open my calendar",
     sent: "I'll be in touch within 24 hours to agree on a time.",
@@ -449,7 +451,7 @@ const en = {
     atAGlance: "At a glance",
     faqTitle: "Frequently asked questions",
     faqShort: "FAQ",
-    ctaTitle: "Want this set up for your team?",
+    ctaTitle: "Not sure what to automate first?",
     ctaText:
       "Book a free Health Check: a 30-minute call and a written report with 2–3 concrete recommendations, a fixed price and estimated running costs. No pitch.",
     ctaBook: "Book a Free Health Check",

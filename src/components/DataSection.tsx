@@ -19,13 +19,14 @@ const DataSection = () => {
                   <div className="glass-chip w-11 h-11 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-primary" aria-hidden />
                   </div>
-                  <h3 className="text-xl font-bold font-display">{option.title}</h3>
+                  {/* German compounds (Auftragsverarbeitungsvertrag) must break on a 320px phone */}
+                  <h3 className="min-w-0 hyphens-auto break-words text-xl font-bold font-display">{option.title}</h3>
                 </div>
                 <ul className="space-y-4">
                   {option.points.map((point) => (
                     <li key={point} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" aria-hidden />
-                      <span className="text-foreground/90 leading-relaxed">{point}</span>
+                      <span className="min-w-0 hyphens-auto break-words text-foreground/90 leading-relaxed">{point}</span>
                     </li>
                   ))}
                 </ul>

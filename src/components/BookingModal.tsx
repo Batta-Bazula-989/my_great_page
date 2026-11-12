@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/command";
 import { format, useDict, useLocale } from "@/i18n";
 import type { Dictionary } from "@/i18n/en";
+import type { Locale } from "@/content/types";
 import type { BookingTopic } from "@/hooks/use-booking";
 import { EMAIL, TELEGRAM_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
@@ -148,12 +149,27 @@ const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 // Light-world field (same look as the calculator fields), 44px tall for touch.
+// Focus draws a 2px solid primary edge (border + 1px ring), well above 3:1 on the white dialog.
 const fieldClass =
-  "h-11 rounded-xl border-input bg-background text-base md:text-sm focus-visible:border-primary/60 focus-visible:ring-primary/25 focus-visible:ring-offset-0";
+  "h-11 rounded-xl border-input bg-background text-base md:text-sm focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0";
+
+// The phone field starts on the visitor's own country code; English stays on +1.
+const DEFAULT_COUNTRY_CODE: Record<Locale, string> = {
+  en: "1",
+  de: "49",
+  fr: "33",
+  es: "34",
+  it: "39",
+  nl: "31",
+  pl: "48",
+  sv: "46",
+};
 
 const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModalProps) => {
   const locale = useLocale();
-  const t = useDict().booking;
+  const dict = useDict();
+  const t = dict.booking;
+  const defaultCountryCode = DEFAULT_COUNTRY_CODE[locale] ?? "1";
   const schemas = useMemo(
     () => ({
       fullName: nameSchema(t.errors),
@@ -179,7 +195,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
     telegram: "",
   });
   const [meetingMethod, setMeetingMethod] = useState("zoom");
-  const [phoneCountryCode, setPhoneCountryCode] = useState("1");
+  const [phoneCountryCode, setPhoneCountryCode] = useState(defaultCountryCode);
   const [phoneCountryOpen, setPhoneCountryOpen] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   // After the first submit attempt, empty required fields are flagged as soon as they're left.
@@ -187,7 +203,14 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sendFailed, setSendFailed] = useState(false);
   const [sent, setSent] = useState<{ calendarUrl?: string } | null>(null);
+  // The request is only half done until the visitor has opened the calendar to pick a time.
+  const [calendarOpened, setCalendarOpened] = useState(false);
   const successActionRef = useRef<HTMLElement>(null);
+
+  // The dialog outlives client-side language switches, so follow the new default code.
+  useEffect(() => {
+    setPhoneCountryCode(defaultCountryCode);
+  }, [defaultCountryCode]);
 
   // The submit button disappears with the form, so hand focus to the next step.
   useEffect(() => {
@@ -225,17 +248,20 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
   const resetForm = () => {
     setValues({ fullName: "", email: "", companyName: "", phone: "", telegram: "" });
     setMeetingMethod("zoom");
-    setPhoneCountryCode("1");
+    setPhoneCountryCode(defaultCountryCode);
     setErrors({});
     setAttempted(false);
     setSendFailed(false);
     setSent(null);
+    setCalendarOpened(false);
   };
 
   const handleOpenChange = (next: boolean) => {
     onOpenChange(next);
-    // Start fresh after a successful booking; otherwise keep what the visitor typed.
-    if (!next && sent) setTimeout(resetForm, 200);
+    // Start fresh after a finished booking; otherwise keep what the visitor typed. A request that
+    // still needs a time stays on the calendar step, so reopening the dialog brings the link back.
+    const finished = sent && (!sent.calendarUrl || calendarOpened);
+    if (!next && finished) setTimeout(resetForm, 200);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -322,6 +348,8 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
     id: field,
     value: values[field],
     onBlur: () => handleBlur(field),
+    // The visible asterisk is decorative, so required state is announced from here.
+    "aria-required": field !== "companyName" ? true : undefined,
     "aria-invalid": errors[field] ? true : undefined,
     "aria-describedby": errors[field] ? `${field}-error` : undefined,
     className: cn(fieldClass, errors[field] && "border-destructive focus-visible:border-destructive"),
@@ -340,7 +368,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         closeLabel={t.close}
-        className="max-w-md gap-0 p-5 sm:p-7"
+        className="max-w-md gap-0 p-5 sm:p-7 [@media(max-height:760px)]:sm:p-5"
         onCloseAutoFocus={(e) => {
           const trigger = returnFocusTo?.current;
           if (trigger?.isConnected) {
@@ -359,7 +387,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
           />
           <div className="min-w-0 space-y-1">
             <DialogTitle className="font-display text-xl font-bold leading-tight">
-              {sent ? t.sentTitle : t.title}
+              {sent ? (sent.calendarUrl ? t.sentCalendarTitle : t.sentTitle) : t.title}
             </DialogTitle>
             <DialogDescription className="text-sm text-foreground/75 leading-snug">
               {t.description}
@@ -380,6 +408,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                   href={sent.calendarUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setCalendarOpened(true)}
                 >
                   {t.openCalendar}
                   <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -398,7 +427,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
             )}
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-4 [@media(max-height:760px)]:mt-4 [@media(max-height:760px)]:space-y-3">
             {topic?.label && (
               <p className="glass-chip inline-flex max-w-full items-center rounded-full px-3 py-1 text-sm text-foreground/85">
                 <span className="truncate">{format(t.about, { topic: topic.label })}</span>
@@ -580,7 +609,15 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                 {isSubmitting ? t.submitting : usesCalendar ? t.submitCalendar : t.submit}
               </Button>
               <p className="text-center text-sm text-muted-foreground">
-                {usesCalendar ? t.nextCalendar : t.nextContact}
+                {usesCalendar ? t.nextCalendar : t.nextContact}{" "}
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener"
+                  className="whitespace-nowrap underline underline-offset-2 hover:text-foreground transition-colors"
+                >
+                  {dict.cookie.privacy}
+                </a>
               </p>
             </div>
           </form>

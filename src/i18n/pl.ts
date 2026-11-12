@@ -31,7 +31,7 @@ const pl: Dictionary = {
     callNote: "Bezpłatny Health Check: 30-minutowa rozmowa ze mną, a potem pisemny raport.",
     ctaBook: "Umów bezpłatny Health Check",
     ctaUpwork: "Opinie na Upwork",
-    highlights: ["Działa z Twoim obecnym helpdeskiem", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
+    highlights: ["Działa z Twoim obecnym CRM-em lub helpdeskiem", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
     integratesWith: "Integruje się z",
   },
   recentWork: {
@@ -104,7 +104,7 @@ const pl: Dictionary = {
       },
       {
         title: "Realizacja w 1–3 tygodnie",
-        description: "Działa w Twoim helpdesku, na Twoich własnych kontach.",
+        description: "Działa w Twoim CRM-ie lub helpdesku, na Twoich własnych kontach.",
       },
       {
         title: "30 dni wsparcia",
@@ -114,19 +114,19 @@ const pl: Dictionary = {
   },
   fit: {
     eyebrow: "Czy to dla Ciebie?",
-    title: "Dla kogo jest ta automatyzacja obsługi klienta",
+    title: "Dla kogo jest ta automatyzacja",
     intro: "Zazwyczaj małe zespoły B2B z powtarzalną pracą w codziennych narzędziach.",
     goodTitle: "To dla Ciebie",
     notTitle: "To nie dla Ciebie",
     good: [
-      "Codzienna, powtarzalna praca w obsłudze klienta",
-      "Korzystasz z Zendesk, Freshdesk, Jira lub podobnego narzędzia",
-      "Raporty wciąż zbierane ręcznie",
+      "Codzienna, powtarzalna praca w sprzedaży lub obsłudze klienta",
+      "Korzystasz z HubSpot, Attio, Zendesk, Freshdesk lub podobnego narzędzia",
+      "Leady, odpowiedzi lub raporty wciąż obsługiwane ręcznie",
       "Narzędzia, które ze sobą nie współpracują",
     ],
     not: [
       "Potrzebujesz pełnoetatowego kierownika obsługi klienta",
-      "Chcesz wymienić cały zestaw narzędzi do obsługi klienta",
+      "Chcesz wymienić cały zestaw narzędzi",
       "Oczekujesz, że AI zastąpi Twój zespół",
     ],
   },
@@ -339,8 +339,8 @@ const pl: Dictionary = {
     title: "Najczęściej zadawane pytania",
     items: [
       {
-        q: "Czy muszę zmieniać narzędzia do obsługi klienta?",
-        a: "Nie. Pracuję z tym, czego już używasz – Zendesk, Freshdesk, Jira, Slack, narzędzia wewnętrzne. Celem jest połączenie i usprawnienie tego, co masz, a nie zastąpienie tego.",
+        q: "Czy muszę zmieniać CRM lub narzędzia do obsługi klienta?",
+        a: "Nie. Pracuję z tym, czego już używasz – HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, narzędzia wewnętrzne. Celem jest połączenie i usprawnienie tego, co masz, a nie zastąpienie tego.",
       },
       {
         q: "Co, jeśli po uruchomieniu coś przestanie działać?",
@@ -390,6 +390,7 @@ const pl: Dictionary = {
   cookie: {
     text: "Używam plików cookie do analityki i pomiaru reklam, aby zrozumieć, jak odwiedzający znajdują tę stronę i z niej korzystają.",
     privacy: "Polityka prywatności",
+    label: "Zgoda na pliki cookie",
     decline: "Odrzuć",
     accept: "Akceptuj",
   },
@@ -420,6 +421,7 @@ const pl: Dictionary = {
     sendFailed: "Nie udało się wysłać zgłoszenia",
     networkError: "Spróbuj ponownie za chwilę lub skontaktuj się ze mną bezpośrednio:",
     sentTitle: "Zgłoszenie wysłane",
+    sentCalendarTitle: "Prawie gotowe: wybierz termin",
     sentCalendar: "Teraz wybierz dogodny termin w moim kalendarzu.",
     openCalendar: "Otwórz mój kalendarz",
     sent: "Odezwę się w ciągu 24 godzin, aby ustalić termin.",
@@ -446,7 +448,7 @@ const pl: Dictionary = {
     atAGlance: "W skrócie",
     faqTitle: "Najczęściej zadawane pytania",
     faqShort: "FAQ",
-    ctaTitle: "Chcesz takie rozwiązanie dla swojego zespołu?",
+    ctaTitle: "Nie wiesz, co zautomatyzować najpierw?",
     ctaText:
       "Umów bezpłatny Health Check: 30-minutowa rozmowa i pisemny raport z 2–3 konkretnymi rekomendacjami, stałą ceną i szacowanymi kosztami bieżącymi. Bez nachalnej sprzedaży.",
     ctaBook: "Umów bezpłatny Health Check",

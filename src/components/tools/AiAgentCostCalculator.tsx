@@ -1,14 +1,21 @@
 import { useMemo, useState } from "react";
 import { Sparkles } from "lucide-react";
-import { Field, NumberInput, Panel, RangeInput, Select } from "./fields";
+import { Field, NumberInput, Panel, RangeInput, Select, linkClass } from "./fields";
 import { format, useDict, useLocale } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
 import { CURRENCY, convert, formatMoney, packageById, type PackageId } from "@/lib/pricing";
-import { PLATFORMS, TOKEN_EXAMPLE, VENDORS, buildMonthly, paybackMonth, type PlatformId } from "@/tools/aiAgentCost";
+import { PLATFORMS, PRICES_AS_OF, TOKEN_EXAMPLE, VENDORS, buildMonthly, paybackMonth, type PlatformId } from "@/tools/aiAgentCost";
 
 const BUILD_PACKAGES: PackageId[] = ["starter", "standard"];
 // Index of each package in the dictionaries' pricing.plans (same order as PACKAGES).
 const PLAN_INDEX: Record<string, number> = { starter: 0, standard: 2 };
+
+// One bar track for every row, so the build and the vendors share a single 12-month scale.
+const Bar = ({ value, max, className }: { value: number; max: number; className: string }) => (
+  <span className="mt-2 block h-1.5 rounded-full bg-secondary overflow-hidden" aria-hidden>
+    <span className={`block h-full rounded-full transition-[width] duration-500 ease-out ${className}`} style={{ width: `${(value / max) * 100}%` }} />
+  </span>
+);
 
 const AiAgentCostCalculator = () => {
   const d = useDict();
@@ -27,6 +34,13 @@ const AiAgentCostCalculator = () => {
 
   const money = (n: number) => formatMoney(locale, n);
   const number = (n: number) => n.toLocaleString(dateLocale);
+  // Below `sm` the "Per month" column folds under the 12-month figure, so phones keep one wide bar track.
+  const perMonth = (value: string) => (
+    <span className="block text-xs font-normal text-muted-foreground sm:hidden">
+      {value}
+      {d.tools.common.perMonth}
+    </span>
+  );
 
   const result = useMemo(() => {
     const volume = { conversations, resolutionRate: resolution / 100, actionsPerConversation: actions };
@@ -43,10 +57,14 @@ const AiAgentCostCalculator = () => {
   }, [conversations, resolution, actions, pkg, platform, inputTokens, outputTokens, currency]);
 
   const planName = d.pricing.plans[PLAN_INDEX[pkg]].name;
+  const empty = conversations <= 0;
+  // "Lowest" marks every vendor at the minimum, but never a $0 that only means "nothing billed at these inputs".
+  const lowest = result.vendors[0].monthly;
+  const pricesDate = new Date(`${PRICES_AS_OF}-01T00:00:00Z`).toLocaleDateString(dateLocale, { month: "long", year: "numeric", timeZone: "UTC" });
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
-      <div className="space-y-5">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
+      <div className="min-w-0 space-y-5">
         <Panel title={t.inputs.title}>
           <div className="space-y-5">
             <Field label={t.inputs.conversations} htmlFor="ai-conversations">
@@ -82,7 +100,7 @@ const AiAgentCostCalculator = () => {
                 options={PLATFORMS.map((p) => ({ value: p.id, label: t.inputs.platforms[p.id] }))}
               />
             </Field>
-            <fieldset>
+            <fieldset className="min-w-0">
               <legend className="block text-sm font-medium text-foreground/85 mb-1.5">{t.inputs.tokens}</legend>
               <div className="grid grid-cols-2 gap-3">
                 <Field label={t.inputs.inputTokens} htmlFor="ai-in">
@@ -93,7 +111,7 @@ const AiAgentCostCalculator = () => {
                 </Field>
               </div>
               <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                <a href={TOKEN_EXAMPLE.source} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline-offset-4 hover:underline">
+                <a href={TOKEN_EXAMPLE.source} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   {t.inputs.tokensHint}
                 </a>
               </p>
@@ -103,70 +121,98 @@ const AiAgentCostCalculator = () => {
       </div>
 
       <Panel className="lg:sticky lg:top-24 self-start">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-4">
           <h2 className="font-display text-lg font-bold">{t.results.title}</h2>
-          <span className="text-xs text-muted-foreground">
-            {number(conversations)} · {resolution}%
-          </span>
+          {!empty && (
+            <span className="text-xs text-muted-foreground tabular-nums">
+              {number(conversations)} · {resolution}%
+            </span>
+          )}
         </div>
 
-        <div className="rounded-2xl border border-primary/30 bg-primary/[0.07] p-4 mb-4">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <p className="font-display font-semibold flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-primary" aria-hidden />
-              {t.results.yourBuild} · {planName}
+        <div aria-live="polite" aria-atomic="true">
+          {empty ? (
+            <p className="rounded-xl border border-dashed border-border p-4 text-sm text-muted-foreground">{t.results.empty}</p>
+          ) : (
+            <>
+              <p className="font-display font-semibold leading-snug">
+                {result.fastest.length
+                  ? format(t.results.payback, { vendor: result.fastest[0].name, months: String(result.fastest[0].payback) })
+                  : t.results.neverCheaper}
+              </p>
+              <p className="sr-only">{`${t.results.yourBuild} · ${planName}, ${t.results.year}: ${money(result.buildYear)}`}</p>
+            </>
+          )}
+        </div>
+
+        {!empty && (
+          <>
+            {/* Bleeds into the panel padding so the highlighted build row has room for its own inset. */}
+            <div className="-mx-3 mt-4 overflow-x-auto">
+              <table className="w-full border-separate border-spacing-0 text-sm">
+                <caption className="sr-only">{t.results.title}</caption>
+                <thead>
+                  <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
+                    <th scope="col" className="pb-2 pl-3 pr-2 font-medium">{t.results.vendor}</th>
+                    <th scope="col" className="hidden sm:table-cell pb-2 px-2 font-medium text-right">{t.results.monthly}</th>
+                    <th scope="col" className="pb-2 pl-2 pr-3 font-medium text-right">{t.results.year}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="align-top bg-primary/[0.07]">
+                    <td className="rounded-l-xl py-3 pl-3 pr-2">
+                      <span className="flex items-start gap-1.5 font-display font-semibold">
+                        <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                        <span>
+                          {t.results.yourBuild} · {planName}
+                        </span>
+                      </span>
+                      <span className="mt-0.5 block text-xs text-muted-foreground">
+                        {format(t.results.buildLine, { price: money(result.oneTime), monthly: money(result.buildPerMonth) })}
+                      </span>
+                      <Bar value={result.buildYear} max={result.max} className="bg-primary" />
+                    </td>
+                    <td className="hidden sm:table-cell py-3 px-2 text-right tabular-nums whitespace-nowrap">{money(result.buildPerMonth)}</td>
+                    <td className="rounded-r-xl py-3 pl-2 pr-3 text-right font-semibold text-primary tabular-nums whitespace-nowrap">
+                      {money(result.buildYear)}
+                      {perMonth(money(result.buildPerMonth))}
+                    </td>
+                  </tr>
+                  {result.vendors.map((v, i) => {
+                    const rule = i > 0 ? "border-t border-border/60" : "";
+                    return (
+                      <tr key={v.id} className="align-top">
+                        <td className={`py-3 pl-3 pr-2 ${rule}`}>
+                          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                            <a href={v.source} target="_blank" rel="noopener noreferrer" className={`font-medium ${linkClass}`}>
+                              {v.name}
+                            </a>
+                            {lowest > 0 && v.monthly === lowest && (
+                              <span className="rounded-full bg-secondary px-2 py-0.5 text-xs text-foreground/80 whitespace-nowrap">{t.results.cheapest}</span>
+                            )}
+                          </span>
+                          <span className="block text-xs text-muted-foreground mt-0.5">{t.units[v.id]}</span>
+                          <Bar value={v.year} max={result.max} className="bg-foreground/35" />
+                        </td>
+                        <td className={`hidden sm:table-cell py-3 px-2 text-right tabular-nums whitespace-nowrap ${rule}`}>{money(v.monthly)}</td>
+                        <td className={`py-3 pl-2 pr-3 text-right font-semibold tabular-nums whitespace-nowrap ${rule}`}>
+                          {money(v.year)}
+                          {perMonth(money(v.monthly))}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
+              {format(t.results.pricesAsOf, { date: pricesDate })}
+              {currency !== "USD" && ` ${t.results.currencyNote}`}
             </p>
-            <p className="font-display text-xl font-bold text-primary tabular-nums">{money(result.buildYear)}</p>
-          </div>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {format(t.results.buildLine, { price: money(result.oneTime), monthly: money(result.buildPerMonth) })}
-          </p>
-          <div className="mt-3 h-2 rounded-full bg-secondary overflow-hidden" aria-hidden>
-            <div className="h-full rounded-full bg-primary transition-[width] duration-500 ease-out" style={{ width: `${(result.buildYear / result.max) * 100}%` }} />
-          </div>
-          <p className="mt-3 text-sm font-medium text-foreground/90">
-            {result.fastest.length
-              ? format(t.results.payback, { vendor: result.fastest[0].name, months: String(result.fastest[0].payback) })
-              : t.results.neverCheaper}
-          </p>
-        </div>
-
-        <table className="w-full text-sm">
-          <caption className="sr-only">{t.results.title}</caption>
-          <thead>
-            <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
-              <th scope="col" className="pb-2 font-medium">{t.results.vendor}</th>
-              <th scope="col" className="pb-2 font-medium text-right">{t.results.monthly}</th>
-              <th scope="col" className="pb-2 font-medium text-right">{t.results.year}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {result.vendors.map((v, i) => (
-              <tr key={v.id} className="border-t border-border/60 align-top">
-                <td className="py-3 pr-3">
-                  <a href={v.source} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary">
-                    {v.name}
-                  </a>
-                  {i === 0 && (
-                    <span className="ml-2 rounded-full bg-secondary px-2 py-0.5 text-[11px] text-foreground/80">{t.results.cheapest}</span>
-                  )}
-                  <span className="block text-xs text-muted-foreground mt-0.5">{t.units[v.id]}</span>
-                  <span className="mt-2 block h-1.5 rounded-full bg-secondary overflow-hidden" aria-hidden>
-                    <span
-                      className="block h-full rounded-full bg-foreground/35 transition-[width] duration-500 ease-out"
-                      style={{ width: `${(v.year / result.max) * 100}%` }}
-                    />
-                  </span>
-                </td>
-                <td className="py-3 text-right tabular-nums whitespace-nowrap">{money(v.monthly)}</td>
-                <td className="py-3 pl-3 text-right font-semibold tabular-nums whitespace-nowrap">{money(v.year)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <p className="mt-4 text-xs text-muted-foreground leading-relaxed">{t.notIncluded}</p>
-        {currency !== "USD" && <p className="mt-2 text-xs text-muted-foreground">{t.results.currencyNote}</p>}
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t.notIncluded}</p>
+          </>
+        )}
       </Panel>
     </div>
   );

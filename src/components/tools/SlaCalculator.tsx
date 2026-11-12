@@ -73,8 +73,8 @@ const SlaCalculator = () => {
   const targetLabel = duration(target);
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <div className="space-y-5">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div className="min-w-0 space-y-5">
         <div role="tablist" className="glass-chip inline-flex rounded-full p-1">
           {(["due", "elapsed"] as Mode[]).map((m) => (
             <button
@@ -99,7 +99,7 @@ const SlaCalculator = () => {
                 <TextInput id="sla-replied" type="datetime-local" value={replied} onChange={setReplied} />
               </Field>
             )}
-            <fieldset>
+            <fieldset className="min-w-0">
               <legend className="block text-sm font-medium text-foreground/85 mb-1.5">{t.inputs.target}</legend>
               <div className="grid grid-cols-2 gap-3">
                 <NumberInput id="sla-hours" value={hours} onChange={setHours} max={10000} suffix={t.inputs.hours} />
@@ -119,7 +119,7 @@ const SlaCalculator = () => {
                 <TextInput id="sla-closes" type="time" value={closes} onChange={setCloses} />
               </Field>
             </div>
-            <fieldset>
+            <fieldset className="min-w-0">
               <legend className="block text-sm font-medium text-foreground/85 mb-2">{t.inputs.days}</legend>
               <div className="flex flex-wrap gap-2">
                 {DAY_ORDER.map((day) => (
@@ -135,14 +135,16 @@ const SlaCalculator = () => {
                 ))}
               </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="min-w-0">
               <legend className="block text-sm font-medium text-foreground/85 mb-2">{t.inputs.holidays}</legend>
-              <div className="flex gap-2">
-                <TextInput id="sla-holiday" type="date" value={holidayInput} onChange={setHolidayInput} />
+              <div className="flex flex-wrap gap-2">
+                <div className="min-w-40 flex-1">
+                  <TextInput id="sla-holiday" type="date" value={holidayInput} onChange={setHolidayInput} />
+                </div>
                 <button
                   type="button"
                   onClick={addHoliday}
-                  className="glass-chip shrink-0 rounded-xl px-4 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors inline-flex items-center gap-1"
+                  className="glass-chip shrink-0 min-h-11 rounded-xl px-4 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors inline-flex items-center gap-1"
                 >
                   <Plus className="w-4 h-4" aria-hidden />
                   {t.inputs.addHoliday}

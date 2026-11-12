@@ -31,7 +31,7 @@ const de: Dictionary = {
     callNote: "Kostenloser Health Check: ein 30-minütiges Gespräch mit mir, danach ein schriftlicher Bericht.",
     ctaBook: "Kostenlosen Health Check buchen",
     ctaUpwork: "Bewertungen auf Upwork",
-    highlights: ["Funktioniert mit Ihrem aktuellen Helpdesk", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
+    highlights: ["Funktioniert mit Ihrem aktuellen CRM oder Helpdesk", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
     integratesWith: "Integriert mit",
   },
   recentWork: {
@@ -104,7 +104,7 @@ const de: Dictionary = {
       },
       {
         title: "Umgesetzt in 1–3 Wochen",
-        description: "In Ihrem Helpdesk, betrieben in Ihren eigenen Konten.",
+        description: "In Ihrem CRM oder Helpdesk, betrieben in Ihren eigenen Konten.",
       },
       {
         title: "30 Tage Support",
@@ -114,19 +114,19 @@ const de: Dictionary = {
   },
   fit: {
     eyebrow: "Passt das zu Ihnen?",
-    title: "Für wen sich diese Support-Automatisierung eignet",
+    title: "Für wen sich diese Automatisierung eignet",
     intro: "Meist kleine B2B-Teams mit wiederkehrenden Aufgaben in ihren Alltagstools.",
     goodTitle: "Passt gut",
     notTitle: "Passt nicht",
     good: [
-      "Täglich wiederkehrende Support-Aufgaben",
-      "Sie nutzen Zendesk, Freshdesk, Jira oder Ähnliches",
-      "Reports werden noch von Hand erstellt",
+      "Täglich wiederkehrende Vertriebs- oder Support-Aufgaben",
+      "Sie nutzen HubSpot, Attio, Zendesk, Freshdesk oder Ähnliches",
+      "Leads, Antworten oder Reports werden noch von Hand bearbeitet",
       "Tools, die nicht miteinander verbunden sind",
     ],
     not: [
       "Sie brauchen einen Vollzeit-Support-Manager",
-      "Sie möchten Ihren gesamten Support-Stack ersetzen",
+      "Sie möchten Ihren gesamten Tool-Stack ersetzen",
       "Sie erwarten, dass KI Ihr Team ersetzt",
     ],
   },
@@ -339,8 +339,8 @@ const de: Dictionary = {
     title: "Häufig gestellte Fragen",
     items: [
       {
-        q: "Muss ich meine Support-Tools wechseln?",
-        a: "Nein. Ich arbeite mit dem, was Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack, interne Tools. Ziel ist es, Ihre vorhandenen Systeme zu verbinden und zu verbessern, nicht sie zu ersetzen.",
+        q: "Muss ich mein CRM oder meine Support-Tools wechseln?",
+        a: "Nein. Ich arbeite mit dem, was Sie bereits nutzen – HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, interne Tools. Ziel ist es, Ihre vorhandenen Systeme zu verbinden und zu verbessern, nicht sie zu ersetzen.",
       },
       {
         q: "Was passiert, wenn nach dem Launch etwas nicht mehr funktioniert?",
@@ -390,6 +390,7 @@ const de: Dictionary = {
   cookie: {
     text: "Ich verwende Cookies für Analysen und Anzeigenmessung, um zu verstehen, wie Besucher diese Website finden und nutzen.",
     privacy: "Datenschutzerklärung",
+    label: "Cookie-Einwilligung",
     decline: "Ablehnen",
     accept: "Akzeptieren",
   },
@@ -420,6 +421,7 @@ const de: Dictionary = {
     sendFailed: "Ihre Anfrage konnte nicht gesendet werden",
     networkError: "Bitte versuchen Sie es gleich noch einmal oder kontaktieren Sie mich direkt:",
     sentTitle: "Anfrage gesendet",
+    sentCalendarTitle: "Fast geschafft: Wählen Sie einen Termin",
     sentCalendar: "Wählen Sie jetzt in meinem Kalender einen Termin, der Ihnen passt.",
     openCalendar: "Meinen Kalender öffnen",
     sent: "Ich melde mich innerhalb von 24 Stunden, um einen Termin abzustimmen.",
@@ -446,7 +448,7 @@ const de: Dictionary = {
     atAGlance: "Auf einen Blick",
     faqTitle: "Häufig gestellte Fragen",
     faqShort: "FAQ",
-    ctaTitle: "Möchten Sie das für Ihr Team einrichten lassen?",
+    ctaTitle: "Nicht sicher, was Sie zuerst automatisieren sollten?",
     ctaText:
       "Buchen Sie einen kostenlosen Health Check: ein 30-minütiges Gespräch und ein schriftlicher Bericht mit 2–3 konkreten Empfehlungen, einem Festpreis und den geschätzten laufenden Kosten. Ohne Verkaufsgespräch.",
     ctaBook: "Kostenlosen Health Check buchen",

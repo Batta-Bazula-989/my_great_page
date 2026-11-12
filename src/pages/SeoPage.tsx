@@ -1,84 +1,34 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Calendar, ChevronDown, ChevronRight, Info, Star } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BookingButton from "@/components/BookingButton";
-import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
+import ContentBlock from "@/components/seo/ContentBlock";
+import HandoffPanel from "@/components/seo/HandoffPanel";
+import ReadNext, { type ReadNextLink } from "@/components/seo/ReadNext";
+import { TableOfContents, TableOfContentsDisclosure, type TocEntry } from "@/components/seo/TableOfContents";
+import { splitHelpSection } from "@/components/seo/helpSection";
+import { MEASURE } from "@/components/seo/measure";
+import { useActiveSection } from "@/components/seo/useActiveSection";
 import { getPageSummary, headingId, pageByKey } from "@/content";
 import { useSeoPage } from "@/content/load";
-import type { Block, Locale } from "@/content/types";
+import type { Locale } from "@/content/types";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { useDict, useLocale } from "@/i18n";
 import { BLOG_PATH, localeInfo, localePath } from "@/i18n/config";
 import { formatDate } from "@/lib/blog";
 import { TOOL_IDS, toolPath, type ToolId } from "@/tools/registry";
 
-
-const ContentBlock = ({ block }: { block: Block }) => {
-  switch (block.type) {
-    case "p":
-      return <p className="text-foreground/80 leading-relaxed">{block.text}</p>;
-    case "ul":
-    case "ol": {
-      const List = block.type;
-      return (
-        <List className={`space-y-2 pl-5 text-foreground/80 leading-relaxed ${block.type === "ul" ? "list-disc" : "list-decimal"} marker:text-primary`}>
-          {block.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </List>
-      );
-    }
-    case "table":
-      return (
-        <div className="glass rounded-2xl overflow-x-auto">
-          <table className="w-full min-w-[520px] text-sm text-left">
-            {block.caption && <caption className="px-4 pt-4 text-left text-muted-foreground">{block.caption}</caption>}
-            <thead>
-              <tr className="border-b border-border">
-                {block.head.map((cell) => (
-                  <th key={cell} scope="col" className="px-4 py-3 font-semibold text-foreground">
-                    {cell}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {block.rows.map((row, i) => (
-                <tr key={i} className="border-b border-border/60 last:border-0 align-top">
-                  {row.map((cell, j) => (
-                    <td key={j} className={`px-4 py-3 ${j === 0 ? "font-medium text-foreground" : "text-foreground/75"}`}>
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-    case "note":
-      return (
-        <div className="glass-chip rounded-2xl p-4 flex gap-3 text-foreground/85">
-          <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
-          <p className="leading-relaxed">{block.text}</p>
-        </div>
-      );
-  }
-};
-
-// A section's "Read next" link: another article (by English slug) or a calculator ("tool:<id>").
-const useSectionLink = (locale: Locale) => {
+// A recommended link: another article (by English slug) or a calculator ("tool:<id>").
+const useResolveLink = (locale: Locale) => {
   const t = useDict();
-  return (link: string) => {
+  return (link: string): ReadNextLink | undefined => {
     if (link.startsWith("tool:")) {
       const id = link.slice(5) as ToolId;
-      return TOOL_IDS.includes(id) ? { to: toolPath(locale, id), label: t.tools[id].navLabel } : undefined;
+      return TOOL_IDS.includes(id) ? { to: toolPath(locale, id), title: t.tools[id].h1, meta: t.tools.common.freeTool } : undefined;
     }
     const target = pageByKey(locale, link);
-    return target ? { to: localePath(locale, target.slug), label: target.navLabel } : undefined;
+    return target ? { to: localePath(locale, target.slug), title: target.h1, meta: t.categories[target.category].label } : undefined;
   };
 };
 
@@ -88,21 +38,39 @@ const SeoPage = () => {
   const t = useDict();
   const summary = getPageSummary(locale, slug);
   const page = useSeoPage(locale, slug);
-  const sectionLink = useSectionLink(locale);
+  const resolveLink = useResolveLink(locale);
+
+  // Content sections, then the help section as the handoff panel, then the FAQ (see helpSection.ts).
+  const { body, help } = splitHelpSection(page?.sections ?? []);
+  const handoff = help ?? { blocks: [] };
+  const handoffTitle = handoff.heading ?? t.seo.ctaTitle;
+  const toc: TocEntry[] = [
+    ...body.map((section) => ({ id: headingId(section.heading), label: section.heading })),
+    { id: headingId(handoffTitle), label: handoffTitle },
+    { id: "faq", label: t.seo.faqShort },
+  ];
+  const activeId = useActiveSection(page ? toc.map((entry) => entry.id) : []);
 
   usePageMeta(page?.title ?? "", page?.description ?? "", localePath(locale, page?.slug ?? ""));
 
   if (!page || !summary) return <NotFound />;
 
   const category = t.categories[page.category].label;
-  const related = page.related.map((key) => pageByKey(locale, key)).filter((p) => p !== undefined);
+
+  // Related articles first, then the links each section used to carry, once each.
+  const self = localePath(locale, page.slug);
+  const readNext: ReadNextLink[] = [];
+  for (const key of [...page.related, ...Object.values(summary.sectionLinks).flat()]) {
+    const link = resolveLink(key);
+    if (link && link.to !== self && !readNext.some((l) => l.to === link.to)) readNext.push(link);
+  }
 
   return (
     <>
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none pt-28 pb-16">
         <div className="container px-4">
-          <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto mb-6 text-sm text-muted-foreground">
+          <nav aria-label="Breadcrumb" className="max-w-[44rem] lg:max-w-5xl mx-auto mb-6 text-sm text-muted-foreground">
             <ol className="flex flex-wrap items-center gap-1.5">
               <li>
                 <Link to={localePath(locale)} className="hover:text-primary transition-colors">{t.seo.home}</Link>
@@ -116,157 +84,100 @@ const SeoPage = () => {
             </ol>
           </nav>
 
-          <div className="max-w-5xl mx-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px]">
-            <article className="min-w-0">
-              <header className="glass-panel rounded-[32px] p-6 md:p-10 mb-10">
-                <span className="section-eyebrow">{category}</span>
-                <h1 className="text-3xl md:text-5xl font-bold font-display leading-tight tracking-tight">{page.h1}</h1>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {t.seo.byline} · {t.seo.factsChecked}{" "}
-                  <time dateTime={page.updated}>{formatDate(page.updated, localeInfo(locale).dateLocale)}</time>
-                  {" · "}
-                  {t.blog.minRead.replace("{n}", String(summary.minutes))}
-                </p>
-                <p className="mt-6 text-lg text-foreground/85 leading-relaxed">{page.intro}</p>
-              </header>
+          {/* Below lg the article is one centred column sized to the text measure plus panel padding */}
+          <div className="max-w-[44rem] lg:max-w-5xl mx-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px]">
+            <div className="min-w-0">
+              <article>
+                <header className="glass-panel rounded-[32px] p-6 md:p-10 mb-6 lg:mb-10">
+                  <span className="section-eyebrow">{category}</span>
+                  <h1 className="text-3xl md:text-5xl font-bold font-display leading-tight tracking-tight">{page.h1}</h1>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    {t.seo.byline} · {t.seo.factsChecked}{" "}
+                    <time dateTime={page.updated}>{formatDate(page.updated, localeInfo(locale).dateLocale)}</time>
+                    {" · "}
+                    {t.blog.minRead.replace("{n}", String(summary.minutes))}
+                  </p>
+                  <p className={`${MEASURE} mt-6 text-lg text-foreground/85 leading-relaxed text-pretty`}>{page.intro}</p>
+                </header>
 
-              <section aria-labelledby="at-a-glance" className="glass rounded-[28px] p-6 md:p-8 mb-12">
-                <h2 id="at-a-glance" className="font-display text-xl font-bold mb-4">{t.seo.atAGlance}</h2>
-                <ul className="space-y-3">
-                  {page.keyFacts.map((fact) => (
-                    <li key={fact} className="flex gap-3 text-foreground/85 leading-relaxed">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
-                      {fact}
-                    </li>
-                  ))}
-                </ul>
-              </section>
+                <div className="mb-10 lg:hidden">
+                  <TableOfContentsDisclosure title={t.seo.onThisPage} entries={toc} activeId={activeId} />
+                </div>
 
-              <div className="space-y-12">
-                {page.sections.map((section, index) => {
-                  const links = (summary.sectionLinks[index] ?? []).map(sectionLink).filter((l) => l !== undefined);
-                  return (
-                    <section key={section.heading} aria-labelledby={headingId(section.heading)} className="scroll-mt-28">
-                      <h2 id={headingId(section.heading)} className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
+                <section aria-labelledby="at-a-glance" className="glass rounded-[28px] p-6 md:p-8 mb-12">
+                  <h2 id="at-a-glance" className="font-display text-xl font-bold mb-4">{t.seo.atAGlance}</h2>
+                  <ul className="space-y-3">
+                    {page.keyFacts.map((fact) => (
+                      <li key={fact} className="flex gap-3 text-foreground/85 leading-relaxed">
+                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
+                        <span className={MEASURE}>{fact}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <div className="space-y-12">
+                  {body.map((section) => (
+                    <section key={section.heading} aria-labelledby={headingId(section.heading)}>
+                      <h2
+                        id={headingId(section.heading)}
+                        className="scroll-mt-6 font-display text-2xl md:text-3xl font-bold tracking-tight mb-5"
+                      >
                         {section.heading}
                       </h2>
                       <div className="space-y-4">
                         {section.blocks.map((block, i) => (
                           <ContentBlock key={i} block={block} />
                         ))}
-                        {links.length > 0 && (
-                          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
-                            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t.seo.readNext}</span>
-                            {links.map((link) => (
-                              <Link
-                                key={link.to}
-                                to={link.to}
-                                className="group inline-flex items-center gap-1 font-medium text-primary underline-offset-4 hover:underline"
-                              >
-                                {link.label}
-                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                              </Link>
-                            ))}
-                          </p>
-                        )}
                       </div>
                     </section>
-                  );
-                })}
+                  ))}
 
-                <section aria-labelledby="faq" className="scroll-mt-28">
-                  <h2 id="faq" className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
-                    {t.seo.faqTitle}
-                  </h2>
-                  <div className="space-y-3">
-                    {page.faqs.map((faq) => (
-                      <details key={faq.q} className="group glass glass-hover rounded-2xl px-6">
-                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-display font-medium [&::-webkit-details-marker]:hidden">
-                          <h3 className="text-base">{faq.q}</h3>
-                          <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
-                        </summary>
-                        <p className="pb-4 text-muted-foreground leading-relaxed">{faq.a}</p>
-                      </details>
-                    ))}
-                  </div>
-                </section>
+                  <HandoffPanel heading={handoff.heading} blocks={handoff.blocks} />
 
-                <section aria-labelledby="get-it-built" className="glass-panel rounded-[32px] p-6 md:p-10 text-center">
-                  <h2 id="get-it-built" className="font-display text-2xl md:text-3xl font-bold tracking-tight">
-                    {t.seo.ctaTitle}
-                  </h2>
-                  <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                    {t.seo.ctaText}
-                  </p>
-                  <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                    <BookingButton variant="hero" size="lg" className="rounded-full">
-                      <Calendar className="w-5 h-5" aria-hidden />
-                      {t.seo.ctaBook}
-                    </BookingButton>
-                    <Button variant="glass" size="lg" className="rounded-full" asChild>
-                      <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer">
-                        <Star className="w-5 h-5 text-primary" />
-                        {t.seo.ctaUpwork}
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-                  <Link
-                    to={`${localePath(locale)}#pricing`}
-                    className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                  >
-                    {t.seo.ctaPackages}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                  </Link>
-                </section>
+                  <section aria-labelledby="faq">
+                    <h2 id="faq" className="scroll-mt-6 font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
+                      {t.seo.faqTitle}
+                    </h2>
+                    <div className="space-y-3">
+                      {page.faqs.map((faq) => (
+                        <details key={faq.q} className="group glass glass-hover rounded-2xl px-6">
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-display font-medium [&::-webkit-details-marker]:hidden">
+                            <h3 className="text-base">{faq.q}</h3>
+                            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden />
+                          </summary>
+                          <p className={`${MEASURE} pb-4 text-muted-foreground leading-relaxed text-pretty`}>{faq.a}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </section>
 
-                <section aria-labelledby="sources">
-                  <h2 id="sources" className="font-display text-xl font-bold mb-4">{t.seo.sources}</h2>
-                  <ol className="list-decimal pl-5 space-y-2 text-sm text-muted-foreground marker:text-primary">
-                    {page.sources.map((source) => (
-                      <li key={source.url}>
-                        <a href={source.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline-offset-4 hover:underline break-words">
-                          {source.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-              </div>
-            </article>
+                  <section aria-labelledby="sources">
+                    <h2 id="sources" className="font-display text-xl font-bold mb-4">{t.seo.sources}</h2>
+                    <ol className="list-decimal pl-5 space-y-2 text-sm text-muted-foreground marker:text-primary">
+                      {page.sources.map((source) => (
+                        <li key={source.url}>
+                          <a href={source.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline-offset-4 hover:underline break-words">
+                            {source.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                </div>
+              </article>
+
+              {readNext.length > 0 && (
+                <div className="mt-16">
+                  <ReadNext title={t.seo.readNext} links={readNext} />
+                </div>
+              )}
+            </div>
 
             <aside className="hidden lg:block">
-              <nav aria-label={t.seo.onThisPage} className="glass sticky top-28 rounded-2xl p-5 text-sm">
-                <p className="font-display font-semibold mb-3">{t.seo.onThisPage}</p>
-                <ul className="space-y-2">
-                  {page.sections.map((section) => (
-                    <li key={section.heading}>
-                      <a href={`#${headingId(section.heading)}`} className="text-muted-foreground hover:text-primary transition-colors">
-                        {section.heading}
-                      </a>
-                    </li>
-                  ))}
-                  <li>
-                    <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">{t.seo.faqShort}</a>
-                  </li>
-                </ul>
-              </nav>
+              <TableOfContents title={t.seo.onThisPage} entries={toc} activeId={activeId} />
             </aside>
           </div>
-
-          {related.length > 0 && (
-            <section aria-labelledby="related" className="max-w-5xl mx-auto mt-16">
-              <h2 id="related" className="font-display text-2xl font-bold mb-5">{t.seo.related}</h2>
-              <div className="grid gap-4 md:grid-cols-3">
-                {related.map((r) => (
-                  <Link key={r.key} to={localePath(locale, r.slug)} className="glass glass-hover rounded-2xl p-5 block">
-                    <span className="text-xs uppercase tracking-[0.18em] text-primary">{t.categories[r.category].label}</span>
-                    <span className="mt-2 block font-display font-semibold">{r.h1}</span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
         </div>
       </main>
       <Footer />

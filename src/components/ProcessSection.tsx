@@ -12,7 +12,7 @@ const ProcessSection = () => {
           {t.steps.map((step, i) => (
             <li
               key={step.title}
-              className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-start gap-4 lg:grid-cols-1 lg:gap-2 lg:text-center lg:justify-items-center"
+              className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] content-start items-start gap-4 lg:grid-cols-1 lg:gap-2 lg:text-center lg:justify-items-center"
             >
               <span
                 className="text-gradient font-display text-5xl font-bold leading-none tabular-nums lg:text-6xl"

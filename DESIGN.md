@@ -10,6 +10,7 @@ colors:
   tint-indigo: "hsl(248 38% 96%)"
   chip-indigo: "hsl(248 38% 95%)"
   hairline: "hsl(248 22% 88%)"
+  input-edge: "hsl(248 16% 58%)"
   footer-indigo: "hsl(248 44% 13%)"
   footer-text: "hsl(248 30% 96%)"
   gradient-violet: "hsl(258 70% 44%)"
@@ -96,10 +97,12 @@ no toggle. Only the CSS tokens change, in `src/index.css`: the canvas becomes de
 indigo-black (`hsl(248 30% 8%)`), cards `hsl(248 26% 12%)`, primary brightens to a
 light indigo (`hsl(248 90% 77%)`) so icons, prices and links keep ≥ 4.5:1, and the
 text gradient brightens its stops for the same reason. The CTA gradient keeps its
-deep stops, since white text passes AA on them regardless of canvas. The few
-light-theme literals (section tint, chips, nav glass, scrollbar, the integration
-strip's brand hover colors) carry their own dark overrides next to their light
-definitions.
+deep stops, since white text passes AA on them regardless of canvas. Chip colors
+are tokens (`--chip-bg`, `--chip-border`) redefined in the dark `:root` block, so a
+component rule can never win the cascade over the dark value. The few remaining
+light-theme literals (section tint, nav glass, scrollbar) carry their own dark overrides
+next to their light definitions. `:root` declares `color-scheme` (light, or dark in the
+dark block) so native pickers, selects and scrollbars follow the theme.
 
 ## Color rules
 
@@ -111,16 +114,20 @@ definitions.
 - **Indigo is the working accent:** icons, links, check marks, prices, focus rings,
   the package-button text.
 - **The footer is the one dark surface.** `footer-indigo` background,
-  `footer-text` at 70–100% for its links and headings.
-- **Contrast floor is WCAG AA.** `text-ink` ≈ 15:1 on cream; `text-slate` ≥ 7:1 on
-  cream, the tint and white; gradient text stops ≥ 4.5:1 on cream.
+  `footer-text` at 70–100% for its links and headings; focus rings there switch to
+  `footer-text`, since the indigo ring is only 1.8:1 on it.
+- **Form fields keep a visible edge.** `--input` (`hsl(248 16% 58%)`, dark
+  `hsl(248 16% 48%)`) holds ≥ 3:1 against cards, canvas and tint; focus draws a 2px
+  solid primary edge.
+- **Contrast floor is WCAG AA.** `text-ink` ≈ 15:1 on cream; `text-slate` ≈ 7:1 on
+  cream, the tint and white (6.98:1 on the tint); gradient text stops ≥ 4.5:1 on cream.
 
 ## Surfaces
 
 The old dark-glass class names survive with light definitions, so every page restyles at once:
 - `.glass` — white card, 1px `hairline` border, soft shadow (`--shadow-card`)
 - `.glass-panel` — feature panel: white-to-indigo-tint gradient, larger shadow
-- `.glass-chip` — `chip-indigo` pill for icon tiles and status chips
+- `.glass-chip` — `chip-indigo` pill for icon tiles and status chips (colors from `--chip-bg` / `--chip-border`)
 - `.glass-nav` — floating chrome: cream at 85% with backdrop blur (nav, phone booking bar)
 - `.glass-solid` — the booking dialog: solid white, the largest shadow
 - `.glass-hover` — hover: border shifts to indigo 35%, shadow deepens; cards lift 4–6px
@@ -131,12 +138,21 @@ The old dark-glass class names survive with light definitions, so every page res
 
 - Section rhythm `py-16 md:py-24`; the `Section` component renders the shared header
   (gradient uppercase eyebrow, Space Grotesk headline, optional slate lead) — unchanged shape.
-- Homepage order: hero, recent work, reviews, services (three buyer-problem groups),
-  how it works (large gradient numerals), fit, founder, pricing (Lead & CRM group first,
-  featured card with gradient border), data, FAQ, contact.
+- Homepage order: hero, reviews, services, recent work, how it works (large gradient
+  numerals), fit, why me (founder panel), pricing (Health Check banner, then the Lead & CRM
+  group, featured card with gradient border, then Support, then the Custom banner), data,
+  FAQ, contact. Pricing names are real headings (h3 groups, h4 packages).
 - The hero is open on the canvas (no panel): eyebrow chip, headline with one gradient
-  phrase, sector line, intro, CTAs, highlights row, then the integrations strip —
-  text wordmarks, muted at rest, brand color on hover.
+  phrase, sector line, intro, CTAs, the founder call note, then the highlights row.
+  (The integrations strip was removed.)
+- Articles (`SeoPage`): running text capped at `33em` (about 69 characters per line), headings
+  and tables use the full column. The closing TascaLab section renders as the handoff panel
+  (`glass-panel`: the section's own heading and text, then portrait, `seo.ctaTitle`, booking
+  button) before the FAQ, so the action sits right after the advice. One de-duplicated "Read
+  next" list follows the article. The TOC marks the current section (`aria-current`); below
+  `lg` it is an "On this page" disclosure under the header.
+- Calculators: the one-time build is a highlighted row pinned at the top of the vendor
+  table, on the same bar track as the vendors, so lengths compare honestly.
 - Motion is unchanged in spirit: `Reveal` fade-up on scroll (never hides prerendered
   content), CSS `.animate-rise` in the hero (on everything except the headline, which is the
   page's Largest Contentful Paint and must show on the first paint), 300ms hover transitions, and everything

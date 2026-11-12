@@ -31,7 +31,7 @@ const useAlternatePath = () => {
   };
 };
 
-const LanguageLinks = ({ onPick, className }: { onPick: () => void; className?: string }) => {
+const LanguageLinks = ({ onPick, className, linkClassName }: { onPick: () => void; className?: string; linkClassName?: string }) => {
   const { pathname } = useLocation();
   const current = localeFromPath(pathname);
   const alternatePath = useAlternatePath();
@@ -49,6 +49,7 @@ const LanguageLinks = ({ onPick, className }: { onPick: () => void; className?: 
             className={cn(
               "block rounded-lg px-2 py-1.5 font-medium transition-colors hover:text-foreground",
               code === current ? "text-primary" : "text-muted-foreground",
+              linkClassName,
             )}
           >
             {name}
@@ -66,11 +67,10 @@ export const LanguageSwitcher = () => {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger
-        aria-label={t.nav.language}
-        className="flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors"
-      >
+      {/* Accessible name "Language: English" keeps the visible text in it (WCAG 2.5.3) */}
+      <PopoverTrigger className="flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors">
         <Globe className="h-4 w-4" aria-hidden />
+        <span className="sr-only">{t.nav.language}: </span>
         {localeInfo(localeFromPath(pathname)).name}
         <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", open && "rotate-180")} aria-hidden />
       </PopoverTrigger>
@@ -86,11 +86,12 @@ export const LanguageList = ({ onPick }: { onPick: () => void }) => {
   const t = useDict();
   return (
     <div>
-      <p className="mb-2 flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground/70">
+      <p className="mb-2 flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
         <Globe className="h-3.5 w-3.5" aria-hidden />
         {t.nav.language}
       </p>
-      <LanguageLinks onPick={onPick} className="-mx-2" />
+      {/* Flush with the menu links above, without a negative margin that spills past the scrolling menu */}
+      <LanguageLinks onPick={onPick} linkClassName="px-0" />
     </div>
   );
 };

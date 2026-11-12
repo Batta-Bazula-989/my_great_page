@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { m, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Calendar, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,20 @@ const Navbar = () => {
   ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Escape closes the mobile menu, as it does every other overlay on the site.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setIsMobileMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,6 +106,7 @@ const Navbar = () => {
               </BookingButton>
             ) : null}
             <button
+              ref={menuButtonRef}
               className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-secondary"
               aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMobileMenuOpen}
@@ -111,7 +126,7 @@ const Navbar = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
+              transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeInOut" }}
             >
               {/* The menu can be taller than a phone screen, so it scrolls inside the fixed bar */}
               <div className="flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto overscroll-contain py-3">

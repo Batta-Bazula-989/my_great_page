@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Field, NumberInput, Panel } from "./fields";
+import { Field, NumberInput, Panel, linkClass } from "./fields";
 import { useDict, useLocale } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
 import { CURRENCY } from "@/lib/pricing";
@@ -33,8 +33,8 @@ const WhatsAppCostCalculator = () => {
   const symbol = new Intl.NumberFormat(dateLocale, { style: "currency", currency }).formatToParts(0).find((p) => p.type === "currency")?.value;
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <div className="space-y-5">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div className="min-w-0 space-y-5">
         <Panel title={t.inputs.volumeTitle}>
           <div className="space-y-4">
             <Field label={t.inputs.numbers} htmlFor="wa-numbers">
@@ -60,7 +60,7 @@ const WhatsAppCostCalculator = () => {
         <Panel title={t.inputs.ratesTitle}>
           <p className="text-sm text-muted-foreground mb-4">
             {t.inputs.ratesHint}{" "}
-            <a href={META_PRICING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary hover:underline">
+            <a href={META_PRICING_URL} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 ${linkClass}`}>
               {t.inputs.rateCard}
               <ArrowUpRight className="w-3.5 h-3.5" aria-hidden />
             </a>

@@ -31,7 +31,7 @@ const sv: Dictionary = {
     callNote: "Kostnadsfri Health Check: ett samtal på 30 minuter med mig, sedan en skriftlig rapport.",
     ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
-    highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
+    highlights: ["Fungerar med ditt nuvarande CRM eller din helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
     integratesWith: "Integreras med",
   },
   recentWork: {
@@ -104,7 +104,7 @@ const sv: Dictionary = {
       },
       {
         title: "Byggt på 1–3 veckor",
-        description: "Inbyggt i din helpdesk och körs i dina egna konton.",
+        description: "Inbyggt i ditt CRM eller din helpdesk och körs i dina egna konton.",
       },
       {
         title: "30 dagars support",
@@ -114,19 +114,19 @@ const sv: Dictionary = {
   },
   fit: {
     eyebrow: "Passar det dig?",
-    title: "Vem den här supportautomatiseringen passar för",
+    title: "Vem den här automatiseringen passar för",
     intro: "Oftast små B2B-team med repetitivt arbete i sina vardagsverktyg.",
     goodTitle: "Passar bra",
     notTitle: "Passar inte",
     good: [
-      "Återkommande supportarbete varje dag",
-      "Du använder Zendesk, Freshdesk, Jira eller liknande",
-      "Rapporter som fortfarande tas fram för hand",
+      "Återkommande sälj- eller supportarbete varje dag",
+      "Du använder HubSpot, Attio, Zendesk, Freshdesk eller liknande",
+      "Leads, svar eller rapporter som fortfarande hanteras för hand",
       "Verktyg som inte pratar med varandra",
     ],
     not: [
       "Du behöver en supportchef på heltid",
-      "Du vill byta ut hela din supportstack",
+      "Du vill byta ut hela din verktygsstack",
       "Du förväntar dig att AI ska ersätta ditt team",
     ],
   },
@@ -339,8 +339,8 @@ const sv: Dictionary = {
     title: "Vanliga frågor",
     items: [
       {
-        q: "Måste jag byta supportverktyg?",
-        a: "Nej. Jag arbetar med det du redan använder – Zendesk, Freshdesk, Jira, Slack, interna verktyg. Målet är att koppla ihop och förbättra det du har, inte att ersätta det.",
+        q: "Måste jag byta CRM eller supportverktyg?",
+        a: "Nej. Jag arbetar med det du redan använder – HubSpot, Attio, Zendesk, Freshdesk, Jira, Slack, interna verktyg. Målet är att koppla ihop och förbättra det du har, inte att ersätta det.",
       },
       {
         q: "Vad händer om något slutar fungera efter lanseringen?",
@@ -390,6 +390,7 @@ const sv: Dictionary = {
   cookie: {
     text: "Jag använder cookies för analys och annonsmätning för att förstå hur besökare hittar och använder den här webbplatsen.",
     privacy: "Integritetspolicy",
+    label: "Samtycke till cookies",
     decline: "Avböj",
     accept: "Acceptera",
   },
@@ -420,6 +421,7 @@ const sv: Dictionary = {
     sendFailed: "Din förfrågan gick inte igenom",
     networkError: "Försök igen om en stund, eller kontakta mig direkt:",
     sentTitle: "Förfrågan skickad",
+    sentCalendarTitle: "Nästan klart: välj en tid",
     sentCalendar: "Välj nu en tid som passar dig i min kalender.",
     openCalendar: "Öppna min kalender",
     sent: "Jag hör av mig inom 24 timmar för att komma överens om en tid.",
@@ -446,7 +448,7 @@ const sv: Dictionary = {
     atAGlance: "I korthet",
     faqTitle: "Vanliga frågor",
     faqShort: "FAQ",
-    ctaTitle: "Vill du ha det här på plats i ditt team?",
+    ctaTitle: "Osäker på vad du ska automatisera först?",
     ctaText:
       "Boka en kostnadsfri Health Check: ett samtal på 30 minuter och en skriftlig rapport med 2–3 konkreta rekommendationer, ett fast pris och uppskattade driftskostnader. Ingen säljpitch.",
     ctaBook: "Boka kostnadsfri Health Check",
