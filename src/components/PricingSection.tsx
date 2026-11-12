@@ -84,12 +84,14 @@ const PricingSection = () => {
 
       <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {GROUPS.map((group) => (
-          <div key={group.key} className={group.span}>
+          // Each group is a column whose card grid fills the row, so cards in
+          // neighbouring groups (Lead & CRM next to Support) match height.
+          <div key={group.key} className={cn(group.span, "flex flex-col")}>
             <h3 className="mb-4 flex items-center gap-4 font-display text-lg font-semibold text-foreground/90">
               {t.groups[group.key]}
               <span className="h-px flex-1 bg-border" aria-hidden />
             </h3>
-            <div className={cn("grid grid-cols-1 gap-6", group.cols)}>
+            <div className={cn("grid flex-1 grid-cols-1 auto-rows-fr gap-6", group.cols)}>
               {group.ids.map((id, i) => {
                 const index = planIndex(id);
                 const plan = t.plans[index];
