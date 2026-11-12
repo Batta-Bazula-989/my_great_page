@@ -183,11 +183,10 @@ export const servicesPages: TranslatedPage[] = [
             caption: "Pacchetti chatbot TascaLab (prezzo una tantum)",
             head: ["Pacchetto", "Ambito", "Prezzo"],
             rows: [
-              ["Starter Chat Bot", "1–2 canali, FAQ, raccolta di informazioni di base", "{{price:starter}}"],
               [
-                "Standard Chat Bot",
-                "3–5 canali, conversazioni più complesse, passaggi all'operatore più fluidi",
-                "{{price:standard}}",
+                "Support Automation",
+                "Chatbot e voice bot, smistamento e categorizzazione dei ticket, report automatici — collegati al tuo helpdesk",
+                "{{price:supportAutomation}}",
               ],
             ],
           },
@@ -404,7 +403,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Il pacchetto Voice Bot di TascaLab copre chiamate in entrata, smistamento e passaggio al tuo team, a un prezzo una tantum di {{price:voice}}. Il bot si collega agli strumenti che usi già (Zendesk, Freshdesk, Jira, Slack o sistemi interni) tramite API e webhook, così gli esiti delle chiamate arrivano come ticket o messaggi che il tuo team già segue. È costruito come un filtro davanti al tuo team, non come un suo sostituto.",
+            text: "TascaLab realizza voice bot che coprono chiamate in entrata, smistamento e passaggio al tuo team, come parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum). Il bot si collega agli strumenti che usi già (Zendesk, Freshdesk, Jira, Slack o sistemi interni) tramite API e webhook, così gli esiti delle chiamate arrivano come ticket o messaggi che il tuo team già segue. È costruito come un filtro davanti al tuo team, non come un suo sostituto.",
           },
           {
             type: "p",
@@ -623,7 +622,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Il servizio Ticket Routing & Categorization di TascaLab ({{price:routing}} una tantum) lavora sopra l'helpdesk che hai già, che sia Zendesk, Freshdesk o Jira, usando le sue regole native dove bastano e API, webhook o Make/n8n dove non bastano, per esempio per classificare i ticket prima che il tuo smistamento nativo li assegni. Non serve cambiare piattaforma.",
+            text: "TascaLab configura lo smistamento e la categorizzazione dei ticket come parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), lavorando sopra l'helpdesk che hai già, che sia Zendesk, Freshdesk o Jira, usando le sue regole native dove bastano e API, webhook o Make/n8n dove non bastano, per esempio per classificare i ticket prima che il tuo smistamento nativo li assegni. Non serve cambiare piattaforma.",
           },
           {
             type: "p",
@@ -866,7 +865,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Il servizio Automated Reports di TascaLab ({{price:reports}} una tantum) invia le tue metriche di assistenza via email o su Slack secondo una pianificazione. Lavora sopra Zendesk, Freshdesk, Jira e i tuoi strumenti interni tramite le loro API e Make o n8n, quindi non cambia nulla nel lavoro quotidiano del tuo team.",
+            text: "TascaLab configura la reportistica automatica come parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), inviando le tue metriche di assistenza via email o su Slack secondo una pianificazione. Lavora sopra Zendesk, Freshdesk, Jira e i tuoi strumenti interni tramite le loro API e Make o n8n, quindi non cambia nulla nel lavoro quotidiano del tuo team.",
           },
           {
             type: "p",
@@ -1078,7 +1077,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura tutto questo sopra l'helpdesk che usi già, che sia Zendesk, Freshdesk o Jira, con trigger e regole nativi dove bastano e API, webhook o Make/n8n dove non bastano. Non serve cambiare piattaforma. La classificazione e lo smistamento delle email in arrivo rientrano nel servizio Ticket Routing & Categorization ({{price:routing}} una tantum); i workflow in più passaggi, come leggere un numero d'ordine da un'email e cercarlo in un altro sistema, rientrano in Custom Automation ({{price:custom}}).",
+            text: "TascaLab configura tutto questo sopra l'helpdesk che usi già, che sia Zendesk, Freshdesk o Jira, con trigger e regole nativi dove bastano e API, webhook o Make/n8n dove non bastano. Non serve cambiare piattaforma. La classificazione e lo smistamento delle email in arrivo rientrano nel pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); i workflow in più passaggi, come leggere un numero d'ordine da un'email e cercarlo in un altro sistema, rientrano in Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1317,7 +1316,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sviluppa chatbot sopra gli strumenti che usi già (Zendesk, Freshdesk, Jira, Slack o sistemi interni) tramite API, webhook e Make o n8n, quindi la tua knowledge base resta dov'è. Lo Starter Chat Bot ({{price:starter}} una tantum) copre 1–2 canali e lo Standard Chat Bot ({{price:standard}}) ne copre 3–5, tra sito web, telefono, WhatsApp, Telegram, Facebook Messenger e Instagram. I workflow di manutenzione, come i promemoria di revisione per gli articoli obsoleti, rientrano in Custom Automation ({{price:custom}}).",
+            text: "TascaLab sviluppa chatbot sopra gli strumenti che usi già (Zendesk, Freshdesk, Jira, Slack o sistemi interni) tramite API, webhook e Make o n8n, quindi la tua knowledge base resta dov'è. I chatbot fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), tra sito web, telefono, WhatsApp, Telegram, Facebook Messenger e Instagram. I workflow di manutenzione, come i promemoria di revisione per gli articoli obsoleti, rientrano in Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
