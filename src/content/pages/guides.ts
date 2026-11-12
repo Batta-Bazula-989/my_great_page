@@ -376,7 +376,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds chat and voice bots on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools). Standard Chat Bot projects cost {{price:standard}} and Voice Bot projects {{price:voice}}. Both include basic documentation and 30 days of post-launch support.",
+            text: "TascaLab builds chat and voice bots on top of the tools you already use (Zendesk, Freshdesk, Jira, Slack and internal tools). Chat and voice bots are part of the Support Automation package, from {{price:supportAutomation}} one-time. Every project includes basic documentation and 30 days of post-launch support.",
           },
         ],
       },
@@ -742,7 +742,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds chat and voice bots on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack. Standard Chat Bot projects cost {{price:standard}} and Voice Bot projects {{price:voice}}. Both include basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
+            text: "TascaLab builds chat and voice bots on top of the tools you already use, such as Zendesk, Freshdesk, Jira and Slack. Chat and voice bots are part of the Support Automation package, from {{price:supportAutomation}} one-time. Every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -930,7 +930,7 @@ export const guidePages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "TascaLab builds Zendesk automations like this with n8n, Make, APIs and webhooks, on top of the tools you already use. Ticket Routing & Categorization projects cost {{price:routing}}, and Custom Automation projects {{price:custom}}. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
+            text: "TascaLab builds Zendesk automations like this with n8n, Make, APIs and webhooks, on top of the tools you already use. Ticket routing and categorization is part of the Support Automation package (from {{price:supportAutomation}} one-time), and Custom Automation projects are {{price:custom}}. Most setups take 1 to 3 weeks, and every project includes basic documentation and 30 days of post-launch support. You can start with a free 30-minute Health Check call.",
           },
         ],
       },

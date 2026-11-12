@@ -186,11 +186,10 @@ export const servicesPages: SeoPageContent[] = [
             caption: "TascaLab chatbot packages (one-time price)",
             head: ["Package", "Scope", "Price"],
             rows: [
-              ["Starter Chat Bot", "1–2 channels, FAQs, basic info collection", "{{price:starter}}"],
               [
-                "Standard Chat Bot",
-                "3–5 channels, more complex conversations, smoother handoffs",
-                "{{price:standard}}",
+                "Support Automation",
+                "Chat and voice bots, ticket routing and categorization, automated reports — connected to your helpdesk",
+                "{{price:supportAutomation}}",
               ],
             ],
           },
@@ -409,7 +408,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Voice Bot package covers inbound calls, triage and handover to your team, for a one-time price of {{price:voice}}. The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
+            text: "TascaLab builds voice bots that cover inbound calls, triage and handover to your team, as part of the Support Automation package (from {{price:supportAutomation}} one-time). The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
           },
           {
             type: "p",
@@ -630,7 +629,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Ticket Routing & Categorization service ({{price:routing}} one-time) works on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
+            text: "TascaLab sets up ticket routing and categorization as part of the Support Automation package (from {{price:supportAutomation}} one-time), working on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
           },
           {
             type: "p",
@@ -875,7 +874,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab's Automated Reports service ({{price:reports}} one-time) delivers your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
+            text: "TascaLab sets up automated reporting as part of the Support Automation package (from {{price:supportAutomation}} one-time), delivering your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
           },
           {
             type: "p",
@@ -1090,7 +1089,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Ticket Routing & Categorization service ({{price:routing}} one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ({{price:custom}}).",
+            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Support Automation package (from {{price:supportAutomation}} one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1331,7 +1330,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. The Starter Chat Bot ({{price:starter}} one-time) covers 1–2 channels and the Standard Chat Bot ({{price:standard}}) covers 3–5, across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ({{price:custom}}).",
+            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. Chat bots are part of the Support Automation package (from {{price:supportAutomation}} one-time), across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
