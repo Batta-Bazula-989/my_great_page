@@ -373,7 +373,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz (Zendesk, Freshdesk, Jira, Slack i narzędzia wewnętrzne). Projekty Standard Chat Bot kosztują {{price:standard}}, a projekty Voice Bot {{price:voice}}. Oba obejmują podstawową dokumentację i 30 dni wsparcia po uruchomieniu.",
+            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz (Zendesk, Freshdesk, Jira, Slack i narzędzia wewnętrzne). Chatboty i voiceboty wchodzą w skład pakietu Support Automation, od {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu.",
           },
         ],
       },
@@ -736,7 +736,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack. Projekty Standard Chat Bot kosztują {{price:standard}}, a projekty Voice Bot {{price:voice}}. Oba obejmują podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack. Chatboty i voiceboty wchodzą w skład pakietu Support Automation, od {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -921,7 +921,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje takie automatyzacje Zendesk z użyciem n8n, Make, API i webhooków, na narzędziach, których już używasz. Projekty Ticket Routing & Categorization kosztują {{price:routing}}, a projekty Custom Automation {{price:custom}}. Większość wdrożeń trwa od 1 do 3 tygodni, a każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab buduje takie automatyzacje Zendesk z użyciem n8n, Make, API i webhooków, na narzędziach, których już używasz. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa), a projekty Custom Automation kosztują {{price:custom}}. Większość wdrożeń trwa od 1 do 3 tygodni, a każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
