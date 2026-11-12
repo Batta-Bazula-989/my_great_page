@@ -138,7 +138,8 @@ The old dark-glass class names survive with light definitions, so every page res
   phrase, sector line, intro, CTAs, highlights row, then the integrations strip —
   text wordmarks, muted at rest, brand color on hover.
 - Motion is unchanged in spirit: `Reveal` fade-up on scroll (never hides prerendered
-  content), CSS `.animate-rise` in the hero, 300ms hover transitions, and everything
+  content), CSS `.animate-rise` in the hero (on everything except the headline, which is the
+  page's Largest Contentful Paint and must show on the first paint), 300ms hover transitions, and everything
   honors `prefers-reduced-motion`. No popups, no countdowns.
 
 ## Don'ts

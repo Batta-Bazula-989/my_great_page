@@ -48,10 +48,9 @@ const HeroSection = () => {
             {t.eyebrow}
           </p>
 
-          <h1
-            className="animate-rise text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight"
-            style={rise(1)}
-          >
+          {/* The headline doesn't animate: it's the page's Largest Contentful Paint, and Chrome only counts it
+              once a fade-in has finished, which cost about 4 seconds of LCP on PageSpeed's mobile test. */}
+          <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight">
             {tidy(t.titleBefore)}
             <span className="text-gradient">{tidy(t.titleHighlight)}</span>
             {tidy(t.titleAfter)}
