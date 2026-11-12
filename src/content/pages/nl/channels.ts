@@ -141,7 +141,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt WhatsApp-bots bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira, Slack of interne systemen, met API's, webhooks en Make of n8n. Een Starter Chat Bot ({{price:starter}}) dekt één of twee kanalen met FAQ's en eenvoudige gegevensverzameling; een Standard Chat Bot ({{price:standard}}) dekt drie tot vijf kanalen met complexere gesprekken en soepelere overdrachten. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken. Een gratis Health Check-gesprek van 30 minuten is een eenvoudige manier om na te gaan of WhatsApp past bij je supportvolume.",
+            text: "TascaLab bouwt WhatsApp-bots bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira, Slack of interne systemen, met API's, webhooks en Make of n8n. Chatbots met FAQ's, gegevensverzameling en overdracht aan je team maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken. Een gratis Health Check-gesprek van 30 minuten is een eenvoudige manier om na te gaan of WhatsApp past bij je supportvolume.",
           },
         ],
       },
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -333,7 +333,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt Telegram-supportbots die koppelen met de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira, Slack of interne systemen, via API's, webhooks en Make of n8n. Een Starter Chat Bot ({{price:starter}}) dekt één of twee kanalen met FAQ's en eenvoudige gegevensverzameling, wat past bij Telegram plus een websitewidget. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
+            text: "TascaLab bouwt Telegram-supportbots die koppelen met de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira, Slack of interne systemen, via API's, webhooks en Make of n8n. Een Telegram-bot met FAQ's en eenvoudige gegevensverzameling — op zichzelf of naast een websitewidget — maakt deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -395,7 +395,7 @@ export const channelPages: TranslatedPage[] = [
       "slack-support-automation",
       "n8n-vs-make-vs-zapier",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -530,7 +530,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt Messenger-bots die werken bovenop Zendesk, Freshdesk, Jira, Slack of je interne tools, met API's, webhooks en Make of n8n. Een Starter Chat Bot ({{price:starter}}) dekt één of twee kanalen; een Standard Chat Bot ({{price:standard}}) dekt drie tot vijf kanalen, zoals Messenger, Instagram en WhatsApp, met complexere gesprekken en soepelere overdrachten. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Plan een gratis Health Check-gesprek van 30 minuten in om je huidige Messenger-flow in kaart te brengen.",
+            text: "TascaLab bouwt Messenger-bots die werken bovenop Zendesk, Freshdesk, Jira, Slack of je interne tools, met API's, webhooks en Make of n8n. Bots voor Messenger, Instagram en WhatsApp, met overdracht aan je team, maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Plan een gratis Health Check-gesprek van 30 minuten in om je huidige Messenger-flow in kaart te brengen.",
           },
         ],
       },
@@ -592,7 +592,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -706,7 +706,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richt Instagram-DM-bots in die veelgestelde vragen beantwoorden, gegevens verzamelen en gesprekken overdragen aan je team in Zendesk, Freshdesk, Jira, Slack of een interne tool, gebouwd op API's, webhooks en Make of n8n. Een Starter Chat Bot ({{price:starter}}) dekt één of twee kanalen; een Standard Chat Bot ({{price:standard}}) dekt er drie tot vijf, zoals Instagram, Messenger en je website. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Het gratis Health Check-gesprek van 30 minuten is het startpunt.",
+            text: "TascaLab richt Instagram-DM-bots in die veelgestelde vragen beantwoorden, gegevens verzamelen en gesprekken overdragen aan je team in Zendesk, Freshdesk, Jira, Slack of een interne tool, gebouwd op API's, webhooks en Make of n8n. Instagram-bots — op zichzelf of samen met Messenger en je website — maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste projecten duren 1–3 weken. Het gratis Health Check-gesprek van 30 minuten is het startpunt.",
           },
         ],
       },
@@ -768,7 +768,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "ai-chatbot-for-customer-support",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -888,7 +888,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richt website-chatbots in bovenop de helpdesk die je al gebruikt, zoals Zendesk of Freshdesk, of koppelt een maatwerkbot aan Jira, Slack of interne tools via API's, webhooks en Make of n8n. Een Starter Chat Bot ({{price:starter}}) dekt één of twee kanalen met FAQ's en eenvoudige gegevensverzameling; een Standard Chat Bot ({{price:standard}}) dekt drie tot vijf kanalen met complexere gesprekken en soepelere overdrachten. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
+            text: "TascaLab richt website-chatbots in bovenop de helpdesk die je al gebruikt, zoals Zendesk of Freshdesk, of koppelt een maatwerkbot aan Jira, Slack of interne tools via API's, webhooks en Make of n8n. Website-chatbots met FAQ's, gegevensverzameling en overdracht aan je team maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -950,7 +950,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "freshdesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1079,7 +1079,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De botkanalen die TascaLab aanbiedt, zijn website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Sms staat niet op die lijst, maar andere kanalen met een API kunnen tijdens het gratis Health Check-gesprek van 30 minuten worden afgebakend. TascaLab bouwt bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira en Slack, via API's, webhooks en Make of n8n. Een Starter Chat Bot kost {{price:starter}} voor één of twee kanalen en een Standard Chat Bot {{price:standard}} voor drie tot vijf. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken.",
+            text: "De botkanalen die TascaLab aanbiedt, zijn website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Sms staat niet op die lijst, maar andere kanalen met een API kunnen tijdens het gratis Health Check-gesprek van 30 minuten worden afgebakend. TascaLab bouwt bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira en Slack, via API's, webhooks en Make of n8n. Chatbots maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken.",
           },
         ],
       },
@@ -1145,7 +1145,7 @@ export const channelPages: TranslatedPage[] = [
       "zendesk-automation",
       "omnichannel-customer-support",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1280,7 +1280,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De botkanalen die TascaLab aanbiedt, zijn website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Viber staat niet op die lijst, maar andere kanalen met een API kunnen tijdens het gratis Health Check-gesprek van 30 minuten worden afgebakend. TascaLab bouwt bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira en Slack, via API's, webhooks en Make of n8n. Een Starter Chat Bot kost {{price:starter}} voor één of twee kanalen en een Standard Chat Bot {{price:standard}} voor drie tot vijf. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken.",
+            text: "De botkanalen die TascaLab aanbiedt, zijn website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Viber staat niet op die lijst, maar andere kanalen met een API kunnen tijdens het gratis Health Check-gesprek van 30 minuten worden afgebakend. TascaLab bouwt bovenop de tools die je al gebruikt, zoals Zendesk, Freshdesk, Jira en Slack, via API's, webhooks en Make of n8n. Chatbots maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, zonder verborgen kosten, en de meeste projecten duren 1–3 weken.",
           },
         ],
       },
@@ -1338,6 +1338,6 @@ export const channelPages: TranslatedPage[] = [
       "telegram-support-bot",
       "chatbot-to-human-handoff",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

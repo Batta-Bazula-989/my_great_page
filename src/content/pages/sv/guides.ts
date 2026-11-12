@@ -218,7 +218,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zapier — Zapier vs. n8n comparison", url: "https://zapier.com/blog/n8n-vs-zapier/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "what-is-customer-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "eu-ai-act-chatbot-rules",
@@ -373,7 +373,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab bygger chatt- och röstbottar ovanpå de verktyg du redan använder (Zendesk, Freshdesk, Jira, Slack och interna verktyg). Projekt med Standard Chat Bot kostar {{price:standard}} och projekt med Voice Bot {{price:voice}}. Båda inkluderar grundläggande dokumentation och 30 dagars support efter lansering.",
+            text: "TascaLab bygger chatt- och röstbottar ovanpå de verktyg du redan använder (Zendesk, Freshdesk, Jira, Slack och interna verktyg). Chatt- och röstbottar ingår i paketet Support Automation, {{price:supportAutomation}} som engångspris. Varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering.",
           },
         ],
       },
@@ -411,7 +411,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "European Commission — AI Omnibus enters into force", url: "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force" },
     ],
     related: ["ai-chatbot-for-customer-support", "gdpr-customer-support-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "gdpr-customer-support-automation",
@@ -736,7 +736,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab bygger chatt- och röstbottar ovanpå de verktyg du redan använder, till exempel Zendesk, Freshdesk, Jira och Slack. Projekt med Standard Chat Bot kostar {{price:standard}} och projekt med Voice Bot {{price:voice}}. Båda inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab bygger chatt- och röstbottar ovanpå de verktyg du redan använder, till exempel Zendesk, Freshdesk, Jira och Slack. Chatt- och röstbottar ingår i paketet Support Automation, {{price:supportAutomation}} som engångspris. Varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -773,7 +773,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "EUR-Lex — Commission Implementing Decision (EU) 2021/1339", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32021D1339" },
     ],
     related: ["website-chatbot-for-support", "eu-ai-act-chatbot-rules", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "n8n-zendesk-integration",
@@ -921,7 +921,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab bygger Zendesk-automatiseringar som den här med n8n, Make, API:er och webhooks, ovanpå de verktyg du redan använder. Projekt med Ticket Routing & Categorization kostar {{price:routing}} och projekt med Custom Automation {{price:custom}}. De flesta upplägg tar 1 till 3 veckor, och varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab bygger Zendesk-automatiseringar som den här med n8n, Make, API:er och webhooks, ovanpå de verktyg du redan använder. Routing och kategorisering av ärenden ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris), och projekt med Custom Automation kostar {{price:custom}}. De flesta upplägg tar 1 till 3 veckor, och varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -963,6 +963,6 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zendesk Developer Docs — Migrating from API tokens to OAuth access tokens", url: "https://developer.zendesk.com/documentation/authentication/oauth-migration/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-11-03",
+    updated: "2026-11-12",
   },
 ];

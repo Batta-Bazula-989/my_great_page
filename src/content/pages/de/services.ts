@@ -180,14 +180,13 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "table",
-            caption: "Chatbot-Pakete von TascaLab (einmaliger Preis)",
+            caption: "TascaLab-Paket (einmaliger Preis)",
             head: ["Paket", "Umfang", "Preis"],
             rows: [
-              ["Starter Chat Bot", "1–2 Kanäle, FAQs, einfache Erfassung von Informationen", "{{price:starter}}"],
               [
-                "Standard Chat Bot",
-                "3–5 Kanäle, komplexere Gespräche, reibungslosere Übergaben",
-                "{{price:standard}}",
+                "Support Automation",
+                "Chat- und Voicebots, Ticket-Routing und Kategorisierung, automatische Reports – angebunden an Ihren Helpdesk",
+                "{{price:supportAutomation}}",
               ],
             ],
           },
@@ -251,7 +250,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "website-chatbot-for-support", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -404,7 +403,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Das Paket „Voice Bot“ von TascaLab umfasst eingehende Anrufe, Triage und Übergabe an Ihr Team zum einmaligen Preis von {{price:voice}}. Der Bot wird über APIs und Webhooks an die Tools angebunden, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, sodass Anrufergebnisse als Tickets oder Nachrichten ankommen, die Ihr Team ohnehin im Blick hat. Er ist als Filter vor Ihrem Team konzipiert, nicht als Ersatz dafür.",
+            text: "TascaLab baut Voicebots, die eingehende Anrufe, Triage und Übergabe an Ihr Team abdecken, als Teil des Support-Automation-Pakets ({{price:supportAutomation}}, einmalig). Der Bot wird über APIs und Webhooks an die Tools angebunden, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, sodass Anrufergebnisse als Tickets oder Nachrichten ankommen, die Ihr Team ohnehin im Blick hat. Er ist als Filter vor Ihrem Team konzipiert, nicht als Ersatz dafür.",
           },
           {
             type: "p",
@@ -466,7 +465,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -623,7 +622,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Der Service „Ticket Routing & Categorization“ von TascaLab ({{price:routing}} einmalig) setzt auf dem Helpdesk auf, den Sie bereits haben – Zendesk, Freshdesk oder Jira. Er nutzt dessen native Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht, etwa um Tickets zu kategorisieren, bevor Ihr natives Routing sie zuweist. Ein Plattformwechsel ist nicht nötig.",
+            text: "TascaLab richtet Ticket-Routing und Kategorisierung als Teil des Support-Automation-Pakets ein ({{price:supportAutomation}}, einmalig) und setzt dabei auf dem Helpdesk auf, den Sie bereits haben – Zendesk, Freshdesk oder Jira. Genutzt werden dessen native Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht, etwa um Tickets zu kategorisieren, bevor Ihr natives Routing sie zuweist. Ein Plattformwechsel ist nicht nötig.",
           },
           {
             type: "p",
@@ -685,7 +684,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["zendesk-automation", "freshdesk-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -866,7 +865,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Der Service „Automated Reports“ von TascaLab ({{price:reports}} einmalig) liefert Ihre Support-Kennzahlen nach Zeitplan per E-Mail oder in Slack. Er setzt über deren APIs und Make oder n8n auf Zendesk, Freshdesk, Jira und Ihren internen Tools auf, sodass sich an der täglichen Arbeitsweise Ihres Teams nichts ändert.",
+            text: "TascaLab richtet automatisches Reporting als Teil des Support-Automation-Pakets ein ({{price:supportAutomation}}, einmalig) und liefert Ihre Support-Kennzahlen nach Zeitplan per E-Mail oder in Slack. Es setzt über deren APIs und Make oder n8n auf Zendesk, Freshdesk, Jira und Ihren internen Tools auf, sodass sich an der täglichen Arbeitsweise Ihres Teams nichts ändert.",
           },
           {
             type: "p",
@@ -928,7 +927,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1078,7 +1077,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richtet das auf dem Helpdesk ein, den Sie bereits nutzen – Zendesk, Freshdesk oder Jira –, mit nativen Triggern und Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht. Ein Plattformwechsel ist nicht nötig. Das Klassifizieren und Routen eingehender E-Mails passt zum Service „Ticket Routing & Categorization“ ({{price:routing}} einmalig); mehrstufige Workflows, etwa eine Bestellnummer aus einer E-Mail auslesen und in einem anderen System nachschlagen, fallen unter „Custom Automation“ ({{price:custom}}).",
+            text: "TascaLab richtet das auf dem Helpdesk ein, den Sie bereits nutzen – Zendesk, Freshdesk oder Jira –, mit nativen Triggern und Regeln, wo sie ausreichen, und APIs, Webhooks oder Make/n8n, wo nicht. Ein Plattformwechsel ist nicht nötig. Das Klassifizieren und Routen eingehender E-Mails passt zum Support-Automation-Paket ({{price:supportAutomation}}, einmalig); mehrstufige Workflows, etwa eine Bestellnummer aus einer E-Mail auslesen und in einem anderen System nachschlagen, fallen unter „Custom Automation“ ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1140,7 +1139,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1317,7 +1316,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab baut Chatbots auf den Tools auf, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, über APIs, Webhooks und Make oder n8n, sodass Ihre Wissensdatenbank bleibt, wo sie ist. Der Starter Chat Bot ({{price:starter}} einmalig) deckt 1–2 Kanäle ab, der Standard Chat Bot ({{price:standard}}) 3–5 Kanäle, auf Ihrer Website, am Telefon sowie über WhatsApp, Telegram, Facebook Messenger und Instagram. Pflege-Workflows wie Überprüfungserinnerungen für veraltete Artikel fallen unter „Custom Automation“ ({{price:custom}}).",
+            text: "TascaLab baut Chatbots auf den Tools auf, die Sie bereits nutzen – Zendesk, Freshdesk, Jira, Slack oder interne Systeme –, über APIs, Webhooks und Make oder n8n, sodass Ihre Wissensdatenbank bleibt, wo sie ist. Chatbots sind Teil des Support-Automation-Pakets ({{price:supportAutomation}}, einmalig) – auf Ihrer Website, am Telefon sowie über WhatsApp, Telegram, Facebook Messenger und Instagram. Pflege-Workflows wie Überprüfungserinnerungen für veraltete Artikel fallen unter „Custom Automation“ ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1379,6 +1378,6 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

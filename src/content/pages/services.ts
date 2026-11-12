@@ -183,7 +183,7 @@ export const servicesPages: SeoPageContent[] = [
           },
           {
             type: "table",
-            caption: "TascaLab chatbot packages (one-time price)",
+            caption: "TascaLab package (one-time price)",
             head: ["Package", "Scope", "Price"],
             rows: [
               [
@@ -253,7 +253,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "website-chatbot-for-support", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -408,7 +408,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds voice bots that cover inbound calls, triage and handover to your team, as part of the Support Automation package (from {{price:supportAutomation}} one-time). The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
+            text: "TascaLab builds voice bots that cover inbound calls, triage and handover to your team, as part of the Support Automation package ({{price:supportAutomation}} one-time). The bot connects to the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs and webhooks, so call outcomes arrive as tickets or messages your team already watches. It's built as a filter in front of your team, not a replacement for it.",
           },
           {
             type: "p",
@@ -470,7 +470,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -629,7 +629,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets up ticket routing and categorization as part of the Support Automation package (from {{price:supportAutomation}} one-time), working on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
+            text: "TascaLab sets up ticket routing and categorization as part of the Support Automation package ({{price:supportAutomation}} one-time), working on top of the helpdesk you already have — Zendesk, Freshdesk or Jira — using its native rules where they're enough, and APIs, webhooks or Make/n8n where they aren't, for example to categorize tickets before your native routing assigns them. There's no platform switch.",
           },
           {
             type: "p",
@@ -691,7 +691,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["zendesk-automation", "freshdesk-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -874,7 +874,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets up automated reporting as part of the Support Automation package (from {{price:supportAutomation}} one-time), delivering your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
+            text: "TascaLab sets up automated reporting as part of the Support Automation package ({{price:supportAutomation}} one-time), delivering your support metrics to email or Slack on a schedule. It works on top of Zendesk, Freshdesk, Jira and your internal tools through their APIs and Make or n8n, so nothing changes in how your team works day to day.",
           },
           {
             type: "p",
@@ -936,7 +936,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -1089,7 +1089,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Support Automation package (from {{price:supportAutomation}} one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ({{price:custom}}).",
+            text: "TascaLab sets this up on top of the helpdesk you already use — Zendesk, Freshdesk or Jira — with native triggers and rules where they're enough, and APIs, webhooks or Make/n8n where they aren't. There's no platform switch. Classifying and routing incoming email fits the Support Automation package ({{price:supportAutomation}} one-time); multi-step workflows, such as reading an order number from an email and looking it up in another system, are Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1151,7 +1151,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -1330,7 +1330,7 @@ export const servicesPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. Chat bots are part of the Support Automation package (from {{price:supportAutomation}} one-time), across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ({{price:custom}}).",
+            text: "TascaLab builds chatbots on top of the tools you already use — Zendesk, Freshdesk, Jira, Slack or internal systems — through APIs, webhooks and Make or n8n, so your knowledge base stays where it is. Chat bots are part of the Support Automation package ({{price:supportAutomation}} one-time), across your website, phone, WhatsApp, Telegram, Facebook Messenger and Instagram. Upkeep workflows, such as review reminders for stale articles, fit Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1392,7 +1392,7 @@ export const servicesPages: SeoPageContent[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 ];

@@ -156,7 +156,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab är en enmansverksamhet som drivs av Roman Zakharenko och som bygger supportautomatisering ovanpå de verktyg du redan använder, bland annat Zendesk, Freshdesk, Jira och Slack, med API:er, webhooks och Make eller n8n. Engångspriserna omfattar Ticket Routing & Categorization ({{price:routing}}), en Starter Chat Bot ({{price:starter}}) och Automated Reports ({{price:reports}}). De flesta upplägg tar 1–3 veckor och levereras med grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab är en enmansverksamhet som drivs av Roman Zakharenko och som bygger supportautomatisering ovanpå de verktyg du redan använder, bland annat Zendesk, Freshdesk, Jira och Slack, med API:er, webhooks och Make eller n8n. Chatt- och röstbottar, routing och kategorisering av ärenden samt automatiserade rapporter ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris). De flesta upplägg tar 1–3 veckor och levereras med grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -214,7 +214,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "chatbot-to-human-handoff",
@@ -360,7 +360,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger chattbottar med överlämning till din befintliga helpdesk eller Slack: en Starter Chat Bot ({{price:starter}}) eller en Standard Chat Bot ({{price:standard}}), kopplad via API:er, webhooks och Make eller n8n. Varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering utan dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra sätt att kartlägga dina triggers för överlämning.",
+            text: "TascaLab bygger chattbottar med överlämning till din befintliga helpdesk eller Slack som en del av paketet Support Automation ({{price:supportAutomation}}, engångspris), kopplade via API:er, webhooks och Make eller n8n. Varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering utan dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra sätt att kartlägga dina triggers för överlämning.",
           },
         ],
       },
@@ -418,7 +418,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "customer-support-metrics",
@@ -575,7 +575,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLabs tjänst Automated Reports ({{price:reports}}, engångsbelopp) hämtar de här nyckeltalen från din helpdesk, till exempel Zendesk, Freshdesk eller Jira, och levererar en schemalagd sammanfattning till mejl eller Slack. Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter hjälper dig att avgöra vilka nyckeltal som är värda att automatisera först.",
+            text: "TascaLab sätter upp automatiserade rapporter som en del av paketet Support Automation ({{price:supportAutomation}}, engångspris) och hämtar de här nyckeltalen från din helpdesk, till exempel Zendesk, Freshdesk eller Jira, och levererar en schemalagd sammanfattning till mejl eller Slack. Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter hjälper dig att avgöra vilka nyckeltal som är värda att automatisera först.",
           },
         ],
       },
@@ -633,7 +633,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "sla-policies-explained",
@@ -783,7 +783,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sätter upp SLA-relaterad automatisering ovanpå Zendesk, Freshdesk och Jira: routning som sätter prioritet så att rätt policy tillämpas, larm om överträdelser till Slack och schemalagda SLA-rapporter. Relevanta engångspriser är Ticket Routing & Categorization ({{price:routing}}), Automated Reports ({{price:reports}}) och Custom Automation ({{price:custom}}). Projekten inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab sätter upp SLA-relaterad automatisering ovanpå Zendesk, Freshdesk och Jira: routning som sätter prioritet så att rätt policy tillämpas, larm om överträdelser till Slack och schemalagda SLA-rapporter. Routing och rapporter ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris); flöden som går över flera system är Custom Automation ({{price:custom}}). Projekten inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -841,7 +841,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "ticket-deflection",
@@ -1013,7 +1013,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger AI-chattbottar som besvarar vanliga frågor på din webbplats, i WhatsApp, Telegram, Facebook Messenger eller Instagram och lämnar över allt annat till ditt team i Zendesk, Freshdesk eller dina befintliga verktyg. En Starter Chat Bot kostar {{price:starter}} och en Standard Chat Bot som täcker 3–5 kanaler kostar {{price:standard}}, som engångsbelopp. Automated Reports ({{price:reports}}) kan följa avledning bredvid upprepade kontakter och återöppnade ärenden, så att du ser den verkliga effekten. Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra tillfälle att bestämma vad som ska automatiseras och vad som ska skötas av människor.",
+            text: "TascaLab bygger AI-chattbottar som besvarar vanliga frågor på din webbplats, i WhatsApp, Telegram, Facebook Messenger eller Instagram och lämnar över allt annat till ditt team i Zendesk, Freshdesk eller dina befintliga verktyg. Chattbottar och automatiserade rapporter – som kan följa avledning bredvid upprepade kontakter och återöppnade ärenden, så att du ser den verkliga effekten – ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris). Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter är ett bra tillfälle att bestämma vad som ska automatiseras och vad som ska skötas av människor.",
           },
         ],
       },
@@ -1071,7 +1071,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "omnichannel-customer-support",
@@ -1214,7 +1214,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab kopplar kanaler till den helpdesk du redan använder, till exempel Zendesk eller Freshdesk, med API:er, webhooks och Make eller n8n. En Standard Chat Bot ({{price:standard}}, engångsbelopp) täcker 3–5 kanaler, till exempel din webbplats, WhatsApp, Telegram, Facebook Messenger och Instagram, och Ticket Routing & Categorization ({{price:routing}}) sorterar inkommande konversationer till rätt kö. Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter kartlägger dina nuvarande kanaler innan något byggs.",
+            text: "TascaLab kopplar kanaler till den helpdesk du redan använder, till exempel Zendesk eller Freshdesk, med API:er, webhooks och Make eller n8n. Chattbottar på din webbplats, i WhatsApp, Telegram, Facebook Messenger och Instagram, plus routing och kategorisering av ärenden som sorterar inkommande konversationer till rätt kö, ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris). Varje projekt inkluderar grundläggande dokumentation, 30 dagars support efter lansering och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Ett kostnadsfritt Health Check-samtal på 30 minuter kartlägger dina nuvarande kanaler innan något byggs.",
           },
         ],
       },
@@ -1272,6 +1272,6 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

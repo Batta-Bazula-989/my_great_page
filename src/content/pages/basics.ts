@@ -162,7 +162,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab is a one-person practice run by Roman Zakharenko that builds support automation on top of the tools you already use, including Zendesk, Freshdesk, Jira and Slack, with APIs, webhooks and Make or n8n. Chat and voice bots, ticket routing and categorization and automated reports are part of the Support Automation package (from {{price:supportAutomation}} one-time). Most setups take 1–3 weeks and come with basic documentation, 30 days of post-launch support and no hidden fees. You can start with a free 30-minute Health Check call.",
+            text: "TascaLab is a one-person practice run by Roman Zakharenko that builds support automation on top of the tools you already use, including Zendesk, Freshdesk, Jira and Slack, with APIs, webhooks and Make or n8n. Chat and voice bots, ticket routing and categorization and automated reports are part of the Support Automation package ({{price:supportAutomation}} one-time). Most setups take 1–3 weeks and come with basic documentation, 30 days of post-launch support and no hidden fees. You can start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -220,7 +220,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -372,7 +372,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds chat bots with handoff into your existing helpdesk or Slack as part of the Support Automation package (from {{price:supportAutomation}} one-time), connected through APIs, webhooks and Make or n8n. Every project includes basic documentation and 30 days of post-launch support with no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call is a good place to map your handoff triggers.",
+            text: "TascaLab builds chat bots with handoff into your existing helpdesk or Slack as part of the Support Automation package ({{price:supportAutomation}} one-time), connected through APIs, webhooks and Make or n8n. Every project includes basic documentation and 30 days of post-launch support with no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call is a good place to map your handoff triggers.",
           },
         ],
       },
@@ -430,7 +430,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -593,7 +593,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets up automated reports as part of the Support Automation package (from {{price:supportAutomation}} one-time), pulling these metrics from your helpdesk, such as Zendesk, Freshdesk or Jira, and delivers a scheduled summary to email or Slack. Each project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call helps decide which metrics are worth automating first.",
+            text: "TascaLab sets up automated reports as part of the Support Automation package ({{price:supportAutomation}} one-time), pulling these metrics from your helpdesk, such as Zendesk, Freshdesk or Jira, and delivers a scheduled summary to email or Slack. Each project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call helps decide which metrics are worth automating first.",
           },
         ],
       },
@@ -651,7 +651,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -807,7 +807,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab sets up SLA-related automation on top of Zendesk, Freshdesk and Jira: routing that sets priority so the right policy applies, breach alerts to Slack, and scheduled SLA reports. Routing and reports are part of the Support Automation package (from {{price:supportAutomation}} one-time); flows that span several systems are Custom Automation ({{price:custom}}). Projects include basic documentation, 30 days of post-launch support and no hidden fees, and most take 1–3 weeks. Start with a free 30-minute Health Check call.",
+            text: "TascaLab sets up SLA-related automation on top of Zendesk, Freshdesk and Jira: routing that sets priority so the right policy applies, breach alerts to Slack, and scheduled SLA reports. Routing and reports are part of the Support Automation package ({{price:supportAutomation}} one-time); flows that span several systems are Custom Automation ({{price:custom}}). Projects include basic documentation, 30 days of post-launch support and no hidden fees, and most take 1–3 weeks. Start with a free 30-minute Health Check call.",
           },
         ],
       },
@@ -865,7 +865,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -1043,7 +1043,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab builds AI chat bots that answer common questions on your website, WhatsApp, Telegram, Facebook Messenger or Instagram and hand everything else to your team in Zendesk, Freshdesk or your existing tools. Chat bots and automated reports — which can track deflection next to repeat contacts and reopens, so you see the real effect — are part of the Support Automation package (from {{price:supportAutomation}} one-time). Every project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call is a good place to decide what to automate and what to keep human.",
+            text: "TascaLab builds AI chat bots that answer common questions on your website, WhatsApp, Telegram, Facebook Messenger or Instagram and hand everything else to your team in Zendesk, Freshdesk or your existing tools. Chat bots and automated reports — which can track deflection next to repeat contacts and reopens, so you see the real effect — are part of the Support Automation package ({{price:supportAutomation}} one-time). Every project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call is a good place to decide what to automate and what to keep human.",
           },
         ],
       },
@@ -1101,7 +1101,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 
@@ -1250,7 +1250,7 @@ export const basicsPages: SeoPageContent[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab connects channels to the helpdesk you already use, such as Zendesk or Freshdesk, using APIs, webhooks and Make or n8n. Chat bots across your website, WhatsApp, Telegram, Facebook Messenger and Instagram, plus ticket routing and categorization that sorts incoming conversations into the right queue, are part of the Support Automation package (from {{price:supportAutomation}} one-time). Every project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call maps your current channels before anything is built.",
+            text: "TascaLab connects channels to the helpdesk you already use, such as Zendesk or Freshdesk, using APIs, webhooks and Make or n8n. Chat bots across your website, WhatsApp, Telegram, Facebook Messenger and Instagram, plus ticket routing and categorization that sorts incoming conversations into the right queue, are part of the Support Automation package ({{price:supportAutomation}} one-time). Every project includes basic documentation, 30 days of post-launch support and no hidden fees, and most setups take 1–3 weeks. A free 30-minute Health Check call maps your current channels before anything is built.",
           },
         ],
       },
@@ -1308,7 +1308,7 @@ export const basicsPages: SeoPageContent[] = [
       },
     ],
     related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
     published: "2026-10-19",
   },
 ];

@@ -156,7 +156,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lavora sul tuo account Zendesk esistente, senza cambiare piattaforma, usando l'API di Zendesk, i webhook e Make o n8n dove servono. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); Custom Automation, per flussi che coinvolgono più sistemi, costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Puoi iniziare con una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab lavora sul tuo account Zendesk esistente, senza cambiare piattaforma, usando l'API di Zendesk, i webhook e Make o n8n dove servono. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum); Custom Automation, per flussi che coinvolgono più sistemi, costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Puoi iniziare con una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -218,7 +218,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "slack-support-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -368,7 +368,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lavora sul tuo account Freshdesk esistente, senza cambiare piattaforma, usando regole di automazione, webhook, l'API di Freshdesk e Make o n8n dove sono utili. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); Custom Automation costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Il primo passo è una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab lavora sul tuo account Freshdesk esistente, senza cambiare piattaforma, usando regole di automazione, webhook, l'API di Freshdesk e Make o n8n dove sono utili. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum); Custom Automation costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Il primo passo è una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -426,7 +426,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "zendesk-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -565,7 +565,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lavora sul tuo sito Jira Service Management esistente, senza cambiare piattaforma, combinando l'automazione nativa con API, webhook e Make o n8n quando un flusso deve raggiungere altri strumenti. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); Custom Automation costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab lavora sul tuo sito Jira Service Management esistente, senza cambiare piattaforma, combinando l'automazione nativa con API, webhook e Make o n8n quando un flusso deve raggiungere altri strumenti. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum); Custom Automation costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -623,7 +623,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -754,7 +754,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab collega Slack all'helpdesk che usi già (Zendesk, Freshdesk, Jira o strumenti interni) tramite API, webhook e Make o n8n, senza cambiare piattaforma. I report automatici inviati su Slack o via email fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); Custom Automation per flussi Slack bidirezionali costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab collega Slack all'helpdesk che usi già (Zendesk, Freshdesk, Jira o strumenti interni) tramite API, webhook e Make o n8n, senza cambiare piattaforma. I report automatici inviati su Slack o via email fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum); Custom Automation per flussi Slack bidirezionali costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio e documentazione di base, e la maggior parte delle configurazioni richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -812,7 +812,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -964,7 +964,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lavora sugli strumenti che usi già, senza cambiare piattaforma, usando API, webhook e Make o n8n. Intercom ha sia una REST API sia i webhook, quindi quasi certamente si può collegare; la configurazione specifica si conferma in una call di Health Check gratuita di 30 minuti. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum) e Custom Automation, per flussi che coinvolgono più sistemi, costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane.",
+            text: "TascaLab lavora sugli strumenti che usi già, senza cambiare piattaforma, usando API, webhook e Make o n8n. Intercom ha sia una REST API sia i webhook, quindi quasi certamente si può collegare; la configurazione specifica si conferma in una call di Health Check gratuita di 30 minuti. Lo smistamento e la categorizzazione dei ticket fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum) e Custom Automation, per flussi che coinvolgono più sistemi, costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane.",
           },
         ],
       },
@@ -1026,7 +1026,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1197,7 +1197,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lavora sugli strumenti che usi già, senza cambiare piattaforma, usando API, webhook e Make o n8n. HubSpot ha un'API documentata e supporta i webhook, quindi quasi certamente si può collegare; la configurazione specifica si conferma in una call di Health Check gratuita di 30 minuti. Smistamento e categorizzazione dei ticket e report automatici via email o Slack fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), e Custom Automation su più sistemi costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane.",
+            text: "TascaLab lavora sugli strumenti che usi già, senza cambiare piattaforma, usando API, webhook e Make o n8n. HubSpot ha un'API documentata e supporta i webhook, quindi quasi certamente si può collegare; la configurazione specifica si conferma in una call di Health Check gratuita di 30 minuti. Smistamento e categorizzazione dei ticket e report automatici via email o Slack fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum), e Custom Automation su più sistemi costa {{price:custom}}. Ogni progetto include 30 giorni di supporto dopo il lancio, documentazione di base e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane.",
           },
         ],
       },
@@ -1259,6 +1259,6 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

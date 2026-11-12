@@ -159,7 +159,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab è uno studio individuale gestito da Roman Zakharenko che realizza automazioni dell'assistenza sugli strumenti che usi già, tra cui Zendesk, Freshdesk, Jira e Slack, con API, webhook e Make o n8n. Chatbot e voice bot, smistamento e categorizzazione dei ticket e report automatici fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum). La maggior parte delle configurazioni richiede 1–3 settimane e include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto. Puoi iniziare con una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab è uno studio individuale gestito da Roman Zakharenko che realizza automazioni dell'assistenza sugli strumenti che usi già, tra cui Zendesk, Freshdesk, Jira e Slack, con API, webhook e Make o n8n. Chatbot e voice bot, smistamento e categorizzazione dei ticket e report automatici fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum). La maggior parte delle configurazioni richiede 1–3 settimane e include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto. Puoi iniziare con una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -217,7 +217,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-chatbot-for-customer-support", "customer-support-metrics"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -367,7 +367,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab realizza chatbot con passaggio all'operatore nel tuo helpdesk o in Slack come parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), collegati tramite API, webhook e Make o n8n. Ogni progetto include documentazione di base e 30 giorni di supporto dopo il lancio, senza costi nascosti, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti è un buon punto di partenza per mappare i trigger del tuo passaggio all'operatore.",
+            text: "TascaLab realizza chatbot con passaggio all'operatore nel tuo helpdesk o in Slack come parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum), collegati tramite API, webhook e Make o n8n. Ogni progetto include documentazione di base e 30 giorni di supporto dopo il lancio, senza costi nascosti, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti è un buon punto di partenza per mappare i trigger del tuo passaggio all'operatore.",
           },
         ],
       },
@@ -425,7 +425,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "facebook-messenger-bot-customer-service", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -586,7 +586,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura report automatici come parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum), estraendo queste metriche dal tuo helpdesk, come Zendesk, Freshdesk o Jira, e invia un riepilogo pianificato via email o su Slack. Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti aiuta a decidere quali metriche conviene automatizzare per prime.",
+            text: "TascaLab configura report automatici come parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum), estraendo queste metriche dal tuo helpdesk, come Zendesk, Freshdesk o Jira, e invia un riepilogo pianificato via email o su Slack. Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti aiuta a decidere quali metriche conviene automatizzare per prime.",
           },
         ],
       },
@@ -644,7 +644,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "sla-policies-explained", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -798,7 +798,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura automazioni legate agli SLA su Zendesk, Freshdesk e Jira: routing che imposta la priorità così si applica la policy giusta, avvisi di violazione su Slack e report SLA pianificati. Routing e report fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum); i flussi che coinvolgono più sistemi rientrano in Custom Automation ({{price:custom}}). I progetti includono documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
+            text: "TascaLab configura automazioni legate agli SLA su Zendesk, Freshdesk e Jira: routing che imposta la priorità così si applica la policy giusta, avvisi di violazione su Slack e report SLA pianificati. Routing e report fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum); i flussi che coinvolgono più sistemi rientrano in Custom Automation ({{price:custom}}). I progetti includono documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte richiede 1–3 settimane. Inizia con una call di Health Check gratuita di 30 minuti.",
           },
         ],
       },
@@ -856,7 +856,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["customer-support-metrics", "zendesk-automation", "jira-service-management-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1032,7 +1032,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab realizza chatbot AI che rispondono alle domande frequenti sul tuo sito web, su WhatsApp, Telegram, Facebook Messenger o Instagram e passano tutto il resto al tuo team in Zendesk, Freshdesk o nei tuoi strumenti esistenti. I chatbot e i report automatici — che possono monitorare la deflection insieme ai contatti ripetuti e alle riaperture, così vedi l'effetto reale — fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum). Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti è un buon punto di partenza per decidere cosa automatizzare e cosa lasciare alle persone.",
+            text: "TascaLab realizza chatbot AI che rispondono alle domande frequenti sul tuo sito web, su WhatsApp, Telegram, Facebook Messenger o Instagram e passano tutto il resto al tuo team in Zendesk, Freshdesk o nei tuoi strumenti esistenti. I chatbot e i report automatici — che possono monitorare la deflection insieme ai contatti ripetuti e alle riaperture, così vedi l'effetto reale — fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum). Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti è un buon punto di partenza per decidere cosa automatizzare e cosa lasciare alle persone.",
           },
         ],
       },
@@ -1090,7 +1090,7 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "ai-knowledge-base-for-customer-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1237,7 +1237,7 @@ export const basicsPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab collega i canali all'helpdesk che usi già, come Zendesk o Freshdesk, usando API, webhook e Make o n8n. I chatbot sul tuo sito web, WhatsApp, Telegram, Facebook Messenger e Instagram, più lo smistamento e la categorizzazione dei ticket che indirizza le conversazioni in arrivo nella coda giusta, fanno parte del pacchetto Support Automation (da {{price:supportAutomation}}, una tantum). Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti mappa i tuoi canali attuali prima di costruire qualsiasi cosa.",
+            text: "TascaLab collega i canali all'helpdesk che usi già, come Zendesk o Freshdesk, usando API, webhook e Make o n8n. I chatbot sul tuo sito web, WhatsApp, Telegram, Facebook Messenger e Instagram, più lo smistamento e la categorizzazione dei ticket che indirizza le conversazioni in arrivo nella coda giusta, fanno parte del pacchetto Support Automation ({{price:supportAutomation}}, una tantum). Ogni progetto include documentazione di base, 30 giorni di supporto dopo il lancio e nessun costo nascosto, e la maggior parte delle configurazioni richiede 1–3 settimane. Una call di Health Check gratuita di 30 minuti mappa i tuoi canali attuali prima di costruire qualsiasi cosa.",
           },
         ],
       },
@@ -1295,6 +1295,6 @@ export const basicsPages: TranslatedPage[] = [
       },
     ],
     related: ["whatsapp-customer-support-bot", "ticket-routing-automation", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

@@ -141,7 +141,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab crea bots de WhatsApp sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira, Slack o sistemas internos, mediante API, webhooks y Make o n8n. Los bots de chat con preguntas frecuentes, recogida de información y traspaso a tu equipo forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, sin costes ocultos, y la mayoría de las implantaciones llevan 1–3 semanas. Una llamada de Health Check gratuita de 30 minutos es una forma sencilla de comprobar si WhatsApp encaja con tu volumen de soporte.",
+            text: "TascaLab crea bots de WhatsApp sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira, Slack o sistemas internos, mediante API, webhooks y Make o n8n. Los bots de chat con preguntas frecuentes, recogida de información y traspaso a tu equipo forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, sin costes ocultos, y la mayoría de las implantaciones llevan 1–3 semanas. Una llamada de Health Check gratuita de 30 minutos es una forma sencilla de comprobar si WhatsApp encaja con tu volumen de soporte.",
           },
         ],
       },
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -333,7 +333,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab crea bots de soporte para Telegram que se conectan a las herramientas que ya usas, como Zendesk, Freshdesk, Jira, Slack o sistemas internos, mediante API, webhooks y Make o n8n. Un bot de Telegram con preguntas frecuentes y recogida básica de información —solo o junto a un widget en tu web— forma parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
+            text: "TascaLab crea bots de soporte para Telegram que se conectan a las herramientas que ya usas, como Zendesk, Freshdesk, Jira, Slack o sistemas internos, mediante API, webhooks y Make o n8n. Un bot de Telegram con preguntas frecuentes y recogida básica de información —solo o junto a un widget en tu web— forma parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. Puedes empezar con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },
@@ -395,7 +395,7 @@ export const channelPages: TranslatedPage[] = [
       "slack-support-automation",
       "n8n-vs-make-vs-zapier",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -530,7 +530,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab crea bots de Messenger que funcionan sobre Zendesk, Freshdesk, Jira, Slack o tus herramientas internas, mediante API, webhooks y Make o n8n. Los bots en Messenger, Instagram y WhatsApp, con traspaso a tu equipo, forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Cada proyecto incluye 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. Reserva una llamada de Health Check gratuita de 30 minutos para analizar tu flujo actual de Messenger.",
+            text: "TascaLab crea bots de Messenger que funcionan sobre Zendesk, Freshdesk, Jira, Slack o tus herramientas internas, mediante API, webhooks y Make o n8n. Los bots en Messenger, Instagram y WhatsApp, con traspaso a tu equipo, forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Cada proyecto incluye 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. Reserva una llamada de Health Check gratuita de 30 minutos para analizar tu flujo actual de Messenger.",
           },
         ],
       },
@@ -592,7 +592,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -706,7 +706,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura bots de DM para Instagram que responden a las preguntas habituales, recogen datos y pasan las conversaciones a tu equipo en Zendesk, Freshdesk, Jira, Slack o una herramienta interna, sobre la base de API, webhooks y Make o n8n. Los bots de Instagram —solos o junto con Messenger y tu web— forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. La llamada de Health Check gratuita de 30 minutos es el punto de partida.",
+            text: "TascaLab configura bots de DM para Instagram que responden a las preguntas habituales, recogen datos y pasan las conversaciones a tu equipo en Zendesk, Freshdesk, Jira, Slack o una herramienta interna, sobre la base de API, webhooks y Make o n8n. Los bots de Instagram —solos o junto con Messenger y tu web— forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, y la mayoría de las implantaciones llevan 1–3 semanas. La llamada de Health Check gratuita de 30 minutos es el punto de partida.",
           },
         ],
       },
@@ -768,7 +768,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "ai-chatbot-for-customer-support",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -888,7 +888,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura chatbots web sobre el helpdesk que ya usas, como Zendesk o Freshdesk, o conecta un bot a medida a Jira, Slack o herramientas internas mediante API, webhooks y Make o n8n. Los chatbots web con preguntas frecuentes, recogida de información y traspaso a tu equipo forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, sin costes ocultos, y la mayoría de las implantaciones llevan 1–3 semanas. Empieza con una llamada de Health Check gratuita de 30 minutos.",
+            text: "TascaLab configura chatbots web sobre el helpdesk que ya usas, como Zendesk o Freshdesk, o conecta un bot a medida a Jira, Slack o herramientas internas mediante API, webhooks y Make o n8n. Los chatbots web con preguntas frecuentes, recogida de información y traspaso a tu equipo forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento y documentación básica, sin costes ocultos, y la mayoría de las implantaciones llevan 1–3 semanas. Empieza con una llamada de Health Check gratuita de 30 minutos.",
           },
         ],
       },
@@ -950,7 +950,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "freshdesk-automation",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1079,7 +1079,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Los canales de bot que ofrece TascaLab son web, teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Los SMS no están en esa lista, pero otros canales con API pueden valorarse en la llamada de Health Check gratuita de 30 minutos. TascaLab trabaja sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, mediante API, webhooks y Make o n8n. Los bots de chat forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento, documentación básica y ningún coste oculto, y la mayoría de las implantaciones llevan 1–3 semanas.",
+            text: "Los canales de bot que ofrece TascaLab son web, teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Los SMS no están en esa lista, pero otros canales con API pueden valorarse en la llamada de Health Check gratuita de 30 minutos. TascaLab trabaja sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, mediante API, webhooks y Make o n8n. Los bots de chat forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento, documentación básica y ningún coste oculto, y la mayoría de las implantaciones llevan 1–3 semanas.",
           },
         ],
       },
@@ -1145,7 +1145,7 @@ export const channelPages: TranslatedPage[] = [
       "zendesk-automation",
       "omnichannel-customer-support",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1280,7 +1280,7 @@ export const channelPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Los canales de bot que ofrece TascaLab son web, teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Viber no está en esa lista, pero otros canales con API pueden valorarse en la llamada de Health Check gratuita de 30 minutos. TascaLab trabaja sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, mediante API, webhooks y Make o n8n. Los bots de chat forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento, documentación básica y ningún coste oculto, y la mayoría de las implantaciones llevan 1–3 semanas.",
+            text: "Los canales de bot que ofrece TascaLab son web, teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Viber no está en esa lista, pero otros canales con API pueden valorarse en la llamada de Health Check gratuita de 30 minutos. TascaLab trabaja sobre las herramientas que ya usas, como Zendesk, Freshdesk, Jira y Slack, mediante API, webhooks y Make o n8n. Los bots de chat forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único). Todos los proyectos incluyen 30 días de soporte tras el lanzamiento, documentación básica y ningún coste oculto, y la mayoría de las implantaciones llevan 1–3 semanas.",
           },
         ],
       },
@@ -1338,6 +1338,6 @@ export const channelPages: TranslatedPage[] = [
       "telegram-support-bot",
       "chatbot-to-human-handoff",
     ],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

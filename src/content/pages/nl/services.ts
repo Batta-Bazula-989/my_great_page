@@ -180,14 +180,13 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "table",
-            caption: "Chatbotpakketten van TascaLab (eenmalige prijs)",
+            caption: "TascaLab-pakket (eenmalige prijs)",
             head: ["Pakket", "Omvang", "Prijs"],
             rows: [
-              ["Starter Chat Bot", "1–2 kanalen, FAQ's, eenvoudige gegevensverzameling", "{{price:starter}}"],
               [
-                "Standard Chat Bot",
-                "3–5 kanalen, complexere gesprekken, soepelere overdrachten",
-                "{{price:standard}}",
+                "Support Automation",
+                "Chat- en voicebots, ticketroutering en -categorisering, geautomatiseerde rapporten — gekoppeld aan je helpdesk",
+                "{{price:supportAutomation}}",
               ],
             ],
           },
@@ -251,7 +250,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "website-chatbot-for-support", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -404,7 +403,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Het Voice Bot-pakket van TascaLab omvat inkomende gesprekken, triage en overdracht aan je team, voor een eenmalige prijs van {{price:voice}}. De bot koppelt met de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's en webhooks, zodat de uitkomsten van gesprekken binnenkomen als tickets of berichten die je team al in de gaten houdt. Hij is gebouwd als filter vóór je team, niet als vervanging ervan.",
+            text: "TascaLab bouwt voicebots die inkomende gesprekken, triage en overdracht aan je team afdekken, als onderdeel van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig). De bot koppelt met de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's en webhooks, zodat de uitkomsten van gesprekken binnenkomen als tickets of berichten die je team al in de gaten houdt. Hij is gebouwd als filter vóór je team, niet als vervanging ervan.",
           },
           {
             type: "p",
@@ -466,7 +465,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -623,7 +622,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De dienst Ticket Routing & Categorization van TascaLab (eenmalig {{price:routing}}) werkt bovenop de helpdesk die je al hebt — Zendesk, Freshdesk of Jira — met de ingebouwde regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is, bijvoorbeeld om tickets te categoriseren voordat je ingebouwde routering ze toewijst. Je hoeft niet van platform te wisselen.",
+            text: "TascaLab richt ticketroutering en -categorisering in als onderdeel van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig), bovenop de helpdesk die je al hebt — Zendesk, Freshdesk of Jira — met de ingebouwde regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is, bijvoorbeeld om tickets te categoriseren voordat je ingebouwde routering ze toewijst. Je hoeft niet van platform te wisselen.",
           },
           {
             type: "p",
@@ -685,7 +684,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["zendesk-automation", "freshdesk-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -866,7 +865,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "De dienst Automated Reports van TascaLab (eenmalig {{price:reports}}) levert je supportmetrics volgens schema per e-mail of in Slack. Hij werkt bovenop Zendesk, Freshdesk, Jira en je interne tools via hun API's en Make of n8n, zodat er niets verandert aan hoe je team dagelijks werkt.",
+            text: "TascaLab richt geautomatiseerde rapportages in als onderdeel van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig), en levert je supportmetrics volgens schema per e-mail of in Slack. Hij werkt bovenop Zendesk, Freshdesk, Jira en je interne tools via hun API's en Make of n8n, zodat er niets verandert aan hoe je team dagelijks werkt.",
           },
           {
             type: "p",
@@ -928,7 +927,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1078,7 +1077,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab richt dit in bovenop de helpdesk die je al gebruikt — Zendesk, Freshdesk of Jira — met ingebouwde triggers en regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is. Je hoeft niet van platform te wisselen. Het classificeren en routeren van inkomende e-mail valt onder de dienst Ticket Routing & Categorization (eenmalig {{price:routing}}); workflows met meerdere stappen, zoals een ordernummer uit een e-mail lezen en dat in een ander systeem opzoeken, vallen onder Custom Automation ({{price:custom}}).",
+            text: "TascaLab richt dit in bovenop de helpdesk die je al gebruikt — Zendesk, Freshdesk of Jira — met ingebouwde triggers en regels waar die volstaan, en API's, webhooks of Make/n8n waar dat niet zo is. Je hoeft niet van platform te wisselen. Het classificeren en routeren van inkomende e-mail valt onder het Support Automation-pakket ({{price:supportAutomation}}, eenmalig); workflows met meerdere stappen, zoals een ordernummer uit een e-mail lezen en dat in een ander systeem opzoeken, vallen onder Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1140,7 +1139,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1317,7 +1316,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt chatbots bovenop de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's, webhooks en Make of n8n, zodat je kennisbank blijft waar hij is. De Starter Chat Bot (eenmalig {{price:starter}}) dekt 1–2 kanalen en de Standard Chat Bot ({{price:standard}}) dekt er 3–5, verdeeld over je website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Onderhoudsworkflows, zoals reviewherinneringen voor verouderde artikelen, vallen onder Custom Automation ({{price:custom}}).",
+            text: "TascaLab bouwt chatbots bovenop de tools die je al gebruikt — Zendesk, Freshdesk, Jira, Slack of interne systemen — via API's, webhooks en Make of n8n, zodat je kennisbank blijft waar hij is. Chatbots maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig), verdeeld over je website, telefoon, WhatsApp, Telegram, Facebook Messenger en Instagram. Onderhoudsworkflows, zoals reviewherinneringen voor verouderde artikelen, vallen onder Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1379,6 +1378,6 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

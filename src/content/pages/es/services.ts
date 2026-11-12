@@ -180,7 +180,7 @@ export const servicesPages: TranslatedPage[] = [
           },
           {
             type: "table",
-            caption: "Paquetes de chatbot de TascaLab (pago único)",
+            caption: "Paquete de TascaLab (pago único)",
             head: ["Paquete", "Alcance", "Precio"],
             rows: [
               [
@@ -250,7 +250,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "website-chatbot-for-support", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -403,7 +403,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab crea bots de voz que cubren llamadas entrantes, triaje y traspaso a tu equipo, como parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único). El bot se conecta a las herramientas que ya usas —Zendesk, Freshdesk, Jira, Slack o sistemas internos— mediante API y webhooks, de modo que los resultados de las llamadas llegan como tickets o mensajes que tu equipo ya sigue. Está pensado como un filtro delante de tu equipo, no como su sustituto.",
+            text: "TascaLab crea bots de voz que cubren llamadas entrantes, triaje y traspaso a tu equipo, como parte del paquete Support Automation ({{price:supportAutomation}}, pago único). El bot se conecta a las herramientas que ya usas —Zendesk, Freshdesk, Jira, Slack o sistemas internos— mediante API y webhooks, de modo que los resultados de las llamadas llegan como tickets o mensajes que tu equipo ya sigue. Está pensado como un filtro delante de tu equipo, no como su sustituto.",
           },
           {
             type: "p",
@@ -465,7 +465,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "chatbot-to-human-handoff", "eu-ai-act-chatbot-rules"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -622,7 +622,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura el enrutamiento y la categorización de tickets como parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único), funcionando sobre el helpdesk que ya tienes —Zendesk, Freshdesk o Jira—, con sus reglas nativas cuando bastan, y con API, webhooks o Make/n8n cuando no, por ejemplo para categorizar los tickets antes de que tu enrutamiento nativo los asigne. No hay que cambiar de plataforma.",
+            text: "TascaLab configura el enrutamiento y la categorización de tickets como parte del paquete Support Automation ({{price:supportAutomation}}, pago único), funcionando sobre el helpdesk que ya tienes —Zendesk, Freshdesk o Jira—, con sus reglas nativas cuando bastan, y con API, webhooks o Make/n8n cuando no, por ejemplo para categorizar los tickets antes de que tu enrutamiento nativo los asigne. No hay que cambiar de plataforma.",
           },
           {
             type: "p",
@@ -684,7 +684,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["zendesk-automation", "freshdesk-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -865,7 +865,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab configura los informes automatizados como parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único), enviando tus métricas de soporte por email o Slack de forma programada. Funciona sobre Zendesk, Freshdesk, Jira y tus herramientas internas mediante sus API y Make o n8n, así que no cambia nada en el día a día de tu equipo.",
+            text: "TascaLab configura los informes automatizados como parte del paquete Support Automation ({{price:supportAutomation}}, pago único), enviando tus métricas de soporte por email o Slack de forma programada. Funciona sobre Zendesk, Freshdesk, Jira y tus herramientas internas mediante sus API y Make o n8n, así que no cambia nada en el día a día de tu equipo.",
           },
           {
             type: "p",
@@ -927,7 +927,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["customer-support-metrics", "slack-support-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1077,7 +1077,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab lo configura sobre el helpdesk que ya usas —Zendesk, Freshdesk o Jira—, con disparadores y reglas nativas cuando bastan, y con API, webhooks o Make/n8n cuando no. No hay que cambiar de plataforma. La clasificación y el enrutamiento del email entrante encajan en el paquete Support Automation (desde {{price:supportAutomation}}, pago único); los flujos de varios pasos, como leer un número de pedido en un email y buscarlo en otro sistema, corresponden a Custom Automation ({{price:custom}}).",
+            text: "TascaLab lo configura sobre el helpdesk que ya usas —Zendesk, Freshdesk o Jira—, con disparadores y reglas nativas cuando bastan, y con API, webhooks o Make/n8n cuando no. No hay que cambiar de plataforma. La clasificación y el enrutamiento del email entrante encajan en el paquete Support Automation ({{price:supportAutomation}}, pago único); los flujos de varios pasos, como leer un número de pedido en un email y buscarlo en otro sistema, corresponden a Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1139,7 +1139,7 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "ai-knowledge-base-for-customer-support", "zendesk-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -1316,7 +1316,7 @@ export const servicesPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab crea chatbots sobre las herramientas que ya usas —Zendesk, Freshdesk, Jira, Slack o sistemas internos— mediante API, webhooks y Make o n8n, así que tu base de conocimiento se queda donde está. Los chatbots forman parte del paquete Support Automation (desde {{price:supportAutomation}}, pago único), entre tu web, el teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Los flujos de mantenimiento, como los recordatorios de revisión para artículos desactualizados, encajan en Custom Automation ({{price:custom}}).",
+            text: "TascaLab crea chatbots sobre las herramientas que ya usas —Zendesk, Freshdesk, Jira, Slack o sistemas internos— mediante API, webhooks y Make o n8n, así que tu base de conocimiento se queda donde está. Los chatbots forman parte del paquete Support Automation ({{price:supportAutomation}}, pago único), entre tu web, el teléfono, WhatsApp, Telegram, Facebook Messenger e Instagram. Los flujos de mantenimiento, como los recordatorios de revisión para artículos desactualizados, encajan en Custom Automation ({{price:custom}}).",
           },
           {
             type: "p",
@@ -1378,6 +1378,6 @@ export const servicesPages: TranslatedPage[] = [
       },
     ],
     related: ["ai-chatbot-for-customer-support", "ticket-deflection", "customer-support-email-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

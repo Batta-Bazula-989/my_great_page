@@ -156,7 +156,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab werkt bovenop je bestaande Zendesk-account, zonder overstap naar een ander platform, met de Zendesk API, webhooks en Make of n8n waar dat past. Ticket Routing & Categorization is een eenmalig project van {{price:routing}}; Custom Automation voor flows die meerdere systemen omvatten kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
+            text: "TascaLab werkt bovenop je bestaande Zendesk-account, zonder overstap naar een ander platform, met de Zendesk API, webhooks en Make of n8n waar dat past. Ticketroutering en -categorisering maakt deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig); Custom Automation voor flows die meerdere systemen omvatten kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -218,7 +218,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "slack-support-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -368,7 +368,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt op je bestaande Freshdesk-account, zonder overstap naar een ander platform, met automatiseringsregels, webhooks, de Freshdesk API en Make of n8n waar dat helpt. Ticket Routing & Categorization is een eenmalig project van {{price:routing}}; Custom Automation kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Een gratis Health Check-gesprek van 30 minuten is de eerste stap.",
+            text: "TascaLab bouwt op je bestaande Freshdesk-account, zonder overstap naar een ander platform, met automatiseringsregels, webhooks, de Freshdesk API en Make of n8n waar dat helpt. Ticketroutering en -categorisering maakt deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig); Custom Automation kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Een gratis Health Check-gesprek van 30 minuten is de eerste stap.",
           },
         ],
       },
@@ -426,7 +426,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "zendesk-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -565,7 +565,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab werkt bovenop je bestaande Jira Service Management-site, zonder overstap naar een ander platform, en combineert native automatisering met API's, webhooks en Make of n8n waar een flow andere tools moet bereiken. Ticket Routing & Categorization kost eenmalig {{price:routing}}; Custom Automation kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
+            text: "TascaLab werkt bovenop je bestaande Jira Service Management-site, zonder overstap naar een ander platform, en combineert native automatisering met API's, webhooks en Make of n8n waar een flow andere tools moet bereiken. Ticketroutering en -categorisering maakt deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig); Custom Automation kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -623,7 +623,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -754,7 +754,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab koppelt Slack aan de helpdesk die je al gebruikt (Zendesk, Freshdesk, Jira of interne tools) via API's, webhooks en Make of n8n, zonder overstap naar een ander platform. Automated Reports, geleverd in Slack of per e-mail, kosten eenmalig {{price:reports}}; Custom Automation voor tweerichtingsflows in Slack kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
+            text: "TascaLab koppelt Slack aan de helpdesk die je al gebruikt (Zendesk, Freshdesk, Jira of interne tools) via API's, webhooks en Make of n8n, zonder overstap naar een ander platform. Geautomatiseerde rapporten, geleverd in Slack of per e-mail, maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig); Custom Automation voor tweerichtingsflows in Slack kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang en basisdocumentatie, en de meeste implementaties duren 1–3 weken. Begin met een gratis Health Check-gesprek van 30 minuten.",
           },
         ],
       },
@@ -812,7 +812,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -964,7 +964,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt bovenop de tools die je al gebruikt, zonder overstap naar een ander platform, met API's, webhooks en Make of n8n. Intercom heeft zowel een REST API als webhooks, dus een koppeling is vrijwel zeker mogelijk; de precieze opzet wordt bevestigd in een gratis Health Check-gesprek van 30 minuten. Ticket Routing & Categorization is een eenmalig project van {{price:routing}}, en Custom Automation voor flows over meerdere systemen kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken.",
+            text: "TascaLab bouwt bovenop de tools die je al gebruikt, zonder overstap naar een ander platform, met API's, webhooks en Make of n8n. Intercom heeft zowel een REST API als webhooks, dus een koppeling is vrijwel zeker mogelijk; de precieze opzet wordt bevestigd in een gratis Health Check-gesprek van 30 minuten. Ticketroutering en -categorisering maakt deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig), en Custom Automation voor flows over meerdere systemen kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken.",
           },
         ],
       },
@@ -1026,7 +1026,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1197,7 +1197,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bouwt bovenop de tools die je al gebruikt, zonder overstap naar een ander platform, met API's, webhooks en Make of n8n. HubSpot heeft een gedocumenteerde API en ondersteunt webhooks, dus een koppeling is vrijwel zeker mogelijk; de precieze opzet wordt bevestigd in een gratis Health Check-gesprek van 30 minuten. Ticket Routing & Categorization is een eenmalig project van {{price:routing}}, Automated Reports per e-mail of Slack kosten {{price:reports}}, en Custom Automation over meerdere systemen kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken.",
+            text: "TascaLab bouwt bovenop de tools die je al gebruikt, zonder overstap naar een ander platform, met API's, webhooks en Make of n8n. HubSpot heeft een gedocumenteerde API en ondersteunt webhooks, dus een koppeling is vrijwel zeker mogelijk; de precieze opzet wordt bevestigd in een gratis Health Check-gesprek van 30 minuten. Ticketroutering, categorisering en geautomatiseerde rapporten per e-mail of Slack maken deel uit van het Support Automation-pakket ({{price:supportAutomation}}, eenmalig), en Custom Automation over meerdere systemen kost {{price:custom}}. Elk project omvat 30 dagen ondersteuning na livegang, basisdocumentatie en geen verborgen kosten, en de meeste implementaties duren 1–3 weken.",
           },
         ],
       },
@@ -1259,6 +1259,6 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

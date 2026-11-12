@@ -153,7 +153,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab arbetar i ditt befintliga Zendesk-konto, utan plattformsbyte, med Zendesk API, webhooks och Make eller n8n där de passar. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}; Custom Automation för flöden som går över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab arbetar i ditt befintliga Zendesk-konto, utan plattformsbyte, med Zendesk API, webhooks och Make eller n8n där de passar. Routing och kategorisering av ärenden ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris); Custom Automation för flöden som går över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor. Du kan börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -215,7 +215,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "slack-support-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "freshdesk-automation",
@@ -361,7 +361,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på ditt befintliga Freshdesk-konto, utan plattformsbyte, med automatiseringsregler, webhooks, Freshdesk API och Make eller n8n där de hjälper. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}; Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Första steget är ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab bygger vidare på ditt befintliga Freshdesk-konto, utan plattformsbyte, med automatiseringsregler, webhooks, Freshdesk API och Make eller n8n där de hjälper. Routing och kategorisering av ärenden ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris); Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Första steget är ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -419,7 +419,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "zendesk-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "jira-service-management-automation",
@@ -554,7 +554,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab arbetar i din befintliga Jira Service Management-site, utan plattformsbyte, och kombinerar inbyggd automatisering med API:er, webhooks och Make eller n8n där ett flöde behöver nå andra verktyg. Ticket Routing & Categorization kostar {{price:routing}} som engångsbelopp; Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab arbetar i din befintliga Jira Service Management-site, utan plattformsbyte, och kombinerar inbyggd automatisering med API:er, webhooks och Make eller n8n där ett flöde behöver nå andra verktyg. Routing och kategorisering av ärenden ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris); Custom Automation kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -612,7 +612,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "slack-support-automation",
@@ -739,7 +739,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab kopplar Slack till den helpdesk du redan använder (Zendesk, Freshdesk, Jira eller interna verktyg) via API:er, webhooks och Make eller n8n, utan plattformsbyte. Automated Reports som levereras till Slack eller mejl kostar {{price:reports}} som engångsbelopp; Custom Automation för tvåvägsflöden i Slack kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
+            text: "TascaLab kopplar Slack till den helpdesk du redan använder (Zendesk, Freshdesk, Jira eller interna verktyg) via API:er, webhooks och Make eller n8n, utan plattformsbyte. Automatiserade rapporter som levereras till Slack eller mejl ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris); Custom Automation för tvåvägsflöden i Slack kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering och grundläggande dokumentation, och de flesta upplägg tar 1–3 veckor. Börja med ett kostnadsfritt Health Check-samtal på 30 minuter.",
           },
         ],
       },
@@ -797,7 +797,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "intercom-automation",
@@ -945,7 +945,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. Intercom har både ett REST API och webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}, och Custom Automation för flöden över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
+            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. Intercom har både ett REST API och webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Routing och kategorisering av ärenden ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris), och Custom Automation för flöden över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
           },
         ],
       },
@@ -1007,7 +1007,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "hubspot-service-hub-automation",
@@ -1174,7 +1174,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. HubSpot har ett dokumenterat API och stöd för webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Ticket Routing & Categorization är ett engångsprojekt för {{price:routing}}, Automated Reports via mejl eller Slack kostar {{price:reports}} och Custom Automation över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
+            text: "TascaLab bygger vidare på de verktyg du redan använder, utan plattformsbyte, med API:er, webhooks och Make eller n8n. HubSpot har ett dokumenterat API och stöd för webhooks, så det går nästan säkert att koppla in; den konkreta lösningen bekräftas i ett kostnadsfritt Health Check-samtal på 30 minuter. Routing och kategorisering av ärenden samt automatiserade rapporter via mejl eller Slack ingår i paketet Support Automation ({{price:supportAutomation}}, engångspris), och Custom Automation över flera system kostar {{price:custom}}. Varje projekt inkluderar 30 dagars support efter lansering, grundläggande dokumentation och inga dolda avgifter, och de flesta upplägg tar 1–3 veckor.",
           },
         ],
       },
@@ -1236,6 +1236,6 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

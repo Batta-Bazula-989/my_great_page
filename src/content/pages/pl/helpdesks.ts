@@ -156,7 +156,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab pracuje na Twoim istniejącym koncie Zendesk, bez zmiany platformy, wykorzystując Zendesk API, webhooki oraz Make lub n8n tam, gdzie się sprawdzają. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa); Custom Automation dla procesów obejmujących kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab pracuje na Twoim istniejącym koncie Zendesk, bez zmiany platformy, wykorzystując Zendesk API, webhooki oraz Make lub n8n tam, gdzie się sprawdzają. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa); Custom Automation dla procesów obejmujących kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -218,7 +218,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "slack-support-automation", "sla-policies-explained"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -368,7 +368,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje rozwiązania na Twoim istniejącym koncie Freshdesk, bez zmiany platformy, wykorzystując reguły automatyzacji, webhooki, Freshdesk API oraz Make lub n8n tam, gdzie pomagają. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa); Custom Automation kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Pierwszym krokiem jest bezpłatna 30-minutowa rozmowa Health Check.",
+            text: "TascaLab buduje rozwiązania na Twoim istniejącym koncie Freshdesk, bez zmiany platformy, wykorzystując reguły automatyzacji, webhooki, Freshdesk API oraz Make lub n8n tam, gdzie pomagają. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa); Custom Automation kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Pierwszym krokiem jest bezpłatna 30-minutowa rozmowa Health Check.",
           },
         ],
       },
@@ -426,7 +426,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["ticket-routing-automation", "zendesk-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -565,7 +565,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab pracuje na Twojej istniejącej instancji Jira Service Management, bez zmiany platformy, łącząc natywną automatyzację z API, webhookami oraz Make lub n8n tam, gdzie przepływ musi sięgnąć do innych narzędzi. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa); Custom Automation kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab pracuje na Twojej istniejącej instancji Jira Service Management, bez zmiany platformy, łącząc natywną automatyzację z API, webhookami oraz Make lub n8n tam, gdzie przepływ musi sięgnąć do innych narzędzi. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa); Custom Automation kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -623,7 +623,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -754,7 +754,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab łączy Slacka z helpdeskiem, którego już używasz (Zendesk, Freshdesk, Jira lub narzędzia wewnętrzne), przez API, webhooki oraz Make lub n8n, bez zmiany platformy. Automatyczne raporty dostarczane na Slacka lub e-mailem wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa); Custom Automation dla dwukierunkowych przepływów w Slacku kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab łączy Slacka z helpdeskiem, którego już używasz (Zendesk, Freshdesk, Jira lub narzędzia wewnętrzne), przez API, webhooki oraz Make lub n8n, bez zmiany platformy. Automatyczne raporty dostarczane na Slacka lub e-mailem wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa); Custom Automation dla dwukierunkowych przepływów w Slacku kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, a większość wdrożeń trwa 1–3 tygodnie. Zacznij od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -812,7 +812,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["automated-support-reporting", "zendesk-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -964,7 +964,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje na narzędziach, których już używasz, bez zmiany platformy, wykorzystując API, webhooki oraz Make lub n8n. Intercom ma zarówno REST API, jak i webhooki, więc niemal na pewno da się go podłączyć; konkretną konfigurację potwierdzamy podczas bezpłatnej 30-minutowej rozmowy Health Check. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa), a Custom Automation dla procesów obejmujących kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
+            text: "TascaLab buduje na narzędziach, których już używasz, bez zmiany platformy, wykorzystując API, webhooki oraz Make lub n8n. Intercom ma zarówno REST API, jak i webhooki, więc niemal na pewno da się go podłączyć; konkretną konfigurację potwierdzamy podczas bezpłatnej 30-minutowej rozmowy Health Check. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa), a Custom Automation dla procesów obejmujących kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
           },
         ],
       },
@@ -1026,7 +1026,7 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["chatbot-to-human-handoff", "ticket-routing-automation", "slack-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 
   // ---------------------------------------------------------------------------
@@ -1197,7 +1197,7 @@ export const helpdeskPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "TascaLab buduje na narzędziach, których już używasz, bez zmiany platformy, wykorzystując API, webhooki oraz Make lub n8n. HubSpot ma udokumentowane API i obsługę webhooków, więc niemal na pewno da się go podłączyć; konkretną konfigurację potwierdzamy podczas bezpłatnej 30-minutowej rozmowy Health Check. Routing i kategoryzacja zgłoszeń oraz automatyczne raporty e-mailem lub na Slacka wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa), a Custom Automation obejmująca kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
+            text: "TascaLab buduje na narzędziach, których już używasz, bez zmiany platformy, wykorzystując API, webhooki oraz Make lub n8n. HubSpot ma udokumentowane API i obsługę webhooków, więc niemal na pewno da się go podłączyć; konkretną konfigurację potwierdzamy podczas bezpłatnej 30-minutowej rozmowy Health Check. Routing i kategoryzacja zgłoszeń oraz automatyczne raporty e-mailem lub na Slacka wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa), a Custom Automation obejmująca kilka systemów kosztuje {{price:custom}}. Każdy projekt obejmuje 30 dni wsparcia po uruchomieniu i podstawową dokumentację, bez ukrytych opłat, a większość wdrożeń trwa 1–3 tygodnie.",
           },
         ],
       },
@@ -1259,6 +1259,6 @@ export const helpdeskPages: TranslatedPage[] = [
       },
     ],
     related: ["sla-policies-explained", "ticket-routing-automation", "website-chatbot-for-support"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
 ];

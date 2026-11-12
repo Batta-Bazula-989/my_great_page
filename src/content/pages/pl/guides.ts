@@ -218,7 +218,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zapier — Zapier vs. n8n comparison", url: "https://zapier.com/blog/n8n-vs-zapier/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "what-is-customer-support-automation"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "eu-ai-act-chatbot-rules",
@@ -373,7 +373,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz (Zendesk, Freshdesk, Jira, Slack i narzędzia wewnętrzne). Chatboty i voiceboty wchodzą w skład pakietu Support Automation, od {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu.",
+            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz (Zendesk, Freshdesk, Jira, Slack i narzędzia wewnętrzne). Chatboty i voiceboty wchodzą w skład pakietu Support Automation, {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu.",
           },
         ],
       },
@@ -411,7 +411,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "European Commission — AI Omnibus enters into force", url: "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force" },
     ],
     related: ["ai-chatbot-for-customer-support", "gdpr-customer-support-automation", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "gdpr-customer-support-automation",
@@ -736,7 +736,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack. Chatboty i voiceboty wchodzą w skład pakietu Support Automation, od {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab buduje chatboty i voiceboty na narzędziach, których już używasz, takich jak Zendesk, Freshdesk, Jira i Slack. Chatboty i voiceboty wchodzą w skład pakietu Support Automation, {{price:supportAutomation}}, płatność jednorazowa. Każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -773,7 +773,7 @@ export const guidePages: TranslatedPage[] = [
       { label: "EUR-Lex — Commission Implementing Decision (EU) 2021/1339", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32021D1339" },
     ],
     related: ["website-chatbot-for-support", "eu-ai-act-chatbot-rules", "chatbot-to-human-handoff"],
-    updated: "2026-10-19",
+    updated: "2026-11-12",
   },
   {
     key: "n8n-zendesk-integration",
@@ -921,7 +921,7 @@ export const guidePages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "TascaLab buduje takie automatyzacje Zendesk z użyciem n8n, Make, API i webhooków, na narzędziach, których już używasz. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation (od {{price:supportAutomation}}, płatność jednorazowa), a projekty Custom Automation kosztują {{price:custom}}. Większość wdrożeń trwa od 1 do 3 tygodni, a każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
+            text: "TascaLab buduje takie automatyzacje Zendesk z użyciem n8n, Make, API i webhooków, na narzędziach, których już używasz. Routing i kategoryzacja zgłoszeń wchodzą w skład pakietu Support Automation ({{price:supportAutomation}}, płatność jednorazowa), a projekty Custom Automation kosztują {{price:custom}}. Większość wdrożeń trwa od 1 do 3 tygodni, a każdy projekt obejmuje podstawową dokumentację i 30 dni wsparcia po uruchomieniu. Możesz zacząć od bezpłatnej 30-minutowej rozmowy Health Check.",
           },
         ],
       },
@@ -963,6 +963,6 @@ export const guidePages: TranslatedPage[] = [
       { label: "Zendesk Developer Docs — Migrating from API tokens to OAuth access tokens", url: "https://developer.zendesk.com/documentation/authentication/oauth-migration/" },
     ],
     related: ["zendesk-automation", "ticket-routing-automation", "n8n-vs-make-vs-zapier"],
-    updated: "2026-11-03",
+    updated: "2026-11-12",
   },
 ];
