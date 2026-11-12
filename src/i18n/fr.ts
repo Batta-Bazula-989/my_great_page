@@ -22,21 +22,21 @@ const fr: Dictionary = {
     skipToContent: "Aller au contenu",
   },
   hero: {
-    eyebrow: "Une automatisation qui tient vraiment la route",
+    eyebrow: "Automatisation leads, CRM et support",
     titleBefore: "Automatisation des leads, du CRM et du support ",
     titleHighlight: "pour les petites équipes B2B",
     titleAfter: "",
     sectors: "Je travaille surtout avec des équipes commerciales B2B, des e-commerçants et des opérations logistiques.",
-    intro: "Je suis Roman. Je construis chaque projet moi-même, à un prix fixe à partir de {price}, payé une seule fois.",
+    intro: "Je suis Roman. Je les construis moi-même, à un prix fixe à partir de {price}, payé une seule fois.",
     callNote: "Health Check gratuit : un appel de 30 minutes avec moi, puis un rapport écrit.",
     ctaBook: "Réserver un Health Check gratuit",
     ctaUpwork: "Avis sur Upwork",
-    highlights: ["Fonctionne avec vos outils actuels", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
+    highlights: ["Fonctionne avec votre helpdesk actuel", "Opérationnel en 1 à 3 semaines", "30 jours de support inclus"],
     integratesWith: "S'intègre avec",
   },
   recentWork: {
-    eyebrow: "Projets récents",
-    title: "Ce que ça donne en pratique",
+    eyebrow: "En pratique",
+    title: "Travaux récents",
     situationLabel: "Situation",
     changeLabel: "Ce qui a changé",
     resultLabel: "Résultat",
@@ -70,12 +70,12 @@ const fr: Dictionary = {
       lead: {
         title: "Automatisation des leads",
         description:
-          "Vos leads issus des visiteurs du site, des formulaires et des réponses de prospection sont classés, évalués par rapport à votre profil client idéal et enregistrés dans votre CRM, avec des alertes pour votre équipe.",
+          "Vos leads issus des visiteurs du site, des formulaires et des réponses aux campagnes d'outreach sont classés par IA, notés par rapport à votre profil client idéal et enregistrés dans votre CRM avec des alertes pour l'équipe.",
       },
       crm: {
         title: "Intégration et automatisation CRM",
         description:
-          "Votre CRM — HubSpot ou Attio — connecté à vos outils de prospection, de téléphonie et d'enrichissement. Les réponses, appels et transcriptions sont enregistrés automatiquement dans la bonne affaire, et vos workflows sont migrés d'une plateforme à l'autre.",
+          "Votre CRM (HubSpot, Attio) connecté à vos outils d'outreach, de téléphonie et d'enrichissement. Réponses, appels et transcriptions enregistrés automatiquement sur le bon deal, et migrations de workflows entre plateformes.",
       },
       support: {
         title: "Automatisation du support",
@@ -277,9 +277,9 @@ const fr: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Des leads d'une même source classés et évalués par l'IA, enregistrés dans votre CRM.",
         included: [
-          "Des leads d'une seule source : visiteurs du site, un formulaire ou des réponses de prospection",
-          "Classification par IA et scoring par rapport à votre profil client idéal",
-          "Enregistrés dans votre CRM, avec des alertes par e-mail ou dans Slack",
+          "Leads d'une seule source, classés et notés par IA",
+          "Enregistrés dans votre CRM",
+          "Alertes par e-mail ou Slack",
         ],
         running: [
           "Utilisation de l'IA, facturée au token par votre fournisseur d'IA, par ex. Claude Haiku 5.5 à partir de 0,10 $ / 0,50 $ par million de tokens en entrée / en sortie*",
@@ -290,8 +290,8 @@ const fr: Dictionary = {
         name: "CRM Integration",
         description: "Deux outils connectés à votre CRM, l'activité enregistrée dans les bonnes fiches.",
         included: [
-          "Deux outils connectés à votre CRM, par ex. prospection, téléphonie ou enrichissement",
-          "Réponses et activité enregistrées dans les bonnes fiches",
+          "Deux outils connectés à votre CRM",
+          "Réponses et activités enregistrées sur les bonnes fiches",
           "Gestion des erreurs et alertes",
         ],
         running: [

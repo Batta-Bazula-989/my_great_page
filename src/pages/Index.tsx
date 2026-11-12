@@ -25,9 +25,9 @@ const Index = () => {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none">
         <HeroSection />
-        <RecentWorkSection />
         <ReviewsSection />
         <SolutionSection />
+        <RecentWorkSection />
         <ProcessSection />
         <WhoForSection />
         <WhyMeSection />

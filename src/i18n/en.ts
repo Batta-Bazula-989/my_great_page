@@ -24,22 +24,22 @@ const en = {
     skipToContent: "Skip to content",
   },
   hero: {
-    eyebrow: "Automation that actually holds up",
+    eyebrow: "Lead, CRM and support automation",
     titleBefore: "Lead, CRM and support automation ",
     titleHighlight: "for small B2B teams",
     titleAfter: "",
     sectors: "Most of my work is with B2B sales teams, ecommerce and fulfilment operations.",
     // {price} is the lowest package price in the visitor's currency, e.g. "$400".
-    intro: "I'm Roman. I build every project myself, at a fixed price from {price}, paid once.",
+    intro: "I'm Roman. I build them myself, at a fixed price from {price}, paid once.",
     callNote: "Free Health Check: a 30-minute call with me, then a written report.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
-    highlights: ["Works with your current tools", "Live in 1–3 weeks", "30 days of support included"],
+    highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
     integratesWith: "Integrates with",
   },
   recentWork: {
-    eyebrow: "Recent Work",
-    title: "What this looks like in practice",
+    eyebrow: "In practice",
+    title: "Recent work",
     situationLabel: "Situation",
     changeLabel: "What changed",
     resultLabel: "Result",
@@ -73,12 +73,12 @@ const en = {
       lead: {
         title: "Lead automation",
         description:
-          "Your leads from website visitors, forms and outreach replies get classified, scored against your ideal customer profile, and logged to your CRM with team alerts.",
+          "Your leads from website visitors, forms and outreach replies get classified by AI, scored against your ideal customer profile, and logged to your CRM with team alerts.",
       },
       crm: {
         title: "CRM integration & automation",
         description:
-          "Your CRM — HubSpot or Attio — connected to your outreach, calling and enrichment tools. Replies, calls and transcripts are logged to the right deal automatically, and workflows are migrated between platforms.",
+          "Your CRM (HubSpot, Attio) connected to outreach, calling and enrichment tools. Replies, calls and transcripts logged to the right deal automatically, and workflow migrations between platforms.",
       },
       support: {
         title: "Support automation",
@@ -280,9 +280,9 @@ const en = {
         name: "Lead Capture & Scoring",
         description: "Leads from one source classified and scored by AI, logged to your CRM.",
         included: [
-          "Leads from one source: website visitors, a form or outreach replies",
-          "AI classification and scoring against your ideal customer profile",
-          "Logged to your CRM, with alerts to email or Slack",
+          "Leads from one source classified and scored by AI",
+          "Logged to your CRM",
+          "Alerts to email or Slack",
         ],
         running: [
           "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
@@ -293,7 +293,7 @@ const en = {
         name: "CRM Integration",
         description: "Two tools connected to your CRM, activity logged to the right records.",
         included: [
-          "Two tools connected to your CRM, e.g. outreach, calling or enrichment",
+          "Two tools connected to your CRM",
           "Replies and activity logged to the right records",
           "Error handling and alerts",
         ],

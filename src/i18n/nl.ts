@@ -22,21 +22,21 @@ const nl: Dictionary = {
     skipToContent: "Ga naar de inhoud",
   },
   hero: {
-    eyebrow: "Automatisering die echt standhoudt",
+    eyebrow: "Lead-, CRM- en supportautomatisering",
     titleBefore: "Lead-, CRM- en supportautomatisering ",
     titleHighlight: "voor kleine B2B-teams",
     titleAfter: "",
     sectors: "Het meeste van mijn werk doe ik voor B2B-salesteams, e-commerce en fulfilmentoperaties.",
-    intro: "Ik ben Roman. Ik bouw elk project zelf, voor een vaste prijs vanaf {price}, één keer betaald.",
+    intro: "Ik ben Roman. Ik bouw ze zelf, voor een vaste prijs vanaf {price}, één keer betaald.",
     callNote: "Gratis Health Check: een gesprek van 30 minuten met mij, daarna een schriftelijk rapport.",
     ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
-    highlights: ["Werkt met je huidige tools", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
+    highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
     integratesWith: "Integreert met",
   },
   recentWork: {
-    eyebrow: "Recent werk",
-    title: "Zo ziet dat er in de praktijk uit",
+    eyebrow: "In de praktijk",
+    title: "Recent werk",
     situationLabel: "Situatie",
     changeLabel: "Wat er veranderde",
     resultLabel: "Resultaat",
@@ -70,12 +70,12 @@ const nl: Dictionary = {
       lead: {
         title: "Leadautomatisering",
         description:
-          "Je leads uit websitebezoekers, formulieren en outreach-reacties worden geclassificeerd, gescoord tegen je ideale klantprofiel en vastgelegd in je CRM, met meldingen voor je team.",
+          "Je leads van websitebezoekers, formulieren en outreach-reacties worden door AI geclassificeerd, gescoord op je ideale klantprofiel en vastgelegd in je CRM met meldingen voor het team.",
       },
       crm: {
         title: "CRM-integratie & -automatisering",
         description:
-          "Je CRM — HubSpot of Attio — gekoppeld aan je tools voor outreach, bellen en verrijking. Reacties, gesprekken en transcripties worden automatisch bij de juiste deal gelogd, en workflows worden gemigreerd tussen platformen.",
+          "Je CRM (HubSpot, Attio) gekoppeld aan outreach-, bel- en verrijkingstools. Reacties, gesprekken en transcripties automatisch vastgelegd bij de juiste deal, plus workflowmigraties tussen platformen.",
       },
       support: {
         title: "Supportautomatisering",
@@ -277,9 +277,9 @@ const nl: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Leads uit één bron, geclassificeerd en gescoord door AI, vastgelegd in je CRM.",
         included: [
-          "Leads uit één bron: websitebezoekers, een formulier of outreach-reacties",
-          "AI-classificatie en scoring tegen je ideale klantprofiel",
-          "Vastgelegd in je CRM, met meldingen via e-mail of Slack",
+          "Leads uit één bron, geclassificeerd en gescoord door AI",
+          "Vastgelegd in je CRM",
+          "Meldingen via e-mail of Slack",
         ],
         running: [
           "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
@@ -290,8 +290,8 @@ const nl: Dictionary = {
         name: "CRM Integration",
         description: "Twee tools gekoppeld aan je CRM, activiteit gelogd bij de juiste records.",
         included: [
-          "Twee tools gekoppeld aan je CRM, bijv. outreach, bellen of verrijking",
-          "Reacties en activiteit gelogd bij de juiste records",
+          "Twee tools gekoppeld aan je CRM",
+          "Reacties en activiteit vastgelegd bij de juiste records",
           "Foutafhandeling en meldingen",
         ],
         running: [

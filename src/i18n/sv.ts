@@ -22,21 +22,21 @@ const sv: Dictionary = {
     skipToContent: "Hoppa till innehållet",
   },
   hero: {
-    eyebrow: "Automatisering som faktiskt håller",
+    eyebrow: "Lead-, CRM- och supportautomatisering",
     titleBefore: "Lead-, CRM- och supportautomatisering ",
     titleHighlight: "för små B2B-team",
     titleAfter: "",
     sectors: "Det mesta av mitt arbete är med B2B-säljteam, e-handel och fulfilmentverksamheter.",
-    intro: "Jag heter Roman. Jag bygger varje projekt själv, till ett fast pris från {price} som betalas en gång.",
+    intro: "Jag heter Roman. Jag bygger dem själv, till ett fast pris från {price} som betalas en gång.",
     callNote: "Kostnadsfri Health Check: ett samtal på 30 minuter med mig, sedan en skriftlig rapport.",
     ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
-    highlights: ["Fungerar med dina nuvarande verktyg", "Igång på 1–3 veckor", "30 dagars support ingår"],
+    highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
     integratesWith: "Integreras med",
   },
   recentWork: {
-    eyebrow: "Senaste projekt",
-    title: "Så ser det ut i praktiken",
+    eyebrow: "I praktiken",
+    title: "Senaste projekt",
     situationLabel: "Utgångsläge",
     changeLabel: "Vad som ändrades",
     resultLabel: "Resultat",
@@ -70,12 +70,12 @@ const sv: Dictionary = {
       lead: {
         title: "Lead-automatisering",
         description:
-          "Dina leads från webbplatsbesökare, formulär och outreach-svar klassificeras, bedöms mot din ideala kundprofil och loggas i ditt CRM med aviseringar till teamet.",
+          "Dina leads från webbplatsbesökare, formulär och outreach-svar klassificeras av AI, poängsätts mot din ideala kundprofil och loggas i ditt CRM med aviseringar till teamet.",
       },
       crm: {
         title: "CRM-integration & -automatisering",
         description:
-          "Ditt CRM – HubSpot eller Attio – kopplat till dina verktyg för outreach, telefoni och berikning. Svar, samtal och transkript loggas automatiskt på rätt affär, och arbetsflöden migreras mellan plattformar.",
+          "Ditt CRM (HubSpot, Attio) kopplat till verktyg för outreach, samtal och berikning. Svar, samtal och transkriptioner loggas automatiskt på rätt affär, plus workflow-migreringar mellan plattformar.",
       },
       support: {
         title: "Supportautomatisering",
@@ -277,9 +277,9 @@ const sv: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Leads från en källa klassificeras och bedöms av AI och loggas i ditt CRM.",
         included: [
-          "Leads från en källa: webbplatsbesökare, ett formulär eller outreach-svar",
-          "AI-klassificering och scoring mot din ideala kundprofil",
-          "Loggas i ditt CRM, med aviseringar till e-post eller Slack",
+          "Leads från en källa, klassificerade och poängsatta av AI",
+          "Loggas i ditt CRM",
+          "Aviseringar via e-post eller Slack",
         ],
         running: [
           "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
@@ -290,7 +290,7 @@ const sv: Dictionary = {
         name: "CRM Integration",
         description: "Två verktyg kopplade till ditt CRM, med aktivitet loggad på rätt poster.",
         included: [
-          "Två verktyg kopplade till ditt CRM, t.ex. outreach, telefoni eller berikning",
+          "Två verktyg kopplade till ditt CRM",
           "Svar och aktivitet loggas på rätt poster",
           "Felhantering och aviseringar",
         ],

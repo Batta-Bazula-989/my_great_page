@@ -22,21 +22,21 @@ const de: Dictionary = {
     skipToContent: "Zum Inhalt springen",
   },
   hero: {
-    eyebrow: "Automatisierung, die im Alltag wirklich hält",
+    eyebrow: "Lead-, CRM- und Support-Automatisierung",
     titleBefore: "Lead-, CRM- und Support-Automatisierung ",
     titleHighlight: "für kleine B2B-Teams",
     titleAfter: "",
     sectors: "Die meisten meiner Projekte entstehen für B2B-Vertriebsteams, E-Commerce und Fulfillment.",
-    intro: "Ich bin Roman. Ich baue jedes Projekt selbst, zum Festpreis ab {price}, einmal bezahlt.",
+    intro: "Ich bin Roman. Ich baue sie selbst, zum Festpreis ab {price}, einmal bezahlt.",
     callNote: "Kostenloser Health Check: ein 30-minütiges Gespräch mit mir, danach ein schriftlicher Bericht.",
     ctaBook: "Kostenlosen Health Check buchen",
     ctaUpwork: "Bewertungen auf Upwork",
-    highlights: ["Funktioniert mit Ihren aktuellen Tools", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
+    highlights: ["Funktioniert mit Ihrem aktuellen Helpdesk", "Live in 1–3 Wochen", "30 Tage Support inklusive"],
     integratesWith: "Integriert mit",
   },
   recentWork: {
-    eyebrow: "Aktuelle Projekte",
-    title: "So sieht das in der Praxis aus",
+    eyebrow: "In der Praxis",
+    title: "Aktuelle Projekte",
     situationLabel: "Ausgangslage",
     changeLabel: "Was sich geändert hat",
     resultLabel: "Ergebnis",
@@ -70,12 +70,12 @@ const de: Dictionary = {
       lead: {
         title: "Lead-Automatisierung",
         description:
-          "Ihre Leads von Website-Besuchern, Formularen und Outreach-Antworten werden klassifiziert, gegen Ihr ideales Kundenprofil bewertet und mit Team-Benachrichtigungen in Ihrem CRM erfasst.",
+          "Ihre Leads von Website-Besuchern, Formularen und Outreach-Antworten werden von KI klassifiziert, gegen Ihr ideales Kundenprofil bewertet und mit Team-Benachrichtigungen in Ihrem CRM erfasst.",
       },
       crm: {
         title: "CRM-Integration & -Automatisierung",
         description:
-          "Ihr CRM – HubSpot oder Attio – verbunden mit Ihren Outreach-, Telefonie- und Anreicherungstools. Antworten, Anrufe und Transkripte werden automatisch dem richtigen Deal zugeordnet, und Workflows werden zwischen Plattformen migriert.",
+          "Ihr CRM (HubSpot, Attio) verbunden mit Outreach-, Telefonie- und Anreicherungstools. Antworten, Anrufe und Transkripte werden automatisch dem richtigen Deal zugeordnet, dazu Workflow-Migrationen zwischen Plattformen.",
       },
       support: {
         title: "Support-Automatisierung",
@@ -273,9 +273,9 @@ const de: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Leads aus einer Quelle, von KI klassifiziert und bewertet, erfasst in Ihrem CRM.",
         included: [
-          "Leads aus einer Quelle: Website-Besucher, ein Formular oder Outreach-Antworten",
-          "KI-Klassifizierung und Bewertung gegen Ihr ideales Kundenprofil",
-          "Erfasst in Ihrem CRM, mit Benachrichtigungen per E-Mail oder Slack",
+          "Leads aus einer Quelle, von KI klassifiziert und bewertet",
+          "Erfasst in Ihrem CRM",
+          "Benachrichtigungen per E-Mail oder Slack",
         ],
         running: [
           "KI-Nutzung, von Ihrem KI-Anbieter pro Token abgerechnet, z. B. Claude Haiku 5.5 ab 0,10 $ / 0,50 $ pro Million Input-/Output-Tokens*",
@@ -286,7 +286,7 @@ const de: Dictionary = {
         name: "CRM Integration",
         description: "Zwei Tools mit Ihrem CRM verbunden, Aktivitäten den richtigen Datensätzen zugeordnet.",
         included: [
-          "Zwei Tools mit Ihrem CRM verbunden, z. B. Outreach, Telefonie oder Anreicherung",
+          "Zwei Tools mit Ihrem CRM verbunden",
           "Antworten und Aktivitäten den richtigen Datensätzen zugeordnet",
           "Fehlerbehandlung und Benachrichtigungen",
         ],

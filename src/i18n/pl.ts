@@ -22,21 +22,21 @@ const pl: Dictionary = {
     skipToContent: "Przejdź do treści",
   },
   hero: {
-    eyebrow: "Automatyzacja, która sprawdza się w praktyce",
+    eyebrow: "Automatyzacja leadów, CRM i wsparcia",
     titleBefore: "Automatyzacja leadów, CRM i obsługi klienta ",
     titleHighlight: "dla małych zespołów B2B",
     titleAfter: "",
     sectors: "Najczęściej pracuję z zespołami sprzedaży B2B, e-commerce i operacjami fulfilmentu.",
-    intro: "Jestem Roman. Każdy projekt buduję sam, w stałej cenie od {price}, płatnej jednorazowo.",
+    intro: "Jestem Roman. Buduję je sam, w stałej cenie od {price}, płatnej jednorazowo.",
     callNote: "Bezpłatny Health Check: 30-minutowa rozmowa ze mną, a potem pisemny raport.",
     ctaBook: "Umów bezpłatny Health Check",
     ctaUpwork: "Opinie na Upwork",
-    highlights: ["Działa z Twoimi obecnymi narzędziami", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
+    highlights: ["Działa z Twoim obecnym helpdeskiem", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
     integratesWith: "Integruje się z",
   },
   recentWork: {
-    eyebrow: "Ostatnie realizacje",
-    title: "Jak to wygląda w praktyce",
+    eyebrow: "W praktyce",
+    title: "Ostatnie realizacje",
     situationLabel: "Sytuacja",
     changeLabel: "Co się zmieniło",
     resultLabel: "Efekt",
@@ -70,12 +70,12 @@ const pl: Dictionary = {
       lead: {
         title: "Automatyzacja leadów",
         description:
-          "Twoje leady z odwiedzin na stronie, formularzy i odpowiedzi na outreach są klasyfikowane, oceniane względem idealnego profilu klienta i zapisywane w Twoim CRM, z powiadomieniami dla zespołu.",
+          "Twoje leady od odwiedzających stronę, z formularzy i odpowiedzi na kampanie outreachowe są klasyfikowane przez AI, oceniane względem Twojego profilu idealnego klienta i zapisywane w Twoim CRM z powiadomieniami dla zespołu.",
       },
       crm: {
         title: "Integracja i automatyzacja CRM",
         description:
-          "Twój CRM – HubSpot lub Attio – połączony z narzędziami do outreachu, telefonii i wzbogacania danych. Odpowiedzi, rozmowy i transkrypcje trafiają automatycznie do właściwego deala, a workflowy są migrowane między platformami.",
+          "Twój CRM (HubSpot, Attio) połączony z narzędziami do outreachu, telefonii i wzbogacania danych. Odpowiedzi, rozmowy i transkrypcje automatycznie zapisywane przy właściwym dealu, a także migracje workflow między platformami.",
       },
       support: {
         title: "Automatyzacja obsługi klienta",
@@ -273,9 +273,9 @@ const pl: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Leady z jednego źródła klasyfikowane i oceniane przez AI, zapisywane w Twoim CRM.",
         included: [
-          "Leady z jednego źródła: odwiedzający stronę, formularz lub odpowiedzi na outreach",
-          "Klasyfikacja AI i scoring względem idealnego profilu klienta",
-          "Zapis w Twoim CRM, z powiadomieniami e-mailem lub na Slacka",
+          "Leady z jednego źródła, klasyfikowane i oceniane przez AI",
+          "Zapisywane w Twoim CRM",
+          "Powiadomienia na e-mail lub Slack",
         ],
         running: [
           "Korzystanie z AI, rozliczane za tokeny przez Twojego dostawcę AI, np. Claude Haiku 5.5 od 0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych*",
@@ -286,8 +286,8 @@ const pl: Dictionary = {
         name: "CRM Integration",
         description: "Dwa narzędzia połączone z Twoim CRM, aktywność zapisywana przy właściwych rekordach.",
         included: [
-          "Dwa narzędzia połączone z Twoim CRM, np. outreach, telefonia lub wzbogacanie danych",
-          "Odpowiedzi i aktywność zapisywane przy właściwych rekordach",
+          "Dwa narzędzia połączone z Twoim CRM",
+          "Odpowiedzi i aktywność zapisywane we właściwych rekordach",
           "Obsługa błędów i powiadomienia",
         ],
         running: [

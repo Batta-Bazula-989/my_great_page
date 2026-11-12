@@ -9,16 +9,16 @@ import avatar from "@/assets/roman-avatar.jpg";
 
 // The integrations strip: monochrome text wordmarks that take their brand color on hover.
 const tools: { name: string; hover: string }[] = [
-  { name: "HubSpot", hover: "#ff7a59" },
-  { name: "Attio", hover: "hsl(248 56% 36%)" },
-  { name: "Lemlist", hover: "hsl(248 56% 36%)" },
-  { name: "Aircall", hover: "hsl(248 56% 36%)" },
   { name: "Zendesk", hover: "#03363d" },
   { name: "Freshdesk", hover: "hsl(248 56% 36%)" },
   { name: "Jira", hover: "#0052cc" },
   { name: "Slack", hover: "#4a154b" },
   { name: "WhatsApp", hover: "#1faa53" },
   { name: "Telegram", hover: "#0f87c0" },
+  { name: "HubSpot", hover: "#ff7a59" },
+  { name: "Attio", hover: "hsl(248 56% 36%)" },
+  { name: "Lemlist", hover: "hsl(248 56% 36%)" },
+  { name: "Aircall", hover: "hsl(248 56% 36%)" },
 ];
 
 const highlightIcons = [Plug, Clock, ShieldCheck];
@@ -58,17 +58,17 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="animate-rise mt-5 mx-auto max-w-2xl text-sm md:text-base font-medium text-muted-foreground text-pretty"
-            style={rise(2)}
-          >
-            {tidy(t.sectors)}
-          </p>
-
-          <p
-            className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-4 mx-auto leading-relaxed text-pretty"
+            className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-5 mx-auto leading-relaxed text-pretty"
             style={rise(2)}
           >
             {tidy(format(t.intro, { price: lowestPrice }))}
+          </p>
+
+          <p
+            className="animate-rise mt-4 mx-auto max-w-2xl text-sm md:text-base font-medium text-muted-foreground text-pretty"
+            style={rise(2)}
+          >
+            {tidy(t.sectors)}
           </p>
 
           <div className="animate-rise mt-8 flex flex-col items-center gap-5" style={rise(3)}>

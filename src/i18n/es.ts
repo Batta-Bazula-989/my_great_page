@@ -22,21 +22,21 @@ const es: Dictionary = {
     skipToContent: "Saltar al contenido",
   },
   hero: {
-    eyebrow: "Automatización que aguanta de verdad",
+    eyebrow: "Automatización de leads, CRM y soporte",
     titleBefore: "Automatización de leads, CRM y soporte ",
     titleHighlight: "para pequeños equipos B2B",
     titleAfter: "",
     sectors: "La mayor parte de mi trabajo es con equipos de ventas B2B, ecommerce y operaciones de logística.",
-    intro: "Soy Roman. Construyo cada proyecto yo mismo, a precio fijo desde {price}, en un solo pago.",
+    intro: "Soy Roman. Los construyo yo mismo, a precio fijo desde {price}, en un solo pago.",
     callNote: "Health Check gratuito: una llamada de 30 minutos conmigo y, después, un informe por escrito.",
     ctaBook: "Reserva un Health Check gratuito",
     ctaUpwork: "Reseñas en Upwork",
-    highlights: ["Funciona con tus herramientas actuales", "En marcha en 1–3 semanas", "30 días de soporte incluidos"],
+    highlights: ["Funciona con tu helpdesk actual", "En marcha en 1–3 semanas", "30 días de soporte incluidos"],
     integratesWith: "Se integra con",
   },
   recentWork: {
-    eyebrow: "Trabajo reciente",
-    title: "Así se ve en la práctica",
+    eyebrow: "En la práctica",
+    title: "Trabajos recientes",
     situationLabel: "Situación",
     changeLabel: "Qué cambió",
     resultLabel: "Resultado",
@@ -70,12 +70,12 @@ const es: Dictionary = {
       lead: {
         title: "Automatización de leads",
         description:
-          "Tus leads de visitantes web, formularios y respuestas de outreach se clasifican, se puntúan frente a tu perfil de cliente ideal y se registran en tu CRM con alertas para el equipo.",
+          "Tus leads de visitantes del sitio web, formularios y respuestas de outreach se clasifican con IA, se puntúan según tu perfil de cliente ideal y se registran en tu CRM con alertas para el equipo.",
       },
       crm: {
         title: "Integración y automatización del CRM",
         description:
-          "Tu CRM — HubSpot o Attio — conectado a tus herramientas de outreach, llamadas y enriquecimiento. Las respuestas, las llamadas y las transcripciones se registran automáticamente en el deal correcto, y los workflows se migran entre plataformas.",
+          "Tu CRM (HubSpot, Attio) conectado a herramientas de outreach, llamadas y enriquecimiento. Respuestas, llamadas y transcripciones registradas automáticamente en el deal correcto, y migraciones de workflows entre plataformas.",
       },
       support: {
         title: "Automatización del soporte",
@@ -277,9 +277,9 @@ const es: Dictionary = {
         name: "Lead Capture & Scoring",
         description: "Leads de una fuente, clasificados y puntuados por IA, registrados en tu CRM.",
         included: [
-          "Leads de una fuente: visitantes web, un formulario o respuestas de outreach",
-          "Clasificación y puntuación con IA frente a tu perfil de cliente ideal",
-          "Registrados en tu CRM, con alertas por correo o a Slack",
+          "Leads de una sola fuente, clasificados y puntuados con IA",
+          "Registrados en tu CRM",
+          "Alertas por correo o Slack",
         ],
         running: [
           "Uso de IA, facturado por token por tu proveedor de IA, p. ej., Claude Haiku 5.5 desde 0,10 $ / 0,50 $ por millón de tokens de entrada / salida*",
@@ -290,7 +290,7 @@ const es: Dictionary = {
         name: "CRM Integration",
         description: "Dos herramientas conectadas a tu CRM, con la actividad registrada en los registros correctos.",
         included: [
-          "Dos herramientas conectadas a tu CRM, p. ej., outreach, llamadas o enriquecimiento",
+          "Dos herramientas conectadas a tu CRM",
           "Respuestas y actividad registradas en los registros correctos",
           "Gestión de errores y alertas",
         ],
