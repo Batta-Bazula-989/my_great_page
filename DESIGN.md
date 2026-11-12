@@ -89,6 +89,18 @@ hero note, the founder panel, the contact panel and the booking dialog.
   at the outer corners only — never behind paragraphs, hidden below `lg`
 - Space Grotesk headings, Outfit body (unchanged); uppercase gradient eyebrows
 
+## Dark mode
+
+Dark mode follows the visitor's system preference (`prefers-color-scheme: dark`) —
+no toggle. Only the CSS tokens change, in `src/index.css`: the canvas becomes deep
+indigo-black (`hsl(248 30% 8%)`), cards `hsl(248 26% 12%)`, primary brightens to a
+light indigo (`hsl(248 90% 77%)`) so icons, prices and links keep ≥ 4.5:1, and the
+text gradient brightens its stops for the same reason. The CTA gradient keeps its
+deep stops, since white text passes AA on them regardless of canvas. The few
+light-theme literals (section tint, chips, nav glass, scrollbar, the integration
+strip's brand hover colors) carry their own dark overrides next to their light
+definitions.
+
 ## Color rules
 
 - **The Gradient Rule.** The violet-to-cyan gradient appears only on: CTA fills

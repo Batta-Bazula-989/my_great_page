@@ -123,7 +123,7 @@ const HeroSection = () => {
         <div className="animate-rise mt-10 text-center" style={rise(5)}>
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">{t.integratesWith}</p>
           {/* A logo strip of text wordmarks: muted at rest, brand color on hover */}
-          <ul className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-3">
+          <ul className="logo-strip mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-3">
             {tools.map((tool) => (
               <li
                 key={tool.name}

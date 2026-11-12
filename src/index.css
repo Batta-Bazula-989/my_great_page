@@ -75,6 +75,66 @@ html {
     --sidebar-border: 248 22% 88%;
     --sidebar-ring: 248 56% 40%;
   }
+
+  /* Dark mode: the same indigo system on a deep indigo-black canvas, applied automatically
+     from the visitor's system preference. Only the tokens change; components stay untouched. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 248 30% 8%;
+      --foreground: 240 30% 94%;
+
+      --card: 248 26% 12%;
+      --card-foreground: 240 30% 94%;
+
+      --popover: 248 26% 12%;
+      --popover-foreground: 240 30% 94%;
+
+      /* Light indigo so icons, prices and links keep ≥ 4.5:1 on the dark canvas */
+      --primary: 248 90% 77%;
+      --primary-foreground: 248 45% 12%;
+
+      --secondary: 248 24% 18%;
+      --secondary-foreground: 240 30% 92%;
+
+      --muted: 248 20% 16%;
+      --muted-foreground: 240 16% 74%;
+
+      --accent: 262 80% 76%;
+      --accent-foreground: 248 45% 12%;
+
+      --destructive: 0 80% 66%;
+      --destructive-foreground: 248 45% 10%;
+
+      --border: 248 18% 24%;
+      --input: 248 18% 27%;
+      --ring: 248 90% 77%;
+
+      --footer: 248 45% 9%;
+      --footer-foreground: 248 30% 96%;
+
+      /* CTA gradient keeps the same deep stops (white text stays AA on any canvas);
+         text gradient brightens so eyebrows and numerals stay ≥ 4.5:1 on the dark canvas. */
+      --gradient-text: linear-gradient(110deg, hsl(262 95% 80%), hsl(240 95% 82%), hsl(190 90% 64%));
+      --gradient-glow: radial-gradient(ellipse at center, hsl(258 80% 65% / 0.16) 0%, transparent 70%);
+
+      --shadow-glow: 0 10px 32px -8px hsl(252 85% 65% / 0.4);
+      --shadow-card: 0 1px 2px hsl(250 60% 3% / 0.5), 0 10px 30px -14px hsl(250 60% 3% / 0.6);
+      --shadow-card-lg: 0 2px 4px hsl(250 60% 3% / 0.5), 0 20px 45px -18px hsl(250 60% 3% / 0.7);
+
+      --glass-bg: hsl(248 26% 12%);
+      --glass-bg-strong: linear-gradient(160deg, hsl(248 26% 13%) 0%, hsl(248 30% 10%) 100%);
+      --glass-border: hsl(248 18% 24%);
+
+      --sidebar-background: 248 26% 12%;
+      --sidebar-foreground: 240 30% 94%;
+      --sidebar-primary: 248 90% 77%;
+      --sidebar-primary-foreground: 248 45% 12%;
+      --sidebar-accent: 248 24% 18%;
+      --sidebar-accent-foreground: 240 30% 94%;
+      --sidebar-border: 248 18% 24%;
+      --sidebar-ring: 248 90% 77%;
+    }
+  }
 }
 
 @layer base {
@@ -106,10 +166,16 @@ html {
     color: hsl(var(--foreground));
   }
 
-  /* Alternating light section tints: every second homepage section gets a cool indigo wash
-     against the warm off-white canvas, so the page reads in bands instead of one long scroll. */
+  /* Alternating section tints: every second homepage section gets a cool indigo wash
+     against the canvas, so the page reads in bands instead of one long scroll. */
   main > section:nth-of-type(even) {
     background-color: hsl(248 38% 96%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    main > section:nth-of-type(even) {
+      background-color: hsl(248 28% 11%);
+    }
   }
 }
 
@@ -184,6 +250,24 @@ html {
     box-shadow: var(--shadow-card);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     backdrop-filter: blur(16px) saturate(160%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .glass-nav {
+      background: hsl(248 30% 9% / 0.82);
+      border-color: hsl(248 18% 26% / 0.8);
+    }
+
+    .glass-chip {
+      background: hsl(248 24% 18%);
+      border-color: hsl(248 20% 28%);
+    }
+
+    /* Brand hover colors in the integrations strip are tuned for the light canvas;
+       on the dark canvas every wordmark brightens to the light indigo instead. */
+    .logo-strip li:hover {
+      color: hsl(252 95% 82%) !important;
+    }
   }
 
   .glass-solid {
@@ -271,4 +355,10 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: hsl(248 15% 30%);
+  }
 }
