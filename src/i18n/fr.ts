@@ -275,6 +275,21 @@ const fr: Dictionary = {
           "Plateforme d'automatisation : n8n auto-hébergé (logiciel gratuit ; vous payez le serveur), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois (tous deux facturés annuellement)",
         ],
       },
+      {
+        name: "Support Automation",
+        description: "La partie répétitive de votre support, automatisée et connectée à votre helpdesk.",
+        included: [
+          "Chatbots et bots vocaux qui répondent aux questions et appels courants",
+          "Tickets routés, tagués et priorisés automatiquement",
+          "Rapports envoyés par e-mail ou Slack selon un planning",
+          "Connecté à Zendesk, Freshdesk ou Jira",
+        ],
+        running: [
+          "Utilisation de l'IA, facturée au token par votre fournisseur d'IA, par ex. Claude Haiku 5.5 à partir de 0,10 $ / 0,50 $ par million de tokens en entrée / en sortie*",
+          "Plateforme d'automatisation : n8n auto-hébergé (logiciel gratuit ; vous payez le serveur), n8n Cloud à partir de 20 €/mois ou Make à partir de 9 $/mois (tous deux facturés annuellement)",
+          "Bots vocaux uniquement : frais à la minute de la plateforme vocale, par ex. Retell AI à partir de 0,07 $ la minute, plus le modèle d'IA et la ligne téléphonique",
+        ],
+      },
     ],
     footnote:
       "* Prix catalogue d'Anthropic (octobre 2026) pour les prompts jusqu'à 100 000 tokens ; les prompts plus longs coûtent 0,50 $ / 2,50 $. Les autres fournisseurs et modèles ont des tarifs différents, et les fournisseurs peuvent modifier leurs prix.",

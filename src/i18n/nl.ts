@@ -275,6 +275,21 @@ const nl: Dictionary = {
           "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
         ],
       },
+      {
+        name: "Support Automation",
+        description: "Het repetitieve deel van je support, geautomatiseerd en gekoppeld aan je helpdesk.",
+        included: [
+          "Chat- en voicebots die veelgestelde vragen en gesprekken afhandelen",
+          "Tickets automatisch gerouteerd, getagd en geprioriteerd",
+          "Rapporten volgens schema via e-mail of Slack",
+          "Gekoppeld aan Zendesk, Freshdesk of Jira",
+        ],
+        running: [
+          "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
+          "Alleen voicebots: kosten per minuut van het voiceplatform, bijv. Retell AI vanaf $ 0,07 per minuut, plus het AI-model en de telefoonlijn",
+        ],
+      },
     ],
     footnote:
       "* Lijstprijzen van Anthropic (oktober 2026) voor prompts tot 100.000 tokens; langere prompts kosten $ 0,50 / $ 2,50. Andere aanbieders en modellen hebben andere prijzen, en aanbieders kunnen hun prijzen wijzigen.",

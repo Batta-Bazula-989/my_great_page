@@ -275,6 +275,21 @@ const sv: Dictionary = {
           "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
         ],
       },
+      {
+        name: "Support Automation",
+        description: "Den repetitiva delen av din support, automatiserad och kopplad till din helpdesk.",
+        included: [
+          "Chatt- och röstbotar som svarar på vanliga frågor och samtal",
+          "Ärenden routas, taggas och prioriteras automatiskt",
+          "Rapporter via e-post eller Slack enligt schema",
+          "Kopplat till Zendesk, Freshdesk eller Jira",
+        ],
+        running: [
+          "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
+          "Endast röstbotar: minutavgifter till röstplattformen, t.ex. Retell AI från 0,07 USD per minut, plus AI-modellen och telefonlinjen",
+        ],
+      },
     ],
     footnote:
       "* Anthropics listpriser (oktober 2026) för promptar på upp till 100 000 tokens; längre promptar kostar 0,50 / 2,50 USD. Andra leverantörer och modeller prissätts annorlunda, och leverantörerna kan ändra sina priser.",

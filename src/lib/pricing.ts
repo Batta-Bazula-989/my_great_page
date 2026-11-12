@@ -14,7 +14,8 @@ export type PackageId =
   | "reports"
   | "custom"
   | "leadScoring"
-  | "crmIntegration";
+  | "crmIntegration"
+  | "supportAutomation";
 
 export interface Package {
   id: PackageId;
@@ -33,6 +34,9 @@ export const PACKAGES: Package[] = [
   { id: "custom", prices: { USD: 1200, EUR: 1070, PLN: 4650, SEK: 11900 }, isMinimum: true },
   { id: "leadScoring", prices: { USD: 700, EUR: 620, PLN: 2700, SEK: 6900 } },
   { id: "crmIntegration", prices: { USD: 900, EUR: 800, PLN: 3500, SEK: 8900 } },
+  // One support-automation package shown on the homepage; the earlier per-bot packages
+  // stay above because blog articles still quote their prices via {{price:<id>}} tokens.
+  { id: "supportAutomation", prices: { USD: 400, EUR: 360, PLN: 1550, SEK: 4000 }, isMinimum: true },
 ];
 
 export const CURRENCY: Record<Locale, Currency> = {

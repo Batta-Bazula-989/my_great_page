@@ -278,6 +278,21 @@ const en = {
           "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
         ],
       },
+      {
+        name: "Support Automation",
+        description: "The repetitive part of your support automated, connected to your helpdesk.",
+        included: [
+          "Chat and voice bots that answer common questions and calls",
+          "Tickets routed, tagged and prioritized automatically",
+          "Reports sent to email or Slack on a schedule",
+          "Connected to Zendesk, Freshdesk or Jira",
+        ],
+        running: [
+          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+          "Voice bots only: voice platform per-minute fees, e.g. Retell AI from $0.07 per minute, plus the AI model and phone line",
+        ],
+      },
     ],
     footnote:
       "* Anthropic's list prices (October 2026) for prompts up to 100,000 tokens; longer prompts cost $0.50 / $2.50. Other providers and models are priced differently, and providers can change their prices.",

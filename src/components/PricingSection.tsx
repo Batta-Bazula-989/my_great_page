@@ -10,16 +10,12 @@ import { PACKAGES, packagePrice, type PackageId } from "@/lib/pricing";
 import { toolPath } from "@/tools/registry";
 import { cn } from "@/lib/utils";
 
-// Packages grouped by the job they do: lead & CRM automation first, then the five
-// support packages under one heading, then custom work.
+// Packages grouped by the job they do: lead & CRM automation first, then ONE
+// support-automation package, then custom work. The per-bot packages are no longer
+// shown here; they live on in blog articles and the Health Check.
 const GROUPS: { key: "leads" | "support" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
-  { key: "leads", ids: ["leadScoring", "crmIntegration"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2" },
-  {
-    key: "support",
-    ids: ["starter", "standard", "voice", "reports", "routing"],
-    span: "md:col-span-2 lg:col-span-3",
-    cols: "md:grid-cols-2 lg:grid-cols-3",
-  },
+  { key: "leads", ids: ["leadScoring", "crmIntegration"], span: "md:col-span-2", cols: "md:grid-cols-2" },
+  { key: "support", ids: ["supportAutomation"], span: "md:col-span-2 lg:col-span-1", cols: "md:grid-cols-2 lg:grid-cols-1" },
   { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
 ];
 
@@ -93,72 +89,6 @@ const PricingSection = () => {
               {t.groups[group.key]}
               <span className="h-px flex-1 bg-border" aria-hidden />
             </h3>
-            {group.key === "support" ? (
-              /* Support automation is ONE compact panel: the five packages as rows, not five cards. */
-              <Reveal>
-                <article className="glass divide-y divide-border rounded-[28px]">
-                  {group.ids.map((id) => {
-                    const index = planIndex(id);
-                    const plan = t.plans[index];
-                    return (
-                      <div
-                        key={id}
-                        className="grid gap-4 p-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-10 md:p-7"
-                      >
-                        <div>
-                          <h4 className="font-bold font-display text-foreground text-lg">{plan.name}</h4>
-                          <p className="text-muted-foreground mt-1 leading-relaxed text-pretty">{plan.description}</p>
-                          <details className="group mt-2">
-                            <summary className="inline-flex min-h-9 cursor-pointer list-none items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline [&::-webkit-details-marker]:hidden">
-                              {t.included}
-                              <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" aria-hidden />
-                            </summary>
-                            <ul className="mt-2 space-y-2">
-                              {plan.included.map((item) => (
-                                <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/85 leading-relaxed">
-                                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                            {showRunning && (
-                              <div className="mt-3">
-                                <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
-                                  <Receipt className="h-4 w-4 text-primary" aria-hidden />
-                                  {t.running}
-                                </p>
-                                <ul className="mt-2 list-disc space-y-1.5 pl-4 text-sm text-muted-foreground leading-relaxed marker:text-primary/70">
-                                  {plan.running.map((item) => (
-                                    <li key={item}>{item}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-                          </details>
-                        </div>
-                        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 md:flex-col md:items-end">
-                          <div className="md:text-right">
-                            <div className="font-bold font-display text-primary leading-none text-3xl tabular-nums">
-                              {packagePrice(locale, id)}
-                            </div>
-                            <p className="mt-1.5 text-xs text-muted-foreground">
-                              {t.oneTimeFee} · {t.delivery} {t.deliveryTime}
-                            </p>
-                          </div>
-                          <BookingButton
-                            variant="package"
-                            className="h-auto min-h-10 rounded-full px-4 py-2 text-sm whitespace-normal text-center"
-                            topic={{ lead: en.pricing.plans[index].name, label: `${plan.name} · ${packagePrice(locale, id)}` }}
-                          >
-                            {t.cta}
-                          </BookingButton>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </article>
-              </Reveal>
-            ) : (
             <div className={cn("grid grid-cols-1 gap-6", group.cols)}>
               {group.ids.map((id, i) => {
                 const index = planIndex(id);
@@ -223,7 +153,6 @@ const PricingSection = () => {
                 );
               })}
             </div>
-            )}
           </div>
         ))}
       </div>
