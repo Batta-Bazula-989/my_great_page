@@ -13,11 +13,14 @@ import { cn } from "@/lib/utils";
 // Packages grouped by the job they do: lead & CRM automation first, then ONE
 // support-automation package, then custom work. The per-bot packages are no longer
 // shown here; they live on in blog articles and the Health Check.
-const GROUPS: { key: "leads" | "support" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
+const GROUPS: { key: "leads" | "support"; ids: PackageId[]; span: string; cols: string }[] = [
   { key: "leads", ids: ["leadScoring", "crmIntegration"], span: "md:col-span-2", cols: "md:grid-cols-2" },
   { key: "support", ids: ["supportAutomation"], span: "md:col-span-2 lg:col-span-1", cols: "md:grid-cols-2 lg:grid-cols-1" },
-  { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
 ];
+
+// Custom Automation closes the section as a wide banner card (no group heading),
+// mirroring the Health Check banner that opens it.
+const CUSTOM: PackageId = "custom";
 
 // The one visually featured card: a violet-to-cyan gradient border instead of a flag or badge.
 const FEATURED: PackageId = "leadScoring";
@@ -158,6 +161,62 @@ const PricingSection = () => {
           </div>
         ))}
       </div>
+
+      {(() => {
+        const index = planIndex(CUSTOM);
+        const plan = t.plans[index];
+        return (
+          <Reveal className="max-w-6xl mx-auto mt-8">
+            <article className="glass glass-hover flex flex-col gap-6 rounded-[28px] p-7 md:flex-row md:items-center md:p-8">
+              <div className="flex-1">
+                <h4 className="font-bold font-display text-foreground text-xl">{plan.name}</h4>
+                <p className="text-muted-foreground mt-2 leading-relaxed text-pretty">{plan.description}</p>
+                <ul aria-label={t.included} className="mt-4 flex flex-col gap-x-8 gap-y-2 lg:flex-row lg:flex-wrap">
+                  {plan.included.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-foreground/85 leading-relaxed">
+                      <Check className="w-4 h-4 text-primary shrink-0 mt-1" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {showRunning && (
+                  <div className="mt-4 border-t border-border pt-4 animate-in fade-in">
+                    <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
+                      <Receipt className="w-4 h-4 text-primary" aria-hidden />
+                      {t.running}
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-muted-foreground leading-relaxed list-disc pl-4 marker:text-primary/70">
+                      {plan.running.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col items-start gap-3 shrink-0 md:items-end">
+                <div className="font-bold font-display text-primary leading-none text-4xl tabular-nums">
+                  {packagePrice(locale, CUSTOM)}
+                </div>
+                <p className="flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
+                  <span>{t.oneTimeFee}</span>
+                  <span aria-hidden>·</span>
+                  <CalendarClock className="w-3.5 h-3.5 text-primary" aria-hidden />
+                  <span>
+                    {t.delivery} {t.deliveryTime}
+                  </span>
+                </p>
+                <BookingButton
+                  variant="package"
+                  className="h-auto min-h-12 rounded-full px-6 py-3 whitespace-normal text-center"
+                  topic={{ lead: en.pricing.plans[index].name, label: `${plan.name} · ${packagePrice(locale, CUSTOM)}` }}
+                >
+                  {t.cta}
+                </BookingButton>
+              </div>
+            </article>
+          </Reveal>
+        );
+      })()}
 
       {showRunning && <p className="max-w-6xl mx-auto mt-8 text-sm text-muted-foreground leading-relaxed">{t.footnote}</p>}
       <p className="max-w-6xl mx-auto mt-8 text-center text-foreground/80">{t.allPackages}</p>
