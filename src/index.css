@@ -263,11 +263,6 @@ html {
       border-color: hsl(248 20% 28%);
     }
 
-    /* Brand hover colors in the integrations strip are tuned for the light canvas;
-       on the dark canvas every wordmark brightens to the light indigo instead. */
-    .logo-strip li:hover {
-      color: hsl(252 95% 82%) !important;
-    }
   }
 
   .glass-solid {

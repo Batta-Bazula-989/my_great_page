@@ -7,20 +7,6 @@ import { keepShortWords } from "@/lib/typography";
 import { format, useDict, useLocale } from "@/i18n";
 import avatar from "@/assets/roman-avatar.jpg";
 
-// The integrations strip: monochrome text wordmarks that take their brand color on hover.
-const tools: { name: string; hover: string }[] = [
-  { name: "Zendesk", hover: "#03363d" },
-  { name: "Freshdesk", hover: "hsl(248 56% 36%)" },
-  { name: "Jira", hover: "#0052cc" },
-  { name: "Slack", hover: "#4a154b" },
-  { name: "WhatsApp", hover: "#1faa53" },
-  { name: "Telegram", hover: "#0f87c0" },
-  { name: "HubSpot", hover: "#ff7a59" },
-  { name: "Attio", hover: "hsl(248 56% 36%)" },
-  { name: "Lemlist", hover: "hsl(248 56% 36%)" },
-  { name: "Aircall", hover: "hsl(248 56% 36%)" },
-];
-
 const highlightIcons = [Plug, Clock, ShieldCheck];
 
 // Staggered CSS entrance (see .animate-rise): the pre-rendered hero is visible before any JavaScript runs.
@@ -116,22 +102,6 @@ const HeroSection = () => {
                 </li>
               );
             })}
-          </ul>
-        </div>
-
-        <div className="animate-rise mt-10 text-center" style={rise(5)}>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">{t.integratesWith}</p>
-          {/* A logo strip of text wordmarks: muted at rest, brand color on hover */}
-          <ul className="logo-strip mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            {tools.map((tool) => (
-              <li
-                key={tool.name}
-                className="font-display text-base font-semibold text-foreground/65 transition-colors duration-200 hover:text-[var(--brand)]"
-                style={{ "--brand": tool.hover } as CSSProperties}
-              >
-                {tool.name}
-              </li>
-            ))}
           </ul>
         </div>
       </div>
