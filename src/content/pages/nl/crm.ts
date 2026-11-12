@@ -478,4 +478,325 @@ export const crmPages: TranslatedPage[] = [
     related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
     updated: "2026-11-03",
   },
+
+  {
+    key: "ai-lead-scoring",
+    slug: "ai-leadscoring",
+    category: "crm",
+    navLabel: "AI-leadscoring",
+    primaryKeyword: "AI leadscoring",
+    title: "AI-leadscoring: ICP-fit, HubSpot en Attio instellen",
+    description:
+      "AI-leadscoring uitgelegd: leads scoren op je ideale klantprofiel, de lead scoring tool en limieten van HubSpot, en scores via de API naar Attio schrijven.",
+    h1: "AI-leadscoring: zo werkt scoren op je ICP",
+    intro:
+      "Leadscoring maakt van losse leads een gerangschikte lijst door elke lead punten te geven voor hoe goed hij past bij je ideale klantprofiel (ICP) en hoe hij zich gedraagt. AI komt op twee manieren binnen: native scoring in het platform, zoals de AI-leadscores van HubSpot, en externe classificatie, waarbij een model een reactie of een verrijkingsrecord leest, een fit-score berekent en die via de API terugschrijft naar je CRM.",
+    keyFacts: [
+      "De lead scoring tool van HubSpot vereist Marketing Hub of Sales Hub Professional of Enterprise; AI-gebouwde contactscores vereisen Marketing Hub Enterprise.",
+      "De AI-leadscores van HubSpot hebben een minimale steekproef van 50 contacten nodig — 25 geconverteerd en 25 niet-geconverteerd — voordat een score kan worden gegenereerd.",
+      "Attio heeft geen ingebouwde scoring-engine of score-veldtype: een score leeft in een number- of select-attribuut dat een workflow of de API vult.",
+      "Number-attributen in Attio slaan floating-point-getallen op met maximaal vier decimalen — genoeg voor een fit-score van 0–100.",
+      "Een externe score schrijf je naar HubSpot met een PATCH naar /crm/v3/objects/contacts/{contactId}, en naar Attio met een PATCH naar /v2/objects/{object}/records/{record_id}.",
+    ],
+    sections: [
+      {
+        heading: "Wat AI-leadscoring betekent",
+        blocks: [
+          {
+            type: "p",
+            text: "Scoringmodellen combineren meestal twee soorten signalen. Engagementsignalen meten wat een lead doet: opens, kliks, reacties, paginabezoeken, geboekte meetings. Fit-signalen meten wie de lead is, vergeleken met je ideale klantprofiel: branche, bedrijfsgrootte, land, rol, gebruikte tools. Een fit-score beantwoordt \"willen wij deze lead?\", een engagementscore beantwoordt \"wil deze lead ons?\".",
+          },
+          {
+            type: "p",
+            text: "AI duikt op twee plekken op. CRM's leveren native machine-learning-scores die leren van je historische conversies, zoals de AI-gebouwde leadscores van HubSpot. En teams draaien hun eigen classificatie buiten het CRM: een taalmodel leest een outreach-reactie of een verrijkingsrecord, labelt die (geïnteresseerd, nu niet, verkeerde persoon) of beoordeelt de ICP-fit, en het resultaat wordt via de API in een CRM-veld geschreven. Het tweede patroon werkt met elk CRM met een API, en daar richt deze pagina zich op.",
+          },
+        ],
+      },
+      {
+        heading: "Leadscoring binnen HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "De huidige scoring van HubSpot zit in de 'lead scoring tool'. Die is beschikbaar met Marketing Hub of Sales Hub Professional of Enterprise. Marketing Hub scoort contacten, beide hubs scoren bedrijven en Sales Hub scoort deals. Je bouwt engagementscores, fit-scores op basis van propertywaarden en gecombineerde scores, elk uit groepen gewogen criteria met plus- en minpunten.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Het standaardmaximum voor een score is 100 punten; de scorelimiet kan worden ingesteld op ±100, ±200, ±300, ±400, ±500, ±1.000 of ±10.000.",
+              "Scoreverval kan engagementpunten in de loop van de tijd verlagen, met intervallen van elke 1, 3, 6 of 12 maanden, waarbij elke maand als 30 dagen telt.",
+              "Drempels verdelen een score in de banden High, Medium en Low; gecombineerde scores gebruiken een A1–C3-matrix van fit en engagement.",
+              "AI-gebouwde contactscores (Marketing Hub Enterprise) leren van contacten die tussen twee lifecyclefases zijn verschoven en hebben minstens 50 contacten nodig — 25 geconverteerd en 25 niet-geconverteerd.",
+            ],
+          },
+          {
+            type: "note",
+            text: "De tool maakt eigen score-properties aan en die zijn gekoppeld aan de score: verwijder je de score, dan verdwijnen de properties mee, en van buitenaf zijn ze niet te bewerken. Een extern berekende AI-score hoort daarom in een eigen custom number-property, niet in een door de tool beheerde score-property.",
+          },
+        ],
+      },
+      {
+        heading: "Scoren in Attio",
+        blocks: [
+          {
+            type: "p",
+            text: "Attio pakt het omgekeerd aan: er is geen scoring-engine en geen score-veldtype. Een score is gewoon een attribuut dat je vult. Attio's eigen workflowtemplate 'MQL Scoring' scoort leads met workflowblokken, en de automations-pagina noemt een \"Scoring Agent\" onder de AI-agents die binnen workflows draaien — een agent-stap met instructies, geen apart scoringproduct. Drie attribuuttypen passen bij een score:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Een number-attribuut slaat floating-point-getallen op met maximaal vier decimalen en is te filteren met vergelijkingen zoals groter-dan-of-gelijk — een natuurlijke plek voor een fit-score van 0–100.",
+              "Een select-attribuut bevat vooraf gedefinieerde opties, handig voor banden zoals A, B en C. Een waarde schrijven waarvan de optie niet bestaat, geeft een foutmelding in plaats van dat de optie wordt aangemaakt.",
+              "Een rating-attribuut is een numerieke waarde van 0 tot 5, weergegeven als sterren.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Workflows zijn beschikbaar op alle Attio-abonnementen. Een workflow kan starten vanuit een recordwijziging, een schema of een 'Webhook received'-trigger, dus een externe scorer kan er direct een starten; een 'Custom agent'-blok kan een AI-stap met gestructureerde output draaien, gevolgd door een update-record-blok dat het resultaat opslaat. Uitgaande webhooks worden ondertekend met een HMAC-SHA256 van de body in de header Attio-Signature, zodat je scorer ook veilig op Attio-events kan reageren.",
+          },
+        ],
+      },
+      {
+        heading: "Een externe AI-score naar je CRM schrijven",
+        blocks: [
+          {
+            type: "table",
+            caption: "Een score schrijven via de API (leveranciersdocumentatie, gecontroleerd november 2026)",
+            head: ["Stap", "HubSpot", "Attio"],
+            rows: [
+              [
+                "Het veld aanmaken",
+                "POST /crm/v3/properties/{objectType} met groupName, name, label, type \"number\", fieldType \"number\"",
+                "Maak een number- of select-attribuut op het object aan in de workspace-instellingen of via de attributes-API",
+              ],
+              [
+                "Eén record schrijven",
+                "PATCH /crm/v3/objects/contacts/{contactId} met {\"properties\": {...}}; een e-mailadres kan met idProperty=email",
+                "PATCH /v2/objects/{object}/records/{record_id} met de attribuutslug in de body",
+              ],
+              [
+                "In bulk schrijven",
+                "POST /crm/v3/objects/contacts/batch/update, of batch/upsert om aan te maken of bij te werken",
+                "Eén request per record, binnen de rate limits van de API",
+              ],
+              [
+                "Auth",
+                "Private-app-accesstoken als Bearer-token",
+                "Workspace-API-key of OAuth 2.0, als Bearer-token; records bijwerken vereist de scopes record_permission:read-write en object_configuration:read",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Een typische pipeline, beschreven als stappen — het laat zien hoe de onderdelen samenwerken, geen TascaLab-casestudy:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Verzamelen: een nieuwe lead komt binnen via een formulier, een outreach-reactie of een bezoekersidentificatietool.",
+              "Classificeren: een AI-model labelt de reactie of de lead (geïnteresseerd, niet geïnteresseerd, verkeerde persoon, buiten de markt).",
+              "Scoren: de firmografische gegevens van de lead worden vergeleken met je ICP en er wordt een fit-score berekend.",
+              "Schrijven: de score belandt in een custom number-property in HubSpot of een number-attribuut in Attio, via de endpoints hierboven.",
+              "Alerteren: een CRM-workflow of een Slack-bericht waarschuwt de owner zodra een lead de drempel passeert.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Waar de reacties vandaan komen: lemlist",
+        blocks: [
+          {
+            type: "p",
+            text: "Outreach-reacties zijn een van de sterkste scoringsignalen, en lemlist stelt ze op twee manieren beschikbaar. Webhooks sturen realtime POST-callbacks voor events zoals emailsReplied, linkedinReplied en whatsappReplied, plus leadstatussen zoals interested en notInterested; een workspace kan maximaal 200 webhooks bevatten en elke target-URL moet uniek zijn — registreer een URL zonder eventtype om elk event te ontvangen en filter aan jouw kant. De activities-API (GET /activities) haalt dezelfde historie op, gefilterd op type, campagne en datum, voor polling in plaats van pushen. Authenticatie is HTTP Basic met een lege gebruikersnaam en de API-key als wachtwoord — geen Bearer-token.",
+          },
+        ],
+      },
+      {
+        heading: "Dit laten bouwen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bouwt precies deze pipeline: leads uit één bron, door AI geclassificeerd en gescoord op je ICP en vastgelegd in je CRM, als het pakket Lead Capture & Scoring ({{price:leadScoring}} eenmalig). Outreach-, bel- of verrijkingstools koppelen aan HubSpot of Attio is het pakket CRM Integration ({{price:crmIntegration}} eenmalig). De meeste implementaties duren 1–3 weken, en elk project omvat basisdocumentatie en 30 dagen ondersteuning na livegang. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat is AI-leadscoring?",
+        a: "Leads rangschikken door engagementsignalen (wat een lead doet) te combineren met fit-signalen (hoe goed hij past bij je ideale klantprofiel), met AI ingebouwd in het CRM — zoals de AI-leadscores van HubSpot — of daarbuiten, waar een model reacties classificeert en een fit-score berekent die via de API wordt teruggeschreven.",
+      },
+      {
+        q: "Wat vereist de lead scoring tool van HubSpot?",
+        a: "Marketing Hub of Sales Hub Professional of Enterprise. AI-gebouwde contactscores vereisen Marketing Hub Enterprise en minstens 50 contacten — 25 geconverteerd en 25 niet-geconverteerd — om een score te genereren.",
+      },
+      {
+        q: "Heeft Attio ingebouwde leadscoring?",
+        a: "Geen scoring-engine en geen score-veldtype. Scores leven in number- of select-attributen, gevuld door workflows — inclusief AI-agent-stappen, die Attio als Scoring Agent in de markt zet — of door een externe tool via de API.",
+      },
+      {
+        q: "Hoe schrijf ik van buitenaf een score naar HubSpot of Attio?",
+        a: "HubSpot: maak een custom number-property aan en doe daarna een PATCH naar /crm/v3/objects/contacts/{contactId}, of gebruik de batch-update- en upsert-endpoints. Attio: PATCH naar /v2/objects/{object}/records/{record_id} met een Bearer-token met de scopes record_permission:read-write en object_configuration:read.",
+      },
+    ],
+    sources: [
+      { label: "HubSpot Knowledge Base — Overview of the lead scoring tool", url: "https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" },
+      { label: "HubSpot Knowledge Base — Build lead scores to qualify contacts, companies, and deals", url: "https://knowledge.hubspot.com/scoring/build-lead-scores" },
+      { label: "HubSpot Knowledge Base — Build contact lead scores with AI", url: "https://knowledge.hubspot.com/scoring/build-lead-scores-with-ai" },
+      { label: "HubSpot Developers — Properties API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide" },
+      { label: "HubSpot Developers — Contacts API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide" },
+      { label: "Attio Docs — Number attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-number" },
+      { label: "Attio Docs — Select attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-select" },
+      { label: "Attio Docs — Rating attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-rating" },
+      { label: "Attio Docs — Authenticating requests", url: "https://docs.attio.com/rest-api/guides/authentication" },
+      { label: "Attio Docs — Update a record", url: "https://docs.attio.com/rest-api/endpoint-reference/records/update-a-record-append-multiselect-values" },
+      { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
+      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/overview-of-workflows" },
+      { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
+      { label: "Attio — MQL Scoring workflow template", url: "https://attio.com/templates/revenue-operations/mql-scoring" },
+      { label: "Attio — Agents and automations", url: "https://attio.com/platform/automations" },
+      { label: "lemlist Developer — Authentication", url: "https://developer.lemlist.com/api-reference/getting-started/authentication" },
+      { label: "lemlist Developer — Add Webhook", url: "https://developer.lemlist.com/api-reference/endpoints/webhooks/add-webhook" },
+      { label: "lemlist Developer — Get Many Activities", url: "https://developer.lemlist.com/api-reference/endpoints/activities/get-many-activities" },
+    ],
+    related: ["website-visitor-identification", "attio-workflows-automation", "attio-vs-hubspot-automation"],
+    updated: "2026-11-12",
+  },
+  {
+    key: "website-visitor-identification",
+    slug: "websitebezoekers-identificeren",
+    category: "crm",
+    navLabel: "Bezoekersidentificatie",
+    primaryKeyword: "websitebezoekers identificeren",
+    title: "Websitebezoekers identificeren: werking en grenzen",
+    description:
+      "Zo werkt websitebezoekersidentificatie: reverse IP-lookup en trackers, wat het wel en niet ziet, AVG- en cookieregels, en HubSpot buyer intent.",
+    h1: "Websitebezoekers identificeren: zo werkt het en dit zijn de grenzen",
+    intro:
+      "Tools voor bezoekersidentificatie koppelen het anonieme verkeer op je website aan bedrijven, met een trackingscript, reverse IP-lookup en bedrijvendatabases. Ze identificeren bedrijven, geen personen, hun dekking hangt af van de netwerken waarvandaan je bezoekers surfen, en in de EU vallen ze volop onder de AVG en de cookieregels.",
+    keyFacts: [
+      "Identificatie combineert een trackingscript, trackingcookies, reverse IP-lookup, eigen databases en machine learning — bezoeken worden gekoppeld aan bedrijven, niet aan individuele personen.",
+      "Leadfeeder van Dealfront weigert expliciet een typisch identificatiepercentage te publiceren: de dekking verschilt per doelgroep, en bezoeken via consumentenproviders worden weggefilterd en niet getoond.",
+      "Thuiswerkers zijn vooral identificeerbaar wanneer ze via een bedrijfs-VPN surfen.",
+      "Het HvJ-EU oordeelde in Breyer (C-582/14) dat een dynamisch IP-adres persoonsgegevens kan zijn voor een websitebeheerder, en overweging 30 van de AVG noemt IP-adressen als online identificatoren.",
+      "HubSpot buyer intent koppelt bezoeken aan de IP-adressen van bekende bedrijven; meer dan 20 bedrijven per weergave bekijken vereist HubSpot Credits en een betaald abonnement.",
+    ],
+    sections: [
+      {
+        heading: "Hoe bedrijven worden geïdentificeerd",
+        blocks: [
+          {
+            type: "p",
+            text: "Het mechanisme, zoals het helpcentrum van Dealfronts Leadfeeder het voor de eigen tracker beschrijft: een script op je site registreert elk bezoek, en identificatie combineert trackingcookies, reverse IP-lookup, eigen databases, analyticsgegevens en machine learning. Een bedrijf bezit meestal zijn domein en de IP-range van kantoor, dus een bezoek vanaf dat netwerk is aan het bedrijf te koppelen. IP-geolocatie voegt de regio van de bezoeker toe.",
+          },
+          {
+            type: "p",
+            text: "Verkeer dat niet aan een bedrijf te koppelen is, blijft buiten beeld: Leadfeeder zegt dat het bezoeken via consumentenproviders niet in rekening brengt — en zelfs niet toont. Wat je ziet is het geïdentificeerde deel van je verkeer, niet alles.",
+          },
+        ],
+      },
+      {
+        heading: "Wat het niet kan zien",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Individuele personen. Leadfeeder stelt dat je niet precies kunt weten wie er op bezoek was zonder dat de bezoeker zichzelf bekendmaakt via een formulier of registratie, en dat het identificeren van individuele bezoekers in veel landen als illegaal geldt.",
+              "Het meeste thuisverkeer. Thuiswerkers zijn vooral identificeerbaar wanneer ze via een bedrijfs-VPN surfen; op een consumentenverbinding verschijnen ze als providerverkeer en worden ze weggefilterd.",
+              "Een gegarandeerd percentage. Het helpcentrum van Leadfeeder zegt zelf dat er geen eerlijke manier is om een identificatiepercentage te beloven, omdat het per doelgroep verschilt — en waarschuwt dat diensten die een vast percentage beloven waarschijnlijk extrapoleren vanuit een paar accounts.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "AVG en cookietoestemming",
+        blocks: [
+          {
+            type: "p",
+            text: "In de EU gelden twee aparte regels. Ten eerste kunnen IP-adressen persoonsgegevens zijn: artikel 4, lid 1 van de AVG rekent online identificatoren tot persoonsgegevens, overweging 30 noemt daarbij internetprotocoladressen en cookie-identificatoren, en het Hof van Justitie oordeelde in Breyer (C-582/14, gewezen onder de voorloper van de AVG) dat een dynamisch IP-adres persoonsgegevens vormt voor een websitebeheerder die over wettige middelen beschikt om het via de accessprovider aan de bezoeker te koppelen.",
+          },
+          {
+            type: "p",
+            text: "Ten tweede vereist artikel 5, lid 3 van de ePrivacyrichtlijn toestemming voor het opslaan van informatie op, of het uitlezen van informatie van, het apparaat van een bezoeker — met beperkte uitzonderingen voor wat strikt noodzakelijk is om de dienst te leveren waar de bezoeker om vroeg. Een bezoekersidentificatietracker die cookies plaatst of uitleest valt onder die regel, ongeacht of de gegevens als persoonsgegevens tellen — daarom horen deze tools in de EU achter een cookiebanner.",
+          },
+          {
+            type: "note",
+            text: "Dit beschrijft de regels op hoofdlijnen. Het is geen juridisch advies; hoe ze op jouw situatie van toepassing zijn, hangt af van je tools en je rechtsgrond.",
+          },
+        ],
+      },
+      {
+        heading: "Bezoekersidentificatie in HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "De huidige functie hiervoor in HubSpot is buyer intent. De HubSpot-trackingcode op je site verzamelt bezoekersgegevens, zoals websiteactiviteit en IP-adressen, en buyer intent koppelt anonieme webbezoekers aan de IP-adressen van bekende bedrijven. Wat HubSpot documenteert, per oktober 2026:",
+          },
+          {
+            type: "ul",
+            items: [
+              "De functie staat genoteerd voor Starter-, Professional- en Enterprise-abonnementen, met HubSpot Credits vereist voor bepaalde functies.",
+              "Meer dan 20 bedrijven per weergave bekijken vereist HubSpot Credits en een betaald abonnement; bedrijven toevoegen en hun intentsignalen volgen kosten allebei credits, filters en uitsluitingen niet.",
+              "Filters op bezoekperiode beslaan hooguit de laatste 90 dagen, en bedrijven die via buyer intent worden toegevoegd krijgen de recordbron \"Buyer-Intent\".",
+              "HubSpots eigen artikel merkt op dat naleving van gegevensbeschermingswetgeving een cookiebanner op je site kan vereisen.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Van geïdentificeerd bedrijf naar gescoorde lead",
+        blocks: [
+          {
+            type: "p",
+            text: "Identificatie op zich levert alleen een lijst op. De waarde zit in wat er daarna gebeurt — een gangbaar patroon, beschreven als stappen; het laat zien hoe de onderdelen samenwerken, geen TascaLab-casestudy:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Identificeren: de tracker meldt welke bedrijven op bezoek waren en wat ze hebben bekeken.",
+              "Verrijken: elk bedrijf wordt opgezocht op grootte, branche en land.",
+              "Scoren: het bedrijf wordt vergeleken met je ideale klantprofiel en krijgt een fit-score.",
+              "Vastleggen: het bedrijf en zijn score belanden in je CRM — een HubSpot-bedrijfsrecord of een Attio-record.",
+              "Samenvatten: een geplande samenvatting, gerangschikt op score, gaat naar e-mail of Slack zodat sales de beste accounts als eerste ziet.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Dit laten bouwen",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bouwt dit als het pakket Lead Capture & Scoring ({{price:leadScoring}} eenmalig): leads uit één bron — websitebezoekers, een formulier of outreach-reacties — door AI geclassificeerd en gescoord en vastgelegd in je CRM, met meldingen via e-mail of Slack. De omliggende tools koppelen aan HubSpot of Attio is het pakket CRM Integration ({{price:crmIntegration}} eenmalig). De meeste implementaties duren 1–3 weken, en elk project omvat basisdocumentatie en 30 dagen ondersteuning na livegang. Je kunt beginnen met een gratis Health Check-gesprek van 30 minuten.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Kan bezoekersidentificatie zien wie mijn website bezocht?",
+        a: "Het identificeert bedrijven, via hun netwerk — geen personen. Leveranciers stellen dat je pas precies weet wie er was wanneer de bezoeker zichzelf bekendmaakt via een formulier of registratie, en dat het identificeren van individuen in veel landen als illegaal geldt.",
+      },
+      {
+        q: "Welk deel van de bezoekers is te identificeren?",
+        a: "Er bestaat geen eerlijk vast percentage. Het helpcentrum van Leadfeeder weigert er een te publiceren, omdat de dekking per doelgroep verschilt; verkeer via consumentenproviders wordt volledig weggefilterd, en thuiswerkers zijn vooral identificeerbaar via een bedrijfs-VPN.",
+      },
+      {
+        q: "Is IP-gebaseerde bezoekersidentificatie legaal onder de AVG?",
+        a: "IP-adressen kunnen persoonsgegevens zijn (Breyer, C-582/14; overweging 30 van de AVG), en trackers die cookies plaatsen of uitlezen hebben toestemming nodig onder artikel 5, lid 3 van de ePrivacyrichtlijn — daarom horen deze tools in de EU achter een cookiebanner. Dit is geen juridisch advies.",
+      },
+      {
+        q: "Wat vereist HubSpot buyer intent?",
+        a: "De HubSpot-trackingcode op je site en een Starter-, Professional- of Enterprise-abonnement. Meer dan 20 bedrijven per weergave bekijken vereist HubSpot Credits, bedrijven toevoegen en intentsignalen volgen kosten credits, en bezoekfilters beslaan hooguit de laatste 90 dagen.",
+      },
+    ],
+    sources: [
+      { label: "Leadfeeder (Dealfront) Help — How Does Web Visitors Identify Companies?", url: "https://help.leadfeeder.com/en/articles/3385515-how-does-leadfeeder-identify-leads" },
+      { label: "EUR-Lex — Regulation (EU) 2016/679 (GDPR)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679" },
+      { label: "CJEU — Press Release No 112/16, Judgment in Case C-582/14 Breyer", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2016-10/cp160112en.pdf" },
+      { label: "EUR-Lex — Consolidated Directive 2002/58/EC (ePrivacy), Article 5(3)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02002L0058-20091219" },
+      { label: "HubSpot Knowledge Base — Use buyer intent data to identify companies ready to buy", url: "https://knowledge.hubspot.com/reports/use-buyer-intent" },
+    ],
+    related: ["ai-lead-scoring", "hubspot-zendesk-integration", "attio-workflows-automation"],
+    updated: "2026-11-12",
+  },
 ];
