@@ -478,4 +478,324 @@ export const crmPages: TranslatedPage[] = [
     related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
     updated: "2026-11-03",
   },
+  {
+    key: "ai-lead-scoring",
+    slug: "ai-leadscoring",
+    category: "crm",
+    navLabel: "AI-leadscoring",
+    primaryKeyword: "AI leadscoring",
+    title: "AI-leadscoring: ICP-fit, HubSpot och Attio",
+    description:
+      "AI-leadscoring förklarad: poängsätt leads mot din ideala kundprofil, HubSpots verktyg för leadscoring och dess gränser, och skriv poäng till Attio via API.",
+    h1: "AI-leadscoring: så fungerar poängsättning mot din ICP",
+    intro:
+      "Leadscoring gör råa leads till en rankad lista genom att ge varje lead poäng för hur väl det matchar din ideala kundprofil (ICP) och hur det beter sig. AI kommer in på två sätt: inbyggd poängsättning i plattformen, som HubSpots AI-byggda leadpoäng, och extern klassificering, där en modell läser ett svar eller en berikningspost, räknar ut en fit-poäng och skriver tillbaka den till ditt CRM via API:et.",
+    keyFacts: [
+      "HubSpots verktyg för leadscoring kräver Marketing Hub eller Sales Hub Professional eller Enterprise; AI-byggda kontaktpoäng kräver Marketing Hub Enterprise.",
+      "HubSpots AI-leadpoäng kräver ett urval på minst 50 kontakter — 25 konverterade och 25 icke-konverterade — innan en poäng kan genereras.",
+      "Attio har ingen inbyggd poängsättningsmotor och ingen poängfälttyp: en poäng bor i ett number- eller select-attribut som ett arbetsflöde eller API:et fyller.",
+      "Attios number-attribut lagrar flyttal med upp till fyra decimaler — gott och väl nog för en fit-poäng på 0–100.",
+      "En extern poäng skrivs till HubSpot med en PATCH till /crm/v3/objects/contacts/{contactId}, och till Attio med en PATCH till /v2/objects/{object}/records/{record_id}.",
+    ],
+    sections: [
+      {
+        heading: "Vad AI-leadscoring innebär",
+        blocks: [
+          {
+            type: "p",
+            text: "Poängmodeller kombinerar oftast två slags signaler. Engagemangssignaler mäter vad ett lead gör: öppningar, klick, svar, sidbesök, bokade möten. Fit-signaler mäter vem ett lead är, jämfört med din ideala kundprofil: bransch, företagsstorlek, land, roll, verktyg som används. En fit-poäng svarar på \"borde vi vilja ha det här leadet?\", en engagemangspoäng svarar på \"vill det här leadet ha oss?\".",
+          },
+          {
+            type: "p",
+            text: "AI dyker upp på två ställen. CRM-system levererar inbyggda maskininlärningspoäng som lär sig av dina historiska konverteringar, som HubSpots AI-byggda leadpoäng. Och team kör sin egen klassificering utanför CRM:et: en språkmodell läser ett outreach-svar eller en berikningspost, etiketterar det (intresserad, inte nu, fel person) eller betygsätter ICP-fit, och resultatet skrivs in i ett CRM-fält via API:et. Det andra mönstret fungerar med vilket CRM som helst som har ett API, och det är det den här sidan fokuserar på.",
+          },
+        ],
+      },
+      {
+        heading: "Leadscoring i HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "HubSpots nuvarande poängsättning bor i verktyget för leadscoring. Det ingår i Marketing Hub eller Sales Hub Professional eller Enterprise. Marketing Hub poängsätter kontakter, båda hubbarna poängsätter företag, och Sales Hub poängsätter affärer. Du kan bygga engagemangspoäng, fit-poäng baserade på egenskapsvärden och kombinerade poäng, var och en av grupper med viktade kriterier med plus- och minuspoäng.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Standardmaximum för en poäng är 100 poäng; poänggränsen kan sättas till ±100, ±200, ±300, ±400, ±500, ±1 000 eller ±10 000.",
+              "Poängförfall kan minska engagemangspoäng över tid, med intervall på var 1, 3, 6 eller 12 månader, där varje månad räknas som 30 dagar.",
+              "Trösklar delar en poäng i banden High, Medium och Low; kombinerade poäng använder en A1–C3-matris av fit och engagemang.",
+              "AI-byggda kontaktpoäng (Marketing Hub Enterprise) lär sig av kontakter som flyttats mellan två livscykelstadier och kräver minst 50 kontakter — 25 konverterade och 25 icke-konverterade.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Verktyget skapar sina egna poängegenskaper, och de är knutna till poängen: raderar du poängen försvinner egenskaperna med den, och de kan inte redigeras utifrån. En externt beräknad AI-poäng hör därför hemma i en egen number-egenskap som du skapar själv, inte i en verktygsstyrd poängegenskap.",
+          },
+        ],
+      },
+      {
+        heading: "Poängsättning i Attio",
+        blocks: [
+          {
+            type: "p",
+            text: "Attio går motsatt väg: det finns ingen poängsättningsmotor och ingen poängfälttyp. En poäng är bara ett attribut som du fyller. Attios egen arbetsflödesmall MQL Scoring poängsätter leads med arbetsflödesblock, och plattformssidan för automatiseringar listar en \"Scoring Agent\" bland AI-agenterna som kör inuti arbetsflöden — ett agentsteg med instruktioner, inte en separat poängsättningsprodukt. Tre attributtyper passar en poäng:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Ett number-attribut lagrar flyttal med upp till fyra decimaler och kan filtreras med jämförelser som större-än-eller-lika — ett naturligt hem för en fit-poäng på 0–100.",
+              "Ett select-attribut rymmer fördefinierade alternativ, bra för band som A, B och C. Att skriva ett värde vars alternativ inte finns ger ett fel i stället för att skapa alternativet.",
+              "Ett rating-attribut är ett numeriskt värde från 0 till 5, visat som stjärnor.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Arbetsflöden ingår i alla Attio-planer. Ett arbetsflöde kan starta från en poständring, ett schema eller triggern \"Webhook received\", så en extern poängsättare kan starta ett direkt; ett \"Custom agent\"-block kan köra ett AI-steg med strukturerad output, följt av ett uppdatera-post-block som sparar den. Utgående webhooks signeras med en HMAC-SHA256 av bodyn i headern Attio-Signature, så din poängsättare kan också reagera säkert på Attio-händelser.",
+          },
+        ],
+      },
+      {
+        heading: "Skriva en extern AI-poäng till ditt CRM",
+        blocks: [
+          {
+            type: "table",
+            caption: "Skriva en poäng via API:et (leverantörsdokumentation, kontrollerad november 2026)",
+            head: ["Steg", "HubSpot", "Attio"],
+            rows: [
+              [
+                "Skapa fältet",
+                "POST /crm/v3/properties/{objectType} med groupName, name, label, type \"number\", fieldType \"number\"",
+                "Skapa ett number- eller select-attribut på objektet i arbetsytans inställningar eller via attribut-API:et",
+              ],
+              [
+                "Skriv en post",
+                "PATCH /crm/v3/objects/contacts/{contactId} med {\"properties\": {...}}; en e-postadress kan användas med idProperty=email",
+                "PATCH /v2/objects/{object}/records/{record_id} med attributets slug i bodyn",
+              ],
+              [
+                "Skriv i bulk",
+                "POST /crm/v3/objects/contacts/batch/update, eller batch/upsert för skapa-eller-uppdatera",
+                "Ett anrop per post, inom API:ets anropsgränser",
+              ],
+              [
+                "Autentisering",
+                "Private app-åtkomsttoken som Bearer-token",
+                "Arbetsytans API-nyckel eller OAuth 2.0, som Bearer-token; att uppdatera poster kräver scopen record_permission:read-write och object_configuration:read",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "En typisk pipeline, beskriven som steg — den visar hur delarna hänger ihop, inte en TascaLab-fallstudie:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Samla in: ett nytt lead kommer från ett formulär, ett outreach-svar eller ett verktyg för besöksidentifiering.",
+              "Klassificera: en AI-modell etiketterar svaret eller leadet (intresserad, inte intresserad, fel person, utanför marknaden).",
+              "Poängsätt: leadets firmografi jämförs med din ICP och en fit-poäng räknas ut.",
+              "Skriv: poängen landar i en egen number-egenskap i HubSpot eller ett number-attribut i Attio, via endpointerna ovan.",
+              "Larma: ett CRM-arbetsflöde eller ett Slack-meddelande säger till ägaren när ett lead passerar tröskeln.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Varifrån svaren kommer: lemlist",
+        blocks: [
+          {
+            type: "p",
+            text: "Outreach-svar är en av de starkaste poängsignalerna, och lemlist exponerar dem på två sätt. Webhooks skickar POST-anrop i realtid för händelser som emailsReplied, linkedinReplied och whatsappReplied, plus lead-tillstånd som interested och notInterested; en arbetsyta rymmer upp till 200 webhooks, och varje mål-URL måste vara unik — registrera en URL utan händelsetyp för att ta emot alla händelser och filtrera på din sida. Activities-API:et (GET /activities) hämtar samma historik filtrerad på typ, kampanj och datum, för pollning i stället för pushar. Autentiseringen är HTTP Basic med tomt användarnamn och API-nyckeln som lösenord — inte en Bearer-token.",
+          },
+        ],
+      },
+      {
+        heading: "Få det här byggt",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bygger exakt den här pipelinen: leads från en källa, klassificerade och poängsatta av AI mot din ICP och loggade i ditt CRM, som paketet Lead Capture & Scoring ({{price:leadScoring}}, engångspris). Att koppla outreach-, telefoni- eller berikningsverktyg till HubSpot eller Attio är paketet CRM Integration ({{price:crmIntegration}}, engångspris). De flesta uppsättningar tar 1–3 veckor, och varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt 30-minuters Health Check-samtal.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Vad är AI-leadscoring?",
+        a: "Att ranka leads genom att kombinera engagemangssignaler (vad ett lead gör) med fit-signaler (hur väl det matchar din ideala kundprofil), där AI antingen är inbyggd i CRM:et — som HubSpots AI-leadpoäng — eller körs utanför det och klassificerar svar och räknar ut en fit-poäng som skrivs tillbaka via API:et.",
+      },
+      {
+        q: "Vad kräver HubSpots verktyg för leadscoring?",
+        a: "Marketing Hub eller Sales Hub Professional eller Enterprise. AI-byggda kontaktpoäng kräver Marketing Hub Enterprise och minst 50 kontakter — 25 konverterade och 25 icke-konverterade — för att generera en poäng.",
+      },
+      {
+        q: "Har Attio inbyggd leadscoring?",
+        a: "Ingen poängsättningsmotor och ingen poängfälttyp. Poäng bor i number- eller select-attribut som fylls av arbetsflöden — inklusive AI-agentsteg, som Attio marknadsför som en Scoring Agent — eller av ett externt verktyg via API:et.",
+      },
+      {
+        q: "Hur skriver jag en poäng till HubSpot eller Attio utifrån?",
+        a: "HubSpot: skapa en egen number-egenskap och gör sedan PATCH /crm/v3/objects/contacts/{contactId}, eller använd batch-endpointerna för update och upsert. Attio: PATCH /v2/objects/{object}/records/{record_id} med en Bearer-token som har scopen record_permission:read-write och object_configuration:read.",
+      },
+    ],
+    sources: [
+      { label: "HubSpot Knowledge Base — Overview of the lead scoring tool", url: "https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" },
+      { label: "HubSpot Knowledge Base — Build lead scores to qualify contacts, companies, and deals", url: "https://knowledge.hubspot.com/scoring/build-lead-scores" },
+      { label: "HubSpot Knowledge Base — Build contact lead scores with AI", url: "https://knowledge.hubspot.com/scoring/build-lead-scores-with-ai" },
+      { label: "HubSpot Developers — Properties API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide" },
+      { label: "HubSpot Developers — Contacts API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide" },
+      { label: "Attio Docs — Number attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-number" },
+      { label: "Attio Docs — Select attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-select" },
+      { label: "Attio Docs — Rating attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-rating" },
+      { label: "Attio Docs — Authenticating requests", url: "https://docs.attio.com/rest-api/guides/authentication" },
+      { label: "Attio Docs — Update a record", url: "https://docs.attio.com/rest-api/endpoint-reference/records/update-a-record-append-multiselect-values" },
+      { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
+      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/overview-of-workflows" },
+      { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
+      { label: "Attio — MQL Scoring workflow template", url: "https://attio.com/templates/revenue-operations/mql-scoring" },
+      { label: "Attio — Agents and automations", url: "https://attio.com/platform/automations" },
+      { label: "lemlist Developer — Authentication", url: "https://developer.lemlist.com/api-reference/getting-started/authentication" },
+      { label: "lemlist Developer — Add Webhook", url: "https://developer.lemlist.com/api-reference/endpoints/webhooks/add-webhook" },
+      { label: "lemlist Developer — Get Many Activities", url: "https://developer.lemlist.com/api-reference/endpoints/activities/get-many-activities" },
+    ],
+    related: ["website-visitor-identification", "attio-workflows-automation", "attio-vs-hubspot-automation"],
+    updated: "2026-11-12",
+  },
+  {
+    key: "website-visitor-identification",
+    slug: "identifiera-webbplatsbesokare",
+    category: "crm",
+    navLabel: "Identifiera besökare",
+    primaryKeyword: "identifiera företag som besöker webbplatsen",
+    title: "Identifiera webbplatsbesökare: så funkar det",
+    description:
+      "Så fungerar identifiering av webbplatsbesökare: omvänd IP-uppslagning, vad verktygen kan och inte kan se, GDPR och cookiesamtycke samt HubSpots buyer intent.",
+    h1: "Identifiera webbplatsbesökare: så fungerar det och var gränserna går",
+    intro:
+      "Verktyg för besöksidentifiering matchar den anonyma trafiken på din webbplats mot företag, med hjälp av ett spårningsskript, omvänd IP-uppslagning och företagsdatabaser. De identifierar företag, inte personer, deras täckning beror på vilka nätverk besökarna surfar från, och i EU faller de rakt in under GDPR och reglerna om cookiesamtycke.",
+    keyFacts: [
+      "Identifieringen kombinerar ett spårningsskript, spårningscookies, omvänd IP-uppslagning, privata databaser och maskininlärning — besök matchas mot företag, inte mot enskilda personer.",
+      "Dealfronts Leadfeeder vägrar uttryckligen att publicera en typisk identifieringsgrad: täckningen varierar med publiken, och besök från konsumentoperatörer filtreras bort och visas inte.",
+      "Distansarbetare kan i huvudsak identifieras när de surfar via företagets VPN.",
+      "EU-domstolen slog i Breyer (C-582/14) fast att en dynamisk IP-adress kan vara personuppgifter för en webbplatsoperatör, och GDPR:s skäl 30 nämner IP-adresser bland online-identifikatorer.",
+      "HubSpots buyer intent matchar besök mot kända företags IP-adresser; att visa fler än 20 företag per vy kräver HubSpot Credits och en betald prenumeration.",
+    ],
+    sections: [
+      {
+        heading: "Så identifieras företag",
+        blocks: [
+          {
+            type: "p",
+            text: "Mekanismen, så som Dealfronts hjälpcenter för Leadfeeder beskriver den för sin egen spårare: ett skript på din webbplats fångar varje besök, och identifieringen kombinerar spårningscookies, omvänd IP-uppslagning, privata databaser, analysdata och maskininlärning. Ett företag äger oftast sin domän och sitt kontors IP-intervall, så ett besök från det nätverket kan matchas mot företaget. IP-baserad geolokalisering lägger till besökarens region.",
+          },
+          {
+            type: "p",
+            text: "Trafik som inte kan matchas mot ett företag lämnas utanför: Leadfeeder säger att de varken tar betalt för — eller ens visar — besök från konsumentoperatörer. Det du ser är den identifierade delen av din trafik, inte hela.",
+          },
+        ],
+      },
+      {
+        heading: "Vad verktygen inte kan se",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Enskilda personer. Leadfeeder uppger att det inte går att veta exakt vem som besökte webbplatsen utan att besökaren identifierar sig själv via ett formulär eller en registrering, och att identifiering av enskilda besökare bedöms vara olaglig i många länder.",
+              "Det mesta av hemtrafiken. Distansarbetare kan identifieras i huvudsak när de surfar via företagets VPN; på en privat uppkoppling syns de som operatörstrafik och filtreras bort.",
+              "En garanterad procentsats. Leadfeeders eget hjälpcenter säger att det inte finns något ärligt sätt att lova en identifieringsgrad, eftersom den varierar med varje webbplats publik — och varnar för att tjänster som lovar en fast procentsats sannolikt extrapolerar från ett fåtal konton.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "GDPR och cookiesamtycke",
+        blocks: [
+          {
+            type: "p",
+            text: "Två separata regler gäller i EU. För det första kan IP-adresser vara personuppgifter: GDPR:s artikel 4.1 definierar personuppgifter så att online-identifikatorer ingår, skäl 30 nämner IP-adresser och cookie-identifierare bland dem, och EU-domstolen slog i Breyer (C-582/14, avgjort under GDPR:s föregångardirektiv) fast att en dynamisk IP-adress utgör personuppgifter för en webbplatsoperatör som har lagliga medel att koppla den till besökaren via internetleverantören.",
+          },
+          {
+            type: "p",
+            text: "För det andra kräver ePrivacy-direktivets artikel 5.3 samtycke för att lagra information på, eller läsa information från, en besökares enhet — med snäva undantag för det som är strikt nödvändigt för att tillhandahålla tjänsten besökaren bett om. En besöksidentifierande spårare som sätter eller läser cookies faller under den regeln oavsett om uppgifterna räknas som personuppgifter, och det är därför de här verktygen hör hemma bakom en cookiebanner i EU.",
+          },
+          {
+            type: "note",
+            text: "Det här beskriver reglerna på en övergripande nivå. Det är inte juridisk rådgivning; hur de gäller din uppsättning beror på dina verktyg och din rättsliga grund.",
+          },
+        ],
+      },
+      {
+        heading: "Besöksidentifiering i HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "HubSpots nuvarande funktion för det här är buyer intent. HubSpots spårningskod på din webbplats samlar in besöksdata, som webbplatsaktivitet och IP-adresser, och buyer intent kopplar anonyma webbesökare till kända företags IP-adresser. Vad HubSpot dokumenterar, per oktober 2026:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Funktionen listas för prenumerationerna Starter, Professional och Enterprise, med HubSpot Credits som krav för vissa funktioner.",
+              "Att visa fler än 20 företag per vy kräver HubSpot Credits och en betald prenumeration; att lägga till företag och spåra deras intentsignaler förbrukar båda credits, medan filter och exkluderingar inte gör det.",
+              "Filter för besöksperiod täcker som mest de senaste 90 dagarna, och företag som läggs till från buyer intent får postkällan \"Buyer-Intent\".",
+              "HubSpots egen artikel noterar att efterlevnad av dataskyddslagar kan kräva en cookiebanner på din webbplats.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Från identifierat företag till poängsatt lead",
+        blocks: [
+          {
+            type: "p",
+            text: "Identifieringen i sig ger bara en lista. Värdet kommer av det som händer sedan — ett vanligt mönster, beskrivet som steg; det visar hur delarna hänger ihop, inte en TascaLab-fallstudie:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Identifiera: spåraren rapporterar vilka företag som besökte webbplatsen och vad de tittade på.",
+              "Berika: varje företag slås upp för storlek, bransch och land.",
+              "Poängsätt: företaget jämförs med din ideala kundprofil och får en fit-poäng.",
+              "Logga: företaget och dess poäng landar i ditt CRM — en företagspost i HubSpot eller en post i Attio.",
+              "Sammanfatta: en schemalagd sammanställning, rankad efter poäng, går till e-post eller Slack så att säljarna ser de bästa kontona först.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Få det här byggt",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab bygger det här som paketet Lead Capture & Scoring ({{price:leadScoring}}, engångspris): leads från en källa — webbplatsbesökare, ett formulär eller outreach-svar — klassificerade och poängsatta av AI och loggade i ditt CRM, med aviseringar till e-post eller Slack. Att koppla de omgivande verktygen till HubSpot eller Attio är paketet CRM Integration ({{price:crmIntegration}}, engångspris). De flesta uppsättningar tar 1–3 veckor, och varje projekt inkluderar grundläggande dokumentation och 30 dagars support efter lansering. Du kan börja med ett kostnadsfritt 30-minuters Health Check-samtal.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Kan besöksidentifiering tala om vem som besökte min webbplats?",
+        a: "Den identifierar företag, via deras nätverk — inte personer. Leverantörerna uppger att det krävs att besökaren identifierar sig själv via ett formulär eller en registrering för att veta exakt vem som var där, och att identifiering av enskilda bedöms vara olaglig i många länder.",
+      },
+      {
+        q: "Hur stor andel av besökarna kan identifieras?",
+        a: "Det finns ingen ärlig fast procentsats. Leadfeeders hjälpcenter vägrar publicera en, eftersom täckningen beror på varje webbplats publik; trafik från konsumentoperatörer filtreras bort helt, och distansarbetare kan identifieras i huvudsak när de använder företagets VPN.",
+      },
+      {
+        q: "Är IP-baserad besöksidentifiering laglig enligt GDPR?",
+        a: "IP-adresser kan vara personuppgifter (Breyer, C-582/14; GDPR:s skäl 30), och spårare som sätter eller läser cookies kräver samtycke enligt ePrivacy-direktivets artikel 5.3, vilket är skälet till att de här verktygen hör hemma bakom en samtyckesbanner i EU. Det här är inte juridisk rådgivning.",
+      },
+      {
+        q: "Vad kräver HubSpots buyer intent?",
+        a: "HubSpots spårningskod på din webbplats och en Starter-, Professional- eller Enterprise-prenumeration. Att visa fler än 20 företag per vy kräver HubSpot Credits, att lägga till företag och spåra intentsignaler förbrukar credits, och besöksfilter täcker som mest de senaste 90 dagarna.",
+      },
+    ],
+    sources: [
+      { label: "Leadfeeder (Dealfront) Help — How Does Web Visitors Identify Companies?", url: "https://help.leadfeeder.com/en/articles/3385515-how-does-leadfeeder-identify-leads" },
+      { label: "EUR-Lex — Regulation (EU) 2016/679 (GDPR)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679" },
+      { label: "CJEU — Press Release No 112/16, Judgment in Case C-582/14 Breyer", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2016-10/cp160112en.pdf" },
+      { label: "EUR-Lex — Consolidated Directive 2002/58/EC (ePrivacy), Article 5(3)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02002L0058-20091219" },
+      { label: "HubSpot Knowledge Base — Use buyer intent data to identify companies ready to buy", url: "https://knowledge.hubspot.com/reports/use-buyer-intent" },
+    ],
+    related: ["ai-lead-scoring", "hubspot-zendesk-integration", "attio-workflows-automation"],
+    updated: "2026-11-12",
+  },
 ];

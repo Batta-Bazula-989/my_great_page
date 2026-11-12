@@ -478,4 +478,324 @@ export const crmPages: TranslatedPage[] = [
     related: ["hubspot-service-hub-automation", "zendesk-automation", "n8n-zendesk-integration"],
     updated: "2026-11-03",
   },
+  {
+    key: "ai-lead-scoring",
+    slug: "lead-scoring-ia",
+    category: "crm",
+    navLabel: "Lead scoring con IA",
+    primaryKeyword: "lead scoring con IA",
+    title: "Lead scoring con IA: fit ICP, setup HubSpot e Attio",
+    description:
+      "Lead scoring con IA: punteggi rispetto al profilo di cliente ideale, lo strumento di HubSpot con i suoi limiti e la scrittura dei punteggi in Attio via API.",
+    h1: "Lead scoring con IA: come funziona il punteggio rispetto al tuo ICP",
+    intro:
+      "Il lead scoring trasforma i lead grezzi in una lista ordinata, assegnando a ciascuno dei punti in base a quanto corrisponde al tuo profilo di cliente ideale (ICP) e a come si comporta. L'IA entra in gioco in due modi: lo scoring nativo della piattaforma, come i lead score costruiti dall'IA di HubSpot, e la classificazione esterna, in cui un modello legge una risposta o un record di arricchimento, calcola un punteggio di fit e lo scrive nel CRM tramite l'API.",
+    keyFacts: [
+      "Lo strumento di lead scoring di HubSpot richiede Marketing Hub o Sales Hub Professional o Enterprise; i punteggi contatto costruiti dall'IA richiedono Marketing Hub Enterprise.",
+      "I lead score con IA di HubSpot richiedono un campione minimo di 50 contatti — 25 convertiti e 25 non convertiti — prima di poter generare un punteggio.",
+      "Attio non ha un motore di scoring integrato né un tipo di campo punteggio: un punteggio vive in un attributo numero o select che un workflow o l'API compila.",
+      "Gli attributi numero di Attio memorizzano numeri in virgola mobile con fino a quattro decimali — sufficienti per un punteggio di fit da 0 a 100.",
+      "Un punteggio esterno si scrive in HubSpot con una PATCH a /crm/v3/objects/contacts/{contactId} e in Attio con una PATCH a /v2/objects/{object}/records/{record_id}.",
+    ],
+    sections: [
+      {
+        heading: "Cosa significa lead scoring con IA",
+        blocks: [
+          {
+            type: "p",
+            text: "I modelli di scoring combinano di solito due tipi di segnale. I segnali di engagement misurano cosa fa un lead: aperture, clic, risposte, visite alle pagine, meeting prenotati. I segnali di fit misurano chi è il lead, rispetto al tuo profilo di cliente ideale: settore, dimensione dell'azienda, paese, ruolo, strumenti in uso. Un punteggio di fit risponde a \"dovremmo volere questo lead?\", un punteggio di engagement risponde a \"questo lead vuole noi?\".",
+          },
+          {
+            type: "p",
+            text: "L'IA compare in due punti. I CRM offrono punteggi nativi di machine learning che imparano dalle tue conversioni storiche, come i lead score costruiti dall'IA di HubSpot. E i team eseguono la propria classificazione fuori dal CRM: un modello linguistico legge una risposta di outreach o un record di arricchimento, la etichetta (interessato, non ora, persona sbagliata) o valuta il fit con l'ICP, e il risultato viene scritto in un campo del CRM tramite l'API. Il secondo schema funziona con qualsiasi CRM dotato di API, ed è quello su cui si concentra questa pagina.",
+          },
+        ],
+      },
+      {
+        heading: "Il lead scoring dentro HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "Lo scoring attuale di HubSpot vive nello strumento di lead scoring. È disponibile con Marketing Hub o Sales Hub Professional o Enterprise. Marketing Hub assegna punteggi ai contatti, entrambi gli hub alle aziende e Sales Hub ai deal. Puoi costruire punteggi di engagement, punteggi di fit basati sui valori delle proprietà e punteggi combinati, ciascuno da gruppi di criteri ponderati con punti positivi e negativi.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Il massimo predefinito per un punteggio è 100 punti; il limite può essere impostato a ±100, ±200, ±300, ±400, ±500, ±1.000 o ±10.000.",
+              "Il decadimento del punteggio può ridurre i punti di engagement nel tempo, con intervalli di ogni 1, 3, 6 o 12 mesi, ogni mese contato come 30 giorni.",
+              "Le soglie dividono un punteggio nelle fasce High, Medium e Low; i punteggi combinati usano una matrice A1–C3 di fit ed engagement.",
+              "I punteggi contatto costruiti dall'IA (Marketing Hub Enterprise) imparano dai contatti passati tra due fasi del ciclo di vita e richiedono almeno 50 contatti — 25 convertiti e 25 non convertiti.",
+            ],
+          },
+          {
+            type: "note",
+            text: "Lo strumento crea le proprie proprietà punteggio, legate al punteggio stesso: se elimini il punteggio, le proprietà spariscono con lui, e non si possono modificare dall'esterno. Un punteggio IA calcolato esternamente va quindi in una proprietà numerica personalizzata creata da te, non in una proprietà punteggio gestita dallo strumento.",
+          },
+        ],
+      },
+      {
+        heading: "Lo scoring in Attio",
+        blocks: [
+          {
+            type: "p",
+            text: "Attio segue l'approccio opposto: non esiste un motore di scoring né un tipo di campo punteggio. Un punteggio è semplicemente un attributo che compili. Il template di workflow MQL Scoring di Attio assegna punteggi ai lead con blocchi di workflow, e la sua pagina sulle automazioni elenca uno \"Scoring Agent\" tra gli agenti IA che girano dentro i workflow — uno step agente con istruzioni, non un prodotto di scoring separato. Tre tipi di attributo si prestano a un punteggio:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Un attributo numero memorizza numeri in virgola mobile con fino a quattro decimali e si può filtrare con confronti come maggiore-o-uguale — una casa naturale per un punteggio di fit da 0 a 100.",
+              "Un attributo select contiene opzioni predefinite, utile per fasce come A, B e C. Scrivere un valore la cui opzione non esiste restituisce un errore invece di creare l'opzione.",
+              "Un attributo rating è un valore numerico da 0 a 5, mostrato come stelle.",
+            ],
+          },
+          {
+            type: "p",
+            text: "I workflow sono disponibili su tutti i piani di Attio. Un workflow può partire da una modifica di record, da una pianificazione o da un trigger \"Webhook received\", così uno scorer esterno può avviarne uno direttamente; un blocco \"Custom agent\" può eseguire uno step IA con output strutturato, seguito da un blocco di aggiornamento record per salvarlo. I webhook in uscita sono firmati con un HMAC-SHA256 del corpo nell'header Attio-Signature, così il tuo scorer può anche reagire in sicurezza agli eventi di Attio.",
+          },
+        ],
+      },
+      {
+        heading: "Scrivere un punteggio IA esterno nel tuo CRM",
+        blocks: [
+          {
+            type: "table",
+            caption: "Scrivere un punteggio via API (documentazione dei vendor, verificata a novembre 2026)",
+            head: ["Passaggio", "HubSpot", "Attio"],
+            rows: [
+              [
+                "Creare il campo",
+                "POST /crm/v3/properties/{objectType} con groupName, name, label, type \"number\", fieldType \"number\"",
+                "Creare un attributo numero o select sull'oggetto nelle impostazioni del workspace o tramite l'API degli attributi",
+              ],
+              [
+                "Scrivere un record",
+                "PATCH /crm/v3/objects/contacts/{contactId} con {\"properties\": {...}}; si può usare un'email con idProperty=email",
+                "PATCH /v2/objects/{object}/records/{record_id} con lo slug dell'attributo nel corpo",
+              ],
+              [
+                "Scrivere in blocco",
+                "POST /crm/v3/objects/contacts/batch/update, oppure batch/upsert per creare-o-aggiornare",
+                "Una richiesta per record, entro i rate limit dell'API",
+              ],
+              [
+                "Autenticazione",
+                "Token di accesso di una private app come Bearer token",
+                "API key del workspace o OAuth 2.0, come Bearer token; aggiornare i record richiede gli scope record_permission:read-write e object_configuration:read",
+              ],
+            ],
+          },
+          {
+            type: "p",
+            text: "Una pipeline tipica, descritta per passaggi — mostra come i pezzi si incastrano, non è un caso studio di TascaLab:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Raccogliere: un nuovo lead arriva da un modulo, da una risposta di outreach o da uno strumento di identificazione dei visitatori.",
+              "Classificare: un modello IA etichetta la risposta o il lead (interessato, non interessato, persona sbagliata, fuori mercato).",
+              "Assegnare il punteggio: i dati firmografici del lead vengono confrontati con il tuo ICP e viene calcolato un punteggio di fit.",
+              "Scrivere: il punteggio finisce in una proprietà numerica personalizzata in HubSpot o in un attributo numero in Attio, tramite gli endpoint qui sopra.",
+              "Avvisare: un workflow del CRM o un messaggio Slack avvisa il responsabile quando un lead supera la soglia.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Da dove arrivano le risposte: lemlist",
+        blocks: [
+          {
+            type: "p",
+            text: "Le risposte alle campagne di outreach sono uno dei segnali di scoring più forti, e lemlist le espone in due modi. I webhook inviano callback POST in tempo reale per eventi come emailsReplied, linkedinReplied e whatsappReplied, oltre a stati del lead come interested e notInterested; un workspace può contenere fino a 200 webhook e ogni URL di destinazione deve essere unico — registra un URL senza tipo di evento per ricevere tutti gli eventi e filtrare dal tuo lato. L'API delle attività (GET /activities) recupera la stessa cronologia filtrata per tipo, campagna e data, per il polling al posto del push. L'autenticazione è HTTP Basic con username vuoto e l'API key come password — non un Bearer token.",
+          },
+        ],
+      },
+      {
+        heading: "Farlo costruire",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab costruisce esattamente questa pipeline: lead da una fonte classificati e valutati dall'IA rispetto al tuo ICP e registrati nel tuo CRM, come pacchetto Lead Capture & Scoring ({{price:leadScoring}} una tantum). Collegare strumenti di outreach, chiamate o arricchimento a HubSpot o Attio è il pacchetto CRM Integration ({{price:crmIntegration}} una tantum). La maggior parte dei progetti richiede 1–3 settimane, e ogni progetto include documentazione di base e 30 giorni di supporto post-lancio. Puoi iniziare con una Health Check call gratuita di 30 minuti.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Che cos'è il lead scoring con IA?",
+        a: "Ordinare i lead combinando segnali di engagement (cosa fa un lead) con segnali di fit (quanto corrisponde al tuo profilo di cliente ideale), con l'IA integrata nel CRM — come i lead score con IA di HubSpot — oppure eseguita all'esterno, che classifica le risposte e calcola un punteggio di fit scritto poi tramite l'API.",
+      },
+      {
+        q: "Cosa richiede lo strumento di lead scoring di HubSpot?",
+        a: "Marketing Hub o Sales Hub Professional o Enterprise. I punteggi contatto costruiti dall'IA richiedono Marketing Hub Enterprise e almeno 50 contatti — 25 convertiti e 25 non convertiti — per generare un punteggio.",
+      },
+      {
+        q: "Attio ha un lead scoring integrato?",
+        a: "Nessun motore di scoring e nessun tipo di campo punteggio. I punteggi vivono in attributi numero o select, compilati dai workflow — inclusi gli step con agenti IA, che Attio presenta come Scoring Agent — o da uno strumento esterno tramite l'API.",
+      },
+      {
+        q: "Come scrivo un punteggio in HubSpot o Attio dall'esterno?",
+        a: "HubSpot: crea una proprietà numerica personalizzata, poi PATCH /crm/v3/objects/contacts/{contactId}, oppure usa gli endpoint batch update e upsert. Attio: PATCH /v2/objects/{object}/records/{record_id} con un Bearer token dotato degli scope record_permission:read-write e object_configuration:read.",
+      },
+    ],
+    sources: [
+      { label: "HubSpot Knowledge Base — Overview of the lead scoring tool", url: "https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" },
+      { label: "HubSpot Knowledge Base — Build lead scores to qualify contacts, companies, and deals", url: "https://knowledge.hubspot.com/scoring/build-lead-scores" },
+      { label: "HubSpot Knowledge Base — Build contact lead scores with AI", url: "https://knowledge.hubspot.com/scoring/build-lead-scores-with-ai" },
+      { label: "HubSpot Developers — Properties API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide" },
+      { label: "HubSpot Developers — Contacts API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide" },
+      { label: "Attio Docs — Number attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-number" },
+      { label: "Attio Docs — Select attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-select" },
+      { label: "Attio Docs — Rating attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-rating" },
+      { label: "Attio Docs — Authenticating requests", url: "https://docs.attio.com/rest-api/guides/authentication" },
+      { label: "Attio Docs — Update a record", url: "https://docs.attio.com/rest-api/endpoint-reference/records/update-a-record-append-multiselect-values" },
+      { label: "Attio Docs — Webhooks", url: "https://docs.attio.com/rest-api/guides/webhooks" },
+      { label: "Attio Help — Overview of workflows", url: "https://attio.com/help/reference/automations/workflows/overview-of-workflows" },
+      { label: "Attio Help — Workflows block library", url: "https://attio.com/help/reference/automations/workflows/workflows-block-library" },
+      { label: "Attio — MQL Scoring workflow template", url: "https://attio.com/templates/revenue-operations/mql-scoring" },
+      { label: "Attio — Agents and automations", url: "https://attio.com/platform/automations" },
+      { label: "lemlist Developer — Authentication", url: "https://developer.lemlist.com/api-reference/getting-started/authentication" },
+      { label: "lemlist Developer — Add Webhook", url: "https://developer.lemlist.com/api-reference/endpoints/webhooks/add-webhook" },
+      { label: "lemlist Developer — Get Many Activities", url: "https://developer.lemlist.com/api-reference/endpoints/activities/get-many-activities" },
+    ],
+    related: ["website-visitor-identification", "attio-workflows-automation", "attio-vs-hubspot-automation"],
+    updated: "2026-11-12",
+  },
+  {
+    key: "website-visitor-identification",
+    slug: "identificazione-visitatori-sito",
+    category: "crm",
+    navLabel: "Identificazione visitatori",
+    primaryKeyword: "identificazione visitatori sito web",
+    title: "Identificazione dei visitatori del sito: come funziona",
+    description:
+      "Identificazione dei visitatori del sito: reverse IP e tracker, cosa può e non può vedere, regole GDPR e consenso ai cookie, e il buyer intent di HubSpot.",
+    h1: "Identificazione dei visitatori del sito: come funziona e i suoi limiti",
+    intro:
+      "Gli strumenti di identificazione dei visitatori abbinano il traffico anonimo del tuo sito alle aziende, usando uno script di tracciamento, il reverse IP lookup e database aziendali. Identificano aziende, non persone, la loro copertura dipende dalle reti da cui navigano i visitatori e nell'UE rientrano pienamente nelle regole del GDPR e del consenso ai cookie.",
+    keyFacts: [
+      "L'identificazione combina uno script di tracciamento, cookie di tracciamento, reverse IP lookup, database privati e machine learning — abbinando le visite alle aziende, non alle singole persone.",
+      "Leadfeeder di Dealfront si rifiuta esplicitamente di pubblicare un tasso di identificazione tipico: la copertura varia con il pubblico, e le visite dai provider internet consumer vengono filtrate.",
+      "Chi lavora da remoto è identificabile soprattutto quando naviga attraverso la VPN aziendale.",
+      "La CGUE ha stabilito in Breyer (C-582/14) che un indirizzo IP dinamico può essere un dato personale per il gestore di un sito, e il considerando 30 del GDPR cita gli indirizzi IP tra gli identificativi online.",
+      "Il buyer intent di HubSpot abbina le visite agli indirizzi IP di aziende note; vedere più di 20 aziende per vista richiede HubSpot Credits e un abbonamento a pagamento.",
+    ],
+    sections: [
+      {
+        heading: "Come vengono identificate le aziende",
+        blocks: [
+          {
+            type: "p",
+            text: "Il meccanismo, come lo descrive il centro assistenza di Leadfeeder (Dealfront) per il proprio tracker: uno script sul tuo sito registra ogni visita, e l'identificazione combina cookie di tracciamento, reverse IP lookup, database privati, dati di analytics e machine learning. Un'azienda di solito possiede il proprio dominio e il range IP dei propri uffici, quindi una visita da quella rete può essere abbinata all'azienda. La geolocalizzazione basata sull'IP aggiunge la regione del visitatore.",
+          },
+          {
+            type: "p",
+            text: "Il traffico che non può essere abbinato a un'azienda resta fuori: Leadfeeder dichiara di non far pagare — e nemmeno mostrare — le visite dai provider internet consumer. Quello che vedi è la fetta identificata del tuo traffico, non tutto il traffico.",
+          },
+        ],
+      },
+      {
+        heading: "Cosa non può vedere",
+        blocks: [
+          {
+            type: "ul",
+            items: [
+              "Le singole persone. Leadfeeder dichiara che non è possibile sapere esattamente chi ha visitato senza che il visitatore si identifichi da solo tramite un modulo o una registrazione, e che identificare i singoli visitatori è considerato illegale in molti paesi.",
+              "La maggior parte del traffico da casa. Chi lavora da remoto è identificabile soprattutto quando naviga attraverso la VPN aziendale; su una connessione consumer appare come traffico ISP e viene filtrato.",
+              "Una percentuale garantita. Il centro assistenza di Leadfeeder dice che non esiste un modo onesto di promettere un tasso di identificazione, perché varia con il pubblico di ogni sito — e avverte che i servizi che promettono una percentuale fissa probabilmente estrapolano da pochi account.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "GDPR e consenso ai cookie",
+        blocks: [
+          {
+            type: "p",
+            text: "Nell'UE si applicano due regole distinte. Primo, gli indirizzi IP possono essere dati personali: l'articolo 4(1) del GDPR definisce i dati personali includendo gli identificativi online, il considerando 30 cita tra questi gli indirizzi IP e gli identificativi cookie, e la Corte di giustizia ha stabilito in Breyer (C-582/14, decisa sotto la direttiva che ha preceduto il GDPR) che un indirizzo IP dinamico costituisce un dato personale per il gestore di un sito che dispone di mezzi legali per collegarlo al visitatore tramite il provider di accesso.",
+          },
+          {
+            type: "p",
+            text: "Secondo, l'articolo 5, paragrafo 3 della direttiva ePrivacy richiede il consenso per memorizzare informazioni sul dispositivo di un visitatore o leggerle da esso — con eccezioni ristrette per ciò che è strettamente necessario a fornire il servizio richiesto dal visitatore. Un tracker di identificazione dei visitatori che imposta o legge cookie rientra in quella regola a prescindere dal fatto che i dati siano personali, ed è per questo che nell'UE questi strumenti vanno dietro un banner di consenso ai cookie.",
+          },
+          {
+            type: "note",
+            text: "Questa è una descrizione delle regole ad alto livello. Non è una consulenza legale; come si applicano al tuo setup dipende dai tuoi strumenti e dalla tua base giuridica.",
+          },
+        ],
+      },
+      {
+        heading: "L'identificazione dei visitatori in HubSpot",
+        blocks: [
+          {
+            type: "p",
+            text: "La funzione attuale di HubSpot per questo è il buyer intent. Il codice di tracciamento di HubSpot sul tuo sito raccoglie dati dei visitatori, come attività sul sito e indirizzi IP, e il buyer intent collega i visitatori web anonimi agli indirizzi IP di aziende note. Cosa documenta HubSpot, ad ottobre 2026:",
+          },
+          {
+            type: "ul",
+            items: [
+              "È elencato per gli abbonamenti Starter, Professional ed Enterprise, con HubSpot Credits richiesti per alcune funzioni.",
+              "Vedere più di 20 aziende per vista richiede HubSpot Credits e un abbonamento a pagamento; aggiungere aziende e tracciare i loro segnali di intent consuma crediti, mentre filtri ed esclusioni no.",
+              "I filtri sul periodo delle visite coprono al massimo gli ultimi 90 giorni, e le aziende aggiunte dal buyer intent ricevono la record source \"Buyer-Intent\".",
+              "L'articolo di HubSpot stesso segnala che per rispettare le leggi sulla protezione dei dati può servire un banner di consenso ai cookie sul tuo sito.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Dall'azienda identificata al lead con punteggio",
+        blocks: [
+          {
+            type: "p",
+            text: "L'identificazione da sola produce solo una lista. Il valore arriva da ciò che succede dopo — uno schema comune, descritto per passaggi; mostra come i pezzi si incastrano, non è un caso studio di TascaLab:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Identificare: il tracker riporta quali aziende hanno visitato e cosa hanno guardato.",
+              "Arricchire: per ogni azienda si recuperano dimensione, settore e paese.",
+              "Assegnare il punteggio: l'azienda viene confrontata con il tuo profilo di cliente ideale e riceve un punteggio di fit.",
+              "Registrare: l'azienda e il suo punteggio finiscono nel tuo CRM — un record azienda in HubSpot o un record in Attio.",
+              "Riepilogare: un riepilogo pianificato, ordinato per punteggio, arriva via email o Slack così il sales vede per primi gli account migliori.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Farlo costruire",
+        blocks: [
+          {
+            type: "p",
+            text: "TascaLab lo costruisce come pacchetto Lead Capture & Scoring ({{price:leadScoring}} una tantum): lead da una fonte — visitatori del sito, un modulo o risposte di outreach — classificati e valutati dall'IA e registrati nel tuo CRM, con avvisi via email o Slack. Collegare gli strumenti circostanti a HubSpot o Attio è il pacchetto CRM Integration ({{price:crmIntegration}} una tantum). La maggior parte dei progetti richiede 1–3 settimane, e ogni progetto include documentazione di base e 30 giorni di supporto post-lancio. Puoi iniziare con una Health Check call gratuita di 30 minuti.",
+          },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "L'identificazione dei visitatori può dirmi chi ha visitato il mio sito?",
+        a: "Identifica le aziende, attraverso le loro reti — non le persone. I vendor dichiarano che sapere esattamente chi ha visitato richiede che il visitatore si identifichi da solo tramite un modulo o una registrazione, e che identificare i singoli è considerato illegale in molti paesi.",
+      },
+      {
+        q: "Quale quota di visitatori può essere identificata?",
+        a: "Non esiste una percentuale fissa onesta. Il centro assistenza di Leadfeeder si rifiuta di pubblicarne una, perché la copertura dipende dal pubblico di ogni sito; il traffico dei provider consumer viene filtrato del tutto, e chi lavora da remoto è identificabile soprattutto su VPN aziendale.",
+      },
+      {
+        q: "L'identificazione dei visitatori basata sull'IP è legale secondo il GDPR?",
+        a: "Gli indirizzi IP possono essere dati personali (Breyer, C-582/14; considerando 30 del GDPR), e i tracker che impostano o leggono cookie richiedono il consenso ai sensi dell'articolo 5, paragrafo 3 della direttiva ePrivacy: per questo nell'UE questi strumenti vanno dietro un banner di consenso. Questa non è una consulenza legale.",
+      },
+      {
+        q: "Cosa richiede il buyer intent di HubSpot?",
+        a: "Il codice di tracciamento di HubSpot sul tuo sito e un abbonamento Starter, Professional o Enterprise. Vedere più di 20 aziende per vista richiede HubSpot Credits, aggiungere aziende e tracciare i segnali di intent consuma crediti, e i filtri sulle visite coprono al massimo gli ultimi 90 giorni.",
+      },
+    ],
+    sources: [
+      { label: "Leadfeeder (Dealfront) Help — How Does Web Visitors Identify Companies?", url: "https://help.leadfeeder.com/en/articles/3385515-how-does-leadfeeder-identify-leads" },
+      { label: "EUR-Lex — Regulation (EU) 2016/679 (GDPR)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679" },
+      { label: "CJEU — Press Release No 112/16, Judgment in Case C-582/14 Breyer", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2016-10/cp160112en.pdf" },
+      { label: "EUR-Lex — Consolidated Directive 2002/58/EC (ePrivacy), Article 5(3)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02002L0058-20091219" },
+      { label: "HubSpot Knowledge Base — Use buyer intent data to identify companies ready to buy", url: "https://knowledge.hubspot.com/reports/use-buyer-intent" },
+    ],
+    related: ["ai-lead-scoring", "hubspot-zendesk-integration", "attio-workflows-automation"],
+    updated: "2026-11-12",
+  },
 ];
