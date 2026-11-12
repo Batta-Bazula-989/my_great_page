@@ -158,7 +158,6 @@ const en = {
     eyebrow: "Why Work With Me",
     title: "Built by someone who's worked in support",
     role: "AI Automation Specialist",
-    linkedin: "My background on LinkedIn",
     items: [
       {
         title: "I've worked in support",
@@ -380,7 +379,6 @@ const en = {
     title: "Get a free support Health Check",
     intro: "A 30-minute call, then a written report.",
     cta: "Book a Free Health Check",
-    linkedin: "Connect on LinkedIn",
     email: "Email",
     upwork: "Upwork Reviews",
   },

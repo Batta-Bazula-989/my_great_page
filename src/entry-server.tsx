@@ -55,7 +55,6 @@ const homeJsonLd = (locale: Locale): object[] => {
       founder: author,
       sameAs: [
         "https://www.upwork.com/freelancers/~01966ceb979589cb68",
-        "https://www.linkedin.com/in/roman-zakharenko-159a27403/",
         "https://www.instagram.com/tasca_lab/",
       ],
       hasOfferCatalog: {

@@ -155,7 +155,6 @@ const sv: Dictionary = {
     eyebrow: "Varför jobba med mig",
     title: "Byggt av någon som själv har jobbat med support",
     role: "Specialist på AI-automatisering",
-    linkedin: "Min bakgrund på LinkedIn",
     items: [
       {
         title: "Jag har jobbat i support",
@@ -377,7 +376,6 @@ const sv: Dictionary = {
     title: "Få en kostnadsfri Health Check av din support",
     intro: "Ett samtal på 30 minuter, sedan en skriftlig rapport.",
     cta: "Boka kostnadsfri Health Check",
-    linkedin: "Kontakta mig på LinkedIn",
     email: "E-post",
     upwork: "Omdömen på Upwork",
   },

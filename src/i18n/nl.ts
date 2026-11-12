@@ -155,7 +155,6 @@ const nl: Dictionary = {
     eyebrow: "Waarom met mij werken",
     title: "Gebouwd door iemand die zelf in support heeft gewerkt",
     role: "Specialist in AI-automatisering",
-    linkedin: "Mijn achtergrond op LinkedIn",
     items: [
       {
         title: "Ik heb in support gewerkt",
@@ -377,7 +376,6 @@ const nl: Dictionary = {
     title: "Vraag een gratis Health Check van je support aan",
     intro: "Een gesprek van 30 minuten, daarna een schriftelijk rapport.",
     cta: "Plan een gratis Health Check",
-    linkedin: "Connect op LinkedIn",
     email: "E-mail",
     upwork: "Reviews op Upwork",
   },

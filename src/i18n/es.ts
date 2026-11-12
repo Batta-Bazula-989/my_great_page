@@ -155,7 +155,6 @@ const es: Dictionary = {
     eyebrow: "Por qué trabajar conmigo",
     title: "Hecho por alguien que ha trabajado en soporte",
     role: "Especialista en automatización con IA",
-    linkedin: "Mi trayectoria en LinkedIn",
     items: [
       {
         title: "He trabajado en soporte",
@@ -377,7 +376,6 @@ const es: Dictionary = {
     title: "Pide un Health Check gratuito de tu soporte",
     intro: "Una llamada de 30 minutos y, después, un informe por escrito.",
     cta: "Reserva un Health Check gratuito",
-    linkedin: "Conecta en LinkedIn",
     email: "Correo electrónico",
     upwork: "Reseñas en Upwork",
   },

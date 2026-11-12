@@ -1,7 +1,6 @@
-import { Briefcase, Shield, BookOpen, MessageCircle, Linkedin, ArrowUpRight } from "lucide-react";
+import { Briefcase, Shield, BookOpen, MessageCircle } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-import { LINKEDIN_URL } from "@/lib/links";
 import { useDict } from "@/i18n";
 import portrait from "@/assets/roman-portrait.jpg";
 
@@ -27,16 +26,6 @@ const WhyMeSection = () => {
             <figcaption className="mt-4 text-center md:text-left">
               <span className="block font-display text-xl font-bold">Roman Zakharenko</span>
               <span className="mt-0.5 block text-muted-foreground">{t.role}</span>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex min-h-11 items-center gap-1.5 font-medium text-primary underline-offset-4 hover:underline"
-              >
-                <Linkedin className="h-4 w-4" aria-hidden />
-                {t.linkedin}
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-              </a>
             </figcaption>
           </figure>
 

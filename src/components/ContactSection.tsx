@@ -1,8 +1,7 @@
-import { Mail, Linkedin, ArrowUpRight, Calendar, Send, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, Calendar, Send, Star } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 import Section from "@/components/Section";
-import { UPWORK_PROFILE_URL, LINKEDIN_URL, TELEGRAM_URL, EMAIL } from "@/lib/links";
+import { UPWORK_PROFILE_URL, TELEGRAM_URL, EMAIL } from "@/lib/links";
 import { useDict } from "@/i18n";
 import avatar from "@/assets/roman-avatar.jpg";
 
@@ -35,13 +34,6 @@ const ContactSection = () => {
             <Calendar className="w-5 h-5" aria-hidden />
             {t.cta}
           </BookingButton>
-          <Button variant="glass" size="xl" className="rounded-full" asChild>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-              <Linkedin className="w-5 h-5" aria-hidden />
-              {t.linkedin}
-              <ArrowUpRight className="w-4 h-4" aria-hidden />
-            </a>
-          </Button>
         </div>
 
         <ul className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 text-sm">

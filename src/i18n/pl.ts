@@ -151,7 +151,6 @@ const pl: Dictionary = {
     eyebrow: "Dlaczego warto ze mną współpracować",
     title: "Zbudowane przez kogoś, kto sam pracował w obsłudze klienta",
     role: "Specjalista ds. automatyzacji AI",
-    linkedin: "Moje doświadczenie na LinkedIn",
     items: [
       {
         title: "Pracowałem w obsłudze klienta",
@@ -373,7 +372,6 @@ const pl: Dictionary = {
     title: "Zamów bezpłatny Health Check obsługi klienta",
     intro: "30-minutowa rozmowa, a potem pisemny raport.",
     cta: "Umów bezpłatny Health Check",
-    linkedin: "Nawiąż kontakt na LinkedIn",
     email: "E-mail",
     upwork: "Opinie na Upwork",
   },
