@@ -16,7 +16,8 @@ const outDir = path.join(root, "src/content/generated");
 const writeIfChanged = (file, data) => {
   const text = `${JSON.stringify(data, null, 1)}\n`;
   const existing = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : null;
-  if (existing === text) return false;
+  // Git on Windows may check the file out with CRLF line endings; that alone isn't a change.
+  if (existing?.replace(/\r\n/g, "\n") === text) return false;
   fs.writeFileSync(file, text);
   return true;
 };
