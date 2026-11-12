@@ -6,7 +6,7 @@
   "navLabel": "Chatbot IA pour le support",
   "h1": "Chatbot IA pour le service client : ce qu'il fait et comment il se connecte à votre helpdesk",
   "description": "Comment un chatbot IA de service client répond aux FAQ, collecte les infos et passe la main aux agents — et se connecte à Zendesk ou Freshdesk via API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Les agents IA de Zendesk génèrent leurs réponses à partir des sources de connaissances connectées et se rabattent sur une réponse par défaut lorsqu'ils ne trouvent rien de pertinent.",
@@ -36,7 +36,7 @@
   "navLabel": "Callbot IA (support téléphonique)",
   "h1": "Callbot IA pour le service client : comment fonctionne l'automatisation des appels entrants",
   "description": "Comment fonctionne un callbot IA de service client : téléphonie, speech-to-text, logique IA et synthèse vocale, transfert d'appel, SVI vs bot et règles FCC.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Un SVI (IVR) traditionnel fonctionne avec des touches (DTMF) ; le verbe Gather de Twilio utilise le DTMF par défaut et doit être configuré pour accepter la parole afin de transcrire les appelants.",
@@ -59,7 +59,7 @@
   "navLabel": "Routage automatique des tickets",
   "h1": "Automatisation du routage des tickets : méthodes, outils et mise en place",
   "description": "Le routage automatique des tickets expliqué : par règles, round-robin, par charge ou par compétences, triage IA, et l'approche de Zendesk, Freshdesk et Jira.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Le routage omnicanal de Zendesk attribue par défaut à l'agent qui a le plus de capacité disponible ; le round robin est la méthode alternative.",
@@ -85,7 +85,7 @@
   "navLabel": "Reporting automatisé du support",
   "h1": "Reporting automatisé du service client : indicateurs, planification et diffusion",
   "description": "Reporting automatisé du service client : les indicateurs à suivre et comment programmer des rapports Zendesk, Freshdesk ou Jira vers l'e-mail, Slack ou Sheets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk Explore peut envoyer par e-mail un tableau de bord partagé selon un calendrier récurrent défini jusqu'à 12 mois à l'avance.",
@@ -109,7 +109,7 @@
   "navLabel": "Automatisation des e-mails support",
   "h1": "Automatisation des e-mails du service client : de la boîte de réception au ticket traité",
   "description": "Automatisation des e-mails support : transférez votre adresse vers Zendesk ou Freshdesk, configurez SPF et DKIM, puis accusez réception, routez, escaladez.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Chaque compte Zendesk dispose d'une adresse support système de la forme support@votresousdomaine.zendesk.com.",
@@ -136,7 +136,7 @@
   "navLabel": "Base de connaissances IA (support)",
   "h1": "Base de connaissances IA pour le service client : fonctionnement et mise en place",
   "description": "Base de connaissances IA pour le support : fonctionnement, structure des articles dans Zendesk, Freshdesk ou Confluence, mise à jour et mesure de la déflexion.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "La génération augmentée par récupération (RAG) retrouve les passages pertinents dans vos documents et les ajoute au prompt, pour que le modèle réponde à partir de votre contenu.",
@@ -159,7 +159,7 @@
   "navLabel": "Automatisation Zendesk",
   "h1": "Automatisation Zendesk : déclencheurs, automatisations, macros et routage",
   "description": "L'automatisation Zendesk : déclencheurs, automatisations et macros, exécution horaire, ordre des déclencheurs, routage omnicanal, webhooks et API Zendesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Les déclencheurs de tickets s'exécutent immédiatement après la création ou la mise à jour d'un ticket, dans l'ordre de la liste.",
@@ -183,7 +183,7 @@
   "navLabel": "Automatisation Freshdesk",
   "h1": "Automatisation Freshdesk : types de règles, attribution et webhooks",
   "description": "L'automatisation Freshdesk : règles Ticket Creation, Ticket Updates et Hourly Triggers, attribution round-robin et par compétences, webhooks et API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Freshdesk propose trois types de règles d'automatisation : Ticket Creation, Ticket Updates et Hourly Triggers.",
@@ -209,7 +209,7 @@
   "navLabel": "Automatisation Jira Service Mgmt",
   "h1": "Automatisation Jira Service Management : fonctionnement des flux, des SLA et des webhooks",
   "description": "Automatisation Jira Service Management : déclencheurs, conditions, actions, déclencheurs SLA et d'approbation, smart values, webhooks, files, types de demande.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Chaque flux d'automatisation se compose d'un déclencheur, de conditions facultatives et d'une ou plusieurs actions, exécutés de haut en bas.",
@@ -233,7 +233,7 @@
   "navLabel": "Automatisation du support Slack",
   "h1": "Automatisation du support client sur Slack : alertes, escalades et canaux clients",
   "description": "Automatiser le support client sur Slack : alertes d'escalade, Workflow Builder, webhooks entrants, Bolt, intégrations Zendesk, Freshdesk et Jira, Slack Connect.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Les workflows de Workflow Builder peuvent démarrer à partir d'un lien, d'un webhook, d'un planning, d'un message publié, d'une réaction emoji ou de l'arrivée dans un canal.",
@@ -257,7 +257,7 @@
   "navLabel": "Automatisation Intercom",
   "h1": "Automatisation Intercom : Workflows, attribution, Fin et API",
   "description": "Automatisation Intercom : déclencheurs, branches et actions des Workflows, attribution en boîte d'équipe, Fin AI Agent, Slack et Jira, webhooks et API REST.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Les Workflows se construisent dans un éditeur visuel et peuvent s'adresser aux clients ou tourner discrètement en arrière-plan pour les coéquipiers.",
@@ -282,7 +282,7 @@
   "navLabel": "Automatisation HubSpot Service Hub",
   "h1": "Automatisation HubSpot Service Hub : help desk, tickets, workflows et API",
   "description": "Automatisation HubSpot Service Hub : canaux et routage du help desk, pipelines et statuts, objectifs SLA, workflows de tickets, chatbots, webhooks et API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Par défaut, le help desk crée automatiquement des tickets à partir de chaque canal que vous y connectez.",
@@ -306,7 +306,7 @@
   "navLabel": "Bot WhatsApp pour le support",
   "h1": "Bot WhatsApp pour le service client : fonctionnement et ce que Meta autorise",
   "description": "Comment fonctionne un bot WhatsApp de service client : Business Platform vs app, fenêtre de 24 heures, modèles, opt-in, tarification et connexion au helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Lorsqu'un client vous envoie un message ou vous appelle, une fenêtre de service client de 24 heures s'ouvre et se réinitialise à chaque nouveau message.",
@@ -332,7 +332,7 @@
   "navLabel": "Bot Telegram pour le support",
   "h1": "Bot Telegram de support : fonctionnement et mise en place",
   "description": "Mettre en service un bot Telegram de support : BotFather, webhooks vs long polling, claviers inline, mode confidentialité, limites d'envoi et transfert.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Vous créez un bot et obtenez son jeton d'authentification en envoyant un message à @BotFather.",
@@ -355,7 +355,7 @@
   "navLabel": "Bot Messenger service client",
   "h1": "Bot Facebook Messenger pour le service client : fenêtres, tags et transfert",
   "description": "Comment fonctionne un bot Facebook Messenger de service client : webhooks, fenêtre de 24 heures, tag HUMAN_AGENT, transfert aux agents et politique de Meta.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "La messagerie standard vous permet de répondre dans les 24 heures suivant le message d'une personne.",
@@ -379,7 +379,7 @@
   "navLabel": "Automatisation des DM Instagram",
   "h1": "Automatisation des DM Instagram pour le service client",
   "description": "L'automatisation des DM Instagram expliquée : comptes professionnels, fenêtre de 24 heures, tag human agent, réponses privées aux commentaires et ice breakers.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Les API de messagerie d'Instagram fonctionnent avec les comptes professionnels (entreprise ou créateur).",
@@ -402,7 +402,7 @@
   "navLabel": "Chatbot de support pour site web",
   "h1": "Chatbot de site web pour le service client : widgets, transfert et accessibilité",
   "description": "Préparer un chatbot de site web de service client : widgets Zendesk et Freshchat, transfert du bot à l'agent, hors heures d'ouverture et accessibilité WCAG.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Le Web Widget de messagerie de Zendesk s'installe en ajoutant un extrait de code à chaque page où il doit apparaître.",
@@ -429,7 +429,7 @@
   "navLabel": "Automatisation du support par SMS",
   "h1": "Automatisation SMS du service client : fonctionnement et éléments à configurer",
   "description": "Comment fonctionne l'automatisation SMS du service client : webhooks entrants, A2P 10DLC et vérification toll-free, désinscriptions STOP, segments et tickets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Twilio envoie chaque SMS entrant à l'URL de votre webhook avec des champs comme From, To, Body et MessageSid.",
@@ -450,7 +450,7 @@
   "navLabel": "Chatbot Viber pour le support",
   "h1": "Chatbot Viber pour le service client : fonctionnement et mise en place",
   "description": "Comment fonctionne un chatbot Viber de service client : jeton d'authentification, set_webhook, callbacks, destinataires autorisés, claviers et transfert.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Chaque requête API transmet le jeton d'authentification du bot dans l'en-tête X-Viber-Auth-Token.",
@@ -471,7 +471,7 @@
   "navLabel": "Automatisation du support client",
   "h1": "Qu'est-ce que l'automatisation du support client ?",
   "description": "L'automatisation du support client : bots, routage, macros, réponses automatiques, minuteurs SLA et rapports, ce qui reste humain, lien avec votre helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Les déclencheurs Zendesk s'exécutent immédiatement après la création ou la mise à jour d'un ticket ; les automatisations Zendesk reposent sur le temps et s'exécutent une fois par heure.",
@@ -503,7 +503,7 @@
   "navLabel": "Transfert chatbot vers humain",
   "h1": "Transfert du chatbot vers un humain : escalader sans perdre le client",
   "description": "Transfert du chatbot vers un humain : quand escalader, quel contexte transmettre, que faire hors horaires, et comment Zendesk, Freshdesk et Messenger le gèrent.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Selon Zendesk, un agent IA peut devoir transférer une demande à un humain lorsqu'elle est complexe, urgente ou sensible.",
@@ -527,7 +527,7 @@
   "navLabel": "KPI du support client",
   "h1": "KPI du support client : quoi suivre et comment calculer chaque indicateur",
   "description": "Les KPI du support client expliqués : première réponse, délai de résolution, FCR, réouvertures, CSAT, CES, NPS et backlog, avec leur mode de calcul réel.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Le full resolution time de Zendesk court de la création du ticket à sa résolution la plus récente : les tickets rouverts continuent donc d'être comptés.",
@@ -551,7 +551,7 @@
   "navLabel": "Politiques SLA expliquées",
   "h1": "Les politiques SLA du support client, expliquées",
   "description": "Politiques SLA du support client : objectifs de première réponse, réponse suivante et résolution, heures ouvrées ou calendaires, pause, alertes, configuration.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Zendesk applique la première politique SLA, en parcourant la liste de haut en bas, dont les conditions correspondent au ticket.",
@@ -576,7 +576,7 @@
   "navLabel": "Déflexion des tickets",
   "h1": "Déflexion de tickets : ce que c'est et comment la mesurer honnêtement",
   "description": "La déflexion de tickets expliquée : canaux de self-service concernés, mesure chez Zendesk, Freshdesk et Intercom, et sessions abandonnées qui gonflent le taux.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Le self-service score de Zendesk, aussi appelé ticket deflection ratio, compare l'utilisation du centre d'aide aux tickets créés sur la même période.",
@@ -600,7 +600,7 @@
   "navLabel": "Support client omnicanal",
   "h1": "Support client omnicanal : définition et fonctionnement",
   "description": "Le support client omnicanal expliqué : différence avec le multicanal, espace de travail agent unifié, routage omnicanal, fenêtres WhatsApp et Messenger.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Freshworks décrit le support multicanal comme des canaux indépendants qui fonctionnent chacun de manière autonome ; dans le support omnicanal, ils sont interconnectés.",
@@ -624,7 +624,7 @@
   "navLabel": "n8n vs Make vs Zapier",
   "h1": "n8n vs Make vs Zapier pour l'automatisation du support",
   "description": "n8n vs Make vs Zapier pour automatiser le support : licence et hébergement, décompte de l'usage, connecteurs Zendesk, Freshdesk, Jira et Slack, webhooks, code.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 10,
   "keyFacts": [
    "Le logiciel auto-hébergé de n8n utilise la Sustainable Use License, une licence fair-code créée par n8n en 2022. n8n ne se présente pas comme open source.",
@@ -648,7 +648,7 @@
   "navLabel": "AI Act : règles pour les chatbots",
   "h1": "AI Act et chatbots : ce qu'exige l'article 50, et à partir de quand",
   "description": "Les règles de l'AI Act pour les chatbots : ce qu'exige l'article 50, qui est fournisseur ou déployeur, les dates clés et l'effet de l'omnibus numérique de 2026.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 10,
   "keyFacts": [
    "Article 50(1) : les fournisseurs doivent veiller à ce que les personnes soient informées qu'elles interagissent avec un système d'IA, sauf si cela ressort clairement du contexte.",
@@ -695,7 +695,7 @@
   "navLabel": "Acte européen sur l'accessibilité",
   "h1": "Acte européen sur l'accessibilité et service client : ce que les équipes support doivent savoir",
   "description": "Acte européen sur l'accessibilité et service client : services concernés, dates clés, exemption des microentreprises et ce que l'annexe I exige du support.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 11,
   "keyFacts": [
    "Article 31 : les États membres devaient adopter leurs lois nationales au plus tard le 28 juin 2022 et les appliquer à partir du 28 juin 2025.",
@@ -716,7 +716,7 @@
   "navLabel": "Intégration n8n Zendesk",
   "h1": "Intégration n8n Zendesk : nodes, identifiants et exemples de workflows",
   "description": "Intégration n8n Zendesk : opérations du node Zendesk, Zendesk Trigger, credentials OAuth2 et fin des tokens API, webhooks, limites de débit, un exemple.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-12",
   "minutes": 10,
   "keyFacts": [
    "Le node Zendesk de n8n dispose de quatre ressources : Ticket, Ticket Field, User et Organization.",
@@ -808,6 +808,60 @@
    "4": [
     "n8n-zendesk-integration",
     "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "ai-lead-scoring",
+  "slug": "lead-scoring-ia",
+  "category": "crm",
+  "navLabel": "Lead scoring par IA",
+  "h1": "Lead scoring par IA : comment fonctionne le scoring selon votre ICP",
+  "description": "Le lead scoring par IA : scorer vos leads selon votre ICP, l'outil de scoring de HubSpot et ses limites, et écrire un score dans Attio via l'API.",
+  "updated": "2026-11-12",
+  "minutes": 8,
+  "keyFacts": [
+   "L'outil de lead scoring de HubSpot exige Marketing Hub ou Sales Hub Professional ou Enterprise ; les scores de contacts construits par l'IA exigent Marketing Hub Enterprise.",
+   "Les scores IA de HubSpot demandent un échantillon minimal de 50 contacts — 25 convertis et 25 non convertis — avant de pouvoir générer un score.",
+   "Attio n'a ni moteur de scoring intégré ni type de champ score : un score vit dans un attribut nombre ou sélection, rempli par un workflow ou par l'API."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-zendesk-integration"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "attio-vs-hubspot-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "website-visitor-identification",
+  "slug": "identification-visiteurs-site-web",
+  "category": "crm",
+  "navLabel": "Identification des visiteurs",
+  "h1": "Identification des visiteurs d'un site web : fonctionnement et limites",
+  "description": "L'identification des visiteurs d'un site web : reverse IP et traceurs, ce qu'elle voit ou non, RGPD et consentement aux cookies, buyer intent de HubSpot.",
+  "updated": "2026-11-12",
+  "minutes": 7,
+  "keyFacts": [
+   "L'identification combine un script de suivi, des cookies de suivi, la résolution inverse d'adresses IP, des bases de données privées et de l'apprentissage automatique — en rattachant les visites à des entreprises, pas à des personnes.",
+   "Leadfeeder, de Dealfront, refuse explicitement de publier un taux d'identification type : la couverture varie selon l'audience, et les visites issues de fournisseurs d'accès grand public sont filtrées.",
+   "Les télétravailleurs ne sont identifiables, pour l'essentiel, que lorsqu'ils naviguent via le VPN de leur entreprise."
+  ],
+  "sectionLinks": {
+   "2": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ],
+   "4": [
+    "ai-lead-scoring",
+    "attio-workflows-automation"
    ]
   }
  }

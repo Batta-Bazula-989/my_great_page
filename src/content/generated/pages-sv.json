@@ -6,7 +6,7 @@
   "navLabel": "AI-chattbot för support",
   "h1": "AI-chattbot för kundtjänst: vad den gör och hur den kopplas till din helpdesk",
   "description": "Så svarar en AI-chattbot för kundtjänst på vanliga frågor, samlar in uppgifter och lämnar över till agenter – och kopplas till Zendesk eller Freshdesk via API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesks AI-agenter genererar svar från anslutna kunskapskällor och faller tillbaka på ett standardsvar när inget relevant hittas.",
@@ -36,7 +36,7 @@
   "navLabel": "AI-röstbot för telefonsupport",
   "h1": "AI-röstbot för kundtjänst: så fungerar automatisering av inkommande samtal",
   "description": "Så fungerar en AI-röstbot för kundtjänst: telefoni, tal till text, AI-logik och text till tal, plus överföring av samtal, IVR kontra bot och FCC:s regler.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "En traditionell IVR arbetar med knapptryckningar (DTMF); Twilios Gather-verb använder DTMF som standard och måste ställas in för att ta emot tal för att kunna transkribera den som ringer.",
@@ -59,7 +59,7 @@
   "navLabel": "Automatisk ärendefördelning",
   "h1": "Automatisk ärendefördelning: metoder, verktyg och uppsättning",
   "description": "Automatisk ärendefördelning förklarad: regelbaserad, round-robin-, belastnings- och kompetensbaserad routing, AI-triage och hur Zendesk, Freshdesk och Jira gör.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesks omnikanalsrouting tilldelar som standard den agent som har mest ledig kapacitet; round robin är den alternativa metoden.",
@@ -85,7 +85,7 @@
   "navLabel": "Automatiserad supportrapportering",
   "h1": "Automatiserad rapportering för kundtjänst: nyckeltal, scheman och leverans",
   "description": "Automatiserad supportrapportering: nyckeltal att följa och schemalagda rapporter från Zendesk, Freshdesk eller Jira till e-post, Slack eller Google Sheets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk Explore kan e-posta en delad dashboard enligt ett återkommande schema som ställs in upp till 12 månader framåt.",
@@ -109,7 +109,7 @@
   "navLabel": "E-postautomatisering för support",
   "h1": "E-postautomatisering för kundtjänst: från inkorg till besvarat ärende",
   "description": "E-postautomatisering för kundtjänst: vidarebefordra supportadressen till Zendesk eller Freshdesk, ställ in SPF och DKIM, bekräfta, routa och eskalera e-post.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Varje Zendesk-konto har en systemadress för support i formatet support@yoursubdomain.zendesk.com.",
@@ -136,7 +136,7 @@
   "navLabel": "AI-kunskapsbas för support",
   "h1": "AI-kunskapsbas för kundtjänst: så fungerar den och så bygger du en",
   "description": "Så fungerar en AI-kunskapsbas för kundtjänst: strukturera artiklar i Zendesk, Freshdesk eller Confluence, håll dem aktuella och mät avledda ärenden.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Retrieval-augmented generation hittar relevanta avsnitt i dina dokument och lägger till dem i prompten, så att modellen svarar utifrån ditt innehåll.",
@@ -159,7 +159,7 @@
   "navLabel": "Zendesk-automatisering",
   "h1": "Zendesk-automatisering: triggers, automatiseringar, makron och routning",
   "description": "Så fungerar Zendesk-automatisering: triggers, automatiseringar och makron, körning varje timme, triggerordning, routning, webhooks och Zendesk API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Ärendetriggers körs direkt efter att ett ärende har skapats eller uppdaterats, i den ordning de står i listan.",
@@ -183,7 +183,7 @@
   "navLabel": "Freshdesk-automatisering",
   "h1": "Freshdesk-automatisering: regeltyper, tilldelning och webhooks",
   "description": "Så fungerar Freshdesk-automatisering: Ticket Creation, Ticket Updates och Hourly Triggers, round-robin och kompetensbaserad tilldelning, webhooks och API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 5,
   "keyFacts": [
    "Freshdesk har tre typer av automatiseringsregler: Ticket Creation, Ticket Updates och Hourly Triggers.",
@@ -209,7 +209,7 @@
   "navLabel": "Jira Service Mgmt-automatisering",
   "h1": "Jira Service Management-automatisering: så fungerar flöden, SLA och webhooks",
   "description": "Automatisering i Jira Service Management: triggers, villkor och åtgärder, SLA- och godkännandetriggers, smarta värden, webhooks, köer och förfrågningstyper.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 5,
   "keyFacts": [
    "Varje automatiseringsflöde består av en trigger, valfria villkor och en eller flera åtgärder, som körs uppifrån och ned.",
@@ -233,7 +233,7 @@
   "navLabel": "Slack-automatisering för support",
   "h1": "Slack-automatisering för kundtjänst: larm, eskaleringar och kundkanaler",
   "description": "Slack-automatisering för kundtjänst: eskaleringslarm, Workflow Builder, inkommande webhooks, Bolt-appar, Zendesk, Freshdesk och Jira, Slack Connect.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Arbetsflöden i Workflow Builder kan starta från en länk, en webhook, ett schema, ett postat meddelande, en emojireaktion eller att någon går med i en kanal.",
@@ -257,7 +257,7 @@
   "navLabel": "Intercom-automatisering",
   "h1": "Intercom-automatisering: Workflows, tilldelning, Fin och API:et",
   "description": "Så fungerar Intercom-automatisering: triggers, förgreningar och åtgärder i Workflows, tilldelning i teaminkorgar, Fin AI Agent, Slack, Jira, webhooks och API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Workflows byggs i en visuell byggare och kan vara kundriktade eller köras tyst i bakgrunden för teammedlemmar.",
@@ -282,7 +282,7 @@
   "navLabel": "HubSpot Service Hub-automatisering",
   "h1": "HubSpot Service Hub-automatisering: help desk, ärenden, arbetsflöden och API:et",
   "description": "HubSpot Service Hub-automatisering: help desk-kanaler och routning, ärendepipelines och statusar, SLA-mål, arbetsflöden, chattbottar, webhooks och API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Som standard skapar help desk automatiskt ärenden från varje kanal du kopplar till den.",
@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp-bot för support",
   "h1": "WhatsApp-bot för kundtjänst: så fungerar den och vad Meta tillåter",
   "description": "Så fungerar en WhatsApp-bot för kundtjänst: Business Platform kontra appen, 24-timmarsfönstret, mallar, opt-in, prissättning och koppling till din helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "När en kund skickar ett meddelande eller ringer dig öppnas ett kundtjänstfönster på 24 timmar, som startar om vid varje nytt meddelande.",
@@ -332,7 +332,7 @@
   "navLabel": "Telegram-bot för support",
   "h1": "Telegram-bot för support: så fungerar den och så sätter du upp den",
   "description": "Så driver du en Telegram-bot för support: BotFather, webhooks kontra long polling, inline-tangentbord, sekretessläge i grupper, gränser och överlämning.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Du skapar en bot och får dess autentiseringstoken genom att skicka ett meddelande till @BotFather.",
@@ -355,7 +355,7 @@
   "navLabel": "Messenger-bot för kundtjänst",
   "h1": "Facebook Messenger-bot för kundtjänst: fönster, taggar och överlämning",
   "description": "Så fungerar en Facebook Messenger-bot för kundtjänst: webhooks, 24-timmarsfönstret, taggen HUMAN_AGENT, överlämning till agenter och Metas regler för bottar.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Med standardmeddelanden kan du svara inom 24 timmar efter en persons meddelande.",
@@ -379,7 +379,7 @@
   "navLabel": "Automatisering av Instagram-DM",
   "h1": "Automatisera Instagram-DM i kundtjänsten",
   "description": "Automatisering av Instagram-DM förklarad: krav på professionellt konto, 24-timmarsfönstret, taggen human agent, privata svar på kommentarer och ice breakers.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 5,
   "keyFacts": [
    "Instagrams API:er för meddelanden fungerar med professionella konton (företags- eller kreatörskonton).",
@@ -402,8 +402,8 @@
   "navLabel": "Chattbot på webbplatsen",
   "h1": "Chattbot på webbplatsen för kundtjänst: widgetar, överlämning och tillgänglighet",
   "description": "Planera en chattbot på webbplatsen för kundtjänst: widgetar från Zendesk och Freshchat, överlämning till agent, tid utanför öppettider och WCAG-tillgänglighet.",
-  "updated": "2026-10-19",
-  "minutes": 6,
+  "updated": "2026-11-12",
+  "minutes": 5,
   "keyFacts": [
    "Zendesks Web Widget för meddelanden installeras genom att ett kodstycke läggs till på varje sida där den ska visas.",
    "Zendesk Messaging kan visa olika svar under och utanför öppettiderna.",
@@ -429,7 +429,7 @@
   "navLabel": "SMS-automatisering för support",
   "h1": "SMS-automatisering för kundtjänst: så fungerar det och det här ska du ställa in",
   "description": "Så fungerar SMS-automatisering för kundtjänst: inkommande webhooks, A2P 10DLC och Toll-Free Verification, avregistrering med STOP, segment och helpdeskärenden.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Twilio skickar varje inkommande sms till din webhook-URL med fält som From, To, Body och MessageSid.",
@@ -450,7 +450,7 @@
   "navLabel": "Viber-chattbot för support",
   "h1": "Viber-chattbot för kundtjänst: så fungerar den och så sätter du upp den",
   "description": "Så fungerar en Viber-chattbot för kundtjänst: autentiseringstoken, set_webhook, callback-händelser, vem boten får skriva till, tangentbord och överlämning.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Varje API-anrop innehåller botens autentiseringstoken i headern X-Viber-Auth-Token.",
@@ -471,7 +471,7 @@
   "navLabel": "Vad är supportautomatisering",
   "h1": "Vad är automatisering av kundtjänst?",
   "description": "Automatisering av kundtjänst: bottar, routning, makron, autosvar, SLA-timers och rapporter, vad som bör förbli mänskligt och hur det kopplas till din helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Triggers i Zendesk körs direkt efter att ett ärende har skapats eller uppdaterats; automatiseringar i Zendesk är tidsbaserade och körs en gång i timmen.",
@@ -503,7 +503,7 @@
   "navLabel": "Överlämning chattbot–människa",
   "h1": "Överlämning från chattbot till människa: eskalera utan att tappa kunden",
   "description": "Överlämning från chattbot till människa: när du eskalerar, kontext till agenten, reserv utanför kontorstid och hur Zendesk, Freshdesk och Messenger gör det.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk skriver att en AI-agent kan behöva överföra en fråga till en människa när den är komplex, brådskande eller känslig.",
@@ -527,7 +527,7 @@
   "navLabel": "Nyckeltal för kundtjänst",
   "h1": "Nyckeltal för kundtjänst: vad du ska mäta och hur varje mått beräknas",
   "description": "Nyckeltal för kundtjänst: tid till första svar, lösningstid, FCR, återöppnade ärenden, CSAT, CES, NPS och backlog, och hur vart och ett faktiskt beräknas.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesks fullständiga lösningstid (full resolution time) löper från att ärendet skapas till att det senast löstes, så återöppnade ärenden fortsätter att räknas.",
@@ -551,7 +551,7 @@
   "navLabel": "SLA-policyer förklarade",
   "h1": "SLA-policyer i kundtjänst – så fungerar de",
   "description": "SLA-policyer i kundtjänst: mål för första svar, nästa svar och lösning, kontorstid kontra kalendertimmar, paus, larm före överträdelse och upplägg i helpdesken.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk tillämpar den första SLA-policyn, räknat uppifrån i listan, vars villkor ärendet matchar.",
@@ -576,7 +576,7 @@
   "navLabel": "Ärendeavledning",
   "h1": "Ärendeavledning: vad det är och hur du mäter det ärligt",
   "description": "Ärendeavledning: vilka självservicekanaler som avleder ärenden, hur Zendesk, Freshdesk och Intercom mäter det och varför avbrutna sessioner blåser upp siffran.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Zendesks self-service score, även kallad ticket deflection ratio, jämför användningen av hjälpcentret med antalet ärenden som skapats under samma period.",
@@ -600,7 +600,7 @@
   "navLabel": "Omnikanal kundtjänst",
   "h1": "Omnikanal kundtjänst: vad det betyder och hur det fungerar",
   "description": "Omnikanal kundtjänst förklarad: skillnaden mot flerkanal, samlade arbetsytor för agenter, omnikanalroutning och svarsfönster i WhatsApp och Messenger.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Freshworks beskriver flerkanalsupport som oberoende kanaler som var och en fungerar självständigt; i omnikanalsupport är de sammankopplade.",
@@ -624,7 +624,7 @@
   "navLabel": "n8n vs Make vs Zapier",
   "h1": "n8n vs Make vs Zapier för supportautomatisering",
   "description": "n8n vs Make vs Zapier för supportautomatisering: licens och hosting, hur användningen räknas, kopplingar till Zendesk, Freshdesk, Jira och Slack, webhooks, kod.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "n8n:s egenhostade programvara använder Sustainable Use License, en fair-code-licens som n8n skapade 2022. n8n kallar sig inte öppen källkod.",
@@ -648,7 +648,7 @@
   "navLabel": "AI-förordningen och chattbottar",
   "h1": "AI-förordningen och chattbottar: vad artikel 50 kräver och när",
   "description": "AI-förordningen och chattbottar: vad artikel 50 kräver, vem som är leverantör eller tillhandahållare, viktiga datum och vad Digital Omnibus on AI ändrade.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Artikel 50.1: leverantörer måste se till att människor informeras om att de interagerar med ett AI-system, om det inte är uppenbart av sammanhanget.",
@@ -695,7 +695,7 @@
   "navLabel": "Tillgänglighetsdirektivet (EAA)",
   "h1": "Tillgänglighetsdirektivet och kundtjänst: det här behöver supportteam veta",
   "description": "Tillgänglighetsdirektivet (EAA) och kundtjänst: vilka tjänster som omfattas, viktiga datum, undantaget för mikroföretag och vad bilaga I kräver av supporten.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Artikel 31: medlemsstaterna skulle anta sina nationella lagar senast den 28 juni 2022 och tillämpa dem från den 28 juni 2025.",
@@ -716,7 +716,7 @@
   "navLabel": "n8n Zendesk-integration",
   "h1": "n8n Zendesk-integration: noder, inloggningsuppgifter och exempelarbetsflöden",
   "description": "Guide till n8n Zendesk-integration: Zendesk-nodens operationer, Zendesk Trigger, OAuth2 och slutet för API-tokens, webhooks, anropsgränser, ett exempel.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Zendesk-noden i n8n har fyra resurser: Ticket, Ticket Field, User och Organization.",
@@ -808,6 +808,60 @@
    "4": [
     "n8n-zendesk-integration",
     "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "ai-lead-scoring",
+  "slug": "ai-leadscoring",
+  "category": "crm",
+  "navLabel": "AI-leadscoring",
+  "h1": "AI-leadscoring: så fungerar poängsättning mot din ICP",
+  "description": "AI-leadscoring förklarad: poängsätt leads mot din ideala kundprofil, HubSpots verktyg för leadscoring och dess gränser, och skriv poäng till Attio via API.",
+  "updated": "2026-11-12",
+  "minutes": 6,
+  "keyFacts": [
+   "HubSpots verktyg för leadscoring kräver Marketing Hub eller Sales Hub Professional eller Enterprise; AI-byggda kontaktpoäng kräver Marketing Hub Enterprise.",
+   "HubSpots AI-leadpoäng kräver ett urval på minst 50 kontakter — 25 konverterade och 25 icke-konverterade — innan en poäng kan genereras.",
+   "Attio har ingen inbyggd poängsättningsmotor och ingen poängfälttyp: en poäng bor i ett number- eller select-attribut som ett arbetsflöde eller API:et fyller."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-zendesk-integration"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "attio-vs-hubspot-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "website-visitor-identification",
+  "slug": "identifiera-webbplatsbesokare",
+  "category": "crm",
+  "navLabel": "Identifiera besökare",
+  "h1": "Identifiera webbplatsbesökare: så fungerar det och var gränserna går",
+  "description": "Så fungerar identifiering av webbplatsbesökare: omvänd IP-uppslagning, vad verktygen kan och inte kan se, GDPR och cookiesamtycke samt HubSpots buyer intent.",
+  "updated": "2026-11-12",
+  "minutes": 5,
+  "keyFacts": [
+   "Identifieringen kombinerar ett spårningsskript, spårningscookies, omvänd IP-uppslagning, privata databaser och maskininlärning — besök matchas mot företag, inte mot enskilda personer.",
+   "Dealfronts Leadfeeder vägrar uttryckligen att publicera en typisk identifieringsgrad: täckningen varierar med publiken, och besök från konsumentoperatörer filtreras bort och visas inte.",
+   "Distansarbetare kan i huvudsak identifieras när de surfar via företagets VPN."
+  ],
+  "sectionLinks": {
+   "2": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ],
+   "4": [
+    "ai-lead-scoring",
+    "attio-workflows-automation"
    ]
   }
  }

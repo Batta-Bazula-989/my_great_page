@@ -6,7 +6,7 @@
   "navLabel": "AI chatbot for support",
   "h1": "AI chatbot for customer support: what it does and how it connects to your helpdesk",
   "description": "How an AI chatbot for customer support answers FAQs, collects details and hands off to agents — and how it connects to Zendesk or Freshdesk via API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk AI agents generate replies from connected knowledge sources and fall back to a default reply when nothing relevant is found.",
@@ -36,7 +36,7 @@
   "navLabel": "AI voice bot for phone support",
   "h1": "AI voice bot for customer service: how inbound voice automation works",
   "description": "How an AI voice bot for customer service works: telephony, speech-to-text, AI logic and text-to-speech, plus call transfer, IVR vs. bot and FCC rules.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "A traditional IVR works with keypresses (DTMF); Twilio's Gather verb defaults to DTMF and must be set to accept speech to transcribe callers.",
@@ -59,7 +59,7 @@
   "navLabel": "Ticket routing automation",
   "h1": "Ticket routing automation: methods, tools and setup",
   "description": "Ticket routing automation explained: rule-based, round-robin, load-based and skills-based routing, AI triage, and how Zendesk, Freshdesk and Jira do it.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk omnichannel routing assigns by default to the agent with the most spare capacity; round robin is the alternative method.",
@@ -85,7 +85,7 @@
   "navLabel": "Automated support reporting",
   "h1": "Automated customer support reporting: metrics, schedules and delivery",
   "description": "Automated customer support reporting: which metrics to track and how to schedule reports from Zendesk, Freshdesk or Jira to email, Slack or Google Sheets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk Explore can email a shared dashboard on a recurring schedule set up to 12 months ahead.",
@@ -109,7 +109,7 @@
   "navLabel": "Support email automation",
   "h1": "Customer support email automation: from inbox to answered ticket",
   "description": "Customer support email automation: forward your support address into Zendesk or Freshdesk, set up SPF and DKIM, then acknowledge, route and escalate emails.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Every Zendesk account has a system support address in the form support@yoursubdomain.zendesk.com.",
@@ -136,7 +136,7 @@
   "navLabel": "AI knowledge base for support",
   "h1": "AI knowledge base for customer support: how it works and how to build one",
   "description": "How an AI knowledge base for customer support works, how to structure articles in Zendesk, Freshdesk or Confluence, keep them current and measure deflection.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Retrieval-augmented generation finds relevant passages in your documents and adds them to the prompt, so the model answers from your content.",
@@ -159,7 +159,7 @@
   "navLabel": "Zendesk automation",
   "h1": "Zendesk automation: triggers, automations, macros and routing",
   "description": "How Zendesk automation works: triggers vs automations vs macros, hourly runs, trigger order, omnichannel and skills routing, webhooks and the Zendesk API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Ticket triggers run immediately after a ticket is created or updated, in the order they are listed.",
@@ -183,7 +183,7 @@
   "navLabel": "Freshdesk automation",
   "h1": "Freshdesk automation: rule types, assignment and webhooks",
   "description": "How Freshdesk automation works: Ticket Creation, Ticket Updates and Hourly Triggers rules, round-robin and skill-based assignment, webhooks and the API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Freshdesk has three automation rule types: Ticket Creation, Ticket Updates and Hourly Triggers.",
@@ -209,7 +209,7 @@
   "navLabel": "Jira Service Mgmt automation",
   "h1": "Jira Service Management automation: how flows, SLAs and webhooks work",
   "description": "How Jira Service Management automation works: triggers, conditions and actions, SLA and approval triggers, smart values, webhooks, queues and request types.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 5,
   "keyFacts": [
    "Every automation flow is a trigger, optional conditions, and one or more actions, run top to bottom.",
@@ -233,7 +233,7 @@
   "navLabel": "Slack support automation",
   "h1": "Slack customer support automation: alerts, escalations and customer channels",
   "description": "Slack customer support automation: escalation alerts, Workflow Builder, incoming webhooks, Bolt apps, Zendesk, Freshdesk and Jira integrations, Slack Connect.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Workflow Builder workflows can start from a link, a webhook, a schedule, a posted message, an emoji reaction or a channel join.",
@@ -257,7 +257,7 @@
   "navLabel": "Intercom automation",
   "h1": "Intercom automation: Workflows, assignment, Fin and the API",
   "description": "How Intercom automation works: Workflows triggers, branches and actions, team inbox assignment, Fin AI Agent, Slack and Jira, webhooks and the REST API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Workflows are built in a visual builder and can be customer-facing or run silently in the background for teammates.",
@@ -282,7 +282,7 @@
   "navLabel": "HubSpot Service Hub automation",
   "h1": "HubSpot Service Hub automation: help desk, tickets, workflows and the API",
   "description": "HubSpot Service Hub automation: help desk channels and routing, ticket pipelines and statuses, SLA goals, ticket workflows, chatbots, webhooks and the API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "By default, help desk creates tickets automatically from every channel you connect to it.",
@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp support bot",
   "h1": "WhatsApp customer support bot: how it works and what Meta allows",
   "description": "How a WhatsApp customer support bot works: Business Platform vs app, the 24-hour window, templates, opt-in, pricing basics and connecting to your helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "When a customer messages or calls you, a 24-hour customer service window opens and resets with each new message.",
@@ -332,7 +332,7 @@
   "navLabel": "Telegram support bot",
   "h1": "Telegram support bot: how it works and how to set it up",
   "description": "How to run a Telegram support bot: BotFather setup, webhooks vs long polling, inline keyboards, privacy mode in groups, sending limits and helpdesk handoff.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "You create a bot and get its authentication token by messaging @BotFather.",
@@ -355,7 +355,7 @@
   "navLabel": "Messenger customer service bot",
   "h1": "Facebook Messenger bot for customer service: windows, tags and handoff",
   "description": "How a Facebook Messenger bot for customer service works: webhooks, the 24-hour window, the HUMAN_AGENT tag, handover to live agents and Meta's bot policy.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Standard messaging lets you respond within 24 hours of a person's message.",
@@ -379,7 +379,7 @@
   "navLabel": "Instagram DM automation",
   "h1": "Instagram DM automation for customer support",
   "description": "Instagram DM automation explained: professional account rules, the 24-hour window, the human agent tag, comment-to-DM private replies and ice breakers.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 5,
   "keyFacts": [
    "Instagram's messaging APIs work with professional accounts (business or creator).",
@@ -402,7 +402,7 @@
   "navLabel": "Website support chatbot",
   "h1": "Website chatbot for customer support: widgets, handoff and accessibility",
   "description": "Plan a website chatbot for customer support: helpdesk widgets like Zendesk and Freshchat, bot-to-agent handoff, after-hours coverage and WCAG accessibility.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk's messaging Web Widget is installed by adding a code snippet to each page where it should appear.",
@@ -429,8 +429,8 @@
   "navLabel": "SMS support automation",
   "h1": "SMS customer support automation: how it works and what to set up",
   "description": "How SMS customer support automation works: inbound webhooks, A2P 10DLC and toll-free verification, STOP opt-outs, segment limits and helpdesk tickets.",
-  "updated": "2026-10-19",
-  "minutes": 7,
+  "updated": "2026-11-12",
+  "minutes": 6,
   "keyFacts": [
    "Twilio sends each incoming text to your webhook URL with fields such as From, To, Body and MessageSid.",
    "Twilio says US carriers treat any message sent from a platform like Twilio as application-to-person (A2P) traffic.",
@@ -450,7 +450,7 @@
   "navLabel": "Viber chatbot for support",
   "h1": "Viber chatbot for customer support: how it works and how to set it up",
   "description": "How a Viber chatbot for customer support works: auth token, set_webhook, callback events, who the bot can message, keyboards and handoff to your helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Every API request carries the bot's authentication token in the X-Viber-Auth-Token header.",
@@ -471,7 +471,7 @@
   "navLabel": "What is support automation",
   "h1": "What is customer support automation?",
   "description": "What customer support automation is: bots, routing, macros, auto-replies, SLA timers and reports, what should stay human, and how it plugs into your helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk triggers run immediately after a ticket is created or updated; Zendesk automations are time-based and run once every hour.",
@@ -503,7 +503,7 @@
   "navLabel": "Chatbot-to-human handoff",
   "h1": "Chatbot to human handoff: how to escalate without losing the customer",
   "description": "How chatbot to human handoff works: when to escalate, what context to pass to agents, after-hours fallbacks, and how Zendesk, Freshdesk and Messenger do it.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk says an AI agent may need to transfer a query to a human when it is complex, urgent or sensitive.",
@@ -527,7 +527,7 @@
   "navLabel": "Customer support metrics",
   "h1": "Customer support metrics: what to track and how each is calculated",
   "description": "Customer support metrics explained: first response time, resolution time, FCR, reopens, CSAT, CES, NPS and backlog, with how each one is actually calculated.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk's full resolution time runs from ticket creation to the ticket's most recent solve, so reopened tickets keep counting.",
@@ -551,7 +551,7 @@
   "navLabel": "SLA policies explained",
   "h1": "SLA policies in customer support, explained",
   "description": "SLA policies in customer support: first reply, next reply and resolution targets, business vs calendar hours, pausing, breach alerts, and helpdesk setup.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk applies the first SLA policy, from the top of the list down, whose conditions a ticket matches.",
@@ -576,7 +576,7 @@
   "navLabel": "Ticket deflection",
   "h1": "Ticket deflection: what it is and how to measure it honestly",
   "description": "Ticket deflection explained: which self-service channels deflect, how Zendesk, Freshdesk and Intercom measure it, and why abandoned sessions inflate the rate.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Zendesk's self-service score, also called the ticket deflection ratio, compares help center usage with tickets created in the same period.",
@@ -600,7 +600,7 @@
   "navLabel": "Omnichannel customer support",
   "h1": "Omnichannel customer support: what it means and how it works",
   "description": "Omnichannel customer support explained: how it differs from multichannel, unified agent workspaces, omnichannel routing, and WhatsApp and Messenger windows.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Freshworks describes multichannel support as independent channels that each operate autonomously; in omnichannel support they are interconnected.",
@@ -624,7 +624,7 @@
   "navLabel": "n8n vs Make vs Zapier",
   "h1": "n8n vs Make vs Zapier for support automation",
   "description": "n8n vs Make vs Zapier for support automation: licensing and hosting, how each counts usage, Zendesk, Freshdesk, Jira and Slack connectors, webhooks, code.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "n8n's self-hosted software uses the Sustainable Use License, a fair-code license n8n created in 2022. n8n does not call itself open source.",
@@ -648,7 +648,7 @@
   "navLabel": "EU AI Act chatbot rules",
   "h1": "EU AI Act chatbot rules: what Article 50 requires and when",
   "description": "EU AI Act chatbot rules explained: what Article 50 requires, who counts as provider or deployer, key dates, and what the 2026 Digital Omnibus on AI changed.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Article 50(1): providers must make sure people are informed that they're interacting with an AI system, unless this is obvious from the context.",
@@ -695,7 +695,7 @@
   "navLabel": "European Accessibility Act",
   "h1": "European Accessibility Act and customer service: what support teams need to know",
   "description": "European Accessibility Act customer service guide: which services are in scope, key dates, the microenterprise exemption and what Annex I asks of support.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Article 31: Member States had to adopt their national laws by 28 June 2022 and apply them from 28 June 2025.",
@@ -716,7 +716,7 @@
   "navLabel": "n8n Zendesk integration",
   "h1": "n8n Zendesk integration: nodes, credentials and example workflows",
   "description": "n8n Zendesk integration guide: Zendesk node operations, the Zendesk Trigger, OAuth2 credentials and the end of API tokens, webhooks, rate limits, an example.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "The n8n Zendesk node has four resources: Ticket, Ticket Field, User and Organization.",
@@ -808,6 +808,60 @@
    "4": [
     "n8n-zendesk-integration",
     "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "ai-lead-scoring",
+  "slug": "ai-lead-scoring",
+  "category": "crm",
+  "navLabel": "AI lead scoring",
+  "h1": "AI lead scoring: how scoring against your ICP works",
+  "description": "AI lead scoring explained: scoring leads against your ideal customer profile, HubSpot's lead scoring tool and limits, and writing scores to Attio via API.",
+  "updated": "2026-11-12",
+  "minutes": 7,
+  "keyFacts": [
+   "HubSpot's lead scoring tool needs Marketing Hub or Sales Hub Professional or Enterprise; AI-built contact scores need Marketing Hub Enterprise.",
+   "HubSpot's AI lead scores need a minimum sample of 50 contacts — 25 converted and 25 non-converted — before a score can be generated.",
+   "Attio has no built-in scoring engine or score field type: a score lives in a number or select attribute that a workflow or the API fills."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-zendesk-integration"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "attio-vs-hubspot-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "website-visitor-identification",
+  "slug": "website-visitor-identification",
+  "category": "crm",
+  "navLabel": "Visitor identification",
+  "h1": "Website visitor identification: how it works and its limits",
+  "description": "How website visitor identification works: reverse IP lookup and trackers, what it can and can't see, GDPR and cookie consent rules, and HubSpot buyer intent.",
+  "updated": "2026-11-12",
+  "minutes": 5,
+  "keyFacts": [
+   "Identification combines a tracking script, tracking cookies, reverse IP lookup, private databases and machine learning — matching visits to companies, not to individual people.",
+   "Dealfront's Leadfeeder explicitly refuses to publish a typical identification rate: coverage varies by audience, and visits from consumer ISPs are filtered out and not shown.",
+   "Remote workers are mainly identifiable when they browse through a company VPN."
+  ],
+  "sectionLinks": {
+   "2": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ],
+   "4": [
+    "ai-lead-scoring",
+    "attio-workflows-automation"
    ]
   }
  }

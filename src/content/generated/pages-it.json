@@ -6,7 +6,7 @@
   "navLabel": "Chatbot AI per l'assistenza",
   "h1": "Chatbot AI per l'assistenza clienti: cosa fa e come si collega al tuo helpdesk",
   "description": "Come un chatbot AI per l'assistenza clienti risponde alle FAQ, raccoglie i dati e passa la chat agli operatori, e come si collega a Zendesk o Freshdesk via API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Gli AI agent di Zendesk generano le risposte dalle fonti di conoscenza collegate e ripiegano su una risposta predefinita quando non trovano nulla di pertinente.",
@@ -36,7 +36,7 @@
   "navLabel": "Voice bot AI per il telefono",
   "h1": "Voice bot AI per il servizio clienti: come funziona l'automazione delle chiamate in entrata",
   "description": "Come funziona un voice bot AI per il servizio clienti: telefonia, speech-to-text, logica AI e text-to-speech, più trasferimento, IVR o bot e regole FCC.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Un IVR tradizionale funziona con la pressione dei tasti (DTMF); il verbo Gather di Twilio usa DTMF come impostazione predefinita e va configurato per accettare il parlato se vuoi trascrivere chi chiama.",
@@ -59,7 +59,7 @@
   "navLabel": "Smistamento automatico ticket",
   "h1": "Smistamento automatico dei ticket: metodi, strumenti e configurazione",
   "description": "Smistamento automatico dei ticket: routing a regole, round-robin, per carico e per competenze, triage con AI e come lo gestiscono Zendesk, Freshdesk e Jira.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "L'omnichannel routing di Zendesk assegna per impostazione predefinita all'operatore con più capacità libera; il round robin è il metodo alternativo.",
@@ -85,7 +85,7 @@
   "navLabel": "Report automatici del supporto",
   "h1": "Report automatici per l'assistenza clienti: metriche, pianificazione e invio",
   "description": "Report automatici per l'assistenza clienti: quali metriche seguire e come programmare i report da Zendesk, Freshdesk o Jira verso email, Slack o Google Sheets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk Explore può inviare via email una dashboard condivisa con una pianificazione ricorrente impostabile fino a 12 mesi in avanti.",
@@ -109,7 +109,7 @@
   "navLabel": "Automazione email di supporto",
   "h1": "Automazione delle email di assistenza clienti: dalla casella al ticket con risposta",
   "description": "Automazione delle email di assistenza: inoltra l'indirizzo di supporto a Zendesk o Freshdesk, configura SPF e DKIM, poi conferma, smista e inoltra le email.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Ogni account Zendesk ha un indirizzo di supporto di sistema nel formato support@yoursubdomain.zendesk.com.",
@@ -136,7 +136,7 @@
   "navLabel": "Knowledge base AI per il supporto",
   "h1": "Knowledge base AI per l'assistenza clienti: come funziona e come costruirla",
   "description": "Come funziona una knowledge base AI per l'assistenza, come strutturare gli articoli in Zendesk, Freshdesk o Confluence, aggiornarli e misurare la deflection.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "La retrieval-augmented generation trova i passaggi pertinenti nei tuoi documenti e li aggiunge al prompt, così il modello risponde a partire dai tuoi contenuti.",
@@ -159,7 +159,7 @@
   "navLabel": "Automazione Zendesk",
   "h1": "Automazione Zendesk: trigger, automazioni, macro e routing",
   "description": "Come funziona l'automazione Zendesk: trigger, automazioni e macro, esecuzione oraria, ordine dei trigger, routing omnicanale e per competenze, webhook e API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "I trigger dei ticket si attivano subito dopo la creazione o l'aggiornamento di un ticket, nell'ordine in cui sono elencati.",
@@ -183,7 +183,7 @@
   "navLabel": "Automazione Freshdesk",
   "h1": "Automazione Freshdesk: tipi di regole, assegnazione e webhook",
   "description": "Come funziona l'automazione Freshdesk: regole Ticket Creation, Ticket Updates e Hourly Triggers, assegnazione round-robin e per competenze, webhook e API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Freshdesk ha tre tipi di regole di automazione: Ticket Creation, Ticket Updates e Hourly Triggers.",
@@ -209,7 +209,7 @@
   "navLabel": "Automazione Jira Service Mgmt",
   "h1": "Automazione Jira Service Management: come funzionano flussi, SLA e webhook",
   "description": "Automazione Jira Service Management: trigger, condizioni e azioni, trigger SLA e di approvazione, smart value, webhook, code e tipi di richiesta.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Ogni flusso di automazione è composto da un trigger, condizioni facoltative e una o più azioni, eseguiti dall'alto verso il basso.",
@@ -233,7 +233,7 @@
   "navLabel": "Automazione supporto su Slack",
   "h1": "Automazione dell'assistenza clienti su Slack: avvisi, escalation e canali con i clienti",
   "description": "Assistenza clienti su Slack automatizzata: avvisi di escalation, Workflow Builder, webhook in entrata, app Bolt, Zendesk, Freshdesk e Jira, Slack Connect.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "I flussi di lavoro di Workflow Builder possono partire da un link, un webhook, una pianificazione, un messaggio pubblicato, una reazione con emoji o l'ingresso in un canale.",
@@ -257,7 +257,7 @@
   "navLabel": "Automazione Intercom",
   "h1": "Automazione Intercom: Workflows, assegnazione, Fin e API",
   "description": "Come funziona l'automazione Intercom: trigger, branch e azioni dei Workflows, assegnazione nelle inbox dei team, Fin AI Agent, Slack e Jira, webhook e REST API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "I Workflows si creano in un builder visuale e possono essere rivolti ai clienti oppure girare in background per il team.",
@@ -282,7 +282,7 @@
   "navLabel": "Automazione HubSpot Service Hub",
   "h1": "Automazione HubSpot Service Hub: help desk, ticket, workflow e API",
   "description": "Automazione HubSpot Service Hub: canali e routing dell'help desk, pipeline e stati dei ticket, obiettivi SLA, workflow sui ticket, chatbot, webhook e API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Per impostazione predefinita, l'help desk crea automaticamente i ticket da ogni canale che gli colleghi.",
@@ -306,7 +306,7 @@
   "navLabel": "Bot WhatsApp per l'assistenza",
   "h1": "Bot WhatsApp per l'assistenza clienti: come funziona e cosa consente Meta",
   "description": "Come funziona un bot WhatsApp per l'assistenza clienti: Business Platform o app, finestra di 24 ore, template, opt-in, prezzi e collegamento all'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Quando un cliente ti scrive o ti chiama, si apre una finestra di assistenza clienti di 24 ore che si azzera a ogni nuovo messaggio.",
@@ -332,7 +332,7 @@
   "navLabel": "Bot Telegram per l'assistenza",
   "h1": "Bot Telegram per l'assistenza clienti: come funziona e come configurarlo",
   "description": "Bot Telegram per l'assistenza: BotFather, webhook o long polling, tastiere inline, privacy mode nei gruppi, limiti di invio e passaggio all'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Crei un bot e ottieni il suo token di autenticazione scrivendo a @BotFather.",
@@ -355,7 +355,7 @@
   "navLabel": "Bot Messenger per i clienti",
   "h1": "Bot Facebook Messenger per il servizio clienti: finestre, tag e passaggio all'operatore",
   "description": "Come funziona un bot Facebook Messenger per il servizio clienti: webhook, finestra di 24 ore, tag HUMAN_AGENT, passaggio agli operatori e policy Meta sui bot.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "La messaggistica standard ti permette di rispondere entro 24 ore dal messaggio di una persona.",
@@ -379,7 +379,7 @@
   "navLabel": "Automazione DM Instagram",
   "h1": "Automazione dei DM Instagram per l'assistenza clienti",
   "description": "Automazione dei DM Instagram: regole per gli account professionali, finestra di 24 ore, tag human agent, risposte private ai commenti e ice breaker.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Le API di messaggistica di Instagram funzionano con gli account professionali (aziendali o creator).",
@@ -402,8 +402,8 @@
   "navLabel": "Chatbot di assistenza sul sito",
   "h1": "Chatbot sul sito web per l'assistenza clienti: widget, passaggio all'operatore e accessibilità",
   "description": "Chatbot sul sito per l'assistenza clienti: widget come Zendesk e Freshchat, passaggio dal bot all'operatore, copertura fuori orario e accessibilità WCAG.",
-  "updated": "2026-10-19",
-  "minutes": 7,
+  "updated": "2026-11-12",
+  "minutes": 6,
   "keyFacts": [
    "Il Web Widget di messaggistica di Zendesk si installa aggiungendo uno snippet di codice a ogni pagina in cui deve comparire.",
    "La messaggistica di Zendesk può mostrare risposte diverse durante e fuori dall'orario di lavoro.",
@@ -429,7 +429,7 @@
   "navLabel": "Automazione SMS per il supporto",
   "h1": "Automazione SMS per l'assistenza clienti: come funziona e cosa configurare",
   "description": "Automazione SMS per l'assistenza: webhook in entrata, A2P 10DLC e verifica toll-free, opt-out con STOP, limiti dei segmenti e ticket nell'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Twilio invia ogni SMS in arrivo all'URL del tuo webhook con campi come From, To, Body e MessageSid.",
@@ -450,7 +450,7 @@
   "navLabel": "Chatbot Viber per l'assistenza",
   "h1": "Chatbot Viber per l'assistenza clienti: come funziona e come configurarlo",
   "description": "Come funziona un chatbot Viber per l'assistenza: token di autenticazione, set_webhook, callback, a chi può scrivere il bot, tastiere e passaggio all'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Ogni richiesta API contiene il token di autenticazione del bot nell'header X-Viber-Auth-Token.",
@@ -471,7 +471,7 @@
   "navLabel": "Cos'è l'automazione del supporto",
   "h1": "Cos'è l'automazione dell'assistenza clienti?",
   "description": "Cos'è l'automazione dell'assistenza clienti: bot, routing, macro, risposte automatiche, timer SLA, report, cosa resta umano e come si integra con l'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "I trigger di Zendesk si attivano subito dopo la creazione o l'aggiornamento di un ticket; le automazioni di Zendesk sono basate sul tempo e girano una volta ogni ora.",
@@ -503,7 +503,7 @@
   "navLabel": "Passaggio da chatbot a operatore",
   "h1": "Passaggio da chatbot a operatore umano: come fare escalation senza perdere il cliente",
   "description": "Passaggio da chatbot a operatore: quando fare escalation, che contesto passare, gestione fuori orario e come lo fanno Zendesk, Freshdesk e Messenger.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Secondo Zendesk, un agente AI può dover trasferire una richiesta a una persona quando è complessa, urgente o delicata.",
@@ -527,7 +527,7 @@
   "navLabel": "Metriche dell'assistenza clienti",
   "h1": "Metriche dell'assistenza clienti: cosa monitorare e come si calcola ognuna",
   "description": "Metriche dell'assistenza clienti spiegate: tempo di prima risposta, tempo di risoluzione, FCR, riaperture, CSAT, CES, NPS e backlog, e come si calcola ognuna.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Il tempo di risoluzione completa di Zendesk va dalla creazione del ticket alla sua risoluzione più recente, quindi i ticket riaperti continuano a contare.",
@@ -551,7 +551,7 @@
   "navLabel": "Le policy SLA spiegate",
   "h1": "Le policy SLA nell'assistenza clienti, spiegate",
   "description": "Policy SLA nell'assistenza: obiettivi di prima risposta, risposta successiva e risoluzione, ore lavorative o di calendario, pause, avvisi e setup nell'helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Zendesk applica la prima policy SLA, scorrendo l'elenco dall'alto verso il basso, le cui condizioni corrispondono al ticket.",
@@ -576,7 +576,7 @@
   "navLabel": "Ticket deflection",
   "h1": "Ticket deflection: cos'è e come misurarla onestamente",
   "description": "Ticket deflection: quali canali self-service la generano, come la misurano Zendesk, Freshdesk e Intercom e perché le sessioni abbandonate gonfiano il tasso.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Il self-service score di Zendesk, chiamato anche ticket deflection ratio, confronta l'utilizzo del centro assistenza con i ticket creati nello stesso periodo.",
@@ -600,7 +600,7 @@
   "navLabel": "Assistenza clienti omnicanale",
   "h1": "Assistenza clienti omnicanale: cosa significa e come funziona",
   "description": "Assistenza clienti omnicanale spiegata: differenze con il multicanale, workspace unico per gli agenti, routing omnicanale e finestre di WhatsApp e Messenger.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Freshworks descrive l'assistenza multicanale come un insieme di canali indipendenti, ognuno dei quali opera in autonomia; nell'assistenza omnicanale sono interconnessi.",
@@ -624,7 +624,7 @@
   "navLabel": "n8n vs Make vs Zapier",
   "h1": "n8n vs Make vs Zapier per l'automazione dell'assistenza clienti",
   "description": "n8n vs Make vs Zapier per automatizzare l'assistenza: licenze e hosting, come contano l'utilizzo, connettori Zendesk, Freshdesk, Jira e Slack, webhook, codice.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Il software self-hosted di n8n usa la Sustainable Use License, una licenza fair-code creata da n8n nel 2022. n8n non si definisce open source.",
@@ -648,7 +648,7 @@
   "navLabel": "AI Act: regole per i chatbot",
   "h1": "AI Act e chatbot: cosa richiede l'articolo 50 e quando",
   "description": "AI Act e chatbot: cosa richiede l'articolo 50, chi è fornitore o deployer, le date chiave e cosa ha cambiato nel 2026 il Digital Omnibus on AI.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Articolo 50(1): i fornitori devono garantire che le persone siano informate del fatto di interagire con un sistema di IA, a meno che ciò non risulti evidente dal contesto.",
@@ -695,7 +695,7 @@
   "navLabel": "European Accessibility Act",
   "h1": "European Accessibility Act e assistenza clienti: cosa devono sapere i team di supporto",
   "description": "European Accessibility Act e assistenza clienti: servizi interessati, date chiave, esenzione per le microimprese e cosa chiede l'allegato I al supporto.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 10,
   "keyFacts": [
    "Articolo 31: gli Stati membri dovevano adottare le leggi nazionali entro il 28 giugno 2022 e applicarle dal 28 giugno 2025.",
@@ -716,7 +716,7 @@
   "navLabel": "Integrazione n8n Zendesk",
   "h1": "Integrazione n8n Zendesk: nodi, credenziali e workflow di esempio",
   "description": "Guida all'integrazione n8n Zendesk: operazioni del nodo Zendesk, Zendesk Trigger, credenziali OAuth2 e fine degli API token, webhook, rate limit, un esempio.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Il nodo Zendesk di n8n ha quattro risorse: Ticket, Ticket Field, User e Organization.",
@@ -808,6 +808,60 @@
    "4": [
     "n8n-zendesk-integration",
     "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "ai-lead-scoring",
+  "slug": "lead-scoring-ia",
+  "category": "crm",
+  "navLabel": "Lead scoring con IA",
+  "h1": "Lead scoring con IA: come funziona il punteggio rispetto al tuo ICP",
+  "description": "Lead scoring con IA: punteggi rispetto al profilo di cliente ideale, lo strumento di HubSpot con i suoi limiti e la scrittura dei punteggi in Attio via API.",
+  "updated": "2026-11-12",
+  "minutes": 7,
+  "keyFacts": [
+   "Lo strumento di lead scoring di HubSpot richiede Marketing Hub o Sales Hub Professional o Enterprise; i punteggi contatto costruiti dall'IA richiedono Marketing Hub Enterprise.",
+   "I lead score con IA di HubSpot richiedono un campione minimo di 50 contatti — 25 convertiti e 25 non convertiti — prima di poter generare un punteggio.",
+   "Attio non ha un motore di scoring integrato né un tipo di campo punteggio: un punteggio vive in un attributo numero o select che un workflow o l'API compila."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-zendesk-integration"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "attio-vs-hubspot-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "website-visitor-identification",
+  "slug": "identificazione-visitatori-sito",
+  "category": "crm",
+  "navLabel": "Identificazione visitatori",
+  "h1": "Identificazione dei visitatori del sito: come funziona e i suoi limiti",
+  "description": "Identificazione dei visitatori del sito: reverse IP e tracker, cosa può e non può vedere, regole GDPR e consenso ai cookie, e il buyer intent di HubSpot.",
+  "updated": "2026-11-12",
+  "minutes": 6,
+  "keyFacts": [
+   "L'identificazione combina uno script di tracciamento, cookie di tracciamento, reverse IP lookup, database privati e machine learning — abbinando le visite alle aziende, non alle singole persone.",
+   "Leadfeeder di Dealfront si rifiuta esplicitamente di pubblicare un tasso di identificazione tipico: la copertura varia con il pubblico, e le visite dai provider internet consumer vengono filtrate.",
+   "Chi lavora da remoto è identificabile soprattutto quando naviga attraverso la VPN aziendale."
+  ],
+  "sectionLinks": {
+   "2": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ],
+   "4": [
+    "ai-lead-scoring",
+    "attio-workflows-automation"
    ]
   }
  }

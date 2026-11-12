@@ -329,6 +329,26 @@
    "nl": "hubspot-zendesk-koppeling",
    "pl": "integracja-hubspot-zendesk",
    "sv": "hubspot-zendesk-integration"
+  },
+  "ai-lead-scoring": {
+   "en": "ai-lead-scoring",
+   "de": "ki-lead-scoring",
+   "fr": "lead-scoring-ia",
+   "es": "lead-scoring-ia",
+   "it": "lead-scoring-ia",
+   "nl": "ai-leadscoring",
+   "pl": "scoring-leadow-ai",
+   "sv": "ai-leadscoring"
+  },
+  "website-visitor-identification": {
+   "en": "website-visitor-identification",
+   "de": "website-besucher-identifizieren",
+   "fr": "identification-visiteurs-site-web",
+   "es": "identificacion-visitantes-web",
+   "it": "identificazione-visitatori-sito",
+   "nl": "websitebezoekers-identificeren",
+   "pl": "identyfikacja-odwiedzajacych-strone",
+   "sv": "identifiera-webbplatsbesokare"
   }
  },
  "tools": {

@@ -6,7 +6,7 @@
   "navLabel": "AI-chatbot voor klantenservice",
   "h1": "AI-chatbot voor klantenservice: wat hij doet en hoe hij koppelt met je helpdesk",
   "description": "Hoe een AI-chatbot voor klantenservice FAQ's beantwoordt, gegevens verzamelt en doorzet naar medewerkers — en via de API koppelt met Zendesk of Freshdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "AI-agents van Zendesk genereren antwoorden uit gekoppelde kennisbronnen en vallen terug op een standaardantwoord als er niets relevants wordt gevonden.",
@@ -36,7 +36,7 @@
   "navLabel": "AI-voicebot voor telefonie",
   "h1": "AI-voicebot voor klantenservice: zo werkt automatisering van inkomende gesprekken",
   "description": "Zo werkt een AI-voicebot voor klantenservice: telefonie, spraak-naar-tekst, AI-logica en tekst-naar-spraak, plus doorverbinden, IVR vs. bot en FCC-regels.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Een traditionele IVR werkt met toetsaanslagen (DTMF); het Gather-verb van Twilio staat standaard op DTMF en moet worden ingesteld op spraak om bellers te transcriberen.",
@@ -59,7 +59,7 @@
   "navLabel": "Ticketroutering automatiseren",
   "h1": "Ticketroutering automatiseren: methodes, tools en opzet",
   "description": "Ticketroutering automatiseren: op regels, round-robin, op werklast en op vaardigheden, AI-triage, en hoe Zendesk, Freshdesk en Jira het aanpakken.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Omnichannel routing in Zendesk wijst standaard toe aan de medewerker met de meeste vrije capaciteit; round robin is de alternatieve methode.",
@@ -85,7 +85,7 @@
   "navLabel": "Supportrapportages automatiseren",
   "h1": "Klantenservicerapportages automatiseren: metrics, planning en levering",
   "description": "Klantenservicerapportages automatiseren: welke metrics je volgt en hoe je rapporten uit Zendesk, Freshdesk of Jira inplant naar e-mail, Slack of Google Sheets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Zendesk Explore kan een gedeeld dashboard volgens een terugkerend schema mailen, in te stellen tot 12 maanden vooruit.",
@@ -109,7 +109,7 @@
   "navLabel": "Support-e-mail automatiseren",
   "h1": "Klantenservice-e-mail automatiseren: van inbox tot beantwoord ticket",
   "description": "Klantenservice-e-mail automatiseren: stuur je supportadres door naar Zendesk of Freshdesk, stel SPF en DKIM in, en bevestig, routeer en escaleer e-mails.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Elk Zendesk-account heeft een systeemsupportadres in de vorm support@jouwsubdomein.zendesk.com.",
@@ -136,7 +136,7 @@
   "navLabel": "AI-kennisbank voor support",
   "h1": "AI-kennisbank voor klantenservice: hoe het werkt en hoe je er een opbouwt",
   "description": "Hoe een AI-kennisbank voor klantenservice werkt, hoe je artikelen structureert in Zendesk, Freshdesk of Confluence, ze actueel houdt en deflectie meet.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Retrieval-augmented generation vindt relevante passages in je documenten en voegt ze toe aan de prompt, zodat het model antwoordt vanuit jouw content.",
@@ -159,7 +159,7 @@
   "navLabel": "Zendesk-automatisering",
   "h1": "Zendesk-automatisering: triggers, automatiseringen, macro's en routing",
   "description": "Zo werkt Zendesk-automatisering: triggers, automatiseringen en macro's, uurlijkse runs, triggervolgorde, omnichannel- en skillsrouting, webhooks en API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Tickettriggers draaien direct nadat een ticket is aangemaakt of bijgewerkt, in de volgorde waarin ze in de lijst staan.",
@@ -183,7 +183,7 @@
   "navLabel": "Freshdesk-automatisering",
   "h1": "Freshdesk-automatisering: regeltypes, toewijzing en webhooks",
   "description": "Zo werkt Freshdesk-automatisering: regels voor Ticket Creation, Ticket Updates en Hourly Triggers, round-robin- en skill-based toewijzing, webhooks en API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Freshdesk heeft drie typen automatiseringsregels: Ticket Creation, Ticket Updates en Hourly Triggers.",
@@ -209,8 +209,8 @@
   "navLabel": "Jira Service Mgmt-automatisering",
   "h1": "Jira Service Management-automatisering: zo werken flows, SLA's en webhooks",
   "description": "Zo werkt Jira Service Management-automatisering: triggers, voorwaarden, acties, SLA- en goedkeuringstriggers, smart values, webhooks, queues en aanvraagtypen.",
-  "updated": "2026-10-19",
-  "minutes": 5,
+  "updated": "2026-11-12",
+  "minutes": 6,
   "keyFacts": [
    "Elke automatiseringsflow bestaat uit een trigger, optionele voorwaarden en een of meer acties, die van boven naar beneden worden uitgevoerd.",
    "Jira Service Management voegt triggers toe zoals 'SLA threshold breached' en 'Approval required'.",
@@ -233,7 +233,7 @@
   "navLabel": "Support automatiseren in Slack",
   "h1": "Klantenservice automatiseren met Slack: alerts, escalaties en klantkanalen",
   "description": "Klantenservice automatiseren met Slack: escalatie-alerts, Workflow Builder, webhooks, Bolt-apps, Zendesk-, Freshdesk- en Jira-integraties, Slack Connect.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Workflows in Workflow Builder kunnen starten vanaf een link, een webhook, een schema, een geplaatst bericht, een emoji-reactie of iemand die lid wordt van een kanaal.",
@@ -257,7 +257,7 @@
   "navLabel": "Intercom-automatisering",
   "h1": "Intercom-automatisering: Workflows, toewijzing, Fin en de API",
   "description": "Intercom-automatisering: triggers, vertakkingen en acties in Workflows, toewijzing in de team-inbox, Fin AI Agent, Slack en Jira, webhooks en de REST API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Workflows bouw je in een visuele builder; ze kunnen klantgericht zijn of stil op de achtergrond voor teamleden draaien.",
@@ -282,7 +282,7 @@
   "navLabel": "HubSpot Service Hub-automatisering",
   "h1": "HubSpot Service Hub-automatisering: helpdesk, tickets, workflows en de API",
   "description": "HubSpot Service Hub-automatisering: helpdeskkanalen en routing, ticketpipelines en statussen, SLA-doelen, ticketworkflows, chatbots, webhooks en de API.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "Standaard maakt de helpdesk automatisch tickets aan vanuit elk kanaal dat je ermee verbindt.",
@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp-supportbot",
   "h1": "WhatsApp-klantenservicebot: hoe hij werkt en wat Meta toestaat",
   "description": "Zo werkt een WhatsApp-klantenservicebot: Business Platform vs app, het 24-uursvenster, templates, opt-in, prijsbasis en de koppeling met je helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Als een klant je een bericht stuurt of belt, opent een klantenservicevenster van 24 uur dat bij elk nieuw bericht opnieuw begint.",
@@ -332,7 +332,7 @@
   "navLabel": "Telegram-supportbot",
   "h1": "Telegram-klantenservicebot: hoe hij werkt en hoe je hem inricht",
   "description": "Zo draai je een Telegram-supportbot: inrichting via BotFather, webhooks vs long polling, inline keyboards, privacy mode in groepen, limieten en overdracht.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Je maakt een bot aan en krijgt zijn authenticatietoken door @BotFather een bericht te sturen.",
@@ -355,7 +355,7 @@
   "navLabel": "Messenger-bot voor klantenservice",
   "h1": "Facebook Messenger-bot voor klantenservice: vensters, tags en overdracht",
   "description": "Zo werkt een Facebook Messenger-bot voor klantenservice: webhooks, het 24-uursvenster, de tag HUMAN_AGENT, overdracht aan medewerkers en het botbeleid van Meta.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Met standaardberichten kun je antwoorden binnen 24 uur na het bericht van iemand.",
@@ -379,7 +379,7 @@
   "navLabel": "Instagram-DM's automatiseren",
   "h1": "Instagram-DM's automatiseren voor klantenservice",
   "description": "Instagram-DM's automatiseren: regels voor professionele accounts, het 24-uursvenster, de human agent-tag, private replies op reacties en ice breakers.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "De messaging-API's van Instagram werken met professionele accounts (zakelijk of creator).",
@@ -402,7 +402,7 @@
   "navLabel": "Website-chatbot voor support",
   "h1": "Website-chatbot voor klantenservice: widgets, overdracht en toegankelijkheid",
   "description": "Plan een website-chatbot voor klantenservice: helpdeskwidgets zoals Zendesk en Freshchat, overdracht van bot naar medewerker, buiten kantooruren en WCAG.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "De messaging Web Widget van Zendesk installeer je door een codefragment toe te voegen aan elke pagina waarop hij moet verschijnen.",
@@ -429,7 +429,7 @@
   "navLabel": "Sms-support automatiseren",
   "h1": "Sms-klantenservice automatiseren: hoe het werkt en wat je moet inrichten",
   "description": "Zo werkt geautomatiseerde sms-klantenservice: inkomende webhooks, A2P 10DLC en toll-free-verificatie, STOP-afmeldingen, segmentlimieten en helpdesktickets.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Twilio stuurt elke inkomende sms naar je webhook-URL met velden zoals From, To, Body en MessageSid.",
@@ -450,7 +450,7 @@
   "navLabel": "Viber-chatbot voor support",
   "h1": "Viber-chatbot voor klantenservice: hoe hij werkt en hoe je hem inricht",
   "description": "Zo werkt een Viber-chatbot voor klantenservice: auth token, set_webhook, callbacks, wie de bot berichten mag sturen, keyboards en overdracht aan je helpdesk.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 6,
   "keyFacts": [
    "Elk API-verzoek bevat het authenticatietoken van de bot in de header X-Viber-Auth-Token.",
@@ -471,7 +471,7 @@
   "navLabel": "Wat is supportautomatisering",
   "h1": "Wat is klantenservice-automatisering?",
   "description": "Klantenservice-automatisering: bots, routing, macro's, automatische antwoorden, SLA-timers, rapporten, wat menselijk blijft en hoe het in je helpdesk past.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk-triggers draaien direct nadat een ticket is aangemaakt of bijgewerkt; Zendesk-automatiseringen zijn tijdgebonden en draaien eens per uur.",
@@ -503,7 +503,7 @@
   "navLabel": "Overdracht chatbot naar medewerker",
   "h1": "Chatbot-overdracht naar medewerker: escaleren zonder de klant te verliezen",
   "description": "Chatbot-overdracht naar medewerker: wanneer escaleren, welke context doorgeven, opvang buiten kantooruren, en hoe Zendesk, Freshdesk en Messenger het doen.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Volgens Zendesk moet een AI-agent een vraag mogelijk overdragen aan een mens wanneer die complex, urgent of gevoelig is.",
@@ -527,7 +527,7 @@
   "navLabel": "KPI's voor klantenservice",
   "h1": "KPI's voor klantenservice: wat je meet en hoe je elke KPI berekent",
   "description": "KPI's voor klantenservice uitgelegd: eerste reactietijd, oplossingstijd, FCR, heropeningen, CSAT, CES, NPS en backlog, en hoe je elke KPI echt berekent.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "De full resolution time van Zendesk loopt van het aanmaken van een ticket tot de meest recente oplossing, dus heropende tickets blijven meetellen.",
@@ -551,7 +551,7 @@
   "navLabel": "SLA-beleid uitgelegd",
   "h1": "SLA-beleid in de klantenservice, uitgelegd",
   "description": "SLA-beleid in de klantenservice: doelen voor eerste antwoord, volgend antwoord en oplossing, kantooruren vs. kalenderuren, pauzeren, alerts en helpdeskopzet.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Zendesk past het eerste SLA-beleid toe, van boven naar beneden in de lijst, waarvan de voorwaarden overeenkomen met het ticket.",
@@ -576,7 +576,7 @@
   "navLabel": "Ticket deflection",
   "h1": "Ticket deflection: wat het is en hoe je het eerlijk meet",
   "description": "Ticket deflection: welke selfservicekanalen tickets afvangen, hoe Zendesk, Freshdesk en Intercom het meten en waarom afgebroken sessies de score opblazen.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "De self-service score van Zendesk, ook wel ticket deflection ratio genoemd, vergelijkt het gebruik van het helpcenter met het aantal tickets dat in dezelfde periode is aangemaakt.",
@@ -600,7 +600,7 @@
   "navLabel": "Omnichannel klantenservice",
   "h1": "Omnichannel klantenservice: wat het betekent en hoe het werkt",
   "description": "Omnichannel klantenservice: het verschil met multichannel, een centrale agentwerkplek, omnichannel routing en de berichtvensters van WhatsApp en Messenger.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 7,
   "keyFacts": [
    "Freshworks beschrijft multichannel support als onafhankelijke kanalen die elk zelfstandig werken; bij omnichannel support zijn ze met elkaar verbonden.",
@@ -624,7 +624,7 @@
   "navLabel": "n8n vs Make vs Zapier",
   "h1": "n8n vs Make vs Zapier voor supportautomatisering",
   "description": "n8n vs Make vs Zapier voor supportautomatisering: licentie en hosting, hoe elk gebruik telt, connectors voor Zendesk, Freshdesk, Jira en Slack, webhooks, code.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 8,
   "keyFacts": [
    "De self-hosted software van n8n valt onder de Sustainable Use License, een fair-code-licentie die n8n in 2022 heeft opgesteld. n8n noemt zichzelf niet open source.",
@@ -648,7 +648,7 @@
   "navLabel": "AI-verordening en chatbots",
   "h1": "AI-verordening en chatbots: wat artikel 50 vereist en wanneer",
   "description": "AI-verordening en chatbots: wat artikel 50 vereist, wie aanbieder of gebruiksverantwoordelijke is, datums en wat de Digital Omnibus van 2026 veranderde.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Artikel 50(1): aanbieders moeten ervoor zorgen dat mensen worden geïnformeerd dat ze met een AI-systeem interageren, tenzij dit uit de context duidelijk is.",
@@ -695,7 +695,7 @@
   "navLabel": "European Accessibility Act",
   "h1": "European Accessibility Act en klantenservice: wat supportteams moeten weten",
   "description": "European Accessibility Act: welke diensten eronder vallen, datums, de vrijstelling voor micro-ondernemingen en wat bijlage I van klantenservice vraagt.",
-  "updated": "2026-10-19",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "Artikel 31: lidstaten moesten hun nationale wetten uiterlijk 28 juni 2022 vaststellen en ze vanaf 28 juni 2025 toepassen.",
@@ -716,7 +716,7 @@
   "navLabel": "n8n Zendesk-koppeling",
   "h1": "n8n Zendesk-koppeling: nodes, credentials en voorbeeldworkflows",
   "description": "n8n Zendesk-koppeling: bewerkingen van de Zendesk-node, de Zendesk Trigger, OAuth2-credentials, het einde van API-tokens, webhooks, rate limits, een voorbeeld.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-12",
   "minutes": 9,
   "keyFacts": [
    "De n8n Zendesk-node heeft vier resources: Ticket, Ticket Field, User en Organization.",
@@ -808,6 +808,60 @@
    "4": [
     "n8n-zendesk-integration",
     "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "ai-lead-scoring",
+  "slug": "ai-leadscoring",
+  "category": "crm",
+  "navLabel": "AI-leadscoring",
+  "h1": "AI-leadscoring: zo werkt scoren op je ICP",
+  "description": "AI-leadscoring uitgelegd: leads scoren op je ideale klantprofiel, de lead scoring tool en limieten van HubSpot, en scores via de API naar Attio schrijven.",
+  "updated": "2026-11-12",
+  "minutes": 6,
+  "keyFacts": [
+   "De lead scoring tool van HubSpot vereist Marketing Hub of Sales Hub Professional of Enterprise; AI-gebouwde contactscores vereisen Marketing Hub Enterprise.",
+   "De AI-leadscores van HubSpot hebben een minimale steekproef van 50 contacten nodig — 25 geconverteerd en 25 niet-geconverteerd — voordat een score kan worden gegenereerd.",
+   "Attio heeft geen ingebouwde scoring-engine of score-veldtype: een score leeft in een number- of select-attribuut dat een workflow of de API vult."
+  ],
+  "sectionLinks": {
+   "1": [
+    "hubspot-zendesk-integration"
+   ],
+   "2": [
+    "attio-workflows-automation"
+   ],
+   "3": [
+    "attio-vs-hubspot-automation",
+    "n8n-vs-make-vs-zapier"
+   ]
+  }
+ },
+ {
+  "key": "website-visitor-identification",
+  "slug": "websitebezoekers-identificeren",
+  "category": "crm",
+  "navLabel": "Bezoekersidentificatie",
+  "h1": "Websitebezoekers identificeren: zo werkt het en dit zijn de grenzen",
+  "description": "Zo werkt websitebezoekersidentificatie: reverse IP-lookup en trackers, wat het wel en niet ziet, AVG- en cookieregels, en HubSpot buyer intent.",
+  "updated": "2026-11-12",
+  "minutes": 5,
+  "keyFacts": [
+   "Identificatie combineert een trackingscript, trackingcookies, reverse IP-lookup, eigen databases en machine learning — bezoeken worden gekoppeld aan bedrijven, niet aan individuele personen.",
+   "Leadfeeder van Dealfront weigert expliciet een typisch identificatiepercentage te publiceren: de dekking verschilt per doelgroep, en bezoeken via consumentenproviders worden weggefilterd en niet getoond.",
+   "Thuiswerkers zijn vooral identificeerbaar wanneer ze via een bedrijfs-VPN surfen."
+  ],
+  "sectionLinks": {
+   "2": [
+    "gdpr-customer-support-automation"
+   ],
+   "3": [
+    "hubspot-zendesk-integration"
+   ],
+   "4": [
+    "ai-lead-scoring",
+    "attio-workflows-automation"
    ]
   }
  }
