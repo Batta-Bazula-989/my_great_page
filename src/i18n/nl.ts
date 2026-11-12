@@ -5,7 +5,7 @@ const nl: Dictionary = {
   meta: {
     homeTitle: "Lead-, CRM- & supportautomatisering voor B2B | TascaLab",
     homeDescription:
-      "Lead-, CRM- en supportautomatisering voor kleine B2B-teams: AI-leadscoring, HubSpot- en Attio-integratie, chatbots. Vaste prijzen, gratis Health Check.",
+      "Leadautomatisering en CRM-integratie voor kleine B2B-teams: AI-leadscoring, HubSpot en Attio, plus supportautomatisering. Vaste prijzen, gratis Health Check.",
   },
   nav: {
     services: "Wat ik doe",
@@ -22,7 +22,7 @@ const nl: Dictionary = {
     skipToContent: "Ga naar de inhoud",
   },
   hero: {
-    eyebrow: "Lead-, CRM- en supportautomatisering",
+    eyebrow: "Automatisering die echt standhoudt",
     titleBefore: "Lead-, CRM- en supportautomatisering ",
     titleHighlight: "voor kleine B2B-teams",
     titleAfter: "",
@@ -66,43 +66,21 @@ const nl: Dictionary = {
   services: {
     eyebrow: "Wat ik doe",
     title: "Diensten voor lead-, CRM- en supportautomatisering",
-    groups: {
-      lead: {
+    items: [
+      {
         title: "Leadautomatisering",
         description:
           "Je leads van websitebezoekers, formulieren en outreach-reacties worden door AI geclassificeerd, gescoord op je ideale klantprofiel en vastgelegd in je CRM met meldingen voor het team.",
       },
-      crm: {
+      {
         title: "CRM-integratie & -automatisering",
         description:
           "Je CRM (HubSpot, Attio) gekoppeld aan outreach-, bel- en verrijkingstools. Reacties, gesprekken en transcripties automatisch vastgelegd bij de juiste deal, plus workflowmigraties tussen platformen.",
       },
-      support: {
+      {
         title: "Supportautomatisering",
         description:
-          "Repetitieve berichten, telefoontjes en tickets automatisch afgehandeld, en de rest doorgegeven aan je team.",
-      },
-    },
-    items: [
-      {
-        title: "Chat- en voicebots voor support",
-        description:
-          "Beantwoordt veelvoorkomende berichten en telefoontjes en geeft de rest door aan je team.",
-      },
-      {
-        title: "Ticketroutering & categorisering",
-        description:
-          "Elk nieuw ticket krijgt automatisch tags, een prioriteit en een behandelaar.",
-      },
-      {
-        title: "Rapportages",
-        description:
-          "De rapportages die je team nu met de hand maakt, automatisch verstuurd.",
-      },
-      {
-        title: "Maatwerkoplossing",
-        description:
-          "Iets specifieks? Ik breng het in kaart en bouw het.",
+          "Chat- en voicebots, ticketroutering en -categorisering, geautomatiseerde rapporten — allemaal gekoppeld aan je helpdesk (Zendesk, Freshdesk, Jira).",
       },
     ],
   },
@@ -186,8 +164,7 @@ const nl: Dictionary = {
     included: "Wat er inbegrepen is",
     groups: {
       leads: "Lead- & CRM-automatisering",
-      chat: "Chat- en voicebots",
-      tickets: "Tickets & rapportages",
+      support: "Supportautomatisering",
       custom: "Maatwerk",
     },
     running: "Lopende kosten per maand",

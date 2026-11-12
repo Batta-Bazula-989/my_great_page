@@ -10,12 +10,17 @@ import { PACKAGES, packagePrice, type PackageId } from "@/lib/pricing";
 import { toolPath } from "@/tools/registry";
 import { cn } from "@/lib/utils";
 
-// Packages grouped by the job they do, cheapest first within each group.
-const GROUPS: { key: "leads" | "chat" | "tickets" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
+// Packages grouped by the job they do: lead & CRM automation first, then the five
+// support packages under one heading, then custom work.
+const GROUPS: { key: "leads" | "support" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
   { key: "leads", ids: ["leadScoring", "crmIntegration"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2" },
-  { key: "chat", ids: ["starter", "standard", "voice"], span: "lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
-  { key: "tickets", ids: ["reports", "routing"], span: "md:col-span-2", cols: "md:grid-cols-2" },
-  { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-1", cols: "md:grid-cols-2 lg:grid-cols-1" },
+  {
+    key: "support",
+    ids: ["starter", "standard", "voice", "reports", "routing"],
+    span: "md:col-span-2 lg:col-span-3",
+    cols: "md:grid-cols-2 lg:grid-cols-3",
+  },
+  { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
 ];
 
 // The one visually featured card: a violet-to-cyan gradient border instead of a flag or badge.

@@ -5,7 +5,7 @@ const es: Dictionary = {
   meta: {
     homeTitle: "Automatización de leads, CRM y soporte B2B | TascaLab",
     homeDescription:
-      "Automatización de leads, CRM y soporte para equipos B2B: scoring de leads con IA, integración HubSpot y Attio, chatbots. Precios fijos, Health Check gratis.",
+      "Automatización de leads e integración CRM para equipos B2B: scoring con IA, HubSpot y Attio, más automatización de soporte. Precios fijos, Health Check gratis.",
   },
   nav: {
     services: "Qué hago",
@@ -22,7 +22,7 @@ const es: Dictionary = {
     skipToContent: "Saltar al contenido",
   },
   hero: {
-    eyebrow: "Automatización de leads, CRM y soporte",
+    eyebrow: "Automatización que aguanta de verdad",
     titleBefore: "Automatización de leads, CRM y soporte ",
     titleHighlight: "para pequeños equipos B2B",
     titleAfter: "",
@@ -66,43 +66,21 @@ const es: Dictionary = {
   services: {
     eyebrow: "Qué hago",
     title: "Servicios de automatización de leads, CRM y soporte",
-    groups: {
-      lead: {
+    items: [
+      {
         title: "Automatización de leads",
         description:
           "Tus leads de visitantes del sitio web, formularios y respuestas de outreach se clasifican con IA, se puntúan según tu perfil de cliente ideal y se registran en tu CRM con alertas para el equipo.",
       },
-      crm: {
+      {
         title: "Integración y automatización del CRM",
         description:
           "Tu CRM (HubSpot, Attio) conectado a herramientas de outreach, llamadas y enriquecimiento. Respuestas, llamadas y transcripciones registradas automáticamente en el deal correcto, y migraciones de workflows entre plataformas.",
       },
-      support: {
+      {
         title: "Automatización del soporte",
         description:
-          "Los mensajes, las llamadas y los tickets repetitivos se gestionan automáticamente, y el resto pasa a tu equipo.",
-      },
-    },
-    items: [
-      {
-        title: "Chatbots y bots de voz de soporte",
-        description:
-          "Responde los mensajes y las llamadas habituales y pasa el resto a tu equipo.",
-      },
-      {
-        title: "Enrutamiento y categorización de tickets",
-        description:
-          "Cada ticket nuevo etiquetado, priorizado y asignado automáticamente.",
-      },
-      {
-        title: "Informes",
-        description:
-          "Los informes que tu equipo prepara a mano, enviados automáticamente.",
-      },
-      {
-        title: "Solución a medida",
-        description:
-          "¿Algo concreto? Defino el alcance y lo construyo.",
+          "Bots de chat y de voz, enrutamiento y categorización de tickets, informes automatizados, todo conectado a tu helpdesk (Zendesk, Freshdesk, Jira).",
       },
     ],
   },
@@ -186,8 +164,7 @@ const es: Dictionary = {
     included: "Qué incluye",
     groups: {
       leads: "Automatización de leads y CRM",
-      chat: "Chatbots y bots de voz",
-      tickets: "Tickets e informes",
+      support: "Automatización de soporte",
       custom: "Proyectos a medida",
     },
     running: "Costes mensuales de funcionamiento",

@@ -7,7 +7,7 @@ const en = {
   meta: {
     homeTitle: "Lead, CRM & Support Automation for B2B Teams | TascaLab",
     homeDescription:
-      "Lead, CRM and support automation for small B2B teams: AI lead scoring, HubSpot and Attio integration, chat and voice bots. Fixed prices, free Health Check.",
+      "Lead automation and CRM integration for small B2B teams: AI lead scoring, HubSpot and Attio, plus support automation. Fixed prices, free Health Check.",
   },
   nav: {
     services: "What I Do",
@@ -24,7 +24,7 @@ const en = {
     skipToContent: "Skip to content",
   },
   hero: {
-    eyebrow: "Lead, CRM and support automation",
+    eyebrow: "Automation that actually holds up",
     titleBefore: "Lead, CRM and support automation ",
     titleHighlight: "for small B2B teams",
     titleAfter: "",
@@ -69,43 +69,21 @@ const en = {
   services: {
     eyebrow: "What I Do",
     title: "Lead, CRM and support automation services",
-    groups: {
-      lead: {
+    items: [
+      {
         title: "Lead automation",
         description:
-          "Your leads from website visitors, forms and outreach replies get classified by AI, scored against your ideal customer profile, and logged to your CRM with team alerts.",
+          "Leads from website visitors, forms and outreach replies classified by AI, scored against your ideal customer profile, and logged to your CRM with team alerts.",
       },
-      crm: {
+      {
         title: "CRM integration & automation",
         description:
           "Your CRM (HubSpot, Attio) connected to outreach, calling and enrichment tools. Replies, calls and transcripts logged to the right deal automatically, and workflow migrations between platforms.",
       },
-      support: {
+      {
         title: "Support automation",
         description:
-          "Repetitive messages, calls and tickets handled automatically, and the rest handed to your team.",
-      },
-    },
-    items: [
-      {
-        title: "Support chat & voice bots",
-        description:
-          "Answers common messages and calls, then hands the rest to your team.",
-      },
-      {
-        title: "Ticket routing & categorization",
-        description:
-          "Every new ticket tagged, prioritized and assigned automatically.",
-      },
-      {
-        title: "Reporting",
-        description:
-          "The reports your team builds by hand, sent automatically.",
-      },
-      {
-        title: "Custom solution",
-        description:
-          "Something specific? I scope it and build it.",
+          "Chat and voice bots, ticket routing and categorization, automated reporting — all connected to your helpdesk (Zendesk, Freshdesk, Jira).",
       },
     ],
   },
@@ -189,8 +167,7 @@ const en = {
     included: "What's included",
     groups: {
       leads: "Lead & CRM automation",
-      chat: "Chat & voice bots",
-      tickets: "Tickets & reports",
+      support: "Support automation",
       custom: "Custom work",
     },
     running: "Monthly running costs",

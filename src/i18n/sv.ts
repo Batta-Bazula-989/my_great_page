@@ -5,7 +5,7 @@ const sv: Dictionary = {
   meta: {
     homeTitle: "Lead-, CRM- & supportautomatisering för B2B | TascaLab",
     homeDescription:
-      "Lead-, CRM- och supportautomatisering för små B2B-team: AI-leadscoring, HubSpot- och Attio-integration, chattbotar. Fasta priser, gratis Health Check.",
+      "Leadautomatisering och CRM-integration för små B2B-team: AI-leadscoring, HubSpot och Attio, plus supportautomatisering. Fasta priser, gratis Health Check.",
   },
   nav: {
     services: "Tjänster",
@@ -22,7 +22,7 @@ const sv: Dictionary = {
     skipToContent: "Hoppa till innehållet",
   },
   hero: {
-    eyebrow: "Lead-, CRM- och supportautomatisering",
+    eyebrow: "Automatisering som faktiskt håller",
     titleBefore: "Lead-, CRM- och supportautomatisering ",
     titleHighlight: "för små B2B-team",
     titleAfter: "",
@@ -66,43 +66,21 @@ const sv: Dictionary = {
   services: {
     eyebrow: "Vad jag gör",
     title: "Tjänster för lead-, CRM- och supportautomatisering",
-    groups: {
-      lead: {
+    items: [
+      {
         title: "Lead-automatisering",
         description:
           "Dina leads från webbplatsbesökare, formulär och outreach-svar klassificeras av AI, poängsätts mot din ideala kundprofil och loggas i ditt CRM med aviseringar till teamet.",
       },
-      crm: {
+      {
         title: "CRM-integration & -automatisering",
         description:
           "Ditt CRM (HubSpot, Attio) kopplat till verktyg för outreach, samtal och berikning. Svar, samtal och transkriptioner loggas automatiskt på rätt affär, plus workflow-migreringar mellan plattformar.",
       },
-      support: {
+      {
         title: "Supportautomatisering",
         description:
-          "Återkommande meddelanden, samtal och ärenden hanteras automatiskt, och resten lämnas över till ditt team.",
-      },
-    },
-    items: [
-      {
-        title: "Chatt- och röstbottar för support",
-        description:
-          "Besvarar vanliga meddelanden och samtal och lämnar över resten till ditt team.",
-      },
-      {
-        title: "Ärenderoutning och kategorisering",
-        description:
-          "Varje nytt ärende taggas, prioriteras och tilldelas automatiskt.",
-      },
-      {
-        title: "Rapportering",
-        description:
-          "De rapporter som ditt team tar fram för hand, skickade automatiskt.",
-      },
-      {
-        title: "Skräddarsydd lösning",
-        description:
-          "Något specifikt? Jag tar fram omfattningen och bygger det.",
+          "Chatt- och röstbotar, ärenderoutning och kategorisering, automatiska rapporter – allt kopplat till din helpdesk (Zendesk, Freshdesk, Jira).",
       },
     ],
   },
@@ -186,8 +164,7 @@ const sv: Dictionary = {
     included: "Det här ingår",
     groups: {
       leads: "Lead- & CRM-automatisering",
-      chat: "Chatt- och röstbottar",
-      tickets: "Ärenden och rapporter",
+      support: "Supportautomatisering",
       custom: "Skräddarsydda lösningar",
     },
     running: "Driftskostnader per månad",

@@ -5,7 +5,7 @@ const de: Dictionary = {
   meta: {
     homeTitle: "Lead-, CRM- & Support-Automatisierung B2B | TascaLab",
     homeDescription:
-      "Lead-, CRM- und Support-Automatisierung für kleine B2B-Teams: KI-Lead-Scoring, HubSpot- und Attio-Integration, Chatbots. Festpreise, gratis Health Check.",
+      "Lead-Automatisierung und CRM-Integration für B2B-Teams: KI-Lead-Scoring, HubSpot und Attio, dazu Support-Automatisierung. Festpreise, gratis Health Check.",
   },
   nav: {
     services: "Leistungen",
@@ -22,7 +22,7 @@ const de: Dictionary = {
     skipToContent: "Zum Inhalt springen",
   },
   hero: {
-    eyebrow: "Lead-, CRM- und Support-Automatisierung",
+    eyebrow: "Automatisierung, die im Alltag wirklich hält",
     titleBefore: "Lead-, CRM- und Support-Automatisierung ",
     titleHighlight: "für kleine B2B-Teams",
     titleAfter: "",
@@ -66,39 +66,21 @@ const de: Dictionary = {
   services: {
     eyebrow: "Leistungen",
     title: "Leistungen rund um Lead-, CRM- und Support-Automatisierung",
-    groups: {
-      lead: {
+    items: [
+      {
         title: "Lead-Automatisierung",
         description:
           "Ihre Leads von Website-Besuchern, Formularen und Outreach-Antworten werden von KI klassifiziert, gegen Ihr ideales Kundenprofil bewertet und mit Team-Benachrichtigungen in Ihrem CRM erfasst.",
       },
-      crm: {
+      {
         title: "CRM-Integration & -Automatisierung",
         description:
           "Ihr CRM (HubSpot, Attio) verbunden mit Outreach-, Telefonie- und Anreicherungstools. Antworten, Anrufe und Transkripte werden automatisch dem richtigen Deal zugeordnet, dazu Workflow-Migrationen zwischen Plattformen.",
       },
-      support: {
+      {
         title: "Support-Automatisierung",
         description:
-          "Wiederkehrende Nachrichten, Anrufe und Tickets werden automatisch bearbeitet, der Rest geht an Ihr Team.",
-      },
-    },
-    items: [
-      {
-        title: "Chat- & Voicebots für den Support",
-        description: "Beantwortet häufige Nachrichten und Anrufe und übergibt den Rest an Ihr Team.",
-      },
-      {
-        title: "Ticket-Routing & Kategorisierung",
-        description: "Jedes neue Ticket automatisch getaggt, priorisiert und zugewiesen.",
-      },
-      {
-        title: "Reporting",
-        description: "Die Reports, die Ihr Team von Hand erstellt, automatisch versendet.",
-      },
-      {
-        title: "Individuelle Lösung",
-        description: "Etwas Spezielles? Ich plane und baue es.",
+          "Chat- und Voicebots, Ticket-Routing und Kategorisierung, automatische Reports – alles angebunden an Ihren Helpdesk (Zendesk, Freshdesk, Jira).",
       },
     ],
   },
@@ -182,8 +164,7 @@ const de: Dictionary = {
     included: "Im Paket enthalten",
     groups: {
       leads: "Lead- & CRM-Automatisierung",
-      chat: "Chat- & Voicebots",
-      tickets: "Tickets & Reports",
+      support: "Support-Automatisierung",
       custom: "Individuelle Lösungen",
     },
     running: "Laufende Kosten pro Monat",
