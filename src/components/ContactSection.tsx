@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Mail, Calendar, Send, Star } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 import Section from "@/components/Section";
@@ -10,6 +11,10 @@ const linkClass =
 
 const ContactSection = () => {
   const t = useDict().contact;
+  // The address appears only after hydration, so the pre-rendered HTML that
+  // spam harvesters scrape never contains it. Initial client render matches SSR.
+  const [email, setEmail] = useState("");
+  useEffect(() => setEmail(EMAIL), []);
 
   return (
     <Section id="contact" eyebrow={t.eyebrow} title={t.title} className="pb-12 md:pb-14">
@@ -38,11 +43,18 @@ const ContactSection = () => {
 
         <ul className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 text-sm">
           <li>
-            <a href={`mailto:${EMAIL}`} className={linkClass}>
-              <Mail className="w-4 h-4 shrink-0 text-primary" aria-hidden />
-              <span className="sr-only">{t.email}: </span>
-              <span className="break-all">{EMAIL}</span>
-            </a>
+            {email ? (
+              <a href={`mailto:${email}`} className={linkClass}>
+                <Mail className="w-4 h-4 shrink-0 text-primary" aria-hidden />
+                <span className="sr-only">{t.email}: </span>
+                <span className="break-all">{email}</span>
+              </a>
+            ) : (
+              <span className={linkClass}>
+                <Mail className="w-4 h-4 shrink-0 text-primary" aria-hidden />
+                <span className="break-all">{t.email}</span>
+              </span>
+            )}
           </li>
           <li>
             <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>

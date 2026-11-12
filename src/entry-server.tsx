@@ -92,7 +92,6 @@ const homeJsonLd = (locale: Locale): object[] => {
       logo: `${SITE_URL}/favicon.svg`,
       image: `${SITE_URL}/og-image.png`,
       description: t.meta.homeDescription,
-      email: "romanzakharenko.r@gmail.com",
       priceRange: format(t.pricing.from, { price: formatMoney(locale, lowest) }),
       areaServed: "Worldwide",
       founder: author,

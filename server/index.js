@@ -10,6 +10,16 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 app.disable("x-powered-by");
+
+// Security headers on every response. HSTS tells browsers to use HTTPS for the
+// next year (subdomains included); the other two are safe, standard hardening.
+app.use((_req, res, next) => {
+  res.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  res.set("X-Content-Type-Options", "nosniff");
+  res.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
+
 app.use(cors());
 // A booking is a few hundred bytes; the 100 KB default only helps someone flooding us.
 app.use(express.json({ limit: "10kb" }));
