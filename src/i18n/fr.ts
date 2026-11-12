@@ -154,7 +154,7 @@ const fr: Dictionary = {
   },
   pricing: {
     eyebrow: "Tarifs",
-    title: "Offres d'automatisation du support à prix fixe",
+    title: "Forfaits d'automatisation à prix fixe",
     intro: "Un prix, payé une seule fois. Sans abonnement.",
     oneTimeFee: "paiement unique",
     cta: "En parler lors d'un Health Check",

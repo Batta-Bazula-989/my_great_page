@@ -154,7 +154,7 @@ const nl: Dictionary = {
   },
   pricing: {
     eyebrow: "Prijzen",
-    title: "Pakketten voor supportautomatisering tegen een vaste prijs",
+    title: "Automatiseringspakketten tegen vaste prijs",
     intro: "Eén prijs, één keer betaald. Geen abonnement.",
     oneTimeFee: "eenmalig",
     cta: "Vraag ernaar in een Health Check",

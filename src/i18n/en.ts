@@ -157,7 +157,7 @@ const en = {
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Fixed-price support automation packages",
+    title: "Fixed-price automation packages",
     intro: "One price, paid once. No retainer.",
     oneTimeFee: "one-time",
     cta: "Ask about this in a Health Check",

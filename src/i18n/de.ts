@@ -154,7 +154,7 @@ const de: Dictionary = {
   },
   pricing: {
     eyebrow: "Preise",
-    title: "Support-Automatisierungspakete zum Festpreis",
+    title: "Automatisierungspakete zum Festpreis",
     intro: "Ein Preis, einmal bezahlt. Keine laufende Pauschale.",
     oneTimeFee: "einmalig",
     cta: "Im Health Check ansprechen",

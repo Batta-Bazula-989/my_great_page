@@ -154,7 +154,7 @@ const sv: Dictionary = {
   },
   pricing: {
     eyebrow: "Priser",
-    title: "Paket för supportautomatisering till fast pris",
+    title: "Automatiseringspaket till fast pris",
     intro: "Ett pris, betalas en gång. Inget löpande avtal.",
     oneTimeFee: "engångspris",
     cta: "Fråga om det här i en Health Check",

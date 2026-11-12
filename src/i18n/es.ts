@@ -154,7 +154,7 @@ const es: Dictionary = {
   },
   pricing: {
     eyebrow: "Precios",
-    title: "Paquetes de automatización del soporte a precio fijo",
+    title: "Paquetes de automatización a precio fijo",
     intro: "Un precio, un solo pago. Sin iguala.",
     oneTimeFee: "pago único",
     cta: "Consúltalo en un Health Check",

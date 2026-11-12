@@ -154,7 +154,7 @@ const pl: Dictionary = {
   },
   pricing: {
     eyebrow: "Cennik",
-    title: "Pakiety automatyzacji obsługi klienta w stałej cenie",
+    title: "Pakiety automatyzacji w stałych cenach",
     intro: "Jedna cena, płatna jednorazowo. Bez abonamentu.",
     oneTimeFee: "jednorazowo",
     cta: "Zapytaj o to podczas Health Check",
