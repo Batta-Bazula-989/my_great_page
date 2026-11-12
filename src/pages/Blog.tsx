@@ -75,7 +75,7 @@ const Blog = () => {
                   "min-h-11 shrink-0 whitespace-nowrap rounded-lg border px-4 text-xs font-semibold uppercase tracking-[0.14em] transition-colors",
                   filter === id
                     ? "border-primary bg-primary text-primary-foreground"
-                    : "border-white/15 text-foreground/80 hover:border-primary/60 hover:text-foreground",
+                    : "border-border text-foreground/80 hover:border-primary/60 hover:text-foreground",
                 )}
               >
                 {id === "all" ? t.blog.all : t.categories[id].label}
@@ -96,7 +96,7 @@ const Blog = () => {
                   <ReadMore label={t.blog.readArticle} />
                 </div>
               </div>
-              <div className="hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 lg:block">
+              <div className="hidden rounded-2xl border border-border bg-secondary/50 p-6 lg:block">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t.seo.atAGlance}</p>
                 <ul className="mt-4 space-y-3">
                   {featured.keyFacts.slice(0, 3).map((fact) => (

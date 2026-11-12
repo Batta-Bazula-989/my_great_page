@@ -19,9 +19,9 @@ const closeOtherMenus = (e: SyntheticEvent<HTMLDetailsElement>) => {
     .forEach((d) => d !== opened && (d.open = false));
 };
 
-// Frost White headings: aqua is kept for links and actions (DESIGN.md, the Handoff Rule).
+// The footer is the site's one deep-indigo surface, so its text is set in footer-foreground tones.
 const summaryClass =
-  "flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-foreground/85 transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden";
+  "flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 py-2 font-display text-sm font-bold uppercase tracking-[0.18em] text-footer-foreground/90 transition-colors hover:text-footer-foreground [&::-webkit-details-marker]:hidden";
 
 const Footer = () => {
   const locale = useLocale();
@@ -29,7 +29,7 @@ const Footer = () => {
   const booking = useBooking();
 
   return (
-    <footer className="w-full border-t border-white/10">
+    <footer className="w-full bg-footer text-footer-foreground">
       <nav aria-label={t.footer.blogNav} className="container px-4 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-2">
           {CATEGORY_IDS.map((id) => (
@@ -41,7 +41,7 @@ const Footer = () => {
               <ul className="mt-2 space-y-2 pb-2">
                 {pagesInCategory(locale, id).map((page) => (
                   <li key={page.key}>
-                    <Link to={localePath(locale, page.slug)} className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                    <Link to={localePath(locale, page.slug)} className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">
                       {page.navLabel}
                     </Link>
                   </li>
@@ -57,7 +57,7 @@ const Footer = () => {
             <ul className="mt-2 space-y-2 pb-2">
               {TOOL_IDS.map((id) => (
                 <li key={id}>
-                  <Link to={toolPath(locale, id)} className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                  <Link to={toolPath(locale, id)} className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">
                     {t.tools[id].navLabel}
                   </Link>
                 </li>
@@ -67,8 +67,8 @@ const Footer = () => {
         </div>
       </nav>
 
-      <div className="border-t border-white/10 py-5">
-        <div className="container px-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-foreground/70">
+      <div className="border-t border-footer-foreground/15 py-5">
+        <div className="container px-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-footer-foreground/70">
           <span>© {new Date().getFullYear()} TascaLab · Roman Zakharenko</span>
           {booking && (
             <>
@@ -76,20 +76,20 @@ const Footer = () => {
               <button
                 type="button"
                 onClick={(e) => booking.openBooking(undefined, e.currentTarget)}
-                className="font-medium text-primary underline-offset-4 hover:underline"
+                className="font-medium text-footer-foreground underline-offset-4 hover:underline"
               >
                 {t.hero.ctaBook}
               </button>
             </>
           )}
           <span aria-hidden>·</span>
-          <Link to={localePath(locale, BLOG_PATH)} className="hover:text-primary transition-colors">{t.footer.allPosts}</Link>
+          <Link to={localePath(locale, BLOG_PATH)} className="hover:text-footer-foreground transition-colors">{t.footer.allPosts}</Link>
           <span aria-hidden>·</span>
-          <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t.footer.upworkReviews}</a>
+          <a href={UPWORK_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-footer-foreground transition-colors">{t.footer.upworkReviews}</a>
           <span aria-hidden>·</span>
-          <Link to="/privacy" className="hover:text-primary transition-colors">{t.footer.privacy}</Link>
+          <Link to="/privacy" className="hover:text-footer-foreground transition-colors">{t.footer.privacy}</Link>
           <span aria-hidden>·</span>
-          <Link to="/terms" className="hover:text-primary transition-colors">{t.footer.terms}</Link>
+          <Link to="/terms" className="hover:text-footer-foreground transition-colors">{t.footer.terms}</Link>
         </div>
       </div>
     </footer>

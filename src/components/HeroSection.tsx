@@ -7,7 +7,19 @@ import { keepShortWords } from "@/lib/typography";
 import { format, useDict, useLocale } from "@/i18n";
 import avatar from "@/assets/roman-avatar.jpg";
 
-const tools = ["Zendesk", "Freshdesk", "Jira", "Slack", "WhatsApp", "Telegram"];
+// The integrations strip: monochrome text wordmarks that take their brand color on hover.
+const tools: { name: string; hover: string }[] = [
+  { name: "HubSpot", hover: "#ff7a59" },
+  { name: "Attio", hover: "hsl(248 56% 36%)" },
+  { name: "Lemlist", hover: "hsl(248 56% 36%)" },
+  { name: "Aircall", hover: "hsl(248 56% 36%)" },
+  { name: "Zendesk", hover: "#03363d" },
+  { name: "Freshdesk", hover: "hsl(248 56% 36%)" },
+  { name: "Jira", hover: "#0052cc" },
+  { name: "Slack", hover: "#4a154b" },
+  { name: "WhatsApp", hover: "#1faa53" },
+  { name: "Telegram", hover: "#0f87c0" },
+];
 
 const highlightIcons = [Plug, Clock, ShieldCheck];
 
@@ -21,14 +33,18 @@ const HeroSection = () => {
   const lowestPrice = formatMoney(locale, Math.min(...PACKAGES.map((p) => p.prices[CURRENCY[locale]])));
 
   return (
-    <header id="hero" className="relative min-h-[92svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <header id="hero" className="relative isolate min-h-[92svh] flex items-center justify-center overflow-hidden pt-28 pb-16">
+      {/* Soft gradient shapes at the outer corners, never behind paragraphs */}
+      <div className="bloom bloom-violet -top-40 -left-48 hidden h-[30rem] w-[30rem] lg:block" aria-hidden />
+      <div className="bloom bloom-cyan -right-48 top-16 hidden h-[28rem] w-[28rem] lg:block" aria-hidden />
+
       <div className="container relative z-10 px-4">
-        <div className="glass-panel mx-auto max-w-4xl rounded-[32px] px-5 py-10 sm:px-8 md:px-14 md:py-14 text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p
-            className="animate-rise glass-chip mx-auto mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/80 text-balance"
+            className="animate-rise glass-chip mx-auto mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium text-secondary-foreground text-balance"
             style={rise(0)}
           >
-            <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-gradient-accent" />
             {t.eyebrow}
           </p>
 
@@ -42,7 +58,14 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-5 mx-auto leading-relaxed text-pretty"
+            className="animate-rise mt-5 mx-auto max-w-2xl text-sm md:text-base font-medium text-muted-foreground text-pretty"
+            style={rise(2)}
+          >
+            {tidy(t.sectors)}
+          </p>
+
+          <p
+            className="animate-rise text-foreground/80 text-base md:text-lg max-w-2xl mt-4 mx-auto leading-relaxed text-pretty"
             style={rise(2)}
           >
             {tidy(format(t.intro, { price: lowestPrice }))}
@@ -75,14 +98,14 @@ const HeroSection = () => {
                 alt=""
                 width={36}
                 height={36}
-                className="h-9 w-9 shrink-0 rounded-full border border-white/15 object-cover"
+                className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
               />
               <span className="text-pretty">{tidy(t.callNote)}</span>
             </p>
           </div>
 
           <ul
-            className="animate-rise mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-white/10 pt-6 text-sm text-foreground/80"
+            className="animate-rise mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-x-6 gap-y-3 border-t border-border pt-6 text-sm text-foreground/80"
             style={rise(4)}
           >
             {t.highlights.map((text, i) => {
@@ -97,14 +120,17 @@ const HeroSection = () => {
           </ul>
         </div>
 
-        <div className="animate-rise mt-8 text-center" style={rise(5)}>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">{t.integratesWith}</p>
-          {/* Plain text, not chips: these are tools the work plugs into, not buttons */}
-          <ul className="mx-auto flex max-w-2xl flex-wrap justify-center gap-x-1 gap-y-1 text-sm font-medium text-foreground/75">
-            {tools.map((tool, i) => (
-              <li key={tool} className="flex items-center gap-1">
-                {i > 0 && <span className="px-1.5 text-primary/60" aria-hidden>·</span>}
-                {tool}
+        <div className="animate-rise mt-10 text-center" style={rise(5)}>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">{t.integratesWith}</p>
+          {/* A logo strip of text wordmarks: muted at rest, brand color on hover */}
+          <ul className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-3">
+            {tools.map((tool) => (
+              <li
+                key={tool.name}
+                className="font-display text-base font-semibold text-foreground/65 transition-colors duration-200 hover:text-[var(--brand)]"
+                style={{ "--brand": tool.hover } as CSSProperties}
+              >
+                {tool.name}
               </li>
             ))}
           </ul>

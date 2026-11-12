@@ -11,11 +11,15 @@ import { toolPath } from "@/tools/registry";
 import { cn } from "@/lib/utils";
 
 // Packages grouped by the job they do, cheapest first within each group.
-const GROUPS: { key: "chat" | "tickets" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
+const GROUPS: { key: "leads" | "chat" | "tickets" | "custom"; ids: PackageId[]; span: string; cols: string }[] = [
+  { key: "leads", ids: ["leadScoring", "crmIntegration"], span: "md:col-span-2 lg:col-span-3", cols: "md:grid-cols-2" },
   { key: "chat", ids: ["starter", "standard", "voice"], span: "lg:col-span-3", cols: "md:grid-cols-2 lg:grid-cols-3" },
   { key: "tickets", ids: ["reports", "routing"], span: "md:col-span-2", cols: "md:grid-cols-2" },
   { key: "custom", ids: ["custom"], span: "md:col-span-2 lg:col-span-1", cols: "md:grid-cols-2 lg:grid-cols-1" },
 ];
+
+// The one visually featured card: a violet-to-cyan gradient border instead of a flag or badge.
+const FEATURED: PackageId = "leadScoring";
 
 const PricingSection = () => {
   const dict = useDict();
@@ -27,7 +31,10 @@ const PricingSection = () => {
   const planIndex = (id: PackageId) => PACKAGES.findIndex((p) => p.id === id);
 
   return (
-    <Section id="pricing" eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
+    <Section id="pricing" eyebrow={t.eyebrow} title={t.title} intro={t.intro} className="overflow-hidden">
+      {/* Soft gradient shapes at the outer corners, never behind paragraphs */}
+      <div className="bloom bloom-cyan -left-56 top-24 hidden h-[26rem] w-[26rem] lg:block" aria-hidden />
+      <div className="bloom bloom-violet -right-56 bottom-24 hidden h-[26rem] w-[26rem] lg:block" aria-hidden />
       <Reveal className="glass-panel max-w-6xl mx-auto mb-10 rounded-[28px] p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
         <div className="glass-chip w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
           <Stethoscope className="w-7 h-7 text-primary" aria-hidden />
@@ -79,7 +86,7 @@ const PricingSection = () => {
           <div key={group.key} className={group.span}>
             <h3 className="mb-4 flex items-center gap-4 font-display text-lg font-semibold text-foreground/90">
               {t.groups[group.key]}
-              <span className="h-px flex-1 bg-white/10" aria-hidden />
+              <span className="h-px flex-1 bg-border" aria-hidden />
             </h3>
             <div className={cn("grid grid-cols-1 gap-6", group.cols)}>
               {group.ids.map((id, i) => {
@@ -87,7 +94,12 @@ const PricingSection = () => {
                 const plan = t.plans[index];
                 return (
                   <Reveal key={id} delay={i * 0.06} className="h-full">
-                    <article className="glass glass-hover h-full rounded-[28px] p-7 flex flex-col hover:-translate-y-1.5">
+                    <article
+                      className={cn(
+                        "glass glass-hover h-full rounded-[28px] p-7 flex flex-col hover:-translate-y-1.5",
+                        id === FEATURED && "gradient-border",
+                      )}
+                    >
                       <h4 className="font-bold font-display text-foreground text-xl">{plan.name}</h4>
                       <p className="text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
 
@@ -115,7 +127,7 @@ const PricingSection = () => {
                       </ul>
 
                       {showRunning && (
-                        <div className="mt-5 border-t border-white/10 pt-4 animate-in fade-in">
+                        <div className="mt-5 border-t border-border pt-4 animate-in fade-in">
                           <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
                             <Receipt className="w-4 h-4 text-primary" aria-hidden />
                             {t.running}

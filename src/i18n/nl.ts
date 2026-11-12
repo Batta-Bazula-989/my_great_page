@@ -3,9 +3,9 @@ import tools from "./tools/nl";
 
 const nl: Dictionary = {
   meta: {
-    homeTitle: "AI-chatbots, voicebots & ticketautomatisering | TascaLab",
+    homeTitle: "Lead-, CRM- & supportautomatisering voor B2B | TascaLab",
     homeDescription:
-      "Supportautomatisering: AI-chatbots, voicebots, ticketroutering en automatische rapportages voor Zendesk, Freshdesk en Jira. Vaste prijzen, gratis Health Check.",
+      "Lead-, CRM- en supportautomatisering voor kleine B2B-teams: AI-leadscoring, HubSpot- en Attio-integratie, chatbots. Vaste prijzen, gratis Health Check.",
   },
   nav: {
     services: "Wat ik doe",
@@ -22,20 +22,67 @@ const nl: Dictionary = {
     skipToContent: "Ga naar de inhoud",
   },
   hero: {
-    eyebrow: "Supportautomatisering die echt standhoudt",
-    titleBefore: "AI-chatbots, voicebots & ",
-    titleHighlight: "ticketautomatisering",
-    titleAfter: " voor supportteams",
-    intro: "Ik ben Roman. Ik bouw ze zelf, voor een vaste prijs vanaf {price}, één keer betaald.",
+    eyebrow: "Automatisering die echt standhoudt",
+    titleBefore: "Lead-, CRM- en supportautomatisering ",
+    titleHighlight: "voor kleine B2B-teams",
+    titleAfter: "",
+    sectors: "Het meeste van mijn werk doe ik voor B2B-salesteams, e-commerce en fulfilmentoperaties.",
+    intro: "Ik ben Roman. Ik bouw elk project zelf, voor een vaste prijs vanaf {price}, één keer betaald.",
     callNote: "Gratis Health Check: een gesprek van 30 minuten met mij, daarna een schriftelijk rapport.",
     ctaBook: "Plan een gratis Health Check",
     ctaUpwork: "Reviews op Upwork",
-    highlights: ["Werkt met je huidige helpdesk", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
+    highlights: ["Werkt met je huidige tools", "Live in 1–3 weken", "30 dagen ondersteuning inbegrepen"],
     integratesWith: "Integreert met",
+  },
+  recentWork: {
+    eyebrow: "Recent werk",
+    title: "Zo ziet dat er in de praktijk uit",
+    situationLabel: "Situatie",
+    changeLabel: "Wat er veranderde",
+    resultLabel: "Resultaat",
+    cases: [
+      {
+        title: "Outreach-reacties verwerken",
+        situation: "Een B2B-salesteam zette reacties op outreach met de hand in hun CRM.",
+        change:
+          "AI classificeert nu elke Lemlist-reactie en logt die bij de juiste deal in HubSpot en Attio, met meldingen in Slack.",
+        result: "Er wordt niets meer gemist.",
+      },
+      {
+        title: "Websitebezoekers scoren",
+        situation: "Een bedrijf kon niet zien welke websitebezoekers ertoe deden.",
+        change:
+          "Elk geïdentificeerd bedrijf wordt nu gescoord tegen hun ideale klantprofiel en vastgelegd in HubSpot.",
+        result: "Een wekelijks overzicht, gerangschikt op score.",
+      },
+      {
+        title: "Migratie van automatiseringsplatform",
+        situation: "Het automatiseringsplatform van een team kondigde aan ermee te stoppen.",
+        change: "20+ productieworkflows zijn gemigreerd naar n8n.",
+        result: "Alles draaide vóór de deadline.",
+      },
+    ],
   },
   services: {
     eyebrow: "Wat ik doe",
-    title: "Diensten voor klantenservice-automatisering",
+    title: "Diensten voor lead-, CRM- en supportautomatisering",
+    groups: {
+      lead: {
+        title: "Leadautomatisering",
+        description:
+          "Je leads uit websitebezoekers, formulieren en outreach-reacties worden geclassificeerd, gescoord tegen je ideale klantprofiel en vastgelegd in je CRM, met meldingen voor je team.",
+      },
+      crm: {
+        title: "CRM-integratie & -automatisering",
+        description:
+          "Je CRM — HubSpot of Attio — gekoppeld aan je tools voor outreach, bellen en verrijking. Reacties, gesprekken en transcripties worden automatisch bij de juiste deal gelogd, en workflows worden gemigreerd tussen platformen.",
+      },
+      support: {
+        title: "Supportautomatisering",
+        description:
+          "Repetitieve berichten, telefoontjes en tickets automatisch afgehandeld, en de rest doorgegeven aan je team.",
+      },
+    },
     items: [
       {
         title: "Chat- en voicebots voor support",
@@ -62,6 +109,8 @@ const nl: Dictionary = {
   process: {
     eyebrow: "Zo werkt het",
     title: "Van eerste gesprek tot werkende automatisering",
+    intro:
+      "Nadat je de Health Check hebt geboekt: een gesprek van 30 minuten, daarna een schriftelijk rapport met aanbevelingen en een vaste prijs — geheel vrijblijvend.",
     steps: [
       {
         title: "Gratis Health Check",
@@ -137,6 +186,7 @@ const nl: Dictionary = {
     deliveryTime: "1–3 weken",
     included: "Wat er inbegrepen is",
     groups: {
+      leads: "Lead- & CRM-automatisering",
       chat: "Chat- en voicebots",
       tickets: "Tickets & rapportages",
       custom: "Maatwerk",
@@ -223,6 +273,31 @@ const nl: Dictionary = {
           "Elke tool met een API of webhooks",
         ],
         running: ["Hangt af van de gebruikte tools; geschat in je Health Check-rapport"],
+      },
+      {
+        name: "Lead Capture & Scoring",
+        description: "Leads uit één bron, geclassificeerd en gescoord door AI, vastgelegd in je CRM.",
+        included: [
+          "Leads uit één bron: websitebezoekers, een formulier of outreach-reacties",
+          "AI-classificatie en scoring tegen je ideale klantprofiel",
+          "Vastgelegd in je CRM, met meldingen via e-mail of Slack",
+        ],
+        running: [
+          "AI-gebruik, per token gefactureerd door je AI-aanbieder, bijv. Claude Haiku 5.5 vanaf $ 0,10 / $ 0,50 per miljoen input-/outputtokens*",
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
+        ],
+      },
+      {
+        name: "CRM Integration",
+        description: "Twee tools gekoppeld aan je CRM, activiteit gelogd bij de juiste records.",
+        included: [
+          "Twee tools gekoppeld aan je CRM, bijv. outreach, bellen of verrijking",
+          "Reacties en activiteit gelogd bij de juiste records",
+          "Foutafhandeling en meldingen",
+        ],
+        running: [
+          "Automatiseringsplatform: n8n self-hosted (gratis software; de server betaal je wel), n8n Cloud vanaf € 20 per maand of Make vanaf $ 9 per maand (beide jaarlijks gefactureerd)",
+        ],
       },
     ],
     footnote:
@@ -319,7 +394,7 @@ const nl: Dictionary = {
     channels: { label: "Per kanaal", blurb: "Supportbots voor de kanalen waarlangs je klanten je berichten sturen." },
     basics: { label: "De basis", blurb: "Definities, metrics en hoe overdrachten werken." },
     guides: { label: "Gidsen & compliance", blurb: "Vergelijkingen van tools en EU-regels voor supportbots." },
-    crm: { label: "CRM-automatisering", blurb: "Workflows, webhooks en API's in Attio en HubSpot." },
+    crm: { label: "Lead- & CRM-automatisering", blurb: "Workflows, webhooks en API's in Attio en HubSpot." },
   },
   cookie: {
     text: "Ik gebruik cookies voor analyse en advertentiemeting, zodat ik begrijp hoe bezoekers deze site vinden en gebruiken.",

@@ -5,9 +5,9 @@ import tools from "./tools/en";
 
 const en = {
   meta: {
-    homeTitle: "AI Chatbots, Voice Bots & Ticket Automation | TascaLab",
+    homeTitle: "Lead, CRM & Support Automation for B2B Teams | TascaLab",
     homeDescription:
-      "Customer support automation: AI chatbots, voice bots, ticket routing and automated reports for Zendesk, Freshdesk and Jira. Fixed prices, free Health Check.",
+      "Lead, CRM and support automation for small B2B teams: AI lead scoring, HubSpot and Attio integration, chat and voice bots. Fixed prices, free Health Check.",
   },
   nav: {
     services: "What I Do",
@@ -24,21 +24,68 @@ const en = {
     skipToContent: "Skip to content",
   },
   hero: {
-    eyebrow: "Support automation that actually holds up",
-    titleBefore: "AI chatbots, voice bots & ",
-    titleHighlight: "ticket automation",
-    titleAfter: " for support teams",
+    eyebrow: "Automation that actually holds up",
+    titleBefore: "Lead, CRM and support automation ",
+    titleHighlight: "for small B2B teams",
+    titleAfter: "",
+    sectors: "Most of my work is with B2B sales teams, ecommerce and fulfilment operations.",
     // {price} is the lowest package price in the visitor's currency, e.g. "$400".
-    intro: "I'm Roman. I build them myself, at a fixed price from {price}, paid once.",
+    intro: "I'm Roman. I build every project myself, at a fixed price from {price}, paid once.",
     callNote: "Free Health Check: a 30-minute call with me, then a written report.",
     ctaBook: "Book a Free Health Check",
     ctaUpwork: "Reviews on Upwork",
-    highlights: ["Works with your current helpdesk", "Live in 1–3 weeks", "30 days of support included"],
+    highlights: ["Works with your current tools", "Live in 1–3 weeks", "30 days of support included"],
     integratesWith: "Integrates with",
+  },
+  recentWork: {
+    eyebrow: "Recent Work",
+    title: "What this looks like in practice",
+    situationLabel: "Situation",
+    changeLabel: "What changed",
+    resultLabel: "Result",
+    cases: [
+      {
+        title: "Outreach reply handling",
+        situation: "A B2B sales team logged outreach replies to their CRM by hand.",
+        change:
+          "AI now classifies every Lemlist reply and logs it to the right deal in HubSpot and Attio, with Slack alerts.",
+        result: "Nothing gets missed.",
+      },
+      {
+        title: "Website visitor scoring",
+        situation: "A company couldn't see which website visitors mattered.",
+        change:
+          "Each identified company is now scored against their ideal customer profile and logged to HubSpot.",
+        result: "A weekly recap, ranked by score.",
+      },
+      {
+        title: "Automation platform migration",
+        situation: "A team's automation platform announced it was shutting down.",
+        change: "20+ production workflows were migrated to n8n.",
+        result: "Everything live before the deadline.",
+      },
+    ],
   },
   services: {
     eyebrow: "What I Do",
-    title: "Customer support automation services",
+    title: "Lead, CRM and support automation services",
+    groups: {
+      lead: {
+        title: "Lead automation",
+        description:
+          "Your leads from website visitors, forms and outreach replies get classified, scored against your ideal customer profile, and logged to your CRM with team alerts.",
+      },
+      crm: {
+        title: "CRM integration & automation",
+        description:
+          "Your CRM — HubSpot or Attio — connected to your outreach, calling and enrichment tools. Replies, calls and transcripts are logged to the right deal automatically, and workflows are migrated between platforms.",
+      },
+      support: {
+        title: "Support automation",
+        description:
+          "Repetitive messages, calls and tickets handled automatically, and the rest handed to your team.",
+      },
+    },
     items: [
       {
         title: "Support chat & voice bots",
@@ -65,6 +112,8 @@ const en = {
   process: {
     eyebrow: "How It Works",
     title: "From first call to a working automation",
+    intro:
+      "After you book the Health Check: a 30-minute call, then a written report with recommendations and a fixed price — no obligation.",
     steps: [
       {
         title: "Free Health Check",
@@ -140,6 +189,7 @@ const en = {
     deliveryTime: "1–3 weeks",
     included: "What's included",
     groups: {
+      leads: "Lead & CRM automation",
       chat: "Chat & voice bots",
       tickets: "Tickets & reports",
       custom: "Custom work",
@@ -226,6 +276,31 @@ const en = {
           "Any tool with an API or webhooks",
         ],
         running: ["Depends on the tools involved; estimated in your Health Check report"],
+      },
+      {
+        name: "Lead Capture & Scoring",
+        description: "Leads from one source classified and scored by AI, logged to your CRM.",
+        included: [
+          "Leads from one source: website visitors, a form or outreach replies",
+          "AI classification and scoring against your ideal customer profile",
+          "Logged to your CRM, with alerts to email or Slack",
+        ],
+        running: [
+          "AI usage, billed per token by your AI provider, e.g. Claude Haiku 5.5 from $0.10 / $0.50 per million input / output tokens*",
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+        ],
+      },
+      {
+        name: "CRM Integration",
+        description: "Two tools connected to your CRM, activity logged to the right records.",
+        included: [
+          "Two tools connected to your CRM, e.g. outreach, calling or enrichment",
+          "Replies and activity logged to the right records",
+          "Error handling and alerts",
+        ],
+        running: [
+          "Automation platform: self-hosted n8n (free software; you pay for the server), n8n Cloud from €20/month or Make from $9/month (both billed annually)",
+        ],
       },
     ],
     footnote:
@@ -322,7 +397,7 @@ const en = {
     channels: { label: "By Channel", blurb: "Support bots for the places your customers write from." },
     basics: { label: "Learn the Basics", blurb: "Definitions, metrics and how handoffs work." },
     guides: { label: "Guides & Compliance", blurb: "Tool comparisons and EU rules for support bots." },
-    crm: { label: "CRM Automation", blurb: "Workflows, webhooks and APIs in Attio and HubSpot." },
+    crm: { label: "Lead & CRM Automation", blurb: "Workflows, webhooks and APIs in Attio and HubSpot." },
   },
   cookie: {
     text: "I use cookies for analytics and ad measurement to understand how visitors find and use this site.",

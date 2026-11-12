@@ -15,7 +15,7 @@ const ToolLinks = ({ onPick }: { onPick: () => void }) => {
         const Icon = TOOL_ICONS[id];
         return (
           <li key={id}>
-            <Link to={toolPath(locale, id)} onClick={onPick} className="flex gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/5">
+            <Link to={toolPath(locale, id)} onClick={onPick} className="flex gap-3 rounded-xl p-2.5 transition-colors hover:bg-secondary">
               <Icon className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
               <span>
                 <span className="block font-medium text-foreground">{t[id].navLabel}</span>
@@ -26,7 +26,7 @@ const ToolLinks = ({ onPick }: { onPick: () => void }) => {
         );
       })}
       <li>
-        <Link to={toolsPath(locale)} onClick={onPick} className="flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-semibold text-primary hover:bg-white/5">
+        <Link to={toolsPath(locale)} onClick={onPick} className="flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-semibold text-primary hover:bg-secondary">
           {t.allTools}
           <ArrowRight className="w-4 h-4" aria-hidden />
         </Link>
@@ -56,7 +56,7 @@ export const ToolsMenu = () => {
 export const ToolsList = ({ onPick }: { onPick: () => void }) => {
   const t = useDict().tools;
   return (
-    <div className="border-t border-white/10 pt-4">
+    <div className="border-t border-border pt-4">
       <p className="mb-2 flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
         <Calculator className="h-4 w-4 text-primary" aria-hidden />
         {t.menu}

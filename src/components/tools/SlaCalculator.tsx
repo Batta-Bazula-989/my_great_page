@@ -128,7 +128,7 @@ const SlaCalculator = () => {
                     type="button"
                     aria-pressed={days.includes(day)}
                     onClick={() => toggleDay(day)}
-                    className={`min-w-12 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${days.includes(day) ? "bg-primary/20 text-primary border border-primary/40" : "border border-white/10 text-muted-foreground hover:text-foreground"}`}
+                    className={`min-w-12 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${days.includes(day) ? "bg-primary/20 text-primary border border-primary/40" : "border border-border text-muted-foreground hover:text-foreground"}`}
                   >
                     {t.inputs.dayNames[day]}
                   </button>
@@ -151,7 +151,7 @@ const SlaCalculator = () => {
               <div className="mt-3 flex flex-wrap gap-2">
                 {holidays.length === 0 && <p className="text-xs text-muted-foreground">{t.inputs.noHolidays}</p>}
                 {holidays.map((h) => (
-                  <span key={h} className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-1 text-sm">
+                  <span key={h} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-sm">
                     {new Date(`${h}T00:00:00Z`).toLocaleDateString(dateLocale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}
                     <button
                       type="button"

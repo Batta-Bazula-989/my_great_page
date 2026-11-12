@@ -40,26 +40,24 @@ const ReviewsSection = () => {
               <blockquote lang="en" className="text-foreground/90 text-lg leading-relaxed italic flex-1">
                 “{review.text}”
               </blockquote>
-              <figcaption lang="en" className="mt-5 text-sm text-muted-foreground">
-                {review.project} · Upwork
+              <figcaption lang="en" className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                <span>{review.project} · Upwork</span>
+                <a
+                  href={UPWORK_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-1 font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  {t.verify}
+                  <ArrowUpRight className="w-3.5 h-3.5" aria-hidden />
+                </a>
               </figcaption>
             </figure>
           </Reveal>
         ))}
       </div>
 
-      <p className="max-w-4xl mx-auto mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-        <span>{t.quoted}</span>
-        <a
-          href={UPWORK_PROFILE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex min-h-11 items-center gap-1 font-medium text-primary underline-offset-4 hover:underline"
-        >
-          {t.verify}
-          <ArrowUpRight className="w-3.5 h-3.5" aria-hidden />
-        </a>
-      </p>
+      <p className="max-w-4xl mx-auto mt-6 text-center text-sm text-muted-foreground">{t.quoted}</p>
     </Section>
   );
 };

@@ -92,7 +92,7 @@ const Navbar = () => {
               </BookingButton>
             ) : null}
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10"
+              className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-secondary"
               aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -107,7 +107,7 @@ const Navbar = () => {
           {isMobileMenuOpen && (
             <motion.div
               id="mobile-menu"
-              className="xl:hidden border-t border-white/10 overflow-hidden"
+              className="xl:hidden border-t border-border overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -131,7 +131,7 @@ const Navbar = () => {
                 {!booking && (
                   <div className="py-2">{cta("rounded-full px-4", t.nav.cta)}</div>
                 )}
-                <div className="mt-2 space-y-4 border-t border-white/10 pt-4">
+                <div className="mt-2 space-y-4 border-t border-border pt-4">
                   <ToolsList onPick={() => setIsMobileMenuOpen(false)} />
                   <LanguageList onPick={() => setIsMobileMenuOpen(false)} />
                 </div>

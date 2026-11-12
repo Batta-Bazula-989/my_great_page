@@ -6,7 +6,15 @@ import { dictionaries, format } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
 
 export type Currency = "USD" | "EUR" | "PLN" | "SEK";
-export type PackageId = "starter" | "standard" | "voice" | "routing" | "reports" | "custom";
+export type PackageId =
+  | "starter"
+  | "standard"
+  | "voice"
+  | "routing"
+  | "reports"
+  | "custom"
+  | "leadScoring"
+  | "crmIntegration";
 
 export interface Package {
   id: PackageId;
@@ -23,6 +31,8 @@ export const PACKAGES: Package[] = [
   { id: "routing", prices: { USD: 775, EUR: 690, PLN: 3000, SEK: 7700 } },
   { id: "reports", prices: { USD: 700, EUR: 620, PLN: 2700, SEK: 6900 } },
   { id: "custom", prices: { USD: 1200, EUR: 1070, PLN: 4650, SEK: 11900 }, isMinimum: true },
+  { id: "leadScoring", prices: { USD: 700, EUR: 620, PLN: 2700, SEK: 6900 } },
+  { id: "crmIntegration", prices: { USD: 900, EUR: 800, PLN: 3500, SEK: 8900 } },
 ];
 
 export const CURRENCY: Record<Locale, Currency> = {

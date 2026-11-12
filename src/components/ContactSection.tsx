@@ -22,7 +22,7 @@ const ContactSection = () => {
             width={40}
             height={40}
             loading="lazy"
-            className="h-10 w-10 shrink-0 rounded-full border border-white/15 object-cover"
+            className="h-10 w-10 shrink-0 rounded-full border border-border object-cover"
           />
           <span className="text-pretty">{t.intro}</span>
         </p>

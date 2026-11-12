@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import RecentWorkSection from "@/components/RecentWorkSection";
 import SolutionSection from "@/components/SolutionSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhoForSection from "@/components/WhoForSection";
@@ -24,13 +25,14 @@ const Index = () => {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none">
         <HeroSection />
+        <RecentWorkSection />
+        <ReviewsSection />
         <SolutionSection />
         <ProcessSection />
         <WhoForSection />
         <WhyMeSection />
         <PricingSection />
         <DataSection />
-        <ReviewsSection />
         <FAQSection />
         <ContactSection />
       </main>

@@ -3,9 +3,9 @@ import tools from "./tools/pl";
 
 const pl: Dictionary = {
   meta: {
-    homeTitle: "Chatboty AI, voiceboty i automatyzacja zgłoszeń | TascaLab",
+    homeTitle: "Automatyzacja leadów, CRM i wsparcia B2B | TascaLab",
     homeDescription:
-      "Automatyzacja obsługi klienta: chatboty AI, voiceboty, routing zgłoszeń i automatyczne raporty w Zendesk, Freshdesk i Jira. Stałe ceny, bezpłatny Health Check.",
+      "Automatyzacja leadów, CRM i wsparcia dla małych zespołów B2B: scoring leadów AI, integracja HubSpot i Attio, chatboty. Stałe ceny, darmowy Health Check.",
   },
   nav: {
     services: "Co robię",
@@ -22,20 +22,67 @@ const pl: Dictionary = {
     skipToContent: "Przejdź do treści",
   },
   hero: {
-    eyebrow: "Automatyzacja obsługi klienta, która sprawdza się w praktyce",
-    titleBefore: "Chatboty AI, voiceboty i ",
-    titleHighlight: "automatyzacja zgłoszeń",
-    titleAfter: " dla zespołów obsługi klienta",
-    intro: "Jestem Roman. Buduję je sam, w stałej cenie od {price}, płatnej jednorazowo.",
+    eyebrow: "Automatyzacja, która sprawdza się w praktyce",
+    titleBefore: "Automatyzacja leadów, CRM i obsługi klienta ",
+    titleHighlight: "dla małych zespołów B2B",
+    titleAfter: "",
+    sectors: "Najczęściej pracuję z zespołami sprzedaży B2B, e-commerce i operacjami fulfilmentu.",
+    intro: "Jestem Roman. Każdy projekt buduję sam, w stałej cenie od {price}, płatnej jednorazowo.",
     callNote: "Bezpłatny Health Check: 30-minutowa rozmowa ze mną, a potem pisemny raport.",
     ctaBook: "Umów bezpłatny Health Check",
     ctaUpwork: "Opinie na Upwork",
-    highlights: ["Działa z Twoim obecnym helpdeskiem", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
+    highlights: ["Działa z Twoimi obecnymi narzędziami", "Wdrożenie w 1–3 tygodnie", "30 dni wsparcia w cenie"],
     integratesWith: "Integruje się z",
+  },
+  recentWork: {
+    eyebrow: "Ostatnie realizacje",
+    title: "Jak to wygląda w praktyce",
+    situationLabel: "Sytuacja",
+    changeLabel: "Co się zmieniło",
+    resultLabel: "Efekt",
+    cases: [
+      {
+        title: "Obsługa odpowiedzi z kampanii outreach",
+        situation: "Zespół sprzedaży B2B ręcznie przenosił odpowiedzi z kampanii outreach do CRM.",
+        change:
+          "Teraz AI klasyfikuje każdą odpowiedź z Lemlist i zapisuje ją przy właściwym dealu w HubSpot i Attio, z powiadomieniami na Slacku.",
+        result: "Nic już nie umyka.",
+      },
+      {
+        title: "Scoring odwiedzających stronę",
+        situation: "Firma nie wiedziała, którzy odwiedzający jej stronę naprawdę się liczą.",
+        change:
+          "Każda zidentyfikowana firma jest teraz oceniana względem idealnego profilu klienta i zapisywana w HubSpot.",
+        result: "Cotygodniowe podsumowanie, uszeregowane według wyniku.",
+      },
+      {
+        title: "Migracja platformy automatyzacji",
+        situation: "Platforma automatyzacji, z której korzystał zespół, ogłosiła zamknięcie.",
+        change: "Ponad 20 produkcyjnych workflowów przeniesiono do n8n.",
+        result: "Wszystko działało przed upływem terminu.",
+      },
+    ],
   },
   services: {
     eyebrow: "Co robię",
-    title: "Usługi automatyzacji obsługi klienta",
+    title: "Usługi automatyzacji leadów, CRM i obsługi klienta",
+    groups: {
+      lead: {
+        title: "Automatyzacja leadów",
+        description:
+          "Twoje leady z odwiedzin na stronie, formularzy i odpowiedzi na outreach są klasyfikowane, oceniane względem idealnego profilu klienta i zapisywane w Twoim CRM, z powiadomieniami dla zespołu.",
+      },
+      crm: {
+        title: "Integracja i automatyzacja CRM",
+        description:
+          "Twój CRM – HubSpot lub Attio – połączony z narzędziami do outreachu, telefonii i wzbogacania danych. Odpowiedzi, rozmowy i transkrypcje trafiają automatycznie do właściwego deala, a workflowy są migrowane między platformami.",
+      },
+      support: {
+        title: "Automatyzacja obsługi klienta",
+        description:
+          "Powtarzalne wiadomości, połączenia i zgłoszenia obsługiwane automatycznie, a reszta trafia do Twojego zespołu.",
+      },
+    },
     items: [
       {
         title: "Chatboty i voiceboty dla obsługi klienta",
@@ -58,6 +105,8 @@ const pl: Dictionary = {
   process: {
     eyebrow: "Jak to działa",
     title: "Od pierwszej rozmowy do działającej automatyzacji",
+    intro:
+      "Po umówieniu Health Check: 30-minutowa rozmowa, a potem pisemny raport z rekomendacjami i stałą ceną – bez zobowiązań.",
     steps: [
       {
         title: "Bezpłatny Health Check",
@@ -133,6 +182,7 @@ const pl: Dictionary = {
     deliveryTime: "1–3 tygodnie",
     included: "Co obejmuje pakiet",
     groups: {
+      leads: "Automatyzacja leadów i CRM",
       chat: "Chatboty i voiceboty",
       tickets: "Zgłoszenia i raporty",
       custom: "Rozwiązania na miarę",
@@ -219,6 +269,31 @@ const pl: Dictionary = {
           "Dowolne narzędzie z API lub webhookami",
         ],
         running: ["Zależą od użytych narzędzi; szacunek znajdziesz w raporcie Health Check"],
+      },
+      {
+        name: "Lead Capture & Scoring",
+        description: "Leady z jednego źródła klasyfikowane i oceniane przez AI, zapisywane w Twoim CRM.",
+        included: [
+          "Leady z jednego źródła: odwiedzający stronę, formularz lub odpowiedzi na outreach",
+          "Klasyfikacja AI i scoring względem idealnego profilu klienta",
+          "Zapis w Twoim CRM, z powiadomieniami e-mailem lub na Slacka",
+        ],
+        running: [
+          "Korzystanie z AI, rozliczane za tokeny przez Twojego dostawcę AI, np. Claude Haiku 5.5 od 0,10 / 0,50 USD za milion tokenów wejściowych / wyjściowych*",
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
+        ],
+      },
+      {
+        name: "CRM Integration",
+        description: "Dwa narzędzia połączone z Twoim CRM, aktywność zapisywana przy właściwych rekordach.",
+        included: [
+          "Dwa narzędzia połączone z Twoim CRM, np. outreach, telefonia lub wzbogacanie danych",
+          "Odpowiedzi i aktywność zapisywane przy właściwych rekordach",
+          "Obsługa błędów i powiadomienia",
+        ],
+        running: [
+          "Platforma automatyzacji: n8n na własnym serwerze (oprogramowanie bezpłatne; płacisz za serwer), n8n Cloud od 20 EUR miesięcznie lub Make od 9 USD miesięcznie (w obu przypadkach przy rozliczeniu rocznym)",
+        ],
       },
     ],
     footnote:
@@ -315,7 +390,7 @@ const pl: Dictionary = {
     channels: { label: "Według kanału", blurb: "Boty obsługi klienta tam, skąd piszą Twoi klienci." },
     basics: { label: "Podstawy", blurb: "Definicje, wskaźniki i zasady przekazywania rozmów." },
     guides: { label: "Poradniki i zgodność", blurb: "Porównania narzędzi i przepisy UE dotyczące botów obsługi klienta." },
-    crm: { label: "Automatyzacja CRM", blurb: "Workflowy, webhooki i API w Attio i HubSpot." },
+    crm: { label: "Automatyzacja leadów i CRM", blurb: "Workflowy, webhooki i API w Attio i HubSpot." },
   },
   cookie: {
     text: "Używam plików cookie do analityki i pomiaru reklam, aby zrozumieć, jak odwiedzający znajdują tę stronę i z niej korzystają.",

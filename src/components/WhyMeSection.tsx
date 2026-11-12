@@ -22,7 +22,7 @@ const WhyMeSection = () => {
               height={700}
               loading="lazy"
               decoding="async"
-              className="aspect-[4/5] w-full rounded-[24px] border border-white/10 object-cover"
+              className="aspect-[4/5] w-full rounded-[24px] border border-border object-cover"
             />
             <figcaption className="mt-4 text-center md:text-left">
               <span className="block font-display text-xl font-bold">Roman Zakharenko</span>
@@ -40,7 +40,7 @@ const WhyMeSection = () => {
             </figcaption>
           </figure>
 
-          <ul className="divide-y divide-white/10">
+          <ul className="divide-y divide-border">
             {t.items.map((item, i) => {
               const Icon = icons[i];
               return (

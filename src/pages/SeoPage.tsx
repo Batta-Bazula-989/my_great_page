@@ -35,7 +35,7 @@ const ContentBlock = ({ block }: { block: Block }) => {
           <table className="w-full min-w-[520px] text-sm text-left">
             {block.caption && <caption className="px-4 pt-4 text-left text-muted-foreground">{block.caption}</caption>}
             <thead>
-              <tr className="border-b border-white/10">
+              <tr className="border-b border-border">
                 {block.head.map((cell) => (
                   <th key={cell} scope="col" className="px-4 py-3 font-semibold text-foreground">
                     {cell}
@@ -45,7 +45,7 @@ const ContentBlock = ({ block }: { block: Block }) => {
             </thead>
             <tbody>
               {block.rows.map((row, i) => (
-                <tr key={i} className="border-b border-white/5 last:border-0 align-top">
+                <tr key={i} className="border-b border-border/60 last:border-0 align-top">
                   {row.map((cell, j) => (
                     <td key={j} className={`px-4 py-3 ${j === 0 ? "font-medium text-foreground" : "text-foreground/75"}`}>
                       {cell}

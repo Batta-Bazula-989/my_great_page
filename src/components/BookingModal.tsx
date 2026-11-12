@@ -147,9 +147,9 @@ const PHONE_COUNTRY_OPTIONS: { code: string; flag: string; name: string }[] = [
   { code: "995", flag: "🇬🇪", name: "Georgia" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
-// Glass-world field (same look as the calculator fields), 44px tall for touch.
+// Light-world field (same look as the calculator fields), 44px tall for touch.
 const fieldClass =
-  "h-11 rounded-xl border-white/10 bg-white/[0.04] text-base md:text-sm focus-visible:border-primary/60 focus-visible:ring-primary/25 focus-visible:ring-offset-0";
+  "h-11 rounded-xl border-input bg-background text-base md:text-sm focus-visible:border-primary/60 focus-visible:ring-primary/25 focus-visible:ring-offset-0";
 
 const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModalProps) => {
   const locale = useLocale();
@@ -355,7 +355,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
             alt=""
             width={48}
             height={48}
-            className="h-12 w-12 shrink-0 rounded-full border border-white/15 object-cover"
+            className="h-12 w-12 shrink-0 rounded-full border border-border object-cover"
           />
           <div className="min-w-0 space-y-1">
             <DialogTitle className="font-display text-xl font-bold leading-tight">
@@ -454,7 +454,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                 <SelectTrigger id="meetingMethod" className={fieldClass}>
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="z-50 rounded-xl border-white/10 bg-card">
+                <SelectContent className="z-50 rounded-xl border-border bg-card">
                   {meetingMethods.map((method) => (
                     <SelectItem key={method.value} value={method.value} className="py-2.5">
                       {method.label}
@@ -479,7 +479,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                         role="combobox"
                         aria-expanded={phoneCountryOpen}
                         aria-label={t.searchCountry}
-                        className={cn(fieldClass, "w-[104px] shrink-0 justify-between px-3 font-normal hover:bg-white/[0.08]")}
+                        className={cn(fieldClass, "w-[104px] shrink-0 justify-between px-3 font-normal hover:bg-secondary")}
                       >
                         {(() => {
                           const opt = PHONE_COUNTRY_OPTIONS.find((o) => o.code === phoneCountryCode);
@@ -488,7 +488,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
                         <ChevronDown className="ml-1 h-4 w-4 shrink-0 opacity-60" aria-hidden />
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-[280px] rounded-xl border-white/10 bg-card p-0" align="start">
+                    <PopoverContent className="w-[280px] rounded-xl border-border bg-card p-0" align="start">
                       <Command>
                         <CommandInput placeholder={t.searchCountry} />
                         <CommandList>

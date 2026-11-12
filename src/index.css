@@ -9,68 +9,71 @@ html {
 
 @layer base {
   :root {
-    --background: 220 20% 6%;
-    --foreground: 210 20% 95%;
+    /* Warm off-white canvas, near-black indigo ink */
+    --background: 40 33% 97%;
+    --foreground: 248 28% 12%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 248 28% 12%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 248 28% 12%;
 
-    --primary: 175 80% 50%;
-    --primary-foreground: 220 20% 6%;
+    /* Deep indigo primary */
+    --primary: 248 56% 36%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 248 38% 94%;
+    --secondary-foreground: 248 50% 28%;
 
-    --muted: 220 15% 18%;
-    --muted-foreground: 210 15% 55%;
+    --muted: 42 22% 92%;
+    --muted-foreground: 248 14% 36%;
 
-    --accent: 175 70% 40%;
-    --accent-foreground: 210 20% 95%;
+    --accent: 262 60% 44%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 44%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 175 80% 50%;
+    --border: 248 22% 88%;
+    --input: 248 22% 85%;
+    --ring: 248 56% 40%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(175, 80%, 50%), hsl(195, 80%, 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(220, 20%, 8%) 0%, hsl(220, 20%, 4%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220, 18%, 12%) 0%, hsl(220, 18%, 8%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(175, 80%, 50%, 0.15) 0%, transparent 70%);
+    /* Footer: the one deep-indigo surface */
+    --footer: 248 44% 13%;
+    --footer-foreground: 248 30% 96%;
 
-    --shadow-glow: 0 0 60px hsl(175, 80%, 50%, 0.2);
-    --shadow-card: 0 8px 32px hsl(0, 0%, 0%, 0.4);
+    /* Violet → cyan gradient accent.
+       --gradient-accent: CTA fills; both ends hold ≥ 4.5:1 with white text.
+       --gradient-text: eyebrows and highlighted phrases; both ends hold ≥ 4.5:1 on the off-white canvas. */
+    --gradient-accent: linear-gradient(135deg, hsl(258 70% 44%), hsl(230 64% 46%), hsl(197 90% 32%));
+    --gradient-text: linear-gradient(110deg, hsl(262 72% 42%), hsl(240 60% 45%), hsl(197 95% 29%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(258 70% 50% / 0.12) 0%, transparent 70%);
 
-    /* Liquid glass */
-    --glass-bg: linear-gradient(145deg, hsl(210 40% 98% / 0.1) 0%, hsl(210 40% 98% / 0.035) 100%);
-    --glass-bg-strong: linear-gradient(145deg, hsl(210 40% 98% / 0.14) 0%, hsl(210 40% 98% / 0.055) 100%);
-    --glass-border: hsl(210 40% 98% / 0.12);
-    --glass-highlight: inset 0 1px 0 hsl(0 0% 100% / 0.18), inset 0 -1px 0 hsl(0 0% 100% / 0.04);
-    --glass-shadow: 0 10px 40px -10px hsl(220 40% 2% / 0.6);
+    --shadow-glow: 0 10px 32px -8px hsl(252 60% 40% / 0.35);
+    --shadow-card: 0 1px 2px hsl(250 40% 20% / 0.05), 0 10px 30px -14px hsl(250 40% 20% / 0.12);
+    --shadow-card-lg: 0 2px 4px hsl(250 40% 20% / 0.05), 0 20px 45px -18px hsl(250 40% 20% / 0.18);
+
+    /* Light surfaces (the former "glass" vocabulary, kept as class names) */
+    --glass-bg: hsl(0 0% 100%);
+    --glass-bg-strong: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(248 45% 98%) 100%);
+    --glass-border: hsl(248 22% 88%);
+    --glass-highlight: inset 0 1px 0 hsl(0 0% 100%);
+    --glass-shadow: var(--shadow-card);
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
 
-    --sidebar-background: 220 18% 10%;
-    --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 175 80% 50%;
-    --sidebar-primary-foreground: 220 20% 6%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 210 20% 95%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 175 80% 50%;
-  }
-
-  .dark {
-    --background: 220 20% 6%;
-    --foreground: 210 20% 95%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 248 28% 12%;
+    --sidebar-primary: 248 56% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 248 38% 94%;
+    --sidebar-accent-foreground: 248 28% 12%;
+    --sidebar-border: 248 22% 88%;
+    --sidebar-ring: 248 56% 40%;
   }
 }
 
@@ -87,7 +90,7 @@ html {
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.3);
+    background: hsl(var(--primary) / 0.18);
     color: hsl(var(--foreground));
   }
 
@@ -97,41 +100,27 @@ html {
     outline-offset: 2px;
   }
 
-  /* Soft colour fields behind the page so the glass has something to refract */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: -10%;
-    z-index: -1;
-    pointer-events: none;
-    transform: translateZ(0);
-    will-change: transform;
-    background:
-      radial-gradient(40% 35% at 15% 10%, hsl(175 80% 50% / 0.22), transparent 70%),
-      radial-gradient(35% 30% at 90% 25%, hsl(260 80% 65% / 0.18), transparent 70%),
-      radial-gradient(45% 40% at 70% 85%, hsl(195 85% 55% / 0.16), transparent 70%),
-      radial-gradient(30% 30% at 10% 80%, hsl(320 70% 60% / 0.10), transparent 70%),
-      hsl(var(--background));
-  }
-
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     text-wrap: balance;
+    color: hsl(var(--foreground));
+  }
+
+  /* Alternating light section tints: every second homepage section gets a cool indigo wash
+     against the warm off-white canvas, so the page reads in bands instead of one long scroll. */
+  main > section:nth-of-type(even) {
+    background-color: hsl(248 38% 96%);
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+    background-image: var(--gradient-text);
   }
 
-  .bg-gradient-hero {
-    background: var(--gradient-hero);
-  }
-
-  .bg-gradient-card {
-    background: var(--gradient-card);
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
   }
 
   .bg-glow {
@@ -146,31 +135,26 @@ html {
     box-shadow: var(--shadow-card);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* Soft decorative gradient shapes (hero, pricing). Low opacity, aria-hidden,
+     positioned at section edges — never behind paragraphs. */
+  .bloom {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 9999px;
+    filter: blur(80px);
+    z-index: -1;
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+  .bloom-violet {
+    background: radial-gradient(circle, hsl(262 80% 60% / 0.16), transparent 70%);
+  }
+
+  .bloom-cyan {
+    background: radial-gradient(circle, hsl(197 90% 50% / 0.14), transparent 70%);
   }
 
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
-  }
-
-  .animate-fade-up-delay-1 {
-    animation: fade-up 0.8s ease-out 0.1s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-up-delay-2 {
-    animation: fade-up 0.8s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-up-delay-3 {
-    animation: fade-up 0.8s ease-out 0.3s forwards;
-    opacity: 0;
   }
 
   /* Hero entrance. Pure CSS so the pre-rendered page is visible before JavaScript loads;
@@ -179,37 +163,36 @@ html {
     animation: rise 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--rise-delay, 0ms) both;
   }
 
-  /* Glass surfaces sit on a smooth gradient, where a live backdrop blur looks identical to none but costs a
-     re-blur of every card on every scroll frame. Only the floating navbar (.glass-nav) blurs live content. */
+  /* Light surfaces. The class names survive from the old dark-glass system so every page
+     restyles at once: .glass is a white card, .glass-panel a feature panel, .glass-chip a tinted pill. */
   .glass,
   .glass-panel,
-  .glass-chip {
+  .glass-solid {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-highlight), var(--glass-shadow);
+    box-shadow: var(--glass-shadow);
   }
 
   .glass-panel {
     background: var(--glass-bg-strong);
+    box-shadow: var(--shadow-card-lg);
   }
 
   .glass-nav {
-    background: hsl(220 20% 8% / 0.72);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-highlight), var(--glass-shadow);
-    -webkit-backdrop-filter: blur(20px) saturate(170%);
-    backdrop-filter: blur(20px) saturate(170%);
+    background: hsl(40 33% 98% / 0.85);
+    border: 1px solid hsl(248 22% 88% / 0.8);
+    box-shadow: var(--shadow-card);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
   }
 
-  /* Denser frosted glass for stacked cards (carousels), where backdrop blur can't reach siblings */
   .glass-solid {
-    background: linear-gradient(145deg, hsl(220 18% 17% / 0.94) 0%, hsl(220 20% 10% / 0.92) 100%);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-highlight), var(--glass-shadow);
+    box-shadow: var(--shadow-card-lg);
   }
 
   .glass-chip {
-    box-shadow: var(--glass-highlight);
+    background: hsl(248 38% 95%);
+    border: 1px solid hsl(248 30% 88%);
   }
 
   .glass-hover {
@@ -218,7 +201,15 @@ html {
 
   .glass-hover:hover {
     border-color: hsl(var(--primary) / 0.35);
-    box-shadow: var(--glass-highlight), 0 0 28px hsl(var(--primary) / 0.15), var(--glass-shadow);
+    box-shadow: var(--shadow-card-lg);
+  }
+
+  /* Featured pricing card: a 1.5px violet-to-cyan gradient border drawn with two background layers. */
+  .gradient-border {
+    border: 1.5px solid transparent;
+    background:
+      linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+      var(--gradient-accent) border-box;
   }
 
   .section-title {
@@ -226,34 +217,7 @@ html {
   }
 
   .section-eyebrow {
-    @apply text-primary font-semibold uppercase text-sm tracking-[0.2em] mb-3 block;
-  }
-
-  .card-hover-glow {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-  }
-
-  .card-hover-glow:hover {
-    box-shadow: 0 0 24px hsl(var(--primary) / 0.18), 0 8px 32px hsl(0 0% 0% / 0.45);
-    background-color: rgb(47, 52, 63) !important;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
+    @apply text-gradient font-semibold uppercase text-sm tracking-[0.2em] mb-3 inline-block;
   }
 }
 
@@ -284,13 +248,8 @@ html {
     scroll-behavior: auto;
   }
 
-  .animate-float,
-  .animate-pulse-glow,
   .animate-rise,
-  .animate-fade-up,
-  .animate-fade-up-delay-1,
-  .animate-fade-up-delay-2,
-  .animate-fade-up-delay-3 {
+  .animate-fade-up {
     animation: none;
     opacity: 1;
   }
@@ -306,10 +265,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
+  background: hsl(248 20% 78%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.6);
 }

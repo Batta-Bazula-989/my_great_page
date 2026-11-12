@@ -103,7 +103,7 @@ const WhatsAppCostCalculator = () => {
                       <span className="text-foreground/85">{t.results[line]}</span>
                       <span className="tabular-nums font-medium">{money(r.lines[line])}</span>
                     </div>
-                    <span className="mt-1.5 block h-1.5 rounded-full bg-white/5 overflow-hidden" aria-hidden>
+                    <span className="mt-1.5 block h-1.5 rounded-full bg-secondary overflow-hidden" aria-hidden>
                       <span
                         className="block h-full rounded-full bg-primary/70 transition-[width] duration-500 ease-out"
                         style={{ width: `${r.total > 0 ? (r.lines[line] / r.total) * 100 : 0}%` }}
@@ -112,13 +112,13 @@ const WhatsAppCostCalculator = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 flex items-baseline justify-between border-t border-white/10 pt-4">
+              <div className="mt-5 flex items-baseline justify-between border-t border-border pt-4">
                 <span className="font-display font-semibold">{t.results.total}</span>
                 <span className="font-display text-3xl font-bold text-primary tabular-nums">{money(r.total)}</span>
               </div>
             </>
           ) : (
-            <p className="rounded-xl border border-dashed border-white/15 p-4 text-sm text-muted-foreground">{t.results.enterRates}</p>
+            <p className="rounded-xl border border-dashed border-border p-4 text-sm text-muted-foreground">{t.results.enterRates}</p>
           )}
         </div>
         <p className="mt-4 text-xs text-muted-foreground leading-relaxed">{t.notIncluded}</p>

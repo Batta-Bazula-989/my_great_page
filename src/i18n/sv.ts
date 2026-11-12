@@ -3,9 +3,9 @@ import tools from "./tools/sv";
 
 const sv: Dictionary = {
   meta: {
-    homeTitle: "AI-chattbottar, röstbottar & ärendeautomatisering | TascaLab",
+    homeTitle: "Lead-, CRM- & supportautomatisering för B2B | TascaLab",
     homeDescription:
-      "Kundtjänstautomatisering: AI-chattbottar, röstbottar, ärenderoutning och automatiska rapporter i Zendesk, Freshdesk och Jira. Fast pris, gratis Health Check.",
+      "Lead-, CRM- och supportautomatisering för små B2B-team: AI-leadscoring, HubSpot- och Attio-integration, chattbotar. Fasta priser, gratis Health Check.",
   },
   nav: {
     services: "Tjänster",
@@ -22,20 +22,67 @@ const sv: Dictionary = {
     skipToContent: "Hoppa till innehållet",
   },
   hero: {
-    eyebrow: "Supportautomatisering som faktiskt håller",
-    titleBefore: "AI-chattbottar, röstbottar & ",
-    titleHighlight: "ärendeautomatisering",
-    titleAfter: " för supportteam",
-    intro: "Jag heter Roman. Jag bygger dem själv, till ett fast pris från {price} som betalas en gång.",
+    eyebrow: "Automatisering som faktiskt håller",
+    titleBefore: "Lead-, CRM- och supportautomatisering ",
+    titleHighlight: "för små B2B-team",
+    titleAfter: "",
+    sectors: "Det mesta av mitt arbete är med B2B-säljteam, e-handel och fulfilmentverksamheter.",
+    intro: "Jag heter Roman. Jag bygger varje projekt själv, till ett fast pris från {price} som betalas en gång.",
     callNote: "Kostnadsfri Health Check: ett samtal på 30 minuter med mig, sedan en skriftlig rapport.",
     ctaBook: "Boka kostnadsfri Health Check",
     ctaUpwork: "Omdömen på Upwork",
-    highlights: ["Fungerar med din nuvarande helpdesk", "Igång på 1–3 veckor", "30 dagars support ingår"],
+    highlights: ["Fungerar med dina nuvarande verktyg", "Igång på 1–3 veckor", "30 dagars support ingår"],
     integratesWith: "Integreras med",
+  },
+  recentWork: {
+    eyebrow: "Senaste projekt",
+    title: "Så ser det ut i praktiken",
+    situationLabel: "Utgångsläge",
+    changeLabel: "Vad som ändrades",
+    resultLabel: "Resultat",
+    cases: [
+      {
+        title: "Hantering av outreach-svar",
+        situation: "Ett B2B-säljteam förde in svar från sin outreach i sitt CRM för hand.",
+        change:
+          "AI klassificerar nu varje Lemlist-svar och loggar det på rätt affär i HubSpot och Attio, med aviseringar i Slack.",
+        result: "Inget missas längre.",
+      },
+      {
+        title: "Scoring av webbplatsbesökare",
+        situation: "Ett företag kunde inte se vilka webbplatsbesökare som var viktiga.",
+        change:
+          "Varje identifierat företag bedöms nu mot deras ideala kundprofil och loggas i HubSpot.",
+        result: "En veckosammanfattning, rangordnad efter poäng.",
+      },
+      {
+        title: "Migrering av automatiseringsplattform",
+        situation: "Ett teams automatiseringsplattform meddelade att den skulle stängas ned.",
+        change: "Fler än 20 arbetsflöden i produktion migrerades till n8n.",
+        result: "Allt var igång före deadline.",
+      },
+    ],
   },
   services: {
     eyebrow: "Vad jag gör",
-    title: "Tjänster för automatisering av kundtjänst",
+    title: "Tjänster för lead-, CRM- och supportautomatisering",
+    groups: {
+      lead: {
+        title: "Lead-automatisering",
+        description:
+          "Dina leads från webbplatsbesökare, formulär och outreach-svar klassificeras, bedöms mot din ideala kundprofil och loggas i ditt CRM med aviseringar till teamet.",
+      },
+      crm: {
+        title: "CRM-integration & -automatisering",
+        description:
+          "Ditt CRM – HubSpot eller Attio – kopplat till dina verktyg för outreach, telefoni och berikning. Svar, samtal och transkript loggas automatiskt på rätt affär, och arbetsflöden migreras mellan plattformar.",
+      },
+      support: {
+        title: "Supportautomatisering",
+        description:
+          "Återkommande meddelanden, samtal och ärenden hanteras automatiskt, och resten lämnas över till ditt team.",
+      },
+    },
     items: [
       {
         title: "Chatt- och röstbottar för support",
@@ -62,6 +109,8 @@ const sv: Dictionary = {
   process: {
     eyebrow: "Så fungerar det",
     title: "Från första samtalet till en fungerande automatisering",
+    intro:
+      "När du har bokat din Health Check: ett samtal på 30 minuter, sedan en skriftlig rapport med rekommendationer och ett fast pris – utan förpliktelser.",
     steps: [
       {
         title: "Kostnadsfri Health Check",
@@ -137,6 +186,7 @@ const sv: Dictionary = {
     deliveryTime: "1–3 veckor",
     included: "Det här ingår",
     groups: {
+      leads: "Lead- & CRM-automatisering",
       chat: "Chatt- och röstbottar",
       tickets: "Ärenden och rapporter",
       custom: "Skräddarsydda lösningar",
@@ -223,6 +273,31 @@ const sv: Dictionary = {
           "Alla verktyg med ett API eller webhooks",
         ],
         running: ["Beror på vilka verktyg som ingår; uppskattas i rapporten från din Health Check"],
+      },
+      {
+        name: "Lead Capture & Scoring",
+        description: "Leads från en källa klassificeras och bedöms av AI och loggas i ditt CRM.",
+        included: [
+          "Leads från en källa: webbplatsbesökare, ett formulär eller outreach-svar",
+          "AI-klassificering och scoring mot din ideala kundprofil",
+          "Loggas i ditt CRM, med aviseringar till e-post eller Slack",
+        ],
+        running: [
+          "AI-användning, som din AI-leverantör fakturerar per token, t.ex. Claude Haiku 5.5 från 0,10 / 0,50 USD per miljon input-/output-tokens*",
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
+        ],
+      },
+      {
+        name: "CRM Integration",
+        description: "Två verktyg kopplade till ditt CRM, med aktivitet loggad på rätt poster.",
+        included: [
+          "Två verktyg kopplade till ditt CRM, t.ex. outreach, telefoni eller berikning",
+          "Svar och aktivitet loggas på rätt poster",
+          "Felhantering och aviseringar",
+        ],
+        running: [
+          "Automatiseringsplattform: n8n i egen drift (gratis programvara; du betalar för servern), n8n Cloud från 20 EUR/månad eller Make från 9 USD/månad (båda faktureras årsvis)",
+        ],
       },
     ],
     footnote:
@@ -319,7 +394,7 @@ const sv: Dictionary = {
     channels: { label: "Efter kanal", blurb: "Supportbottar för de kanaler dina kunder skriver i." },
     basics: { label: "Grunderna", blurb: "Definitioner, nyckeltal och hur överlämningar fungerar." },
     guides: { label: "Guider & regelefterlevnad", blurb: "Verktygsjämförelser och EU-regler för supportbottar." },
-    crm: { label: "CRM-automatisering", blurb: "Arbetsflöden, webhooks och API:er i Attio och HubSpot." },
+    crm: { label: "Lead- & CRM-automatisering", blurb: "Arbetsflöden, webhooks och API:er i Attio och HubSpot." },
   },
   cookie: {
     text: "Jag använder cookies för analys och annonsmätning för att förstå hur besökare hittar och använder den här webbplatsen.",

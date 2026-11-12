@@ -17,11 +17,7 @@ interface SectionProps {
 const Section = ({ id, eyebrow, title, intro, children, className }: SectionProps) => {
   const locale = useLocale();
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className={cn("relative py-16 md:py-20", className)}>
-      <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
-        aria-hidden
-      />
+    <section id={id} aria-labelledby={`${id}-title`} className={cn("relative py-16 md:py-24", className)}>
       <div className="container px-4 relative z-10">
         <div className="text-center mb-10 md:mb-12">
           <span className="section-eyebrow">{eyebrow}</span>

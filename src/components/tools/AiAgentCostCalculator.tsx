@@ -121,7 +121,7 @@ const AiAgentCostCalculator = () => {
           <p className="mt-1 text-sm text-muted-foreground">
             {format(t.results.buildLine, { price: money(result.oneTime), monthly: money(result.buildPerMonth) })}
           </p>
-          <div className="mt-3 h-2 rounded-full bg-white/5 overflow-hidden" aria-hidden>
+          <div className="mt-3 h-2 rounded-full bg-secondary overflow-hidden" aria-hidden>
             <div className="h-full rounded-full bg-primary transition-[width] duration-500 ease-out" style={{ width: `${(result.buildYear / result.max) * 100}%` }} />
           </div>
           <p className="mt-3 text-sm font-medium text-foreground/90">
@@ -142,16 +142,16 @@ const AiAgentCostCalculator = () => {
           </thead>
           <tbody>
             {result.vendors.map((v, i) => (
-              <tr key={v.id} className="border-t border-white/5 align-top">
+              <tr key={v.id} className="border-t border-border/60 align-top">
                 <td className="py-3 pr-3">
                   <a href={v.source} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary">
                     {v.name}
                   </a>
                   {i === 0 && (
-                    <span className="ml-2 rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-foreground/80">{t.results.cheapest}</span>
+                    <span className="ml-2 rounded-full bg-secondary px-2 py-0.5 text-[11px] text-foreground/80">{t.results.cheapest}</span>
                   )}
                   <span className="block text-xs text-muted-foreground mt-0.5">{t.units[v.id]}</span>
-                  <span className="mt-2 block h-1.5 rounded-full bg-white/5 overflow-hidden" aria-hidden>
+                  <span className="mt-2 block h-1.5 rounded-full bg-secondary overflow-hidden" aria-hidden>
                     <span
                       className="block h-full rounded-full bg-foreground/35 transition-[width] duration-500 ease-out"
                       style={{ width: `${(v.year / result.max) * 100}%` }}

@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground font-semibold hover:shadow-glow hover:scale-105 active:scale-95 transform",
+        hero: "bg-gradient-accent text-white font-semibold shadow-card hover:shadow-glow hover:scale-105 active:scale-95 transform",
         heroOutline: "border-2 border-primary text-primary bg-transparent hover:bg-primary/10 font-semibold hover:scale-105 active:scale-95 transform",
-        glass: "glass text-foreground font-semibold hover:bg-white/10 hover:scale-105 active:scale-95 transform",
+        glass: "glass text-foreground font-semibold hover:bg-secondary hover:scale-105 active:scale-95 transform",
         // Outlined chip pill that fills with aqua on hover (package cards).
         package:
           "glass-chip text-primary font-semibold duration-200 hover:bg-primary hover:text-primary-foreground hover:border-primary",
