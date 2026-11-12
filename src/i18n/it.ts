@@ -115,6 +115,7 @@ const it: Dictionary = {
   fit: {
     eyebrow: "Fa per te?",
     title: "Per chi è questa automazione dell'assistenza",
+    intro: "Di solito piccoli team B2B con lavoro ripetitivo nei loro strumenti quotidiani.",
     goodTitle: "Fa per te",
     notTitle: "Non fa per te",
     good: [

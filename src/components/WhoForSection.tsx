@@ -6,7 +6,7 @@ import { useDict } from "@/i18n";
 const WhoForSection = () => {
   const t = useDict().fit;
   return (
-    <Section id="fit" eyebrow={t.eyebrow} title={t.title}>
+    <Section id="fit" eyebrow={t.eyebrow} title={t.title} intro={t.intro}>
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
         <Reveal className="h-full">
           <div className="glass glass-hover h-full p-7 md:p-8 rounded-[28px] hover:-translate-y-1">

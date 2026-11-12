@@ -115,6 +115,7 @@ const nl: Dictionary = {
   fit: {
     eyebrow: "Is dit een match?",
     title: "Voor wie deze supportautomatisering is",
+    intro: "Meestal kleine B2B-teams met repetitief werk in hun dagelijkse tools.",
     goodTitle: "Goede match",
     notTitle: "Geen goede match",
     good: [

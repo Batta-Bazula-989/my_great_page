@@ -115,6 +115,7 @@ const sv: Dictionary = {
   fit: {
     eyebrow: "Passar det dig?",
     title: "Vem den här supportautomatiseringen passar för",
+    intro: "Oftast små B2B-team med repetitivt arbete i sina vardagsverktyg.",
     goodTitle: "Passar bra",
     notTitle: "Passar inte",
     good: [

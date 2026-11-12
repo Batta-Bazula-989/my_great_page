@@ -115,6 +115,7 @@ const pl: Dictionary = {
   fit: {
     eyebrow: "Czy to dla Ciebie?",
     title: "Dla kogo jest ta automatyzacja obsługi klienta",
+    intro: "Zazwyczaj małe zespoły B2B z powtarzalną pracą w codziennych narzędziach.",
     goodTitle: "To dla Ciebie",
     notTitle: "To nie dla Ciebie",
     good: [

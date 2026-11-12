@@ -115,6 +115,7 @@ const de: Dictionary = {
   fit: {
     eyebrow: "Passt das zu Ihnen?",
     title: "Für wen sich diese Support-Automatisierung eignet",
+    intro: "Meist kleine B2B-Teams mit wiederkehrenden Aufgaben in ihren Alltagstools.",
     goodTitle: "Passt gut",
     notTitle: "Passt nicht",
     good: [

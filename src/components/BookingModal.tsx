@@ -352,7 +352,7 @@ const BookingModal = ({ open, onOpenChange, topic, returnFocusTo }: BookingModal
         <DialogHeader className="flex-row items-center gap-3 space-y-0 pr-10 text-left">
           <img
             src={avatar}
-            alt=""
+            alt="Roman Zakharenko"
             width={48}
             height={48}
             className="h-12 w-12 shrink-0 rounded-full border border-border object-cover"

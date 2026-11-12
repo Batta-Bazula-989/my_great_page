@@ -80,7 +80,7 @@ const HeroSection = () => {
             <p className="flex items-center gap-3 text-left text-sm text-foreground/80 max-w-lg">
               <img
                 src={avatar}
-                alt=""
+                alt="Roman Zakharenko"
                 width={36}
                 height={36}
                 className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"

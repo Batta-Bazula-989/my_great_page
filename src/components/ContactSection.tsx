@@ -17,7 +17,7 @@ const ContactSection = () => {
         <p className="flex items-center justify-center gap-3 text-foreground/85 text-lg mb-6">
           <img
             src={avatar}
-            alt=""
+            alt="Roman Zakharenko"
             width={40}
             height={40}
             loading="lazy"

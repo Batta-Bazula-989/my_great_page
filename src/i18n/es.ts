@@ -115,6 +115,7 @@ const es: Dictionary = {
   fit: {
     eyebrow: "¿Encajamos?",
     title: "Para quién es esta automatización del soporte",
+    intro: "Normalmente equipos B2B pequeños con trabajo repetitivo en sus herramientas del día a día.",
     goodTitle: "Encaja bien",
     notTitle: "No encaja",
     good: [

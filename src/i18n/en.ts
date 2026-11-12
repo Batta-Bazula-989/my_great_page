@@ -118,6 +118,7 @@ const en = {
   fit: {
     eyebrow: "Is This a Fit?",
     title: "Who this support automation is for",
+    intro: "Usually small B2B teams with repetitive work in their day-to-day tools.",
     goodTitle: "Good Fit",
     notTitle: "Not the Right Fit",
     good: [
