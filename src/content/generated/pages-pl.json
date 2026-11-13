@@ -306,7 +306,7 @@
   "navLabel": "Bot WhatsApp dla supportu",
   "h1": "Bot WhatsApp do obsługi klienta: jak działa i na co pozwala Meta",
   "description": "Jak działa bot WhatsApp w obsłudze klienta: Business Platform a aplikacja, okno 24 godzin, szablony, opt-in, podstawy cennika i integracja z helpdeskiem.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "Gdy klient napisze lub zadzwoni do Ciebie, otwiera się 24-godzinne okno obsługi klienta, które resetuje się z każdą nową wiadomością.",
@@ -818,15 +818,16 @@
   "navLabel": "Scoring leadów AI",
   "h1": "Scoring leadów AI: jak działa ocena względem Twojego ICP",
   "description": "Scoring leadów AI w praktyce: ocena leadów względem profilu idealnego klienta (ICP), narzędzie lead scoringu HubSpot i zapisywanie wyników w Attio przez API.",
-  "updated": "2026-11-12",
-  "minutes": 6,
+  "updated": "2026-11-13",
+  "minutes": 7,
   "keyFacts": [
    "Narzędzie lead scoringu HubSpot wymaga planu Marketing Hub lub Sales Hub Professional albo Enterprise; scoringi kontaktów budowane przez AI wymagają Marketing Hub Enterprise.",
    "Scoringi AI w HubSpot potrzebują próbki co najmniej 50 kontaktów – 25 skonwertowanych i 25 nieskonwertowanych – zanim wygenerują wynik.",
-   "Attio nie ma wbudowanego silnika scoringu ani typu pola score: wynik mieszka w atrybucie liczbowym lub select, który wypełnia workflow albo API."
+   "Attio nie ma dedykowanego narzędzia do scoringu: w planach Pro, Enterprise i Ultra atrybut formuły może automatycznie sumować punkty; w pozostałych planach atrybut liczbowy wypełnia workflow albo API."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [

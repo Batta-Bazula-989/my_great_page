@@ -354,48 +354,56 @@
  "tools": {
   "en": {
    "hub": "tools",
+   "leadScore": "lead-scoring-calculator",
    "aiAgent": "ai-support-agent-cost-calculator",
    "whatsapp": "whatsapp-business-cost-calculator",
    "sla": "sla-calculator"
   },
   "de": {
    "hub": "tools",
+   "leadScore": "lead-scoring-rechner",
    "aiAgent": "ki-support-agent-kostenrechner",
    "whatsapp": "whatsapp-business-kostenrechner",
    "sla": "sla-rechner"
   },
   "fr": {
    "hub": "tools",
+   "leadScore": "calculateur-lead-scoring",
    "aiAgent": "calculateur-cout-agent-ia-support",
    "whatsapp": "calculateur-cout-whatsapp-business",
    "sla": "calculateur-sla"
   },
   "es": {
    "hub": "tools",
+   "leadScore": "calculadora-lead-scoring",
    "aiAgent": "calculadora-coste-agente-ia-soporte",
    "whatsapp": "calculadora-coste-whatsapp-business",
    "sla": "calculadora-sla"
   },
   "it": {
    "hub": "tools",
+   "leadScore": "calcolatore-lead-scoring",
    "aiAgent": "calcolatore-costo-agente-ai-assistenza",
    "whatsapp": "calcolatore-costi-whatsapp-business",
    "sla": "calcolatore-sla"
   },
   "nl": {
    "hub": "tools",
+   "leadScore": "leadscoring-calculator",
    "aiAgent": "ai-supportagent-kosten-calculator",
    "whatsapp": "whatsapp-business-kosten-calculator",
    "sla": "sla-calculator"
   },
   "pl": {
    "hub": "tools",
+   "leadScore": "kalkulator-lead-scoringu",
    "aiAgent": "kalkulator-kosztow-agenta-ai",
    "whatsapp": "kalkulator-kosztow-whatsapp-business",
    "sla": "kalkulator-sla"
   },
   "sv": {
    "hub": "tools",
+   "leadScore": "leadscoring-kalkylator",
    "aiAgent": "ai-supportagent-kostnadskalkylator",
    "whatsapp": "whatsapp-business-kostnadskalkylator",
    "sla": "sla-kalkylator"

@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp support bot",
   "h1": "WhatsApp customer support bot: how it works and what Meta allows",
   "description": "How a WhatsApp customer support bot works: Business Platform vs app, the 24-hour window, templates, opt-in, pricing basics and connecting to your helpdesk.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "When a customer messages or calls you, a 24-hour customer service window opens and resets with each new message.",
@@ -818,15 +818,16 @@
   "navLabel": "AI lead scoring",
   "h1": "AI lead scoring: how scoring against your ICP works",
   "description": "AI lead scoring explained: scoring leads against your ideal customer profile, HubSpot's lead scoring tool and limits, and writing scores to Attio via API.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "HubSpot's lead scoring tool needs Marketing Hub or Sales Hub Professional or Enterprise; AI-built contact scores need Marketing Hub Enterprise.",
    "HubSpot's AI lead scores need a minimum sample of 50 contacts — 25 converted and 25 non-converted — before a score can be generated.",
-   "Attio has no built-in scoring engine or score field type: a score lives in a number or select attribute that a workflow or the API fills."
+   "Attio has no dedicated scoring tool: on Pro, Enterprise and Ultra a formula attribute can add up points automatically; on other plans a workflow or the API fills a number attribute."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [

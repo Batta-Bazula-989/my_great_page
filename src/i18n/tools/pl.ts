@@ -37,7 +37,7 @@ const tools: ToolsDict = {
       "Bezpłatny kalkulator lead scoringu: zbuduj scoring dopasowania i zaangażowania z limitami i progami HubSpot, przetestuj go na leadzie i skopiuj model.",
     h1: "Kalkulator lead scoringu",
     intro:
-      "Zbuduj punktowy scoring leadów tak, jak działa narzędzie lead scoringu HubSpot: kryteria dopasowania opisują, kim jest lead, a kryteria zaangażowania – co robi; każdy wynik zatrzymuje się na swoim limicie i jest dzielony na przedziały „Wysokie”, „Średnie” i „Niskie”. Przetestuj go na leadzie, sprawdź model pod kątem błędów, a potem skopiuj go do swojego CRM-u.",
+      "Zbuduj punktowy scoring leadów tak, jak działa narzędzie lead scoringu HubSpot: kryteria dopasowania opisują, kim jest lead, a kryteria zaangażowania – co robi; każdy wynik zatrzymuje się na swoim limicie i jest dzielony na przedziały High, Medium i Low. Przetestuj go na leadzie, sprawdź model pod kątem błędów, a potem skopiuj go do swojego CRM-u.",
     inputs: {
       criteriaTitle: "Twoje kryteria",
       criteriaHint:
@@ -52,13 +52,13 @@ const tools: ToolsDict = {
       settingsTitle: "Ustawienia scoringu",
       limit: "Limit scoringu",
       limitOption: "od {min} do {max}",
-      high: "Wysokie od",
-      medium: "Średnie od",
+      high: "High od",
+      medium: "Medium od",
       thresholdsHint:
-        "Limity to opcje dostępne w HubSpot. Domyślne progi odpowiadają przykładowi samego HubSpot: 70–100 „Wysokie”, 40–69 „Średnie”, poniżej 40 „Niskie”.",
+        "Limity to opcje dostępne w HubSpot. Domyślne progi odpowiadają przykładowi samego HubSpot: 70–100 High, 40–69 Medium, poniżej 40 Low.",
     },
     scores: { fit: "Dopasowanie", engagement: "Zaangażowanie" },
-    bands: { high: "Wysokie", medium: "Średnie", low: "Niskie" },
+    bands: { high: "High", medium: "Medium", low: "Low" },
     examples: [
       { label: "Branża pasuje do Twojego profilu idealnego klienta", score: "fit", points: 30, applies: true },
       { label: "Wielkość firmy w Twoim docelowym przedziale", score: "fit", points: 25, applies: true },
@@ -77,18 +77,18 @@ const tools: ToolsDict = {
       checksTitle: "Zanim go zbudujesz",
       allGood: "W tym modelu nie znaleziono problemów.",
       noCriteria: "{score}: dodaj co najmniej jedno kryterium.",
-      order: "{score}: próg „Średnie” musi być niższy niż „Wysokie”.",
-      unreachable: "{score}: żaden lead nie może osiągnąć przedziału „Wysokie”. Najwyższy możliwy wynik leada to {max}.",
+      order: "{score}: próg Medium musi być niższy niż High.",
+      unreachable: "{score}: żaden lead nie może osiągnąć przedziału High. Najwyższy możliwy wynik leada to {max}.",
       capped: "{score}: punkty dodatnie sumują się do {total}, ale wynik zatrzymuje się na {limit}.",
       copy: "Skopiuj model jako tabelę",
       copied: "Skopiowano",
       copyFailed: "Nie udało się skopiować. Zaznacz kryteria i skopiuj je ręcznie.",
-      tableHeads: { score: "Wynik", criterion: "Kryterium", points: "Punkty", limit: "Limit", high: "Wysokie", medium: "Średnie" },
+      tableHeads: { score: "Wynik", criterion: "Kryterium", points: "Punkty", limit: "Limit", high: "High", medium: "Medium" },
     },
     sections: [
       {
         heading: "Jak liczony jest wynik",
-        text: "Każde kryterium dodaje lub odejmuje punkty, gdy dotyczy danego leada. Kryteria dopasowania opisują, kim jest lead, np. branżę, wielkość firmy lub rolę; kryteria zaangażowania opisują, co lead robi, np. odpowiedzi, wizyty lub otwarcia. Każdy wynik zatrzymuje się na swoim limicie, tak jak w narzędziu lead scoringu HubSpot, a progi zamieniają liczbę na przedział „Wysokie”, „Średnie” lub „Niskie”. Etykieta łączona działa według konwencji HubSpot: litera to przedział dopasowania (A – wysokie, C – niskie), a cyfra to przedział zaangażowania (1 – wysokie, 3 – niskie), więc lead o niskim dopasowaniu, ale wysokim zaangażowaniu to C1.",
+        text: "Każde kryterium dodaje lub odejmuje punkty, gdy dotyczy danego leada. Kryteria dopasowania opisują, kim jest lead, np. branżę, wielkość firmy lub rolę; kryteria zaangażowania opisują, co lead robi, np. odpowiedzi, wizyty lub otwarcia. Każdy wynik zatrzymuje się na swoim limicie, tak jak w narzędziu lead scoringu HubSpot, a progi zamieniają liczbę na przedział High, Medium lub Low. Etykieta łączona działa według konwencji HubSpot: litera to przedział dopasowania (A – wysokie, C – niskie), a cyfra to przedział zaangażowania (1 – wysokie, 3 – niskie), więc lead o niskim dopasowaniu, ale wysokim zaangażowaniu to C1.",
       },
       {
         heading: "Konfiguracja w HubSpot",

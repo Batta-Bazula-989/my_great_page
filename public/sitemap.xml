@@ -25,7 +25,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -40,8 +40,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/tools/lead-scoring-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -55,7 +70,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -70,7 +85,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -280,7 +295,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -595,7 +610,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -639,7 +654,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -654,8 +669,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/de/tools/lead-scoring-rechner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -669,7 +699,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -684,7 +714,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -894,7 +924,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1209,7 +1239,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1253,7 +1283,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1268,8 +1298,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/fr/tools/calculateur-lead-scoring</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1283,7 +1328,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1298,7 +1343,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1508,7 +1553,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1823,7 +1868,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1867,7 +1912,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1882,8 +1927,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/es/tools/calculadora-lead-scoring</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1897,7 +1957,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1912,7 +1972,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2122,7 +2182,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2437,7 +2497,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2481,7 +2541,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2496,8 +2556,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/it/tools/calcolatore-lead-scoring</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -2511,7 +2586,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2526,7 +2601,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2736,7 +2811,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3051,7 +3126,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3095,7 +3170,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3110,8 +3185,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/nl/tools/leadscoring-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -3125,7 +3215,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3140,7 +3230,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3350,7 +3440,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3665,7 +3755,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3709,7 +3799,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3724,8 +3814,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -3739,7 +3844,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3754,7 +3859,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3964,7 +4069,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4279,7 +4384,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4323,7 +4428,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/blog" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/blog" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4338,8 +4443,23 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tascalab.com/sv/tools/leadscoring-kalkylator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.tascalab.com/de/tools/lead-scoring-rechner" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.tascalab.com/fr/tools/calculateur-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.tascalab.com/es/tools/calculadora-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tascalab.com/it/tools/calcolatore-lead-scoring" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.tascalab.com/nl/tools/leadscoring-calculator" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-lead-scoringu" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/leadscoring-kalkylator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/lead-scoring-calculator" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -4353,7 +4473,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-agenta-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/ai-supportagent-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/ai-support-agent-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4368,7 +4488,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/tools/kalkulator-kosztow-whatsapp-business" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/tools/whatsapp-business-kostnadskalkylator" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/tools/whatsapp-business-cost-calculator" />
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4578,7 +4698,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/bot-whatsapp-obsluga-klienta" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/whatsapp-bot-kundtjanst" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/whatsapp-customer-support-bot" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4893,7 +5013,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.tascalab.com/pl/scoring-leadow-ai" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.tascalab.com/sv/ai-leadscoring" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tascalab.com/ai-lead-scoring" />
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

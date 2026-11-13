@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp-bot för support",
   "h1": "WhatsApp-bot för kundtjänst: så fungerar den och vad Meta tillåter",
   "description": "Så fungerar en WhatsApp-bot för kundtjänst: Business Platform kontra appen, 24-timmarsfönstret, mallar, opt-in, prissättning och koppling till din helpdesk.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "När en kund skickar ett meddelande eller ringer dig öppnas ett kundtjänstfönster på 24 timmar, som startar om vid varje nytt meddelande.",
@@ -818,15 +818,16 @@
   "navLabel": "AI-leadscoring",
   "h1": "AI-leadscoring: så fungerar poängsättning mot din ICP",
   "description": "AI-leadscoring förklarad: poängsätt leads mot din ideala kundprofil, HubSpots verktyg för leadscoring och dess gränser, och skriv poäng till Attio via API.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 6,
   "keyFacts": [
    "HubSpots verktyg för leadscoring kräver Marketing Hub eller Sales Hub Professional eller Enterprise; AI-byggda kontaktpoäng kräver Marketing Hub Enterprise.",
    "HubSpots AI-leadpoäng kräver ett urval på minst 50 kontakter — 25 konverterade och 25 icke-konverterade — innan en poäng kan genereras.",
-   "Attio har ingen inbyggd poängsättningsmotor och ingen poängfälttyp: en poäng bor i ett number- eller select-attribut som ett arbetsflöde eller API:et fyller."
+   "Attio har inget särskilt verktyg för poängsättning: på Pro, Enterprise och Ultra kan ett formula-attribut räkna ihop poäng automatiskt; på andra planer fyller ett arbetsflöde eller API:et ett number-attribut."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [

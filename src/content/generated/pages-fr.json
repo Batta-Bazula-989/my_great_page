@@ -306,7 +306,7 @@
   "navLabel": "Bot WhatsApp pour le support",
   "h1": "Bot WhatsApp pour le service client : fonctionnement et ce que Meta autorise",
   "description": "Comment fonctionne un bot WhatsApp de service client : Business Platform vs app, fenêtre de 24 heures, modèles, opt-in, tarification et connexion au helpdesk.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 8,
   "keyFacts": [
    "Lorsqu'un client vous envoie un message ou vous appelle, une fenêtre de service client de 24 heures s'ouvre et se réinitialise à chaque nouveau message.",
@@ -818,15 +818,16 @@
   "navLabel": "Lead scoring par IA",
   "h1": "Lead scoring par IA : comment fonctionne le scoring selon votre ICP",
   "description": "Le lead scoring par IA : scorer vos leads selon votre ICP, l'outil de scoring de HubSpot et ses limites, et écrire un score dans Attio via l'API.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 8,
   "keyFacts": [
    "L'outil de lead scoring de HubSpot exige Marketing Hub ou Sales Hub Professional ou Enterprise ; les scores de contacts construits par l'IA exigent Marketing Hub Enterprise.",
    "Les scores IA de HubSpot demandent un échantillon minimal de 50 contacts — 25 convertis et 25 non convertis — avant de pouvoir générer un score.",
-   "Attio n'a ni moteur de scoring intégré ni type de champ score : un score vit dans un attribut nombre ou sélection, rempli par un workflow ou par l'API."
+   "Attio n'a pas d'outil de scoring dédié : sur Pro, Enterprise et Ultra, un attribut formule peut additionner des points automatiquement ; sur les autres forfaits, un workflow ou l'API remplit un attribut nombre."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [

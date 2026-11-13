@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp-Bot für den Support",
   "h1": "WhatsApp-Bot im Kundenservice: Wie er funktioniert und was Meta erlaubt",
   "description": "So funktioniert ein WhatsApp-Bot im Kundenservice: Business Platform vs. App, 24-Stunden-Fenster, Templates, Opt-in, Preise und Anbindung an Ihren Helpdesk.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "Wenn ein Kunde Ihnen schreibt oder Sie anruft, öffnet sich ein 24-stündiges Kundenservice-Fenster, das mit jeder neuen Nachricht neu beginnt.",
@@ -818,15 +818,16 @@
   "navLabel": "KI-Lead-Scoring",
   "h1": "KI-Lead-Scoring: So funktioniert die Bewertung am ICP",
   "description": "KI-Lead-Scoring erklärt: Leads am idealen Kundenprofil bewerten, HubSpots Lead-Scoring-Tool und seine Grenzen, Scores per API nach Attio schreiben.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 6,
   "keyFacts": [
    "HubSpots Lead-Scoring-Tool braucht Marketing Hub oder Sales Hub Professional oder Enterprise; KI-gestützte Kontakt-Scores brauchen Marketing Hub Enterprise.",
    "HubSpots KI-Lead-Scores brauchen eine Mindeststichprobe von 50 Kontakten — 25 konvertierte und 25 nicht konvertierte —, bevor ein Score erzeugt werden kann.",
-   "Attio hat keine eingebaute Scoring-Engine und keinen Score-Feldtyp: Ein Score lebt in einem Zahl- oder Auswahl-Attribut, das ein Workflow oder die API füllt."
+   "Attio hat kein dediziertes Scoring-Tool: In Pro, Enterprise und Ultra kann ein Formel-Attribut Punkte automatisch addieren; in anderen Tarifen füllt ein Workflow oder die API ein Zahl-Attribut."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [

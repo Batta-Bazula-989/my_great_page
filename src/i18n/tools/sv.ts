@@ -37,7 +37,7 @@ const tools: ToolsDict = {
       "Gratis leadscoring-kalkylator: bygg fit- och engagemangspoäng med HubSpots gränser och trösklar, testa på ett lead och kopiera modellen. Utan registrering.",
     h1: "Kalkylator för leadscoring",
     intro:
-      "Bygg en poängbaserad leadscoring som fungerar som HubSpots verktyg för leadscoring: fit-kriterier för vem leadet är, engagemangskriterier för vad det gör, och varje poäng stannar vid sin gräns och delas in i Hög, Medel och Låg. Testa den på ett lead, kontrollera modellen efter fel och kopiera den sedan till ditt CRM.",
+      "Bygg en poängbaserad leadscoring som fungerar som HubSpots verktyg för leadscoring: fit-kriterier för vem leadet är, engagemangskriterier för vad det gör, och varje poäng stannar vid sin gräns och delas in i High, Medium och Low. Testa den på ett lead, kontrollera modellen efter fel och kopiera den sedan till ditt CRM.",
     inputs: {
       criteriaTitle: "Dina kriterier",
       criteriaHint:
@@ -52,13 +52,13 @@ const tools: ToolsDict = {
       settingsTitle: "Poänginställningar",
       limit: "Poänggräns",
       limitOption: "{min} till {max}",
-      high: "Hög från",
-      medium: "Medel från",
+      high: "High från",
+      medium: "Medium från",
       thresholdsHint:
-        "Gränserna är HubSpots alternativ. Standardtrösklarna följer HubSpots eget exempel: 70–100 Hög, 40–69 Medel, under 40 Låg.",
+        "Gränserna är HubSpots alternativ. Standardtrösklarna följer HubSpots eget exempel: 70–100 High, 40–69 Medium, under 40 Low.",
     },
     scores: { fit: "Fit", engagement: "Engagemang" },
-    bands: { high: "Hög", medium: "Medel", low: "Låg" },
+    bands: { high: "High", medium: "Medium", low: "Low" },
     examples: [
       { label: "Branschen matchar din ideala kundprofil", score: "fit", points: 30, applies: true },
       { label: "Företagsstorleken ligger inom ditt målintervall", score: "fit", points: 25, applies: true },
@@ -77,18 +77,18 @@ const tools: ToolsDict = {
       checksTitle: "Innan du bygger den",
       allGood: "Inga problem hittades i den här modellen.",
       noCriteria: "{score}: lägg till minst ett kriterium.",
-      order: "{score}: Medel måste vara lägre än Hög.",
-      unreachable: "{score}: inget lead kan nå Hög. Den högsta poäng ett lead kan få är {max}.",
+      order: "{score}: Medium måste vara lägre än High.",
+      unreachable: "{score}: inget lead kan nå High. Den högsta poäng ett lead kan få är {max}.",
       capped: "{score}: de positiva poängen blir sammanlagt {total}, men poängen stannar vid {limit}.",
       copy: "Kopiera modellen som tabell",
       copied: "Kopierat",
       copyFailed: "Det gick inte att kopiera. Markera kriterierna och kopiera dem manuellt.",
-      tableHeads: { score: "Poängtyp", criterion: "Kriterium", points: "Poäng", limit: "Gräns", high: "Hög", medium: "Medel" },
+      tableHeads: { score: "Poängtyp", criterion: "Kriterium", points: "Poäng", limit: "Gräns", high: "High", medium: "Medium" },
     },
     sections: [
       {
         heading: "Så räknas poängen ut",
-        text: "Varje kriterium lägger till eller drar av poäng när det gäller för ett lead. Fit-kriterier beskriver vem leadet är, till exempel bransch, företagsstorlek eller roll; engagemangskriterier beskriver vad leadet gör, till exempel svar, besök eller öppningar. Varje poäng stannar vid sin gräns, som i HubSpots verktyg för leadscoring, och trösklarna gör om talet till Hög, Medel eller Låg. Den kombinerade etiketten följer HubSpots konvention: bokstaven är fit-bandet (A hög, C låg) och siffran engagemangsbandet (1 hög, 3 låg), så ett lead med låg fit men högt engagemang blir C1.",
+        text: "Varje kriterium lägger till eller drar av poäng när det gäller för ett lead. Fit-kriterier beskriver vem leadet är, till exempel bransch, företagsstorlek eller roll; engagemangskriterier beskriver vad leadet gör, till exempel svar, besök eller öppningar. Varje poäng stannar vid sin gräns, som i HubSpots verktyg för leadscoring, och trösklarna gör om talet till High, Medium eller Low. Den kombinerade etiketten följer HubSpots konvention: bokstaven är fit-bandet (A hög, C låg) och siffran engagemangsbandet (1 hög, 3 låg), så ett lead med låg fit men högt engagemang blir C1.",
       },
       {
         heading: "Så sätter du upp det i HubSpot",

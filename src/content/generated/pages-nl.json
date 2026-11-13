@@ -306,7 +306,7 @@
   "navLabel": "WhatsApp-supportbot",
   "h1": "WhatsApp-klantenservicebot: hoe hij werkt en wat Meta toestaat",
   "description": "Zo werkt een WhatsApp-klantenservicebot: Business Platform vs app, het 24-uursvenster, templates, opt-in, prijsbasis en de koppeling met je helpdesk.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "minutes": 7,
   "keyFacts": [
    "Als een klant je een bericht stuurt of belt, opent een klantenservicevenster van 24 uur dat bij elk nieuw bericht opnieuw begint.",
@@ -818,15 +818,16 @@
   "navLabel": "AI-leadscoring",
   "h1": "AI-leadscoring: zo werkt scoren op je ICP",
   "description": "AI-leadscoring uitgelegd: leads scoren op je ideale klantprofiel, de lead scoring tool en limieten van HubSpot, en scores via de API naar Attio schrijven.",
-  "updated": "2026-11-12",
-  "minutes": 6,
+  "updated": "2026-11-13",
+  "minutes": 7,
   "keyFacts": [
    "De lead scoring tool van HubSpot vereist Marketing Hub of Sales Hub Professional of Enterprise; AI-gebouwde contactscores vereisen Marketing Hub Enterprise.",
    "De AI-leadscores van HubSpot hebben een minimale steekproef van 50 contacten nodig — 25 geconverteerd en 25 niet-geconverteerd — voordat een score kan worden gegenereerd.",
-   "Attio heeft geen ingebouwde scoring-engine of score-veldtype: een score leeft in een number- of select-attribuut dat een workflow of de API vult."
+   "Attio heeft geen aparte scoringtool: op Pro, Enterprise en Ultra kan een formula-attribuut automatisch punten optellen; op andere abonnementen vult een workflow of de API een number-attribuut."
   ],
   "sectionLinks": {
    "1": [
+    "tool:leadScore",
     "hubspot-zendesk-integration"
    ],
    "2": [
