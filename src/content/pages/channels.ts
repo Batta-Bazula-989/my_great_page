@@ -109,7 +109,7 @@ export const channelPages: SeoPageContent[] = [
           },
           {
             type: "p",
-            text: "Two points matter for support teams. Conversations that start from a Click to WhatsApp ad or a Facebook Page call-to-action can open a free entry point window: if you reply within the customer service window, your messages aren't charged, and Meta's current pricing page says that window can stay open for up to 7 days (the older conversation-based pricing gave 72 hours). And helpdesk vendors can add their own fees: Freshworks' documentation, for example, states that it adds a markup on top of Meta's WhatsApp charges.",
+            text: "Two points matter for support teams. Conversations that start from a Click to WhatsApp ad, in WhatsApp's Android or iOS app, can open a free entry point window: if you reply within the customer service window, your messages aren't charged, and Meta's current pricing page says that window can stay open for up to 7 days (the older conversation-based pricing gave 72 hours). And helpdesk vendors can add their own fees: Freshworks' documentation, for example, states that it adds a markup on top of Meta's WhatsApp charges.",
           },
           {
             type: "note",
@@ -209,7 +209,7 @@ export const channelPages: SeoPageContent[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
     published: "2026-10-19",
   },
 

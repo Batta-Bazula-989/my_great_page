@@ -11,7 +11,7 @@ export { TOOL_IDS, type ToolId };
 export const TOOL_ICONS: Record<ToolId, LucideIcon> = { aiAgent: Bot, whatsapp: MessageCircle, sla: CalendarClock };
 
 // Last time the published prices and rules each tool uses were checked.
-export const TOOL_UPDATED: Record<ToolId, string> = { aiAgent: "2026-10-20", whatsapp: "2026-10-20", sla: "2026-10-20" };
+export const TOOL_UPDATED: Record<ToolId, string> = { aiAgent: "2026-10-20", whatsapp: "2026-11-13", sla: "2026-10-20" };
 
 const ECB_SOURCE = {
   label: "European Central Bank: euro foreign exchange reference rates",

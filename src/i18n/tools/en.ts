@@ -149,7 +149,7 @@ const tools = {
       enterRates: "Enter your rates to see the cost.",
     },
     notIncluded:
-      "Not included: volume-tier discounts on utility and authentication messages, your WhatsApp provider's fees, and taxes. Messages in a free entry point window are not charged.",
+      "Not included: volume-tier discounts on utility and authentication messages, Meta Business Agent messages, your WhatsApp provider's fees, and taxes. Messages in a free entry point window are not charged.",
     sections: [
       {
         heading: "What changed on 1 October 2026",
@@ -157,11 +157,11 @@ const tools = {
       },
       {
         heading: "How Meta bills messages",
-        text: "Meta charges per delivered message. The rate depends on the message category (marketing, utility, authentication or service) and the recipient's country. Meta publishes rate cards in several currencies and may change prices only on the first day of a quarter.",
+        text: "Meta charges per delivered message. The rate depends on the message category (marketing, utility, authentication or service) and the recipient's country; service messages cost the same list rate as utility and authentication messages in that market. A fifth category, Meta Business Agent messages from Meta's own AI agent, is billed per token instead. Meta publishes rate cards in 16 currencies and may change prices only on the first day of a quarter.",
       },
       {
         heading: "What this calculator leaves out",
-        text: "Utility and authentication messages have volume tiers that lower the rate at high volumes; they are not modelled here. Messages sent in the 72-hour free entry point window after a click-to-WhatsApp ad or Facebook Page button are free. Your WhatsApp provider may add its own fees.",
+        text: "Utility and authentication messages have volume tiers that lower the rate at high volumes; they are not modelled here. Messages are free in the free entry point window, which opens when you reply within 24 hours to someone who messaged you from a click-to-WhatsApp ad in WhatsApp's Android or iOS app, and can stay open for up to 7 days. Meta Business Agent messages ($2.00 per million tokens) and your WhatsApp provider's fees are not included.",
       },
     ],
     faqs: [
