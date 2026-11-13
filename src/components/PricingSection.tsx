@@ -25,6 +25,9 @@ const CUSTOM: PackageId = "custom";
 // The one visually featured card: a violet-to-cyan gradient border instead of a flag or badge.
 const FEATURED: PackageId = "leadScoring";
 
+// Pricing titles repeat words used by headings elsewhere on the page ("Free Health Check",
+// "Support automation"). They stay headings for screen readers (role="heading" with a level)
+// but are not h-tags, so the document has no duplicate heading texts.
 const PricingSection = () => {
   const dict = useDict();
   const t = dict.pricing;
@@ -44,7 +47,7 @@ const PricingSection = () => {
           <Stethoscope className="w-7 h-7 text-primary" aria-hidden />
         </div>
         <div className="flex-1">
-          <h3 className="font-display text-xl md:text-2xl font-bold">{t.healthCheck.title}</h3>
+          <p role="heading" aria-level={3} className="font-display text-xl md:text-2xl font-bold">{t.healthCheck.title}</p>
           <p className="text-foreground/80 mt-2 leading-relaxed max-w-[60ch] text-pretty">{t.healthCheck.text}</p>
         </div>
         <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
@@ -91,7 +94,7 @@ const PricingSection = () => {
           // neighbouring groups (Lead & CRM next to Support) match height.
           <div key={group.key} className={cn(group.span, "flex flex-col")}>
             <div className="mb-4 flex items-center gap-4">
-              <h3 className="font-display text-lg font-semibold text-foreground/90">{t.groups[group.key]}</h3>
+              <p role="heading" aria-level={3} className="font-display text-lg font-semibold text-foreground/90">{t.groups[group.key]}</p>
               <span className="h-px flex-1 bg-border" aria-hidden />
             </div>
             <div className={cn("grid flex-1 grid-cols-1 auto-rows-fr gap-6", group.cols)}>
@@ -106,7 +109,7 @@ const PricingSection = () => {
                         id === FEATURED && "gradient-border",
                       )}
                     >
-                      <h4 className="font-bold font-display text-foreground text-xl">{plan.name}</h4>
+                      <p role="heading" aria-level={4} className="font-bold font-display text-foreground text-xl">{plan.name}</p>
                       <p className="text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
 
                       <div className="mt-5">
@@ -171,7 +174,7 @@ const PricingSection = () => {
           <Reveal className="max-w-6xl mx-auto mt-8">
             <article className="glass glass-hover flex flex-col gap-6 rounded-[28px] p-7 md:flex-row md:items-center md:p-8">
               <div className="flex-1">
-                <h3 className="font-bold font-display text-foreground text-xl">{plan.name}</h3>
+                <p role="heading" aria-level={3} className="font-bold font-display text-foreground text-xl">{plan.name}</p>
                 <p className="text-muted-foreground mt-2 leading-relaxed text-pretty">{plan.description}</p>
                 <ul aria-label={t.included} className="mt-4 flex flex-col gap-x-8 gap-y-2 lg:flex-row lg:flex-wrap">
                   {plan.included.map((item) => (
