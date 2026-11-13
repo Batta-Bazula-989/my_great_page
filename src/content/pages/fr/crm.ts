@@ -493,7 +493,7 @@ export const crmPages: TranslatedPage[] = [
     keyFacts: [
       "L'outil de lead scoring de HubSpot exige Marketing Hub ou Sales Hub Professional ou Enterprise ; les scores de contacts construits par l'IA exigent Marketing Hub Enterprise.",
       "Les scores IA de HubSpot demandent un échantillon minimal de 50 contacts — 25 convertis et 25 non convertis — avant de pouvoir générer un score.",
-      "Attio n'a ni moteur de scoring intégré ni type de champ score : un score vit dans un attribut nombre ou sélection, rempli par un workflow ou par l'API.",
+      "Attio n'a pas d'outil de scoring dédié : sur Pro, Enterprise et Ultra, un attribut formule peut additionner des points automatiquement ; sur les autres forfaits, un workflow ou l'API remplit un attribut nombre.",
       "Les attributs nombre d'Attio stockent des nombres à virgule flottante avec jusqu'à quatre décimales — de quoi tenir un score de fit de 0–100.",
       "Un score externe s'écrit dans HubSpot via un PATCH sur /crm/v3/objects/contacts/{contactId}, et dans Attio via un PATCH sur /v2/objects/{object}/records/{record_id}.",
     ],
@@ -538,7 +538,7 @@ export const crmPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Attio prend le chemin inverse : pas de moteur de scoring ni de type de champ score. Un score n'est qu'un attribut que vous remplissez. Le modèle de workflow « MQL Scoring » d'Attio score les leads avec des blocs de workflow, et sa page automatisations cite un « Scoring Agent » parmi les agents IA qui tournent dans les workflows — une étape d'agent avec des instructions, pas un produit de scoring distinct. Trois types d'attributs conviennent à un score :",
+            text: "Attio adopte une approche différente : pas d'outil de scoring dédié ni de type de champ score. Sur les forfaits Pro, Enterprise et Ultra, un attribut formule peut calculer un score à points à partir des champs de la fiche elle-même, avec des conditions if() ; une formule qui renvoie un nombre devient un attribut nombre, se recalcule automatiquement quand les champs qu'elle utilise changent et ne consomme aucun crédit de l'espace de travail. Sinon, un score n'est qu'un attribut que vous remplissez : le modèle de workflow « MQL Scoring » d'Attio score les leads avec des blocs de workflow, et sa page automatisations cite un « Scoring Agent » parmi les agents IA qui tournent dans les workflows — une étape d'agent avec des instructions, pas un produit de scoring distinct. Trois types d'attributs conviennent à un score que vous remplissez vous-même :",
           },
           {
             type: "ul",
@@ -630,7 +630,7 @@ export const crmPages: TranslatedPage[] = [
       },
       {
         q: "Attio a-t-il un lead scoring intégré ?",
-        a: "Ni moteur de scoring ni type de champ score. Les scores vivent dans des attributs nombre ou sélection, remplis par des workflows — y compris des étapes d'agent IA, qu'Attio présente comme un Scoring Agent — ou par un outil externe via l'API.",
+        a: "Ni outil de scoring dédié ni type de champ score. Sur Pro, Enterprise et Ultra, un attribut formule peut calculer automatiquement un score à points ; sinon, les scores vivent dans des attributs nombre ou sélection, remplis par des workflows — y compris des étapes d'agent IA, qu'Attio présente comme un Scoring Agent — ou par un outil externe via l'API.",
       },
       {
         q: "Comment écrire un score dans HubSpot ou Attio depuis l'extérieur ?",
@@ -643,6 +643,7 @@ export const crmPages: TranslatedPage[] = [
       { label: "HubSpot Knowledge Base — Build contact lead scores with AI", url: "https://knowledge.hubspot.com/scoring/build-lead-scores-with-ai" },
       { label: "HubSpot Developers — Properties API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide" },
       { label: "HubSpot Developers — Contacts API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide" },
+      { label: "Attio Help — Formula attributes", url: "https://attio.com/help/reference/managing-your-data/attributes/formula-attributes" },
       { label: "Attio Docs — Number attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-number" },
       { label: "Attio Docs — Select attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-select" },
       { label: "Attio Docs — Rating attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-rating" },
@@ -658,7 +659,7 @@ export const crmPages: TranslatedPage[] = [
       { label: "lemlist Developer — Get Many Activities", url: "https://developer.lemlist.com/api-reference/endpoints/activities/get-many-activities" },
     ],
     related: ["website-visitor-identification", "attio-workflows-automation", "attio-vs-hubspot-automation"],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
   {
     key: "website-visitor-identification",

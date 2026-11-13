@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Per i team di assistenza contano due aspetti. Le conversazioni che partono da un annuncio Click to WhatsApp o da una call to action di una Pagina Facebook possono aprire una free entry point window: se rispondi entro la finestra di assistenza clienti, i tuoi messaggi non vengono addebitati, e la pagina attuale dei prezzi di Meta indica che quella finestra può restare aperta fino a 7 giorni (il vecchio modello di prezzi basato sulle conversazioni prevedeva 72 ore). Inoltre i fornitori di helpdesk possono aggiungere costi propri: la documentazione di Freshworks, per esempio, dichiara che applica un ricarico sulle tariffe WhatsApp di Meta.",
+            text: "Per i team di assistenza contano due aspetti. Le conversazioni che partono da un annuncio Click to WhatsApp, nell'app WhatsApp per Android o iOS, possono aprire una free entry point window: se rispondi entro la finestra di assistenza clienti, i tuoi messaggi non vengono addebitati, e la pagina attuale dei prezzi di Meta indica che quella finestra può restare aperta fino a 7 giorni (il vecchio modello di prezzi basato sulle conversazioni prevedeva 72 ore). Inoltre i fornitori di helpdesk possono aggiungere costi propri: la documentazione di Freshworks, per esempio, dichiara che applica un ricarico sulle tariffe WhatsApp di Meta.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------

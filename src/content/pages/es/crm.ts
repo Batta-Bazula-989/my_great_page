@@ -493,7 +493,7 @@ export const crmPages: TranslatedPage[] = [
     keyFacts: [
       "La herramienta de lead scoring de HubSpot requiere Marketing Hub o Sales Hub Professional o Enterprise; los scores de contactos creados con IA requieren Marketing Hub Enterprise.",
       "Los lead scores con IA de HubSpot necesitan una muestra mínima de 50 contactos — 25 convertidos y 25 no convertidos — antes de poder generar una puntuación.",
-      "Attio no tiene motor de scoring ni tipo de campo de puntuación: la puntuación vive en un atributo de número o de selección que rellena un workflow o la API.",
+      "Attio no tiene una herramienta de scoring dedicada: en Pro, Enterprise y Ultra, un atributo de fórmula puede sumar puntos automáticamente; en los demás planes, un workflow o la API rellena un atributo de número.",
       "Los atributos de número de Attio almacenan números de coma flotante con hasta cuatro decimales — suficiente para una puntuación de encaje de 0–100.",
       "Una puntuación externa se escribe en HubSpot con un PATCH a /crm/v3/objects/contacts/{contactId}, y en Attio con un PATCH a /v2/objects/{object}/records/{record_id}.",
     ],
@@ -538,7 +538,7 @@ export const crmPages: TranslatedPage[] = [
         blocks: [
           {
             type: "p",
-            text: "Attio toma el enfoque contrario: no hay motor de scoring ni tipo de campo de puntuación. Una puntuación es simplemente un atributo que tú rellenas. La propia plantilla de workflow \"MQL Scoring\" de Attio puntúa leads con bloques de workflow, y su página de automatizaciones menciona un \"Scoring Agent\" entre los agentes de IA que se ejecutan dentro de los workflows — un paso de agente con instrucciones, no un producto de scoring aparte. Tres tipos de atributo encajan con una puntuación:",
+            text: "Attio toma un enfoque distinto: no hay herramienta de scoring dedicada ni tipo de campo de puntuación. En los planes Pro, Enterprise y Ultra, un atributo de fórmula puede calcular una puntuación por puntos a partir de los propios campos de un registro con condiciones if(); una fórmula que devuelve un número se convierte en un atributo de número, se recalcula automáticamente cuando cambian los campos que usa y no consume créditos del espacio de trabajo. Si no, una puntuación es simplemente un atributo que tú rellenas: la propia plantilla de workflow \"MQL Scoring\" de Attio puntúa leads con bloques de workflow, y su página de automatizaciones menciona un \"Scoring Agent\" entre los agentes de IA que se ejecutan dentro de los workflows — un paso de agente con instrucciones, no un producto de scoring aparte. Tres tipos de atributo encajan con una puntuación que rellenas tú mismo:",
           },
           {
             type: "ul",
@@ -630,7 +630,7 @@ export const crmPages: TranslatedPage[] = [
       },
       {
         q: "¿Attio tiene lead scoring integrado?",
-        a: "No hay motor de scoring ni tipo de campo de puntuación. Las puntuaciones viven en atributos de número o de selección, rellenados por workflows — incluidos pasos de agentes de IA, que Attio comercializa como Scoring Agent — o por una herramienta externa a través de la API.",
+        a: "No hay herramienta de scoring dedicada ni tipo de campo de puntuación. En Pro, Enterprise y Ultra, un atributo de fórmula puede calcular automáticamente una puntuación por puntos; si no, las puntuaciones viven en atributos de número o de selección, rellenados por workflows — incluidos pasos de agentes de IA, que Attio comercializa como Scoring Agent — o por una herramienta externa a través de la API.",
       },
       {
         q: "¿Cómo escribo una puntuación en HubSpot o Attio desde fuera?",
@@ -643,6 +643,7 @@ export const crmPages: TranslatedPage[] = [
       { label: "HubSpot Knowledge Base — Build contact lead scores with AI", url: "https://knowledge.hubspot.com/scoring/build-lead-scores-with-ai" },
       { label: "HubSpot Developers — Properties API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide" },
       { label: "HubSpot Developers — Contacts API", url: "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide" },
+      { label: "Attio Help — Formula attributes", url: "https://attio.com/help/reference/managing-your-data/attributes/formula-attributes" },
       { label: "Attio Docs — Number attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-number" },
       { label: "Attio Docs — Select attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-select" },
       { label: "Attio Docs — Rating attributes", url: "https://docs.attio.com/rest-api/attribute-types/attribute-types-rating" },
@@ -658,7 +659,7 @@ export const crmPages: TranslatedPage[] = [
       { label: "lemlist Developer — Get Many Activities", url: "https://developer.lemlist.com/api-reference/endpoints/activities/get-many-activities" },
     ],
     related: ["website-visitor-identification", "attio-workflows-automation", "attio-vs-hubspot-automation"],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
   {
     key: "website-visitor-identification",

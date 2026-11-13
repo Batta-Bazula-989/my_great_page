@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Deux points comptent pour les équipes support. Les conversations qui démarrent depuis une publicité Click to WhatsApp ou un bouton d'appel à l'action d'une Page Facebook peuvent ouvrir une fenêtre de point d'entrée gratuite (free entry point) : si vous répondez dans la fenêtre de service client, vos messages ne sont pas facturés, et la page de tarification actuelle de Meta indique que cette fenêtre peut rester ouverte jusqu'à 7 jours (l'ancienne tarification par conversation accordait 72 heures). Par ailleurs, les éditeurs de helpdesk peuvent ajouter leurs propres frais : la documentation de Freshworks, par exemple, indique qu'il applique une marge en plus des frais WhatsApp de Meta.",
+            text: "Deux points comptent pour les équipes support. Les conversations qui démarrent depuis une publicité Click to WhatsApp, dans l'application WhatsApp pour Android ou iOS, peuvent ouvrir une fenêtre de point d'entrée gratuite (free entry point) : si vous répondez dans la fenêtre de service client, vos messages ne sont pas facturés, et la page de tarification actuelle de Meta indique que cette fenêtre peut rester ouverte jusqu'à 7 jours (l'ancienne tarification par conversation accordait 72 heures). Par ailleurs, les éditeurs de helpdesk peuvent ajouter leurs propres frais : la documentation de Freshworks, par exemple, indique qu'il applique une marge en plus des frais WhatsApp de Meta.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------

@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Hay dos puntos importantes para los equipos de soporte. Las conversaciones que empiezan desde un anuncio Click to WhatsApp o desde un botón de llamada a la acción de una página de Facebook pueden abrir una ventana gratuita de punto de entrada: si respondes dentro de la ventana de atención al cliente, tus mensajes no se cobran, y la página de precios actual de Meta indica que esa ventana puede permanecer abierta hasta 7 días (el antiguo modelo de precios por conversación daba 72 horas). Además, los proveedores de helpdesk pueden añadir sus propias tarifas: la documentación de Freshworks, por ejemplo, indica que aplica un recargo sobre los cargos de WhatsApp de Meta.",
+            text: "Hay dos puntos importantes para los equipos de soporte. Las conversaciones que empiezan desde un anuncio Click to WhatsApp, en la app de WhatsApp para Android o iOS, pueden abrir una ventana gratuita de punto de entrada: si respondes dentro de la ventana de atención al cliente, tus mensajes no se cobran, y la página de precios actual de Meta indica que esa ventana puede permanecer abierta hasta 7 días (el antiguo modelo de precios por conversación daba 72 horas). Además, los proveedores de helpdesk pueden añadir sus propias tarifas: la documentación de Freshworks, por ejemplo, indica que aplica un recargo sobre los cargos de WhatsApp de Meta.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------
