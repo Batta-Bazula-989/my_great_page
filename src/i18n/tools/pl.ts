@@ -142,7 +142,8 @@ const tools: ToolsDict = {
       resolutionRate: "Rozwiązane bez udziału człowieka",
       actions: "Akcje Agentforce na rozmowę",
       buildTitle: "Jednorazowe wdrożenie",
-      package: "Pakiet",
+      package: "Cena pakietu {plan} (jednorazowo)",
+      priceHint: "Pakiet {plan} kosztuje od {price}. Jeśli masz raport z Health Check, wpisz podaną w nim stałą cenę.",
       platform: "Platforma automatyzacji",
       platforms: {
         n8nCloud: "n8n Cloud Starter (20 EUR miesięcznie przy rozliczeniu rocznym)",
@@ -153,7 +154,7 @@ const tools: ToolsDict = {
       inputTokens: "Wejściowe",
       outputTokens: "Wyjściowe",
       tokensHint:
-        "Przykładowe wartości z opublikowanej rozmowy z obsługą klienta liczącej 5 wiadomości. Zmień je, aby pasowały do Twojego bota.",
+        "Domyślne wartości poglądowe: żadne oficjalne źródło nie publikuje typowej liczby. Zastąp je rzeczywistymi danymi Twojego bota z panelu zużycia u Twojego dostawcy AI.",
     },
     results: {
       title: "Szacowany koszt",
@@ -170,19 +171,19 @@ const tools: ToolsDict = {
       empty: "Wpisz liczbę rozmów z AI miesięcznie, aby porównać koszty.",
     },
     units: {
-      fin: "0,99 USD za wynik (outcome); co najmniej 50 miesięcznie przy innym helpdesku",
-      zendesk: "2,00 USD za automatyczne rozwiązanie, w modelu pay-as-you-go",
+      fin: "0,99 USD za wynik (outcome); przy innym helpdesku minimum 49 USD miesięcznie, które obejmuje 50 wyników",
+      zendesk: "2,00 USD za automatyczne rozwiązanie, w modelu pay-as-you-go (1,50 USD przy zobowiązaniu)",
       freddy: "49 USD za 100 sesji",
-      hubspot: "0,50 USD za rozwiązaną rozmowę; wymaga planu Professional lub Enterprise",
-      tidio: "0,50 USD za rozmowę, w której odpowiada Lyro",
-      agentforce: "0,10 USD za akcję (20 Flex Credits)",
+      hubspot: "0,50 USD za rozwiązaną rozmowę (50 HubSpot Credits); wymaga planu Professional lub Enterprise",
+      tidio: "Miesięczne pakiety od 39 USD za 50 do 700 USD za 1000 rozmów; powyżej tego Lyro Connect od 0,50 USD za rozmowę",
+      agentforce: "0,10 USD za akcję (20 Flex Credits, 500 USD za 100 000)",
     },
     notIncluded:
-      "Nie uwzględniono: abonamentu helpdesku, limitów zawartych w planach, rabatów za wolumen ani podatków. Fin rozlicza też niektóre przekazania i przekierowania jako wyniki, więc jego rzeczywisty koszt może być wyższy.",
+      "Nie uwzględniono: abonamentu helpdesku, limitów zawartych w planach, rabatów za wolumen ani podatków. Fin rozlicza też jako wyniki przekazania z Procedure (czyli z Procedure skonfigurowanej tak, aby kończyła się przekazaniem), więc jego rzeczywisty koszt może być wyższy. Zendesk przenosi konta na progi rozwiązań (resolution tiers), których ceny ustala jego dział sprzedaży.",
     sections: [
       {
         heading: "Jak działa wyliczenie",
-        text: "Liczba rozwiązanych rozmów to Twoje miesięczne rozmowy pomnożone przez odsetek rozwiązanych bez udziału człowieka. Fin, Zendesk i HubSpot naliczają opłaty za rozwiązanie lub wynik, Freddy za pakiet 100 sesji, Tidio Lyro za rozmowę, w której odpowiada, a Agentforce za akcję. Cena katalogowa każdego dostawcy prowadzi poniżej do jego strony z cennikiem.",
+        text: "Liczba rozwiązanych rozmów to Twoje miesięczne rozmowy pomnożone przez odsetek rozwiązanych bez udziału człowieka. Fin nalicza opłaty za wynik, ponad miesięczne minimum 49 USD, Zendesk i HubSpot za rozwiązanie, Freddy za pakiet 100 sesji, Tidio Lyro w miesięcznych pakietach rozmów, w których odpowiada, a Agentforce za akcję. Cena katalogowa każdego dostawcy prowadzi poniżej do jego strony z cennikiem.",
       },
       {
         heading: "Dlaczego rachunki naliczane za rozwiązanie rosną",
@@ -196,11 +197,11 @@ const tools: ToolsDict = {
     faqs: [
       {
         q: "Czy te ceny są aktualne?",
-        a: "To ceny katalogowe opublikowane na stronach z cennikami poszczególnych dostawców w październiku 2026 r. Dostawcy często zmieniają ceny, więc przed zakupem sprawdź podlinkowane strony.",
+        a: "To ceny katalogowe opublikowane na oficjalnych stronach z cennikami poszczególnych dostawców, sprawdzone w listopadzie 2026 r. Dostawcy często zmieniają ceny, więc przed zakupem sprawdź podlinkowane strony.",
       },
       {
         q: "Co liczy się jako rozwiązanie?",
-        a: "Każdy dostawca definiuje to inaczej. Fin nalicza opłaty za wynik (outcome), Zendesk za automatyczne rozwiązanie, HubSpot za rozwiązaną rozmowę, a Freddy za sesję. Przed porównaniem przeczytaj definicję każdego dostawcy.",
+        a: "Każdy dostawca definiuje to inaczej. Fin nalicza opłaty za wynik (outcome: rozwiązanie albo Procedure zakończona przekazaniem), Zendesk za automatyczne rozwiązanie, HubSpot za rozmowę nieprzekazaną człowiekowi w ciągu 72 godzin, Freddy za sesję, a Tidio za rozmowę, w której odpowiada Lyro. Przed porównaniem przeczytaj definicję każdego dostawcy.",
       },
       {
         q: "Dlaczego ceny są pokazane w mojej walucie?",
@@ -248,7 +249,7 @@ const tools: ToolsDict = {
       enterRates: "Wpisz swoje stawki, aby zobaczyć koszt.",
     },
     notIncluded:
-      "Nie uwzględniono: rabatów progowych za wolumen dla wiadomości utility i uwierzytelniających, opłat Twojego dostawcy WhatsApp ani podatków. Wiadomości w bezpłatnym oknie punktu wejścia nie są płatne.",
+      "Nie uwzględniono: rabatów progowych za wolumen dla wiadomości utility i uwierzytelniających, wiadomości Meta Business Agent, opłat Twojego dostawcy WhatsApp ani podatków. Wiadomości w bezpłatnym oknie punktu wejścia nie są płatne.",
     sections: [
       {
         heading: "Co zmieniło się 1 października 2026 r.",
@@ -256,11 +257,11 @@ const tools: ToolsDict = {
       },
       {
         heading: "Jak Meta nalicza opłaty za wiadomości",
-        text: "Meta pobiera opłatę za każdą dostarczoną wiadomość. Stawka zależy od kategorii wiadomości (marketingowa, utility, uwierzytelniająca lub serwisowa) i kraju odbiorcy. Meta publikuje tabele stawek w kilku walutach i może zmieniać ceny tylko pierwszego dnia kwartału.",
+        text: "Meta pobiera opłatę za każdą dostarczoną wiadomość. Stawka zależy od kategorii wiadomości (marketingowa, utility, uwierzytelniająca lub serwisowa) i kraju odbiorcy; wiadomości serwisowe mają na danym rynku tę samą stawkę katalogową co wiadomości utility i uwierzytelniające. Piąta kategoria, wiadomości Meta Business Agent wysyłane przez własnego agenta AI Meta, jest natomiast rozliczana za tokeny. Meta publikuje tabele stawek w 16 walutach i może zmieniać ceny tylko pierwszego dnia kwartału.",
       },
       {
         heading: "Czego ten kalkulator nie uwzględnia",
-        text: "Wiadomości utility i uwierzytelniające mają progi wolumenowe, które obniżają stawkę przy dużych wolumenach; nie są one tu uwzględnione. Wiadomości wysłane w 72-godzinnym bezpłatnym oknie punktu wejścia po kliknięciu reklamy Click to WhatsApp lub przycisku na stronie na Facebooku są bezpłatne. Twój dostawca WhatsApp może doliczać własne opłaty.",
+        text: "Wiadomości utility i uwierzytelniające mają progi wolumenowe, które obniżają stawkę przy dużych wolumenach; nie są one tu uwzględnione. Wiadomości są bezpłatne w bezpłatnym oknie punktu wejścia, które otwiera się, gdy w ciągu 24 godzin odpowiesz osobie, która napisała do Ciebie z reklamy Click to WhatsApp w aplikacji WhatsApp na Androida lub iOS, i może pozostać otwarte do 7 dni. Wiadomości Meta Business Agent (2,00 USD za milion tokenów) i opłaty Twojego dostawcy WhatsApp nie są uwzględnione.",
       },
     ],
     faqs: [

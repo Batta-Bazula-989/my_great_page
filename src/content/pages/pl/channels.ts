@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Dla zespołów obsługi klienta ważne są dwie kwestie. Rozmowy rozpoczęte z reklamy Click to WhatsApp lub przycisku wezwania do działania na stronie na Facebooku mogą otworzyć bezpłatne okno punktu wejścia (free entry point window): jeśli odpowiesz w oknie obsługi klienta, Twoje wiadomości nie są płatne, a według aktualnej strony cennika Meta to okno może pozostać otwarte do 7 dni (wcześniejszy cennik oparty na rozmowach dawał 72 godziny). Ponadto dostawcy helpdesków mogą doliczać własne opłaty: dokumentacja Freshworks podaje na przykład, że firma dolicza marżę do opłat Meta za WhatsAppa.",
+            text: "Dla zespołów obsługi klienta ważne są dwie kwestie. Rozmowy rozpoczęte z reklamy Click to WhatsApp, w aplikacji WhatsApp na Androida lub iOS, mogą otworzyć bezpłatne okno punktu wejścia (free entry point window): jeśli odpowiesz w oknie obsługi klienta, Twoje wiadomości nie są płatne, a według aktualnej strony cennika Meta to okno może pozostać otwarte do 7 dni (wcześniejszy cennik oparty na rozmowach dawał 72 godziny). Ponadto dostawcy helpdesków mogą doliczać własne opłaty: dokumentacja Freshworks podaje na przykład, że firma dolicza marżę do opłat Meta za WhatsAppa.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------

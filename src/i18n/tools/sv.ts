@@ -6,7 +6,7 @@ const tools: ToolsDict = {
   allTools: "Alla verktyg",
   hub: {
     slug: "tools",
-    metaTitle: "Gratis kalkylatorer för leadscoring och kundtjänst | TascaLab",
+    metaTitle: "Gratis kalkylatorer för leadscoring och support | TascaLab",
     metaDescription:
       "Gratis kalkylatorer: bygg och testa en leadpoäng, jämför vad AI-supportagenter kostar, uppskatta WhatsApp Business API-fakturan och se när SLA-mål förfaller.",
     eyebrow: "Gratis verktyg",
@@ -32,7 +32,7 @@ const tools: ToolsDict = {
     slug: "leadscoring-kalkylator",
     navLabel: "Leadscoring-kalkylator",
     short: "Bygg fit- och engagemangspoäng, testa dem på ett lead och kopiera modellen.",
-    metaTitle: "Leadscoring-kalkylator: fit- och engagemangsmodell | TascaLab",
+    metaTitle: "Leadscoring-kalkylator: fit- & engagemangsmodell | TascaLab",
     metaDescription:
       "Gratis leadscoring-kalkylator: bygg fit- och engagemangspoäng med HubSpots gränser och trösklar, testa på ett lead och kopiera modellen. Utan registrering.",
     h1: "Kalkylator för leadscoring",
