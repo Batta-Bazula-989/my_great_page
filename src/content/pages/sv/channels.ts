@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Två saker spelar roll för supportteam. Samtal som startar från en Click to WhatsApp-annons eller en uppmaning (call-to-action) på en Facebook-sida kan öppna ett kostnadsfritt fönster för ingångspunkten: om du svarar inom kundtjänstfönstret debiteras inte dina meddelanden, och enligt Metas aktuella prissida kan det fönstret vara öppet i upp till 7 dagar (den äldre konversationsbaserade prissättningen gav 72 timmar). Dessutom kan helpdeskleverantörer lägga på egna avgifter: Freshworks dokumentation anger till exempel att företaget lägger ett påslag ovanpå Metas WhatsApp-avgifter.",
+            text: "Två saker spelar roll för supportteam. Samtal som startar från en Click to WhatsApp-annons, i WhatsApps app för Android eller iOS, kan öppna ett kostnadsfritt fönster för ingångspunkten: om du svarar inom kundtjänstfönstret debiteras inte dina meddelanden, och enligt Metas aktuella prissida kan det fönstret vara öppet i upp till 7 dagar (den äldre konversationsbaserade prissättningen gav 72 timmar). Dessutom kan helpdeskleverantörer lägga på egna avgifter: Freshworks dokumentation anger till exempel att företaget lägger ett påslag ovanpå Metas WhatsApp-avgifter.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------

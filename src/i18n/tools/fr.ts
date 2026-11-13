@@ -5,11 +5,11 @@ const tools: ToolsDict = {
   allTools: "Tous les outils",
   hub: {
     slug: "tools",
-    metaTitle: "Outils et calculateurs gratuits pour le support | TascaLab",
+    metaTitle: "Calculateurs gratuits : lead scoring et support | TascaLab",
     metaDescription:
-      "Calculateurs gratuits pour les équipes support : comparez le coût des agents IA, estimez la facture WhatsApp Business API et calculez les SLA en heures ouvrées.",
+      "Calculateurs gratuits : créez et testez un lead score, comparez le coût des agents IA, estimez la facture WhatsApp Business API et calculez les échéances SLA.",
     eyebrow: "Outils gratuits",
-    title: "Outils gratuits pour les équipes support",
+    title: "Outils gratuits pour les équipes commerciales et support",
     intro: "Des calculateurs rapides, fondés sur des prix publiés et des calculs simples. Gratuits, sans inscription.",
     open: "Ouvrir l'outil",
   },
@@ -27,6 +27,104 @@ const tools: ToolsDict = {
     ctaBook: "Réserver un Health Check gratuit",
     otherTools: "Autres outils gratuits",
   },
+  leadScore: {
+    slug: "calculateur-lead-scoring",
+    navLabel: "Calculateur de lead scoring",
+    short: "Construisez un score de fit et d'engagement, testez-le sur un lead et copiez le modèle.",
+    metaTitle: "Calculateur de lead scoring : fit et engagement | TascaLab",
+    metaDescription:
+      "Calculateur de lead scoring gratuit : créez un score de fit et d'engagement avec les limites et seuils de HubSpot, testez-le sur un lead et copiez le modèle.",
+    h1: "Calculateur de lead scoring",
+    intro:
+      "Construisez un score de lead à points sur le modèle de l'outil de lead scoring de HubSpot : des critères de fit pour qui est le lead, des critères d'engagement pour ce qu'il fait, chaque score étant plafonné à sa limite et découpé en High, Medium et Low. Testez-le sur un lead, vérifiez que le modèle ne contient pas d'erreurs, puis copiez-le dans votre CRM.",
+    inputs: {
+      criteriaTitle: "Vos critères",
+      criteriaHint:
+        "Cochez les critères qui s'appliquent à un lead que vous voulez tester. Les exemples sont fictifs : remplacez chaque libellé et chaque valeur de points par les vôtres.",
+      label: "Critère",
+      score: "Score",
+      points: "Points",
+      applies: "S'applique au lead de test",
+      remove: "Supprimer {label}",
+      add: "Ajouter un critère",
+      maxReached: "Jusqu'à {n} critères.",
+      settingsTitle: "Paramètres des scores",
+      limit: "Limite du score",
+      limitOption: "{min} à {max}",
+      high: "High à partir de",
+      medium: "Medium à partir de",
+      thresholdsHint:
+        "Les limites sont les options proposées par HubSpot. Les seuils par défaut reprennent l'exemple de HubSpot : 70–100 High, 40–69 Medium, moins de 40 Low.",
+    },
+    scores: { fit: "Fit", engagement: "Engagement" },
+    bands: { high: "High", medium: "Medium", low: "Low" },
+    examples: [
+      { label: "Le secteur correspond à votre profil client idéal", score: "fit", points: 30, applies: true },
+      { label: "La taille de l'entreprise est dans votre fourchette cible", score: "fit", points: 25, applies: true },
+      { label: "Le poste est celui d'un décideur", score: "fit", points: 25, applies: false },
+      { label: "Situé dans une région que vous ne desservez pas", score: "fit", points: -40, applies: false },
+      { label: "A répondu avec intérêt à votre outreach", score: "engagement", points: 40, applies: true },
+      { label: "A visité la page de tarifs", score: "engagement", points: 20, applies: true },
+      { label: "A ouvert vos trois derniers e-mails", score: "engagement", points: 10, applies: false },
+      { label: "S'est désabonné de vos e-mails", score: "engagement", points: -50, applies: false },
+    ],
+    results: {
+      title: "Votre lead de test",
+      combined: "Libellé combiné",
+      combinedDesc: "Fit {fit}, engagement {engagement}",
+      range: "Plage possible : de {min} à {max}",
+      checksTitle: "Avant de le mettre en place",
+      allGood: "Aucun problème détecté dans ce modèle.",
+      noCriteria: "{score} : ajoutez au moins un critère.",
+      order: "{score} : Medium doit être inférieur à High.",
+      unreachable: "{score} : aucun lead ne peut atteindre High. Le maximum qu'un lead peut obtenir est {max}.",
+      capped: "{score} : les points positifs totalisent {total}, mais le score s'arrête à {limit}.",
+      copy: "Copier le modèle sous forme de tableau",
+      copied: "Copié",
+      copyFailed: "Impossible de copier. Sélectionnez les critères et copiez-les à la main.",
+      tableHeads: { score: "Score", criterion: "Critère", points: "Points", limit: "Limite", high: "High", medium: "Medium" },
+    },
+    sections: [
+      {
+        heading: "Comment le score est calculé",
+        text: "Chaque critère ajoute ou retire des points lorsqu'il s'applique à un lead. Les critères de fit décrivent qui est le lead, comme le secteur, la taille de l'entreprise ou la fonction ; les critères d'engagement décrivent ce que fait le lead, comme les réponses, les visites ou les ouvertures. Chaque score s'arrête à sa limite, comme dans l'outil de lead scoring de HubSpot, et les seuils transforment le nombre en High, Medium ou Low. Le libellé combiné suit la convention de HubSpot : la lettre correspond à la bande de fit (A élevé, C faible) et le chiffre à la bande d'engagement (1 élevé, 3 faible) ; un lead peu adapté mais très engagé est donc C1.",
+      },
+      {
+        heading: "La mise en place dans HubSpot",
+        text: "L'outil de lead scoring de HubSpot exige Marketing Hub ou Sales Hub Professional ou Enterprise. Les limites de score vont de -100 à 100 jusqu'à -10 000 à 10 000, avec 100 comme maximum par défaut. Dans un score, vous pouvez ajouter des groupes dotés de leurs propres limites, et toutes les limites de groupe comptent dans la limite du score. Pour l'engagement, la décroissance du score peut réduire les points tous les 1, 3, 6 ou 12 mois, chaque mois comptant 30 jours.",
+      },
+      {
+        heading: "La mise en place dans Attio",
+        text: "Attio n'a pas d'outil de scoring dédié. Sur les forfaits Pro, Enterprise et Ultra, un attribut formule peut additionner des points avec des conditions if(), en utilisant l'opérateur ?? pour traiter les champs vides comme 0. Une formule qui renvoie un nombre devient un attribut nombre, se recalcule automatiquement quand les champs qu'elle utilise changent et ne consomme aucun crédit de l'espace de travail. Sur Free et Plus, stockez le score dans un attribut nombre qu'un workflow ou l'API remplit.",
+      },
+      {
+        heading: "Quand vous n'avez pas besoin d'un score",
+        text: "Si votre équipe lit chaque nouveau lead le jour même, un score apporte peu. Il devient rentable quand les leads arrivent plus vite que quiconque ne peut les examiner, ou quand les signaux qui comptent le plus, comme une réponse intéressée ou une visite de votre page de tarifs, se trouvent dans des outils que votre CRM ne voit pas de lui-même.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Les points des exemples sont-ils une recommandation ?",
+        a: "Non. Ce sont des valeurs fictives qui montrent comment fonctionne le calcul. Remplacez chaque critère et chaque valeur de points par les vôtres. Les seules valeurs par défaut tirées d'un éditeur sont les limites de score de HubSpot et ses seuils d'exemple.",
+      },
+      {
+        q: "Que signifient A1 et C3 ?",
+        a: "Ce sont les libellés de HubSpot pour les scores combinés. La lettre correspond à la bande de fit, de A (fit élevé) à C (fit faible) ; le chiffre correspond à la bande d'engagement, de 1 (engagement élevé) à 3 (engagement faible).",
+      },
+      {
+        q: "HubSpot peut-il construire le score à votre place avec l'IA ?",
+        a: "Les scores de contacts construits par l'IA de HubSpot exigent Marketing Hub Enterprise et au moins 50 contacts, 25 convertis et 25 non convertis, avant de pouvoir générer un score.",
+      },
+      {
+        q: "Attio propose-t-il du lead scoring ?",
+        a: "Pas d'outil de scoring dédié. Sur Pro, Enterprise et Ultra, un attribut formule peut calculer automatiquement un score à points ; sur les autres forfaits, un workflow ou l'API écrit le score dans un attribut nombre.",
+      },
+      {
+        q: "Ce que je saisis est-il enregistré ?",
+        a: "Non. Le score est calculé dans votre navigateur, et rien de ce que vous saisissez n'est envoyé nulle part.",
+      },
+    ],
+  },
   aiAgent: {
     slug: "calculateur-cout-agent-ia-support",
     navLabel: "Coût d'un agent IA de support",
@@ -43,7 +141,8 @@ const tools: ToolsDict = {
       resolutionRate: "Résolues sans intervention humaine",
       actions: "Actions Agentforce par conversation",
       buildTitle: "Développement à paiement unique",
-      package: "Offre",
+      package: "Prix de l'offre {plan} (paiement unique)",
+      priceHint: "L'offre {plan} est proposée à partir de {price}. Saisissez le prix fixe indiqué dans votre rapport Health Check si vous en avez un.",
       platform: "Plateforme d'automatisation",
       platforms: {
         n8nCloud: "n8n Cloud Starter (20 €/mois, facturé annuellement)",
@@ -53,7 +152,7 @@ const tools: ToolsDict = {
       tokens: "Tokens IA par conversation",
       inputTokens: "Entrée",
       outputTokens: "Sortie",
-      tokensHint: "Valeurs d'exemple tirées d'une conversation de support publiée de 5 messages. Modifiez-les selon votre bot.",
+      tokensHint: "Valeurs par défaut indicatives : aucune source officielle ne publie de chiffre type. Remplacez-les par les chiffres réels de votre bot, tirés du tableau de bord d'utilisation de votre fournisseur d'IA.",
     },
     results: {
       title: "Coût estimé",
@@ -70,19 +169,19 @@ const tools: ToolsDict = {
       empty: "Saisissez vos conversations IA par mois pour comparer les coûts.",
     },
     units: {
-      fin: "0,99 $ par résultat (outcome) ; au moins 50 par mois avec un autre helpdesk",
-      zendesk: "2,00 $ par résolution automatisée, paiement à l'usage",
+      fin: "0,99 $ par résultat (outcome) ; avec un autre helpdesk, un minimum de 49 $ par mois qui inclut 50 résultats",
+      zendesk: "2,00 $ par résolution automatisée, paiement à l'usage (1,50 $ avec engagement)",
       freddy: "49 $ les 100 sessions",
-      hubspot: "0,50 $ par conversation résolue ; nécessite un plan Professional ou Enterprise",
-      tidio: "0,50 $ par conversation à laquelle Lyro répond",
-      agentforce: "0,10 $ par action (20 Flex Credits)",
+      hubspot: "0,50 $ par conversation résolue (50 HubSpot Credits) ; nécessite un plan Professional ou Enterprise",
+      tidio: "Packs mensuels de 39 $ pour 50 conversations à 700 $ pour 1 000 ; au-delà, Lyro Connect à partir de 0,50 $ par conversation",
+      agentforce: "0,10 $ par action (20 Flex Credits, 500 $ les 100 000)",
     },
     notIncluded:
-      "Non inclus : votre abonnement au helpdesk, les volumes inclus dans les plans, les remises sur volume et les taxes. Fin facture aussi certains transferts et routages comme des résultats : son coût réel peut donc être plus élevé.",
+      "Non inclus : votre abonnement au helpdesk, les volumes inclus dans les plans, les remises sur volume et les taxes. Fin facture aussi comme des résultats les transferts de Procedure (une Procedure que vous configurez pour qu'elle se termine par un transfert) : son coût réel peut donc être plus élevé. Zendesk fait passer les comptes à des paliers de résolutions dont le prix est fixé par son équipe commerciale.",
     sections: [
       {
         heading: "Comment fonctionne le calcul",
-        text: "Les conversations résolues correspondent à vos conversations mensuelles multipliées par la part résolue sans intervention humaine. Fin, Zendesk et HubSpot facturent à la résolution ou au résultat, Freddy par lot de 100 sessions, Tidio Lyro par conversation à laquelle il répond, et Agentforce à l'action. Le prix catalogue de chaque éditeur renvoie à sa page de tarifs, ci-dessous.",
+        text: "Les conversations résolues correspondent à vos conversations mensuelles multipliées par la part résolue sans intervention humaine. Fin facture au résultat en plus d'un minimum de 49 $ par mois, Zendesk et HubSpot à la résolution, Freddy par lot de 100 sessions, Tidio Lyro par packs mensuels de conversations auxquelles il répond, et Agentforce à l'action. Le prix catalogue de chaque éditeur renvoie à sa page de tarifs, ci-dessous.",
       },
       {
         heading: "Pourquoi les factures à la résolution augmentent",
@@ -96,11 +195,11 @@ const tools: ToolsDict = {
     faqs: [
       {
         q: "Ces prix sont-ils à jour ?",
-        a: "Ce sont les prix catalogue publiés sur la page de tarifs de chaque éditeur en octobre 2026. Les éditeurs changent souvent leurs prix : vérifiez les pages en lien avant d'acheter.",
+        a: "Ce sont les prix catalogue publiés sur les pages de tarifs officielles de chaque éditeur, vérifiés en novembre 2026. Les éditeurs changent souvent leurs prix : vérifiez les pages en lien avant d'acheter.",
       },
       {
         q: "Qu'est-ce qui compte comme une résolution ?",
-        a: "Chaque éditeur la définit différemment. Fin facture au résultat, Zendesk à la résolution automatisée, HubSpot à la conversation résolue et Freddy à la session. Lisez la définition de chaque éditeur avant de comparer.",
+        a: "Chaque éditeur la définit différemment. Fin facture au résultat (une résolution, ou une Procedure qui se termine par un transfert), Zendesk à la résolution automatisée, HubSpot à la conversation non transférée à une personne dans les 72 heures, Freddy à la session et Tidio à la conversation à laquelle Lyro répond. Lisez la définition de chaque éditeur avant de comparer.",
       },
       {
         q: "Pourquoi les prix sont-ils affichés dans ma devise ?",
@@ -148,7 +247,7 @@ const tools: ToolsDict = {
       enterRates: "Saisissez vos tarifs pour voir le coût.",
     },
     notIncluded:
-      "Non inclus : les remises par paliers de volume sur les messages utilitaires et d'authentification, les frais de votre fournisseur WhatsApp et les taxes. Les messages envoyés dans une fenêtre de point d'entrée gratuite ne sont pas facturés.",
+      "Non inclus : les remises par paliers de volume sur les messages utilitaires et d'authentification, les messages Meta Business Agent, les frais de votre fournisseur WhatsApp et les taxes. Les messages envoyés dans une fenêtre de point d'entrée gratuite ne sont pas facturés.",
     sections: [
       {
         heading: "Ce qui a changé le 1er octobre 2026",
@@ -156,11 +255,11 @@ const tools: ToolsDict = {
       },
       {
         heading: "Comment Meta facture les messages",
-        text: "Meta facture chaque message délivré. Le tarif dépend de la catégorie du message (marketing, utilitaire, authentification ou service) et du pays du destinataire. Meta publie des grilles tarifaires dans plusieurs devises et ne peut modifier ses prix que le premier jour d'un trimestre.",
+        text: "Meta facture chaque message délivré. Le tarif dépend de la catégorie du message (marketing, utilitaire, authentification ou service) et du pays du destinataire ; les messages de service coûtent le même tarif catalogue que les messages utilitaires et d'authentification sur ce marché. Une cinquième catégorie, les messages Meta Business Agent envoyés par l'agent IA de Meta lui-même, est quant à elle facturée au token. Meta publie des grilles tarifaires dans 16 devises et ne peut modifier ses prix que le premier jour d'un trimestre.",
       },
       {
         heading: "Ce que ce calculateur ne prend pas en compte",
-        text: "Les messages utilitaires et d'authentification ont des paliers de volume qui réduisent le tarif à fort volume ; ils ne sont pas modélisés ici. Les messages envoyés dans la fenêtre de point d'entrée gratuite de 72 heures, après une publicité Click to WhatsApp ou un bouton de Page Facebook, sont gratuits. Votre fournisseur WhatsApp peut ajouter ses propres frais.",
+        text: "Les messages utilitaires et d'authentification ont des paliers de volume qui réduisent le tarif à fort volume ; ils ne sont pas modélisés ici. Les messages sont gratuits dans la fenêtre de point d'entrée gratuite, qui s'ouvre lorsque vous répondez dans les 24 heures à une personne qui vous a écrit depuis une publicité Click to WhatsApp dans l'application WhatsApp pour Android ou iOS, et qui peut rester ouverte jusqu'à 7 jours. Les messages Meta Business Agent (2,00 $ par million de tokens) et les frais de votre fournisseur WhatsApp ne sont pas inclus.",
       },
     ],
     faqs: [

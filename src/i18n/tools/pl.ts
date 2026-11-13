@@ -6,11 +6,11 @@ const tools: ToolsDict = {
   allTools: "Wszystkie narzędzia",
   hub: {
     slug: "tools",
-    metaTitle: "Bezpłatne narzędzia i kalkulatory obsługi klienta | TascaLab",
+    metaTitle: "Bezpłatne kalkulatory lead scoringu i obsługi | TascaLab",
     metaDescription:
-      "Bezpłatne kalkulatory dla zespołów obsługi klienta: porównaj koszt agentów AI, oszacuj rachunek za WhatsApp Business API i wylicz terminy SLA w godzinach pracy.",
+      "Bezpłatne kalkulatory: zbuduj i przetestuj scoring leadów, porównaj koszt agentów AI, oszacuj rachunek za WhatsApp Business API i wylicz terminy SLA.",
     eyebrow: "Bezpłatne narzędzia",
-    title: "Bezpłatne narzędzia dla zespołów obsługi klienta",
+    title: "Bezpłatne narzędzia dla zespołów sprzedaży i obsługi klienta",
     intro: "Szybkie kalkulatory oparte na opublikowanych cenach i prostej matematyce. Bezpłatnie, bez rejestracji.",
     open: "Otwórz narzędzie",
   },
@@ -27,6 +27,104 @@ const tools: ToolsDict = {
     ctaText: "Umów bezpłatny Health Check: 30-minutowa rozmowa, a potem pisemny raport z dopasowanym pakietem i stałą ceną.",
     ctaBook: "Umów bezpłatny Health Check",
     otherTools: "Inne bezpłatne narzędzia",
+  },
+  leadScore: {
+    slug: "kalkulator-lead-scoringu",
+    navLabel: "Kalkulator lead scoringu",
+    short: "Zbuduj scoring dopasowania i zaangażowania, przetestuj go na leadzie i skopiuj model.",
+    metaTitle: "Kalkulator lead scoringu: fit i zaangażowanie | TascaLab",
+    metaDescription:
+      "Bezpłatny kalkulator lead scoringu: zbuduj scoring dopasowania i zaangażowania z limitami i progami HubSpot, przetestuj go na leadzie i skopiuj model.",
+    h1: "Kalkulator lead scoringu",
+    intro:
+      "Zbuduj punktowy scoring leadów tak, jak działa narzędzie lead scoringu HubSpot: kryteria dopasowania opisują, kim jest lead, a kryteria zaangażowania – co robi; każdy wynik zatrzymuje się na swoim limicie i jest dzielony na przedziały „Wysokie”, „Średnie” i „Niskie”. Przetestuj go na leadzie, sprawdź model pod kątem błędów, a potem skopiuj go do swojego CRM-u.",
+    inputs: {
+      criteriaTitle: "Twoje kryteria",
+      criteriaHint:
+        "Zaznacz kryteria, które dotyczą leada, którego chcesz przetestować. Przykłady to tylko wartości zastępcze: zastąp każdą nazwę i liczbę punktów własnymi.",
+      label: "Kryterium",
+      score: "Wynik",
+      points: "Punkty",
+      applies: "Dotyczy testowanego leada",
+      remove: "Usuń {label}",
+      add: "Dodaj kryterium",
+      maxReached: "Maksymalnie {n} kryteriów.",
+      settingsTitle: "Ustawienia scoringu",
+      limit: "Limit scoringu",
+      limitOption: "od {min} do {max}",
+      high: "Wysokie od",
+      medium: "Średnie od",
+      thresholdsHint:
+        "Limity to opcje dostępne w HubSpot. Domyślne progi odpowiadają przykładowi samego HubSpot: 70–100 „Wysokie”, 40–69 „Średnie”, poniżej 40 „Niskie”.",
+    },
+    scores: { fit: "Dopasowanie", engagement: "Zaangażowanie" },
+    bands: { high: "Wysokie", medium: "Średnie", low: "Niskie" },
+    examples: [
+      { label: "Branża pasuje do Twojego profilu idealnego klienta", score: "fit", points: 30, applies: true },
+      { label: "Wielkość firmy w Twoim docelowym przedziale", score: "fit", points: 25, applies: true },
+      { label: "Stanowisko decyzyjne", score: "fit", points: 25, applies: false },
+      { label: "Siedziba w regionie, którego nie obsługujesz", score: "fit", points: -40, applies: false },
+      { label: "Odpowiedź na outreach z zainteresowaniem", score: "engagement", points: 40, applies: true },
+      { label: "Wizyta na stronie z cennikiem", score: "engagement", points: 20, applies: true },
+      { label: "Otwarcie Twoich trzech ostatnich e-maili", score: "engagement", points: 10, applies: false },
+      { label: "Rezygnacja z subskrypcji Twoich e-maili", score: "engagement", points: -50, applies: false },
+    ],
+    results: {
+      title: "Twój testowy lead",
+      combined: "Etykieta łączona",
+      combinedDesc: "Dopasowanie: {fit}, zaangażowanie: {engagement}",
+      range: "Możliwy zakres: od {min} do {max}",
+      checksTitle: "Zanim go zbudujesz",
+      allGood: "W tym modelu nie znaleziono problemów.",
+      noCriteria: "{score}: dodaj co najmniej jedno kryterium.",
+      order: "{score}: próg „Średnie” musi być niższy niż „Wysokie”.",
+      unreachable: "{score}: żaden lead nie może osiągnąć przedziału „Wysokie”. Najwyższy możliwy wynik leada to {max}.",
+      capped: "{score}: punkty dodatnie sumują się do {total}, ale wynik zatrzymuje się na {limit}.",
+      copy: "Skopiuj model jako tabelę",
+      copied: "Skopiowano",
+      copyFailed: "Nie udało się skopiować. Zaznacz kryteria i skopiuj je ręcznie.",
+      tableHeads: { score: "Wynik", criterion: "Kryterium", points: "Punkty", limit: "Limit", high: "Wysokie", medium: "Średnie" },
+    },
+    sections: [
+      {
+        heading: "Jak liczony jest wynik",
+        text: "Każde kryterium dodaje lub odejmuje punkty, gdy dotyczy danego leada. Kryteria dopasowania opisują, kim jest lead, np. branżę, wielkość firmy lub rolę; kryteria zaangażowania opisują, co lead robi, np. odpowiedzi, wizyty lub otwarcia. Każdy wynik zatrzymuje się na swoim limicie, tak jak w narzędziu lead scoringu HubSpot, a progi zamieniają liczbę na przedział „Wysokie”, „Średnie” lub „Niskie”. Etykieta łączona działa według konwencji HubSpot: litera to przedział dopasowania (A – wysokie, C – niskie), a cyfra to przedział zaangażowania (1 – wysokie, 3 – niskie), więc lead o niskim dopasowaniu, ale wysokim zaangażowaniu to C1.",
+      },
+      {
+        heading: "Konfiguracja w HubSpot",
+        text: "Narzędzie lead scoringu HubSpot wymaga planu Marketing Hub lub Sales Hub Professional albo Enterprise. Najmniejszy limit scoringu to zakres od -100 do 100, a największy – od -10 000 do 10 000; domyślne maksimum to 100. W ramach scoringu możesz dodawać grupy z własnymi limitami, a wszystkie limity grup wliczają się do limitu scoringu. W przypadku zaangażowania wygaszanie scoringu może obniżać punkty co 1, 3, 6 lub 12 miesięcy, przy czym każdy miesiąc liczy się jako 30 dni.",
+      },
+      {
+        heading: "Konfiguracja w Attio",
+        text: "Attio nie ma dedykowanego narzędzia do scoringu. W planach Pro, Enterprise i Ultra atrybut formuły (formula attribute) może sumować punkty za pomocą warunków if(), z operatorem ??, który traktuje puste pola jako 0. Formuła zwracająca liczbę staje się atrybutem liczbowym, przelicza się automatycznie, gdy zmieniają się pola, których używa, i nie zużywa kredytów przestrzeni roboczej. W planach Free i Plus trzymaj wynik w atrybucie liczbowym, który wypełnia workflow lub API.",
+      },
+      {
+        heading: "Kiedy scoring nie jest Ci potrzebny",
+        text: "Jeśli Twój zespół czyta każdego nowego leada tego samego dnia, scoring niewiele wnosi. Zaczyna się opłacać, gdy leady napływają szybciej, niż ktokolwiek jest w stanie je przejrzeć, albo gdy najważniejsze sygnały, takie jak odpowiedź z zainteresowaniem czy wizyta na stronie z cennikiem, są w narzędziach, których Twój CRM sam nie widzi.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Czy przykładowe punkty to rekomendacja?",
+        a: "Nie. To wartości zastępcze, które pokazują, jak działa liczenie. Zastąp każde kryterium i każdą liczbę punktów własnymi. Jedyne wartości domyślne wzięte od dostawcy to limity scoringu HubSpot i jego przykładowe progi.",
+      },
+      {
+        q: "Co oznaczają A1 i C3?",
+        a: "To etykiety HubSpot dla scoringów łączonych. Litera to przedział dopasowania, od A (wysokie dopasowanie) do C (niskie dopasowanie); cyfra to przedział zaangażowania, od 1 (wysokie zaangażowanie) do 3 (niskie zaangażowanie).",
+      },
+      {
+        q: "Czy HubSpot może zbudować scoring za mnie z pomocą AI?",
+        a: "Scoringi kontaktów budowane przez AI w HubSpot wymagają Marketing Hub Enterprise i co najmniej 50 kontaktów – 25 skonwertowanych i 25 nieskonwertowanych – zanim można wygenerować wynik.",
+      },
+      {
+        q: "Czy Attio ma lead scoring?",
+        a: "Nie ma dedykowanego narzędzia do scoringu. W planach Pro, Enterprise i Ultra atrybut formuły może automatycznie wyliczać punktowy wynik; w pozostałych planach workflow lub API zapisuje wynik w atrybucie liczbowym.",
+      },
+      {
+        q: "Czy to, co wpisuję, jest gdzieś zapisywane?",
+        a: "Nie. Wynik jest liczony w Twojej przeglądarce i nic, co wpiszesz, nie jest nigdzie wysyłane.",
+      },
+    ],
   },
   aiAgent: {
     slug: "kalkulator-kosztow-agenta-ai",

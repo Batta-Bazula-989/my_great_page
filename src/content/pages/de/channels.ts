@@ -108,7 +108,7 @@ export const channelPages: TranslatedPage[] = [
           },
           {
             type: "p",
-            text: "Für Support-Teams sind zwei Punkte wichtig. Gespräche, die über eine Click-to-WhatsApp-Anzeige oder einen Call-to-Action auf einer Facebook-Seite beginnen, können ein kostenloses Entry-Point-Fenster öffnen: Wenn Sie innerhalb des Kundenservice-Fensters antworten, werden Ihre Nachrichten nicht berechnet, und laut der aktuellen Preisseite von Meta kann dieses Fenster bis zu 7 Tage offen bleiben (die ältere gesprächsbasierte Preisgestaltung sah 72 Stunden vor). Außerdem können Helpdesk-Anbieter eigene Gebühren hinzufügen: Die Dokumentation von Freshworks etwa gibt an, dass Freshworks auf die WhatsApp-Gebühren von Meta einen Aufschlag erhebt.",
+            text: "Für Support-Teams sind zwei Punkte wichtig. Gespräche, die über eine Click-to-WhatsApp-Anzeige in der Android- oder iOS-App von WhatsApp beginnen, können ein kostenloses Entry-Point-Fenster öffnen: Wenn Sie innerhalb des Kundenservice-Fensters antworten, werden Ihre Nachrichten nicht berechnet, und laut der aktuellen Preisseite von Meta kann dieses Fenster bis zu 7 Tage offen bleiben (die ältere gesprächsbasierte Preisgestaltung sah 72 Stunden vor). Außerdem können Helpdesk-Anbieter eigene Gebühren hinzufügen: Die Dokumentation von Freshworks etwa gibt an, dass Freshworks auf die WhatsApp-Gebühren von Meta einen Aufschlag erhebt.",
           },
           {
             type: "note",
@@ -207,7 +207,7 @@ export const channelPages: TranslatedPage[] = [
       "chatbot-to-human-handoff",
       "zendesk-automation",
     ],
-    updated: "2026-11-12",
+    updated: "2026-11-13",
   },
 
   // ---------------------------------------------------------------------------
