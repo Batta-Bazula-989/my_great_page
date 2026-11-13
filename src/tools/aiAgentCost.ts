@@ -1,9 +1,9 @@
 // AI support agent cost calculator: what per-resolution SaaS agents would cost at a given volume,
 // next to a one-time TascaLab build plus the usage costs the client pays directly.
-// Vendor prices are list prices as published on each vendor's pricing page in October 2026 (USD).
+// Vendor prices are list prices as published on each vendor's official pricing pages, checked 13 November 2026 (USD).
 import { convert, type Currency } from "@/lib/pricing";
 
-export const PRICES_AS_OF = "2026-10";
+export const PRICES_AS_OF = "2026-11";
 
 export type VendorId = "fin" | "zendesk" | "freddy" | "hubspot" | "tidio" | "agentforce";
 
@@ -23,13 +23,25 @@ export interface Volume {
 
 const resolved = (v: Volume) => Math.round(v.conversations * v.resolutionRate);
 
+// Tidio Lyro self-serve packs on monthly billing (tidio.com/pricing, November 2026).
+export const TIDIO_PACKS = [
+  { conversations: 50, usd: 39 },
+  { conversations: 100, usd: 75 },
+  { conversations: 150, usd: 110 },
+  { conversations: 200, usd: 140 },
+  { conversations: 300, usd: 210 },
+  { conversations: 500, usd: 350 },
+  { conversations: 750, usd: 525 },
+  { conversations: 1000, usd: 700 },
+];
+
 export const VENDORS: Vendor[] = [
   {
     id: "fin",
     name: "Fin (formerly Intercom)",
     source: "https://fin.ai/pricing",
-    // $0.99 per outcome, 50-outcome monthly minimum when used with another helpdesk.
-    monthlyUsd: (v) => Math.max(50, resolved(v)) * 0.99,
+    // With another helpdesk: a $49 monthly base that includes 50 outcomes, then $0.99 per outcome.
+    monthlyUsd: (v) => 49 + Math.max(0, resolved(v) - 50) * 0.99,
   },
   {
     id: "zendesk",
@@ -55,14 +67,19 @@ export const VENDORS: Vendor[] = [
   {
     id: "tidio",
     name: "Tidio Lyro",
-    source: "https://www.tidio.com/ai-agent/",
-    // $0.50 per conversation Lyro replies to.
-    monthlyUsd: (v) => v.conversations * 0.5,
+    source: "https://www.tidio.com/pricing/",
+    // Self-serve monthly packs up to 1,000 conversations Lyro replies to; above that, Lyro Connect
+    // on Plus or Premium starts from $0.50 per conversation (a "from" price).
+    monthlyUsd: (v) => {
+      if (v.conversations <= 0) return 0;
+      const pack = TIDIO_PACKS.find((p) => v.conversations <= p.conversations);
+      return pack ? pack.usd : v.conversations * 0.5;
+    },
   },
   {
     id: "agentforce",
     name: "Salesforce Agentforce",
-    source: "https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news/",
+    source: "https://www.salesforce.com/agentforce/pricing/",
     // Flex Credits: $500 per 100,000 credits, 20 credits per standard action = $0.10 per action.
     monthlyUsd: (v) => v.conversations * v.actionsPerConversation * 0.1,
   },
@@ -73,15 +90,12 @@ export const AI_MODEL = {
   name: "Claude Haiku 5.5",
   inputPerMillion: 0.1,
   outputPerMillion: 0.5,
-  source: "https://www.anthropic.com/claude-haiku-5-5",
+  source: "https://platform.claude.com/docs/en/about-claude/pricing",
 };
 
-// Example token use per support conversation (5 messages), from a published worked example.
-export const TOKEN_EXAMPLE = {
-  input: 11900,
-  output: 1250,
-  source: "https://wildandfreetools.com/blog/customer-support-chatbot-llm-cost-breakdown/",
-};
+// Illustrative token use per support conversation. No official source publishes a typical figure,
+// so these are labelled defaults for the visitor to replace with their own bot's numbers.
+export const TOKEN_DEFAULTS = { input: 12000, output: 1200 };
 
 export type PlatformId = "n8nCloud" | "make" | "selfHosted";
 

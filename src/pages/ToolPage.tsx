@@ -7,6 +7,7 @@ import NotFound from "@/pages/NotFound";
 import AiAgentCostCalculator from "@/components/tools/AiAgentCostCalculator";
 import WhatsAppCostCalculator from "@/components/tools/WhatsAppCostCalculator";
 import SlaCalculator from "@/components/tools/SlaCalculator";
+import LeadScoreCalculator from "@/components/tools/LeadScoreCalculator";
 import { linkClass } from "@/components/tools/fields";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useDict, useLocale } from "@/i18n";
@@ -14,6 +15,7 @@ import { localePath } from "@/i18n/config";
 import { TOOL_ICONS, TOOL_IDS, TOOL_SOURCES, toolBySlug, toolPath, toolsPath, type ToolId } from "@/tools/registry";
 
 const CALCULATORS: Record<ToolId, () => JSX.Element> = {
+  leadScore: LeadScoreCalculator,
   aiAgent: AiAgentCostCalculator,
   whatsapp: WhatsAppCostCalculator,
   sla: SlaCalculator,

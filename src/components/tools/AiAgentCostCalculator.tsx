@@ -3,12 +3,13 @@ import { Sparkles } from "lucide-react";
 import { Field, NumberInput, Panel, RangeInput, Select, linkClass } from "./fields";
 import { format, useDict, useLocale } from "@/i18n";
 import { localeInfo } from "@/i18n/config";
-import { CURRENCY, convert, formatMoney, packageById, type PackageId } from "@/lib/pricing";
-import { PLATFORMS, PRICES_AS_OF, TOKEN_EXAMPLE, VENDORS, buildMonthly, paybackMonth, type PlatformId } from "@/tools/aiAgentCost";
+import { CURRENCY, PACKAGES, convert, formatMoney, packageById } from "@/lib/pricing";
+import { PLATFORMS, PRICES_AS_OF, TOKEN_DEFAULTS, VENDORS, buildMonthly, paybackMonth, type PlatformId } from "@/tools/aiAgentCost";
 
-const BUILD_PACKAGES: PackageId[] = ["starter", "standard"];
-// Index of each package in the dictionaries' pricing.plans (same order as PACKAGES).
-const PLAN_INDEX: Record<string, number> = { starter: 0, standard: 2 };
+// The one-time build compared here is the Support Automation package. Its price is a minimum
+// ("from …"), so the visitor can replace it with the fixed price from their Health Check report.
+const BUILD_PACKAGE = "supportAutomation" as const;
+const PLAN_INDEX = PACKAGES.findIndex((p) => p.id === BUILD_PACKAGE);
 
 // One bar track for every row, so the build and the vendors share a single 12-month scale.
 const Bar = ({ value, max, className }: { value: number; max: number; className: string }) => (
@@ -27,10 +28,10 @@ const AiAgentCostCalculator = () => {
   const [conversations, setConversations] = useState(2000);
   const [resolution, setResolution] = useState(50);
   const [actions, setActions] = useState(3);
-  const [pkg, setPkg] = useState<PackageId>("standard");
+  const [oneTimePrice, setOneTimePrice] = useState(() => packageById(BUILD_PACKAGE).prices[currency]);
   const [platform, setPlatform] = useState<PlatformId>("n8nCloud");
-  const [inputTokens, setInputTokens] = useState(TOKEN_EXAMPLE.input);
-  const [outputTokens, setOutputTokens] = useState(TOKEN_EXAMPLE.output);
+  const [inputTokens, setInputTokens] = useState(TOKEN_DEFAULTS.input);
+  const [outputTokens, setOutputTokens] = useState(TOKEN_DEFAULTS.output);
 
   const money = (n: number) => formatMoney(locale, n);
   const number = (n: number) => n.toLocaleString(dateLocale);
@@ -44,7 +45,7 @@ const AiAgentCostCalculator = () => {
 
   const result = useMemo(() => {
     const volume = { conversations, resolutionRate: resolution / 100, actionsPerConversation: actions };
-    const oneTime = packageById(pkg).prices[currency];
+    const oneTime = Math.max(0, oneTimePrice);
     const buildPerMonth = buildMonthly(volume, { inputTokens, outputTokens, platform }, currency);
     const vendors = VENDORS.map((v) => {
       const monthly = convert(v.monthlyUsd(volume), "USD", currency);
@@ -54,9 +55,10 @@ const AiAgentCostCalculator = () => {
     const max = Math.max(buildYear, ...vendors.map((v) => v.year), 1);
     const fastest = vendors.filter((v) => v.payback !== null && v.payback <= 12).sort((a, b) => a.payback! - b.payback!);
     return { oneTime, buildPerMonth, buildYear, vendors, max, fastest };
-  }, [conversations, resolution, actions, pkg, platform, inputTokens, outputTokens, currency]);
+  }, [conversations, resolution, actions, oneTimePrice, platform, inputTokens, outputTokens, currency]);
 
-  const planName = d.pricing.plans[PLAN_INDEX[pkg]].name;
+  const planName = d.pricing.plans[PLAN_INDEX].name;
+  const minPrice = money(packageById(BUILD_PACKAGE).prices[currency]);
   const empty = conversations <= 0;
   // "Lowest" marks every vendor at the minimum, but never a $0 that only means "nothing billed at these inputs".
   const lowest = result.vendors[0].monthly;
@@ -81,16 +83,9 @@ const AiAgentCostCalculator = () => {
 
         <Panel title={t.inputs.buildTitle}>
           <div className="space-y-5">
-            <Field label={t.inputs.package} htmlFor="ai-package">
-              <Select<PackageId>
-                id="ai-package"
-                value={pkg}
-                onChange={setPkg}
-                options={BUILD_PACKAGES.map((id) => ({
-                  value: id,
-                  label: `${d.pricing.plans[PLAN_INDEX[id]].name} · ${money(packageById(id).prices[currency])}`,
-                }))}
-              />
+            <Field label={format(t.inputs.package, { plan: planName })} htmlFor="ai-package">
+              <NumberInput id="ai-package" value={oneTimePrice} onChange={setOneTimePrice} min={0} max={100_000} step={50} />
+              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{format(t.inputs.priceHint, { plan: planName, price: minPrice })}</p>
             </Field>
             <Field label={t.inputs.platform} htmlFor="ai-platform">
               <Select<PlatformId>
@@ -110,11 +105,7 @@ const AiAgentCostCalculator = () => {
                   <NumberInput id="ai-out" value={outputTokens} onChange={setOutputTokens} step={50} />
                 </Field>
               </div>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                <a href={TOKEN_EXAMPLE.source} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  {t.inputs.tokensHint}
-                </a>
-              </p>
+              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{t.inputs.tokensHint}</p>
             </fieldset>
           </div>
         </Panel>

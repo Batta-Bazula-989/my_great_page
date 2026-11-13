@@ -126,13 +126,15 @@ export const Select = <T extends string>({
   value,
   onChange,
   options,
+  ariaLabel,
 }: {
   id: string;
   value: T;
   onChange: (v: T) => void;
   options: { value: T; label: string }[];
+  ariaLabel?: string;
 }) => (
-  <select id={id} value={value} onChange={(e) => onChange(e.target.value as T)} className={`${inputClass} appearance-auto`}>
+  <select id={id} value={value} aria-label={ariaLabel} onChange={(e) => onChange(e.target.value as T)} className={`${inputClass} appearance-auto`}>
     {options.map((o) => (
       <option key={o.value} value={o.value} className="bg-background">
         {o.label}

@@ -6,11 +6,11 @@ const tools = {
   allTools: "All tools",
   hub: {
     slug: "tools",
-    metaTitle: "Free Customer Support Tools & Calculators | TascaLab",
+    metaTitle: "Free Lead Scoring & Support Calculators | TascaLab",
     metaDescription:
-      "Free calculators for support teams: compare AI support agent costs, estimate WhatsApp Business API bills and work out SLA due times in business hours.",
+      "Free calculators: build and test a lead score, compare AI support agent costs, estimate WhatsApp Business API bills and work out SLA due times.",
     eyebrow: "Free tools",
-    title: "Free tools for support teams",
+    title: "Free tools for sales and support teams",
     intro: "Quick calculators built on published prices and plain maths. Free, no sign-up.",
     open: "Open tool",
   },
@@ -28,6 +28,104 @@ const tools = {
     ctaBook: "Book a Free Health Check",
     otherTools: "Other free tools",
   },
+  leadScore: {
+    slug: "lead-scoring-calculator",
+    navLabel: "Lead scoring calculator",
+    short: "Build a fit and engagement score, test it on a lead and copy the model.",
+    metaTitle: "Lead Scoring Calculator: Fit & Engagement Model | TascaLab",
+    metaDescription:
+      "Free lead scoring calculator: build a fit and engagement score with HubSpot's limits and thresholds, test it on a lead and copy the model. No sign-up.",
+    h1: "Lead scoring calculator",
+    intro:
+      "Build a points-based lead score the way HubSpot's lead scoring tool works: fit criteria for who the lead is, engagement criteria for what it does, each score capped at its limit and split into High, Medium and Low. Test it on a lead, check the model for mistakes, then copy it into your CRM.",
+    inputs: {
+      criteriaTitle: "Your criteria",
+      criteriaHint:
+        "Tick the criteria that apply to a lead you want to test. The examples are placeholders: replace every label and point value with your own.",
+      label: "Criterion",
+      score: "Score",
+      points: "Points",
+      applies: "Applies to the test lead",
+      remove: "Remove {label}",
+      add: "Add criterion",
+      maxReached: "Up to {n} criteria.",
+      settingsTitle: "Score settings",
+      limit: "Score limit",
+      limitOption: "{min} to {max}",
+      high: "High from",
+      medium: "Medium from",
+      thresholdsHint:
+        "Limits are HubSpot's options. The default thresholds follow HubSpot's own example: 70–100 High, 40–69 Medium, below 40 Low.",
+    },
+    scores: { fit: "Fit", engagement: "Engagement" },
+    bands: { high: "High", medium: "Medium", low: "Low" },
+    examples: [
+      { label: "Industry matches your ideal customer profile", score: "fit", points: 30, applies: true },
+      { label: "Company size in your target range", score: "fit", points: 25, applies: true },
+      { label: "Job title is a decision-maker", score: "fit", points: 25, applies: false },
+      { label: "Based in a region you don't serve", score: "fit", points: -40, applies: false },
+      { label: "Replied to outreach with interest", score: "engagement", points: 40, applies: true },
+      { label: "Visited the pricing page", score: "engagement", points: 20, applies: true },
+      { label: "Opened your last three emails", score: "engagement", points: 10, applies: false },
+      { label: "Unsubscribed from your emails", score: "engagement", points: -50, applies: false },
+    ],
+    results: {
+      title: "Your test lead",
+      combined: "Combined label",
+      combinedDesc: "{fit} fit, {engagement} engagement",
+      range: "Possible range: {min} to {max}",
+      checksTitle: "Before you build it",
+      allGood: "No problems found in this model.",
+      noCriteria: "{score}: add at least one criterion.",
+      order: "{score}: Medium must be lower than High.",
+      unreachable: "{score}: no lead can reach High. The most a lead can score is {max}.",
+      capped: "{score}: positive points add up to {total}, but the score stops at {limit}.",
+      copy: "Copy model as a table",
+      copied: "Copied",
+      copyFailed: "Couldn't copy. Select the criteria and copy them by hand.",
+      tableHeads: { score: "Score", criterion: "Criterion", points: "Points", limit: "Limit", high: "High", medium: "Medium" },
+    },
+    sections: [
+      {
+        heading: "How the score is calculated",
+        text: "Each criterion adds or subtracts points when it applies to a lead. Fit criteria describe who the lead is, such as industry, company size or role; engagement criteria describe what the lead does, such as replies, visits or opens. Each score stops at its limit, as HubSpot's lead scoring tool does, and the thresholds turn the number into High, Medium or Low. The combined label follows HubSpot's convention: the letter is the fit band (A high, C low) and the number the engagement band (1 high, 3 low), so a low-fit but highly engaged lead is C1.",
+      },
+      {
+        heading: "Setting it up in HubSpot",
+        text: "HubSpot's lead scoring tool needs Marketing Hub or Sales Hub Professional or Enterprise. Score limits run from -100 to 100 up to -10,000 to 10,000, with 100 as the default maximum. Inside a score you can add groups with their own limits, and all group limits count toward the score limit. For engagement, score decay can lower points every 1, 3, 6 or 12 months, each month counted as 30 days.",
+      },
+      {
+        heading: "Setting it up in Attio",
+        text: "Attio has no dedicated scoring tool. On the Pro, Enterprise and Ultra plans, a formula attribute can add up points with if() conditions, using the ?? operator to treat empty fields as 0. A formula that returns a number becomes a number attribute, recalculates automatically when the fields it uses change, and uses no workspace credits. On Free and Plus, keep the score in a number attribute that a workflow or the API fills in.",
+      },
+      {
+        heading: "When you don't need a score",
+        text: "If your team reads every new lead the same day, a score adds little. It starts to pay off when leads arrive faster than anyone can review them, or when the signals that matter most, such as an interested reply or a visit to your pricing page, live in tools your CRM doesn't see on its own.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are the example points a recommendation?",
+        a: "No. They are placeholders that show how the maths works. Replace every criterion and point value with your own. The only defaults taken from a vendor are HubSpot's score limits and its example thresholds.",
+      },
+      {
+        q: "What do A1 and C3 mean?",
+        a: "They are HubSpot's labels for combined scores. The letter is the fit band, from A (high fit) to C (low fit); the number is the engagement band, from 1 (high engagement) to 3 (low engagement).",
+      },
+      {
+        q: "Can HubSpot build the score for me with AI?",
+        a: "HubSpot's AI-built contact scores need Marketing Hub Enterprise and at least 50 contacts, 25 converted and 25 not converted, before a score can be generated.",
+      },
+      {
+        q: "Does Attio have lead scoring?",
+        a: "No dedicated scoring tool. On Pro, Enterprise and Ultra, a formula attribute can calculate a points-based score automatically; on other plans, a workflow or the API writes the score to a number attribute.",
+      },
+      {
+        q: "Is anything I type stored?",
+        a: "No. The score is calculated in your browser, and nothing you enter is sent anywhere.",
+      },
+    ],
+  },
   aiAgent: {
     slug: "ai-support-agent-cost-calculator",
     navLabel: "AI support agent cost",
@@ -44,7 +142,8 @@ const tools = {
       resolutionRate: "Resolved without a human",
       actions: "Agentforce actions per conversation",
       buildTitle: "One-time build",
-      package: "Package",
+      package: "{plan} price (one-time)",
+      priceHint: "{plan} starts at {price}. Enter the fixed price from your Health Check report if you have one.",
       platform: "Automation platform",
       platforms: {
         n8nCloud: "n8n Cloud Starter (€20/month, billed annually)",
@@ -54,7 +153,7 @@ const tools = {
       tokens: "AI tokens per conversation",
       inputTokens: "Input",
       outputTokens: "Output",
-      tokensHint: "Example values from a published 5-message support conversation. Change them to match your bot.",
+      tokensHint: "Illustrative defaults: no official source publishes a typical figure. Replace them with your bot's real numbers from your AI provider's usage dashboard.",
     },
     results: {
       title: "Estimated cost",
@@ -71,19 +170,19 @@ const tools = {
       empty: "Enter your AI conversations per month to compare costs.",
     },
     units: {
-      fin: "$0.99 per outcome; at least 50 a month with another helpdesk",
-      zendesk: "$2.00 per automated resolution, pay-as-you-go",
+      fin: "$0.99 per outcome; with another helpdesk, a $49 monthly minimum that includes 50 outcomes",
+      zendesk: "$2.00 per automated resolution, pay-as-you-go ($1.50 with a commitment)",
       freddy: "$49 per 100 sessions",
-      hubspot: "$0.50 per resolved conversation; needs a Professional or Enterprise plan",
-      tidio: "$0.50 per conversation Lyro replies to",
-      agentforce: "$0.10 per action (20 Flex Credits)",
+      hubspot: "$0.50 per resolved conversation (50 HubSpot Credits); needs a Professional or Enterprise plan",
+      tidio: "Monthly packs from $39 for 50 to $700 for 1,000 conversations; above that, Lyro Connect from $0.50 per conversation",
+      agentforce: "$0.10 per action (20 Flex Credits, $500 per 100,000)",
     },
     notIncluded:
-      "Not included: your helpdesk subscription, plan allowances, volume discounts and taxes. Fin also bills some handoffs and routings as outcomes, so its real cost can be higher.",
+      "Not included: your helpdesk subscription, plan allowances, volume discounts and taxes. Fin also bills Procedure handoffs (a Procedure you set up to end in a handoff) as outcomes, so its real cost can be higher. Zendesk is moving accounts to resolution tiers priced by its sales team.",
     sections: [
       {
         heading: "How the calculation works",
-        text: "Resolved conversations are your monthly conversations times the share resolved without a human. Fin, Zendesk and HubSpot bill per resolution or outcome, Freddy per pack of 100 sessions, Tidio Lyro per conversation it replies to, and Agentforce per action. Each vendor's list price links to its pricing page below.",
+        text: "Resolved conversations are your monthly conversations times the share resolved without a human. Fin bills per outcome on top of a $49 monthly minimum, Zendesk and HubSpot per resolution, Freddy per pack of 100 sessions, Tidio Lyro in monthly packs of conversations it replies to, and Agentforce per action. Each vendor's list price links to its pricing page below.",
       },
       {
         heading: "Why per-resolution bills grow",
@@ -97,11 +196,11 @@ const tools = {
     faqs: [
       {
         q: "Are these prices current?",
-        a: "They are list prices as published on each vendor's pricing page in October 2026. Vendors change prices often, so check the linked pages before you buy.",
+        a: "They are list prices as published on each vendor's official pricing pages, checked in November 2026. Vendors change prices often, so check the linked pages before you buy.",
       },
       {
         q: "What counts as a resolution?",
-        a: "Each vendor defines it differently. Fin bills per outcome, Zendesk per automated resolution, HubSpot per resolved conversation, and Freddy per session. Read each vendor's definition before comparing.",
+        a: "Each vendor defines it differently. Fin bills per outcome (a resolution, or a Procedure that ends in a handoff), Zendesk per automated resolution, HubSpot per conversation not handed to a person within 72 hours, Freddy per session and Tidio per conversation Lyro replies to. Read each vendor's definition before comparing.",
       },
       {
         q: "Why are prices shown in my currency?",
