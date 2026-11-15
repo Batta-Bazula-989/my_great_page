@@ -89,7 +89,7 @@ const homeJsonLd = (locale: Locale): object[] => {
     {
       "@context": "https://schema.org",
       ...business,
-      logo: `${SITE_URL}/favicon.svg`,
+      logo: `${SITE_URL}/icon-512.png`,
       image: `${SITE_URL}/og-image.png`,
       description: t.meta.homeDescription,
       priceRange: format(t.pricing.from, { price: formatMoney(locale, lowest) }),
