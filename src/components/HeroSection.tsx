@@ -5,7 +5,6 @@ import { UPWORK_PROFILE_URL } from "@/lib/links";
 import { CURRENCY, PACKAGES, formatMoney } from "@/lib/pricing";
 import { keepShortWords } from "@/lib/typography";
 import { format, useDict, useLocale } from "@/i18n";
-import avatar from "@/assets/roman-avatar.jpg";
 
 const highlightIcons = [Plug, Clock, ShieldCheck];
 
@@ -77,16 +76,7 @@ const HeroSection = () => {
                 <ArrowUpRight className="w-4 h-4" aria-hidden />
               </a>
             </div>
-            <p className="flex items-center gap-3 text-left text-sm text-foreground/80 max-w-lg">
-              <img
-                src={avatar}
-                alt="Roman Zakharenko"
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-              />
-              <span className="text-pretty">{tidy(t.callNote)}</span>
-            </p>
+            <p className="text-center text-sm text-foreground/80 max-w-lg text-pretty">{tidy(t.callNote)}</p>
           </div>
 
           <ul
