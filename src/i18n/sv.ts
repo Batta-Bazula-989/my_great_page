@@ -132,12 +132,12 @@ const sv: Dictionary = {
   },
   whyMe: {
     eyebrow: "Varför jobba med mig",
-    title: "Byggt av någon som själv har jobbat med support",
+    title: "Byggt och supportat av en enda person",
     role: "Specialist på AI-automatisering",
     items: [
       {
-        title: "Jag har jobbat i support",
-        description: "Jag har hanterat ärenden och tagit fram rapporter för hand, så jag vet vad som bromsar team.",
+        title: "Jag har gjort jobbet för hand",
+        description: "Jag har själv jobbat i support: hanterat ärenden och tagit fram rapporter för hand, så jag vet vad som bromsar team.",
       },
       {
         title: "Byggt för att hålla",
@@ -310,7 +310,7 @@ const sv: Dictionary = {
       {
         title: "I dina egna konton (standard)",
         points: [
-          "Körs i dina egna konton för helpdesk, automatisering och AI",
+          "Körs i dina egna konton för CRM, helpdesk, automatisering och AI",
           "Kunddata stannar i system som du kontrollerar",
           "Du äger allt och bestämmer över min åtkomst",
         ],

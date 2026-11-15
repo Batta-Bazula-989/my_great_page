@@ -6,9 +6,6 @@ import type { Block } from "@/content/types";
 import { useDict, useLocale } from "@/i18n";
 import { localePath } from "@/i18n/config";
 import { UPWORK_PROFILE_URL } from "@/lib/links";
-import portrait from "@/assets/roman-portrait.jpg";
-import portrait280 from "@/assets/roman-portrait-280.webp";
-import portrait560 from "@/assets/roman-portrait-560.webp";
 import ContentBlock from "./ContentBlock";
 import { MEASURE } from "./measure";
 
@@ -18,7 +15,7 @@ interface HandoffPanelProps {
 }
 
 // The article's "how TascaLab can help" section, turned into the one place to act: the section's own
-// text, then Roman's portrait beside the invitation to book the free Health Check.
+// text, then who does the work and the invitation to book the free Health Check.
 const HandoffPanel = ({ heading, blocks }: HandoffPanelProps) => {
   const t = useDict();
   const locale = useLocale();
@@ -39,40 +36,27 @@ const HandoffPanel = ({ heading, blocks }: HandoffPanelProps) => {
         </div>
       )}
 
-      <div
-        className={`grid grid-cols-[4.5rem_minmax(0,1fr)] gap-x-4 gap-y-5 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-x-7 ${
-          blocks.length > 0 ? "mt-8 border-t border-border pt-8" : "mt-6"
-        }`}
-      >
-        {/* Same files as the homepage founder panel; the 280w WebP covers both sizes here at 2x */}
-        <picture className="block self-start sm:row-span-2">
-          <source type="image/webp" srcSet={`${portrait280} 280w, ${portrait560} 560w`} sizes="(min-width: 640px) 7rem, 4.5rem" />
-          <img
-            src={portrait}
-            alt="Roman Zakharenko"
-            width={560}
-            height={700}
-            loading="lazy"
-            decoding="async"
-            className="aspect-[4/5] w-full rounded-xl border border-border object-cover sm:rounded-2xl"
-          />
-        </picture>
-
-        <div className="self-center sm:self-start">
-          {heading && (
-            <h3 className="font-display text-xl md:text-2xl font-bold leading-snug tracking-tight">{t.seo.ctaTitle}</h3>
-          )}
-          {/* Name and role on two lines on phones, one line beside the larger portrait */}
-          <p className={`text-sm text-muted-foreground ${heading ? "mt-1.5" : ""}`}>
-            <span className="block font-semibold text-foreground sm:inline">Roman Zakharenko</span>
-            <span className="hidden sm:inline" aria-hidden>
-              {" · "}
-            </span>
-            <span className="block sm:inline">{t.whyMe.role}</span>
-          </p>
+      <div className={blocks.length > 0 ? "mt-8 border-t border-border pt-8" : "mt-6"}>
+        <div className="flex items-center gap-3.5">
+          <span
+            className="glass-chip flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-sm font-bold text-primary"
+            aria-hidden
+          >
+            RZ
+          </span>
+          <div>
+            {heading && (
+              <h3 className="font-display text-xl md:text-2xl font-bold leading-snug tracking-tight">{t.seo.ctaTitle}</h3>
+            )}
+            <p className={`text-sm text-muted-foreground ${heading ? "mt-1" : ""}`}>
+              <span className="font-semibold text-foreground">Roman Zakharenko</span>
+              <span aria-hidden>{" · "}</span>
+              <span>{t.whyMe.role}</span>
+            </p>
+          </div>
         </div>
 
-        <div className="col-span-2 sm:col-span-1 sm:col-start-2">
+        <div className="mt-5">
           <p className={`${MEASURE} text-foreground/80 leading-relaxed text-pretty`}>{t.seo.ctaText}</p>
           <div className="mt-5 flex flex-col items-start gap-x-6 gap-y-3 sm:flex-row sm:flex-wrap sm:items-center">
             <BookingButton

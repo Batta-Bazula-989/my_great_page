@@ -132,12 +132,12 @@ const fr: Dictionary = {
   },
   whyMe: {
     eyebrow: "Pourquoi travailler avec moi",
-    title: "Conçu par quelqu'un qui a travaillé dans le support",
+    title: "Conçu et suivi par une seule personne",
     role: "Spécialiste de l'automatisation IA",
     items: [
       {
-        title: "J'ai travaillé dans le support",
-        description: "J'ai traité des tickets et construit des rapports à la main : je sais ce qui ralentit les équipes.",
+        title: "J'ai fait ce travail à la main",
+        description: "J'ai moi-même travaillé dans le support : tickets traités, rapports construits à la main. Je sais ce qui ralentit les équipes.",
       },
       {
         title: "Conçu pour tenir",
@@ -310,7 +310,7 @@ const fr: Dictionary = {
       {
         title: "Dans vos propres comptes (par défaut)",
         points: [
-          "Tourne dans vos propres comptes : helpdesk, automatisation et IA",
+          "Tourne dans vos propres comptes : CRM, helpdesk, automatisation et IA",
           "Les données clients restent dans des systèmes que vous contrôlez",
           "Tout vous appartient et vous contrôlez mes accès",
         ],

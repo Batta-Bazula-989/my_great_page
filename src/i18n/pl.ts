@@ -132,12 +132,12 @@ const pl: Dictionary = {
   },
   whyMe: {
     eyebrow: "Dlaczego warto ze mną współpracować",
-    title: "Zbudowane przez kogoś, kto sam pracował w obsłudze klienta",
+    title: "Zbudowane i wspierane przez jedną osobę",
     role: "Specjalista ds. automatyzacji AI",
     items: [
       {
-        title: "Pracowałem w obsłudze klienta",
-        description: "Obsługiwałem zgłoszenia i ręcznie przygotowywałem raporty, więc wiem, co spowalnia zespoły.",
+        title: "Sam wykonywałem tę pracę ręcznie",
+        description: "Pracowałem w obsłudze klienta: obsługiwałem zgłoszenia i ręcznie przygotowywałem raporty, więc wiem, co spowalnia zespoły.",
       },
       {
         title: "Zbudowane, by działać",
@@ -310,7 +310,7 @@ const pl: Dictionary = {
       {
         title: "Na Twoich własnych kontach (domyślnie)",
         points: [
-          "Działa na Twoich własnych kontach helpdesku, automatyzacji i AI",
+          "Działa na Twoich własnych kontach CRM, helpdesku, automatyzacji i AI",
           "Dane klientów zostają w systemach, które kontrolujesz",
           "Wszystko należy do Ciebie, a Ty kontrolujesz mój dostęp",
         ],

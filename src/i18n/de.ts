@@ -132,12 +132,12 @@ const de: Dictionary = {
   },
   whyMe: {
     eyebrow: "Warum mit mir arbeiten",
-    title: "Gebaut von jemandem, der selbst im Support gearbeitet hat",
+    title: "Von einer Person gebaut und betreut",
     role: "Spezialist für KI-Automatisierung",
     items: [
       {
-        title: "Ich habe im Support gearbeitet",
-        description: "Ich habe Tickets bearbeitet und Reports von Hand erstellt. Daher weiß ich, was Teams ausbremst.",
+        title: "Ich habe die Arbeit von Hand gemacht",
+        description: "Ich habe selbst im Support gearbeitet: Tickets bearbeitet und Reports von Hand erstellt. Daher weiß ich, was Teams ausbremst.",
       },
       {
         title: "Gebaut für den Alltag",
@@ -310,7 +310,7 @@ const de: Dictionary = {
       {
         title: "In Ihren eigenen Konten (Standard)",
         points: [
-          "Läuft in Ihren eigenen Helpdesk-, Automatisierungs- und KI-Konten",
+          "Läuft in Ihren eigenen CRM-, Helpdesk-, Automatisierungs- und KI-Konten",
           "Kundendaten bleiben in Systemen, die Sie kontrollieren",
           "Alles gehört Ihnen, und Sie steuern meinen Zugang",
         ],

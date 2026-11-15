@@ -135,12 +135,12 @@ const en = {
   },
   whyMe: {
     eyebrow: "Why Work With Me",
-    title: "Built by someone who's worked in support",
+    title: "Built and supported by one person",
     role: "AI Automation Specialist",
     items: [
       {
-        title: "I've worked in support",
-        description: "I've handled tickets and built reports by hand, so I know what slows teams down.",
+        title: "I've done the work by hand",
+        description: "I've worked in support myself — handled tickets and built reports by hand — so I know what slows teams down.",
       },
       {
         title: "Built to hold up",
@@ -313,7 +313,7 @@ const en = {
       {
         title: "In your own accounts (default)",
         points: [
-          "Runs in your own helpdesk, automation and AI accounts",
+          "Runs in your own CRM, helpdesk, automation and AI accounts",
           "Customer data stays in systems you control",
           "You own everything and control my access",
         ],

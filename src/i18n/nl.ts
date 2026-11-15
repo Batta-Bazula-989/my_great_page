@@ -132,12 +132,12 @@ const nl: Dictionary = {
   },
   whyMe: {
     eyebrow: "Waarom met mij werken",
-    title: "Gebouwd door iemand die zelf in support heeft gewerkt",
+    title: "Gebouwd en ondersteund door één persoon",
     role: "Specialist in AI-automatisering",
     items: [
       {
-        title: "Ik heb in support gewerkt",
-        description: "Ik heb tickets afgehandeld en rapportages met de hand gemaakt, dus ik weet wat teams vertraagt.",
+        title: "Ik heb het handwerk zelf gedaan",
+        description: "Ik heb zelf in support gewerkt: tickets afgehandeld en rapportages met de hand gemaakt, dus ik weet wat teams vertraagt.",
       },
       {
         title: "Gebouwd om stand te houden",
@@ -310,7 +310,7 @@ const nl: Dictionary = {
       {
         title: "In je eigen accounts (standaard)",
         points: [
-          "Draait in je eigen accounts voor helpdesk, automatisering en AI",
+          "Draait in je eigen accounts voor CRM, helpdesk, automatisering en AI",
           "Klantgegevens blijven in systemen die jij beheert",
           "Alles is van jou en jij bepaalt welke toegang ik heb",
         ],

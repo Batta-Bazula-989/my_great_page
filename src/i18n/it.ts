@@ -132,12 +132,12 @@ const it: Dictionary = {
   },
   whyMe: {
     eyebrow: "Perché lavorare con me",
-    title: "Realizzato da chi ha lavorato nell'assistenza",
+    title: "Realizzato e seguito da una sola persona",
     role: "Specialista in automazione AI",
     items: [
       {
-        title: "Ho lavorato nell'assistenza",
-        description: "Ho gestito ticket e preparato report a mano, quindi so cosa rallenta i team.",
+        title: "Ho fatto questo lavoro a mano",
+        description: "Ho lavorato nell'assistenza: ho gestito ticket e preparato report a mano, quindi so cosa rallenta i team.",
       },
       {
         title: "Fatto per reggere",
@@ -310,7 +310,7 @@ const it: Dictionary = {
       {
         title: "Nei tuoi account (opzione predefinita)",
         points: [
-          "Gira nei tuoi account di helpdesk, automazione e AI",
+          "Gira nei tuoi account di CRM, helpdesk, automazione e AI",
           "I dati dei clienti restano in sistemi che controlli tu",
           "È tutto tuo e controlli tu il mio accesso",
         ],

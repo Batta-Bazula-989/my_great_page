@@ -12,7 +12,6 @@ import { dictionaries } from "./i18n/all";
 import { CURRENCY, PACKAGES, formatMoney } from "./lib/pricing";
 import { TOOL_IDS, TOOL_UPDATED, toolPath, toolsPath, type ToolId } from "./tools/registry";
 import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, localeInfo, localePath } from "./i18n/config";
-import portrait from "./assets/roman-portrait.jpg";
 
 export { contentProblems } from "./content/validate";
 
@@ -49,7 +48,6 @@ const founder = (locale: Locale) => ({
   "@context": "https://schema.org",
   ...author,
   jobTitle: dictionaries[locale].whyMe.role,
-  image: `${SITE_URL}${portrait}`,
   worksFor: { "@id": business["@id"] },
   knowsAbout: [
     "Lead automation",
